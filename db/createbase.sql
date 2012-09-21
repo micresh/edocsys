@@ -1,3 +1,7 @@
+CREATE DATABASE IF NOT EXISTS `issl1`;
+
+GRANT ALL PRIVILEGES ON *.* TO root@localhost IDENTIFIED BY 'po12jein45bf';
+
 CREATE  TABLE IF NOT EXISTS `issl1`.`Agents` (
   `idAgents` INT NOT NULL AUTO_INCREMENT ,
   `Ag_fullname` VARCHAR(45) NULL ,
