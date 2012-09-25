@@ -15,8 +15,9 @@ namespace Edocsys
         public MainForm()
         {
             InitializeComponent();
-        }
 
+        }
+        
         private void windowToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
@@ -35,8 +36,10 @@ namespace Edocsys
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
-            if (newMDIChild == null)
+
+            if (!ClientsForm.formcount)
             {
+                //create newform
                 newMDIChild = new ClientsForm();
                 newMDIChild.MdiParent = this;
                 // Display the new form.

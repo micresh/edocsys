@@ -14,6 +14,12 @@ namespace Edocsys
         public ClientsForm()
         {
             InitializeComponent();
+            formcount=true;
+        }
+        public static bool formcount = false;
+        private void ClientsForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            formcount = false;
         }
     }
 }
