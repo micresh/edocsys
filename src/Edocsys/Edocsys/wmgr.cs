@@ -15,26 +15,55 @@ namespace Edocsys
          wmgr.MDIParent = MDIParent;
       }
 
-      public static void ShowClientsForm()
+      private static Form FindForm(Type FormType)
       {
          foreach (Form f in MDIParent.MdiChildren)
          {
             //detect form's class
-            if (f is ClientsForm)
-            {
-               //if exists => activate form
-               f.BringToFront();
-               f.Activate();
-               break;
-            }
+            if (f.GetType() == FormType)
+               //if exists => return form
+               return f;
          }
-         //for not created
-         if (MDIParent.ActiveMdiChild == null || (MDIParent.ActiveMdiChild.Name != "ClientsForm"))
+         return null;
+      }
+
+      private static void ActivateForm(Form f)
+      {
+         f.BringToFront();
+         f.Activate();
+      }
+
+      private static void AssignFormToMDI(Form f)
+      {
+         f.MdiParent = MDIParent;
+         f.Show();
+      }
+
+      public static void ShowLoginForm()
+      {
+         Form f = FindForm(typeof(LoginForm));
+
+         if (f != null)
+            //activate form
+            ActivateForm(f);
+         else
          {
-            //make new one
-            ClientsForm MDIClientsForm = new ClientsForm();
-            MDIClientsForm.MdiParent = MDIParent;
-            MDIClientsForm.Show();
+            LoginForm newForm = new LoginForm();
+            AssignFormToMDI(newForm);
+         }
+      }
+
+      public static void ShowClientsForm()
+      {
+         Form f = FindForm(typeof(ClientsForm));
+
+         if (f != null)
+            //activate form
+            ActivateForm(f);
+         else
+         {
+            ClientsForm newForm = new ClientsForm();
+            AssignFormToMDI(newForm);
          }
       }
    }
