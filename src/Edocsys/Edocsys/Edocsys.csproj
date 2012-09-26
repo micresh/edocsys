@@ -114,6 +114,7 @@
     <Compile Include="useradm.Designer.cs">
       <DependentUpon>useradm.cs</DependentUpon>
     </Compile>
+    <Compile Include="wmgr.cs" />
     <EmbeddedResource Include="assignexpert.resx">
       <DependentUpon>assignexpert.cs</DependentUpon>
     </EmbeddedResource>
