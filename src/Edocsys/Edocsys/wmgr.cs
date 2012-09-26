@@ -64,6 +64,37 @@ namespace Edocsys
       {
          ShowForm<ClientsForm>();
       }
-
+      public static void ShowUseradmForm()
+      {
+          ShowForm<UseradmForm>();
+      }
+      public static void ShowAssignexpertForm()
+      {
+          ShowForm<AssignExpertForm>();
+      }
+      public static void ShowContractsForm()
+      {
+          ShowForm<ContractsForm>();
+      }
+      public static void ShowDocTemplatesForm()
+      {
+          ShowForm<DocTemplatesForm>();
+      }
+      public static void ShowExpertsForm()
+      {
+          ShowForm<ExpertsForm>();
+      }
+      public static void ShowProductionForm()
+      {
+          ShowForm<ProductionForm>();
+      }
+      public static void ShowProporsalForm()
+      {
+          ShowForm<ProposalForm>();
+      }
+      public static void ShowReportClientForm()
+      {
+          ShowForm<ReportClientForm>();
+      }
    }
 }

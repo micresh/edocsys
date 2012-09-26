@@ -31,5 +31,10 @@ namespace Edocsys
         {
            wmgr.ShowClientsForm();
         }
+
+        private void AdmpanelToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            wmgr.ShowUseradmForm();
+        }
     }
 }
