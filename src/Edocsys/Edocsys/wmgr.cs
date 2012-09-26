@@ -35,36 +35,35 @@ namespace Edocsys
 
       private static void AssignFormToMDI(Form f)
       {
+         //assign parent
          f.MdiParent = MDIParent;
          f.Show();
       }
 
-      public static void ShowLoginForm()
+      //use generics to create common ShowForm method
+      private static void ShowForm<T>() where T : Form, new()
       {
-         Form f = FindForm(typeof(LoginForm));
+         //try to find form
+         Form f = FindForm(typeof(T));
 
+         //if exists
          if (f != null)
             //activate form
             ActivateForm(f);
          else
-         {
-            LoginForm newForm = new LoginForm();
-            AssignFormToMDI(newForm);
-         }
+            //create form and add it to MDI list
+            AssignFormToMDI(new T());
+      }
+
+      public static void ShowLoginForm()
+      {
+         ShowForm<LoginForm>();
       }
 
       public static void ShowClientsForm()
       {
-         Form f = FindForm(typeof(ClientsForm));
-
-         if (f != null)
-            //activate form
-            ActivateForm(f);
-         else
-         {
-            ClientsForm newForm = new ClientsForm();
-            AssignFormToMDI(newForm);
-         }
+         ShowForm<ClientsForm>();
       }
+
    }
 }
