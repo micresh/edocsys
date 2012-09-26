@@ -12,28 +12,14 @@ namespace Edocsys
     public partial class MainForm : Form
     {
         private ClientsForm newMDIChild;
+        private LoginForm logchild;
         public MainForm()
         {
             InitializeComponent();
 
         }
         
-        private void windowToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void файлToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-
-        }
-
-        private void newToolStripMenuItem_Click(object sender, EventArgs e)
+       private void newToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
 
@@ -48,6 +34,27 @@ namespace Edocsys
             else
                 newMDIChild.Focus();
 
+        }
+
+           
+
+        private void LoginToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            if (!LoginForm.formcount)
+            {
+                //create newform
+                logchild = new LoginForm();
+                logchild.MdiParent = this;
+                // Display the new form.
+                logchild.Show();
+            }
+            else
+                logchild.Focus();
+        }
+
+        private void ExitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

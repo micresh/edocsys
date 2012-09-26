@@ -14,6 +14,13 @@ namespace Edocsys
         public LoginForm()
         {
             InitializeComponent();
+            formcount = true;
+        }
+        public static bool formcount = false;
+
+        private void LoginForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            formcount = false;
         }
     }
 }

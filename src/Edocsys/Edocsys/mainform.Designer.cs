@@ -29,80 +29,128 @@
         private void InitializeComponent()
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.файлToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.входToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.выходToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.настройкиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.windowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.closeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.FileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.LoginToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ExitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.admToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.AdmpanelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.assignexpertЭкспертаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.AddingExpertToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.DocToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.proposalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ClientToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ProductToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ContractToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.HelpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.файлToolStripMenuItem,
-            this.настройкиToolStripMenuItem,
-            this.windowToolStripMenuItem});
+            this.FileToolStripMenuItem,
+            this.admToolStripMenuItem,
+            this.DocToolStripMenuItem,
+            this.HelpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.MdiWindowListItem = this.windowToolStripMenuItem;
+            this.menuStrip1.MdiWindowListItem = this.DocToolStripMenuItem;
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(559, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
-            this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
             // 
-            // файлToolStripMenuItem
+            // FileToolStripMenuItem
             // 
-            this.файлToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.входToolStripMenuItem,
-            this.выходToolStripMenuItem});
-            this.файлToolStripMenuItem.Name = "файлToolStripMenuItem";
-            this.файлToolStripMenuItem.Size = new System.Drawing.Size(35, 20);
-            this.файлToolStripMenuItem.Text = "&File";
-            this.файлToolStripMenuItem.Click += new System.EventHandler(this.файлToolStripMenuItem_Click);
+            this.FileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.LoginToolStripMenuItem,
+            this.ExitToolStripMenuItem});
+            this.FileToolStripMenuItem.Name = "FileToolStripMenuItem";
+            this.FileToolStripMenuItem.Size = new System.Drawing.Size(45, 20);
+            this.FileToolStripMenuItem.Text = "&Файл";
             // 
-            // входToolStripMenuItem
+            // LoginToolStripMenuItem
             // 
-            this.входToolStripMenuItem.Name = "входToolStripMenuItem";
-            this.входToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.входToolStripMenuItem.Text = "Вход";
+            this.LoginToolStripMenuItem.Name = "LoginToolStripMenuItem";
+            this.LoginToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.LoginToolStripMenuItem.Text = "Вход";
+            this.LoginToolStripMenuItem.Click += new System.EventHandler(this.LoginToolStripMenuItem_Click_1);
             // 
-            // выходToolStripMenuItem
+            // ExitToolStripMenuItem
             // 
-            this.выходToolStripMenuItem.Name = "выходToolStripMenuItem";
-            this.выходToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.выходToolStripMenuItem.Text = "Выход";
+            this.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem";
+            this.ExitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.ExitToolStripMenuItem.Text = "Выход";
+            this.ExitToolStripMenuItem.Click += new System.EventHandler(this.ExitToolStripMenuItem_Click);
             // 
-            // настройкиToolStripMenuItem
+            // admToolStripMenuItem
             // 
-            this.настройкиToolStripMenuItem.Name = "настройкиToolStripMenuItem";
-            this.настройкиToolStripMenuItem.Size = new System.Drawing.Size(73, 20);
-            this.настройкиToolStripMenuItem.Text = "Настройки";
+            this.admToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.AdmpanelToolStripMenuItem,
+            this.assignexpertЭкспертаToolStripMenuItem,
+            this.AddingExpertToolStripMenuItem});
+            this.admToolStripMenuItem.Name = "admToolStripMenuItem";
+            this.admToolStripMenuItem.Size = new System.Drawing.Size(122, 20);
+            this.admToolStripMenuItem.Text = "&Администрирование";
             // 
-            // windowToolStripMenuItem
+            // AdmpanelToolStripMenuItem
             // 
-            this.windowToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.newToolStripMenuItem,
-            this.closeToolStripMenuItem});
-            this.windowToolStripMenuItem.Name = "windowToolStripMenuItem";
-            this.windowToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
-            this.windowToolStripMenuItem.Text = "&Window";
-            this.windowToolStripMenuItem.Click += new System.EventHandler(this.windowToolStripMenuItem_Click);
+            this.AdmpanelToolStripMenuItem.Name = "AdmpanelToolStripMenuItem";
+            this.AdmpanelToolStripMenuItem.Size = new System.Drawing.Size(228, 22);
+            this.AdmpanelToolStripMenuItem.Text = "&Панель Администрирования";
             // 
-            // newToolStripMenuItem
+            // assignexpertЭкспертаToolStripMenuItem
             // 
-            this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.newToolStripMenuItem.Text = "New";
-            this.newToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
+            this.assignexpertЭкспертаToolStripMenuItem.Name = "assignexpertЭкспертаToolStripMenuItem";
+            this.assignexpertЭкспертаToolStripMenuItem.Size = new System.Drawing.Size(228, 22);
+            this.assignexpertЭкспертаToolStripMenuItem.Text = "Назначение эксперта";
             // 
-            // closeToolStripMenuItem
+            // AddingExpertToolStripMenuItem
             // 
-            this.closeToolStripMenuItem.Name = "closeToolStripMenuItem";
-            this.closeToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.closeToolStripMenuItem.Text = "Close";
+            this.AddingExpertToolStripMenuItem.Name = "AddingExpertToolStripMenuItem";
+            this.AddingExpertToolStripMenuItem.Size = new System.Drawing.Size(228, 22);
+            this.AddingExpertToolStripMenuItem.Text = "Добавление эксперта";
+            // 
+            // DocToolStripMenuItem
+            // 
+            this.DocToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.proposalToolStripMenuItem,
+            this.ClientToolStripMenuItem,
+            this.ProductToolStripMenuItem,
+            this.ContractToolStripMenuItem});
+            this.DocToolStripMenuItem.Name = "DocToolStripMenuItem";
+            this.DocToolStripMenuItem.Size = new System.Drawing.Size(77, 20);
+            this.DocToolStripMenuItem.Text = "&Документы";
+            // 
+            // proposalToolStripMenuItem
+            // 
+            this.proposalToolStripMenuItem.Name = "proposalToolStripMenuItem";
+            this.proposalToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
+            this.proposalToolStripMenuItem.Text = "Добавить заявку";
+            this.proposalToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
+            // 
+            // ClientToolStripMenuItem
+            // 
+            this.ClientToolStripMenuItem.Name = "ClientToolStripMenuItem";
+            this.ClientToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
+            this.ClientToolStripMenuItem.Text = "Добавить контрагента";
+            // 
+            // ProductToolStripMenuItem
+            // 
+            this.ProductToolStripMenuItem.Name = "ProductToolStripMenuItem";
+            this.ProductToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
+            this.ProductToolStripMenuItem.Text = "Добавить продукцию";
+            // 
+            // ContractToolStripMenuItem
+            // 
+            this.ContractToolStripMenuItem.Name = "ContractToolStripMenuItem";
+            this.ContractToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
+            this.ContractToolStripMenuItem.Text = "Добавить договор";
+            // 
+            // HelpToolStripMenuItem
+            // 
+            this.HelpToolStripMenuItem.Name = "HelpToolStripMenuItem";
+            this.HelpToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
+            this.HelpToolStripMenuItem.Text = "&Помощь";
             // 
             // MainForm
             // 
@@ -124,13 +172,19 @@
         #endregion
 
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem файлToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem входToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem выходToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem настройкиToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem windowToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem closeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem FileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem LoginToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ExitToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem admToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem DocToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem proposalToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ClientToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem AdmpanelToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem assignexpertЭкспертаToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem AddingExpertToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ProductToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ContractToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem HelpToolStripMenuItem;
     }
 }
 
