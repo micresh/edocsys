@@ -33,13 +33,8 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.issl1DataSet = new Edocsys.issl1DataSet();
             this.issl1DataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.usersBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.usersTableAdapter = new Edocsys.issl1DataSetTableAdapters.usersTableAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.issl1DataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.issl1DataSetBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.usersBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // maskedTextBox1
@@ -77,25 +72,6 @@
             this.comboBox1.Size = new System.Drawing.Size(194, 21);
             this.comboBox1.TabIndex = 3;
             // 
-            // issl1DataSet
-            // 
-            this.issl1DataSet.DataSetName = "issl1DataSet";
-            this.issl1DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // issl1DataSetBindingSource
-            // 
-            this.issl1DataSetBindingSource.DataSource = this.issl1DataSet;
-            this.issl1DataSetBindingSource.Position = 0;
-            // 
-            // usersBindingSource
-            // 
-            this.usersBindingSource.DataMember = "users";
-            this.usersBindingSource.DataSource = this.issl1DataSetBindingSource;
-            // 
-            // usersTableAdapter
-            // 
-            this.usersTableAdapter.ClearBeforeFill = true;
-            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -108,10 +84,6 @@
             this.Name = "LoginForm";
             this.Text = "loginform";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.LoginForm_FormClosed);
-            this.Load += new System.EventHandler(this.LoginForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.issl1DataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.issl1DataSetBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.usersBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -124,8 +96,6 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.BindingSource issl1DataSetBindingSource;
-        private issl1DataSet issl1DataSet;
         private System.Windows.Forms.BindingSource usersBindingSource;
-        private issl1DataSetTableAdapters.usersTableAdapter usersTableAdapter;
     }
 }
