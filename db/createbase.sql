@@ -1,8 +1,8 @@
-CREATE DATABASE IF NOT EXISTS `Edocsys`;
+CREATE DATABASE IF NOT EXISTS `Edocsysbasebase`;
 
 GRANT ALL PRIVILEGES ON *.* TO root@localhost IDENTIFIED BY 'po12jein45bf';
 
-CREATE  TABLE IF NOT EXISTS `Edocsys`.`Agents` (
+CREATE  TABLE IF NOT EXISTS `Edocsysbase`.`Agents` (
   `idAgents` INT NOT NULL AUTO_INCREMENT ,
   `Ag_fullname` VARCHAR(45) NULL ,
   `Ag_shortname` VARCHAR(45) NULL ,
@@ -24,21 +24,21 @@ CREATE  TABLE IF NOT EXISTS `Edocsys`.`Agents` (
   `Ag_pers_shortname` VARCHAR(45) NULL ,
   PRIMARY KEY (`idAgents`) )
 ENGINE = InnoDB;
-CREATE  TABLE IF NOT EXISTS `Edocsys`.`Experts` (
+CREATE  TABLE IF NOT EXISTS `Edocsysbase`.`Experts` (
   `idExperts` INT NOT NULL AUTO_INCREMENT ,
   `Expert_Lastname` VARCHAR(45) NULL ,
   `Expert_Firstname` VARCHAR(45) NULL ,
   `Expert_Middlename` VARCHAR(45) NULL ,
   PRIMARY KEY (`idExperts`) )
 ENGINE = InnoDB;
-CREATE  TABLE IF NOT EXISTS `Edocsys`.`Products` (
+CREATE  TABLE IF NOT EXISTS `Edocsysbase`.`Products` (
   `idProducts` INT NOT NULL AUTO_INCREMENT ,
   `Product_name` VARCHAR(45) NULL ,
   `Product_OKP` VARCHAR(45) NULL ,
   `Product_TNVED` VARCHAR(45) NULL ,
   PRIMARY KEY (`idProducts`) )
 ENGINE = InnoDB;
-CREATE  TABLE IF NOT EXISTS `Edocsys`.`ProdGost` (
+CREATE  TABLE IF NOT EXISTS `Edocsysbase`.`ProdGost` (
   `id` INT NOT NULL ,
   `idProducts` INT NULL ,
   `GOST_numb` VARCHAR(45) NULL ,
@@ -47,11 +47,11 @@ CREATE  TABLE IF NOT EXISTS `Edocsys`.`ProdGost` (
   INDEX `fk_ProdGost_1` (`idProducts` ASC) ,
   CONSTRAINT `fk_ProdGost_1`
     FOREIGN KEY (`idProducts` )
-    REFERENCES `Edocsys`.`Products` (`idProducts` )
+    REFERENCES `Edocsysbase`.`Products` (`idProducts` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
-CREATE  TABLE IF NOT EXISTS `Edocsys`.`Contracts` (
+CREATE  TABLE IF NOT EXISTS `Edocsysbase`.`Contracts` (
   `idContract` INT NOT NULL AUTO_INCREMENT ,
   `idProducts` INT NULL ,
   `emission_type` VARCHAR(45) NULL ,
@@ -73,21 +73,21 @@ CREATE  TABLE IF NOT EXISTS `Edocsys`.`Contracts` (
   INDEX `fk_Contracts_3` (`idProducts` ASC) ,
   CONSTRAINT `fk_Contracts_1`
     FOREIGN KEY (`agent_id` )
-    REFERENCES `Edocsys`.`Agents` (`idAgents` )
+    REFERENCES `Edocsysbase`.`Agents` (`idAgents` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Contracts_2`
     FOREIGN KEY (`expert_id` )
-    REFERENCES `Edocsys`.`Experts` (`idExperts` )
+    REFERENCES `Edocsysbase`.`Experts` (`idExperts` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Contracts_3`
     FOREIGN KEY (`idProducts` )
-    REFERENCES `Edocsys`.`Products` (`idProducts` )
+    REFERENCES `Edocsysbase`.`Products` (`idProducts` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
-CREATE  TABLE IF NOT EXISTS `Edocsys`.`Exec_contracts` (
+CREATE  TABLE IF NOT EXISTS `Edocsysbase`.`Exec_contracts` (
   `idContract` INT NOT NULL ,
   `Contract_start` DATE NULL ,
   `Contract_1_reatt` DATE NULL ,
@@ -102,17 +102,17 @@ CREATE  TABLE IF NOT EXISTS `Edocsys`.`Exec_contracts` (
   INDEX `fk_Exec_contracts_1` (`idContract` ASC) ,
   CONSTRAINT `fk_Exec_contracts_1`
     FOREIGN KEY (`idContract` )
-    REFERENCES `Edocsys`.`Contracts` (`idContract` )
+    REFERENCES `Edocsysbase`.`Contracts` (`idContract` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
-CREATE  TABLE IF NOT EXISTS `Edocsys`.`users` (
+CREATE  TABLE IF NOT EXISTS `Edocsysbase`.`users` (
   `login` VARCHAR(50) NULL ,
   `password` VARCHAR(50) NULL ,
   `type` INT NULL ,
   `log_database` VARCHAR(50) NULL )
 ENGINE = InnoDB;
-CREATE  TABLE IF NOT EXISTS `Edocsys`.`log_journal` (
+CREATE  TABLE IF NOT EXISTS `Edocsysbase`.`log_journal` (
   `sessid` int NOT NULL AUTO_INCREMENT ,
   `time_in` DATETIME NULL ,
   `time_out` DATETIME NULL ,
