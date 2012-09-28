@@ -65,7 +65,6 @@
     <Compile Include="contracts.Designer.cs">
       <DependentUpon>contracts.cs</DependentUpon>
     </Compile>
-    <Compile Include="dbmgr.cs" />
     <Compile Include="doctemplates.cs">
       <SubType>Form</SubType>
     </Compile>
