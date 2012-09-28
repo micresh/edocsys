@@ -8,22 +8,198 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Edocsys.Properties
-{
-
-
+namespace Edocsys.Properties {
+    
+    
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "10.0.0.0")]
-    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase
-    {
-
+    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
+        
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
-
-        public static Settings Default
-        {
-            get
-            {
+        
+        public static Settings Default {
+            get {
                 return defaultInstance;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Справочники")]
+        public string CatalogToolStripMenuText {
+            get {
+                return ((string)(this["CatalogToolStripMenuText"]));
+            }
+            set {
+                this["CatalogToolStripMenuText"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Система регистрации заявок")]
+        public string MainFormText {
+            get {
+                return ((string)(this["MainFormText"]));
+            }
+            set {
+                this["MainFormText"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("&Файл")]
+        public string FileToolStripMenuItemText {
+            get {
+                return ((string)(this["FileToolStripMenuItemText"]));
+            }
+            set {
+                this["FileToolStripMenuItemText"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Вход")]
+        public string LoginToolStripMenuItemText {
+            get {
+                return ((string)(this["LoginToolStripMenuItemText"]));
+            }
+            set {
+                this["LoginToolStripMenuItemText"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Выход")]
+        public string ExitToolStripMenuItemText {
+            get {
+                return ((string)(this["ExitToolStripMenuItemText"]));
+            }
+            set {
+                this["ExitToolStripMenuItemText"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("&Администрирование")]
+        public string AdmToolStripMenuItemText {
+            get {
+                return ((string)(this["AdmToolStripMenuItemText"]));
+            }
+            set {
+                this["AdmToolStripMenuItemText"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("&Панель Администрирования")]
+        public string AdmpanelToolStripMenuItemText {
+            get {
+                return ((string)(this["AdmpanelToolStripMenuItemText"]));
+            }
+            set {
+                this["AdmpanelToolStripMenuItemText"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Назначение эксперта")]
+        public string AssignexpertToolStripMenuItemText {
+            get {
+                return ((string)(this["AssignexpertToolStripMenuItemText"]));
+            }
+            set {
+                this["AssignexpertToolStripMenuItemText"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Добавление эксперта")]
+        public string AddingExpertToolStripMenuItemText {
+            get {
+                return ((string)(this["AddingExpertToolStripMenuItemText"]));
+            }
+            set {
+                this["AddingExpertToolStripMenuItemText"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("&Документы")]
+        public string DocToolStripMenuItemText {
+            get {
+                return ((string)(this["DocToolStripMenuItemText"]));
+            }
+            set {
+                this["DocToolStripMenuItemText"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Контрагенты")]
+        public string ContractorToolStripMenuItem1 {
+            get {
+                return ((string)(this["ContractorToolStripMenuItem1"]));
+            }
+            set {
+                this["ContractorToolStripMenuItem1"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Продукция")]
+        public string ProductionToolStripMenuItemText {
+            get {
+                return ((string)(this["ProductionToolStripMenuItemText"]));
+            }
+            set {
+                this["ProductionToolStripMenuItemText"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Заявки")]
+        public string ProposalToolStripMenuItemText {
+            get {
+                return ((string)(this["ProposalToolStripMenuItemText"]));
+            }
+            set {
+                this["ProposalToolStripMenuItemText"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Договора")]
+        public string ContractToolStripMenuItemText {
+            get {
+                return ((string)(this["ContractToolStripMenuItemText"]));
+            }
+            set {
+                this["ContractToolStripMenuItemText"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("&Помощь")]
+        public string HelpToolStripMenuItemText {
+            get {
+                return ((string)(this["HelpToolStripMenuItemText"]));
+            }
+            set {
+                this["HelpToolStripMenuItemText"] = value;
             }
         }
     }
