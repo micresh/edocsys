@@ -146,12 +146,12 @@ namespace Edocsys.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Контрагенты")]
-        public string ContractorToolStripMenuItem1 {
+        public string ContractorToolStripMenuItemText {
             get {
-                return ((string)(this["ContractorToolStripMenuItem1"]));
+                return ((string)(this["ContractorToolStripMenuItemText"]));
             }
             set {
-                this["ContractorToolStripMenuItem1"] = value;
+                this["ContractorToolStripMenuItemText"] = value;
             }
         }
         
@@ -200,6 +200,77 @@ namespace Edocsys.Properties {
             }
             set {
                 this["HelpToolStripMenuItemText"] = value;
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("server=10.0.2.2;User Id=root;password=po12jein45bf;Persist Security Info=True;dat" +
+            "abase=Edocbase")]
+        public string EdocbaseConnectionString {
+            get {
+                return ((string)(this["EdocbaseConnectionString"]));
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Наименование продукции")]
+        public string product_nameLabelText {
+            get {
+                return ((string)(this["product_nameLabelText"]));
+            }
+            set {
+                this["product_nameLabelText"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Код ОКП")]
+        public string product_OKPLabelText {
+            get {
+                return ((string)(this["product_OKPLabelText"]));
+            }
+            set {
+                this["product_OKPLabelText"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Код ТНВД")]
+        public string product_TNVEDLabelText {
+            get {
+                return ((string)(this["product_TNVEDLabelText"]));
+            }
+            set {
+                this["product_TNVEDLabelText"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Продукция")]
+        public string ProductionFormText {
+            get {
+                return ((string)(this["ProductionFormText"]));
+            }
+            set {
+                this["ProductionFormText"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Окна")]
+        public string WindowToolStripMenuItemText {
+            get {
+                return ((string)(this["WindowToolStripMenuItemText"]));
+            }
+            set {
+                this["WindowToolStripMenuItemText"] = value;
             }
         }
     }

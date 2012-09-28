@@ -32,7 +32,7 @@
     <Setting Name="DocToolStripMenuItemText" Type="System.String" Scope="User">
       <Value Profile="(Default)">&amp;Документы</Value>
     </Setting>
-    <Setting Name="ContractorToolStripMenuItem1" Type="System.String" Scope="User">
+    <Setting Name="ContractorToolStripMenuItemText" Type="System.String" Scope="User">
       <Value Profile="(Default)">Контрагенты</Value>
     </Setting>
     <Setting Name="ProductionToolStripMenuItemText" Type="System.String" Scope="User">
@@ -46,6 +46,29 @@
     </Setting>
     <Setting Name="HelpToolStripMenuItemText" Type="System.String" Scope="User">
       <Value Profile="(Default)">&amp;Помощь</Value>
+    </Setting>
+    <Setting Name="EdocbaseConnectionString" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;server=10.0.2.2;User Id=root;password=po12jein45bf;Persist Security Info=True;database=Edocbase&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;MySql.Data.MySqlClient&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">server=10.0.2.2;User Id=root;password=po12jein45bf;Persist Security Info=True;database=Edocbase</Value>
+    </Setting>
+    <Setting Name="product_nameLabelText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Наименование продукции</Value>
+    </Setting>
+    <Setting Name="product_OKPLabelText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Код ОКП</Value>
+    </Setting>
+    <Setting Name="product_TNVEDLabelText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Код ТНВД</Value>
+    </Setting>
+    <Setting Name="ProductionFormText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Продукция</Value>
+    </Setting>
+    <Setting Name="WindowToolStripMenuItemText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Окна</Value>
     </Setting>
   </Settings>
 </SettingsFile>

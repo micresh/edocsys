@@ -71,6 +71,11 @@
     <Compile Include="doctemplates.Designer.cs">
       <DependentUpon>doctemplates.cs</DependentUpon>
     </Compile>
+    <Compile Include="EdocbaseDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EdocbaseDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="experts.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -159,6 +164,17 @@
       <DependentUpon>useradm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />
+    <None Include="EdocbaseDataSet.xsc">
+      <DependentUpon>EdocbaseDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="EdocbaseDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>EdocbaseDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="EdocbaseDataSet.xss">
+      <DependentUpon>EdocbaseDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

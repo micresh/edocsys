@@ -42,6 +42,7 @@
             this.CatalogToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ContractorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ProductionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.WindowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.HelpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
@@ -55,9 +56,10 @@
             this.AdmToolStripMenuItem,
             this.DocToolStripMenuItem,
             this.CatalogToolStripMenuItem,
+            this.WindowToolStripMenuItem,
             this.HelpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.MdiWindowListItem = this.DocToolStripMenuItem;
+            this.menuStrip1.MdiWindowListItem = this.WindowToolStripMenuItem;
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(559, 24);
             this.menuStrip1.TabIndex = 0;
@@ -127,14 +129,14 @@
             // ProposalToolStripMenuItem
             // 
             this.ProposalToolStripMenuItem.Name = "ProposalToolStripMenuItem";
-            this.ProposalToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
+            this.ProposalToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
             this.ProposalToolStripMenuItem.Text = global::Edocsys.Properties.Settings.Default.ProposalToolStripMenuItemText;
             this.ProposalToolStripMenuItem.Click += new System.EventHandler(this.proposalToolStripMenuItem_Click);
             // 
             // ContractToolStripMenuItem
             // 
             this.ContractToolStripMenuItem.Name = "ContractToolStripMenuItem";
-            this.ContractToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
+            this.ContractToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
             this.ContractToolStripMenuItem.Text = global::Edocsys.Properties.Settings.Default.ContractToolStripMenuItemText;
             // 
             // CatalogToolStripMenuItem
@@ -150,13 +152,21 @@
             // 
             this.ContractorToolStripMenuItem.Name = "ContractorToolStripMenuItem";
             this.ContractorToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.ContractorToolStripMenuItem.Text = global::Edocsys.Properties.Settings.Default.ContractorToolStripMenuItem1;
+            this.ContractorToolStripMenuItem.Text = global::Edocsys.Properties.Settings.Default.ContractorToolStripMenuItemText;
+            this.ContractorToolStripMenuItem.Click += new System.EventHandler(this.ContractorToolStripMenuItem_Click);
             // 
             // ProductionToolStripMenuItem
             // 
             this.ProductionToolStripMenuItem.Name = "ProductionToolStripMenuItem";
-            this.ProductionToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.ProductionToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
             this.ProductionToolStripMenuItem.Text = global::Edocsys.Properties.Settings.Default.ProductionToolStripMenuItemText;
+            this.ProductionToolStripMenuItem.Click += new System.EventHandler(this.ProductionToolStripMenuItem_Click);
+            // 
+            // WindowToolStripMenuItem
+            // 
+            this.WindowToolStripMenuItem.Name = "WindowToolStripMenuItem";
+            this.WindowToolStripMenuItem.Size = new System.Drawing.Size(47, 20);
+            this.WindowToolStripMenuItem.Text = global::Edocsys.Properties.Settings.Default.WindowToolStripMenuItemText;
             // 
             // HelpToolStripMenuItem
             // 
@@ -193,6 +203,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainForm";
             this.Text = global::Edocsys.Properties.Settings.Default.MainFormText;
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -219,6 +230,7 @@
         private System.Windows.Forms.ToolStripMenuItem ProductionToolStripMenuItem;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripMenuItem WindowToolStripMenuItem;
     }
 }
 
