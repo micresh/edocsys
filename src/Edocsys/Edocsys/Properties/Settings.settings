@@ -1,7 +1,51 @@
 ﻿<?xml version='1.0' encoding='utf-8'?>
-<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)">
-  <Profiles>
-    <Profile Name="(Default)" />
-  </Profiles>
-  <Settings />
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Edocsys.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="CatalogToolStripMenuText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Справочники</Value>
+    </Setting>
+    <Setting Name="MainFormText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Система регистрации заявок</Value>
+    </Setting>
+    <Setting Name="FileToolStripMenuItemText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">&amp;Файл</Value>
+    </Setting>
+    <Setting Name="LoginToolStripMenuItemText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Вход</Value>
+    </Setting>
+    <Setting Name="ExitToolStripMenuItemText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Выход</Value>
+    </Setting>
+    <Setting Name="AdmToolStripMenuItemText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">&amp;Администрирование</Value>
+    </Setting>
+    <Setting Name="AdmpanelToolStripMenuItemText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">&amp;Панель Администрирования</Value>
+    </Setting>
+    <Setting Name="AssignexpertToolStripMenuItemText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Назначение эксперта</Value>
+    </Setting>
+    <Setting Name="AddingExpertToolStripMenuItemText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Добавление эксперта</Value>
+    </Setting>
+    <Setting Name="DocToolStripMenuItemText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">&amp;Документы</Value>
+    </Setting>
+    <Setting Name="ContractorToolStripMenuItem1" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Контрагенты</Value>
+    </Setting>
+    <Setting Name="ProductionToolStripMenuItemText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Продукция</Value>
+    </Setting>
+    <Setting Name="ProposalToolStripMenuItemText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Заявки</Value>
+    </Setting>
+    <Setting Name="ContractToolStripMenuItemText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Договора</Value>
+    </Setting>
+    <Setting Name="HelpToolStripMenuItemText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">&amp;Помощь</Value>
+    </Setting>
+  </Settings>
 </SettingsFile>
