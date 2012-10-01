@@ -14,12 +14,6 @@ namespace Edocsys
         public ClientsForm()
         {
             InitializeComponent();
-            formcount=true;
-        }
-        public static bool formcount = false;
-        private void ClientsForm_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            formcount = false;
         }
 
         private void agentsBindingNavigatorSaveItem_Click(object sender, EventArgs e)
@@ -30,20 +24,10 @@ namespace Edocsys
 
         }
 
-        private void ClientsForm_Load(object sender, EventArgs e)
+        private void clients_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'edocbaseDataSet.Agents' table. You can move, or remove it, as needed.
             this.agentsTableAdapter.Fill(this.edocbaseDataSet.Agents);
-            // TODO: This line of code loads data into the 'edocbaseDataSet.Agents' table. You can move, or remove it, as needed.
-            
-
-        }
-
-        private void agentsBindingNavigatorSaveItem_Click_1(object sender, EventArgs e)
-        {
-            this.Validate();
-            this.agentsBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.edocbaseDataSet);
 
         }
     }
