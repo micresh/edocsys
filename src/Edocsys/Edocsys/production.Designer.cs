@@ -52,12 +52,12 @@
             this.productsBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.productsDataGridView = new System.Windows.Forms.DataGridView();
-            this.product_nameTextBox = new System.Windows.Forms.TextBox();
-            this.product_OKPTextBox = new System.Windows.Forms.TextBox();
-            this.product_TNVEDTextBox = new System.Windows.Forms.TextBox();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.product_nameTextBox = new System.Windows.Forms.TextBox();
+            this.product_OKPTextBox = new System.Windows.Forms.TextBox();
+            this.product_TNVEDTextBox = new System.Windows.Forms.TextBox();
             product_nameLabel = new System.Windows.Forms.Label();
             product_OKPLabel = new System.Windows.Forms.Label();
             product_TNVEDLabel = new System.Windows.Forms.Label();
@@ -171,7 +171,7 @@
             // bindingNavigatorCountItem
             // 
             this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(35, 22);
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(36, 22);
             this.bindingNavigatorCountItem.Text = "of {0}";
             this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
             // 
@@ -292,6 +292,28 @@
             this.productsDataGridView.Size = new System.Drawing.Size(557, 261);
             this.productsDataGridView.TabIndex = 2;
             // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "Product_name";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Наименование продукции";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ToolTipText = "Наименование продукции";
+            this.dataGridViewTextBoxColumn2.Width = 300;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "Product_OKP";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Код ОКП";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ToolTipText = "Код ОКП";
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "Product_TNVED";
+            this.dataGridViewTextBoxColumn4.HeaderText = "Код ТНВД";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ToolTipText = "Код ТНВД";
+            // 
             // product_nameTextBox
             // 
             this.product_nameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productsBindingSource, "Product_name", true));
@@ -315,28 +337,6 @@
             this.product_TNVEDTextBox.Name = "product_TNVEDTextBox";
             this.product_TNVEDTextBox.Size = new System.Drawing.Size(134, 20);
             this.product_TNVEDTextBox.TabIndex = 7;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "Product_name";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Наименование продукции";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ToolTipText = "Наименование продукции";
-            this.dataGridViewTextBoxColumn2.Width = 300;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "Product_OKP";
-            this.dataGridViewTextBoxColumn3.HeaderText = "Код ОКП";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ToolTipText = "Код ОКП";
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "Product_TNVED";
-            this.dataGridViewTextBoxColumn4.HeaderText = "Код ТНВД";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ToolTipText = "Код ТНВД";
             // 
             // ProductionForm
             // 

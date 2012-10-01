@@ -21,5 +21,30 @@ namespace Edocsys
         {
             formcount = false;
         }
+
+        private void agentsBindingNavigatorSaveItem_Click(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.agentsBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.edocbaseDataSet);
+
+        }
+
+        private void ClientsForm_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'edocbaseDataSet.Agents' table. You can move, or remove it, as needed.
+            this.agentsTableAdapter.Fill(this.edocbaseDataSet.Agents);
+            // TODO: This line of code loads data into the 'edocbaseDataSet.Agents' table. You can move, or remove it, as needed.
+            
+
+        }
+
+        private void agentsBindingNavigatorSaveItem_Click_1(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.agentsBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.edocbaseDataSet);
+
+        }
     }
 }
