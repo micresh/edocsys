@@ -108,6 +108,7 @@
     <Compile Include="proposal.Designer.cs">
       <DependentUpon>proposal.cs</DependentUpon>
     </Compile>
+    <Compile Include="psmgr.cs" />
     <Compile Include="reportclient.cs">
       <SubType>Form</SubType>
     </Compile>
