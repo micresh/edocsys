@@ -8,6 +8,7 @@ namespace Edocsys
 {
    public static class psmgr
     {
+       //here we generate a hash-code string to write to database 
        public static string GetHashString (string source)
        {
            string result;
@@ -19,15 +20,13 @@ namespace Edocsys
            }
            return result;
        }
-
-       public static bool VerifyHash (string source)
+       //here we verifing a hash-code from loginform
+       public static bool VerifyHash (string source, string pass)
        {
            bool t;
            using (MD5 md5hash = MD5.Create())
            {
-               string hash;
-               hash = GetMD5hash(md5hash, source);
-               t = VerifyMd5Hash(md5hash, source, hash);
+               t = VerifyMd5Hash(md5hash, source, pass);
            }
            return t;
        }
