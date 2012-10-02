@@ -35,5 +35,16 @@ namespace Edocsys
         {
             usersTableAdapter.Useradd(loginTextBox.Text, psmgr.GetHashString(passwordTextBox.Text), Convert.ToInt32(typeTextBox.Text), log_databaseTextBox.Text);
         }
+
+        private void btnCheck_Click(object sender, EventArgs e)
+        {
+            bool chkdatabaselog;
+            chkdatabaselog = (log_databaseTextBox.Text == "admin") || (log_databaseTextBox.Text == "direktor") || (log_databaseTextBox.Text == "expert");
+            if (chkdatabaselog)
+            {
+                btnUseradd.Enabled = true;
+            }
+            else MessageBox.Show("Неверное имя пользователя в базе данных");
+        }
     }
 }

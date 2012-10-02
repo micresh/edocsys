@@ -56,9 +56,9 @@ namespace Edocsys
             pass = Convert.ToString( usersDataGridView.Rows[i].Cells[1].Value);
             if (psmgr.VerifyHash(textBox1.Text,pass))
             {
-                MessageBox.Show("Login Correct");
+                MessageBox.Show("Вы успешно авторизованы");
             }
-            else MessageBox.Show("Login incorrect");
+            else MessageBox.Show("Неверный пароль");
         }
 
     }

@@ -50,6 +50,7 @@
             this.UsersPage = new System.Windows.Forms.TabPage();
             this.btnUseradd = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.btnCheck = new System.Windows.Forms.Button();
             loginLabel = new System.Windows.Forms.Label();
             passwordLabel = new System.Windows.Forms.Label();
             typeLabel = new System.Windows.Forms.Label();
@@ -212,6 +213,7 @@
             // 
             // UsersPage
             // 
+            this.UsersPage.Controls.Add(this.btnCheck);
             this.UsersPage.Controls.Add(this.btnUseradd);
             this.UsersPage.Controls.Add(this.usersDataGridView);
             this.UsersPage.Controls.Add(log_databaseLabel);
@@ -232,6 +234,7 @@
             // 
             // btnUseradd
             // 
+            this.btnUseradd.Enabled = false;
             this.btnUseradd.Location = new System.Drawing.Point(53, 218);
             this.btnUseradd.Name = "btnUseradd";
             this.btnUseradd.Size = new System.Drawing.Size(75, 23);
@@ -249,6 +252,16 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // btnCheck
+            // 
+            this.btnCheck.Location = new System.Drawing.Point(156, 217);
+            this.btnCheck.Name = "btnCheck";
+            this.btnCheck.Size = new System.Drawing.Size(75, 23);
+            this.btnCheck.TabIndex = 10;
+            this.btnCheck.Text = "Проверить";
+            this.btnCheck.UseVisualStyleBackColor = true;
+            this.btnCheck.Click += new System.EventHandler(this.btnCheck_Click);
             // 
             // UseradmForm
             // 
@@ -288,5 +301,6 @@
         private System.Windows.Forms.TabPage UsersPage;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Button btnUseradd;
+        private System.Windows.Forms.Button btnCheck;
     }
 }
