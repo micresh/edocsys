@@ -6,6 +6,11 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Configuration;
+using System.Data.SqlClient;
+
+
+
 
 namespace Edocsys
 {
@@ -14,13 +19,13 @@ namespace Edocsys
         public LoginForm()
         {
             InitializeComponent();
-            formcount = true;
+            
         }
-        public static bool formcount = false;
 
+ 
         private void LoginForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            formcount = false;
+            
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -54,11 +59,39 @@ namespace Edocsys
             int i;
             i = comboBox1.SelectedIndex;
             pass = Convert.ToString( usersDataGridView.Rows[i].Cells[1].Value);
+            label1.Text = Convert.ToString(usersDataGridView.Rows[i].Cells[3].Value);
             if (psmgr.VerifyHash(textBox1.Text,pass))
             {
                 MessageBox.Show("Вы успешно авторизованы");
+                ConnectionStringSettingsCollection settings =
+            ConfigurationManager.ConnectionStrings;
+                Edocsys.Program.Data.constr = "server=10.0.2.2;UserID=" + Convert.ToString(usersDataGridView.Rows[i].Cells[3].Value) + ";password=wepo23nri_)(*;database=Edocbase";
+                
+                if (settings != null)
+                {
+                    foreach (ConnectionStringSettings cs in settings)
+                    {
+                        if (cs.Name == "Edocsys.Properties.Settings.EdocbaseConnectionString")
+                        {
+                            ExeConfigurationFileMap fileMap = new ExeConfigurationFileMap();
+                            fileMap.ExeConfigFilename = @"edocsys.exe.config";
+
+                            Configuration config = ConfigurationManager.OpenMappedExeConfiguration(fileMap, ConfigurationUserLevel.None);
+
+                            config.ConnectionStrings.ConnectionStrings[1].ConnectionString = Edocsys.Program.Data.constr;
+                            config.SectionGroups.Clear();
+                            config.Save(ConfigurationSaveMode.Modified);
+                        }
+                    }
+                    
+                }
+                
+                
+                //this.usersTableAdapter.Connection.ConnectionString = Edocsys.Program.Data.constr;
+
             }
             else MessageBox.Show("Неверный пароль");
+            
         }
 
     }

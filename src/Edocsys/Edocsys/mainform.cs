@@ -6,15 +6,18 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.IO;
 
 namespace Edocsys
 {
     public partial class MainForm : Form
     {
+        public String CS;
         public MainForm()
         {
             InitializeComponent();
             wmgr.SetMDIParent(this);
+            
         }
 
         private void LoginToolStripMenuItem_Click_1(object sender, EventArgs e)

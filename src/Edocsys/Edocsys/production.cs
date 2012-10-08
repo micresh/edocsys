@@ -26,6 +26,7 @@ namespace Edocsys
 
         private void ProductionForm_Load(object sender, EventArgs e)
         {
+            this.productsTableAdapter.Connection.ConnectionString = Edocsys.Program.Data.constr;
             // TODO: This line of code loads data into the 'edocbaseDataSet.Products' table. You can move, or remove it, as needed.
             this.productsTableAdapter.Fill(this.edocbaseDataSet.Products);
             // TODO: This line of code loads data into the 'edocbaseDataSet.Products' table. You can move, or remove it, as needed.
