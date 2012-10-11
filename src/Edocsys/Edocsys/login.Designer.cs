@@ -41,8 +41,11 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.passtxbox = new System.Windows.Forms.TextBox();
             this.btnlogin = new System.Windows.Forms.Button();
+            this.servtxbox = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.btnCheckserv = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.edocbaseDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.usersBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.usersDataGridView)).BeginInit();
@@ -120,7 +123,7 @@
             this.comboBox1.DataSource = this.usersBindingSource;
             this.comboBox1.DisplayMember = "login";
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(24, 62);
+            this.comboBox1.Location = new System.Drawing.Point(25, 80);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(212, 21);
             this.comboBox1.TabIndex = 2;
@@ -129,7 +132,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(21, 37);
+            this.label1.Location = new System.Drawing.Point(22, 55);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(80, 13);
             this.label1.TabIndex = 3;
@@ -138,23 +141,25 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(24, 101);
+            this.label2.Location = new System.Drawing.Point(25, 119);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(45, 13);
             this.label2.TabIndex = 4;
             this.label2.Text = "Пароль";
             // 
-            // textBox1
+            // passtxbox
             // 
-            this.textBox1.Location = new System.Drawing.Point(24, 131);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.PasswordChar = '*';
-            this.textBox1.Size = new System.Drawing.Size(212, 20);
-            this.textBox1.TabIndex = 5;
+            this.passtxbox.Location = new System.Drawing.Point(25, 149);
+            this.passtxbox.Name = "passtxbox";
+            this.passtxbox.PasswordChar = '*';
+            this.passtxbox.Size = new System.Drawing.Size(212, 20);
+            this.passtxbox.TabIndex = 5;
+            this.passtxbox.TextChanged += new System.EventHandler(this.passtxbox_TextChanged);
             // 
             // btnlogin
             // 
-            this.btnlogin.Location = new System.Drawing.Point(24, 171);
+            this.btnlogin.Enabled = false;
+            this.btnlogin.Location = new System.Drawing.Point(25, 184);
             this.btnlogin.Name = "btnlogin";
             this.btnlogin.Size = new System.Drawing.Size(212, 23);
             this.btnlogin.TabIndex = 6;
@@ -162,13 +167,42 @@
             this.btnlogin.UseVisualStyleBackColor = true;
             this.btnlogin.Click += new System.EventHandler(this.btnlogin_Click);
             // 
+            // servtxbox
+            // 
+            this.servtxbox.Location = new System.Drawing.Point(25, 25);
+            this.servtxbox.Name = "servtxbox";
+            this.servtxbox.Size = new System.Drawing.Size(212, 20);
+            this.servtxbox.TabIndex = 7;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(25, 6);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(83, 13);
+            this.label3.TabIndex = 8;
+            this.label3.Text = "Адрес сервера";
+            // 
+            // btnCheckserv
+            // 
+            this.btnCheckserv.Location = new System.Drawing.Point(25, 214);
+            this.btnCheckserv.Name = "btnCheckserv";
+            this.btnCheckserv.Size = new System.Drawing.Size(212, 23);
+            this.btnCheckserv.TabIndex = 9;
+            this.btnCheckserv.Text = "Проверить подключение";
+            this.btnCheckserv.UseVisualStyleBackColor = true;
+            this.btnCheckserv.Click += new System.EventHandler(this.btnCheckserv_Click);
+            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(274, 214);
+            this.ClientSize = new System.Drawing.Size(285, 247);
+            this.Controls.Add(this.btnCheckserv);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.servtxbox);
             this.Controls.Add(this.btnlogin);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.passtxbox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.comboBox1);
@@ -199,8 +233,11 @@
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox passtxbox;
         private System.Windows.Forms.Button btnlogin;
+        private System.Windows.Forms.TextBox servtxbox;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btnCheckserv;
 
     }
 }

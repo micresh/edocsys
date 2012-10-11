@@ -206,8 +206,8 @@ namespace Edocsys.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("server=10.0.2.2;User Id=root;password=po12jein45bf;Persist Security Info=True;dat" +
-            "abase=Edocbase")]
+        [global::System.Configuration.DefaultSettingValueAttribute("server=10.0.2.2;User Id=defuser;password=ttrr;Persist Security Info=True;database" +
+            "=Edocbase")]
         public string EdocbaseConnectionString {
             get {
                 return ((string)(this["EdocbaseConnectionString"]));
@@ -271,6 +271,41 @@ namespace Edocsys.Properties {
             }
             set {
                 this["WindowToolStripMenuItemText"] = value;
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute(@"<?xml version=""1.0"" encoding=""utf-16""?>
+<ArrayOfString xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"" xmlns:xsd=""http://www.w3.org/2001/XMLSchema"">
+  <string>00 - Заявка добавлена</string>
+  <string>01 - К заявке прикреплен эксперт</string>
+  <string>02 - Начата работа</string>
+  <string>03 - Оформлен акт выполненных работ</string>
+  <string>04 - Акт утверден руководителем</string>
+  <string>20 - Договор исполнен</string>
+  <string>21 - Заказчик  Эл. Джон</string>
+  <string>22 - Эксперт  Эл. Джон</string>
+  <string>23 - Директор  Эл. Джон</string>
+</ArrayOfString>")]
+        public global::System.Collections.Specialized.StringCollection ContractStatuses {
+            get {
+                return ((global::System.Collections.Specialized.StringCollection)(this["ContractStatuses"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute(@"<?xml version=""1.0"" encoding=""utf-16""?>
+<ArrayOfString xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"" xmlns:xsd=""http://www.w3.org/2001/XMLSchema"">
+  <string>10 - Договор оформлен</string>
+  <string>11 - Договор подписан</string>
+  <string>12 - Перечислен аванс</string>
+  <string>13 - Перечислена полная сумма</string>
+</ArrayOfString>")]
+        public global::System.Collections.Specialized.StringCollection PaymentStatuses {
+            get {
+                return ((global::System.Collections.Specialized.StringCollection)(this["PaymentStatuses"]));
             }
         }
     }

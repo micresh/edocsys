@@ -19,7 +19,6 @@ namespace Edocsys
         public LoginForm()
         {
             InitializeComponent();
-            
         }
 
  
@@ -43,8 +42,17 @@ namespace Edocsys
 
         private void LoginForm_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'edocbaseDataSet.users' table. You can move, or remove it, as needed.
-            this.usersTableAdapter.Fill(this.edocbaseDataSet.users);
+            try
+            {
+                // TODO: This line of code loads data into the 'edocbaseDataSet.users' table. You can move, or remove it, as needed.
+                this.usersTableAdapter.Fill(this.edocbaseDataSet.users);
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Нет подключения к базе данных");
+            }
+            
 
         }
 
@@ -60,10 +68,10 @@ namespace Edocsys
             i = comboBox1.SelectedIndex;
             pass = Convert.ToString( usersDataGridView.Rows[i].Cells[1].Value);
             label1.Text = Convert.ToString(usersDataGridView.Rows[i].Cells[3].Value);
-            if (psmgr.VerifyHash(textBox1.Text,pass))
+            if (psmgr.VerifyHash(passtxbox.Text,pass))
             {
                 MessageBox.Show("Вы успешно авторизованы");
-                ConnectionStringSettingsCollection settings =
+                ConnectionStringSettingsCollection settings = 
             ConfigurationManager.ConnectionStrings;
                 Edocsys.Program.Data.constr = "server=10.0.2.2;UserID=" + Convert.ToString(usersDataGridView.Rows[i].Cells[3].Value) + ";password=wepo23nri_)(*;database=Edocbase";
                 
@@ -92,6 +100,24 @@ namespace Edocsys
             }
             else MessageBox.Show("Неверный пароль");
             
+        }
+
+        private void btnCheckserv_Click(object sender, EventArgs e)
+        {
+            int i;
+            i = comboBox1.SelectedIndex;
+            // here we're trying to connect to database
+
+            if (psmgr.OpenDbConn(Convert.ToString(usersDataGridView.Rows[i].Cells[3].Value),servtxbox.Text))
+            {
+                MessageBox.Show("dhsgf");
+                btnlogin.Enabled = true;
+            }
+        }
+
+        private void passtxbox_TextChanged(object sender, EventArgs e)
+        {
+
         }
 
     }

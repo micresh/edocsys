@@ -2,6 +2,13 @@
     
     
     public partial class EdocbaseDataSet {
-        public MySql.Data.MySqlClient.MySqlConnection CS { get; set; }
+        
+    }
+}
+
+namespace Edocsys.EdocbaseDataSetTableAdapters {
+    
+    
+    public partial class ContractsTableAdapter {
     }
 }

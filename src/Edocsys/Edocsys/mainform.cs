@@ -17,7 +17,7 @@ namespace Edocsys
         {
             InitializeComponent();
             wmgr.SetMDIParent(this);
-            
+         
         }
 
         private void LoginToolStripMenuItem_Click_1(object sender, EventArgs e)
@@ -48,6 +48,11 @@ namespace Edocsys
         private void ContractorToolStripMenuItem_Click(object sender, EventArgs e)
         {
             wmgr.ShowClientsForm();
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+  
         }
 
 

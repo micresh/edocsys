@@ -8,6 +8,22 @@ namespace Edocsys
 {
    public static class psmgr
     {
+       static MySql.Data.MySqlClient.MySqlConnection conn;
+       public static bool OpenDbConn (string dblogin, string servIP)
+       {
+           bool t = true;
+           try
+           {
+               conn = new MySql.Data.MySqlClient.MySqlConnection();
+               conn.ConnectionString = "server="+ servIP + ";UserID=" + dblogin + ";password=wepo23nri_)(*;database=Edocbase";
+               conn.Open();
+           }
+           catch
+           {
+               t = false;
+           }
+           return t; //)))))))))))))
+   }
        //here we generate a hash-code string to write to database 
        public static string GetHashString (string source)
        {
@@ -30,7 +46,7 @@ namespace Edocsys
            }
            return t;
        }
-
+       // копипаста с msdn+
        private static string GetMD5hash(MD5 md5Hash, string input)
        {
            // Convert the input string to a byte array and compute the hash.
@@ -58,7 +74,7 @@ namespace Edocsys
            // Create a StringComparer an compare the hashes.
            StringComparer comparer = StringComparer.OrdinalIgnoreCase;
 
-           return (comparer.Compare(hashOfInput, hash)== 0);
+           return (comparer.Compare(hashOfInput, hash) == 0);
 
        }
     }

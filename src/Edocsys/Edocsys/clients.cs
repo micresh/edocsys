@@ -26,6 +26,7 @@ namespace Edocsys
 
         private void clients_Load(object sender, EventArgs e)
         {
+            this.agentsTableAdapter.Connection.ConnectionString = Edocsys.Program.Data.constr;
             // TODO: This line of code loads data into the 'edocbaseDataSet.Agents' table. You can move, or remove it, as needed.
             this.agentsTableAdapter.Fill(this.edocbaseDataSet.Agents);
 

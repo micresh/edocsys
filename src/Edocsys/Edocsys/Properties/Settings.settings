@@ -50,10 +50,10 @@
     <Setting Name="EdocbaseConnectionString" Type="(Connection string)" Scope="Application">
       <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
 &lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;ConnectionString&gt;server=10.0.2.2;User Id=root;password=po12jein45bf;Persist Security Info=True;database=Edocbase&lt;/ConnectionString&gt;
+  &lt;ConnectionString&gt;server=10.0.2.2;User Id=defuser;password=ttrr;Persist Security Info=True;database=Edocbase&lt;/ConnectionString&gt;
   &lt;ProviderName&gt;MySql.Data.MySqlClient&lt;/ProviderName&gt;
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
-      <Value Profile="(Default)">server=10.0.2.2;User Id=root;password=po12jein45bf;Persist Security Info=True;database=Edocbase</Value>
+      <Value Profile="(Default)">server=10.0.2.2;User Id=defuser;password=ttrr;Persist Security Info=True;database=Edocbase</Value>
     </Setting>
     <Setting Name="product_nameLabelText" Type="System.String" Scope="User">
       <Value Profile="(Default)">Наименование продукции</Value>
@@ -69,6 +69,29 @@
     </Setting>
     <Setting Name="WindowToolStripMenuItemText" Type="System.String" Scope="User">
       <Value Profile="(Default)">Окна</Value>
+    </Setting>
+    <Setting Name="ContractStatuses" Type="System.Collections.Specialized.StringCollection" Scope="Application">
+      <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;string&gt;00 - Заявка добавлена&lt;/string&gt;
+  &lt;string&gt;01 - К заявке прикреплен эксперт&lt;/string&gt;
+  &lt;string&gt;02 - Начата работа&lt;/string&gt;
+  &lt;string&gt;03 - Оформлен акт выполненных работ&lt;/string&gt;
+  &lt;string&gt;04 - Акт утверден руководителем&lt;/string&gt;
+  &lt;string&gt;20 - Договор исполнен&lt;/string&gt;
+  &lt;string&gt;21 - Заказчик  Эл. Джон&lt;/string&gt;
+  &lt;string&gt;22 - Эксперт  Эл. Джон&lt;/string&gt;
+  &lt;string&gt;23 - Директор  Эл. Джон&lt;/string&gt;
+&lt;/ArrayOfString&gt;</Value>
+    </Setting>
+    <Setting Name="PaymentStatuses" Type="System.Collections.Specialized.StringCollection" Scope="Application">
+      <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;string&gt;10 - Договор оформлен&lt;/string&gt;
+  &lt;string&gt;11 - Договор подписан&lt;/string&gt;
+  &lt;string&gt;12 - Перечислен аванс&lt;/string&gt;
+  &lt;string&gt;13 - Перечислена полная сумма&lt;/string&gt;
+&lt;/ArrayOfString&gt;</Value>
     </Setting>
   </Settings>
 </SettingsFile>
