@@ -38,7 +38,7 @@
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.usersComboBox = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.passtxbox = new System.Windows.Forms.TextBox();
@@ -118,16 +118,16 @@
             this.dataGridViewTextBoxColumn4.HeaderText = "log_database";
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             // 
-            // comboBox1
+            // usersComboBox
             // 
-            this.comboBox1.DataSource = this.usersBindingSource;
-            this.comboBox1.DisplayMember = "login";
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(25, 80);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(212, 21);
-            this.comboBox1.TabIndex = 2;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged_1);
+            this.usersComboBox.DataSource = this.usersBindingSource;
+            this.usersComboBox.DisplayMember = "login";
+            this.usersComboBox.FormattingEnabled = true;
+            this.usersComboBox.Location = new System.Drawing.Point(25, 80);
+            this.usersComboBox.Name = "usersComboBox";
+            this.usersComboBox.Size = new System.Drawing.Size(212, 21);
+            this.usersComboBox.TabIndex = 2;
+            this.usersComboBox.ValueMember = "password";
             // 
             // label1
             // 
@@ -154,7 +154,6 @@
             this.passtxbox.PasswordChar = '*';
             this.passtxbox.Size = new System.Drawing.Size(212, 20);
             this.passtxbox.TabIndex = 5;
-            this.passtxbox.TextChanged += new System.EventHandler(this.passtxbox_TextChanged);
             // 
             // btnlogin
             // 
@@ -205,11 +204,10 @@
             this.Controls.Add(this.passtxbox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.usersComboBox);
             this.Controls.Add(this.usersDataGridView);
             this.Name = "LoginForm";
             this.Text = "loginform";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.LoginForm_FormClosed);
             this.Load += new System.EventHandler(this.LoginForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.edocbaseDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.usersBindingSource)).EndInit();
@@ -230,7 +228,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox usersComboBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox passtxbox;

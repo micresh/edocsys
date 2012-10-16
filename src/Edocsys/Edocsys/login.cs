@@ -9,7 +9,7 @@ using System.Windows.Forms;
 using System.Configuration;
 using System.Data.SqlClient;
 
-
+using MySql.Data.MySqlClient;
 
 
 namespace Edocsys
@@ -21,16 +21,7 @@ namespace Edocsys
             InitializeComponent();
         }
 
- 
-        private void LoginForm_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            
-        }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void usersBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
@@ -52,29 +43,49 @@ namespace Edocsys
 
                 MessageBox.Show("Нет подключения к базе данных");
             }
-            
 
+            //set server textbox to default address
+            servtxbox.Text = global::Edocsys.Properties.Settings.Default.ConnHost + ":" +global::Edocsys.Properties.Settings.Default.ConnPort;
         }
 
-        private void comboBox1_SelectedIndexChanged_1(object sender, EventArgs e)
-        {
-
-        }
 
         private void btnlogin_Click(object sender, EventArgs e)
         {
-            string pass;
-            int i;
-            i = comboBox1.SelectedIndex;
-            pass = Convert.ToString( usersDataGridView.Rows[i].Cells[1].Value);
-            label1.Text = Convert.ToString(usersDataGridView.Rows[i].Cells[3].Value);
+            int i = usersComboBox.SelectedIndex;
+            string pass = Convert.ToString( usersDataGridView.Rows[i].Cells[1].Value);
+
+            string login = Convert.ToString(usersDataGridView.Rows[i].Cells[3].Value);
+
+            label1.Text = login;
+
             if (psmgr.VerifyHash(passtxbox.Text,pass))
             {
                 MessageBox.Show("Вы успешно авторизованы");
-                ConnectionStringSettingsCollection settings = 
-            ConfigurationManager.ConnectionStrings;
-                Edocsys.Program.Data.constr = "server=10.0.2.2;UserID=" + Convert.ToString(usersDataGridView.Rows[i].Cells[3].Value) + ";password=wepo23nri_)(*;database=Edocbase";
-                
+                ConnectionStringSettingsCollection settings = ConfigurationManager.ConnectionStrings;
+
+
+                //make connection string
+                MySqlConnectionStringBuilder connString = new MySqlConnectionStringBuilder();
+
+                connString["Data Source"] = "";
+
+                connString["Host"] = global::Edocsys.Properties.Settings.Default.ConnHost;
+                connString["Port"] = global::Edocsys.Properties.Settings.Default.ConnPort;
+
+                connString["UserID"] = login;
+                //?????????? connString["Password"] = passtxbox.Text;
+                connString["Password"] = "wepo23nri_)(*";
+
+                connString["Persist Security Info"] = true;
+                connString["Character Set"] = "utf8";
+
+                connString["Database"] = global::Edocsys.Properties.Settings.Default.ConnDatabase;
+
+
+
+                Edocsys.Program.Data.constr = connString.ConnectionString;
+
+                //save new connection string
                 if (settings != null)
                 {
                     foreach (ConnectionStringSettings cs in settings)
@@ -91,34 +102,28 @@ namespace Edocsys
                             config.Save(ConfigurationSaveMode.Modified);
                         }
                     }
-                    
                 }
-                
-                
-                //this.usersTableAdapter.Connection.ConnectionString = Edocsys.Program.Data.constr;
 
+                //close form after successful login
+                this.Close();
             }
-            else MessageBox.Show("Неверный пароль");
-            
+            else
+                MessageBox.Show("Неверный пароль");
         }
 
         private void btnCheckserv_Click(object sender, EventArgs e)
         {
-            int i;
-            i = comboBox1.SelectedIndex;
-            // here we're trying to connect to database
+            int i = usersComboBox.SelectedIndex;
 
-            if (psmgr.OpenDbConn(Convert.ToString(usersDataGridView.Rows[i].Cells[3].Value),servtxbox.Text))
+            string login = Convert.ToString(usersDataGridView.Rows[i].Cells[3].Value);
+
+            // here we're trying to connect to database
+            if (psmgr.OpenDbConn(login, servtxbox.Text))
             {
-                MessageBox.Show("dhsgf");
+                MessageBox.Show("Connection ok");
                 btnlogin.Enabled = true;
             }
+            //DEBUG btnlogin.Enabled = true;
         }
-
-        private void passtxbox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
     }
 }

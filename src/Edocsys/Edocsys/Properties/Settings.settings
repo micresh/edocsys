@@ -93,5 +93,38 @@
   &lt;string&gt;13 - Перечислена полная сумма&lt;/string&gt;
 &lt;/ArrayOfString&gt;</Value>
     </Setting>
+    <Setting Name="ProposalFormText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Заявки</Value>
+    </Setting>
+    <Setting Name="EdocbaseConnectionStringHomeVolik" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;host=localhost;Port=3309;User Id=defuser;password=ttrr;Persist Security Info=True;database=Edocbase&lt;/ConnectionString&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">host=localhost;Port=3309;User Id=defuser;password=ttrr;Persist Security Info=True;database=Edocbase</Value>
+    </Setting>
+    <Setting Name="EdocbaseConnectionStringServer" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;server=10.0.2.2;User Id=defuser;password=ttrr;Persist Security Info=True;database=Edocbase&lt;/ConnectionString&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">server=10.0.2.2;User Id=defuser;password=ttrr;Persist Security Info=True;database=Edocbase</Value>
+    </Setting>
+    <Setting Name="ConnHost" Type="System.String" Scope="User">
+      <Value Profile="(Default)">localhost</Value>
+    </Setting>
+    <Setting Name="ConnPort" Type="System.String" Scope="User">
+      <Value Profile="(Default)">3309</Value>
+    </Setting>
+    <Setting Name="ConnDatabase" Type="System.String" Scope="User">
+      <Value Profile="(Default)">EdocBase</Value>
+    </Setting>
+    <Setting Name="EdocbaseConnectionStringHomeMicresh" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;host=localhost;User Id=defuser;password=ttrr;Persist Security Info=True;database=Edocbase&lt;/ConnectionString&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">host=localhost;User Id=defuser;password=ttrr;Persist Security Info=True;database=Edocbase</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
