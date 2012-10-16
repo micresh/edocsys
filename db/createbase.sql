@@ -121,5 +121,4 @@ CREATE  TABLE IF NOT EXISTS `Edocbase`.`log_journal` (
   `time_out` DATETIME NULL ,
   `uname` VARCHAR(50) NULL ,
   PRIMARY KEY (`sessid`) )
-ENGINE = InnoDB
-
+ENGINE = InnoDB;
