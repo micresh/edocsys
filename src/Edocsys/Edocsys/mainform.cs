@@ -32,7 +32,7 @@ namespace Edocsys
 
         private void proposalToolStripMenuItem_Click(object sender, EventArgs e)
         {
-           wmgr.ShowClientsForm();
+            wmgr.ShowProporsalForm();
         }
 
         private void AdmpanelToolStripMenuItem_Click(object sender, EventArgs e)
