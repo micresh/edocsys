@@ -126,5 +126,28 @@
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
       <Value Profile="(Default)">host=localhost;User Id=defuser;password=ttrr;Persist Security Info=True;database=Edocbase</Value>
     </Setting>
+    <Setting Name="ProposalEmissionLabelText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Тип выпуска продукции</Value>
+    </Setting>
+    <Setting Name="ProposalClientDocsLabelText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Учредительные документы</Value>
+    </Setting>
+    <Setting Name="ProposalSchemeTypeLabelText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Схема сертификации</Value>
+    </Setting>
+    <Setting Name="ProposalAddDataLabelText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Дополнительные сведения</Value>
+    </Setting>
+    <Setting Name="ProposalContractTypeLabelText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Тип договора</Value>
+    </Setting>
+    <Setting Name="EdocbaseConnectionStringHomeVolikRoot" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;host=localhost;Port=3309;User Id=root;password=po12jein45bf;Persist Security Info=True;database=Edocbase&lt;/ConnectionString&gt;
+  &lt;ProviderName /&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">host=localhost;Port=3309;User Id=root;password=po12jein45bf;Persist Security Info=True;database=Edocbase</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

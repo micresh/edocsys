@@ -335,19 +335,6 @@ namespace Edocsys.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("host=localhost;User Id=defuser;password=ttrr;Persist Security Info=True;database=" +
-            "Edocbase")]
-        public string EdocbaseConnectionStringHomeMicresh
-        {
-            get
-            {
-                return ((string)(this["EdocbaseConnectionStringHomeMicresh"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
         [global::System.Configuration.DefaultSettingValueAttribute("server=10.0.2.2;User Id=defuser;password=ttrr;Persist Security Info=True;database" +
             "=Edocbase")]
         public string EdocbaseConnectionStringServer {
@@ -391,6 +378,87 @@ namespace Edocsys.Properties {
                 this["ConnDatabase"] = value;
             }
         }
-
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("host=localhost;User Id=defuser;password=ttrr;Persist Security Info=True;database=" +
+            "Edocbase")]
+        public string EdocbaseConnectionStringHomeMicresh {
+            get {
+                return ((string)(this["EdocbaseConnectionStringHomeMicresh"]));
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Тип выпуска продукции")]
+        public string ProposalEmissionLabelText {
+            get {
+                return ((string)(this["ProposalEmissionLabelText"]));
+            }
+            set {
+                this["ProposalEmissionLabelText"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Учредительные документы")]
+        public string ProposalClientDocsLabelText {
+            get {
+                return ((string)(this["ProposalClientDocsLabelText"]));
+            }
+            set {
+                this["ProposalClientDocsLabelText"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Схема сертификации")]
+        public string ProposalSchemeTypeLabelText {
+            get {
+                return ((string)(this["ProposalSchemeTypeLabelText"]));
+            }
+            set {
+                this["ProposalSchemeTypeLabelText"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Дополнительные сведения")]
+        public string ProposalAddDataLabelText {
+            get {
+                return ((string)(this["ProposalAddDataLabelText"]));
+            }
+            set {
+                this["ProposalAddDataLabelText"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Тип договора")]
+        public string ProposalContractTypeLabelText {
+            get {
+                return ((string)(this["ProposalContractTypeLabelText"]));
+            }
+            set {
+                this["ProposalContractTypeLabelText"] = value;
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("host=localhost;Port=3309;User Id=root;password=po12jein45bf;Persist Security Info" +
+            "=True;database=Edocbase")]
+        public string EdocbaseConnectionStringHomeVolikRoot {
+            get {
+                return ((string)(this["EdocbaseConnectionStringHomeVolikRoot"]));
+            }
+        }
     }
 }
