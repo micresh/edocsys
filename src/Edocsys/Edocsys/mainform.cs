@@ -57,6 +57,11 @@ namespace Edocsys
 
         private void AssignexpertToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            wmgr.ShowAssignexpertForm();
+        }
+
+        private void AddingExpertToolStripMenuItem_Click(object sender, EventArgs e)
+        {
             wmgr.ShowExpertsForm();
         }
 

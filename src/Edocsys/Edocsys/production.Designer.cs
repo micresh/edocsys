@@ -148,7 +148,6 @@
             this.tableAdapterManager.Exec_contractsTableAdapter = null;
             this.tableAdapterManager.ExpertsTableAdapter = null;
             this.tableAdapterManager.log_journalTableAdapter = null;
-            this.tableAdapterManager.PaymentTypesTableAdapter = null;
             this.tableAdapterManager.ProdGostTableAdapter = this.prodGostTableAdapter;
             this.tableAdapterManager.ProductsTableAdapter = this.productsTableAdapter;
             this.tableAdapterManager.UpdateOrder = Edocsys.EdocbaseDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;

@@ -117,6 +117,7 @@
             this.AddingExpertToolStripMenuItem.Name = "AddingExpertToolStripMenuItem";
             this.AddingExpertToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
             this.AddingExpertToolStripMenuItem.Text = global::Edocsys.Properties.Settings.Default.AddingExpertToolStripMenuItemText;
+            this.AddingExpertToolStripMenuItem.Click += new System.EventHandler(this.AddingExpertToolStripMenuItem_Click);
             // 
             // DocToolStripMenuItem
             // 
@@ -130,14 +131,14 @@
             // ProposalToolStripMenuItem
             // 
             this.ProposalToolStripMenuItem.Name = "ProposalToolStripMenuItem";
-            this.ProposalToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.ProposalToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
             this.ProposalToolStripMenuItem.Text = global::Edocsys.Properties.Settings.Default.ProposalToolStripMenuItemText;
             this.ProposalToolStripMenuItem.Click += new System.EventHandler(this.proposalToolStripMenuItem_Click);
             // 
             // ContractToolStripMenuItem
             // 
             this.ContractToolStripMenuItem.Name = "ContractToolStripMenuItem";
-            this.ContractToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.ContractToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
             this.ContractToolStripMenuItem.Text = global::Edocsys.Properties.Settings.Default.ContractToolStripMenuItemText;
             // 
             // CatalogToolStripMenuItem
@@ -152,14 +153,14 @@
             // ContractorToolStripMenuItem
             // 
             this.ContractorToolStripMenuItem.Name = "ContractorToolStripMenuItem";
-            this.ContractorToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.ContractorToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
             this.ContractorToolStripMenuItem.Text = global::Edocsys.Properties.Settings.Default.ContractorToolStripMenuItemText;
             this.ContractorToolStripMenuItem.Click += new System.EventHandler(this.ContractorToolStripMenuItem_Click);
             // 
             // ProductionToolStripMenuItem
             // 
             this.ProductionToolStripMenuItem.Name = "ProductionToolStripMenuItem";
-            this.ProductionToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.ProductionToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
             this.ProductionToolStripMenuItem.Text = global::Edocsys.Properties.Settings.Default.ProductionToolStripMenuItemText;
             this.ProductionToolStripMenuItem.Click += new System.EventHandler(this.ProductionToolStripMenuItem_Click);
             // 
