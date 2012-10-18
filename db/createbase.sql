@@ -88,9 +88,9 @@ CREATE  TABLE IF NOT EXISTS `Edocbase`.`Contracts` (
     FOREIGN KEY (`idProducts` )
     REFERENCES `Edocbase`.`Products` (`idProducts` )
     ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON UPDATE NO ACTION,
   CONSTRAINT `fk_Contracts_4`
-    FOREIGN KEY (`idProducts` )
+    FOREIGN KEY (`Contract_type` )
     REFERENCES `Edocbase`.`ContractTypes` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
