@@ -60,6 +60,7 @@
     <Compile Include="clients.Designer.cs">
       <DependentUpon>clients.cs</DependentUpon>
     </Compile>
+    <Compile Include="ConnectionManager.cs" />
     <Compile Include="contracts.cs">
       <SubType>Form</SubType>
     </Compile>
