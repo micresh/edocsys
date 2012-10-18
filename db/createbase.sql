@@ -122,3 +122,13 @@ CREATE  TABLE IF NOT EXISTS `Edocbase`.`log_journal` (
   `uname` VARCHAR(50) NULL ,
   PRIMARY KEY (`sessid`) )
 ENGINE = InnoDB;
+CREATE TABLE IF NOT EXISTS `Edocbase`.`ContractTypes` (
+	`id` int not null ,
+	`name` varchar(30) ,
+	PRIMARY KEY (`id`) )
+ENGINE = InnoDB;
+CREATE TABLE IF NOT EXISTS `Edocbase`.`PaymentTypes` (
+	`id` int not null ,
+	`name` varchar(30) ,
+	PRIMARY KEY (`id`) )
+ENGINE = InnoDB;

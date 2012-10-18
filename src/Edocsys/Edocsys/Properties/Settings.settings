@@ -111,13 +111,13 @@
       <Value Profile="(Default)">server=10.0.2.2;User Id=defuser;password=ttrr;Persist Security Info=True;database=Edocbase</Value>
     </Setting>
     <Setting Name="ConnHost" Type="System.String" Scope="User">
-      <Value Profile="(Default)">localhost</Value>
+      <Value Profile="(Default)">10.0.2.2</Value>
     </Setting>
     <Setting Name="ConnPort" Type="System.String" Scope="User">
-      <Value Profile="(Default)">3309</Value>
+      <Value Profile="(Default)">3306</Value>
     </Setting>
     <Setting Name="ConnDatabase" Type="System.String" Scope="User">
-      <Value Profile="(Default)">EdocBase</Value>
+      <Value Profile="(Default)">Edocbase</Value>
     </Setting>
     <Setting Name="EdocbaseConnectionStringHomeMicresh" Type="(Connection string)" Scope="Application">
       <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
@@ -145,9 +145,16 @@
       <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
 &lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
   &lt;ConnectionString&gt;host=localhost;Port=3309;User Id=root;password=po12jein45bf;Persist Security Info=True;database=Edocbase&lt;/ConnectionString&gt;
-  &lt;ProviderName /&gt;
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
       <Value Profile="(Default)">host=localhost;Port=3309;User Id=root;password=po12jein45bf;Persist Security Info=True;database=Edocbase</Value>
+    </Setting>
+    <Setting Name="EdocbaseConnectionString1" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;server=10.0.2.2;User Id=root;database=Edocbase;Persist Security Info=True&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;MySql.Data.MySqlClient&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">server=10.0.2.2;User Id=root;database=Edocbase;Persist Security Info=True</Value>
     </Setting>
   </Settings>
 </SettingsFile>
