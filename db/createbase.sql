@@ -54,6 +54,11 @@ CREATE  TABLE IF NOT EXISTS `Edocbase`.`ProdGost` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
+CREATE TABLE IF NOT EXISTS `Edocbase`.`ContractTypes` (
+	`id` TINYINT not null ,
+	`name` varchar(30) ,
+	PRIMARY KEY (`id`) )
+ENGINE = InnoDB;
 CREATE  TABLE IF NOT EXISTS `Edocbase`.`Contracts` (
   `idContract` INT NOT NULL AUTO_INCREMENT ,
   `idProducts` INT NULL ,
@@ -127,8 +132,4 @@ CREATE  TABLE IF NOT EXISTS `Edocbase`.`log_journal` (
   `uname` VARCHAR(50) NULL ,
   PRIMARY KEY (`sessid`) )
 ENGINE = InnoDB;
-CREATE TABLE IF NOT EXISTS `Edocbase`.`ContractTypes` (
-	`id` TINYINT not null ,
-	`name` varchar(30) ,
-	PRIMARY KEY (`id`) )
-ENGINE = InnoDB;
+
