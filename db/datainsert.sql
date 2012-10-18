@@ -17,6 +17,7 @@ INSERT INTO `Edocbase`.`PaymentTypes` (`id`, `name`) VALUES (11,'договор 
 INSERT INTO `Edocbase`.`PaymentTypes` (`id`, `name`) VALUES (12,'перечислен аванс');
 INSERT INTO `Edocbase`.`PaymentTypes` (`id`, `name`) VALUES (13,'перечислена полная сумма');
 INSERT INTO `Edocbase`.`PaymentTypes` (`id`, `name`) VALUES (14,'догвор исполнен');
+-- insert 
 
 
 
