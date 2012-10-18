@@ -53,7 +53,7 @@
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.contractsBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
-            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.mainSplitContainer = new System.Windows.Forms.SplitContainer();
             this.contractsDataGridView = new System.Windows.Forms.DataGridView();
             this.idContract = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idProducts = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -80,10 +80,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.contractsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.contractsBindingNavigator)).BeginInit();
             this.contractsBindingNavigator.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
-            this.splitContainer1.Panel1.SuspendLayout();
-            this.splitContainer1.Panel2.SuspendLayout();
-            this.splitContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.mainSplitContainer)).BeginInit();
+            this.mainSplitContainer.Panel1.SuspendLayout();
+            this.mainSplitContainer.Panel2.SuspendLayout();
+            this.mainSplitContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.contractsDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.contractTypesBindingSource)).BeginInit();
@@ -198,7 +198,7 @@
             this.contractsBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.contractsBindingNavigator.Name = "contractsBindingNavigator";
             this.contractsBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.contractsBindingNavigator.Size = new System.Drawing.Size(845, 25);
+            this.contractsBindingNavigator.Size = new System.Drawing.Size(1010, 25);
             this.contractsBindingNavigator.TabIndex = 0;
             this.contractsBindingNavigator.Text = "bindingNavigator1";
             // 
@@ -297,32 +297,35 @@
             this.contractsBindingNavigatorSaveItem.Text = "Save Data";
             this.contractsBindingNavigatorSaveItem.Click += new System.EventHandler(this.contractsBindingNavigatorSaveItem_Click);
             // 
-            // splitContainer1
+            // mainSplitContainer
             // 
-            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(0, 25);
-            this.splitContainer1.Name = "splitContainer1";
-            this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            this.mainSplitContainer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.mainSplitContainer.FixedPanel = System.Windows.Forms.FixedPanel.Panel2;
+            this.mainSplitContainer.Location = new System.Drawing.Point(0, 25);
+            this.mainSplitContainer.Name = "mainSplitContainer";
+            this.mainSplitContainer.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
-            // splitContainer1.Panel1
+            // mainSplitContainer.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.contractsDataGridView);
+            this.mainSplitContainer.Panel1.Controls.Add(this.contractsDataGridView);
+            this.mainSplitContainer.Panel1MinSize = 240;
             // 
-            // splitContainer1.Panel2
+            // mainSplitContainer.Panel2
             // 
-            this.splitContainer1.Panel2.Controls.Add(proposalAddDataLabel);
-            this.splitContainer1.Panel2.Controls.Add(this.textBox2);
-            this.splitContainer1.Panel2.Controls.Add(proposalSchemeTypeLabel);
-            this.splitContainer1.Panel2.Controls.Add(this.textBox1);
-            this.splitContainer1.Panel2.Controls.Add(proposalClientDocsLabel);
-            this.splitContainer1.Panel2.Controls.Add(this.ClientDocsTextBox);
-            this.splitContainer1.Panel2.Controls.Add(this.productComboBox);
-            this.splitContainer1.Panel2.Controls.Add(proposalEmissionLabel);
-            this.splitContainer1.Panel2.Controls.Add(proposalProductLabel);
-            this.splitContainer1.Panel2.Controls.Add(this.proposalEmissionTypeTextBox);
-            this.splitContainer1.Size = new System.Drawing.Size(845, 371);
-            this.splitContainer1.SplitterDistance = 185;
-            this.splitContainer1.TabIndex = 2;
+            this.mainSplitContainer.Panel2.Controls.Add(proposalAddDataLabel);
+            this.mainSplitContainer.Panel2.Controls.Add(this.textBox2);
+            this.mainSplitContainer.Panel2.Controls.Add(proposalSchemeTypeLabel);
+            this.mainSplitContainer.Panel2.Controls.Add(this.textBox1);
+            this.mainSplitContainer.Panel2.Controls.Add(proposalClientDocsLabel);
+            this.mainSplitContainer.Panel2.Controls.Add(this.ClientDocsTextBox);
+            this.mainSplitContainer.Panel2.Controls.Add(this.productComboBox);
+            this.mainSplitContainer.Panel2.Controls.Add(proposalEmissionLabel);
+            this.mainSplitContainer.Panel2.Controls.Add(proposalProductLabel);
+            this.mainSplitContainer.Panel2.Controls.Add(this.proposalEmissionTypeTextBox);
+            this.mainSplitContainer.Panel2MinSize = 160;
+            this.mainSplitContainer.Size = new System.Drawing.Size(1010, 464);
+            this.mainSplitContainer.SplitterDistance = 300;
+            this.mainSplitContainer.TabIndex = 2;
             // 
             // contractsDataGridView
             // 
@@ -342,7 +345,7 @@
             this.contractsDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.contractsDataGridView.Location = new System.Drawing.Point(0, 0);
             this.contractsDataGridView.Name = "contractsDataGridView";
-            this.contractsDataGridView.Size = new System.Drawing.Size(845, 185);
+            this.contractsDataGridView.Size = new System.Drawing.Size(1010, 300);
             this.contractsDataGridView.TabIndex = 2;
             this.contractsDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.contractsDataGridView_CellClick);
             // 
@@ -357,11 +360,12 @@
             // 
             // idProducts
             // 
-            this.idProducts.DataPropertyName = "idProducts";
+            this.idProducts.DataPropertyName = "Product_name";
             this.idProducts.HeaderText = "Наименование продукции";
             this.idProducts.Name = "idProducts";
             this.idProducts.ReadOnly = true;
             this.idProducts.ToolTipText = "Наименование продукции";
+            this.idProducts.Width = 250;
             // 
             // dataGridViewTextBoxColumn3
             // 
@@ -399,6 +403,9 @@
             // 
             this.SendProposalColumn.HeaderText = "Отправить заявку";
             this.SendProposalColumn.Name = "SendProposalColumn";
+            this.SendProposalColumn.Text = "Отправить";
+            this.SendProposalColumn.ToolTipText = "Отправить";
+            this.SendProposalColumn.UseColumnTextForButtonValue = true;
             // 
             // Contract_type
             // 
@@ -469,8 +476,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(845, 396);
-            this.Controls.Add(this.splitContainer1);
+            this.ClientSize = new System.Drawing.Size(1010, 489);
+            this.Controls.Add(this.mainSplitContainer);
             this.Controls.Add(this.contractsBindingNavigator);
             this.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Edocsys.Properties.Settings.Default, "ProposalFormText", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.Name = "ProposalForm";
@@ -481,11 +488,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.contractsBindingNavigator)).EndInit();
             this.contractsBindingNavigator.ResumeLayout(false);
             this.contractsBindingNavigator.PerformLayout();
-            this.splitContainer1.Panel1.ResumeLayout(false);
-            this.splitContainer1.Panel2.ResumeLayout(false);
-            this.splitContainer1.Panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
-            this.splitContainer1.ResumeLayout(false);
+            this.mainSplitContainer.Panel1.ResumeLayout(false);
+            this.mainSplitContainer.Panel2.ResumeLayout(false);
+            this.mainSplitContainer.Panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.mainSplitContainer)).EndInit();
+            this.mainSplitContainer.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.contractsDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.contractTypesBindingSource)).EndInit();
@@ -513,7 +520,6 @@
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
         private System.Windows.Forms.ToolStripButton contractsBindingNavigatorSaveItem;
-        private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.DataGridView contractsDataGridView;
         private System.Windows.Forms.TextBox proposalEmissionTypeTextBox;
         private System.Windows.Forms.ComboBox productComboBox;
@@ -532,5 +538,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.DataGridViewButtonColumn SendProposalColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn Contract_type;
+        private System.Windows.Forms.SplitContainer mainSplitContainer;
     }
 }

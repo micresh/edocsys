@@ -18,19 +18,28 @@ namespace Edocsys
 
         private void contractsBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
-            this.Validate();
-            this.contractsBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.edocbaseDataSet);
-            this.edocbaseDataSet.AcceptChanges();
-            this.contractsTableAdapter.FillProposal(this.edocbaseDataSet.Contracts);
-            this.contractsDataGridView.Refresh();
+            try
+            {
+
+                this.Validate();
+                this.contractsBindingSource.EndEdit();
+
+                this.tableAdapterManager.UpdateAll(this.edocbaseDataSet);
+                this.edocbaseDataSet.AcceptChanges();
+                this.contractsTableAdapter.FillProposal(this.edocbaseDataSet.Contracts);
+                this.contractsDataGridView.Refresh();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Save Errror");
+            }
         }
 
         private void ProposalForm_Load(object sender, EventArgs e)
         {
             this.productsTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
             this.contractsTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
-
+            this.contractTypesTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
 
 
             // TODO: This line of code loads data into the 'edocbaseDataSet.ContractTypes' table. You can move, or remove it, as needed.
@@ -39,20 +48,6 @@ namespace Edocsys
             this.productsTableAdapter.Fill(this.edocbaseDataSet.Products);
             // TODO: This line of code loads data into the 'edocbaseDataSet.Contracts' table. You can move, or remove it, as needed.
             this.contractsTableAdapter.FillProposal(this.edocbaseDataSet.Contracts);
-
-        }
-
-        private void fillProposalToolStripButton_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                this.contractsTableAdapter.FillProposal(this.edocbaseDataSet.Contracts);
-            }
-            catch (System.Exception ex)
-            {
-                System.Windows.Forms.MessageBox.Show(ex.Message);
-            }
-
         }
 
         private void contractsDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -85,6 +80,5 @@ namespace Edocsys
         {
             contractsDataGridView.CurrentRow.Cells["contract_type"].Value = 0;
         }
-
     }
 }

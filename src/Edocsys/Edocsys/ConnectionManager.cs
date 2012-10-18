@@ -84,6 +84,7 @@ namespace Edocsys
 
             connString["Database"] = Database;
             
+            //DEBUG FEATURE
             connString["User ID"] = "admin";
 
             return connString.ConnectionString;

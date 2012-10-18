@@ -9211,10 +9211,11 @@ namespace Edocsys.EdocbaseDataSetTableAdapters {
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT Add_data, Bid_type, Cash_income, Client_docs, Contract_number, Contract_st" +
-                "atus, Contract_type, Contract_value_1, Contract_value_full, Schem_type, agent_id" +
-                ", emission_type, expert_id, idContract, idProducts FROM Contracts WHERE (Contrac" +
-                "t_type = 0)";
+            this._commandCollection[1].CommandText = @"SELECT        Contracts.Add_data, Contracts.Client_docs, Contracts.Contract_type, Contracts.Schem_type, Contracts.emission_type, Contracts.idContract, Contracts.idProducts, 
+                         Products.Product_name
+FROM            Contracts INNER JOIN
+                         Products ON Contracts.idProducts = Products.idProducts
+WHERE        (Contracts.Contract_type = 0)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[2] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[2].Connection = this.Connection;

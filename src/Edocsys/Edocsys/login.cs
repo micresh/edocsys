@@ -69,10 +69,10 @@ namespace Edocsys
 
                 connString["Data Source"] = "";
 
-                connString["Host"] = global::Edocsys.Properties.Settings.Default.ConnHost;
+                connString["Server"] = global::Edocsys.Properties.Settings.Default.ConnHost;
                 connString["Port"] = global::Edocsys.Properties.Settings.Default.ConnPort;
 
-                connString["UserID"] = login;
+                connString["User ID"] = login;
                 //?????????? connString["Password"] = passtxbox.Text;
                 connString["Password"] = "wepo23nri_)(*";
 
@@ -81,28 +81,7 @@ namespace Edocsys
 
                 connString["Database"] = global::Edocsys.Properties.Settings.Default.ConnDatabase;
 
-
-
                 Edocsys.Program.Data.constr = connString.ConnectionString;
-
-                //save new connection string
-                if (settings != null)
-                {
-                    foreach (ConnectionStringSettings cs in settings)
-                    {
-                        if (cs.Name == "Edocsys.Properties.Settings.EdocbaseConnectionString")
-                        {
-                            ExeConfigurationFileMap fileMap = new ExeConfigurationFileMap();
-                            fileMap.ExeConfigFilename = @"edocsys.exe.config";
-
-                            Configuration config = ConfigurationManager.OpenMappedExeConfiguration(fileMap, ConfigurationUserLevel.None);
-
-                            config.ConnectionStrings.ConnectionStrings[1].ConnectionString = Edocsys.Program.Data.constr;
-                            config.SectionGroups.Clear();
-                            config.Save(ConfigurationSaveMode.Modified);
-                        }
-                    }
-                }
 
                 //close form after successful login
                 this.Close();
