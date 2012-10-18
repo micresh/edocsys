@@ -111,7 +111,7 @@
       <Value Profile="(Default)">server=10.0.2.2;User Id=defuser;password=ttrr;Persist Security Info=True;database=Edocbase</Value>
     </Setting>
     <Setting Name="ConnHost" Type="System.String" Scope="User">
-      <Value Profile="(Default)">10.0.2.2</Value>
+      <Value Profile="(Default)">192.168.137.85</Value>
     </Setting>
     <Setting Name="ConnPort" Type="System.String" Scope="User">
       <Value Profile="(Default)">3306</Value>

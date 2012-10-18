@@ -345,7 +345,7 @@ namespace Edocsys.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("10.0.2.2")]
+        [global::System.Configuration.DefaultSettingValueAttribute("192.168.137.85")]
         public string ConnHost {
             get {
                 return ((string)(this["ConnHost"]));
