@@ -11,13 +11,3 @@ INSERT INTO `Edocbase`.`ContractTypes` (`id`, `name`) VALUES (3,'оформле�
 INSERT INTO `Edocbase`.`ContractTypes` (`id`, `name`) VALUES (4,'акт утвержден руководителем');
 INSERT INTO `Edocbase`.`ContractTypes` (`id`, `name`) VALUES (20,'невыполнение по вине заказчика');
 INSERT INTO `Edocbase`.`ContractTypes` (`id`, `name`) VALUES (21,'невыполнение по вине эксперта');
--- isnert types into PaymentTypes table
-INSERT INTO `Edocbase`.`PaymentTypes` (`id`, `name`) VALUES (10,'договор оформлен');
-INSERT INTO `Edocbase`.`PaymentTypes` (`id`, `name`) VALUES (11,'договор подписан');
-INSERT INTO `Edocbase`.`PaymentTypes` (`id`, `name`) VALUES (12,'перечислен аванс');
-INSERT INTO `Edocbase`.`PaymentTypes` (`id`, `name`) VALUES (13,'перечислена полная сумма');
-INSERT INTO `Edocbase`.`PaymentTypes` (`id`, `name`) VALUES (14,'догвор исполнен');
--- insert 
-
-
-

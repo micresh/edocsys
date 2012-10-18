@@ -89,6 +89,11 @@ CREATE  TABLE IF NOT EXISTS `Edocbase`.`Contracts` (
     REFERENCES `Edocbase`.`Products` (`idProducts` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
+  CONSTRAINT `fk_Contracts_4`
+    FOREIGN KEY (`idProducts` )
+    REFERENCES `Edocbase`.`ContractTypes` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 CREATE  TABLE IF NOT EXISTS `Edocbase`.`Exec_contracts` (
   `idContract` INT NOT NULL ,
@@ -123,12 +128,7 @@ CREATE  TABLE IF NOT EXISTS `Edocbase`.`log_journal` (
   PRIMARY KEY (`sessid`) )
 ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `Edocbase`.`ContractTypes` (
-	`id` int not null ,
-	`name` varchar(30) ,
-	PRIMARY KEY (`id`) )
-ENGINE = InnoDB;
-CREATE TABLE IF NOT EXISTS `Edocbase`.`PaymentTypes` (
-	`id` int not null ,
+	`id` TINYINT not null ,
 	`name` varchar(30) ,
 	PRIMARY KEY (`id`) )
 ENGINE = InnoDB;
