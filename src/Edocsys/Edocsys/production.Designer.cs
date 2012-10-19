@@ -32,13 +32,14 @@
             System.Windows.Forms.Label product_nameLabel;
             System.Windows.Forms.Label product_OKPLabel;
             System.Windows.Forms.Label product_TNVEDLabel;
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProductionForm));
             System.Windows.Forms.Label gOST_numbLabel;
             System.Windows.Forms.Label prod_typeLabel;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProductionForm));
             this.edocbaseDataSet = new Edocsys.EdocbaseDataSet();
             this.productsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.productsTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.ProductsTableAdapter();
             this.tableAdapterManager = new Edocsys.EdocbaseDataSetTableAdapters.TableAdapterManager();
+            this.prodGostTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.ProdGostTableAdapter();
             this.productsBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
@@ -61,17 +62,16 @@
             this.product_nameTextBox = new System.Windows.Forms.TextBox();
             this.product_OKPTextBox = new System.Windows.Forms.TextBox();
             this.product_TNVEDTextBox = new System.Windows.Forms.TextBox();
+            this.prod_typeTextBox = new System.Windows.Forms.TextBox();
+            this.prodGostBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.gOST_numbTextBox = new System.Windows.Forms.TextBox();
             this.prodGostDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.prodGostBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.contractsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.contractsTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.ContractsTableAdapter();
-            this.prodGostTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.ProdGostTableAdapter();
-            this.gOST_numbTextBox = new System.Windows.Forms.TextBox();
-            this.prod_typeTextBox = new System.Windows.Forms.TextBox();
             product_nameLabel = new System.Windows.Forms.Label();
             product_OKPLabel = new System.Windows.Forms.Label();
             product_TNVEDLabel = new System.Windows.Forms.Label();
@@ -90,8 +90,8 @@
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.productsDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.prodGostDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.prodGostBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.prodGostDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.contractsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -125,6 +125,24 @@
             product_TNVEDLabel.TabIndex = 6;
             product_TNVEDLabel.Text = global::Edocsys.Properties.Settings.Default.product_TNVEDLabelText;
             // 
+            // gOST_numbLabel
+            // 
+            gOST_numbLabel.AutoSize = true;
+            gOST_numbLabel.Location = new System.Drawing.Point(49, 261);
+            gOST_numbLabel.Name = "gOST_numbLabel";
+            gOST_numbLabel.Size = new System.Drawing.Size(69, 13);
+            gOST_numbLabel.TabIndex = 1;
+            gOST_numbLabel.Text = "GOST numb:";
+            // 
+            // prod_typeLabel
+            // 
+            prod_typeLabel.AutoSize = true;
+            prod_typeLabel.Location = new System.Drawing.Point(63, 299);
+            prod_typeLabel.Name = "prod_typeLabel";
+            prod_typeLabel.Size = new System.Drawing.Size(55, 13);
+            prod_typeLabel.TabIndex = 3;
+            prod_typeLabel.Text = "Prod type:";
+            // 
             // edocbaseDataSet
             // 
             this.edocbaseDataSet.DataSetName = "EdocbaseDataSet";
@@ -153,6 +171,10 @@
             this.tableAdapterManager.ProductsTableAdapter = this.productsTableAdapter;
             this.tableAdapterManager.UpdateOrder = Edocsys.EdocbaseDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             this.tableAdapterManager.usersTableAdapter = null;
+            // 
+            // prodGostTableAdapter
+            // 
+            this.prodGostTableAdapter.ClearBeforeFill = true;
             // 
             // productsBindingNavigator
             // 
@@ -386,6 +408,27 @@
             this.product_TNVEDTextBox.Size = new System.Drawing.Size(134, 20);
             this.product_TNVEDTextBox.TabIndex = 7;
             // 
+            // prod_typeTextBox
+            // 
+            this.prod_typeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.prodGostBindingSource, "Prod_type", true));
+            this.prod_typeTextBox.Location = new System.Drawing.Point(124, 296);
+            this.prod_typeTextBox.Name = "prod_typeTextBox";
+            this.prod_typeTextBox.Size = new System.Drawing.Size(100, 20);
+            this.prod_typeTextBox.TabIndex = 4;
+            // 
+            // prodGostBindingSource
+            // 
+            this.prodGostBindingSource.DataMember = "fk_ProdGost_1";
+            this.prodGostBindingSource.DataSource = this.productsBindingSource;
+            // 
+            // gOST_numbTextBox
+            // 
+            this.gOST_numbTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.prodGostBindingSource, "GOST_numb", true));
+            this.gOST_numbTextBox.Location = new System.Drawing.Point(124, 258);
+            this.gOST_numbTextBox.Name = "gOST_numbTextBox";
+            this.gOST_numbTextBox.Size = new System.Drawing.Size(100, 20);
+            this.gOST_numbTextBox.TabIndex = 2;
+            // 
             // prodGostDataGridView
             // 
             this.prodGostDataGridView.AutoGenerateColumns = false;
@@ -425,11 +468,6 @@
             this.dataGridViewTextBoxColumn7.HeaderText = "Prod_type";
             this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
             // 
-            // prodGostBindingSource
-            // 
-            this.prodGostBindingSource.DataMember = "fk_ProdGost_1";
-            this.prodGostBindingSource.DataSource = this.productsBindingSource;
-            // 
             // contractsBindingSource
             // 
             this.contractsBindingSource.DataMember = "fk_Contracts_3";
@@ -438,44 +476,6 @@
             // contractsTableAdapter
             // 
             this.contractsTableAdapter.ClearBeforeFill = true;
-            // 
-            // prodGostTableAdapter
-            // 
-            this.prodGostTableAdapter.ClearBeforeFill = true;
-            // 
-            // gOST_numbLabel
-            // 
-            gOST_numbLabel.AutoSize = true;
-            gOST_numbLabel.Location = new System.Drawing.Point(49, 261);
-            gOST_numbLabel.Name = "gOST_numbLabel";
-            gOST_numbLabel.Size = new System.Drawing.Size(69, 13);
-            gOST_numbLabel.TabIndex = 1;
-            gOST_numbLabel.Text = "GOST numb:";
-            // 
-            // gOST_numbTextBox
-            // 
-            this.gOST_numbTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.prodGostBindingSource, "GOST_numb", true));
-            this.gOST_numbTextBox.Location = new System.Drawing.Point(124, 258);
-            this.gOST_numbTextBox.Name = "gOST_numbTextBox";
-            this.gOST_numbTextBox.Size = new System.Drawing.Size(100, 20);
-            this.gOST_numbTextBox.TabIndex = 2;
-            // 
-            // prod_typeLabel
-            // 
-            prod_typeLabel.AutoSize = true;
-            prod_typeLabel.Location = new System.Drawing.Point(63, 299);
-            prod_typeLabel.Name = "prod_typeLabel";
-            prod_typeLabel.Size = new System.Drawing.Size(55, 13);
-            prod_typeLabel.TabIndex = 3;
-            prod_typeLabel.Text = "Prod type:";
-            // 
-            // prod_typeTextBox
-            // 
-            this.prod_typeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.prodGostBindingSource, "Prod_type", true));
-            this.prod_typeTextBox.Location = new System.Drawing.Point(124, 296);
-            this.prod_typeTextBox.Name = "prod_typeTextBox";
-            this.prod_typeTextBox.Size = new System.Drawing.Size(100, 20);
-            this.prod_typeTextBox.TabIndex = 4;
             // 
             // ProductionForm
             // 
@@ -504,8 +504,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.productsDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.prodGostDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.prodGostBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.prodGostDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.contractsBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

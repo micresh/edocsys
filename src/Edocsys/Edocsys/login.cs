@@ -33,16 +33,7 @@ namespace Edocsys
 
         private void LoginForm_Load(object sender, EventArgs e)
         {
-            try
-            {
-                // TODO: This line of code loads data into the 'edocbaseDataSet.users' table. You can move, or remove it, as needed.
-                this.usersTableAdapter.Fill(this.edocbaseDataSet.users);
-            }
-            catch (Exception)
-            {
-
-                MessageBox.Show("Нет подключения к базе данных");
-            }
+            
 
             //set server textbox to default address
             servtxbox.Text = global::Edocsys.Properties.Settings.Default.ConnHost + ":" +global::Edocsys.Properties.Settings.Default.ConnPort;
@@ -92,16 +83,23 @@ namespace Edocsys
 
         private void btnCheckserv_Click(object sender, EventArgs e)
         {
-            int i = usersComboBox.SelectedIndex;
-
-            string login = Convert.ToString(usersDataGridView.Rows[i].Cells[3].Value);
-
-            // here we're trying to connect to database
-            if (psmgr.OpenDbConn(login, servtxbox.Text))
+            // here we're trying connecting to database
+            if (psmgr.OpenDbConn(servtxbox.Text))
             {
                 MessageBox.Show("Connection ok");
                 btnlogin.Enabled = true;
+                this.usersTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
+                try
+                {
+                    // TODO: This line of code loads data into the 'edocbaseDataSet.users' table. You can move, or remove it, as needed.
+                    this.usersTableAdapter.Fill(this.edocbaseDataSet.users);
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Нет подключения к базе данных");
+                }
             }
+            else MessageBox.Show("Не удалось выполнить подключение к базе данных");
             //DEBUG btnlogin.Enabled = true;
         }
     }

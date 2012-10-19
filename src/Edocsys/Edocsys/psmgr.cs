@@ -9,13 +9,13 @@ namespace Edocsys
    public static class psmgr
     {
        static MySql.Data.MySqlClient.MySqlConnection conn;
-       public static bool OpenDbConn (string dblogin, string servIP)
+       public static bool OpenDbConn (string servIP)
        {
            bool t = true;
            try
            {
                conn = new MySql.Data.MySqlClient.MySqlConnection();
-               conn.ConnectionString = "server="+ servIP + ";UserID=" + dblogin + ";password=wepo23nri_)(*;database=Edocbase";
+               conn.ConnectionString = "server="+ servIP + ";UserID=admin;password=wepo23nri_)(*;database=Edocbase";
                conn.Open();
            }
            catch
