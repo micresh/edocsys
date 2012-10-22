@@ -18,25 +18,30 @@ namespace Edocsys
 
         private void expertsBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
-            this.Validate();
-            this.expertsBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.edocbaseDataSet);
+            try
+            {
 
+                this.Validate();
+                this.expertsBindingSource.EndEdit();
+                this.tableAdapterManager.UpdateAll(this.edocbaseDataSet);
+
+                this.edocbaseDataSet.AcceptChanges();
+                this.expertsTableAdapter.Fill(this.edocbaseDataSet.Experts);
+                this.expertsDataGridView.Refresh();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Save Errror");
+            }
         }
 
         private void ExpertsForm_Load(object sender, EventArgs e)
         {
+
+            this.expertsTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
+
             // TODO: This line of code loads data into the 'edocbaseDataSet.Experts' table. You can move, or remove it, as needed.
             this.expertsTableAdapter.Fill(this.edocbaseDataSet.Experts);
-
-        }
-
-        private void expertsDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-         }
-
-        private void edocbaseDataSet_Initialized(object sender, EventArgs e)
-        {
 
         }
     }

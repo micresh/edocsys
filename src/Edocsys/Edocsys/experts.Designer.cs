@@ -63,7 +63,6 @@
             // 
             this.edocbaseDataSet.DataSetName = "EdocbaseDataSet";
             this.edocbaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            this.edocbaseDataSet.Initialized += new System.EventHandler(this.edocbaseDataSet_Initialized);
             // 
             // expertsBindingSource
             // 
@@ -79,6 +78,7 @@
             this.tableAdapterManager.AgentsTableAdapter = null;
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
             this.tableAdapterManager.ContractsTableAdapter = null;
+            this.tableAdapterManager.ContractTypesTableAdapter = null;
             this.tableAdapterManager.Exec_contractsTableAdapter = null;
             this.tableAdapterManager.ExpertsTableAdapter = this.expertsTableAdapter;
             this.tableAdapterManager.log_journalTableAdapter = null;
@@ -113,7 +113,7 @@
             this.expertsBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.expertsBindingNavigator.Name = "expertsBindingNavigator";
             this.expertsBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.expertsBindingNavigator.Size = new System.Drawing.Size(791, 25);
+            this.expertsBindingNavigator.Size = new System.Drawing.Size(720, 25);
             this.expertsBindingNavigator.TabIndex = 0;
             this.expertsBindingNavigator.Text = "bindingNavigator1";
             // 
@@ -129,7 +129,7 @@
             // bindingNavigatorCountItem
             // 
             this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(36, 22);
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(35, 22);
             this.bindingNavigatorCountItem.Text = "of {0}";
             this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
             // 
@@ -223,44 +223,54 @@
             this.expertsDataGridView.DataSource = this.expertsBindingSource;
             this.expertsDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.expertsDataGridView.Location = new System.Drawing.Point(0, 25);
+            this.expertsDataGridView.MultiSelect = false;
             this.expertsDataGridView.Name = "expertsDataGridView";
-            this.expertsDataGridView.Size = new System.Drawing.Size(791, 380);
+            this.expertsDataGridView.Size = new System.Drawing.Size(720, 380);
             this.expertsDataGridView.TabIndex = 1;
-            this.expertsDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.expertsDataGridView_CellContentClick);
             // 
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.DataPropertyName = "idExperts";
-            this.dataGridViewTextBoxColumn1.HeaderText = "idExperts";
+            this.dataGridViewTextBoxColumn1.HeaderText = "#";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ToolTipText = "#";
+            this.dataGridViewTextBoxColumn1.Visible = false;
+            this.dataGridViewTextBoxColumn1.Width = 32;
             // 
             // dataGridViewTextBoxColumn2
             // 
             this.dataGridViewTextBoxColumn2.DataPropertyName = "Expert_Lastname";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Expert_Lastname";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Фамилия";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ToolTipText = "Фамилия";
+            this.dataGridViewTextBoxColumn2.Width = 200;
             // 
             // dataGridViewTextBoxColumn3
             // 
             this.dataGridViewTextBoxColumn3.DataPropertyName = "Expert_Firstname";
-            this.dataGridViewTextBoxColumn3.HeaderText = "Expert_Firstname";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Имя";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ToolTipText = "Имя";
+            this.dataGridViewTextBoxColumn3.Width = 200;
             // 
             // dataGridViewTextBoxColumn4
             // 
             this.dataGridViewTextBoxColumn4.DataPropertyName = "Expert_Middlename";
-            this.dataGridViewTextBoxColumn4.HeaderText = "Expert_Middlename";
+            this.dataGridViewTextBoxColumn4.HeaderText = "Отчество";
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ToolTipText = "Отчество";
+            this.dataGridViewTextBoxColumn4.Width = 200;
             // 
             // ExpertsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(791, 405);
+            this.ClientSize = new System.Drawing.Size(720, 405);
             this.Controls.Add(this.expertsDataGridView);
             this.Controls.Add(this.expertsBindingNavigator);
+            this.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Edocsys.Properties.Settings.Default, "ExpertsFormTitle", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.Name = "ExpertsForm";
-            this.Text = "Experts";
+            this.Text = global::Edocsys.Properties.Settings.Default.ExpertsFormTitle;
             this.Load += new System.EventHandler(this.ExpertsForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.edocbaseDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.expertsBindingSource)).EndInit();

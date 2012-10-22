@@ -27,16 +27,13 @@
       <Value Profile="(Default)">Назначение эксперта</Value>
     </Setting>
     <Setting Name="AddingExpertToolStripMenuItemText" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Добавление эксперта</Value>
+      <Value Profile="(Default)">Эксперты</Value>
     </Setting>
     <Setting Name="DocToolStripMenuItemText" Type="System.String" Scope="User">
       <Value Profile="(Default)">&amp;Документы</Value>
     </Setting>
     <Setting Name="ContractorToolStripMenuItemText" Type="System.String" Scope="User">
       <Value Profile="(Default)">Контрагенты</Value>
-    </Setting>
-    <Setting Name="ProductionToolStripMenuItemText" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Область аккредитации</Value>
     </Setting>
     <Setting Name="ProposalToolStripMenuItemText" Type="System.String" Scope="User">
       <Value Profile="(Default)">Заявки</Value>
@@ -55,9 +52,6 @@
     </Setting>
     <Setting Name="product_TNVEDLabelText" Type="System.String" Scope="User">
       <Value Profile="(Default)">Код ТНВД</Value>
-    </Setting>
-    <Setting Name="ProductionFormText" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Область аккредитации</Value>
     </Setting>
     <Setting Name="WindowToolStripMenuItemText" Type="System.String" Scope="User">
       <Value Profile="(Default)">Окна</Value>
@@ -155,6 +149,15 @@
   &lt;ProviderName&gt;MySql.Data.MySqlClient&lt;/ProviderName&gt;
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
       <Value Profile="(Default)">server=192.168.137.85;User Id=root;password=po12jein45bf;Persist Security Info=True;database=Edocbase</Value>
+    </Setting>
+    <Setting Name="ProductionToolStripMenuItemText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Продукция</Value>
+    </Setting>
+    <Setting Name="ProductionFormText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Продукция</Value>
+    </Setting>
+    <Setting Name="ExpertsFormTitle" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Эксперты</Value>
     </Setting>
   </Settings>
 </SettingsFile>
