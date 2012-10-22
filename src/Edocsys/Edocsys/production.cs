@@ -59,5 +59,10 @@ namespace Edocsys
         {
 
         }
+
+        private void toolStripButton7_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
