@@ -33,10 +33,16 @@ namespace Edocsys
 
         private void LoginForm_Load(object sender, EventArgs e)
         {
-            
-
-            //set server textbox to default address
-            servtxbox.Text = global::Edocsys.Properties.Settings.Default.ConnHost + ":" +global::Edocsys.Properties.Settings.Default.ConnPort;
+            this.usersTableAdapter.Connection.ConnectionString = ConnectionManager.TestConnectionString;
+            try
+            {
+                // TODO: This line of code loads data into the 'edocbaseDataSet.users' table. You can move, or remove it, as needed.
+                this.usersTableAdapter.Fill(this.edocbaseDataSet.users);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Ошибка подключения к базе данных");
+            }
         }
 
 
@@ -51,56 +57,26 @@ namespace Edocsys
 
             if (psmgr.VerifyHash(passtxbox.Text,pass))
             {
+                
+
+                ConnectionManager.Login = login;
+                ConnectionManager.Password = pass;
+
+                try
+                {
+                    ConnectionManager.TestConnection();
+                }
+                catch
+                {
+                    MessageBox.Show("Не удалось выполнить подключение к базе данных");
+                }
+
                 MessageBox.Show("Вы успешно авторизованы");
-                ConnectionStringSettingsCollection settings = ConfigurationManager.ConnectionStrings;
-
-
-                //make connection string
-                MySqlConnectionStringBuilder connString = new MySqlConnectionStringBuilder();
-
-                connString["Data Source"] = "";
-
-                connString["Server"] = global::Edocsys.Properties.Settings.Default.ConnHost;
-                connString["Port"] = global::Edocsys.Properties.Settings.Default.ConnPort;
-
-                connString["User ID"] = login;
-                //?????????? connString["Password"] = passtxbox.Text;
-                connString["Password"] = "wepo23nri_)(*";
-
-                connString["Persist Security Info"] = true;
-                connString["Character Set"] = "utf8";
-
-                connString["Database"] = global::Edocsys.Properties.Settings.Default.ConnDatabase;
-
-                Edocsys.Program.Data.constr = connString.ConnectionString;
-
                 //close form after successful login
                 this.Close();
             }
             else
                 MessageBox.Show("Неверный пароль");
-        }
-
-        private void btnCheckserv_Click(object sender, EventArgs e)
-        {
-            // here we're trying connecting to database
-            if (psmgr.OpenDbConn(servtxbox.Text))
-            {
-                MessageBox.Show("Connection ok");
-                btnlogin.Enabled = true;
-                this.usersTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
-                try
-                {
-                    // TODO: This line of code loads data into the 'edocbaseDataSet.users' table. You can move, or remove it, as needed.
-                    this.usersTableAdapter.Fill(this.edocbaseDataSet.users);
-                }
-                catch (Exception)
-                {
-                    MessageBox.Show("Нет подключения к базе данных");
-                }
-            }
-            else MessageBox.Show("Не удалось выполнить подключение к базе данных");
-            //DEBUG btnlogin.Enabled = true;
         }
     }
 }

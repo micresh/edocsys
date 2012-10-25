@@ -18,10 +18,5 @@ namespace Edocsys
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainForm());
         }
-        public static class Data
-        {
-            public static string constr { get; set; }
-            public static int sessid { get; set; }
-        }
     }
 }

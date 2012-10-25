@@ -26,8 +26,8 @@ namespace Edocsys
 
         private void ProductionForm_Load(object sender, EventArgs e)
         {
-            this.prodGostTableAdapter.Connection.ConnectionString = Edocsys.Program.Data.constr;
-            this.productsTableAdapter.Connection.ConnectionString = Edocsys.Program.Data.constr;
+            this.prodGostTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
+            this.productsTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
             try
             {
                 // TODO: This line of code loads data into the 'edocbaseDataSet.ProdGost' table. You can move, or remove it, as needed.

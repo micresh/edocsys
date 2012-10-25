@@ -96,5 +96,9 @@ namespace Edocsys
       {
           ShowForm<ReportClientForm>();
       }
+      public static void ShowConfigForm()
+      {
+          ShowForm<ConfigForm>();
+      }
    }
 }

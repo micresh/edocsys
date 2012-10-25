@@ -12,12 +12,10 @@ namespace Edocsys
 {
     public partial class MainForm : Form
     {
-        public String CS;
         public MainForm()
         {
             InitializeComponent();
             wmgr.SetMDIParent(this);
-         
         }
 
         private void LoginToolStripMenuItem_Click_1(object sender, EventArgs e)
@@ -63,6 +61,11 @@ namespace Edocsys
         private void ExpertsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             wmgr.ShowExpertsForm();
+        }
+
+        private void configFormToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            wmgr.ShowConfigForm();
         }
     }
 }
