@@ -193,5 +193,8 @@
     <Setting Name="ConfigTestConnectionText" Type="System.String" Scope="User">
       <Value Profile="(Default)">Проверить подключение</Value>
     </Setting>
+    <Setting Name="LogFilename" Type="System.String" Scope="User">
+      <Value Profile="(Default)">log.txt</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

@@ -136,8 +136,15 @@ namespace Edocsys
                 conn.Open();
 
             }
-            catch
+            catch (MySqlException e)
             {
+                Trace.TraceWarning("MySQL Error " + e.ErrorCode);
+                Trace.TraceWarning("MySQL Error " + e.Message);
+                t = false;
+            }
+            catch (Exception e)
+            {
+                Trace.WriteLine("UNKNOWN Error " + e.Message, "UNKNOWN");
                 t = false;
             }
             finally

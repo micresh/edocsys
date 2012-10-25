@@ -8,6 +8,8 @@ using System.Text;
 using System.Windows.Forms;
 using System.IO;
 
+using System.Diagnostics;
+
 namespace Edocsys
 {
     public partial class MainForm : Form
@@ -16,6 +18,10 @@ namespace Edocsys
         {
             InitializeComponent();
             wmgr.SetMDIParent(this);
+
+            //set trace information logger 
+            Debug.Listeners.Add(new TextWriterTraceListener(global::Edocsys.Properties.Settings.Default.LogFilename));
+            Trace.Listeners.Add(new TextWriterTraceListener(global::Edocsys.Properties.Settings.Default.LogFilename));
         }
 
         private void LoginToolStripMenuItem_Click_1(object sender, EventArgs e)
@@ -66,6 +72,13 @@ namespace Edocsys
         private void configFormToolStripMenuItem_Click(object sender, EventArgs e)
         {
             wmgr.ShowConfigForm();
+        }
+
+        private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            //save debug information
+            Trace.Flush();
+            Debug.Flush();
         }
     }
 }
