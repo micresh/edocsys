@@ -39,6 +39,7 @@ CREATE  TABLE IF NOT EXISTS `Edocbase`.`Products` (
   `Product_name` VARCHAR(45) NULL ,
   `Product_OKP` VARCHAR(31) NULL ,
   `Product_TNVED` VARCHAR(31) NULL ,
+  `ProductArea` TINYINT NULL,
   PRIMARY KEY (`idProducts`) )
 ENGINE = InnoDB;
 CREATE  TABLE IF NOT EXISTS `Edocbase`.`ProdGost` (
@@ -55,6 +56,11 @@ CREATE  TABLE IF NOT EXISTS `Edocbase`.`ProdGost` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `Edocbase`.`ContractTypes` (
+	`id` TINYINT not null ,
+	`name` varchar(30) ,
+	PRIMARY KEY (`id`) )
+ENGINE = InnoDB;
+CREATE TABLE IF NOT EXISTS `Edocbase`.`ProductAreas` (
 	`id` TINYINT not null ,
 	`name` varchar(30) ,
 	PRIMARY KEY (`id`) )
