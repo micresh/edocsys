@@ -32,6 +32,7 @@
             this.FileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.LoginToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ExitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.configFormToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.AdmToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.AdmpanelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.AssignexpertToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -46,6 +47,8 @@
             this.HelpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -68,6 +71,8 @@
             // FileToolStripMenuItem
             // 
             this.FileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.configFormToolStripMenuItem,
+            this.toolStripMenuItem1,
             this.LoginToolStripMenuItem,
             this.ExitToolStripMenuItem});
             this.FileToolStripMenuItem.Name = "FileToolStripMenuItem";
@@ -77,23 +82,31 @@
             // LoginToolStripMenuItem
             // 
             this.LoginToolStripMenuItem.Name = "LoginToolStripMenuItem";
-            this.LoginToolStripMenuItem.Size = new System.Drawing.Size(108, 22);
+            this.LoginToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.LoginToolStripMenuItem.Text = global::Edocsys.Properties.Settings.Default.LoginToolStripMenuItemText;
             this.LoginToolStripMenuItem.Click += new System.EventHandler(this.LoginToolStripMenuItem_Click_1);
             // 
             // ExitToolStripMenuItem
             // 
             this.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem";
-            this.ExitToolStripMenuItem.Size = new System.Drawing.Size(108, 22);
+            this.ExitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.ExitToolStripMenuItem.Text = global::Edocsys.Properties.Settings.Default.ExitToolStripMenuItemText;
             this.ExitToolStripMenuItem.Click += new System.EventHandler(this.ExitToolStripMenuItem_Click);
+            // 
+            // configFormToolStripMenuItem
+            // 
+            this.configFormToolStripMenuItem.Name = "configFormToolStripMenuItem";
+            this.configFormToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.configFormToolStripMenuItem.Text = global::Edocsys.Properties.Settings.Default.ConfigFormText;
+            this.configFormToolStripMenuItem.Click += new System.EventHandler(this.configFormToolStripMenuItem_Click);
             // 
             // AdmToolStripMenuItem
             // 
             this.AdmToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.AdmpanelToolStripMenuItem,
-            this.AssignexpertToolStripMenuItem,
-            this.ExpertsToolStripMenuItem});
+            this.ExpertsToolStripMenuItem,
+            this.toolStripMenuItem2,
+            this.AssignexpertToolStripMenuItem});
             this.AdmToolStripMenuItem.Name = "AdmToolStripMenuItem";
             this.AdmToolStripMenuItem.Size = new System.Drawing.Size(134, 20);
             this.AdmToolStripMenuItem.Text = global::Edocsys.Properties.Settings.Default.AdmToolStripMenuItemText;
@@ -131,14 +144,14 @@
             // ProposalToolStripMenuItem
             // 
             this.ProposalToolStripMenuItem.Name = "ProposalToolStripMenuItem";
-            this.ProposalToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
+            this.ProposalToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.ProposalToolStripMenuItem.Text = global::Edocsys.Properties.Settings.Default.ProposalToolStripMenuItemText;
             this.ProposalToolStripMenuItem.Click += new System.EventHandler(this.proposalToolStripMenuItem_Click);
             // 
             // ContractToolStripMenuItem
             // 
             this.ContractToolStripMenuItem.Name = "ContractToolStripMenuItem";
-            this.ContractToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
+            this.ContractToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.ContractToolStripMenuItem.Text = global::Edocsys.Properties.Settings.Default.ContractToolStripMenuItemText;
             // 
             // CatalogToolStripMenuItem
@@ -153,14 +166,14 @@
             // ContractorToolStripMenuItem
             // 
             this.ContractorToolStripMenuItem.Name = "ContractorToolStripMenuItem";
-            this.ContractorToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
+            this.ContractorToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.ContractorToolStripMenuItem.Text = global::Edocsys.Properties.Settings.Default.ContractorToolStripMenuItemText;
             this.ContractorToolStripMenuItem.Click += new System.EventHandler(this.ContractorToolStripMenuItem_Click);
             // 
             // ProductionToolStripMenuItem
             // 
             this.ProductionToolStripMenuItem.Name = "ProductionToolStripMenuItem";
-            this.ProductionToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
+            this.ProductionToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.ProductionToolStripMenuItem.Text = global::Edocsys.Properties.Settings.Default.ProductionToolStripMenuItemText;
             this.ProductionToolStripMenuItem.Click += new System.EventHandler(this.ProductionToolStripMenuItem_Click);
             // 
@@ -191,6 +204,16 @@
             this.statusStrip1.Size = new System.Drawing.Size(559, 22);
             this.statusStrip1.TabIndex = 3;
             this.statusStrip1.Text = "statusStrip1";
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(149, 6);
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(230, 6);
             // 
             // MainForm
             // 
@@ -234,6 +257,9 @@
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripMenuItem WindowToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem configFormToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem2;
     }
 }
 

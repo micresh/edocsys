@@ -253,7 +253,7 @@ namespace Edocsys.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("localhost")]
+        [global::System.Configuration.DefaultSettingValueAttribute("192.168.137.85")]
         public string ConnHost {
             get {
                 return ((string)(this["ConnHost"]));
@@ -265,7 +265,7 @@ namespace Edocsys.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("3309")]
+        [global::System.Configuration.DefaultSettingValueAttribute("3306")]
         public string ConnPort {
             get {
                 return ((string)(this["ConnPort"]));
@@ -667,6 +667,90 @@ namespace Edocsys.Properties {
             }
             set {
                 this["AgentsPersonMiddleNameText"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Настройки")]
+        public string ConfigFormText {
+            get {
+                return ((string)(this["ConfigFormText"]));
+            }
+            set {
+                this["ConfigFormText"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Сохранить")]
+        public string ConfigSaveText {
+            get {
+                return ((string)(this["ConfigSaveText"]));
+            }
+            set {
+                this["ConfigSaveText"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Отмена")]
+        public string ConfigCancelText {
+            get {
+                return ((string)(this["ConfigCancelText"]));
+            }
+            set {
+                this["ConfigCancelText"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Хост")]
+        public string ConfigHostText {
+            get {
+                return ((string)(this["ConfigHostText"]));
+            }
+            set {
+                this["ConfigHostText"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Порт")]
+        public string ConfigPortText {
+            get {
+                return ((string)(this["ConfigPortText"]));
+            }
+            set {
+                this["ConfigPortText"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Имя базы данных")]
+        public string ConfigDatabaseText {
+            get {
+                return ((string)(this["ConfigDatabaseText"]));
+            }
+            set {
+                this["ConfigDatabaseText"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Сборосить")]
+        public string ConfigResetToDefaults {
+            get {
+                return ((string)(this["ConfigResetToDefaults"]));
+            }
+            set {
+                this["ConfigResetToDefaults"] = value;
             }
         }
     }

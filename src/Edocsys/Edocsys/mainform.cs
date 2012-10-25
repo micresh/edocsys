@@ -64,5 +64,10 @@ namespace Edocsys
         {
             wmgr.ShowExpertsForm();
         }
+
+        private void configFormToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            wmgr.ShowConfigForm();
+        }
     }
 }
