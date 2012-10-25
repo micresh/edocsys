@@ -268,9 +268,9 @@
             this.ClientSize = new System.Drawing.Size(720, 405);
             this.Controls.Add(this.expertsDataGridView);
             this.Controls.Add(this.expertsBindingNavigator);
-            this.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Edocsys.Properties.Settings.Default, "ExpertsFormTitle", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Edocsys.Properties.Settings.Default, "ExpertsFormText", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.Name = "ExpertsForm";
-            this.Text = global::Edocsys.Properties.Settings.Default.ExpertsFormTitle;
+            this.Text = global::Edocsys.Properties.Settings.Default.ExpertsFormText;
             this.Load += new System.EventHandler(this.ExpertsForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.edocbaseDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.expertsBindingSource)).EndInit();

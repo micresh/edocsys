@@ -31,7 +31,7 @@ namespace Edocsys
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Save Errror");
+                MessageBox.Show(ex.Message, "Save Error");
             }
         }
 

@@ -56,61 +56,17 @@
     <Setting Name="WindowToolStripMenuItemText" Type="System.String" Scope="User">
       <Value Profile="(Default)">Окна</Value>
     </Setting>
-    <Setting Name="ContractStatuses" Type="System.Collections.Specialized.StringCollection" Scope="Application">
-      <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
-&lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;string&gt;00 - Заявка добавлена&lt;/string&gt;
-  &lt;string&gt;01 - К заявке прикреплен эксперт&lt;/string&gt;
-  &lt;string&gt;02 - Начата работа&lt;/string&gt;
-  &lt;string&gt;03 - Оформлен акт выполненных работ&lt;/string&gt;
-  &lt;string&gt;04 - Акт утверден руководителем&lt;/string&gt;
-  &lt;string&gt;20 - Договор исполнен&lt;/string&gt;
-  &lt;string&gt;21 - Заказчик  Эл. Джон&lt;/string&gt;
-  &lt;string&gt;22 - Эксперт  Эл. Джон&lt;/string&gt;
-  &lt;string&gt;23 - Директор  Эл. Джон&lt;/string&gt;
-&lt;/ArrayOfString&gt;</Value>
-    </Setting>
-    <Setting Name="PaymentStatuses" Type="System.Collections.Specialized.StringCollection" Scope="Application">
-      <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
-&lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;string&gt;10 - Договор оформлен&lt;/string&gt;
-  &lt;string&gt;11 - Договор подписан&lt;/string&gt;
-  &lt;string&gt;12 - Перечислен аванс&lt;/string&gt;
-  &lt;string&gt;13 - Перечислена полная сумма&lt;/string&gt;
-&lt;/ArrayOfString&gt;</Value>
-    </Setting>
     <Setting Name="ProposalFormText" Type="System.String" Scope="User">
       <Value Profile="(Default)">Заявки</Value>
     </Setting>
-    <Setting Name="EdocbaseConnectionStringHomeVolik" Type="(Connection string)" Scope="Application">
-      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
-&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;ConnectionString&gt;host=localhost;Port=3309;User Id=defuser;password=ttrr;Persist Security Info=True;database=Edocbase&lt;/ConnectionString&gt;
-&lt;/SerializableConnectionString&gt;</DesignTimeValue>
-      <Value Profile="(Default)">host=localhost;Port=3309;User Id=defuser;password=ttrr;Persist Security Info=True;database=Edocbase</Value>
-    </Setting>
-    <Setting Name="EdocbaseConnectionStringServer" Type="(Connection string)" Scope="Application">
-      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
-&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;ConnectionString&gt;server=10.0.2.2;User Id=defuser;password=ttrr;Persist Security Info=True;database=Edocbase&lt;/ConnectionString&gt;
-&lt;/SerializableConnectionString&gt;</DesignTimeValue>
-      <Value Profile="(Default)">server=10.0.2.2;User Id=defuser;password=ttrr;Persist Security Info=True;database=Edocbase</Value>
-    </Setting>
     <Setting Name="ConnHost" Type="System.String" Scope="User">
-      <Value Profile="(Default)">192.168.137.85</Value>
+      <Value Profile="(Default)">localhost</Value>
     </Setting>
     <Setting Name="ConnPort" Type="System.String" Scope="User">
-      <Value Profile="(Default)">3306</Value>
+      <Value Profile="(Default)">3309</Value>
     </Setting>
     <Setting Name="ConnDatabase" Type="System.String" Scope="User">
       <Value Profile="(Default)">Edocbase</Value>
-    </Setting>
-    <Setting Name="EdocbaseConnectionStringHomeMicresh" Type="(Connection string)" Scope="Application">
-      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
-&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;ConnectionString&gt;host=localhost;User Id=defuser;password=ttrr;Persist Security Info=True;database=Edocbase&lt;/ConnectionString&gt;
-&lt;/SerializableConnectionString&gt;</DesignTimeValue>
-      <Value Profile="(Default)">host=localhost;User Id=defuser;password=ttrr;Persist Security Info=True;database=Edocbase</Value>
     </Setting>
     <Setting Name="ProposalEmissionLabelText" Type="System.String" Scope="User">
       <Value Profile="(Default)">Тип выпуска продукции</Value>
@@ -127,21 +83,6 @@
     <Setting Name="ProposalContractTypeLabelText" Type="System.String" Scope="User">
       <Value Profile="(Default)">Тип договора</Value>
     </Setting>
-    <Setting Name="EdocbaseConnectionStringHomeVolikRoot" Type="(Connection string)" Scope="Application">
-      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
-&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;ConnectionString&gt;host=localhost;Port=3309;User Id=root;password=po12jein45bf;Persist Security Info=True;database=Edocbase&lt;/ConnectionString&gt;
-&lt;/SerializableConnectionString&gt;</DesignTimeValue>
-      <Value Profile="(Default)">host=localhost;Port=3309;User Id=root;password=po12jein45bf;Persist Security Info=True;database=Edocbase</Value>
-    </Setting>
-    <Setting Name="EdocbaseConnectionString1" Type="(Connection string)" Scope="Application">
-      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
-&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;ConnectionString&gt;server=10.0.2.2;User Id=root;database=Edocbase;Persist Security Info=True&lt;/ConnectionString&gt;
-  &lt;ProviderName&gt;MySql.Data.MySqlClient&lt;/ProviderName&gt;
-&lt;/SerializableConnectionString&gt;</DesignTimeValue>
-      <Value Profile="(Default)">server=10.0.2.2;User Id=root;database=Edocbase;Persist Security Info=True</Value>
-    </Setting>
     <Setting Name="EdocbaseConnectionString" Type="(Connection string)" Scope="Application">
       <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
 &lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
@@ -156,8 +97,77 @@
     <Setting Name="ProductionFormText" Type="System.String" Scope="User">
       <Value Profile="(Default)">Продукция</Value>
     </Setting>
-    <Setting Name="ExpertsFormTitle" Type="System.String" Scope="User">
+    <Setting Name="ExpertsFormText" Type="System.String" Scope="User">
       <Value Profile="(Default)">Эксперты</Value>
+    </Setting>
+    <Setting Name="ClientsFormText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Контрагенты</Value>
+    </Setting>
+    <Setting Name="AgentsFullNameText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Полное название</Value>
+    </Setting>
+    <Setting Name="AgentsShortNameText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Сокращенное название</Value>
+    </Setting>
+    <Setting Name="AgentsAddressText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Адрес</Value>
+    </Setting>
+    <Setting Name="AgentsPhoneText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Телефон</Value>
+    </Setting>
+    <Setting Name="AgentsFaxText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Факс</Value>
+    </Setting>
+    <Setting Name="AgentsEMailText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">E-mail</Value>
+    </Setting>
+    <Setting Name="AgentsContactInformationText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Контактная информация</Value>
+    </Setting>
+    <Setting Name="AgentsBankInformationText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Реквизиты</Value>
+    </Setting>
+    <Setting Name="AgentsINNText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">ИНН</Value>
+    </Setting>
+    <Setting Name="AgentsOGRNText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">ОГРН</Value>
+    </Setting>
+    <Setting Name="AgentsKPPText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">КПП</Value>
+    </Setting>
+    <Setting Name="AgentsOKPOText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">ОКПО</Value>
+    </Setting>
+    <Setting Name="AgentsKSText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Кор/счет</Value>
+    </Setting>
+    <Setting Name="AgentsRSText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Р/счет</Value>
+    </Setting>
+    <Setting Name="AgentsBIKText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">БИК</Value>
+    </Setting>
+    <Setting Name="AgentsBankText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Наименование банка</Value>
+    </Setting>
+    <Setting Name="AgentsContactPersonText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Ответственное лицо</Value>
+    </Setting>
+    <Setting Name="AgentsDocText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Документы</Value>
+    </Setting>
+    <Setting Name="AgentsPersonStatusText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Должность</Value>
+    </Setting>
+    <Setting Name="AgentsPersonFirstNameText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Имя</Value>
+    </Setting>
+    <Setting Name="AgentsPersonLastNameText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Фамилия</Value>
+    </Setting>
+    <Setting Name="AgentsPersonMiddleNameText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Отчество</Value>
     </Setting>
   </Settings>
 </SettingsFile>
