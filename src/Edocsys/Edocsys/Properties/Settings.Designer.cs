@@ -753,5 +753,17 @@ namespace Edocsys.Properties {
                 this["ConfigResetToDefaults"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Проверить подключение")]
+        public string ConfigTestConnectionText {
+            get {
+                return ((string)(this["ConfigTestConnectionText"]));
+            }
+            set {
+                this["ConfigTestConnectionText"] = value;
+            }
+        }
     }
 }

@@ -21,17 +21,25 @@ namespace Edocsys
 
         static ConnectionManager()
         {
-            
             testConnectionString = global::Edocsys.Properties.Settings.Default.EdocbaseConnectionString;
-            
+
+            ResetToDefaults();
+        }
+
+        public static void ResetToDefaults()
+        {
             Host = global::Edocsys.Properties.Settings.Default.ConnHost;
             Port = global::Edocsys.Properties.Settings.Default.ConnPort;
             Database = global::Edocsys.Properties.Settings.Default.ConnDatabase;
 
+            
+            //DEBUG FEATURE
+            #if DEBUG
+                //Login = "admin";
+            #endif
+
             Password = "wepo23nri_)(*";
-
         }
-
         private static string testConnectionString;
         
 
@@ -84,10 +92,7 @@ namespace Edocsys
 
             connString["Database"] = Database;
             
-            //DEBUG FEATURE
-            connString["User ID"] = "admin";
-
-            return connString.ConnectionString;
+           return connString.ConnectionString;
     
         }
 
@@ -95,8 +100,52 @@ namespace Edocsys
         {
             get
             {
-                return testConnectionString;
+                string login = Login;
+                string pass = Password;
+
+                //TODO: load data from the settings
+                Login = "defuser";
+                Password = "ttrr";
+
+                string connString = GetConnectionString();
+
+                Login = login;
+                Password = pass;
+
+                return connString;
             }
+        }
+
+        public static bool TestConnection()
+        {
+            return TestConnection(Host, Port);
+        }
+
+        public static bool TestConnection(string host, string port)
+        {
+            bool t = true;
+            try
+            {
+                MySql.Data.MySqlClient.MySqlConnection conn = new MySql.Data.MySqlClient.MySqlConnection();
+
+                Host = host;
+                Port = port;
+
+                conn.ConnectionString = TestConnectionString;
+
+                conn.Open();
+
+            }
+            catch
+            {
+                t = false;
+            }
+            finally
+            {
+                ResetToDefaults();
+            }
+
+            return t;
         }
     }
 }

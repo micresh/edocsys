@@ -23,7 +23,7 @@ namespace Edocsys
 
         private void buttonCancel_Click(object sender, EventArgs e)
         {
-            global::Edocsys.Properties.Settings.Default.Reload();   
+            global::Edocsys.Properties.Settings.Default.Reload();
         }
 
         private void ConfigForm_Load(object sender, EventArgs e)
@@ -37,6 +37,17 @@ namespace Edocsys
             {
                 global::Edocsys.Properties.Settings.Default.Reset();
             }
+        }
+
+        private void buttonTestConnection_Click(object sender, EventArgs e)
+        {
+            // here we're trying connecting to database
+            if (ConnectionManager.TestConnection(textBoxHost.Text, textBoxPort.Text))
+            {
+                MessageBox.Show("Соединение успешено установлено.");
+            }
+            else
+                MessageBox.Show("Не удалось выполнить подключение к базе данных.");
         }
     }
 }

@@ -190,5 +190,8 @@
     <Setting Name="ConfigResetToDefaults" Type="System.String" Scope="User">
       <Value Profile="(Default)">Сборосить</Value>
     </Setting>
+    <Setting Name="ConfigTestConnectionText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Проверить подключение</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

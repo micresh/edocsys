@@ -37,6 +37,7 @@
             this.textBoxDatabase = new System.Windows.Forms.TextBox();
             this.labelDatabase = new System.Windows.Forms.Label();
             this.buttonResetToDefaults = new System.Windows.Forms.Button();
+            this.buttonTestConnection = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // buttonSaveConfig
@@ -102,7 +103,7 @@
             // textBoxDatabase
             // 
             this.textBoxDatabase.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Edocsys.Properties.Settings.Default, "ConnDatabase", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.textBoxDatabase.Location = new System.Drawing.Point(116, 37);
+            this.textBoxDatabase.Location = new System.Drawing.Point(116, 79);
             this.textBoxDatabase.Name = "textBoxDatabase";
             this.textBoxDatabase.Size = new System.Drawing.Size(251, 20);
             this.textBoxDatabase.TabIndex = 6;
@@ -112,7 +113,7 @@
             // 
             this.labelDatabase.AutoSize = true;
             this.labelDatabase.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Edocsys.Properties.Settings.Default, "ConfigDatabaseText", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.labelDatabase.Location = new System.Drawing.Point(12, 40);
+            this.labelDatabase.Location = new System.Drawing.Point(12, 82);
             this.labelDatabase.Name = "labelDatabase";
             this.labelDatabase.Size = new System.Drawing.Size(98, 13);
             this.labelDatabase.TabIndex = 7;
@@ -129,11 +130,23 @@
             this.buttonResetToDefaults.UseVisualStyleBackColor = true;
             this.buttonResetToDefaults.Click += new System.EventHandler(this.buttonResetToDefaults_Click);
             // 
+            // buttonTestConnection
+            // 
+            this.buttonTestConnection.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Edocsys.Properties.Settings.Default, "ConfigTestConnectionText", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.buttonTestConnection.Location = new System.Drawing.Point(12, 41);
+            this.buttonTestConnection.Name = "buttonTestConnection";
+            this.buttonTestConnection.Size = new System.Drawing.Size(183, 23);
+            this.buttonTestConnection.TabIndex = 9;
+            this.buttonTestConnection.Text = global::Edocsys.Properties.Settings.Default.ConfigTestConnectionText;
+            this.buttonTestConnection.UseVisualStyleBackColor = true;
+            this.buttonTestConnection.Click += new System.EventHandler(this.buttonTestConnection_Click);
+            // 
             // ConfigForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(379, 243);
+            this.Controls.Add(this.buttonTestConnection);
             this.Controls.Add(this.buttonResetToDefaults);
             this.Controls.Add(this.labelDatabase);
             this.Controls.Add(this.textBoxDatabase);
@@ -163,5 +176,6 @@
         private System.Windows.Forms.TextBox textBoxDatabase;
         private System.Windows.Forms.Label labelDatabase;
         private System.Windows.Forms.Button buttonResetToDefaults;
+        private System.Windows.Forms.Button buttonTestConnection;
     }
 }
