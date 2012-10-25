@@ -62,7 +62,7 @@ CREATE TABLE IF NOT EXISTS `Edocbase`.`ContractTypes` (
 ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `Edocbase`.`ProductAreas` (
 	`id` TINYINT not null ,
-	`name` varchar(30) ,
+	`name` varchar(40) ,
 	PRIMARY KEY (`id`) )
 ENGINE = InnoDB;
 CREATE  TABLE IF NOT EXISTS `Edocbase`.`Contracts` (
