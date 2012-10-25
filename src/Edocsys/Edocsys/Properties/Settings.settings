@@ -196,5 +196,20 @@
     <Setting Name="LogFilename" Type="System.String" Scope="User">
       <Value Profile="(Default)">log.txt</Value>
     </Setting>
+    <Setting Name="AssighExpertFormText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Назначение экспертизы</Value>
+    </Setting>
+    <Setting Name="AssignExpertTabText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Назначить эксперта</Value>
+    </Setting>
+    <Setting Name="AssignedExpertTabText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Назначенные эксперты</Value>
+    </Setting>
+    <Setting Name="AssignExpertExpertsText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Эксперты</Value>
+    </Setting>
+    <Setting Name="ProposalAgentNameText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Название контрагента</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

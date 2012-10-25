@@ -2070,6 +2070,8 @@ namespace Edocsys {
             
             private global::System.Data.DataColumn columnExpert_Middlename;
             
+            private global::System.Data.DataColumn columnExpert_FullName;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public ExpertsDataTable() {
@@ -2137,6 +2139,14 @@ namespace Edocsys {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Expert_FullNameColumn {
+                get {
+                    return this.columnExpert_FullName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -2172,13 +2182,14 @@ namespace Edocsys {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ExpertsRow AddExpertsRow(string Expert_Lastname, string Expert_Firstname, string Expert_Middlename) {
+            public ExpertsRow AddExpertsRow(string Expert_Lastname, string Expert_Firstname, string Expert_Middlename, string Expert_FullName) {
                 ExpertsRow rowExpertsRow = ((ExpertsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         Expert_Lastname,
                         Expert_Firstname,
-                        Expert_Middlename};
+                        Expert_Middlename,
+                        Expert_FullName};
                 rowExpertsRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowExpertsRow);
                 return rowExpertsRow;
@@ -2212,6 +2223,7 @@ namespace Edocsys {
                 this.columnExpert_Lastname = base.Columns["Expert_Lastname"];
                 this.columnExpert_Firstname = base.Columns["Expert_Firstname"];
                 this.columnExpert_Middlename = base.Columns["Expert_Middlename"];
+                this.columnExpert_FullName = base.Columns["Expert_FullName"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2225,6 +2237,8 @@ namespace Edocsys {
                 base.Columns.Add(this.columnExpert_Firstname);
                 this.columnExpert_Middlename = new global::System.Data.DataColumn("Expert_Middlename", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnExpert_Middlename);
+                this.columnExpert_FullName = new global::System.Data.DataColumn("Expert_FullName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnExpert_FullName);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnidExperts}, true));
                 this.columnidExperts.AutoIncrement = true;
@@ -2235,6 +2249,7 @@ namespace Edocsys {
                 this.columnExpert_Lastname.MaxLength = 30;
                 this.columnExpert_Firstname.MaxLength = 30;
                 this.columnExpert_Middlename.MaxLength = 30;
+                this.columnExpert_FullName.MaxLength = 36;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5534,6 +5549,22 @@ namespace Edocsys {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Expert_FullName {
+                get {
+                    try {
+                        return ((string)(this[this.tableExperts.Expert_FullNameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Expert_FullName\' in table \'Experts\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableExperts.Expert_FullNameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsExpert_LastnameNull() {
                 return this.IsNull(this.tableExperts.Expert_LastnameColumn);
             }
@@ -5566,6 +5597,18 @@ namespace Edocsys {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetExpert_MiddlenameNull() {
                 this[this.tableExperts.Expert_MiddlenameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsExpert_FullNameNull() {
+                return this.IsNull(this.tableExperts.Expert_FullNameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetExpert_FullNameNull() {
+                this[this.tableExperts.Expert_FullNameColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -9306,24 +9349,33 @@ namespace Edocsys.EdocbaseDataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[3];
+            this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[4];
             this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = @"SELECT `idContract`, `idProducts`, `emission_type`, `Client_docs`, `Schem_type`, `Add_data`, `Contract_type`, `Contract_value_1`, `Contract_value_full`, `agent_id`, `Contract_number`, `Contract_status`, `Bid_type`, `expert_id`, `Cash_income` FROM `Contracts`";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = @"SELECT        Contracts.Add_data, Contracts.Client_docs, Contracts.Contract_type, Contracts.Schem_type, Contracts.emission_type, Contracts.idContract, Contracts.idProducts, 
-                         Products.Product_name
+            this._commandCollection[1].CommandText = @"SELECT        Contracts.agent_id, Contracts.Contract_number, Contracts.idContract, Contracts.idProducts, Contracts.expert_id, Agents.Ag_shortname, Products.Product_name
 FROM            Contracts INNER JOIN
-                         Products ON Contracts.idProducts = Products.idProducts
-WHERE        (Contracts.Contract_type = 0)";
+                         Products ON Contracts.idProducts = Products.idProducts INNER JOIN
+                         Agents ON Contracts.agent_id = Agents.idAgents
+WHERE        (Contracts.Contract_type = 1)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[2] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = "UPDATE       Contracts\r\nSET                Contract_type = @Contract_type\r\nWHERE " +
-                "       (idContract = @Original_idContract)";
+            this._commandCollection[2].CommandText = @"SELECT        Contracts.Add_data, Contracts.Client_docs, Contracts.Contract_type, Contracts.Schem_type, Contracts.emission_type, Contracts.idContract, Contracts.idProducts, 
+                         Products.Product_name, Contracts.agent_id, Agents.Ag_shortname
+FROM            Contracts INNER JOIN
+                         Products ON Contracts.idProducts = Products.idProducts INNER JOIN
+                         Agents ON Contracts.agent_id = Agents.idAgents
+WHERE        (Contracts.Contract_type = 0)";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[3] = new global::MySql.Data.MySqlClient.MySqlCommand();
+            this._commandCollection[3].Connection = this.Connection;
+            this._commandCollection[3].CommandText = "UPDATE       Contracts\r\nSET                Contract_type = @Contract_type\r\nWHERE " +
+                "       (idContract = @Original_idContract)";
+            this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
             global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@Contract_type";
             param.DbType = global::System.Data.DbType.Object;
@@ -9331,7 +9383,7 @@ WHERE        (Contracts.Contract_type = 0)";
             param.Size = 1024;
             param.IsNullable = true;
             param.SourceColumn = "Contract_type";
-            this._commandCollection[2].Parameters.Add(param);
+            this._commandCollection[3].Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@Original_idContract";
             param.DbType = global::System.Data.DbType.Int32;
@@ -9339,7 +9391,7 @@ WHERE        (Contracts.Contract_type = 0)";
             param.IsNullable = true;
             param.SourceColumn = "idContract";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._commandCollection[2].Parameters.Add(param);
+            this._commandCollection[3].Parameters.Add(param);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -9370,13 +9422,48 @@ WHERE        (Contracts.Contract_type = 0)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillProposal(EdocbaseDataSet.ContractsDataTable dataTable) {
+        public virtual int FillExpertAssignment(EdocbaseDataSet.ContractsDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
             }
             int returnValue = this.Adapter.Fill(dataTable);
             return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual EdocbaseDataSet.ContractsDataTable GetDataExpertAssignment() {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            EdocbaseDataSet.ContractsDataTable dataTable = new EdocbaseDataSet.ContractsDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillProposal(EdocbaseDataSet.ContractsDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual EdocbaseDataSet.ContractsDataTable GetDataProposal() {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            EdocbaseDataSet.ContractsDataTable dataTable = new EdocbaseDataSet.ContractsDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -9882,7 +9969,7 @@ WHERE        (Contracts.Contract_type = 0)";
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
         public virtual int SendProposal(object Contract_type, int Original_idContract) {
-            global::MySql.Data.MySqlClient.MySqlCommand command = this.CommandCollection[2];
+            global::MySql.Data.MySqlClient.MySqlCommand command = this.CommandCollection[3];
             if ((Contract_type == null)) {
                 command.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -11080,6 +11167,7 @@ WHERE        (Contracts.Contract_type = 0)";
             tableMapping.ColumnMappings.Add("Expert_Lastname", "Expert_Lastname");
             tableMapping.ColumnMappings.Add("Expert_Firstname", "Expert_Firstname");
             tableMapping.ColumnMappings.Add("Expert_Middlename", "Expert_Middlename");
+            tableMapping.ColumnMappings.Add("Expert_FullName", "Expert_FullName");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
@@ -11266,12 +11354,19 @@ WHERE        (Contracts.Contract_type = 0)";
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[1];
+            this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[2];
             this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT `idExperts`, `Expert_Lastname`, `Expert_Firstname`, `Expert_Middlename` FR" +
-                "OM `Experts`";
+            this._commandCollection[0].CommandText = "SELECT `idExperts`, `Expert_Lastname`, `Expert_Firstname`, `Expert_Middlename`,\r\n" +
+                "CONCAT(`Expert_Lastname`, \' \', substr(`Expert_Firstname`,1,1), \'. \', substr(`Exp" +
+                "ert_Middlename`,1,1), \'.\') as `Expert_FullName`\r\n FROM `Experts`";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::MySql.Data.MySqlClient.MySqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "SELECT Expert_Firstname, CONCAT(Expert_Lastname, \' \', substr(Expert_Firstname, 1," +
+                " 1), \'. \', substr(Expert_Middlename, 1, 1), \'.\') AS Expert_FullName, Expert_Last" +
+                "name, Expert_Middlename, idExperts FROM Experts";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -11293,6 +11388,30 @@ WHERE        (Contracts.Contract_type = 0)";
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual EdocbaseDataSet.ExpertsDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            EdocbaseDataSet.ExpertsDataTable dataTable = new EdocbaseDataSet.ExpertsDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillWithFullName(EdocbaseDataSet.ExpertsDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual EdocbaseDataSet.ExpertsDataTable GetDataWithFullName() {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
             EdocbaseDataSet.ExpertsDataTable dataTable = new EdocbaseDataSet.ExpertsDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;

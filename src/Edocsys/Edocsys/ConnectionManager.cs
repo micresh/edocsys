@@ -35,7 +35,7 @@ namespace Edocsys
             
             //DEBUG FEATURE
             #if DEBUG
-                //Login = "admin";
+                Login = "admin";
             #endif
 
             Password = "wepo23nri_)(*";
@@ -144,7 +144,7 @@ namespace Edocsys
             }
             catch (Exception e)
             {
-                Trace.WriteLine("UNKNOWN Error " + e.Message, "UNKNOWN");
+                Trace.TraceError("UNKNOWN Error " + e.Message);
                 t = false;
             }
             finally

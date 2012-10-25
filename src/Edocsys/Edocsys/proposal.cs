@@ -25,7 +25,9 @@ namespace Edocsys
                 this.contractsBindingSource.EndEdit();
 
                 this.tableAdapterManager.UpdateAll(this.edocbaseDataSet);
+
                 this.edocbaseDataSet.AcceptChanges();
+
                 this.contractsTableAdapter.FillProposal(this.edocbaseDataSet.Contracts);
                 this.contractsDataGridView.Refresh();
             }
@@ -37,17 +39,18 @@ namespace Edocsys
 
         private void ProposalForm_Load(object sender, EventArgs e)
         {
+
+            this.agentsTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
             this.productsTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
             this.contractsTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
             this.contractTypesTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
 
 
-            // TODO: This line of code loads data into the 'edocbaseDataSet.ContractTypes' table. You can move, or remove it, as needed.
+
             this.contractTypesTableAdapter.Fill(this.edocbaseDataSet.ContractTypes);
-            // TODO: This line of code loads data into the 'edocbaseDataSet.Products' table. You can move, or remove it, as needed.
             this.productsTableAdapter.Fill(this.edocbaseDataSet.Products);
-            // TODO: This line of code loads data into the 'edocbaseDataSet.Contracts' table. You can move, or remove it, as needed.
             this.contractsTableAdapter.FillProposal(this.edocbaseDataSet.Contracts);
+            this.agentsTableAdapter.Fill(this.edocbaseDataSet.Agents);
         }
 
         private void contractsDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -79,6 +82,7 @@ namespace Edocsys
         private void bindingNavigatorAddNewItem_Click(object sender, EventArgs e)
         {
             contractsDataGridView.CurrentRow.Cells["contract_type"].Value = 0;
+            contractsDataGridView.CurrentRow.Cells["agent_id"].Value = 0;
         }
     }
 }

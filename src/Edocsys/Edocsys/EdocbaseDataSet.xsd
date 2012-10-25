@@ -320,13 +320,26 @@
               <Mapping SourceColumn="Cash_income" DataSetColumn="Cash_income" />
             </Mappings>
             <Sources>
-              <DbSource ConnectionRef="EdocbaseConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillProposal" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillProposal" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillProposal">
+              <DbSource ConnectionRef="EdocbaseConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillExpertAssignment" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataExpertAssignment" GeneratorSourceName="FillExpertAssignment" GetMethodModifier="Public" GetMethodName="GetDataExpertAssignment" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataExpertAssignment" UserSourceName="FillExpertAssignment">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        Contracts.agent_id, Contracts.Contract_number, Contracts.idContract, Contracts.idProducts, Contracts.expert_id, Agents.Ag_shortname, Products.Product_name
+FROM            Contracts INNER JOIN
+                         Products ON Contracts.idProducts = Products.idProducts INNER JOIN
+                         Agents ON Contracts.agent_id = Agents.idAgents
+WHERE        (Contracts.Contract_type = 1)</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="EdocbaseConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillProposal" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataProposal" GeneratorSourceName="FillProposal" GetMethodModifier="Public" GetMethodName="GetDataProposal" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataProposal" UserSourceName="FillProposal">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        Contracts.Add_data, Contracts.Client_docs, Contracts.Contract_type, Contracts.Schem_type, Contracts.emission_type, Contracts.idContract, Contracts.idProducts, 
-                         Products.Product_name
+                         Products.Product_name, Contracts.agent_id, Agents.Ag_shortname
 FROM            Contracts INNER JOIN
-                         Products ON Contracts.idProducts = Products.idProducts
+                         Products ON Contracts.idProducts = Products.idProducts INNER JOIN
+                         Agents ON Contracts.agent_id = Agents.idAgents
 WHERE        (Contracts.Contract_type = 0)</CommandText>
                     <Parameters />
                   </DbCommand>
@@ -479,8 +492,10 @@ WHERE        (idContract = @Original_idContract)</CommandText>
                   </DbCommand>
                 </InsertCommand>
                 <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT `idExperts`, `Expert_Lastname`, `Expert_Firstname`, `Expert_Middlename` FROM `Experts`</CommandText>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT `idExperts`, `Expert_Lastname`, `Expert_Firstname`, `Expert_Middlename`,
+CONCAT(`Expert_Lastname`, ' ', substr(`Expert_Firstname`,1,1), '. ', substr(`Expert_Middlename`,1,1), '.') as `Expert_FullName`
+ FROM `Experts`</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -508,8 +523,18 @@ WHERE        (idContract = @Original_idContract)</CommandText>
               <Mapping SourceColumn="Expert_Lastname" DataSetColumn="Expert_Lastname" />
               <Mapping SourceColumn="Expert_Firstname" DataSetColumn="Expert_Firstname" />
               <Mapping SourceColumn="Expert_Middlename" DataSetColumn="Expert_Middlename" />
+              <Mapping SourceColumn="Expert_FullName" DataSetColumn="Expert_FullName" />
             </Mappings>
-            <Sources />
+            <Sources>
+              <DbSource ConnectionRef="EdocbaseConnectionString (Settings)" DbObjectName="Edocbase.Experts" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillWithFullName" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataWithFullName" GeneratorSourceName="FillWithFullName" GetMethodModifier="Public" GetMethodName="GetDataWithFullName" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataWithFullName" UserSourceName="FillWithFullName">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT Expert_Firstname, CONCAT(Expert_Lastname, ' ', substr(Expert_Firstname, 1, 1), '. ', substr(Expert_Middlename, 1, 1), '.') AS Expert_FullName, Expert_Lastname, Expert_Middlename, idExperts FROM Experts</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="log_journalTableAdapter" GeneratorDataComponentClassName="log_journalTableAdapter" Name="log_journal" UserDataComponentName="log_journalTableAdapter">
             <MainSource>
@@ -968,6 +993,13 @@ WHERE        (idContract = @Original_idContract)</CommandText>
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+              <xs:element name="Expert_FullName" msprop:Generator_ColumnVarNameInTable="columnExpert_FullName" msprop:Generator_ColumnPropNameInRow="Expert_FullName" msprop:Generator_ColumnPropNameInTable="Expert_FullNameColumn" msprop:Generator_UserColumnName="Expert_FullName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="36" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -1241,12 +1273,12 @@ WHERE        (idContract = @Original_idContract)</CommandText>
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="fk_ProdGost_1" msdata:parent="Products" msdata:child="ProdGost" msdata:parentkey="idProducts" msdata:childkey="idProducts" msprop:Generator_UserChildTable="ProdGost" msprop:Generator_ChildPropName="GetProdGostRows" msprop:Generator_ParentPropName="ProductsRow" msprop:Generator_UserRelationName="fk_ProdGost_1" msprop:Generator_RelationVarName="relationfk_ProdGost_1" msprop:Generator_UserParentTable="Products" />
-      <msdata:Relationship name="fk_Exec_contracts_1" msdata:parent="Contracts" msdata:child="Exec_contracts" msdata:parentkey="idContract" msdata:childkey="idContract" msprop:Generator_UserChildTable="Exec_contracts" msprop:Generator_ChildPropName="GetExec_contractsRows" msprop:Generator_ParentPropName="ContractsRow" msprop:Generator_UserRelationName="fk_Exec_contracts_1" msprop:Generator_RelationVarName="relationfk_Exec_contracts_1" msprop:Generator_UserParentTable="Contracts" />
-      <msdata:Relationship name="fk_Contracts_3" msdata:parent="Products" msdata:child="Contracts" msdata:parentkey="idProducts" msdata:childkey="idProducts" msprop:Generator_UserChildTable="Contracts" msprop:Generator_ChildPropName="GetContractsRows" msprop:Generator_ParentPropName="ProductsRow" msprop:Generator_UserRelationName="fk_Contracts_3" msprop:Generator_RelationVarName="relationfk_Contracts_3" msprop:Generator_UserParentTable="Products" />
-      <msdata:Relationship name="fk_Contracts_2" msdata:parent="Experts" msdata:child="Contracts" msdata:parentkey="idExperts" msdata:childkey="expert_id" msprop:Generator_UserChildTable="Contracts" msprop:Generator_ChildPropName="GetContractsRows" msprop:Generator_ParentPropName="ExpertsRow" msprop:Generator_UserRelationName="fk_Contracts_2" msprop:Generator_RelationVarName="relationfk_Contracts_2" msprop:Generator_UserParentTable="Experts" />
-      <msdata:Relationship name="fk_Contracts_1" msdata:parent="Agents" msdata:child="Contracts" msdata:parentkey="idAgents" msdata:childkey="agent_id" msprop:Generator_UserChildTable="Contracts" msprop:Generator_ChildPropName="GetContractsRows" msprop:Generator_ParentPropName="AgentsRow" msprop:Generator_UserRelationName="fk_Contracts_1" msprop:Generator_RelationVarName="relationfk_Contracts_1" msprop:Generator_UserParentTable="Agents" />
-      <msdata:Relationship name="fk_Contracts_4" msdata:parent="ContractTypes" msdata:child="Contracts" msdata:parentkey="id" msdata:childkey="Contract_type" msprop:Generator_UserChildTable="Contracts" msprop:Generator_ChildPropName="GetContractsRows" msprop:Generator_ParentPropName="ContractTypesRow" msprop:Generator_UserRelationName="fk_Contracts_4" msprop:Generator_RelationVarName="relationfk_Contracts_4" msprop:Generator_UserParentTable="ContractTypes" />
+      <msdata:Relationship name="fk_ProdGost_1" msdata:parent="Products" msdata:child="ProdGost" msdata:parentkey="idProducts" msdata:childkey="idProducts" msprop:Generator_UserChildTable="ProdGost" msprop:Generator_ChildPropName="GetProdGostRows" msprop:Generator_UserParentTable="Products" msprop:Generator_UserRelationName="fk_ProdGost_1" msprop:Generator_RelationVarName="relationfk_ProdGost_1" msprop:Generator_ParentPropName="ProductsRow" />
+      <msdata:Relationship name="fk_Exec_contracts_1" msdata:parent="Contracts" msdata:child="Exec_contracts" msdata:parentkey="idContract" msdata:childkey="idContract" msprop:Generator_UserChildTable="Exec_contracts" msprop:Generator_ChildPropName="GetExec_contractsRows" msprop:Generator_UserParentTable="Contracts" msprop:Generator_UserRelationName="fk_Exec_contracts_1" msprop:Generator_RelationVarName="relationfk_Exec_contracts_1" msprop:Generator_ParentPropName="ContractsRow" />
+      <msdata:Relationship name="fk_Contracts_3" msdata:parent="Products" msdata:child="Contracts" msdata:parentkey="idProducts" msdata:childkey="idProducts" msprop:Generator_UserChildTable="Contracts" msprop:Generator_ChildPropName="GetContractsRows" msprop:Generator_UserParentTable="Products" msprop:Generator_UserRelationName="fk_Contracts_3" msprop:Generator_RelationVarName="relationfk_Contracts_3" msprop:Generator_ParentPropName="ProductsRow" />
+      <msdata:Relationship name="fk_Contracts_2" msdata:parent="Experts" msdata:child="Contracts" msdata:parentkey="idExperts" msdata:childkey="expert_id" msprop:Generator_UserChildTable="Contracts" msprop:Generator_ChildPropName="GetContractsRows" msprop:Generator_UserParentTable="Experts" msprop:Generator_UserRelationName="fk_Contracts_2" msprop:Generator_RelationVarName="relationfk_Contracts_2" msprop:Generator_ParentPropName="ExpertsRow" />
+      <msdata:Relationship name="fk_Contracts_1" msdata:parent="Agents" msdata:child="Contracts" msdata:parentkey="idAgents" msdata:childkey="agent_id" msprop:Generator_UserChildTable="Contracts" msprop:Generator_ChildPropName="GetContractsRows" msprop:Generator_UserParentTable="Agents" msprop:Generator_UserRelationName="fk_Contracts_1" msprop:Generator_RelationVarName="relationfk_Contracts_1" msprop:Generator_ParentPropName="AgentsRow" />
+      <msdata:Relationship name="fk_Contracts_4" msdata:parent="ContractTypes" msdata:child="Contracts" msdata:parentkey="id" msdata:childkey="Contract_type" msprop:Generator_UserChildTable="Contracts" msprop:Generator_ChildPropName="GetContractsRows" msprop:Generator_UserParentTable="ContractTypes" msprop:Generator_UserRelationName="fk_Contracts_4" msprop:Generator_RelationVarName="relationfk_Contracts_4" msprop:Generator_ParentPropName="ContractTypesRow" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>

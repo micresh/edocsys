@@ -777,5 +777,65 @@ namespace Edocsys.Properties {
                 this["LogFilename"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Назначение экспертизы")]
+        public string AssighExpertFormText {
+            get {
+                return ((string)(this["AssighExpertFormText"]));
+            }
+            set {
+                this["AssighExpertFormText"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Назначить эксперта")]
+        public string AssignExpertTabText {
+            get {
+                return ((string)(this["AssignExpertTabText"]));
+            }
+            set {
+                this["AssignExpertTabText"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Назначенные эксперты")]
+        public string AssignedExpertTabText {
+            get {
+                return ((string)(this["AssignedExpertTabText"]));
+            }
+            set {
+                this["AssignedExpertTabText"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Эксперты")]
+        public string AssignExpertExpertsText {
+            get {
+                return ((string)(this["AssignExpertExpertsText"]));
+            }
+            set {
+                this["AssignExpertExpertsText"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Название контрагента")]
+        public string ProposalAgentNameText {
+            get {
+                return ((string)(this["ProposalAgentNameText"]));
+            }
+            set {
+                this["ProposalAgentNameText"] = value;
+            }
+        }
     }
 }

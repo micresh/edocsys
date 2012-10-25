@@ -26,8 +26,13 @@ namespace Edocsys
 
         private void AssignExpertForm_Load(object sender, EventArgs e)
         {
+            this.expertsTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
+            this.contractsTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
+
+            // TODO: This line of code loads data into the 'edocbaseDataSet.Experts' table. You can move, or remove it, as needed.
+            this.expertsTableAdapter.Fill(this.edocbaseDataSet.Experts);
             // TODO: This line of code loads data into the 'edocbaseDataSet.Contracts' table. You can move, or remove it, as needed.
-            this.contractsTableAdapter.Fill(this.edocbaseDataSet.Contracts);
+            this.contractsTableAdapter.FillExpertAssignment(this.edocbaseDataSet.Contracts);
 
         }
     }
