@@ -873,5 +873,41 @@ namespace Edocsys.Properties {
                 this["AssignExpertsAssignButtonText"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Вход")]
+        public string LoginFormText {
+            get {
+                return ((string)(this["LoginFormText"]));
+            }
+            set {
+                this["LoginFormText"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Отмена")]
+        public string LoginFormCancelText {
+            get {
+                return ((string)(this["LoginFormCancelText"]));
+            }
+            set {
+                this["LoginFormCancelText"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Войти")]
+        public string LoginFormLoginText {
+            get {
+                return ((string)(this["LoginFormLoginText"]));
+            }
+            set {
+                this["LoginFormLoginText"] = value;
+            }
+        }
     }
 }

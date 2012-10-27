@@ -220,5 +220,14 @@
     <Setting Name="AssignExpertsAssignButtonText" Type="System.String" Scope="User">
       <Value Profile="(Default)">Назначить</Value>
     </Setting>
+    <Setting Name="LoginFormText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Вход</Value>
+    </Setting>
+    <Setting Name="LoginFormCancelText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Отмена</Value>
+    </Setting>
+    <Setting Name="LoginFormLoginText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Войти</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

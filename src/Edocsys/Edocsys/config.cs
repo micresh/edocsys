@@ -19,11 +19,19 @@ namespace Edocsys
         private void buttonSaveConfig_Click(object sender, EventArgs e)
         {
             global::Edocsys.Properties.Settings.Default.Save();
+            global::Edocsys.Properties.Settings.Default.Reload();
+
+            //reload connection data
+            ConnectionManager.ResetToDefaults();
+
+            this.Close();
         }
 
         private void buttonCancel_Click(object sender, EventArgs e)
         {
             global::Edocsys.Properties.Settings.Default.Reload();
+
+            this.Close();
         }
 
         private void ConfigForm_Load(object sender, EventArgs e)

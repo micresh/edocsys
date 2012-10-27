@@ -23,6 +23,9 @@ namespace Edocsys
         {
             testConnectionString = global::Edocsys.Properties.Settings.Default.EdocbaseConnectionString;
 
+            //set current user login
+            CurrentUser = "";
+
             ResetToDefaults();
         }
 
@@ -73,6 +76,11 @@ namespace Edocsys
             set;
         }
 
+        public static string CurrentUser
+        {
+            get;
+            set;
+        }
 
         public static string GetConnectionString()
         {

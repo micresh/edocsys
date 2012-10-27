@@ -6,99 +6,109 @@ using System.Windows.Forms;
 
 namespace Edocsys
 {
-   public static class wmgr
-   {
-      private static Form MDIParent;
+    public static class wmgr
+    {
+        private static Form MDIParent;
 
-      public static void SetMDIParent(Form MDIParent)
-      {
-         wmgr.MDIParent = MDIParent;
-      }
+        public static void SetMDIParent(Form MDIParent)
+        {
+            wmgr.MDIParent = MDIParent;
+        }
 
-      private static Form FindForm(Type FormType)
-      {
-         foreach (Form f in MDIParent.MdiChildren)
-         {
-            //detect form's class
-            if (f.GetType() == FormType)
-               //if exists => return form
-               return f;
-         }
-         return null;
-      }
+        private static Form FindForm(Type FormType)
+        {
+            foreach (Form f in MDIParent.MdiChildren)
+            {
+                //detect form's class
+                if (f.GetType() == FormType)
+                    //if exists => return form
+                    return f;
+            }
+            return null;
+        }
 
-      private static void ActivateForm(Form f)
-      {
-         f.BringToFront();
-         f.Activate();
-      }
+        private static void ActivateForm(Form f)
+        {
+            f.BringToFront();
+            f.Activate();
+        }
 
-      private static void AssignFormToMDI(Form f)
-      {
-         //assign parent
-         f.MdiParent = MDIParent;
-         f.Show();
-      }
+        private static void AssignFormToMDI(Form f)
+        {
+            //assign parent
+            f.MdiParent = MDIParent;
+            f.Show();
+        }
 
-      //use generics to create common ShowForm method
-      private static void ShowForm<T>() where T : Form, new()
-      {
-         //try to find form
-         Form f = FindForm(typeof(T));
+        //use generics to create common ShowForm method
+        private static void ShowForm<T>() where T : Form, new()
+        {
+            //try to find form
+            Form f = FindForm(typeof(T));
 
-         //if exists
-         if (f != null)
+            //if exists
+            if (f != null)
+                //activate form
+                ActivateForm(f);
+            else
+                //create form and add it to MDI list
+                AssignFormToMDI(new T());
+        }
+
+        //use generics to create common ShowFormModal method
+        private static void ShowDialogForm<T>() where T : Form, new()
+        {
+            //create new form
+            Form f = new T();
+
             //activate form
-            ActivateForm(f);
-         else
-            //create form and add it to MDI list
-            AssignFormToMDI(new T());
-      }
+            f.ShowDialog();
+        }
 
-      public static void ShowLoginForm()
-      {
-         ShowForm<LoginForm>();
-      }
+        public static void ShowLoginForm()
+        {
+            ShowDialogForm<LoginForm>();
+        }
 
-      public static void ShowClientsForm()
-      {
-         ShowForm<ClientsForm>();
-      }
-      public static void ShowUseradmForm()
-      {
-          ShowForm<UseradmForm>();
-      }
-      public static void ShowAssignexpertForm()
-      {
-          ShowForm<AssignExpertForm>();
-      }
-      public static void ShowContractsForm()
-      {
-          ShowForm<ContractsForm>();
-      }
-      public static void ShowDocTemplatesForm()
-      {
-          ShowForm<DocTemplatesForm>();
-      }
-      public static void ShowExpertsForm()
-      {
-          ShowForm<ExpertsForm>();
-      }
-      public static void ShowProductionForm()
-      {
-          ShowForm<ProductionForm>();
-      }
-      public static void ShowProporsalForm()
-      {
-          ShowForm<ProposalForm>();
-      }
-      public static void ShowReportClientForm()
-      {
-          ShowForm<ReportClientForm>();
-      }
-      public static void ShowConfigForm()
-      {
-          ShowForm<ConfigForm>();
-      }
-   }
+        public static void ShowClientsForm()
+        {
+            ShowForm<ClientsForm>();
+        }
+        public static void ShowUseradmForm()
+        {
+            ShowForm<UseradmForm>();
+        }
+        public static void ShowAssignexpertForm()
+        {
+            ShowForm<AssignExpertForm>();
+        }
+        public static void ShowContractsForm()
+        {
+            ShowForm<ContractsForm>();
+        }
+        public static void ShowDocTemplatesForm()
+        {
+            ShowForm<DocTemplatesForm>();
+        }
+        public static void ShowExpertsForm()
+        {
+            ShowForm<ExpertsForm>();
+        }
+        public static void ShowProductionForm()
+        {
+            ShowForm<ProductionForm>();
+        }
+        public static void ShowProporsalForm()
+        {
+            ShowForm<ProposalForm>();
+        }
+        public static void ShowReportClientForm()
+        {
+            ShowForm<ReportClientForm>();
+        }
+        public static void ShowConfigForm()
+        {
+            ShowForm<ConfigForm>();
+        }
+    }
 }
