@@ -40,13 +40,13 @@ namespace Edocsys
 
         private void assignButton_Click(object sender, EventArgs e)
         {
-            if (expertAssignmentBindingSource.Position >= 0)
+            if (expertAssignmentBindingSource.Position < 0)
             {
                 MessageBox.Show("Не выбрана заявка?", "Ошибка", MessageBoxButtons.OK);
                 return;
             }
 
-            if (expertsListBox.SelectedIndex >= 0)
+            if (expertsListBox.SelectedIndex < 0)
             {
                 MessageBox.Show("Не выбран эксперт?", "Ошибка", MessageBoxButtons.OK);
                 return;
