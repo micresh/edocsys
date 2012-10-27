@@ -9,7 +9,7 @@ INSERT INTO `Edocbase`.`ContractTypes` (`id`, `name`) VALUES (1,'Ожидани�
 INSERT INTO `Edocbase`.`ContractTypes` (`id`, `name`) VALUES (2,'К заявке прикреплен эксперт');
 INSERT INTO `Edocbase`.`ContractTypes` (`id`, `name`) VALUES (3,'Начата работа по заявке');
 INSERT INTO `Edocbase`.`ContractTypes` (`id`, `name`) VALUES (4,'Оформлен акт выполненных работ');
-INSERT INTO `Edocbase`.`ContractTypes` (`id`, `name`) VALUES (5,'Фкт утвержден руководителем');
+INSERT INTO `Edocbase`.`ContractTypes` (`id`, `name`) VALUES (5,'Акт утвержден руководителем');
 INSERT INTO `Edocbase`.`ContractTypes` (`id`, `name`) VALUES (20,'Невыполнение по вине заказчика');
 INSERT INTO `Edocbase`.`ContractTypes` (`id`, `name`) VALUES (21,'Невыполнение по вине эксперта');
 -- insert productareas into ProductAreas table
