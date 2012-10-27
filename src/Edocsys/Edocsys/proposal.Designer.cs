@@ -40,6 +40,7 @@
             this.contractsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.contractsTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.ContractsTableAdapter();
             this.tableAdapterManager = new Edocsys.EdocbaseDataSetTableAdapters.TableAdapterManager();
+            this.agentsTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.AgentsTableAdapter();
             this.productsTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.ProductsTableAdapter();
             this.contractsBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
@@ -56,6 +57,15 @@
             this.contractsBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.mainSplitContainer = new System.Windows.Forms.SplitContainer();
             this.contractsDataGridView = new System.Windows.Forms.DataGridView();
+            this.idContract = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.agent_shortname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idProducts = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.emission_type = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.client_docs = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.scheme_type = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.add_data = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SendProposalColumn = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Contract_type = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.proposalAgentsComboBox = new System.Windows.Forms.ComboBox();
             this.agentsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.textBox2 = new System.Windows.Forms.TextBox();
@@ -66,16 +76,6 @@
             this.proposalEmissionTypeTextBox = new System.Windows.Forms.TextBox();
             this.contractTypesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.contractTypesTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.ContractTypesTableAdapter();
-            this.agentsTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.AgentsTableAdapter();
-            this.idContract = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Agent_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idProducts = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SendProposalColumn = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.Contract_type = new System.Windows.Forms.DataGridViewTextBoxColumn();
             proposalProductLabel = new System.Windows.Forms.Label();
             proposalEmissionLabel = new System.Windows.Forms.Label();
             proposalClientDocsLabel = new System.Windows.Forms.Label();
@@ -158,7 +158,6 @@
             // 
             // edocbaseDataSet
             // 
-            this.edocbaseDataSet.DataSetName = "EdocbaseDataSet";
             this.edocbaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // contractsBindingSource
@@ -172,7 +171,7 @@
             // 
             // tableAdapterManager
             // 
-            this.tableAdapterManager.AgentsTableAdapter = this.agentsTableAdapter;
+            this.tableAdapterManager.AgentsTableAdapter = null;
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
             this.tableAdapterManager.ContractsTableAdapter = this.contractsTableAdapter;
             this.tableAdapterManager.ContractTypesTableAdapter = null;
@@ -181,9 +180,13 @@
             this.tableAdapterManager.log_journalTableAdapter = null;
             this.tableAdapterManager.ProdGostTableAdapter = null;
             this.tableAdapterManager.ProductAreasTableAdapter = null;
-            this.tableAdapterManager.ProductsTableAdapter = this.productsTableAdapter;
+            this.tableAdapterManager.ProductsTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = Edocsys.EdocbaseDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             this.tableAdapterManager.usersTableAdapter = null;
+            // 
+            // agentsTableAdapter
+            // 
+            this.agentsTableAdapter.ClearBeforeFill = true;
             // 
             // productsTableAdapter
             // 
@@ -215,7 +218,7 @@
             this.contractsBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.contractsBindingNavigator.Name = "contractsBindingNavigator";
             this.contractsBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.contractsBindingNavigator.Size = new System.Drawing.Size(1010, 25);
+            this.contractsBindingNavigator.Size = new System.Drawing.Size(1198, 25);
             this.contractsBindingNavigator.TabIndex = 0;
             this.contractsBindingNavigator.Text = "bindingNavigator1";
             // 
@@ -343,31 +346,111 @@
             this.mainSplitContainer.Panel2.Controls.Add(proposalProductLabel);
             this.mainSplitContainer.Panel2.Controls.Add(this.proposalEmissionTypeTextBox);
             this.mainSplitContainer.Panel2MinSize = 160;
-            this.mainSplitContainer.Size = new System.Drawing.Size(1010, 464);
-            this.mainSplitContainer.SplitterDistance = 259;
+            this.mainSplitContainer.Size = new System.Drawing.Size(1198, 425);
+            this.mainSplitContainer.SplitterDistance = 240;
             this.mainSplitContainer.TabIndex = 2;
             // 
             // contractsDataGridView
             // 
+            this.contractsDataGridView.AllowUserToAddRows = false;
             this.contractsDataGridView.AutoGenerateColumns = false;
             this.contractsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.contractsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idContract,
-            this.Agent_id,
+            this.agent_shortname,
             this.idProducts,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn5,
-            this.dataGridViewTextBoxColumn6,
+            this.emission_type,
+            this.client_docs,
+            this.scheme_type,
+            this.add_data,
             this.SendProposalColumn,
             this.Contract_type});
             this.contractsDataGridView.DataSource = this.contractsBindingSource;
             this.contractsDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.contractsDataGridView.Location = new System.Drawing.Point(0, 0);
             this.contractsDataGridView.Name = "contractsDataGridView";
-            this.contractsDataGridView.Size = new System.Drawing.Size(1010, 259);
+            this.contractsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.contractsDataGridView.Size = new System.Drawing.Size(1198, 240);
             this.contractsDataGridView.TabIndex = 2;
             this.contractsDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.contractsDataGridView_CellClick);
+            // 
+            // idContract
+            // 
+            this.idContract.DataPropertyName = "idContract";
+            this.idContract.HeaderText = "#";
+            this.idContract.Name = "idContract";
+            this.idContract.ReadOnly = true;
+            this.idContract.ToolTipText = "#";
+            this.idContract.Width = 30;
+            // 
+            // agent_shortname
+            // 
+            this.agent_shortname.DataPropertyName = "Ag_shortname";
+            this.agent_shortname.HeaderText = "Название контрагента";
+            this.agent_shortname.Name = "agent_shortname";
+            this.agent_shortname.ReadOnly = true;
+            this.agent_shortname.ToolTipText = "Название контрагента";
+            this.agent_shortname.Width = 200;
+            // 
+            // idProducts
+            // 
+            this.idProducts.DataPropertyName = "Product_name";
+            this.idProducts.HeaderText = "Наименование продукции";
+            this.idProducts.Name = "idProducts";
+            this.idProducts.ReadOnly = true;
+            this.idProducts.ToolTipText = "Наименование продукции";
+            this.idProducts.Width = 250;
+            // 
+            // emission_type
+            // 
+            this.emission_type.DataPropertyName = "emission_type";
+            this.emission_type.HeaderText = "Тип выпуска продукции";
+            this.emission_type.Name = "emission_type";
+            this.emission_type.ReadOnly = true;
+            this.emission_type.ToolTipText = "Тип выпуска продукции";
+            this.emission_type.Width = 150;
+            // 
+            // client_docs
+            // 
+            this.client_docs.DataPropertyName = "Client_docs";
+            this.client_docs.HeaderText = "Учредительные документы";
+            this.client_docs.Name = "client_docs";
+            this.client_docs.ReadOnly = true;
+            this.client_docs.ToolTipText = "Учредительные документы";
+            this.client_docs.Width = 150;
+            // 
+            // scheme_type
+            // 
+            this.scheme_type.DataPropertyName = "Schem_type";
+            this.scheme_type.HeaderText = "Схема сертификации";
+            this.scheme_type.MinimumWidth = 15;
+            this.scheme_type.Name = "scheme_type";
+            this.scheme_type.ReadOnly = true;
+            this.scheme_type.Width = 150;
+            // 
+            // add_data
+            // 
+            this.add_data.DataPropertyName = "Add_data";
+            this.add_data.HeaderText = "Дополнительные сведения";
+            this.add_data.MinimumWidth = 15;
+            this.add_data.Name = "add_data";
+            this.add_data.ReadOnly = true;
+            this.add_data.ToolTipText = "Дополнительные сведения";
+            // 
+            // SendProposalColumn
+            // 
+            this.SendProposalColumn.HeaderText = "Отправить заявку";
+            this.SendProposalColumn.Name = "SendProposalColumn";
+            this.SendProposalColumn.Text = "Отправить";
+            this.SendProposalColumn.ToolTipText = "Отправить";
+            this.SendProposalColumn.UseColumnTextForButtonValue = true;
+            // 
+            // Contract_type
+            // 
+            this.Contract_type.DataPropertyName = "Contract_type";
+            this.Contract_type.HeaderText = "T";
+            this.Contract_type.Name = "Contract_type";
+            this.Contract_type.Visible = false;
             // 
             // proposalAgentsComboBox
             // 
@@ -444,89 +527,11 @@
             // 
             this.contractTypesTableAdapter.ClearBeforeFill = true;
             // 
-            // agentsTableAdapter
-            // 
-            this.agentsTableAdapter.ClearBeforeFill = true;
-            // 
-            // idContract
-            // 
-            this.idContract.DataPropertyName = "idContract";
-            this.idContract.HeaderText = "#";
-            this.idContract.Name = "idContract";
-            this.idContract.ReadOnly = true;
-            this.idContract.ToolTipText = "#";
-            this.idContract.Width = 30;
-            // 
-            // Agent_id
-            // 
-            this.Agent_id.DataPropertyName = "Ag_shortname";
-            this.Agent_id.HeaderText = "Название контрагента";
-            this.Agent_id.Name = "Agent_id";
-            this.Agent_id.ReadOnly = true;
-            this.Agent_id.ToolTipText = "Название контрагента";
-            this.Agent_id.Width = 200;
-            // 
-            // idProducts
-            // 
-            this.idProducts.DataPropertyName = "Product_name";
-            this.idProducts.HeaderText = "Наименование продукции";
-            this.idProducts.Name = "idProducts";
-            this.idProducts.ReadOnly = true;
-            this.idProducts.ToolTipText = "Наименование продукции";
-            this.idProducts.Width = 250;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "emission_type";
-            this.dataGridViewTextBoxColumn3.HeaderText = "Тип выпуска продукции";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ToolTipText = "Тип выпуска продукции";
-            this.dataGridViewTextBoxColumn3.Width = 150;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "Client_docs";
-            this.dataGridViewTextBoxColumn4.HeaderText = "Учредительные документы";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ToolTipText = "Учредительные документы";
-            this.dataGridViewTextBoxColumn4.Width = 150;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "Schem_type";
-            this.dataGridViewTextBoxColumn5.HeaderText = "Схема сертификации";
-            this.dataGridViewTextBoxColumn5.MinimumWidth = 15;
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.Width = 150;
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "Add_data";
-            this.dataGridViewTextBoxColumn6.HeaderText = "Дополнительные сведения";
-            this.dataGridViewTextBoxColumn6.MinimumWidth = 15;
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.ToolTipText = "Дополнительные сведения";
-            // 
-            // SendProposalColumn
-            // 
-            this.SendProposalColumn.HeaderText = "Отправить заявку";
-            this.SendProposalColumn.Name = "SendProposalColumn";
-            this.SendProposalColumn.Text = "Отправить";
-            this.SendProposalColumn.ToolTipText = "Отправить";
-            this.SendProposalColumn.UseColumnTextForButtonValue = true;
-            // 
-            // Contract_type
-            // 
-            this.Contract_type.DataPropertyName = "Contract_type";
-            this.Contract_type.HeaderText = "T";
-            this.Contract_type.Name = "Contract_type";
-            this.Contract_type.Visible = false;
-            // 
             // ProposalForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1010, 489);
+            this.ClientSize = new System.Drawing.Size(1198, 450);
             this.Controls.Add(this.mainSplitContainer);
             this.Controls.Add(this.contractsBindingNavigator);
             this.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Edocsys.Properties.Settings.Default, "ProposalFormText", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
@@ -586,12 +591,12 @@
         private System.Windows.Forms.BindingSource agentsBindingSource;
         private EdocbaseDataSetTableAdapters.AgentsTableAdapter agentsTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn idContract;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Agent_id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn agent_shortname;
         private System.Windows.Forms.DataGridViewTextBoxColumn idProducts;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn emission_type;
+        private System.Windows.Forms.DataGridViewTextBoxColumn client_docs;
+        private System.Windows.Forms.DataGridViewTextBoxColumn scheme_type;
+        private System.Windows.Forms.DataGridViewTextBoxColumn add_data;
         private System.Windows.Forms.DataGridViewButtonColumn SendProposalColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn Contract_type;
     }

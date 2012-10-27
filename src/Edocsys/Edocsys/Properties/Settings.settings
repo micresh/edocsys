@@ -211,5 +211,14 @@
     <Setting Name="ProposalAgentNameText" Type="System.String" Scope="User">
       <Value Profile="(Default)">Название контрагента</Value>
     </Setting>
+    <Setting Name="AssignExprtsExpertText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Эксперт</Value>
+    </Setting>
+    <Setting Name="AssignExpertProposalText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Заявка</Value>
+    </Setting>
+    <Setting Name="AssignExpertsAssignButtonText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Назначить</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

@@ -18,9 +18,13 @@ namespace Edocsys
 
         private void contractsBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
+            UpdateDatabaseAndRefresh();
+        }
+
+        private void UpdateDatabaseAndRefresh()
+        {
             try
             {
-
                 this.Validate();
                 this.contractsBindingSource.EndEdit();
 
@@ -35,6 +39,7 @@ namespace Edocsys
             {
                 MessageBox.Show(ex.Message, "Save Error");
             }
+            /**/
         }
 
         private void ProposalForm_Load(object sender, EventArgs e)
@@ -57,32 +62,36 @@ namespace Edocsys
         {
             if (e.ColumnIndex == contractsDataGridView.Columns["SendProposalColumn"].Index)
             {
-                if (MessageBox.Show("Подтвердить отправку заявки #" , "Подтвердить отправку заявки", MessageBoxButtons.OKCancel) == DialogResult.OK)
+                if (contractsBindingSource.Position >= 0)
                 {
-                    //MessageBox.Show("MessageBox.Show");
-                    //if (contractsBindingSource.AllowEdit)
+                    DataRow currentRow = edocbaseDataSet.Tables["Contracts"].DefaultView[contractsBindingSource.Position].Row;
+                    int idContract = Convert.ToInt32(currentRow["idContract"]);
+
+                    if (MessageBox.Show("Отправить заявку #" + idContract, "Подтвердить отправку заявки", MessageBoxButtons.YesNo) == DialogResult.Yes)
                     {
-                        int x = Convert.ToInt32(contractsDataGridView.Rows[e.RowIndex].Cells["idContract"].Value);
-                        this.contractsTableAdapter.SendProposal(1, x);
+                        try
+                        {
+                            //send proposal
+                            this.contractsTableAdapter.SendProposal(Constants.ContractTypes.WaitForExpertAssigment, idContract);
 
-                        this.Validate();
-                        this.contractsBindingSource.EndEdit();
-                        this.tableAdapterManager.ContractsTableAdapter.Update(this.edocbaseDataSet.Contracts);
-                        this.edocbaseDataSet.AcceptChanges();
-                        this.contractsTableAdapter.FillProposal(this.edocbaseDataSet.Contracts);
-                        this.contractsDataGridView.Refresh();
+                            //refresh data
+                            this.edocbaseDataSet.AcceptChanges();
 
+                            this.contractsTableAdapter.FillProposal(this.edocbaseDataSet.Contracts);
+                            this.contractsDataGridView.Refresh();
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.Message, "Save Error");
+                        }
                     }
-
                 }
-                   
             }
         }
 
         private void bindingNavigatorAddNewItem_Click(object sender, EventArgs e)
         {
-            contractsDataGridView.CurrentRow.Cells["contract_type"].Value = 0;
-            contractsDataGridView.CurrentRow.Cells["agent_id"].Value = 0;
+            contractsDataGridView.CurrentRow.Cells["Contract_type"].Value = 0;
         }
     }
 }

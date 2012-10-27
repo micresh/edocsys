@@ -1,14 +1,15 @@
-﻿
+﻿namespace Edocsys
+{
+}
 namespace Edocsys {
     
     
     public partial class EdocbaseDataSet {
     }
 }
-
-namespace Edocsys.EdocbaseDataSetTableAdapters {
+namespace Edocsys {
     
     
-    public partial class ContractsTableAdapter {
+    public partial class EdocbaseDataSet {
     }
 }

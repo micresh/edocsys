@@ -82,26 +82,26 @@
             // configFormToolStripMenuItem
             // 
             this.configFormToolStripMenuItem.Name = "configFormToolStripMenuItem";
-            this.configFormToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
+            this.configFormToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.configFormToolStripMenuItem.Text = global::Edocsys.Properties.Settings.Default.ConfigFormText;
             this.configFormToolStripMenuItem.Click += new System.EventHandler(this.configFormToolStripMenuItem_Click);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(131, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(149, 6);
             // 
             // LoginToolStripMenuItem
             // 
             this.LoginToolStripMenuItem.Name = "LoginToolStripMenuItem";
-            this.LoginToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
+            this.LoginToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.LoginToolStripMenuItem.Text = global::Edocsys.Properties.Settings.Default.LoginToolStripMenuItemText;
             this.LoginToolStripMenuItem.Click += new System.EventHandler(this.LoginToolStripMenuItem_Click_1);
             // 
             // ExitToolStripMenuItem
             // 
             this.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem";
-            this.ExitToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
+            this.ExitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.ExitToolStripMenuItem.Text = global::Edocsys.Properties.Settings.Default.ExitToolStripMenuItemText;
             this.ExitToolStripMenuItem.Click += new System.EventHandler(this.ExitToolStripMenuItem_Click);
             // 
@@ -139,7 +139,7 @@
             // 
             this.AssignexpertToolStripMenuItem.Name = "AssignexpertToolStripMenuItem";
             this.AssignexpertToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
-            this.AssignexpertToolStripMenuItem.Text = global::Edocsys.Properties.Settings.Default.AssignexpertToolStripMenuItemText;
+            this.AssignexpertToolStripMenuItem.Text = global::Edocsys.Properties.Settings.Default.AssighExpertFormText;
             this.AssignexpertToolStripMenuItem.Click += new System.EventHandler(this.AssignexpertToolStripMenuItem_Click);
             // 
             // DocToolStripMenuItem

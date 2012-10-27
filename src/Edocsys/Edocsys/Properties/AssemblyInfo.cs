@@ -8,9 +8,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("Edocsys")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Решетняк")]
+[assembly: AssemblyCompany("Edocsys")]
 [assembly: AssemblyProduct("Edocsys")]
-[assembly: AssemblyCopyright("Copyright © Решетняк 2012")]
+[assembly: AssemblyCopyright("Copyright © Edocsys 2012")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
