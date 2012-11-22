@@ -23,8 +23,9 @@ CREATE TABLE IF NOT EXISTS `Edocbase`.`Agents` (
   `Ag_bank` varchar(127) DEFAULT NULL,
   `Ag_doc` varchar(45) DEFAULT NULL,
   `Ag_pers_status` VARCHAR(45) NULL ,
-  `Ag_pers_fullname` VARCHAR(45) NULL ,
-  `Ag_pers_shortname` VARCHAR(45) NULL 
+  `Ag_pers_lastname` VARCHAR(30) NULL ,
+  `Ag_pers_firstname` VARCHAR(30) NULL ,
+  `Ag_pers_middlename` VARCHAR(30) NULL ,
   PRIMARY KEY (`idAgents`),
   INDEX `fk_Agents_` (`Ag_type_id` ASC) ,
   CONSTRAINT `fk_Agents_1`

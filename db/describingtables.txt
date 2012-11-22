@@ -2,19 +2,20 @@
   `idAgents` INT NOT NULL AUTO_INCREMENT ,  - идентификационный номер контрагента
   `Ag_type_id` tinyint(4) DEFAULT 0,        - ID формы собственности
   `Ag_fullname` VARCHAR(45) NULL ,          - полное название организации
-  `Ag_INN` VARCHAR(45) NULL , - ИНН
-  `Ag_addr` VARCHAR(45) NULL , - адрес контрагента
-  `Ag_OGRN` VARCHAR(45) NULL , - ОГРН
-  `Ag_KPP` VARCHAR(45) NULL , - КПП
-  `Ag_OKPO` VARCHAR(45) NULL , - ОКПО
-  `Ag_Rcou` VARCHAR(45) NULL , - расчетный счет
-  `Ag_Kcou` VARCHAR(45) NULL , - корреспондирующий счет
-  `Ag_BIK` VARCHAR(45) NULL , - БИК 
-  `Ag_bank` VARCHAR(45) NULL , - Название банка
-  `Ag_doc` VARCHAR(45) NULL , -  документы агента
-  `Ag_pers_status` VARCHAR(45) NULL , - должность ответственного за подписание договора лица
-  `Ag_pers_fullname` VARCHAR(45) NULL , - Полные имя и фамилия ответственного лица
-  `Ag_pers_shortname` VARCHAR(45) NULL , - инициалы, в формате "Фамилия И.О."
+  `Ag_INN` VARCHAR(45) NULL ,               - ИНН
+  `Ag_addr` VARCHAR(45) NULL ,              - адрес контрагента
+  `Ag_OGRN` VARCHAR(45) NULL ,              - ОГРН
+  `Ag_KPP` VARCHAR(45) NULL ,               - КПП
+  `Ag_OKPO` VARCHAR(45) NULL ,              - ОКПО
+  `Ag_Rcou` VARCHAR(45) NULL ,              - расчетный счет
+  `Ag_Kcou` VARCHAR(45) NULL ,              - корреспондирующий счет
+  `Ag_BIK` VARCHAR(45) NULL ,               - БИК 
+  `Ag_bank` VARCHAR(45) NULL ,              - Название банка
+  `Ag_doc` VARCHAR(45) NULL ,               -  документы агента
+  `Ag_pers_status` VARCHAR(45) NULL ,       - должность ответственного за подписание договора лица
+  `Ag_pers_lastname` VARCHAR(30) NULL ,     - Фамилия
+  `Ag_pers_firstname` VARCHAR(30) NULL ,    - Имя
+  `Ag_pers_middlename` VARCHAR(30) NULL ,   - Отчество
 
 
 -- контактные лица контрагентов
