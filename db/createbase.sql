@@ -6,22 +6,22 @@ GRANT ALL PRIVILEGES ON *.* TO root@localhost IDENTIFIED BY 'po12jein45bf';
 
 
 CREATE TABLE IF NOT EXISTS `Edocbase`.`Agents` (
-  `idAgents` int(11) NOT NULL AUTO_INCREMENT,
-  `Ag_type_id` tinyint(4) DEFAULT 0,
-  `Ag_fullname` varchar(63) DEFAULT NULL,
-  `Ag_INN` varchar(15) DEFAULT NULL,
+  `idAgents` INT(11) NOT NULL AUTO_INCREMENT,
+  `Ag_type_id` TINYINT(4) DEFAULT 0,
+  `Ag_fullname` VARCHAR(63) DEFAULT NULL,
+  `Ag_INN` VARCHAR(15) DEFAULT NULL,
   `Ag_tel` VARCHAR(15) NULL ,
   `Ag_fax` VARCHAR(15) NULL ,
   `Ag_mail` VARCHAR(31) NULL ,
-  `Ag_addr` varchar(255) DEFAULT NULL,
-  `Ag_OGRN` varchar(15) DEFAULT NULL,
-  `Ag_KPP` varchar(15) DEFAULT NULL,
-  `Ag_OKPO` varchar(15) DEFAULT NULL,
-  `Ag_Rcou` varchar(15) DEFAULT NULL,
-  `Ag_Kcou` varchar(15) DEFAULT NULL,
-  `Ag_BIK` varchar(15) DEFAULT NULL,
-  `Ag_bank` varchar(127) DEFAULT NULL,
-  `Ag_doc` varchar(45) DEFAULT NULL,
+  `Ag_addr` VARCHAR(255) DEFAULT NULL,
+  `Ag_OGRN` VARCHAR(15) DEFAULT NULL,
+  `Ag_KPP` VARCHAR(15) DEFAULT NULL,
+  `Ag_OKPO` VARCHAR(15) DEFAULT NULL,
+  `Ag_Rcou` VARCHAR(15) DEFAULT NULL,
+  `Ag_Kcou` VARCHAR(15) DEFAULT NULL,
+  `Ag_BIK` VARCHAR(15) DEFAULT NULL,
+  `Ag_bank` VARCHAR(127) DEFAULT NULL,
+  `Ag_doc` VARCHAR(45) DEFAULT NULL,
   `Ag_pers_status` VARCHAR(45) NULL ,
   `Ag_pers_lastname` VARCHAR(30) NULL ,
   `Ag_pers_firstname` VARCHAR(30) NULL ,
@@ -37,7 +37,7 @@ CREATE TABLE IF NOT EXISTS `Edocbase`.`Agents` (
 
 
 CREATE TABLE IF NOT EXISTS `Edocbase`.`Agents_contacts` (
-  `idAgents_contacts` INT NOT NULL,
+  `idAgents_contacts` INT NOT NULL AUTO_INCREMENT,
   `ac_agent_id` INT DEFAULT 0,
   `ac_person` VARCHAR(75) DEFAULT NULL,
   `ac_status` VARCHAR(45) DEFAULT NULL,
@@ -55,11 +55,10 @@ CREATE TABLE IF NOT EXISTS `Edocbase`.`Agents_contacts` (
 
 
 CREATE TABLE IF NOT EXISTS `Edocbase`.`Agents_types` (
-  `idAgents_types` TINYINT NOT NULL ,
+  `idAgents_types` TINYINT(4) NOT NULL,
   `Agent_type` VARCHAR(8) NULL ,
   PRIMARY KEY (`idAgents_types`)
 ) ENGINE=InnoDB;
-
 
 
 CREATE TABLE IF NOT EXISTS `Edocbase`.`Experts` (
@@ -98,14 +97,14 @@ CREATE TABLE IF NOT EXISTS `Edocbase`.`ProdGost` (
 
 CREATE TABLE IF NOT EXISTS `Edocbase`.`ContractTypes` (
     `id` TINYINT not null ,
-    `name` varchar(30) ,
+    `name` VARCHAR(30) ,
     PRIMARY KEY (`id`)
 ) ENGINE = InnoDB;
 
 
 CREATE TABLE IF NOT EXISTS `Edocbase`.`ProductAreas` (
     `id` TINYINT not null ,
-    `name` varchar(40) ,
+    `name` VARCHAR(40) ,
     PRIMARY KEY (`id`)
 ) ENGINE = InnoDB;
 
