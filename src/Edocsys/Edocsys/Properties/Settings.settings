@@ -229,5 +229,11 @@
     <Setting Name="LoginFormLoginText" Type="System.String" Scope="User">
       <Value Profile="(Default)">Войти</Value>
     </Setting>
+    <Setting Name="AgentsTypeName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Форма собственности</Value>
+    </Setting>
+    <Setting Name="AgentsContactsText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Контакты</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

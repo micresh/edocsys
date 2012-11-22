@@ -18,7 +18,6 @@ namespace Edocsys
 
         private void agentsBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
-
             try
             {
 
@@ -27,7 +26,7 @@ namespace Edocsys
                 this.tableAdapterManager.UpdateAll(this.edocbaseDataSet);
 
                 this.edocbaseDataSet.AcceptChanges();
-                this.agentsTableAdapter.FillWithShortName(this.edocbaseDataSet.Agents);
+                this.agentsTableAdapter.FillShortInfo(this.edocbaseDataSet.Agents);
                 this.agentsDataGridView.Refresh();
             }
             catch (Exception ex)
@@ -39,10 +38,36 @@ namespace Edocsys
         private void clients_Load(object sender, EventArgs e)
         {
             this.agentsTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
+            this.agents_typesTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
+            this.agents_contactsTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
 
-            // TODO: This line of code loads data into the 'edocbaseDataSet.Agents' table. You can move, or remove it, as needed.
-            this.agentsTableAdapter.FillWithShortName(this.edocbaseDataSet.Agents);
+            this.agentsTableAdapter.FillShortInfo(this.edocbaseDataSet.Agents);
+            this.agents_typesTableAdapter.Fill(this.edocbaseDataSet.Agents_types);
+            this.agents_contactsTableAdapter.Fill(this.edocbaseDataSet.Agents_contacts);
         }
 
+        private void toolStripButtonSaveContact_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DataRow currentRow = edocbaseDataSet.Tables["Agents"].DefaultView[agentsBindingSource.Position].Row;
+
+                int idAgent = Convert.ToInt32(currentRow["idAgents"]);
+                agents_contactsDataGridView.CurrentRow.Cells["ac_agent_id"].Value = idAgent;
+
+
+                this.Validate();
+                this.agents_contactsBindingSource.EndEdit();
+                this.tableAdapterManager.UpdateAll(this.edocbaseDataSet);
+
+                this.edocbaseDataSet.AcceptChanges();
+                this.agents_contactsTableAdapter.Fill(this.edocbaseDataSet.Agents_contacts);
+                this.agents_contactsDataGridView.Refresh();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Save Error");
+            }
+        }
     }
 }

@@ -909,5 +909,29 @@ namespace Edocsys.Properties {
                 this["LoginFormLoginText"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Форма собственности")]
+        public string AgentsTypeName {
+            get {
+                return ((string)(this["AgentsTypeName"]));
+            }
+            set {
+                this["AgentsTypeName"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Контакты")]
+        public string AgentsContactsText {
+            get {
+                return ((string)(this["AgentsContactsText"]));
+            }
+            set {
+                this["AgentsContactsText"] = value;
+            }
+        }
     }
 }

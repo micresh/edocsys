@@ -48,6 +48,10 @@ namespace Edocsys {
         
         private ExpertAssignmentDataTableDataTable tableExpertAssignmentDataTable;
         
+        private Agents_contactsDataTable tableAgents_contacts;
+        
+        private Agents_typesDataTable tableAgents_types;
+        
         private global::System.Data.DataRelation relationfk_ProdGost_1;
         
         private global::System.Data.DataRelation relationfk_Exec_contracts_1;
@@ -61,6 +65,10 @@ namespace Edocsys {
         private global::System.Data.DataRelation relationfk_Contracts_4;
         
         private global::System.Data.DataRelation relationProductAreas_Products;
+        
+        private global::System.Data.DataRelation relationAgents_Agents_contacts;
+        
+        private global::System.Data.DataRelation relationagents_types_Agents;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -125,6 +133,12 @@ namespace Edocsys {
                 }
                 if ((ds.Tables["ExpertAssignmentDataTable"] != null)) {
                     base.Tables.Add(new ExpertAssignmentDataTableDataTable(ds.Tables["ExpertAssignmentDataTable"]));
+                }
+                if ((ds.Tables["Agents_contacts"] != null)) {
+                    base.Tables.Add(new Agents_contactsDataTable(ds.Tables["Agents_contacts"]));
+                }
+                if ((ds.Tables["Agents_types"] != null)) {
+                    base.Tables.Add(new Agents_typesDataTable(ds.Tables["Agents_types"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -266,6 +280,26 @@ namespace Edocsys {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public Agents_contactsDataTable Agents_contacts {
+            get {
+                return this.tableAgents_contacts;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public Agents_typesDataTable Agents_types {
+            get {
+                return this.tableAgents_types;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.BrowsableAttribute(true)]
         [global::System.ComponentModel.DesignerSerializationVisibilityAttribute(global::System.ComponentModel.DesignerSerializationVisibility.Visible)]
         public override global::System.Data.SchemaSerializationMode SchemaSerializationMode {
@@ -366,6 +400,12 @@ namespace Edocsys {
                 }
                 if ((ds.Tables["ExpertAssignmentDataTable"] != null)) {
                     base.Tables.Add(new ExpertAssignmentDataTableDataTable(ds.Tables["ExpertAssignmentDataTable"]));
+                }
+                if ((ds.Tables["Agents_contacts"] != null)) {
+                    base.Tables.Add(new Agents_contactsDataTable(ds.Tables["Agents_contacts"]));
+                }
+                if ((ds.Tables["Agents_types"] != null)) {
+                    base.Tables.Add(new Agents_typesDataTable(ds.Tables["Agents_types"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -472,6 +512,18 @@ namespace Edocsys {
                     this.tableExpertAssignmentDataTable.InitVars();
                 }
             }
+            this.tableAgents_contacts = ((Agents_contactsDataTable)(base.Tables["Agents_contacts"]));
+            if ((initTable == true)) {
+                if ((this.tableAgents_contacts != null)) {
+                    this.tableAgents_contacts.InitVars();
+                }
+            }
+            this.tableAgents_types = ((Agents_typesDataTable)(base.Tables["Agents_types"]));
+            if ((initTable == true)) {
+                if ((this.tableAgents_types != null)) {
+                    this.tableAgents_types.InitVars();
+                }
+            }
             this.relationfk_ProdGost_1 = this.Relations["fk_ProdGost_1"];
             this.relationfk_Exec_contracts_1 = this.Relations["fk_Exec_contracts_1"];
             this.relationfk_Contracts_3 = this.Relations["fk_Contracts_3"];
@@ -479,6 +531,8 @@ namespace Edocsys {
             this.relationfk_Contracts_1 = this.Relations["fk_Contracts_1"];
             this.relationfk_Contracts_4 = this.Relations["fk_Contracts_4"];
             this.relationProductAreas_Products = this.Relations["ProductAreas_Products"];
+            this.relationAgents_Agents_contacts = this.Relations["Agents_Agents_contacts"];
+            this.relationagents_types_Agents = this.Relations["agents_types_Agents"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -513,6 +567,10 @@ namespace Edocsys {
             base.Tables.Add(this.tableAssignedContractsDataTable);
             this.tableExpertAssignmentDataTable = new ExpertAssignmentDataTableDataTable();
             base.Tables.Add(this.tableExpertAssignmentDataTable);
+            this.tableAgents_contacts = new Agents_contactsDataTable();
+            base.Tables.Add(this.tableAgents_contacts);
+            this.tableAgents_types = new Agents_typesDataTable();
+            base.Tables.Add(this.tableAgents_types);
             this.relationfk_ProdGost_1 = new global::System.Data.DataRelation("fk_ProdGost_1", new global::System.Data.DataColumn[] {
                         this.tableProducts.idProductsColumn}, new global::System.Data.DataColumn[] {
                         this.tableProdGost.idProductsColumn}, false);
@@ -541,6 +599,14 @@ namespace Edocsys {
                         this.tableProductAreas.idColumn}, new global::System.Data.DataColumn[] {
                         this.tableProducts.ProductAreaColumn}, false);
             this.Relations.Add(this.relationProductAreas_Products);
+            this.relationAgents_Agents_contacts = new global::System.Data.DataRelation("Agents_Agents_contacts", new global::System.Data.DataColumn[] {
+                        this.tableAgents.idAgentsColumn}, new global::System.Data.DataColumn[] {
+                        this.tableAgents_contacts.ac_agent_idColumn}, false);
+            this.Relations.Add(this.relationAgents_Agents_contacts);
+            this.relationagents_types_Agents = new global::System.Data.DataRelation("agents_types_Agents", new global::System.Data.DataColumn[] {
+                        this.tableAgents_types.idAgents_typesColumn}, new global::System.Data.DataColumn[] {
+                        this.tableAgents.Ag_type_idColumn}, false);
+            this.Relations.Add(this.relationagents_types_Agents);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -612,6 +678,18 @@ namespace Edocsys {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private bool ShouldSerializeExpertAssignmentDataTable() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private bool ShouldSerializeAgents_contacts() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private bool ShouldSerializeAgents_types() {
             return false;
         }
         
@@ -706,6 +784,12 @@ namespace Edocsys {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public delegate void ExpertAssignmentDataTableRowChangeEventHandler(object sender, ExpertAssignmentDataTableRowChangeEvent e);
         
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public delegate void Agents_contactsRowChangeEventHandler(object sender, Agents_contactsRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public delegate void Agents_typesRowChangeEventHandler(object sender, Agents_typesRowChangeEvent e);
+        
         /// <summary>
         ///Represents the strongly named DataTable class.
         ///</summary>
@@ -716,10 +800,6 @@ namespace Edocsys {
             private global::System.Data.DataColumn columnidAgents;
             
             private global::System.Data.DataColumn columnAg_fullname;
-            
-            private global::System.Data.DataColumn columnAg_shortname;
-            
-            private global::System.Data.DataColumn columnAg_addr;
             
             private global::System.Data.DataColumn columnAg_tel;
             
@@ -747,9 +827,13 @@ namespace Edocsys {
             
             private global::System.Data.DataColumn columnAg_pers_status;
             
-            private global::System.Data.DataColumn columnAg_pers_firstname;
+            private global::System.Data.DataColumn columnAg_type_id;
+            
+            private global::System.Data.DataColumn columnAg_addr;
             
             private global::System.Data.DataColumn columnAg_pers_lastname;
+            
+            private global::System.Data.DataColumn columnAg_pers_firstname;
             
             private global::System.Data.DataColumn columnAg_pers_middlename;
             
@@ -799,22 +883,6 @@ namespace Edocsys {
             public global::System.Data.DataColumn Ag_fullnameColumn {
                 get {
                     return this.columnAg_fullname;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Ag_shortnameColumn {
-                get {
-                    return this.columnAg_shortname;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Ag_addrColumn {
-                get {
-                    return this.columnAg_addr;
                 }
             }
             
@@ -924,9 +992,17 @@ namespace Edocsys {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Ag_pers_firstnameColumn {
+            public global::System.Data.DataColumn Ag_type_idColumn {
                 get {
-                    return this.columnAg_pers_firstname;
+                    return this.columnAg_type_id;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Ag_addrColumn {
+                get {
+                    return this.columnAg_addr;
                 }
             }
             
@@ -935,6 +1011,14 @@ namespace Edocsys {
             public global::System.Data.DataColumn Ag_pers_lastnameColumn {
                 get {
                     return this.columnAg_pers_lastname;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Ag_pers_firstnameColumn {
+                get {
+                    return this.columnAg_pers_firstname;
                 }
             }
             
@@ -985,8 +1069,6 @@ namespace Edocsys {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public AgentsRow AddAgentsRow(
                         string Ag_fullname, 
-                        string Ag_shortname, 
-                        string Ag_addr, 
                         string Ag_tel, 
                         string Ag_fax, 
                         string Ag_mail, 
@@ -1000,15 +1082,15 @@ namespace Edocsys {
                         string Ag_bank, 
                         string Ag_doc, 
                         string Ag_pers_status, 
-                        string Ag_pers_firstname, 
+                        Agents_typesRow parentAgents_typesRowByagents_types_Agents, 
+                        string Ag_addr, 
                         string Ag_pers_lastname, 
+                        string Ag_pers_firstname, 
                         string Ag_pers_middlename) {
                 AgentsRow rowAgentsRow = ((AgentsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         Ag_fullname,
-                        Ag_shortname,
-                        Ag_addr,
                         Ag_tel,
                         Ag_fax,
                         Ag_mail,
@@ -1022,9 +1104,14 @@ namespace Edocsys {
                         Ag_bank,
                         Ag_doc,
                         Ag_pers_status,
-                        Ag_pers_firstname,
+                        null,
+                        Ag_addr,
                         Ag_pers_lastname,
+                        Ag_pers_firstname,
                         Ag_pers_middlename};
+                if ((parentAgents_typesRowByagents_types_Agents != null)) {
+                    columnValuesArray[15] = parentAgents_typesRowByagents_types_Agents[0];
+                }
                 rowAgentsRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowAgentsRow);
                 return rowAgentsRow;
@@ -1056,8 +1143,6 @@ namespace Edocsys {
             internal void InitVars() {
                 this.columnidAgents = base.Columns["idAgents"];
                 this.columnAg_fullname = base.Columns["Ag_fullname"];
-                this.columnAg_shortname = base.Columns["Ag_shortname"];
-                this.columnAg_addr = base.Columns["Ag_addr"];
                 this.columnAg_tel = base.Columns["Ag_tel"];
                 this.columnAg_fax = base.Columns["Ag_fax"];
                 this.columnAg_mail = base.Columns["Ag_mail"];
@@ -1071,8 +1156,10 @@ namespace Edocsys {
                 this.columnAg_bank = base.Columns["Ag_bank"];
                 this.columnAg_doc = base.Columns["Ag_doc"];
                 this.columnAg_pers_status = base.Columns["Ag_pers_status"];
-                this.columnAg_pers_firstname = base.Columns["Ag_pers_firstname"];
+                this.columnAg_type_id = base.Columns["Ag_type_id"];
+                this.columnAg_addr = base.Columns["Ag_addr"];
                 this.columnAg_pers_lastname = base.Columns["Ag_pers_lastname"];
+                this.columnAg_pers_firstname = base.Columns["Ag_pers_firstname"];
                 this.columnAg_pers_middlename = base.Columns["Ag_pers_middlename"];
             }
             
@@ -1083,10 +1170,6 @@ namespace Edocsys {
                 base.Columns.Add(this.columnidAgents);
                 this.columnAg_fullname = new global::System.Data.DataColumn("Ag_fullname", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnAg_fullname);
-                this.columnAg_shortname = new global::System.Data.DataColumn("Ag_shortname", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnAg_shortname);
-                this.columnAg_addr = new global::System.Data.DataColumn("Ag_addr", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnAg_addr);
                 this.columnAg_tel = new global::System.Data.DataColumn("Ag_tel", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnAg_tel);
                 this.columnAg_fax = new global::System.Data.DataColumn("Ag_fax", typeof(string), null, global::System.Data.MappingType.Element);
@@ -1113,10 +1196,14 @@ namespace Edocsys {
                 base.Columns.Add(this.columnAg_doc);
                 this.columnAg_pers_status = new global::System.Data.DataColumn("Ag_pers_status", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnAg_pers_status);
-                this.columnAg_pers_firstname = new global::System.Data.DataColumn("Ag_pers_firstname", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnAg_pers_firstname);
+                this.columnAg_type_id = new global::System.Data.DataColumn("Ag_type_id", typeof(sbyte), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAg_type_id);
+                this.columnAg_addr = new global::System.Data.DataColumn("Ag_addr", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAg_addr);
                 this.columnAg_pers_lastname = new global::System.Data.DataColumn("Ag_pers_lastname", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnAg_pers_lastname);
+                this.columnAg_pers_firstname = new global::System.Data.DataColumn("Ag_pers_firstname", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAg_pers_firstname);
                 this.columnAg_pers_middlename = new global::System.Data.DataColumn("Ag_pers_middlename", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnAg_pers_middlename);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
@@ -1127,8 +1214,6 @@ namespace Edocsys {
                 this.columnidAgents.AllowDBNull = false;
                 this.columnidAgents.Unique = true;
                 this.columnAg_fullname.MaxLength = 127;
-                this.columnAg_shortname.MaxLength = 63;
-                this.columnAg_addr.MaxLength = 255;
                 this.columnAg_tel.MaxLength = 15;
                 this.columnAg_fax.MaxLength = 15;
                 this.columnAg_mail.MaxLength = 31;
@@ -1142,8 +1227,9 @@ namespace Edocsys {
                 this.columnAg_bank.MaxLength = 127;
                 this.columnAg_doc.MaxLength = 45;
                 this.columnAg_pers_status.MaxLength = 45;
-                this.columnAg_pers_firstname.MaxLength = 30;
+                this.columnAg_addr.MaxLength = 255;
                 this.columnAg_pers_lastname.MaxLength = 30;
+                this.columnAg_pers_firstname.MaxLength = 30;
                 this.columnAg_pers_middlename.MaxLength = 30;
             }
             
@@ -4920,6 +5006,632 @@ namespace Edocsys {
         }
         
         /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class Agents_contactsDataTable : global::System.Data.TypedTableBase<Agents_contactsRow> {
+            
+            private global::System.Data.DataColumn columnidAgents_contacts;
+            
+            private global::System.Data.DataColumn columnac_agent_id;
+            
+            private global::System.Data.DataColumn columnac_person;
+            
+            private global::System.Data.DataColumn columnac_status;
+            
+            private global::System.Data.DataColumn columnac_phone;
+            
+            private global::System.Data.DataColumn columnac_fax;
+            
+            private global::System.Data.DataColumn columnac_email;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public Agents_contactsDataTable() {
+                this.TableName = "Agents_contacts";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal Agents_contactsDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected Agents_contactsDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn idAgents_contactsColumn {
+                get {
+                    return this.columnidAgents_contacts;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn ac_agent_idColumn {
+                get {
+                    return this.columnac_agent_id;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn ac_personColumn {
+                get {
+                    return this.columnac_person;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn ac_statusColumn {
+                get {
+                    return this.columnac_status;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn ac_phoneColumn {
+                get {
+                    return this.columnac_phone;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn ac_faxColumn {
+                get {
+                    return this.columnac_fax;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn ac_emailColumn {
+                get {
+                    return this.columnac_email;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public Agents_contactsRow this[int index] {
+                get {
+                    return ((Agents_contactsRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event Agents_contactsRowChangeEventHandler Agents_contactsRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event Agents_contactsRowChangeEventHandler Agents_contactsRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event Agents_contactsRowChangeEventHandler Agents_contactsRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event Agents_contactsRowChangeEventHandler Agents_contactsRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void AddAgents_contactsRow(Agents_contactsRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public Agents_contactsRow AddAgents_contactsRow(AgentsRow parentAgentsRowByAgents_Agents_contacts, string ac_person, string ac_status, string ac_phone, string ac_fax, string ac_email) {
+                Agents_contactsRow rowAgents_contactsRow = ((Agents_contactsRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        null,
+                        null,
+                        ac_person,
+                        ac_status,
+                        ac_phone,
+                        ac_fax,
+                        ac_email};
+                if ((parentAgentsRowByAgents_Agents_contacts != null)) {
+                    columnValuesArray[1] = parentAgentsRowByAgents_Agents_contacts[0];
+                }
+                rowAgents_contactsRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowAgents_contactsRow);
+                return rowAgents_contactsRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public Agents_contactsRow FindByidAgents_contacts(int idAgents_contacts) {
+                return ((Agents_contactsRow)(this.Rows.Find(new object[] {
+                            idAgents_contacts})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                Agents_contactsDataTable cln = ((Agents_contactsDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new Agents_contactsDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal void InitVars() {
+                this.columnidAgents_contacts = base.Columns["idAgents_contacts"];
+                this.columnac_agent_id = base.Columns["ac_agent_id"];
+                this.columnac_person = base.Columns["ac_person"];
+                this.columnac_status = base.Columns["ac_status"];
+                this.columnac_phone = base.Columns["ac_phone"];
+                this.columnac_fax = base.Columns["ac_fax"];
+                this.columnac_email = base.Columns["ac_email"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            private void InitClass() {
+                this.columnidAgents_contacts = new global::System.Data.DataColumn("idAgents_contacts", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnidAgents_contacts);
+                this.columnac_agent_id = new global::System.Data.DataColumn("ac_agent_id", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnac_agent_id);
+                this.columnac_person = new global::System.Data.DataColumn("ac_person", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnac_person);
+                this.columnac_status = new global::System.Data.DataColumn("ac_status", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnac_status);
+                this.columnac_phone = new global::System.Data.DataColumn("ac_phone", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnac_phone);
+                this.columnac_fax = new global::System.Data.DataColumn("ac_fax", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnac_fax);
+                this.columnac_email = new global::System.Data.DataColumn("ac_email", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnac_email);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnidAgents_contacts}, true));
+                this.columnidAgents_contacts.AutoIncrement = true;
+                this.columnidAgents_contacts.AutoIncrementSeed = -1;
+                this.columnidAgents_contacts.AutoIncrementStep = -1;
+                this.columnidAgents_contacts.AllowDBNull = false;
+                this.columnidAgents_contacts.Unique = true;
+                this.columnac_person.MaxLength = 75;
+                this.columnac_status.MaxLength = 45;
+                this.columnac_phone.MaxLength = 15;
+                this.columnac_fax.MaxLength = 15;
+                this.columnac_email.MaxLength = 45;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public Agents_contactsRow NewAgents_contactsRow() {
+                return ((Agents_contactsRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new Agents_contactsRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(Agents_contactsRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.Agents_contactsRowChanged != null)) {
+                    this.Agents_contactsRowChanged(this, new Agents_contactsRowChangeEvent(((Agents_contactsRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.Agents_contactsRowChanging != null)) {
+                    this.Agents_contactsRowChanging(this, new Agents_contactsRowChangeEvent(((Agents_contactsRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.Agents_contactsRowDeleted != null)) {
+                    this.Agents_contactsRowDeleted(this, new Agents_contactsRowChangeEvent(((Agents_contactsRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.Agents_contactsRowDeleting != null)) {
+                    this.Agents_contactsRowDeleting(this, new Agents_contactsRowChangeEvent(((Agents_contactsRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void RemoveAgents_contactsRow(Agents_contactsRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                EdocbaseDataSet ds = new EdocbaseDataSet();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "Agents_contactsDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class Agents_typesDataTable : global::System.Data.TypedTableBase<Agents_typesRow> {
+            
+            private global::System.Data.DataColumn columnidAgents_types;
+            
+            private global::System.Data.DataColumn columnAgent_type;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public Agents_typesDataTable() {
+                this.TableName = "Agents_types";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal Agents_typesDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected Agents_typesDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn idAgents_typesColumn {
+                get {
+                    return this.columnidAgents_types;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Agent_typeColumn {
+                get {
+                    return this.columnAgent_type;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public Agents_typesRow this[int index] {
+                get {
+                    return ((Agents_typesRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event Agents_typesRowChangeEventHandler Agents_typesRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event Agents_typesRowChangeEventHandler Agents_typesRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event Agents_typesRowChangeEventHandler Agents_typesRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event Agents_typesRowChangeEventHandler Agents_typesRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void AddAgents_typesRow(Agents_typesRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public Agents_typesRow AddAgents_typesRow(sbyte idAgents_types, string Agent_type) {
+                Agents_typesRow rowAgents_typesRow = ((Agents_typesRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        idAgents_types,
+                        Agent_type};
+                rowAgents_typesRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowAgents_typesRow);
+                return rowAgents_typesRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public Agents_typesRow FindByidAgents_types(sbyte idAgents_types) {
+                return ((Agents_typesRow)(this.Rows.Find(new object[] {
+                            idAgents_types})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                Agents_typesDataTable cln = ((Agents_typesDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new Agents_typesDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal void InitVars() {
+                this.columnidAgents_types = base.Columns["idAgents_types"];
+                this.columnAgent_type = base.Columns["Agent_type"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            private void InitClass() {
+                this.columnidAgents_types = new global::System.Data.DataColumn("idAgents_types", typeof(sbyte), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnidAgents_types);
+                this.columnAgent_type = new global::System.Data.DataColumn("Agent_type", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAgent_type);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnidAgents_types}, true));
+                this.columnidAgents_types.AllowDBNull = false;
+                this.columnidAgents_types.Unique = true;
+                this.columnAgent_type.MaxLength = 8;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public Agents_typesRow NewAgents_typesRow() {
+                return ((Agents_typesRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new Agents_typesRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(Agents_typesRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.Agents_typesRowChanged != null)) {
+                    this.Agents_typesRowChanged(this, new Agents_typesRowChangeEvent(((Agents_typesRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.Agents_typesRowChanging != null)) {
+                    this.Agents_typesRowChanging(this, new Agents_typesRowChangeEvent(((Agents_typesRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.Agents_typesRowDeleted != null)) {
+                    this.Agents_typesRowDeleted(this, new Agents_typesRowChangeEvent(((Agents_typesRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.Agents_typesRowDeleting != null)) {
+                    this.Agents_typesRowDeleting(this, new Agents_typesRowChangeEvent(((Agents_typesRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void RemoveAgents_typesRow(Agents_typesRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                EdocbaseDataSet ds = new EdocbaseDataSet();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "Agents_typesDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
         public partial class AgentsRow : global::System.Data.DataRow {
@@ -4957,38 +5669,6 @@ namespace Edocsys {
                 }
                 set {
                     this[this.tableAgents.Ag_fullnameColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Ag_shortname {
-                get {
-                    try {
-                        return ((string)(this[this.tableAgents.Ag_shortnameColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Ag_shortname\' in table \'Agents\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableAgents.Ag_shortnameColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Ag_addr {
-                get {
-                    try {
-                        return ((string)(this[this.tableAgents.Ag_addrColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Ag_addr\' in table \'Agents\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableAgents.Ag_addrColumn] = value;
                 }
             }
             
@@ -5202,17 +5882,33 @@ namespace Edocsys {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Ag_pers_firstname {
+            public sbyte Ag_type_id {
                 get {
                     try {
-                        return ((string)(this[this.tableAgents.Ag_pers_firstnameColumn]));
+                        return ((sbyte)(this[this.tableAgents.Ag_type_idColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Ag_pers_firstname\' in table \'Agents\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Ag_type_id\' in table \'Agents\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableAgents.Ag_pers_firstnameColumn] = value;
+                    this[this.tableAgents.Ag_type_idColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Ag_addr {
+                get {
+                    try {
+                        return ((string)(this[this.tableAgents.Ag_addrColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Ag_addr\' in table \'Agents\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableAgents.Ag_addrColumn] = value;
                 }
             }
             
@@ -5234,6 +5930,22 @@ namespace Edocsys {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Ag_pers_firstname {
+                get {
+                    try {
+                        return ((string)(this[this.tableAgents.Ag_pers_firstnameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Ag_pers_firstname\' in table \'Agents\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableAgents.Ag_pers_firstnameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string Ag_pers_middlename {
                 get {
                     try {
@@ -5250,6 +5962,17 @@ namespace Edocsys {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public Agents_typesRow Agents_typesRow {
+                get {
+                    return ((Agents_typesRow)(this.GetParentRow(this.Table.ParentRelations["agents_types_Agents"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["agents_types_Agents"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsAg_fullnameNull() {
                 return this.IsNull(this.tableAgents.Ag_fullnameColumn);
             }
@@ -5258,30 +5981,6 @@ namespace Edocsys {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetAg_fullnameNull() {
                 this[this.tableAgents.Ag_fullnameColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsAg_shortnameNull() {
-                return this.IsNull(this.tableAgents.Ag_shortnameColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetAg_shortnameNull() {
-                this[this.tableAgents.Ag_shortnameColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsAg_addrNull() {
-                return this.IsNull(this.tableAgents.Ag_addrColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetAg_addrNull() {
-                this[this.tableAgents.Ag_addrColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5442,14 +6141,26 @@ namespace Edocsys {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsAg_pers_firstnameNull() {
-                return this.IsNull(this.tableAgents.Ag_pers_firstnameColumn);
+            public bool IsAg_type_idNull() {
+                return this.IsNull(this.tableAgents.Ag_type_idColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetAg_pers_firstnameNull() {
-                this[this.tableAgents.Ag_pers_firstnameColumn] = global::System.Convert.DBNull;
+            public void SetAg_type_idNull() {
+                this[this.tableAgents.Ag_type_idColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsAg_addrNull() {
+                return this.IsNull(this.tableAgents.Ag_addrColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetAg_addrNull() {
+                this[this.tableAgents.Ag_addrColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5462,6 +6173,18 @@ namespace Edocsys {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetAg_pers_lastnameNull() {
                 this[this.tableAgents.Ag_pers_lastnameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsAg_pers_firstnameNull() {
+                return this.IsNull(this.tableAgents.Ag_pers_firstnameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetAg_pers_firstnameNull() {
+                this[this.tableAgents.Ag_pers_firstnameColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5484,6 +6207,17 @@ namespace Edocsys {
                 }
                 else {
                     return ((ContractsRow[])(base.GetChildRows(this.Table.ChildRelations["fk_Contracts_1"])));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public Agents_contactsRow[] GetAgents_contactsRows() {
+                if ((this.Table.ChildRelations["Agents_Agents_contacts"] == null)) {
+                    return new Agents_contactsRow[0];
+                }
+                else {
+                    return ((Agents_contactsRow[])(base.GetChildRows(this.Table.ChildRelations["Agents_Agents_contacts"])));
                 }
             }
         }
@@ -7456,6 +8190,276 @@ namespace Edocsys {
         }
         
         /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class Agents_contactsRow : global::System.Data.DataRow {
+            
+            private Agents_contactsDataTable tableAgents_contacts;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal Agents_contactsRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableAgents_contacts = ((Agents_contactsDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int idAgents_contacts {
+                get {
+                    return ((int)(this[this.tableAgents_contacts.idAgents_contactsColumn]));
+                }
+                set {
+                    this[this.tableAgents_contacts.idAgents_contactsColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int ac_agent_id {
+                get {
+                    try {
+                        return ((int)(this[this.tableAgents_contacts.ac_agent_idColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ac_agent_id\' in table \'Agents_contacts\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableAgents_contacts.ac_agent_idColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string ac_person {
+                get {
+                    try {
+                        return ((string)(this[this.tableAgents_contacts.ac_personColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ac_person\' in table \'Agents_contacts\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableAgents_contacts.ac_personColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string ac_status {
+                get {
+                    try {
+                        return ((string)(this[this.tableAgents_contacts.ac_statusColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ac_status\' in table \'Agents_contacts\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableAgents_contacts.ac_statusColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string ac_phone {
+                get {
+                    try {
+                        return ((string)(this[this.tableAgents_contacts.ac_phoneColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ac_phone\' in table \'Agents_contacts\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableAgents_contacts.ac_phoneColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string ac_fax {
+                get {
+                    try {
+                        return ((string)(this[this.tableAgents_contacts.ac_faxColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ac_fax\' in table \'Agents_contacts\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableAgents_contacts.ac_faxColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string ac_email {
+                get {
+                    try {
+                        return ((string)(this[this.tableAgents_contacts.ac_emailColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ac_email\' in table \'Agents_contacts\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableAgents_contacts.ac_emailColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public AgentsRow AgentsRow {
+                get {
+                    return ((AgentsRow)(this.GetParentRow(this.Table.ParentRelations["Agents_Agents_contacts"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["Agents_Agents_contacts"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isac_agent_idNull() {
+                return this.IsNull(this.tableAgents_contacts.ac_agent_idColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setac_agent_idNull() {
+                this[this.tableAgents_contacts.ac_agent_idColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isac_personNull() {
+                return this.IsNull(this.tableAgents_contacts.ac_personColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setac_personNull() {
+                this[this.tableAgents_contacts.ac_personColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isac_statusNull() {
+                return this.IsNull(this.tableAgents_contacts.ac_statusColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setac_statusNull() {
+                this[this.tableAgents_contacts.ac_statusColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isac_phoneNull() {
+                return this.IsNull(this.tableAgents_contacts.ac_phoneColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setac_phoneNull() {
+                this[this.tableAgents_contacts.ac_phoneColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isac_faxNull() {
+                return this.IsNull(this.tableAgents_contacts.ac_faxColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setac_faxNull() {
+                this[this.tableAgents_contacts.ac_faxColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isac_emailNull() {
+                return this.IsNull(this.tableAgents_contacts.ac_emailColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setac_emailNull() {
+                this[this.tableAgents_contacts.ac_emailColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class Agents_typesRow : global::System.Data.DataRow {
+            
+            private Agents_typesDataTable tableAgents_types;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal Agents_typesRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableAgents_types = ((Agents_typesDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public sbyte idAgents_types {
+                get {
+                    return ((sbyte)(this[this.tableAgents_types.idAgents_typesColumn]));
+                }
+                set {
+                    this[this.tableAgents_types.idAgents_typesColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Agent_type {
+                get {
+                    try {
+                        return ((string)(this[this.tableAgents_types.Agent_typeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Agent_type\' in table \'Agents_types\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableAgents_types.Agent_typeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsAgent_typeNull() {
+                return this.IsNull(this.tableAgents_types.Agent_typeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetAgent_typeNull() {
+                this[this.tableAgents_types.Agent_typeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public AgentsRow[] GetAgentsRows() {
+                if ((this.Table.ChildRelations["agents_types_Agents"] == null)) {
+                    return new AgentsRow[0];
+                }
+                else {
+                    return ((AgentsRow[])(base.GetChildRows(this.Table.ChildRelations["agents_types_Agents"])));
+                }
+            }
+        }
+        
+        /// <summary>
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -7862,6 +8866,74 @@ namespace Edocsys {
                 }
             }
         }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public class Agents_contactsRowChangeEvent : global::System.EventArgs {
+            
+            private Agents_contactsRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public Agents_contactsRowChangeEvent(Agents_contactsRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public Agents_contactsRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public class Agents_typesRowChangeEvent : global::System.EventArgs {
+            
+            private Agents_typesRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public Agents_typesRowChangeEvent(Agents_typesRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public Agents_typesRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
     }
 }
 namespace Edocsys.EdocbaseDataSetTableAdapters {
@@ -7990,8 +9062,6 @@ namespace Edocsys.EdocbaseDataSetTableAdapters {
             tableMapping.DataSetTable = "Agents";
             tableMapping.ColumnMappings.Add("idAgents", "idAgents");
             tableMapping.ColumnMappings.Add("Ag_fullname", "Ag_fullname");
-            tableMapping.ColumnMappings.Add("Ag_shortname", "Ag_shortname");
-            tableMapping.ColumnMappings.Add("Ag_addr", "Ag_addr");
             tableMapping.ColumnMappings.Add("Ag_tel", "Ag_tel");
             tableMapping.ColumnMappings.Add("Ag_fax", "Ag_fax");
             tableMapping.ColumnMappings.Add("Ag_mail", "Ag_mail");
@@ -8005,35 +9075,37 @@ namespace Edocsys.EdocbaseDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("Ag_bank", "Ag_bank");
             tableMapping.ColumnMappings.Add("Ag_doc", "Ag_doc");
             tableMapping.ColumnMappings.Add("Ag_pers_status", "Ag_pers_status");
-            tableMapping.ColumnMappings.Add("Ag_pers_firstname", "Ag_pers_firstname");
+            tableMapping.ColumnMappings.Add("Ag_type_id", "Ag_type_id");
+            tableMapping.ColumnMappings.Add("Ag_addr", "Ag_addr");
             tableMapping.ColumnMappings.Add("Ag_pers_lastname", "Ag_pers_lastname");
+            tableMapping.ColumnMappings.Add("Ag_pers_firstname", "Ag_pers_firstname");
             tableMapping.ColumnMappings.Add("Ag_pers_middlename", "Ag_pers_middlename");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM `Agents` WHERE ((`idAgents` = @Original_idAgents) AND ((@IsNull_Ag_fu" +
-                "llname = 1 AND `Ag_fullname` IS NULL) OR (`Ag_fullname` = @Original_Ag_fullname)" +
-                ") AND ((@IsNull_Ag_shortname = 1 AND `Ag_shortname` IS NULL) OR (`Ag_shortname` " +
-                "= @Original_Ag_shortname)) AND ((@IsNull_Ag_addr = 1 AND `Ag_addr` IS NULL) OR (" +
-                "`Ag_addr` = @Original_Ag_addr)) AND ((@IsNull_Ag_tel = 1 AND `Ag_tel` IS NULL) O" +
-                "R (`Ag_tel` = @Original_Ag_tel)) AND ((@IsNull_Ag_fax = 1 AND `Ag_fax` IS NULL) " +
-                "OR (`Ag_fax` = @Original_Ag_fax)) AND ((@IsNull_Ag_mail = 1 AND `Ag_mail` IS NUL" +
-                "L) OR (`Ag_mail` = @Original_Ag_mail)) AND ((@IsNull_Ag_INN = 1 AND `Ag_INN` IS " +
-                "NULL) OR (`Ag_INN` = @Original_Ag_INN)) AND ((@IsNull_Ag_OGRN = 1 AND `Ag_OGRN` " +
-                "IS NULL) OR (`Ag_OGRN` = @Original_Ag_OGRN)) AND ((@IsNull_Ag_KPP = 1 AND `Ag_KP" +
-                "P` IS NULL) OR (`Ag_KPP` = @Original_Ag_KPP)) AND ((@IsNull_Ag_OKPO = 1 AND `Ag_" +
-                "OKPO` IS NULL) OR (`Ag_OKPO` = @Original_Ag_OKPO)) AND ((@IsNull_Ag_Rcou = 1 AND" +
-                " `Ag_Rcou` IS NULL) OR (`Ag_Rcou` = @Original_Ag_Rcou)) AND ((@IsNull_Ag_Kcou = " +
-                "1 AND `Ag_Kcou` IS NULL) OR (`Ag_Kcou` = @Original_Ag_Kcou)) AND ((@IsNull_Ag_BI" +
-                "K = 1 AND `Ag_BIK` IS NULL) OR (`Ag_BIK` = @Original_Ag_BIK)) AND ((@IsNull_Ag_b" +
-                "ank = 1 AND `Ag_bank` IS NULL) OR (`Ag_bank` = @Original_Ag_bank)) AND ((@IsNull" +
-                "_Ag_doc = 1 AND `Ag_doc` IS NULL) OR (`Ag_doc` = @Original_Ag_doc)) AND ((@IsNul" +
-                "l_Ag_pers_status = 1 AND `Ag_pers_status` IS NULL) OR (`Ag_pers_status` = @Origi" +
-                "nal_Ag_pers_status)) AND ((@IsNull_Ag_pers_firstname = 1 AND `Ag_pers_firstname`" +
-                " IS NULL) OR (`Ag_pers_firstname` = @Original_Ag_pers_firstname)) AND ((@IsNull_" +
-                "Ag_pers_lastname = 1 AND `Ag_pers_lastname` IS NULL) OR (`Ag_pers_lastname` = @O" +
-                "riginal_Ag_pers_lastname)) AND ((@IsNull_Ag_pers_middlename = 1 AND `Ag_pers_mid" +
-                "dlename` IS NULL) OR (`Ag_pers_middlename` = @Original_Ag_pers_middlename)))";
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM `edocbase`.`agents` WHERE ((`idAgents` = @Original_idAgents) AND ((@I" +
+                "sNull_Ag_type_id = 1 AND `Ag_type_id` IS NULL) OR (`Ag_type_id` = @Original_Ag_t" +
+                "ype_id)) AND ((@IsNull_Ag_fullname = 1 AND `Ag_fullname` IS NULL) OR (`Ag_fullna" +
+                "me` = @Original_Ag_fullname)) AND ((@IsNull_Ag_INN = 1 AND `Ag_INN` IS NULL) OR " +
+                "(`Ag_INN` = @Original_Ag_INN)) AND ((@IsNull_Ag_addr = 1 AND `Ag_addr` IS NULL) " +
+                "OR (`Ag_addr` = @Original_Ag_addr)) AND ((@IsNull_Ag_tel = 1 AND `Ag_tel` IS NUL" +
+                "L) OR (`Ag_tel` = @Original_Ag_tel)) AND ((@IsNull_Ag_fax = 1 AND `Ag_fax` IS NU" +
+                "LL) OR (`Ag_fax` = @Original_Ag_fax)) AND ((@IsNull_Ag_mail = 1 AND `Ag_mail` IS" +
+                " NULL) OR (`Ag_mail` = @Original_Ag_mail)) AND ((@IsNull_Ag_OGRN = 1 AND `Ag_OGR" +
+                "N` IS NULL) OR (`Ag_OGRN` = @Original_Ag_OGRN)) AND ((@IsNull_Ag_KPP = 1 AND `Ag" +
+                "_KPP` IS NULL) OR (`Ag_KPP` = @Original_Ag_KPP)) AND ((@IsNull_Ag_OKPO = 1 AND `" +
+                "Ag_OKPO` IS NULL) OR (`Ag_OKPO` = @Original_Ag_OKPO)) AND ((@IsNull_Ag_Rcou = 1 " +
+                "AND `Ag_Rcou` IS NULL) OR (`Ag_Rcou` = @Original_Ag_Rcou)) AND ((@IsNull_Ag_Kcou" +
+                " = 1 AND `Ag_Kcou` IS NULL) OR (`Ag_Kcou` = @Original_Ag_Kcou)) AND ((@IsNull_Ag" +
+                "_BIK = 1 AND `Ag_BIK` IS NULL) OR (`Ag_BIK` = @Original_Ag_BIK)) AND ((@IsNull_A" +
+                "g_bank = 1 AND `Ag_bank` IS NULL) OR (`Ag_bank` = @Original_Ag_bank)) AND ((@IsN" +
+                "ull_Ag_doc = 1 AND `Ag_doc` IS NULL) OR (`Ag_doc` = @Original_Ag_doc)) AND ((@Is" +
+                "Null_Ag_pers_status = 1 AND `Ag_pers_status` IS NULL) OR (`Ag_pers_status` = @Or" +
+                "iginal_Ag_pers_status)) AND ((@IsNull_Ag_pers_lastname = 1 AND `Ag_pers_lastname" +
+                "` IS NULL) OR (`Ag_pers_lastname` = @Original_Ag_pers_lastname)) AND ((@IsNull_A" +
+                "g_pers_firstname = 1 AND `Ag_pers_firstname` IS NULL) OR (`Ag_pers_firstname` = " +
+                "@Original_Ag_pers_firstname)) AND ((@IsNull_Ag_pers_middlename = 1 AND `Ag_pers_" +
+                "middlename` IS NULL) OR (`Ag_pers_middlename` = @Original_Ag_pers_middlename)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@Original_idAgents";
@@ -8041,6 +9113,23 @@ namespace Edocsys.EdocbaseDataSetTableAdapters {
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
             param.SourceColumn = "idAgents";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@IsNull_Ag_type_id";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "Ag_type_id";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Original_Ag_type_id";
+            param.DbType = global::System.Data.DbType.SByte;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Byte;
+            param.IsNullable = true;
+            param.SourceColumn = "Ag_type_id";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
@@ -8061,20 +9150,20 @@ namespace Edocsys.EdocbaseDataSetTableAdapters {
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@IsNull_Ag_shortname";
+            param.ParameterName = "@IsNull_Ag_INN";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
-            param.SourceColumn = "Ag_shortname";
+            param.SourceColumn = "Ag_INN";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             param.SourceColumnNullMapping = true;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@Original_Ag_shortname";
+            param.ParameterName = "@Original_Ag_INN";
             param.DbType = global::System.Data.DbType.String;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.IsNullable = true;
-            param.SourceColumn = "Ag_shortname";
+            param.SourceColumn = "Ag_INN";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
@@ -8143,23 +9232,6 @@ namespace Edocsys.EdocbaseDataSetTableAdapters {
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.IsNullable = true;
             param.SourceColumn = "Ag_mail";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.DeleteCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@IsNull_Ag_INN";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
-            param.IsNullable = true;
-            param.SourceColumn = "Ag_INN";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            param.SourceColumnNullMapping = true;
-            this._adapter.DeleteCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@Original_Ag_INN";
-            param.DbType = global::System.Data.DbType.String;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
-            param.IsNullable = true;
-            param.SourceColumn = "Ag_INN";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
@@ -8316,23 +9388,6 @@ namespace Edocsys.EdocbaseDataSetTableAdapters {
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@IsNull_Ag_pers_firstname";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
-            param.IsNullable = true;
-            param.SourceColumn = "Ag_pers_firstname";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            param.SourceColumnNullMapping = true;
-            this._adapter.DeleteCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@Original_Ag_pers_firstname";
-            param.DbType = global::System.Data.DbType.String;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
-            param.IsNullable = true;
-            param.SourceColumn = "Ag_pers_firstname";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.DeleteCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@IsNull_Ag_pers_lastname";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
@@ -8347,6 +9402,23 @@ namespace Edocsys.EdocbaseDataSetTableAdapters {
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.IsNullable = true;
             param.SourceColumn = "Ag_pers_lastname";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@IsNull_Ag_pers_firstname";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "Ag_pers_firstname";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Original_Ag_pers_firstname";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "Ag_pers_firstname";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
@@ -8368,8 +9440,15 @@ namespace Edocsys.EdocbaseDataSetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(param);
             this._adapter.InsertCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO `Agents` (`Ag_fullname`, `Ag_shortname`, `Ag_addr`, `Ag_tel`, `Ag_fax`, `Ag_mail`, `Ag_INN`, `Ag_OGRN`, `Ag_KPP`, `Ag_OKPO`, `Ag_Rcou`, `Ag_Kcou`, `Ag_BIK`, `Ag_bank`, `Ag_doc`, `Ag_pers_status`, `Ag_pers_firstname`, `Ag_pers_lastname`, `Ag_pers_middlename`) VALUES (@Ag_fullname, @Ag_shortname, @Ag_addr, @Ag_tel, @Ag_fax, @Ag_mail, @Ag_INN, @Ag_OGRN, @Ag_KPP, @Ag_OKPO, @Ag_Rcou, @Ag_Kcou, @Ag_BIK, @Ag_bank, @Ag_doc, @Ag_pers_status, @Ag_pers_firstname, @Ag_pers_lastname, @Ag_pers_middlename)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO `edocbase`.`agents` (`Ag_type_id`, `Ag_fullname`, `Ag_INN`, `Ag_addr`, `Ag_tel`, `Ag_fax`, `Ag_mail`, `Ag_OGRN`, `Ag_KPP`, `Ag_OKPO`, `Ag_Rcou`, `Ag_Kcou`, `Ag_BIK`, `Ag_bank`, `Ag_doc`, `Ag_pers_status`, `Ag_pers_lastname`, `Ag_pers_firstname`, `Ag_pers_middlename`) VALUES (@Ag_type_id, @Ag_fullname, @Ag_INN, @Ag_addr, @Ag_tel, @Ag_fax, @Ag_mail, @Ag_OGRN, @Ag_KPP, @Ag_OKPO, @Ag_Rcou, @Ag_Kcou, @Ag_BIK, @Ag_bank, @Ag_doc, @Ag_pers_status, @Ag_pers_lastname, @Ag_pers_firstname, @Ag_pers_middlename)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Ag_type_id";
+            param.DbType = global::System.Data.DbType.SByte;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Byte;
+            param.IsNullable = true;
+            param.SourceColumn = "Ag_type_id";
+            this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@Ag_fullname";
             param.DbType = global::System.Data.DbType.String;
@@ -8378,11 +9457,11 @@ namespace Edocsys.EdocbaseDataSetTableAdapters {
             param.SourceColumn = "Ag_fullname";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@Ag_shortname";
+            param.ParameterName = "@Ag_INN";
             param.DbType = global::System.Data.DbType.String;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.IsNullable = true;
-            param.SourceColumn = "Ag_shortname";
+            param.SourceColumn = "Ag_INN";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@Ag_addr";
@@ -8411,13 +9490,6 @@ namespace Edocsys.EdocbaseDataSetTableAdapters {
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.IsNullable = true;
             param.SourceColumn = "Ag_mail";
-            this._adapter.InsertCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@Ag_INN";
-            param.DbType = global::System.Data.DbType.String;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
-            param.IsNullable = true;
-            param.SourceColumn = "Ag_INN";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@Ag_OGRN";
@@ -8483,18 +9555,18 @@ namespace Edocsys.EdocbaseDataSetTableAdapters {
             param.SourceColumn = "Ag_pers_status";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@Ag_pers_firstname";
-            param.DbType = global::System.Data.DbType.String;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
-            param.IsNullable = true;
-            param.SourceColumn = "Ag_pers_firstname";
-            this._adapter.InsertCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@Ag_pers_lastname";
             param.DbType = global::System.Data.DbType.String;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.IsNullable = true;
             param.SourceColumn = "Ag_pers_lastname";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Ag_pers_firstname";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "Ag_pers_firstname";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@Ag_pers_middlename";
@@ -8505,37 +9577,44 @@ namespace Edocsys.EdocbaseDataSetTableAdapters {
             this._adapter.InsertCommand.Parameters.Add(param);
             this._adapter.UpdateCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = "UPDATE `Agents` SET `Ag_fullname` = @Ag_fullname, `Ag_shortname` = @Ag_shortname," +
-                " `Ag_addr` = @Ag_addr, `Ag_tel` = @Ag_tel, `Ag_fax` = @Ag_fax, `Ag_mail` = @Ag_m" +
-                "ail, `Ag_INN` = @Ag_INN, `Ag_OGRN` = @Ag_OGRN, `Ag_KPP` = @Ag_KPP, `Ag_OKPO` = @" +
-                "Ag_OKPO, `Ag_Rcou` = @Ag_Rcou, `Ag_Kcou` = @Ag_Kcou, `Ag_BIK` = @Ag_BIK, `Ag_ban" +
-                "k` = @Ag_bank, `Ag_doc` = @Ag_doc, `Ag_pers_status` = @Ag_pers_status, `Ag_pers_" +
-                "firstname` = @Ag_pers_firstname, `Ag_pers_lastname` = @Ag_pers_lastname, `Ag_per" +
-                "s_middlename` = @Ag_pers_middlename WHERE ((`idAgents` = @Original_idAgents) AND" +
-                " ((@IsNull_Ag_fullname = 1 AND `Ag_fullname` IS NULL) OR (`Ag_fullname` = @Origi" +
-                "nal_Ag_fullname)) AND ((@IsNull_Ag_shortname = 1 AND `Ag_shortname` IS NULL) OR " +
-                "(`Ag_shortname` = @Original_Ag_shortname)) AND ((@IsNull_Ag_addr = 1 AND `Ag_add" +
+            this._adapter.UpdateCommand.CommandText = "UPDATE `edocbase`.`agents` SET `Ag_type_id` = @Ag_type_id, `Ag_fullname` = @Ag_fu" +
+                "llname, `Ag_INN` = @Ag_INN, `Ag_addr` = @Ag_addr, `Ag_tel` = @Ag_tel, `Ag_fax` =" +
+                " @Ag_fax, `Ag_mail` = @Ag_mail, `Ag_OGRN` = @Ag_OGRN, `Ag_KPP` = @Ag_KPP, `Ag_OK" +
+                "PO` = @Ag_OKPO, `Ag_Rcou` = @Ag_Rcou, `Ag_Kcou` = @Ag_Kcou, `Ag_BIK` = @Ag_BIK, " +
+                "`Ag_bank` = @Ag_bank, `Ag_doc` = @Ag_doc, `Ag_pers_status` = @Ag_pers_status, `A" +
+                "g_pers_lastname` = @Ag_pers_lastname, `Ag_pers_firstname` = @Ag_pers_firstname, " +
+                "`Ag_pers_middlename` = @Ag_pers_middlename WHERE ((`idAgents` = @Original_idAgen" +
+                "ts) AND ((@IsNull_Ag_type_id = 1 AND `Ag_type_id` IS NULL) OR (`Ag_type_id` = @O" +
+                "riginal_Ag_type_id)) AND ((@IsNull_Ag_fullname = 1 AND `Ag_fullname` IS NULL) OR" +
+                " (`Ag_fullname` = @Original_Ag_fullname)) AND ((@IsNull_Ag_INN = 1 AND `Ag_INN` " +
+                "IS NULL) OR (`Ag_INN` = @Original_Ag_INN)) AND ((@IsNull_Ag_addr = 1 AND `Ag_add" +
                 "r` IS NULL) OR (`Ag_addr` = @Original_Ag_addr)) AND ((@IsNull_Ag_tel = 1 AND `Ag" +
                 "_tel` IS NULL) OR (`Ag_tel` = @Original_Ag_tel)) AND ((@IsNull_Ag_fax = 1 AND `A" +
                 "g_fax` IS NULL) OR (`Ag_fax` = @Original_Ag_fax)) AND ((@IsNull_Ag_mail = 1 AND " +
-                "`Ag_mail` IS NULL) OR (`Ag_mail` = @Original_Ag_mail)) AND ((@IsNull_Ag_INN = 1 " +
-                "AND `Ag_INN` IS NULL) OR (`Ag_INN` = @Original_Ag_INN)) AND ((@IsNull_Ag_OGRN = " +
-                "1 AND `Ag_OGRN` IS NULL) OR (`Ag_OGRN` = @Original_Ag_OGRN)) AND ((@IsNull_Ag_KP" +
-                "P = 1 AND `Ag_KPP` IS NULL) OR (`Ag_KPP` = @Original_Ag_KPP)) AND ((@IsNull_Ag_O" +
-                "KPO = 1 AND `Ag_OKPO` IS NULL) OR (`Ag_OKPO` = @Original_Ag_OKPO)) AND ((@IsNull" +
-                "_Ag_Rcou = 1 AND `Ag_Rcou` IS NULL) OR (`Ag_Rcou` = @Original_Ag_Rcou)) AND ((@I" +
-                "sNull_Ag_Kcou = 1 AND `Ag_Kcou` IS NULL) OR (`Ag_Kcou` = @Original_Ag_Kcou)) AND" +
-                " ((@IsNull_Ag_BIK = 1 AND `Ag_BIK` IS NULL) OR (`Ag_BIK` = @Original_Ag_BIK)) AN" +
-                "D ((@IsNull_Ag_bank = 1 AND `Ag_bank` IS NULL) OR (`Ag_bank` = @Original_Ag_bank" +
-                ")) AND ((@IsNull_Ag_doc = 1 AND `Ag_doc` IS NULL) OR (`Ag_doc` = @Original_Ag_do" +
-                "c)) AND ((@IsNull_Ag_pers_status = 1 AND `Ag_pers_status` IS NULL) OR (`Ag_pers_" +
-                "status` = @Original_Ag_pers_status)) AND ((@IsNull_Ag_pers_firstname = 1 AND `Ag" +
-                "_pers_firstname` IS NULL) OR (`Ag_pers_firstname` = @Original_Ag_pers_firstname)" +
-                ") AND ((@IsNull_Ag_pers_lastname = 1 AND `Ag_pers_lastname` IS NULL) OR (`Ag_per" +
-                "s_lastname` = @Original_Ag_pers_lastname)) AND ((@IsNull_Ag_pers_middlename = 1 " +
-                "AND `Ag_pers_middlename` IS NULL) OR (`Ag_pers_middlename` = @Original_Ag_pers_m" +
-                "iddlename)))";
+                "`Ag_mail` IS NULL) OR (`Ag_mail` = @Original_Ag_mail)) AND ((@IsNull_Ag_OGRN = 1" +
+                " AND `Ag_OGRN` IS NULL) OR (`Ag_OGRN` = @Original_Ag_OGRN)) AND ((@IsNull_Ag_KPP" +
+                " = 1 AND `Ag_KPP` IS NULL) OR (`Ag_KPP` = @Original_Ag_KPP)) AND ((@IsNull_Ag_OK" +
+                "PO = 1 AND `Ag_OKPO` IS NULL) OR (`Ag_OKPO` = @Original_Ag_OKPO)) AND ((@IsNull_" +
+                "Ag_Rcou = 1 AND `Ag_Rcou` IS NULL) OR (`Ag_Rcou` = @Original_Ag_Rcou)) AND ((@Is" +
+                "Null_Ag_Kcou = 1 AND `Ag_Kcou` IS NULL) OR (`Ag_Kcou` = @Original_Ag_Kcou)) AND " +
+                "((@IsNull_Ag_BIK = 1 AND `Ag_BIK` IS NULL) OR (`Ag_BIK` = @Original_Ag_BIK)) AND" +
+                " ((@IsNull_Ag_bank = 1 AND `Ag_bank` IS NULL) OR (`Ag_bank` = @Original_Ag_bank)" +
+                ") AND ((@IsNull_Ag_doc = 1 AND `Ag_doc` IS NULL) OR (`Ag_doc` = @Original_Ag_doc" +
+                ")) AND ((@IsNull_Ag_pers_status = 1 AND `Ag_pers_status` IS NULL) OR (`Ag_pers_s" +
+                "tatus` = @Original_Ag_pers_status)) AND ((@IsNull_Ag_pers_lastname = 1 AND `Ag_p" +
+                "ers_lastname` IS NULL) OR (`Ag_pers_lastname` = @Original_Ag_pers_lastname)) AND" +
+                " ((@IsNull_Ag_pers_firstname = 1 AND `Ag_pers_firstname` IS NULL) OR (`Ag_pers_f" +
+                "irstname` = @Original_Ag_pers_firstname)) AND ((@IsNull_Ag_pers_middlename = 1 A" +
+                "ND `Ag_pers_middlename` IS NULL) OR (`Ag_pers_middlename` = @Original_Ag_pers_mi" +
+                "ddlename)))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Ag_type_id";
+            param.DbType = global::System.Data.DbType.SByte;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Byte;
+            param.IsNullable = true;
+            param.SourceColumn = "Ag_type_id";
+            this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@Ag_fullname";
             param.DbType = global::System.Data.DbType.String;
@@ -8544,11 +9623,11 @@ namespace Edocsys.EdocbaseDataSetTableAdapters {
             param.SourceColumn = "Ag_fullname";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@Ag_shortname";
+            param.ParameterName = "@Ag_INN";
             param.DbType = global::System.Data.DbType.String;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.IsNullable = true;
-            param.SourceColumn = "Ag_shortname";
+            param.SourceColumn = "Ag_INN";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@Ag_addr";
@@ -8577,13 +9656,6 @@ namespace Edocsys.EdocbaseDataSetTableAdapters {
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.IsNullable = true;
             param.SourceColumn = "Ag_mail";
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@Ag_INN";
-            param.DbType = global::System.Data.DbType.String;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
-            param.IsNullable = true;
-            param.SourceColumn = "Ag_INN";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@Ag_OGRN";
@@ -8649,18 +9721,18 @@ namespace Edocsys.EdocbaseDataSetTableAdapters {
             param.SourceColumn = "Ag_pers_status";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@Ag_pers_firstname";
-            param.DbType = global::System.Data.DbType.String;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
-            param.IsNullable = true;
-            param.SourceColumn = "Ag_pers_firstname";
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@Ag_pers_lastname";
             param.DbType = global::System.Data.DbType.String;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.IsNullable = true;
             param.SourceColumn = "Ag_pers_lastname";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Ag_pers_firstname";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "Ag_pers_firstname";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@Ag_pers_middlename";
@@ -8675,6 +9747,23 @@ namespace Edocsys.EdocbaseDataSetTableAdapters {
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
             param.SourceColumn = "idAgents";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@IsNull_Ag_type_id";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "Ag_type_id";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Original_Ag_type_id";
+            param.DbType = global::System.Data.DbType.SByte;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Byte;
+            param.IsNullable = true;
+            param.SourceColumn = "Ag_type_id";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
@@ -8695,20 +9784,20 @@ namespace Edocsys.EdocbaseDataSetTableAdapters {
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@IsNull_Ag_shortname";
+            param.ParameterName = "@IsNull_Ag_INN";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
-            param.SourceColumn = "Ag_shortname";
+            param.SourceColumn = "Ag_INN";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             param.SourceColumnNullMapping = true;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@Original_Ag_shortname";
+            param.ParameterName = "@Original_Ag_INN";
             param.DbType = global::System.Data.DbType.String;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.IsNullable = true;
-            param.SourceColumn = "Ag_shortname";
+            param.SourceColumn = "Ag_INN";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
@@ -8777,23 +9866,6 @@ namespace Edocsys.EdocbaseDataSetTableAdapters {
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.IsNullable = true;
             param.SourceColumn = "Ag_mail";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@IsNull_Ag_INN";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
-            param.IsNullable = true;
-            param.SourceColumn = "Ag_INN";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            param.SourceColumnNullMapping = true;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@Original_Ag_INN";
-            param.DbType = global::System.Data.DbType.String;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
-            param.IsNullable = true;
-            param.SourceColumn = "Ag_INN";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
@@ -8950,23 +10022,6 @@ namespace Edocsys.EdocbaseDataSetTableAdapters {
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@IsNull_Ag_pers_firstname";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
-            param.IsNullable = true;
-            param.SourceColumn = "Ag_pers_firstname";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            param.SourceColumnNullMapping = true;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@Original_Ag_pers_firstname";
-            param.DbType = global::System.Data.DbType.String;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
-            param.IsNullable = true;
-            param.SourceColumn = "Ag_pers_firstname";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@IsNull_Ag_pers_lastname";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
@@ -8981,6 +10036,23 @@ namespace Edocsys.EdocbaseDataSetTableAdapters {
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.IsNullable = true;
             param.SourceColumn = "Ag_pers_lastname";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@IsNull_Ag_pers_firstname";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "Ag_pers_firstname";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Original_Ag_pers_firstname";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "Ag_pers_firstname";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
@@ -9015,11 +10087,61 @@ namespace Edocsys.EdocbaseDataSetTableAdapters {
             this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[2];
             this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT `idAgents`, `Ag_fullname`, `Ag_shortname`, `Ag_addr`, `Ag_tel`, `Ag_fax`, `Ag_mail`, `Ag_INN`, `Ag_OGRN`, `Ag_KPP`, `Ag_OKPO`, `Ag_Rcou`, `Ag_Kcou`, `Ag_BIK`, `Ag_bank`, `Ag_doc`, `Ag_pers_status`, `Ag_pers_firstname`, `Ag_pers_lastname`, `Ag_pers_middlename` FROM `Agents`";
+            this._commandCollection[0].CommandText = @"SELECT
+idAgents,
+Ag_type_id,
+Ag_fullname,
+Ag_INN,
+Ag_addr,
+Ag_tel,
+Ag_fax,
+Ag_mail,
+Ag_OGRN,
+Ag_KPP,
+Ag_OKPO,
+Ag_Rcou,
+Ag_Kcou,
+Ag_BIK,
+Ag_bank,
+Ag_doc, 
+Ag_pers_status,
+ Ag_pers_lastname,
+Ag_pers_firstname,
+Ag_pers_middlename
+FROM
+agents";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = @"SELECT `idAgents`, `Ag_fullname`, `Ag_shortname`, `Ag_addr`, `Ag_tel`, `Ag_fax`, `Ag_mail`, `Ag_INN`, `Ag_OGRN`, `Ag_KPP`, `Ag_OKPO`, `Ag_Rcou`, `Ag_Kcou`, `Ag_BIK`, `Ag_bank`, `Ag_doc`, `Ag_pers_status`, `Ag_pers_firstname`, `Ag_pers_lastname`, `Ag_pers_middlename`, (CONCAT(`Ag_pers_lastname`, ' ', substr(`Ag_pers_firstname`, 1, 1), '. ', substr(`Ag_pers_middlename`, 1,1), '.') ) as `person_shortname` FROM `Agents`";
+            this._commandCollection[1].CommandText = @"SELECT
+agents.idAgents,
+agents.Ag_type_id, 
+agents.Ag_fullname,
+CONCAT(agents_types.Agent_type, ' ', agents.Ag_fullname) AS ag_name,
+agents.Ag_INN,
+agents.Ag_tel,
+agents.Ag_fax,
+agents.Ag_mail,
+agents.Ag_addr,
+agents.Ag_OGRN,
+agents.Ag_KPP,
+agents.Ag_OKPO,
+agents.Ag_Rcou,
+agents.Ag_Kcou,
+agents.Ag_BIK,
+agents.Ag_bank,
+agents.Ag_doc,
+agents.Ag_pers_status,
+agents.Ag_pers_lastname,
+agents.Ag_pers_firstname,
+agents.Ag_pers_middlename,
+CONCAT(agents.Ag_pers_lastname, ' ',  substr(agents.Ag_pers_firstname, 1, 1), 
+                  '. ', substr(agents.Ag_pers_middlename, 1, 1), '.') AS Contact_FullName
+FROM agents
+INNER JOIN
+  agents_types ON agents.Ag_type_id = agents_types.idAgents_types
+
+";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -9051,7 +10173,7 @@ namespace Edocsys.EdocbaseDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillWithShortName(EdocbaseDataSet.AgentsDataTable dataTable) {
+        public virtual int FillShortInfo(EdocbaseDataSet.AgentsDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -9064,7 +10186,7 @@ namespace Edocsys.EdocbaseDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual EdocbaseDataSet.AgentsDataTable GetDataWithShortName() {
+        public virtual EdocbaseDataSet.AgentsDataTable GetDataByShortInfo() {
             this.Adapter.SelectCommand = this.CommandCollection[1];
             EdocbaseDataSet.AgentsDataTable dataTable = new EdocbaseDataSet.AgentsDataTable();
             this.Adapter.Fill(dataTable);
@@ -9106,13 +10228,13 @@ namespace Edocsys.EdocbaseDataSetTableAdapters {
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
         public virtual int Delete(
                     int Original_idAgents, 
+                    global::System.Nullable<byte> Original_Ag_type_id, 
                     string Original_Ag_fullname, 
-                    string Original_Ag_shortname, 
+                    string Original_Ag_INN, 
                     string Original_Ag_addr, 
                     string Original_Ag_tel, 
                     string Original_Ag_fax, 
                     string Original_Ag_mail, 
-                    string Original_Ag_INN, 
                     string Original_Ag_OGRN, 
                     string Original_Ag_KPP, 
                     string Original_Ag_OKPO, 
@@ -9122,65 +10244,65 @@ namespace Edocsys.EdocbaseDataSetTableAdapters {
                     string Original_Ag_bank, 
                     string Original_Ag_doc, 
                     string Original_Ag_pers_status, 
-                    string Original_Ag_pers_firstname, 
                     string Original_Ag_pers_lastname, 
+                    string Original_Ag_pers_firstname, 
                     string Original_Ag_pers_middlename) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_idAgents));
-            if ((Original_Ag_fullname == null)) {
+            if ((Original_Ag_type_id.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((byte)(Original_Ag_type_id.Value));
+            }
+            else {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_Ag_fullname));
-            }
-            if ((Original_Ag_shortname == null)) {
+            if ((Original_Ag_fullname == null)) {
                 this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_Ag_shortname));
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_Ag_fullname));
             }
-            if ((Original_Ag_addr == null)) {
+            if ((Original_Ag_INN == null)) {
                 this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[6].Value = ((string)(Original_Ag_addr));
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((string)(Original_Ag_INN));
             }
-            if ((Original_Ag_tel == null)) {
+            if ((Original_Ag_addr == null)) {
                 this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[8].Value = ((string)(Original_Ag_tel));
+                this.Adapter.DeleteCommand.Parameters[8].Value = ((string)(Original_Ag_addr));
             }
-            if ((Original_Ag_fax == null)) {
+            if ((Original_Ag_tel == null)) {
                 this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[10].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[10].Value = ((string)(Original_Ag_fax));
+                this.Adapter.DeleteCommand.Parameters[10].Value = ((string)(Original_Ag_tel));
             }
-            if ((Original_Ag_mail == null)) {
+            if ((Original_Ag_fax == null)) {
                 this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[12].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[12].Value = ((string)(Original_Ag_mail));
+                this.Adapter.DeleteCommand.Parameters[12].Value = ((string)(Original_Ag_fax));
             }
-            if ((Original_Ag_INN == null)) {
+            if ((Original_Ag_mail == null)) {
                 this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[14].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[14].Value = ((string)(Original_Ag_INN));
+                this.Adapter.DeleteCommand.Parameters[14].Value = ((string)(Original_Ag_mail));
             }
             if ((Original_Ag_OGRN == null)) {
                 this.Adapter.DeleteCommand.Parameters[15].Value = ((object)(1));
@@ -9254,21 +10376,21 @@ namespace Edocsys.EdocbaseDataSetTableAdapters {
                 this.Adapter.DeleteCommand.Parameters[31].Value = ((object)(0));
                 this.Adapter.DeleteCommand.Parameters[32].Value = ((string)(Original_Ag_pers_status));
             }
-            if ((Original_Ag_pers_firstname == null)) {
+            if ((Original_Ag_pers_lastname == null)) {
                 this.Adapter.DeleteCommand.Parameters[33].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[34].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[33].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[34].Value = ((string)(Original_Ag_pers_firstname));
+                this.Adapter.DeleteCommand.Parameters[34].Value = ((string)(Original_Ag_pers_lastname));
             }
-            if ((Original_Ag_pers_lastname == null)) {
+            if ((Original_Ag_pers_firstname == null)) {
                 this.Adapter.DeleteCommand.Parameters[35].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[36].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[35].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[36].Value = ((string)(Original_Ag_pers_lastname));
+                this.Adapter.DeleteCommand.Parameters[36].Value = ((string)(Original_Ag_pers_firstname));
             }
             if ((Original_Ag_pers_middlename == null)) {
                 this.Adapter.DeleteCommand.Parameters[37].Value = ((object)(1));
@@ -9299,13 +10421,13 @@ namespace Edocsys.EdocbaseDataSetTableAdapters {
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
         public virtual int Insert(
+                    global::System.Nullable<byte> Ag_type_id, 
                     string Ag_fullname, 
-                    string Ag_shortname, 
+                    string Ag_INN, 
                     string Ag_addr, 
                     string Ag_tel, 
                     string Ag_fax, 
                     string Ag_mail, 
-                    string Ag_INN, 
                     string Ag_OGRN, 
                     string Ag_KPP, 
                     string Ag_OKPO, 
@@ -9315,50 +10437,50 @@ namespace Edocsys.EdocbaseDataSetTableAdapters {
                     string Ag_bank, 
                     string Ag_doc, 
                     string Ag_pers_status, 
-                    string Ag_pers_firstname, 
                     string Ag_pers_lastname, 
+                    string Ag_pers_firstname, 
                     string Ag_pers_middlename) {
-            if ((Ag_fullname == null)) {
-                this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
+            if ((Ag_type_id.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[0].Value = ((byte)(Ag_type_id.Value));
             }
             else {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(Ag_fullname));
+                this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
-            if ((Ag_shortname == null)) {
+            if ((Ag_fullname == null)) {
                 this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(Ag_shortname));
+                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(Ag_fullname));
             }
-            if ((Ag_addr == null)) {
+            if ((Ag_INN == null)) {
                 this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(Ag_addr));
+                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(Ag_INN));
             }
-            if ((Ag_tel == null)) {
+            if ((Ag_addr == null)) {
                 this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(Ag_tel));
+                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(Ag_addr));
             }
-            if ((Ag_fax == null)) {
+            if ((Ag_tel == null)) {
                 this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(Ag_fax));
+                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(Ag_tel));
             }
-            if ((Ag_mail == null)) {
+            if ((Ag_fax == null)) {
                 this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(Ag_mail));
+                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(Ag_fax));
             }
-            if ((Ag_INN == null)) {
+            if ((Ag_mail == null)) {
                 this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[6].Value = ((string)(Ag_INN));
+                this.Adapter.InsertCommand.Parameters[6].Value = ((string)(Ag_mail));
             }
             if ((Ag_OGRN == null)) {
                 this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
@@ -9414,17 +10536,17 @@ namespace Edocsys.EdocbaseDataSetTableAdapters {
             else {
                 this.Adapter.InsertCommand.Parameters[15].Value = ((string)(Ag_pers_status));
             }
-            if ((Ag_pers_firstname == null)) {
+            if ((Ag_pers_lastname == null)) {
                 this.Adapter.InsertCommand.Parameters[16].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[16].Value = ((string)(Ag_pers_firstname));
+                this.Adapter.InsertCommand.Parameters[16].Value = ((string)(Ag_pers_lastname));
             }
-            if ((Ag_pers_lastname == null)) {
+            if ((Ag_pers_firstname == null)) {
                 this.Adapter.InsertCommand.Parameters[17].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[17].Value = ((string)(Ag_pers_lastname));
+                this.Adapter.InsertCommand.Parameters[17].Value = ((string)(Ag_pers_firstname));
             }
             if ((Ag_pers_middlename == null)) {
                 this.Adapter.InsertCommand.Parameters[18].Value = global::System.DBNull.Value;
@@ -9453,13 +10575,13 @@ namespace Edocsys.EdocbaseDataSetTableAdapters {
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
         public virtual int Update(
+                    global::System.Nullable<byte> Ag_type_id, 
                     string Ag_fullname, 
-                    string Ag_shortname, 
+                    string Ag_INN, 
                     string Ag_addr, 
                     string Ag_tel, 
                     string Ag_fax, 
                     string Ag_mail, 
-                    string Ag_INN, 
                     string Ag_OGRN, 
                     string Ag_KPP, 
                     string Ag_OKPO, 
@@ -9469,17 +10591,17 @@ namespace Edocsys.EdocbaseDataSetTableAdapters {
                     string Ag_bank, 
                     string Ag_doc, 
                     string Ag_pers_status, 
-                    string Ag_pers_firstname, 
                     string Ag_pers_lastname, 
+                    string Ag_pers_firstname, 
                     string Ag_pers_middlename, 
                     int Original_idAgents, 
+                    global::System.Nullable<byte> Original_Ag_type_id, 
                     string Original_Ag_fullname, 
-                    string Original_Ag_shortname, 
+                    string Original_Ag_INN, 
                     string Original_Ag_addr, 
                     string Original_Ag_tel, 
                     string Original_Ag_fax, 
                     string Original_Ag_mail, 
-                    string Original_Ag_INN, 
                     string Original_Ag_OGRN, 
                     string Original_Ag_KPP, 
                     string Original_Ag_OKPO, 
@@ -9489,50 +10611,50 @@ namespace Edocsys.EdocbaseDataSetTableAdapters {
                     string Original_Ag_bank, 
                     string Original_Ag_doc, 
                     string Original_Ag_pers_status, 
-                    string Original_Ag_pers_firstname, 
                     string Original_Ag_pers_lastname, 
+                    string Original_Ag_pers_firstname, 
                     string Original_Ag_pers_middlename) {
-            if ((Ag_fullname == null)) {
-                this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
+            if ((Ag_type_id.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[0].Value = ((byte)(Ag_type_id.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(Ag_fullname));
+                this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
-            if ((Ag_shortname == null)) {
+            if ((Ag_fullname == null)) {
                 this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(Ag_shortname));
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(Ag_fullname));
             }
-            if ((Ag_addr == null)) {
+            if ((Ag_INN == null)) {
                 this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(Ag_addr));
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(Ag_INN));
             }
-            if ((Ag_tel == null)) {
+            if ((Ag_addr == null)) {
                 this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(Ag_tel));
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(Ag_addr));
             }
-            if ((Ag_fax == null)) {
+            if ((Ag_tel == null)) {
                 this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(Ag_fax));
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(Ag_tel));
             }
-            if ((Ag_mail == null)) {
+            if ((Ag_fax == null)) {
                 this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(Ag_mail));
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(Ag_fax));
             }
-            if ((Ag_INN == null)) {
+            if ((Ag_mail == null)) {
                 this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Ag_INN));
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Ag_mail));
             }
             if ((Ag_OGRN == null)) {
                 this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
@@ -9588,17 +10710,17 @@ namespace Edocsys.EdocbaseDataSetTableAdapters {
             else {
                 this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(Ag_pers_status));
             }
-            if ((Ag_pers_firstname == null)) {
+            if ((Ag_pers_lastname == null)) {
                 this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((string)(Ag_pers_firstname));
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((string)(Ag_pers_lastname));
             }
-            if ((Ag_pers_lastname == null)) {
+            if ((Ag_pers_firstname == null)) {
                 this.Adapter.UpdateCommand.Parameters[17].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((string)(Ag_pers_lastname));
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((string)(Ag_pers_firstname));
             }
             if ((Ag_pers_middlename == null)) {
                 this.Adapter.UpdateCommand.Parameters[18].Value = global::System.DBNull.Value;
@@ -9607,61 +10729,61 @@ namespace Edocsys.EdocbaseDataSetTableAdapters {
                 this.Adapter.UpdateCommand.Parameters[18].Value = ((string)(Ag_pers_middlename));
             }
             this.Adapter.UpdateCommand.Parameters[19].Value = ((int)(Original_idAgents));
-            if ((Original_Ag_fullname == null)) {
+            if ((Original_Ag_type_id.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[21].Value = ((byte)(Original_Ag_type_id.Value));
+            }
+            else {
                 this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[21].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[21].Value = ((string)(Original_Ag_fullname));
-            }
-            if ((Original_Ag_shortname == null)) {
+            if ((Original_Ag_fullname == null)) {
                 this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[23].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[23].Value = ((string)(Original_Ag_shortname));
+                this.Adapter.UpdateCommand.Parameters[23].Value = ((string)(Original_Ag_fullname));
             }
-            if ((Original_Ag_addr == null)) {
+            if ((Original_Ag_INN == null)) {
                 this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[25].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[25].Value = ((string)(Original_Ag_addr));
+                this.Adapter.UpdateCommand.Parameters[25].Value = ((string)(Original_Ag_INN));
             }
-            if ((Original_Ag_tel == null)) {
+            if ((Original_Ag_addr == null)) {
                 this.Adapter.UpdateCommand.Parameters[26].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[27].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[26].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[27].Value = ((string)(Original_Ag_tel));
+                this.Adapter.UpdateCommand.Parameters[27].Value = ((string)(Original_Ag_addr));
             }
-            if ((Original_Ag_fax == null)) {
+            if ((Original_Ag_tel == null)) {
                 this.Adapter.UpdateCommand.Parameters[28].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[29].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[28].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[29].Value = ((string)(Original_Ag_fax));
+                this.Adapter.UpdateCommand.Parameters[29].Value = ((string)(Original_Ag_tel));
             }
-            if ((Original_Ag_mail == null)) {
+            if ((Original_Ag_fax == null)) {
                 this.Adapter.UpdateCommand.Parameters[30].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[31].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[30].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[31].Value = ((string)(Original_Ag_mail));
+                this.Adapter.UpdateCommand.Parameters[31].Value = ((string)(Original_Ag_fax));
             }
-            if ((Original_Ag_INN == null)) {
+            if ((Original_Ag_mail == null)) {
                 this.Adapter.UpdateCommand.Parameters[32].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[33].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[32].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[33].Value = ((string)(Original_Ag_INN));
+                this.Adapter.UpdateCommand.Parameters[33].Value = ((string)(Original_Ag_mail));
             }
             if ((Original_Ag_OGRN == null)) {
                 this.Adapter.UpdateCommand.Parameters[34].Value = ((object)(1));
@@ -9735,21 +10857,21 @@ namespace Edocsys.EdocbaseDataSetTableAdapters {
                 this.Adapter.UpdateCommand.Parameters[50].Value = ((object)(0));
                 this.Adapter.UpdateCommand.Parameters[51].Value = ((string)(Original_Ag_pers_status));
             }
-            if ((Original_Ag_pers_firstname == null)) {
+            if ((Original_Ag_pers_lastname == null)) {
                 this.Adapter.UpdateCommand.Parameters[52].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[53].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[52].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[53].Value = ((string)(Original_Ag_pers_firstname));
+                this.Adapter.UpdateCommand.Parameters[53].Value = ((string)(Original_Ag_pers_lastname));
             }
-            if ((Original_Ag_pers_lastname == null)) {
+            if ((Original_Ag_pers_firstname == null)) {
                 this.Adapter.UpdateCommand.Parameters[54].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[55].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[54].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[55].Value = ((string)(Original_Ag_pers_lastname));
+                this.Adapter.UpdateCommand.Parameters[55].Value = ((string)(Original_Ag_pers_firstname));
             }
             if ((Original_Ag_pers_middlename == null)) {
                 this.Adapter.UpdateCommand.Parameters[56].Value = ((object)(1));
@@ -16073,6 +17195,1155 @@ WHERE (contracts.Contract_type = 1)";
     }
     
     /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class Agents_contactsTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::MySql.Data.MySqlClient.MySqlDataAdapter _adapter;
+        
+        private global::MySql.Data.MySqlClient.MySqlConnection _connection;
+        
+        private global::MySql.Data.MySqlClient.MySqlTransaction _transaction;
+        
+        private global::MySql.Data.MySqlClient.MySqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public Agents_contactsTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected internal global::MySql.Data.MySqlClient.MySqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::MySql.Data.MySqlClient.MySqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::MySql.Data.MySqlClient.MySqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::MySql.Data.MySqlClient.MySqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected global::MySql.Data.MySqlClient.MySqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::MySql.Data.MySqlClient.MySqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "Agents_contacts";
+            tableMapping.ColumnMappings.Add("idAgents_contacts", "idAgents_contacts");
+            tableMapping.ColumnMappings.Add("ac_agent_id", "ac_agent_id");
+            tableMapping.ColumnMappings.Add("ac_person", "ac_person");
+            tableMapping.ColumnMappings.Add("ac_status", "ac_status");
+            tableMapping.ColumnMappings.Add("ac_phone", "ac_phone");
+            tableMapping.ColumnMappings.Add("ac_fax", "ac_fax");
+            tableMapping.ColumnMappings.Add("ac_email", "ac_email");
+            this._adapter.TableMappings.Add(tableMapping);
+            this._adapter.DeleteCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
+            this._adapter.DeleteCommand.Connection = this.Connection;
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM `edocbase`.`agents_contacts` WHERE ((`idAgents_contacts` = @Original_idAgents_contacts) AND ((@IsNull_ac_agent_id = 1 AND `ac_agent_id` IS NULL) OR (`ac_agent_id` = @Original_ac_agent_id)) AND ((@IsNull_ac_person = 1 AND `ac_person` IS NULL) OR (`ac_person` = @Original_ac_person)) AND ((@IsNull_ac_status = 1 AND `ac_status` IS NULL) OR (`ac_status` = @Original_ac_status)) AND ((@IsNull_ac_phone = 1 AND `ac_phone` IS NULL) OR (`ac_phone` = @Original_ac_phone)) AND ((@IsNull_ac_fax = 1 AND `ac_fax` IS NULL) OR (`ac_fax` = @Original_ac_fax)) AND ((@IsNull_ac_email = 1 AND `ac_email` IS NULL) OR (`ac_email` = @Original_ac_email)))";
+            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
+            global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Original_idAgents_contacts";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "idAgents_contacts";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@IsNull_ac_agent_id";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "ac_agent_id";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Original_ac_agent_id";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "ac_agent_id";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@IsNull_ac_person";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "ac_person";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Original_ac_person";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "ac_person";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@IsNull_ac_status";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "ac_status";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Original_ac_status";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "ac_status";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@IsNull_ac_phone";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "ac_phone";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Original_ac_phone";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "ac_phone";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@IsNull_ac_fax";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "ac_fax";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Original_ac_fax";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "ac_fax";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@IsNull_ac_email";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "ac_email";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Original_ac_email";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "ac_email";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            this._adapter.InsertCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
+            this._adapter.InsertCommand.Connection = this.Connection;
+            this._adapter.InsertCommand.CommandText = "INSERT INTO `edocbase`.`agents_contacts` (`ac_agent_id`, `ac_person`, `ac_status`" +
+                ", `ac_phone`, `ac_fax`, `ac_email`) VALUES (@ac_agent_id, @ac_person, @ac_status" +
+                ", @ac_phone, @ac_fax, @ac_email)";
+            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@ac_agent_id";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "ac_agent_id";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@ac_person";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "ac_person";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@ac_status";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "ac_status";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@ac_phone";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "ac_phone";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@ac_fax";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "ac_fax";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@ac_email";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "ac_email";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            this._adapter.UpdateCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
+            this._adapter.UpdateCommand.Connection = this.Connection;
+            this._adapter.UpdateCommand.CommandText = @"UPDATE `edocbase`.`agents_contacts` SET `ac_agent_id` = @ac_agent_id, `ac_person` = @ac_person, `ac_status` = @ac_status, `ac_phone` = @ac_phone, `ac_fax` = @ac_fax, `ac_email` = @ac_email WHERE ((`idAgents_contacts` = @Original_idAgents_contacts) AND ((@IsNull_ac_agent_id = 1 AND `ac_agent_id` IS NULL) OR (`ac_agent_id` = @Original_ac_agent_id)) AND ((@IsNull_ac_person = 1 AND `ac_person` IS NULL) OR (`ac_person` = @Original_ac_person)) AND ((@IsNull_ac_status = 1 AND `ac_status` IS NULL) OR (`ac_status` = @Original_ac_status)) AND ((@IsNull_ac_phone = 1 AND `ac_phone` IS NULL) OR (`ac_phone` = @Original_ac_phone)) AND ((@IsNull_ac_fax = 1 AND `ac_fax` IS NULL) OR (`ac_fax` = @Original_ac_fax)) AND ((@IsNull_ac_email = 1 AND `ac_email` IS NULL) OR (`ac_email` = @Original_ac_email)))";
+            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@ac_agent_id";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "ac_agent_id";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@ac_person";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "ac_person";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@ac_status";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "ac_status";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@ac_phone";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "ac_phone";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@ac_fax";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "ac_fax";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@ac_email";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "ac_email";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Original_idAgents_contacts";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "idAgents_contacts";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@IsNull_ac_agent_id";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "ac_agent_id";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Original_ac_agent_id";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "ac_agent_id";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@IsNull_ac_person";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "ac_person";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Original_ac_person";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "ac_person";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@IsNull_ac_status";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "ac_status";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Original_ac_status";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "ac_status";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@IsNull_ac_phone";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "ac_phone";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Original_ac_phone";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "ac_phone";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@IsNull_ac_fax";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "ac_fax";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Original_ac_fax";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "ac_fax";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@IsNull_ac_email";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "ac_email";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Original_ac_email";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "ac_email";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::MySql.Data.MySqlClient.MySqlConnection();
+            this._connection.ConnectionString = global::Edocsys.Properties.Settings.Default.EdocbaseConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[1];
+            this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "SELECT `idAgents_contacts`, `ac_agent_id`, `ac_person`, `ac_status`, `ac_phone`, " +
+                "`ac_fax`, `ac_email` FROM `agents_contacts`";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(EdocbaseDataSet.Agents_contactsDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual EdocbaseDataSet.Agents_contactsDataTable GetData() {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            EdocbaseDataSet.Agents_contactsDataTable dataTable = new EdocbaseDataSet.Agents_contactsDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(EdocbaseDataSet.Agents_contactsDataTable dataTable) {
+            return this.Adapter.Update(dataTable);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(EdocbaseDataSet dataSet) {
+            return this.Adapter.Update(dataSet, "Agents_contacts");
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow dataRow) {
+            return this.Adapter.Update(new global::System.Data.DataRow[] {
+                        dataRow});
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow[] dataRows) {
+            return this.Adapter.Update(dataRows);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
+        public virtual int Delete(int Original_idAgents_contacts, global::System.Nullable<int> Original_ac_agent_id, string Original_ac_person, string Original_ac_status, string Original_ac_phone, string Original_ac_fax, string Original_ac_email) {
+            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_idAgents_contacts));
+            if ((Original_ac_agent_id.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_ac_agent_id.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            if ((Original_ac_person == null)) {
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_ac_person));
+            }
+            if ((Original_ac_status == null)) {
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((string)(Original_ac_status));
+            }
+            if ((Original_ac_phone == null)) {
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[8].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[8].Value = ((string)(Original_ac_phone));
+            }
+            if ((Original_ac_fax == null)) {
+                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[10].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[10].Value = ((string)(Original_ac_fax));
+            }
+            if ((Original_ac_email == null)) {
+                this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[12].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[12].Value = ((string)(Original_ac_email));
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
+            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.DeleteCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.DeleteCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
+        public virtual int Insert(global::System.Nullable<int> ac_agent_id, string ac_person, string ac_status, string ac_phone, string ac_fax, string ac_email) {
+            if ((ac_agent_id.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[0].Value = ((int)(ac_agent_id.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            if ((ac_person == null)) {
+                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(ac_person));
+            }
+            if ((ac_status == null)) {
+                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(ac_status));
+            }
+            if ((ac_phone == null)) {
+                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(ac_phone));
+            }
+            if ((ac_fax == null)) {
+                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(ac_fax));
+            }
+            if ((ac_email == null)) {
+                this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(ac_email));
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
+            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.InsertCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.InsertCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(global::System.Nullable<int> ac_agent_id, string ac_person, string ac_status, string ac_phone, string ac_fax, string ac_email, int Original_idAgents_contacts, global::System.Nullable<int> Original_ac_agent_id, string Original_ac_person, string Original_ac_status, string Original_ac_phone, string Original_ac_fax, string Original_ac_email) {
+            if ((ac_agent_id.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(ac_agent_id.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            if ((ac_person == null)) {
+                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(ac_person));
+            }
+            if ((ac_status == null)) {
+                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(ac_status));
+            }
+            if ((ac_phone == null)) {
+                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(ac_phone));
+            }
+            if ((ac_fax == null)) {
+                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(ac_fax));
+            }
+            if ((ac_email == null)) {
+                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(ac_email));
+            }
+            this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Original_idAgents_contacts));
+            if ((Original_ac_agent_id.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(Original_ac_agent_id.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
+            }
+            if ((Original_ac_person == null)) {
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(Original_ac_person));
+            }
+            if ((Original_ac_status == null)) {
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(Original_ac_status));
+            }
+            if ((Original_ac_phone == null)) {
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((string)(Original_ac_phone));
+            }
+            if ((Original_ac_fax == null)) {
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((string)(Original_ac_fax));
+            }
+            if ((Original_ac_email == null)) {
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[18].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((string)(Original_ac_email));
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
+            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.UpdateCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.UpdateCommand.Connection.Close();
+                }
+            }
+        }
+    }
+    
+    /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class Agents_typesTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::MySql.Data.MySqlClient.MySqlDataAdapter _adapter;
+        
+        private global::MySql.Data.MySqlClient.MySqlConnection _connection;
+        
+        private global::MySql.Data.MySqlClient.MySqlTransaction _transaction;
+        
+        private global::MySql.Data.MySqlClient.MySqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public Agents_typesTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected internal global::MySql.Data.MySqlClient.MySqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::MySql.Data.MySqlClient.MySqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::MySql.Data.MySqlClient.MySqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::MySql.Data.MySqlClient.MySqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected global::MySql.Data.MySqlClient.MySqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::MySql.Data.MySqlClient.MySqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "Agents_types";
+            tableMapping.ColumnMappings.Add("idAgents_types", "idAgents_types");
+            tableMapping.ColumnMappings.Add("Agent_type", "Agent_type");
+            this._adapter.TableMappings.Add(tableMapping);
+            this._adapter.DeleteCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
+            this._adapter.DeleteCommand.Connection = this.Connection;
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM `agents_types` WHERE ((`idAgents_types` = @Original_idAgents_types) A" +
+                "ND ((@IsNull_Agent_type = 1 AND `Agent_type` IS NULL) OR (`Agent_type` = @Origin" +
+                "al_Agent_type)))";
+            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
+            global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Original_idAgents_types";
+            param.DbType = global::System.Data.DbType.SByte;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Byte;
+            param.IsNullable = true;
+            param.SourceColumn = "idAgents_types";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@IsNull_Agent_type";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "Agent_type";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Original_Agent_type";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "Agent_type";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            this._adapter.InsertCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
+            this._adapter.InsertCommand.Connection = this.Connection;
+            this._adapter.InsertCommand.CommandText = "INSERT INTO `agents_types` (`idAgents_types`, `Agent_type`) VALUES (@idAgents_typ" +
+                "es, @Agent_type)";
+            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@idAgents_types";
+            param.DbType = global::System.Data.DbType.SByte;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Byte;
+            param.IsNullable = true;
+            param.SourceColumn = "idAgents_types";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Agent_type";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "Agent_type";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            this._adapter.UpdateCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
+            this._adapter.UpdateCommand.Connection = this.Connection;
+            this._adapter.UpdateCommand.CommandText = "UPDATE `agents_types` SET `idAgents_types` = @idAgents_types, `Agent_type` = @Age" +
+                "nt_type WHERE ((`idAgents_types` = @Original_idAgents_types) AND ((@IsNull_Agent" +
+                "_type = 1 AND `Agent_type` IS NULL) OR (`Agent_type` = @Original_Agent_type)))";
+            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@idAgents_types";
+            param.DbType = global::System.Data.DbType.SByte;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Byte;
+            param.IsNullable = true;
+            param.SourceColumn = "idAgents_types";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Agent_type";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "Agent_type";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Original_idAgents_types";
+            param.DbType = global::System.Data.DbType.SByte;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Byte;
+            param.IsNullable = true;
+            param.SourceColumn = "idAgents_types";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@IsNull_Agent_type";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "Agent_type";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Original_Agent_type";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "Agent_type";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::MySql.Data.MySqlClient.MySqlConnection();
+            this._connection.ConnectionString = global::Edocsys.Properties.Settings.Default.EdocbaseConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[1];
+            this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "SELECT `idAgents_types`, `Agent_type` FROM `agents_types`";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(EdocbaseDataSet.Agents_typesDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual EdocbaseDataSet.Agents_typesDataTable GetData() {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            EdocbaseDataSet.Agents_typesDataTable dataTable = new EdocbaseDataSet.Agents_typesDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(EdocbaseDataSet.Agents_typesDataTable dataTable) {
+            return this.Adapter.Update(dataTable);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(EdocbaseDataSet dataSet) {
+            return this.Adapter.Update(dataSet, "Agents_types");
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow dataRow) {
+            return this.Adapter.Update(new global::System.Data.DataRow[] {
+                        dataRow});
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow[] dataRows) {
+            return this.Adapter.Update(dataRows);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
+        public virtual int Delete(byte Original_idAgents_types, string Original_Agent_type) {
+            this.Adapter.DeleteCommand.Parameters[0].Value = ((byte)(Original_idAgents_types));
+            if ((Original_Agent_type == null)) {
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_Agent_type));
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
+            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.DeleteCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.DeleteCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
+        public virtual int Insert(byte idAgents_types, string Agent_type) {
+            this.Adapter.InsertCommand.Parameters[0].Value = ((byte)(idAgents_types));
+            if ((Agent_type == null)) {
+                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(Agent_type));
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
+            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.InsertCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.InsertCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(byte idAgents_types, string Agent_type, byte Original_idAgents_types, string Original_Agent_type) {
+            this.Adapter.UpdateCommand.Parameters[0].Value = ((byte)(idAgents_types));
+            if ((Agent_type == null)) {
+                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(Agent_type));
+            }
+            this.Adapter.UpdateCommand.Parameters[2].Value = ((byte)(Original_idAgents_types));
+            if ((Original_Agent_type == null)) {
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(Original_Agent_type));
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
+            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.UpdateCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.UpdateCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(string Agent_type, byte Original_idAgents_types, string Original_Agent_type) {
+            return this.Update(Original_idAgents_types, Agent_type, Original_idAgents_types, Original_Agent_type);
+        }
+    }
+    
+    /// <summary>
     ///TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
     ///</summary>
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -16103,6 +18374,10 @@ WHERE (contracts.Contract_type = 1)";
         private ContractTypesTableAdapter _contractTypesTableAdapter;
         
         private ProductAreasTableAdapter _productAreasTableAdapter;
+        
+        private Agents_contactsTableAdapter _agents_contactsTableAdapter;
+        
+        private Agents_typesTableAdapter _agents_typesTableAdapter;
         
         private bool _backupDataSetBeforeUpdate;
         
@@ -16261,6 +18536,34 @@ WHERE (contracts.Contract_type = 1)";
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
+            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
+            "a", "System.Drawing.Design.UITypeEditor")]
+        public Agents_contactsTableAdapter Agents_contactsTableAdapter {
+            get {
+                return this._agents_contactsTableAdapter;
+            }
+            set {
+                this._agents_contactsTableAdapter = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
+            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
+            "a", "System.Drawing.Design.UITypeEditor")]
+        public Agents_typesTableAdapter Agents_typesTableAdapter {
+            get {
+                return this._agents_typesTableAdapter;
+            }
+            set {
+                this._agents_typesTableAdapter = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public bool BackupDataSetBeforeUpdate {
             get {
                 return this._backupDataSetBeforeUpdate;
@@ -16318,6 +18621,14 @@ WHERE (contracts.Contract_type = 1)";
                             && (this._productAreasTableAdapter.Connection != null))) {
                     return this._productAreasTableAdapter.Connection;
                 }
+                if (((this._agents_contactsTableAdapter != null) 
+                            && (this._agents_contactsTableAdapter.Connection != null))) {
+                    return this._agents_contactsTableAdapter.Connection;
+                }
+                if (((this._agents_typesTableAdapter != null) 
+                            && (this._agents_typesTableAdapter.Connection != null))) {
+                    return this._agents_typesTableAdapter.Connection;
+                }
                 return null;
             }
             set {
@@ -16361,6 +18672,12 @@ WHERE (contracts.Contract_type = 1)";
                 if ((this._productAreasTableAdapter != null)) {
                     count = (count + 1);
                 }
+                if ((this._agents_contactsTableAdapter != null)) {
+                    count = (count + 1);
+                }
+                if ((this._agents_typesTableAdapter != null)) {
+                    count = (count + 1);
+                }
                 return count;
             }
         }
@@ -16378,6 +18695,15 @@ WHERE (contracts.Contract_type = 1)";
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._productAreasTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._agents_typesTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Agents_types.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._agents_typesTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -16462,6 +18788,15 @@ WHERE (contracts.Contract_type = 1)";
                     allChangedRows.AddRange(updatedRows);
                 }
             }
+            if ((this._agents_contactsTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Agents_contacts.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._agents_contactsTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
             return result;
         }
         
@@ -16477,6 +18812,14 @@ WHERE (contracts.Contract_type = 1)";
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._productAreasTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._agents_typesTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Agents_types.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._agents_typesTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -16552,6 +18895,14 @@ WHERE (contracts.Contract_type = 1)";
                     allAddedRows.AddRange(addedRows);
                 }
             }
+            if ((this._agents_contactsTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Agents_contacts.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._agents_contactsTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
             return result;
         }
         
@@ -16562,6 +18913,14 @@ WHERE (contracts.Contract_type = 1)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private int UpdateDeletedRows(EdocbaseDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
+            if ((this._agents_contactsTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Agents_contacts.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._agents_contactsTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
             if ((this._exec_contractsTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.Exec_contracts.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
@@ -16631,6 +18990,14 @@ WHERE (contracts.Contract_type = 1)";
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._productsTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._agents_typesTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Agents_types.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._agents_typesTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -16728,6 +19095,16 @@ WHERE (contracts.Contract_type = 1)";
             }
             if (((this._productAreasTableAdapter != null) 
                         && (this.MatchTableAdapterConnection(this._productAreasTableAdapter.Connection) == false))) {
+                throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
+                        "tring.");
+            }
+            if (((this._agents_contactsTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._agents_contactsTableAdapter.Connection) == false))) {
+                throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
+                        "tring.");
+            }
+            if (((this._agents_typesTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._agents_typesTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
@@ -16853,6 +19230,24 @@ WHERE (contracts.Contract_type = 1)";
                         adaptersWithAcceptChangesDuringUpdate.Add(this._productAreasTableAdapter.Adapter);
                     }
                 }
+                if ((this._agents_contactsTableAdapter != null)) {
+                    revertConnections.Add(this._agents_contactsTableAdapter, this._agents_contactsTableAdapter.Connection);
+                    this._agents_contactsTableAdapter.Connection = ((global::MySql.Data.MySqlClient.MySqlConnection)(workConnection));
+                    this._agents_contactsTableAdapter.Transaction = ((global::MySql.Data.MySqlClient.MySqlTransaction)(workTransaction));
+                    if (this._agents_contactsTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._agents_contactsTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._agents_contactsTableAdapter.Adapter);
+                    }
+                }
+                if ((this._agents_typesTableAdapter != null)) {
+                    revertConnections.Add(this._agents_typesTableAdapter, this._agents_typesTableAdapter.Connection);
+                    this._agents_typesTableAdapter.Connection = ((global::MySql.Data.MySqlClient.MySqlConnection)(workConnection));
+                    this._agents_typesTableAdapter.Transaction = ((global::MySql.Data.MySqlClient.MySqlTransaction)(workTransaction));
+                    if (this._agents_typesTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._agents_typesTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._agents_typesTableAdapter.Adapter);
+                    }
+                }
                 // 
                 //---- Perform updates -----------
                 //
@@ -16950,6 +19345,14 @@ WHERE (contracts.Contract_type = 1)";
                 if ((this._productAreasTableAdapter != null)) {
                     this._productAreasTableAdapter.Connection = ((global::MySql.Data.MySqlClient.MySqlConnection)(revertConnections[this._productAreasTableAdapter]));
                     this._productAreasTableAdapter.Transaction = null;
+                }
+                if ((this._agents_contactsTableAdapter != null)) {
+                    this._agents_contactsTableAdapter.Connection = ((global::MySql.Data.MySqlClient.MySqlConnection)(revertConnections[this._agents_contactsTableAdapter]));
+                    this._agents_contactsTableAdapter.Transaction = null;
+                }
+                if ((this._agents_typesTableAdapter != null)) {
+                    this._agents_typesTableAdapter.Connection = ((global::MySql.Data.MySqlClient.MySqlConnection)(revertConnections[this._agents_typesTableAdapter]));
+                    this._agents_typesTableAdapter.Transaction = null;
                 }
                 if ((0 < adaptersWithAcceptChangesDuringUpdate.Count)) {
                     global::System.Data.Common.DataAdapter[] adapters = new System.Data.Common.DataAdapter[adaptersWithAcceptChangesDuringUpdate.Count];
