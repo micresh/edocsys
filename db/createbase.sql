@@ -4,45 +4,83 @@ CREATE DATABASE IF NOT EXISTS `Edocbase`;
 
 GRANT ALL PRIVILEGES ON *.* TO root@localhost IDENTIFIED BY 'po12jein45bf';
 
-CREATE  TABLE IF NOT EXISTS `Edocbase`.`Agents` (
-  `idAgents` INT NOT NULL AUTO_INCREMENT ,
-  `Ag_fullname` VARCHAR(127) NULL ,
-  `Ag_shortname` VARCHAR(63) NULL ,
-  `Ag_addr` VARCHAR(255) NULL ,
+
+CREATE TABLE IF NOT EXISTS `Edocbase`.`Agents` (
+  `idAgents` int(11) NOT NULL AUTO_INCREMENT,
+  `Ag_type_id` tinyint(4) DEFAULT 0,
+  `Ag_fullname` varchar(63) DEFAULT NULL,
+  `Ag_INN` varchar(15) DEFAULT NULL,
   `Ag_tel` VARCHAR(15) NULL ,
   `Ag_fax` VARCHAR(15) NULL ,
   `Ag_mail` VARCHAR(31) NULL ,
-  `Ag_INN` VARCHAR(15) NULL ,
-  `Ag_OGRN` VARCHAR(15) NULL ,
-  `Ag_KPP` VARCHAR(15) NULL ,
-  `Ag_OKPO` VARCHAR(15) NULL ,
-  `Ag_Rcou` VARCHAR(15) NULL ,
-  `Ag_Kcou` VARCHAR(15) NULL ,
-  `Ag_BIK` VARCHAR(15) NULL ,
-  `Ag_bank` VARCHAR(127) NULL ,
-  `Ag_doc` VARCHAR(45) NULL ,
+  `Ag_addr` varchar(255) DEFAULT NULL,
+  `Ag_OGRN` varchar(15) DEFAULT NULL,
+  `Ag_KPP` varchar(15) DEFAULT NULL,
+  `Ag_OKPO` varchar(15) DEFAULT NULL,
+  `Ag_Rcou` varchar(15) DEFAULT NULL,
+  `Ag_Kcou` varchar(15) DEFAULT NULL,
+  `Ag_BIK` varchar(15) DEFAULT NULL,
+  `Ag_bank` varchar(127) DEFAULT NULL,
+  `Ag_doc` varchar(45) DEFAULT NULL,
   `Ag_pers_status` VARCHAR(45) NULL ,
-  `Ag_pers_firstname` VARCHAR(30) NULL ,
-  `Ag_pers_lastname` VARCHAR(30) NULL ,
-  `Ag_pers_middlename` VARCHAR(30) NULL ,
-  PRIMARY KEY (`idAgents`) )
-ENGINE = InnoDB;
-CREATE  TABLE IF NOT EXISTS `Edocbase`.`Experts` (
+  `Ag_pers_fullname` VARCHAR(45) NULL ,
+  `Ag_pers_shortname` VARCHAR(45) NULL 
+  PRIMARY KEY (`idAgents`),
+  INDEX `fk_Agents_` (`Ag_type_id` ASC) ,
+  CONSTRAINT `fk_Agents_1`
+    FOREIGN KEY (`Ag_type_id`)
+    REFERENCES `agents_types` (`idAgents_types`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION
+) ENGINE=InnoDB;
+
+
+CREATE TABLE IF NOT EXISTS `Edocbase`.`Agents_contacts` (
+  `idAgents_contacts` INT NOT NULL,
+  `ac_agent_id` INT DEFAULT 0,
+  `ac_person` VARCHAR(75) DEFAULT NULL,
+  `ac_status` VARCHAR(45) DEFAULT NULL,
+  `ac_phone` VARCHAR(15) DEFAULT NULL,
+  `ac_fax` VARCHAR(15) DEFAULT NULL,
+  `ac_email` VARCHAR(45) DEFAULT NULL,
+  PRIMARY KEY (`idAgents_contacts`),
+  INDEX `fk_Agents_contacts_1` (`ac_agent_id` ASC) ,
+  CONSTRAINT `fk_Agents_contacts_1`
+      FOREIGN KEY (`ac_agent_id`)
+      REFERENCES `agents` (`idAgents`)
+      ON DELETE NO ACTION
+      ON UPDATE NO ACTION
+) ENGINE=InnoDB;
+
+
+CREATE TABLE IF NOT EXISTS `Edocbase`.`Agents_types` (
+  `idAgents_types` TINYINT NOT NULL ,
+  `Agent_type` VARCHAR(8) NULL ,
+  PRIMARY KEY (`idAgents_types`)
+) ENGINE=InnoDB;
+
+
+
+CREATE TABLE IF NOT EXISTS `Edocbase`.`Experts` (
   `idExperts` INT NOT NULL AUTO_INCREMENT ,
   `Expert_Lastname` VARCHAR(30) NULL ,
   `Expert_Firstname` VARCHAR(30) NULL ,
   `Expert_Middlename` VARCHAR(30) NULL ,
-  PRIMARY KEY (`idExperts`) )
-ENGINE = InnoDB;
+  PRIMARY KEY (`idExperts`)
+) ENGINE = InnoDB;
+
+
 CREATE  TABLE IF NOT EXISTS `Edocbase`.`Products` (
   `idProducts` INT NOT NULL AUTO_INCREMENT ,
   `Product_name` VARCHAR(45) NULL ,
   `Product_OKP` VARCHAR(31) NULL ,
   `Product_TNVED` VARCHAR(31) NULL ,
   `ProductArea` TINYINT NULL,
-  PRIMARY KEY (`idProducts`) )
-ENGINE = InnoDB;
-CREATE  TABLE IF NOT EXISTS `Edocbase`.`ProdGost` (
+  PRIMARY KEY (`idProducts`)
+) ENGINE = InnoDB;
+
+
+CREATE TABLE IF NOT EXISTS `Edocbase`.`ProdGost` (
   `id` INT NOT NULL ,
   `idProducts` INT NULL ,
   `GOST_numb` VARCHAR(15) NULL ,
@@ -53,19 +91,25 @@ CREATE  TABLE IF NOT EXISTS `Edocbase`.`ProdGost` (
     FOREIGN KEY (`idProducts` )
     REFERENCES `Edocbase`.`Products` (`idProducts` )
     ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+    ON UPDATE NO ACTION
+) ENGINE = InnoDB;
+
+
 CREATE TABLE IF NOT EXISTS `Edocbase`.`ContractTypes` (
-	`id` TINYINT not null ,
-	`name` varchar(30) ,
-	PRIMARY KEY (`id`) )
-ENGINE = InnoDB;
+    `id` TINYINT not null ,
+    `name` varchar(30) ,
+    PRIMARY KEY (`id`)
+) ENGINE = InnoDB;
+
+
 CREATE TABLE IF NOT EXISTS `Edocbase`.`ProductAreas` (
-	`id` TINYINT not null ,
-	`name` varchar(40) ,
-	PRIMARY KEY (`id`) )
-ENGINE = InnoDB;
-CREATE  TABLE IF NOT EXISTS `Edocbase`.`Contracts` (
+    `id` TINYINT not null ,
+    `name` varchar(40) ,
+    PRIMARY KEY (`id`)
+) ENGINE = InnoDB;
+
+
+CREATE TABLE IF NOT EXISTS `Edocbase`.`Contracts` (
   `idContract` INT NOT NULL AUTO_INCREMENT ,
   `idProducts` INT NULL ,
   `emission_type` VARCHAR(45) NULL ,
@@ -104,9 +148,11 @@ CREATE  TABLE IF NOT EXISTS `Edocbase`.`Contracts` (
     FOREIGN KEY (`Contract_type` )
     REFERENCES `Edocbase`.`ContractTypes` (`id`)
     ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-CREATE  TABLE IF NOT EXISTS `Edocbase`.`Exec_contracts` (
+    ON UPDATE NO ACTION
+) ENGINE = InnoDB;
+
+
+CREATE TABLE IF NOT EXISTS `Edocbase`.`Exec_contracts` (
   `idContract` INT NOT NULL ,
   `Contract_start` DATE NULL ,
   `Contract_1_reatt` DATE NULL ,
@@ -123,19 +169,22 @@ CREATE  TABLE IF NOT EXISTS `Edocbase`.`Exec_contracts` (
     FOREIGN KEY (`idContract` )
     REFERENCES `Edocbase`.`Contracts` (`idContract` )
     ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-CREATE  TABLE IF NOT EXISTS `Edocbase`.`users` (
+    ON UPDATE NO ACTION
+) ENGINE = InnoDB;
+
+
+CREATE TABLE IF NOT EXISTS `Edocbase`.`users` (
   `login` VARCHAR(50) NULL ,
   `password` VARCHAR(50) NULL ,
   `type` INT NULL ,
-  `log_database` VARCHAR(50) NULL )
-ENGINE = InnoDB;
-CREATE  TABLE IF NOT EXISTS `Edocbase`.`log_journal` (
+  `log_database` VARCHAR(50) NULL
+) ENGINE = InnoDB;
+
+
+CREATE TABLE IF NOT EXISTS `Edocbase`.`log_journal` (
   `sessid` int NOT NULL AUTO_INCREMENT ,
   `time_in` DATETIME NULL ,
   `time_out` DATETIME NULL ,
   `uname` VARCHAR(50) NULL ,
-  PRIMARY KEY (`sessid`) )
-ENGINE = InnoDB;
-
+  PRIMARY KEY (`sessid`) 
+) ENGINE = InnoDB;

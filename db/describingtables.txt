@@ -1,12 +1,9 @@
 `Edocbase`.`Agents` (
   `idAgents` INT NOT NULL AUTO_INCREMENT ,  - идентификационный номер контрагента
-  `Ag_fullname` VARCHAR(45) NULL , - полное название организации
-  `Ag_shortname` VARCHAR(45) NULL , - сокращенное название организации
-  `Ag_addr` VARCHAR(45) NULL , - адрес контрагента
-  `Ag_tel` VARCHAR(45) NULL , - телефон контрагента
-  `Ag_fax` VARCHAR(45) NULL , - факс контрагента
-  `Ag_mail` VARCHAR(45) NULL , - электронная почта контрагента
+  `Ag_type_id` tinyint(4) DEFAULT 0,        - ID формы собственности
+  `Ag_fullname` VARCHAR(45) NULL ,          - полное название организации
   `Ag_INN` VARCHAR(45) NULL , - ИНН
+  `Ag_addr` VARCHAR(45) NULL , - адрес контрагента
   `Ag_OGRN` VARCHAR(45) NULL , - ОГРН
   `Ag_KPP` VARCHAR(45) NULL , - КПП
   `Ag_OKPO` VARCHAR(45) NULL , - ОКПО
@@ -18,6 +15,23 @@
   `Ag_pers_status` VARCHAR(45) NULL , - должность ответственного за подписание договора лица
   `Ag_pers_fullname` VARCHAR(45) NULL , - Полные имя и фамилия ответственного лица
   `Ag_pers_shortname` VARCHAR(45) NULL , - инициалы, в формате "Фамилия И.О."
+
+
+-- контактные лица контрагентов
+`Edocbase`.`Agents_contacts` (
+  `idAgents_contacts` INT NOT NULL,     - ID контактного лица
+  `ac_agent_id` INT DEFAULT 0,          - ID контрагента
+  `ac_person` VARCHAR(75) DEFAULT NULL, - Ф.И.О.
+  `ac_status` VARCHAR(45) DEFAULT NULL, - Должность
+  `ac_phone` VARCHAR(15) DEFAULT NULL,  - телефон контактного лица контрагента
+  `ac_fax` VARCHAR(15) DEFAULT NULL,    - факс контрагента
+  `ac_email` VARCHAR(45) DEFAULT NULL,  - электронная почта контрагента
+
+
+-- формы собситвенности
+`Edocbase`.`Agents_types` (
+  `idAgents_types` TINYINT NOT NULL ,   - ID
+  `Agent_type` VARCHAR(8) NULL ,        - Название
 
 `Edocbase`.`Experts` (
   `idExperts` INT NOT NULL AUTO_INCREMENT , - номер эксперта
