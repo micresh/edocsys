@@ -44,9 +44,7 @@
             this.expertAssignmentBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.edocbaseDataSet = new Edocsys.EdocbaseDataSet();
             this.expertAssignmentBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
-            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
-            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
@@ -54,7 +52,6 @@
             this.bindingNavigatorSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.contractsBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.expertsListBox = new System.Windows.Forms.ListBox();
             this.expertsBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -262,14 +259,15 @@
             // 
             // edocbaseDataSet
             // 
+            this.edocbaseDataSet.DataSetName = "EdocbaseDataSet";
             this.edocbaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // expertAssignmentBindingNavigator
             // 
-            this.expertAssignmentBindingNavigator.AddNewItem = this.bindingNavigatorAddNewItem;
+            this.expertAssignmentBindingNavigator.AddNewItem = null;
             this.expertAssignmentBindingNavigator.BindingSource = this.expertAssignmentBindingSource;
             this.expertAssignmentBindingNavigator.CountItem = this.bindingNavigatorCountItem;
-            this.expertAssignmentBindingNavigator.DeleteItem = this.bindingNavigatorDeleteItem;
+            this.expertAssignmentBindingNavigator.DeleteItem = null;
             this.expertAssignmentBindingNavigator.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.bindingNavigatorMoveFirstItem,
             this.bindingNavigatorMovePreviousItem,
@@ -279,9 +277,6 @@
             this.bindingNavigatorSeparator1,
             this.bindingNavigatorMoveNextItem,
             this.bindingNavigatorMoveLastItem,
-            this.bindingNavigatorSeparator2,
-            this.bindingNavigatorAddNewItem,
-            this.bindingNavigatorDeleteItem,
             this.contractsBindingNavigatorSaveItem});
             this.expertAssignmentBindingNavigator.Location = new System.Drawing.Point(0, 0);
             this.expertAssignmentBindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
@@ -294,32 +289,12 @@
             this.expertAssignmentBindingNavigator.TabIndex = 3;
             this.expertAssignmentBindingNavigator.Text = "bindingNavigator1";
             // 
-            // bindingNavigatorAddNewItem
-            // 
-            this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
-            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
-            this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorAddNewItem.Text = "Add new";
-            this.bindingNavigatorAddNewItem.Visible = false;
-            // 
             // bindingNavigatorCountItem
             // 
             this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
             this.bindingNavigatorCountItem.Size = new System.Drawing.Size(35, 22);
             this.bindingNavigatorCountItem.Text = "of {0}";
             this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
-            // 
-            // bindingNavigatorDeleteItem
-            // 
-            this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
-            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
-            this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorDeleteItem.Text = "Delete";
-            this.bindingNavigatorDeleteItem.Visible = false;
             // 
             // bindingNavigatorMoveFirstItem
             // 
@@ -375,11 +350,6 @@
             this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorMoveLastItem.Text = "Move last";
-            // 
-            // bindingNavigatorSeparator2
-            // 
-            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
-            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
             // 
             // contractsBindingNavigatorSaveItem
             // 
@@ -726,6 +696,8 @@
             // 
             // tableAdapterManager
             // 
+            this.tableAdapterManager.Agents_contactsTableAdapter = null;
+            this.tableAdapterManager.Agents_typesTableAdapter = null;
             this.tableAdapterManager.AgentsTableAdapter = null;
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
             this.tableAdapterManager.Connection = null;
@@ -820,9 +792,7 @@
         private System.Windows.Forms.TextBox contractTextBox;
         private System.Windows.Forms.TabPage tabPageAssignedExperts;
         private System.Windows.Forms.BindingNavigator expertAssignmentBindingNavigator;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorAddNewItem;
         private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorDeleteItem;
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveFirstItem;
         private System.Windows.Forms.ToolStripButton bindingNavigatorMovePreviousItem;
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator;
@@ -830,7 +800,6 @@
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator1;
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveNextItem;
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
-        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
         private System.Windows.Forms.ToolStripButton contractsBindingNavigatorSaveItem;
         private System.Windows.Forms.ListBox expertsListBox;
         private System.Windows.Forms.Panel panel2;

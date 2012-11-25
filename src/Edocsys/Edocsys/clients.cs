@@ -69,5 +69,14 @@ namespace Edocsys
                 MessageBox.Show(ex.Message, "Save Error");
             }
         }
+
+        private void agentsBindingSource_CurrentChanged(object sender, EventArgs e)
+        {
+            DataRow currentRow = edocbaseDataSet.Tables["Agents"].DefaultView[agentsBindingSource.Position].Row;
+
+            string agent = String.Format("Контрагент: {0}", Convert.ToString(currentRow["Ag_name"]));
+
+            toolStripLabelAgent.Text = agent;
+        }
     }
 }

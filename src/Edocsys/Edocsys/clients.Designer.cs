@@ -92,8 +92,10 @@
             this.bindingNavigatorMoveNextItem1 = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveLastItem1 = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator5 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripButtonSaveContact = new System.Windows.Forms.ToolStripButton();
             this.agentsDataGridView = new System.Windows.Forms.DataGridView();
+            this.Ag_fullname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.agINNDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.person_shortname = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.ag_pers_statusTextBox = new System.Windows.Forms.TextBox();
             this.ag_docTextBox = new System.Windows.Forms.TextBox();
@@ -116,9 +118,8 @@
             this.ag_telTextBox = new System.Windows.Forms.TextBox();
             this.ag_faxTextBox = new System.Windows.Forms.TextBox();
             this.ag_mailTextBox = new System.Windows.Forms.TextBox();
-            this.Ag_fullname = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.agINNDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.person_shortname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.toolStripLabelAgent = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripButtonSaveContact = new System.Windows.Forms.ToolStripButton();
             ag_type_idLabel = new System.Windows.Forms.Label();
             ag_INNLabel = new System.Windows.Forms.Label();
             ag_fullnameLabel = new System.Windows.Forms.Label();
@@ -392,6 +393,7 @@
             this.agentsBindingSource.AllowNew = true;
             this.agentsBindingSource.DataMember = "Agents";
             this.agentsBindingSource.DataSource = this.edocbaseDataSet;
+            this.agentsBindingSource.CurrentChanged += new System.EventHandler(this.agentsBindingSource_CurrentChanged);
             // 
             // edocbaseDataSet
             // 
@@ -643,6 +645,7 @@
             this.bindingNavigatorSeparator5,
             this.bindingNavigatorAddNewItem1,
             this.bindingNavigatorDeleteItem1,
+            this.toolStripLabelAgent,
             this.toolStripButtonSaveContact});
             this.bindingNavigatorContacts.Location = new System.Drawing.Point(3, 16);
             this.bindingNavigatorContacts.MoveFirstItem = this.bindingNavigatorMoveFirstItem1;
@@ -740,16 +743,6 @@
             this.bindingNavigatorSeparator5.Name = "bindingNavigatorSeparator5";
             this.bindingNavigatorSeparator5.Size = new System.Drawing.Size(6, 25);
             // 
-            // toolStripButtonSaveContact
-            // 
-            this.toolStripButtonSaveContact.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonSaveContact.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonSaveContact.Image")));
-            this.toolStripButtonSaveContact.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonSaveContact.Name = "toolStripButtonSaveContact";
-            this.toolStripButtonSaveContact.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButtonSaveContact.Text = "toolStripButtonSaveContact";
-            this.toolStripButtonSaveContact.Click += new System.EventHandler(this.toolStripButtonSaveContact_Click);
-            // 
             // agentsDataGridView
             // 
             this.agentsDataGridView.AllowUserToAddRows = false;
@@ -765,6 +758,31 @@
             this.agentsDataGridView.Name = "agentsDataGridView";
             this.agentsDataGridView.Size = new System.Drawing.Size(618, 522);
             this.agentsDataGridView.TabIndex = 7;
+            // 
+            // Ag_fullname
+            // 
+            this.Ag_fullname.DataPropertyName = "Ag_name";
+            this.Ag_fullname.HeaderText = "Название";
+            this.Ag_fullname.MinimumWidth = 250;
+            this.Ag_fullname.Name = "Ag_fullname";
+            this.Ag_fullname.ToolTipText = "Название";
+            this.Ag_fullname.Width = 250;
+            // 
+            // agINNDataGridViewTextBoxColumn
+            // 
+            this.agINNDataGridViewTextBoxColumn.DataPropertyName = "Ag_INN";
+            this.agINNDataGridViewTextBoxColumn.HeaderText = "ИНН";
+            this.agINNDataGridViewTextBoxColumn.Name = "agINNDataGridViewTextBoxColumn";
+            this.agINNDataGridViewTextBoxColumn.ToolTipText = "ИНН";
+            // 
+            // person_shortname
+            // 
+            this.person_shortname.DataPropertyName = "Contact_FullName";
+            this.person_shortname.HeaderText = "Ф.И.О. ответственного";
+            this.person_shortname.MinimumWidth = 200;
+            this.person_shortname.Name = "person_shortname";
+            this.person_shortname.ToolTipText = "Ф.И.О. ответственного";
+            this.person_shortname.Width = 200;
             // 
             // groupBox3
             // 
@@ -995,30 +1013,21 @@
             this.ag_mailTextBox.Size = new System.Drawing.Size(408, 20);
             this.ag_mailTextBox.TabIndex = 23;
             // 
-            // Ag_fullname
+            // toolStripLabelAgent
             // 
-            this.Ag_fullname.DataPropertyName = "Ag_name";
-            this.Ag_fullname.HeaderText = "Название";
-            this.Ag_fullname.MinimumWidth = 250;
-            this.Ag_fullname.Name = "Ag_fullname";
-            this.Ag_fullname.ToolTipText = "Название";
-            this.Ag_fullname.Width = 250;
+            this.toolStripLabelAgent.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripLabelAgent.Name = "toolStripLabelAgent";
+            this.toolStripLabelAgent.Size = new System.Drawing.Size(97, 22);
+            this.toolStripLabelAgent.Text = "Контрагент: НЕТ";
             // 
-            // agINNDataGridViewTextBoxColumn
+            // toolStripButtonSaveContact
             // 
-            this.agINNDataGridViewTextBoxColumn.DataPropertyName = "Ag_INN";
-            this.agINNDataGridViewTextBoxColumn.HeaderText = "ИНН";
-            this.agINNDataGridViewTextBoxColumn.Name = "agINNDataGridViewTextBoxColumn";
-            this.agINNDataGridViewTextBoxColumn.ToolTipText = "ИНН";
-            // 
-            // person_shortname
-            // 
-            this.person_shortname.DataPropertyName = "Contact_FullName";
-            this.person_shortname.HeaderText = "Ф.И.О. ответственного";
-            this.person_shortname.MinimumWidth = 200;
-            this.person_shortname.Name = "person_shortname";
-            this.person_shortname.ToolTipText = "Ф.И.О. ответственного";
-            this.person_shortname.Width = 200;
+            this.toolStripButtonSaveContact.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonSaveContact.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonSaveContact.Image")));
+            this.toolStripButtonSaveContact.Name = "toolStripButtonSaveContact";
+            this.toolStripButtonSaveContact.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonSaveContact.Text = "Save Data";
+            this.toolStripButtonSaveContact.Click += new System.EventHandler(this.toolStripButtonSaveContact_Click);
             // 
             // ClientsForm
             // 
@@ -1128,9 +1137,10 @@
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveNextItem1;
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem1;
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator5;
-        private System.Windows.Forms.ToolStripButton toolStripButtonSaveContact;
         private System.Windows.Forms.DataGridViewTextBoxColumn Ag_fullname;
         private System.Windows.Forms.DataGridViewTextBoxColumn agINNDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn person_shortname;
+        private System.Windows.Forms.ToolStripLabel toolStripLabelAgent;
+        private System.Windows.Forms.ToolStripButton toolStripButtonSaveContact;
     }
 }
