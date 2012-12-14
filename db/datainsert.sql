@@ -19,6 +19,6 @@ INSERT INTO `Edocbase`.`ProductAreas` (`id`, `name`) VALUES (0,'Область �
 INSERT INTO `Edocbase`.`ProductAreas` (`id`, `name`) VALUES (1,'Область лабораторных исследований');
 
 -- insert productareas into Agents_types table
-INSERT INTO `edocbase`.`Agents_types` (`idAgents_types`, `Agent_type`) VALUES (1, 'ООО');
-INSERT INTO `edocbase`.`agents_types` (`idAgents_types`, `Agent_type`) VALUES (2, 'ОАО');
-INSERT INTO `edocbase`.`agents_types` (`idAgents_types`, `Agent_type`) VALUES (3, 'ЗАО');
+INSERT INTO `Edocbase`.`Agents_types` (`idAgents_types`, `Agent_type`) VALUES (1, 'ООО');
+INSERT INTO `Edocbase`.`Agents_types` (`idAgents_types`, `Agent_type`) VALUES (2, 'ОАО');
+INSERT INTO `Edocbase`.`Agents_types` (`idAgents_types`, `Agent_type`) VALUES (3, 'ЗАО');

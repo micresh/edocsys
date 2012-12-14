@@ -4,6 +4,11 @@ CREATE DATABASE IF NOT EXISTS `Edocbase`;
 
 GRANT ALL PRIVILEGES ON *.* TO root@localhost IDENTIFIED BY 'po12jein45bf';
 
+CREATE TABLE IF NOT EXISTS `Edocbase`.`Agents_types` (
+  `idAgents_types` TINYINT(4) NOT NULL AUTO_INCREMENT,
+  `Agent_type` VARCHAR(8) NULL ,
+  PRIMARY KEY (`idAgents_types`)
+) ENGINE=InnoDB;
 
 CREATE TABLE IF NOT EXISTS `Edocbase`.`Agents` (
   `idAgents` INT(11) NOT NULL AUTO_INCREMENT,
@@ -30,7 +35,7 @@ CREATE TABLE IF NOT EXISTS `Edocbase`.`Agents` (
   INDEX `fk_Agents_` (`Ag_type_id` ASC) ,
   CONSTRAINT `fk_Agents_1`
     FOREIGN KEY (`Ag_type_id`)
-    REFERENCES `agents_types` (`idAgents_types`)
+    REFERENCES `Agents_types` (`idAgents_types`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION
 ) ENGINE=InnoDB;
@@ -48,18 +53,10 @@ CREATE TABLE IF NOT EXISTS `Edocbase`.`Agents_contacts` (
   INDEX `fk_Agents_contacts_1` (`ac_agent_id` ASC) ,
   CONSTRAINT `fk_Agents_contacts_1`
       FOREIGN KEY (`ac_agent_id`)
-      REFERENCES `agents` (`idAgents`)
+      REFERENCES `Agents` (`idAgents`)
       ON DELETE NO ACTION
       ON UPDATE NO ACTION
 ) ENGINE=InnoDB;
-
-
-CREATE TABLE IF NOT EXISTS `Edocbase`.`Agents_types` (
-  `idAgents_types` TINYINT(4) NOT NULL,
-  `Agent_type` VARCHAR(8) NULL ,
-  PRIMARY KEY (`idAgents_types`)
-) ENGINE=InnoDB;
-
 
 CREATE TABLE IF NOT EXISTS `Edocbase`.`Experts` (
   `idExperts` INT NOT NULL AUTO_INCREMENT ,
