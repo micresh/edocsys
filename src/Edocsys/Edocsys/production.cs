@@ -19,26 +19,26 @@ namespace Edocsys
         private void productsBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
             this.Validate();
-            this.productsBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.edocbaseDataSet);
-
+            
         }
 
         private void ProductionForm_Load(object sender, EventArgs e)
         {
-            this.prodGostTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
+            // TODO: This line of code loads data into the 'edocbaseDataSet.ProdGost' table. You can move, or remove it, as needed.
+            
+            // TODO: This line of code loads data into the 'edocbaseDataSet.ProductAreas' table. You can move, or remove it, as needed.
+            
+            // TODO: This line of code loads data into the 'edocbaseDataSet.Products' table. You can move, or remove it, as needed.
             this.productsTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
+            this.prodGostTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
+            this.productAreasTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
+            //this.prodGostTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
+            //this.productsTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
             try
             {
-                // TODO: This line of code loads data into the 'edocbaseDataSet.ProdGost' table. You can move, or remove it, as needed.
+                this.productsTableAdapter.Fill(this.edocbaseDataSet.Products);
+                this.productAreasTableAdapter.Fill(this.edocbaseDataSet.ProductAreas);
                 this.prodGostTableAdapter.Fill(this.edocbaseDataSet.ProdGost);
-                // TODO: This line of code loads data into the 'edocbaseDataSet.Contracts' table. You can move, or remove it, as needed.
-
-
-                // TODO: This line of code loads data into the 'edocbaseDataSet.Products' table. You can move, or remove it, as needed.
-                this.productsTableAdapter.Fill(this.edocbaseDataSet.Products);
-                // TODO: This line of code loads data into the 'edocbaseDataSet.Products' table. You can move, or remove it, as needed.
-                this.productsTableAdapter.Fill(this.edocbaseDataSet.Products);
             }
             catch
             {
@@ -49,10 +49,7 @@ namespace Edocsys
 
         private void productsBindingNavigatorSaveItem_Click_1(object sender, EventArgs e)
         {
-            this.Validate();
-            this.productsBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.edocbaseDataSet);
-                
+                            
         }
 
         private void bindingNavigatorAddNewItem_Click(object sender, EventArgs e)
@@ -62,6 +59,14 @@ namespace Edocsys
 
         private void toolStripButton7_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void productsBindingNavigatorSaveItem_Click_2(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.productsBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.edocbaseDataSet);
 
         }
     }
