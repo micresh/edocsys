@@ -72,7 +72,7 @@ namespace Edocsys
                         try
                         {
                             //send proposal
-                            this.contractsTableAdapter.SendProposal(Constants.ContractTypes.WaitForExpertAssigment, idContract);
+                            this.contractsTableAdapter.SendProposal(Constants.ContractStatuses.WaitForExpertAssigment, idContract);
 
                             //refresh data
                             this.edocbaseDataSet.AcceptChanges();

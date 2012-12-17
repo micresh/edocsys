@@ -63,7 +63,7 @@ namespace Edocsys
                 try
                 {
                     //assign expert
-                    this.contractsTableAdapter.AssignExpert(Constants.ContractTypes.ExpertAssigned, idExpert, idContract);
+                    this.contractsTableAdapter.AssignExpert(Constants.ContractStatuses.ExpertAssigned, idExpert, idContract);
 
                     //refresh data
                     this.edocbaseDataSet.AcceptChanges();

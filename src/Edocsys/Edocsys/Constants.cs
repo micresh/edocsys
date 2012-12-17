@@ -7,7 +7,7 @@ namespace Edocsys
 {
     static class Constants
     {
-        public enum ContractTypes : int
+        public enum ContractStatuses : int
         {
             NewProposal = 0,            // (0,'Заявка добавлена')
             WaitForExpertAssigment = 1, // (1,'Ожидание прикрепления эксперта')
@@ -18,6 +18,14 @@ namespace Edocsys
 
             BadJobByAgent = 20,         // (20,'Невыполнение по вине заказчика')
             BadJobByExpert = 21,        // (21,'Невыполнение по вине эксперта')
+        }
+
+        public enum ContractTypes : int
+        {
+            Proposal = 0,                   // (0,'Заявка')
+            LabIssues = 1,                  // (1,'Лабораторные исследования')
+            Sertefication = 2,              // (2,'Сертификация')
+            LabIssuesWithSertefication = 3, // (3,'Лабораторные исследования с сертификацией')
         }
     }
 }
