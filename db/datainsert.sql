@@ -5,14 +5,21 @@ INSERT INTO `Edocbase`.`users` (`login`, `password`, `type`, `log_database`) VAL
 INSERT INTO `Edocbase`.`users` (`login`, `password`, `type`, `log_database`) VALUES ('defuser', md5('123'),1,'defuser');
 
 -- insert contracttypes into ContractTypes table
-INSERT INTO `Edocbase`.`ContractTypes` (`id`, `name`) VALUES (0,'Заявка добавлена');
-INSERT INTO `Edocbase`.`ContractTypes` (`id`, `name`) VALUES (1,'Ожидание прикрепления эксперта');
-INSERT INTO `Edocbase`.`ContractTypes` (`id`, `name`) VALUES (2,'К заявке прикреплен эксперт');
-INSERT INTO `Edocbase`.`ContractTypes` (`id`, `name`) VALUES (3,'Начата работа по заявке');
-INSERT INTO `Edocbase`.`ContractTypes` (`id`, `name`) VALUES (4,'Оформлен акт выполненных работ');
-INSERT INTO `Edocbase`.`ContractTypes` (`id`, `name`) VALUES (5,'Акт утвержден руководителем');
-INSERT INTO `Edocbase`.`ContractTypes` (`id`, `name`) VALUES (20,'Невыполнение по вине заказчика');
-INSERT INTO `Edocbase`.`ContractTypes` (`id`, `name`) VALUES (21,'Невыполнение по вине эксперта');
+INSERT INTO `Edocbase`.`ContractTypes` (`id`, `name`) VALUES (0,'Заявка');
+INSERT INTO `Edocbase`.`ContractTypes` (`id`, `name`) VALUES (1,'Лабораторные исследования');
+INSERT INTO `Edocbase`.`ContractTypes` (`id`, `name`) VALUES (2,'Сертификация');
+INSERT INTO `Edocbase`.`ContractTypes` (`id`, `name`) VALUES (3,'Лабораторные исследования с сертификацией');
+
+
+-- insert contracttypes into ContractStatus table
+INSERT INTO `Edocbase`.`ContractStatus` (`id`, `name`) VALUES (0,'Заявка добавлена');
+INSERT INTO `Edocbase`.`ContractStatus` (`id`, `name`) VALUES (1,'Ожидание прикрепления эксперта');
+INSERT INTO `Edocbase`.`ContractStatus` (`id`, `name`) VALUES (2,'К заявке прикреплен эксперт');
+INSERT INTO `Edocbase`.`ContractStatus` (`id`, `name`) VALUES (3,'Начата работа по заявке');
+INSERT INTO `Edocbase`.`ContractStatus` (`id`, `name`) VALUES (4,'Оформлен акт выполненных работ');
+INSERT INTO `Edocbase`.`ContractStatus` (`id`, `name`) VALUES (5,'Акт утвержден руководителем');
+INSERT INTO `Edocbase`.`ContractStatus` (`id`, `name`) VALUES (20,'Невыполнение по вине заказчика');
+INSERT INTO `Edocbase`.`ContractStatus` (`id`, `name`) VALUES (21,'Невыполнение по вине эксперта');
 
 -- insert productareas into ProductAreas table
 INSERT INTO `Edocbase`.`ProductAreas` (`id`, `name`) VALUES (0,'Область сертификации');

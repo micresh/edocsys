@@ -26,6 +26,8 @@ namespace Edocsys
 
         private void DocTemplatesForm_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'edocbaseDataSet.ContractTypes' table. You can move, or remove it, as needed.
+            this.contractTypesTableAdapter.Fill(this.edocbaseDataSet.ContractTypes);
             // TODO: This line of code loads data into the 'edocbaseDataSet.Contracts' table. You can move, or remove it, as needed.
             this.contractsTableAdapter.Fill(this.edocbaseDataSet.Contracts);
 

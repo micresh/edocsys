@@ -60,12 +60,12 @@
   `Client_docs` VARCHAR(45) NULL , - Учредительные документы
   `Schem_type` INT NULL , - тип схемы сертификации
   `Add_data` VARCHAR(45) NULL , - дополнительные сведения
-  `Contract_type` TINYINT NULL , - тип договора
+  `Contract_type` INT NULL , - тип договора
   `Contract_value_1` MEDIUMINT NULL , - промежуточная сумма договора
   `Contract_value_full` MEDIUMINT NULL ,  итоговая сумма догвора
   `agent_id` INT NULL , - идентификационный номер контрагента
   `Contract_number` INT NULL , - Номер контракта
-  `Contract_status` TINYINT(1) NULL , - Статус исполнения контракта
+  `Contract_status` INT NULL , - Статус исполнения контракта
   `Bid_type` TINYINT NULL , - вид поступления договора
   `expert_id` INT NULL , -  номер эксперта, составлявшего документ
   `Cash_income` TINYINT(1) NULL , - наличие оплаты

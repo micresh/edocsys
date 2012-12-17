@@ -235,5 +235,11 @@
     <Setting Name="AgentsContactsText" Type="System.String" Scope="User">
       <Value Profile="(Default)">Контакты</Value>
     </Setting>
+    <Setting Name="DocTemplatesTitle" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Шаблоны документов</Value>
+    </Setting>
+    <Setting Name="DocTemplateOperationsText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Шаблон не выбран</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
