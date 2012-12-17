@@ -4,14 +4,15 @@ CREATE DATABASE IF NOT EXISTS `Edocbase`;
 
 GRANT ALL PRIVILEGES ON *.* TO root@localhost IDENTIFIED BY 'po12jein45bf';
 
+
 CREATE TABLE IF NOT EXISTS `Edocbase`.`Agents_types` (
   `idAgents_types` TINYINT(4) NOT NULL AUTO_INCREMENT,
   `Agent_type` VARCHAR(8) NULL ,
   PRIMARY KEY (`idAgents_types`)
-) ENGINE=InnoDB;
+) ENGINE = InnoDB;
 
 CREATE TABLE IF NOT EXISTS `Edocbase`.`Agents` (
-  `idAgents` INT(11) NOT NULL AUTO_INCREMENT,
+  `idAgents` INT NOT NULL AUTO_INCREMENT,
   `Ag_type_id` TINYINT(4) DEFAULT 0,
   `Ag_fullname` VARCHAR(63) DEFAULT NULL,
   `Ag_INN` VARCHAR(15) DEFAULT NULL,
@@ -93,14 +94,25 @@ CREATE TABLE IF NOT EXISTS `Edocbase`.`ProdGost` (
 
 
 CREATE TABLE IF NOT EXISTS `Edocbase`.`ContractTypes` (
-    `id` TINYINT not null ,
+    `id` INT not null ,
     `name` VARCHAR(30) ,
     PRIMARY KEY (`id`)
 ) ENGINE = InnoDB;
 
+CREATE TABLE IF NOT EXISTS `Edocbase`.`DocTemplates`(
+	`id` int NOT NULL AUTO_INCREMENT ,
+	`type` int NOT NULL,
+	`template` BLOB NOT NULL,
+	PRIMARY KEY (`id`),
+	CONSTRAINT `fk_Contracts_1`
+    FOREIGN KEY (`id`)
+    REFERENCES `Edocbase`.`ContractTypes` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION
+	) ENGINE = InnoDB;
 
 CREATE TABLE IF NOT EXISTS `Edocbase`.`ProductAreas` (
-    `id` TINYINT not null ,
+    `id` INT NOT null ,
     `name` VARCHAR(40) ,
     PRIMARY KEY (`id`)
 ) ENGINE = InnoDB;
@@ -118,7 +130,7 @@ CREATE TABLE IF NOT EXISTS `Edocbase`.`Contracts` (
   `Contract_value_full` MEDIUMINT NULL ,
   `agent_id` INT NULL ,
   `Contract_number` INT NULL ,
-  `Contract_status` TINYINT(1) NULL ,
+  `Contract_status` INT NULL ,
   `Bid_type` TINYINT NULL ,
   `expert_id` INT NULL ,
   `Cash_income` TINYINT(1) NULL ,
@@ -185,3 +197,10 @@ CREATE TABLE IF NOT EXISTS `Edocbase`.`log_journal` (
   `uname` VARCHAR(50) NULL ,
   PRIMARY KEY (`sessid`) 
 ) ENGINE = InnoDB;
+
+CREATE TABLE IF NOT EXISTS `Edocbase`.`documents`(
+	`id` int NOT NULL AUTO_INCREMENT ,
+	`idContract` int NOT NULL,
+	`document` BLOB NOT NULL,
+	PRIMARY KEY (`id`)
+	) ENGINE = InnoDB;
