@@ -321,9 +321,9 @@
             this.dataGridViewTextBoxColumn7,
             this.dataGridViewTextBoxColumn8});
             this.prodGostDataGridView.DataSource = this.prodGostBindingSource;
-            this.prodGostDataGridView.Location = new System.Drawing.Point(603, 144);
+            this.prodGostDataGridView.Location = new System.Drawing.Point(21, 252);
             this.prodGostDataGridView.Name = "prodGostDataGridView";
-            this.prodGostDataGridView.Size = new System.Drawing.Size(300, 220);
+            this.prodGostDataGridView.Size = new System.Drawing.Size(544, 165);
             this.prodGostDataGridView.TabIndex = 4;
             // 
             // dataGridViewTextBoxColumn5

@@ -4,7 +4,6 @@ CREATE DATABASE IF NOT EXISTS `Edocbase`;
 
 GRANT ALL PRIVILEGES ON *.* TO root@localhost IDENTIFIED BY 'po12jein45bf';
 
-
 CREATE TABLE IF NOT EXISTS `Edocbase`.`Agents_types` (
   `idAgents_types` TINYINT(4) NOT NULL AUTO_INCREMENT,
   `Agent_type` VARCHAR(8) NULL ,
@@ -41,7 +40,6 @@ CREATE TABLE IF NOT EXISTS `Edocbase`.`Agents` (
     ON UPDATE NO ACTION
 ) ENGINE=InnoDB;
 
-
 CREATE TABLE IF NOT EXISTS `Edocbase`.`Agents_contacts` (
   `idAgents_contacts` INT NOT NULL AUTO_INCREMENT,
   `ac_agent_id` INT DEFAULT 0,
@@ -67,7 +65,6 @@ CREATE TABLE IF NOT EXISTS `Edocbase`.`Experts` (
   PRIMARY KEY (`idExperts`)
 ) ENGINE = InnoDB;
 
-
 CREATE  TABLE IF NOT EXISTS `Edocbase`.`Products` (
   `idProducts` INT NOT NULL AUTO_INCREMENT ,
   `Product_name` VARCHAR(45) NULL ,
@@ -76,7 +73,6 @@ CREATE  TABLE IF NOT EXISTS `Edocbase`.`Products` (
   `ProductArea` TINYINT NULL,
   PRIMARY KEY (`idProducts`)
 ) ENGINE = InnoDB;
-
 
 CREATE TABLE IF NOT EXISTS `Edocbase`.`ProdGost` (
   `id` INT NOT NULL ,
@@ -91,7 +87,6 @@ CREATE TABLE IF NOT EXISTS `Edocbase`.`ProdGost` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION
 ) ENGINE = InnoDB;
-
 
 CREATE TABLE IF NOT EXISTS `Edocbase`.`ContractTypes` (
     `id` INT not null ,
@@ -117,7 +112,6 @@ CREATE TABLE IF NOT EXISTS `Edocbase`.`ProductAreas` (
     PRIMARY KEY (`id`)
 ) ENGINE = InnoDB;
 
-
 CREATE TABLE IF NOT EXISTS `Edocbase`.`Contracts` (
   `idContract` INT NOT NULL AUTO_INCREMENT ,
   `idProducts` INT NULL ,
@@ -125,21 +119,22 @@ CREATE TABLE IF NOT EXISTS `Edocbase`.`Contracts` (
   `Client_docs` VARCHAR(45) NULL ,
   `Schem_type` VARCHAR(45) NULL ,
   `Add_data` TEXT NULL ,
-  `Contract_type` TINYINT NULL ,
+  `Contract_type` INT NULL ,
   `Contract_value_1` MEDIUMINT NULL ,
   `Contract_value_full` MEDIUMINT NULL ,
-  `agent_id` INT NULL ,
+  `agent_id` INT NOT NULL ,
   `Contract_number` INT NULL ,
   `Contract_status` INT NULL ,
   `Bid_type` TINYINT NULL ,
   `expert_id` INT NULL ,
   `Cash_income` TINYINT(1) NULL ,
   PRIMARY KEY (`idContract`) ,
-  INDEX `fk_Contracts_1` (`agent_id` ASC) ,
+  INDEX `fk_Contracts_01` (`agent_id` ASC) ,
   INDEX `fk_Contracts_2` (`expert_id` ASC) ,
   INDEX `fk_Contracts_3` (`idProducts` ASC) ,
-  CONSTRAINT `fk_Contracts_1`
-    FOREIGN KEY (`agent_id` )
+  INDEX `fk_Contracts_4` (`Contract_type` ASC) ,
+  CONSTRAINT `fk_Contracts_01`
+    FOREIGN KEY (`agent_id`)
     REFERENCES `Edocbase`.`Agents` (`idAgents` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
@@ -159,7 +154,6 @@ CREATE TABLE IF NOT EXISTS `Edocbase`.`Contracts` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION
 ) ENGINE = InnoDB;
-
 
 CREATE TABLE IF NOT EXISTS `Edocbase`.`Exec_contracts` (
   `idContract` INT NOT NULL ,
@@ -181,14 +175,12 @@ CREATE TABLE IF NOT EXISTS `Edocbase`.`Exec_contracts` (
     ON UPDATE NO ACTION
 ) ENGINE = InnoDB;
 
-
 CREATE TABLE IF NOT EXISTS `Edocbase`.`users` (
   `login` VARCHAR(50) NULL ,
   `password` VARCHAR(50) NULL ,
   `type` INT NULL ,
   `log_database` VARCHAR(50) NULL
 ) ENGINE = InnoDB;
-
 
 CREATE TABLE IF NOT EXISTS `Edocbase`.`log_journal` (
   `sessid` int NOT NULL AUTO_INCREMENT ,
