@@ -138,7 +138,7 @@ CREATE TABLE IF NOT EXISTS `Edocbase`.`Contracts` (
   INDEX `fk_Contracts_2` (`expert_id` ASC) ,
   INDEX `fk_Contracts_3` (`idProducts` ASC) ,
   INDEX `fk_Contracts_4` (`Contract_type` ASC) ,
-  INDEX `fk_Contracts_4` (`Contract_status` ASC) ,
+  INDEX `fk_Contracts_5` (`Contract_status` ASC) ,
   CONSTRAINT `fk_Contracts_01`
     FOREIGN KEY (`agent_id`)
     REFERENCES `Edocbase`.`Agents` (`idAgents` )
