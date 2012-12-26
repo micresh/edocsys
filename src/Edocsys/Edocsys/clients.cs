@@ -72,7 +72,8 @@ namespace Edocsys
 
         private void agentsBindingSource_CurrentChanged(object sender, EventArgs e)
         {
-            if (agentsBindingSource.Position >= 0)
+            if ((agentsBindingSource.Position >= 0) 
+                && (edocbaseDataSet.Tables["Agents"].DefaultView.Count > agentsBindingSource.Position))
             {
                 DataRow currentRow = edocbaseDataSet.Tables["Agents"].DefaultView[agentsBindingSource.Position].Row;
 
