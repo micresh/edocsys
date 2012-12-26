@@ -205,5 +205,11 @@ CREATE TABLE IF NOT EXISTS `Edocbase`.`documents`(
 	`id` int NOT NULL AUTO_INCREMENT ,
 	`idContract` int NOT NULL,
 	`document` BLOB NOT NULL,
-	PRIMARY KEY (`id`)
+	PRIMARY KEY (`id`),
+  INDEX `fk_documents_1` (`idContract` ASC) ,
+  CONSTRAINT `fk_documents_1`
+    FOREIGN KEY (`idContract` )
+    REFERENCES `Edocbase`.`Contracts` (`idContract` )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION
 	) ENGINE = InnoDB;
