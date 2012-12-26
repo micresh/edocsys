@@ -90,7 +90,7 @@ CREATE TABLE IF NOT EXISTS `Edocbase`.`ProdGost` (
 
 CREATE TABLE IF NOT EXISTS `Edocbase`.`ContractTypes` (
     `id` INT not null ,
-    `name` VARCHAR(30) ,
+    `name` VARCHAR(45) ,
     PRIMARY KEY (`id`)
 ) ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `Edocbase`.`ContractStatus` (
