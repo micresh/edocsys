@@ -93,6 +93,11 @@ CREATE TABLE IF NOT EXISTS `Edocbase`.`ContractTypes` (
     `name` VARCHAR(30) ,
     PRIMARY KEY (`id`)
 ) ENGINE = InnoDB;
+CREATE TABLE IF NOT EXISTS `Edocbase`.`ContractStatus` (
+    `id` INT not null ,
+    `name` VARCHAR(30) ,
+    PRIMARY KEY (`id`)
+) ENGINE = InnoDB;
 
 CREATE TABLE IF NOT EXISTS `Edocbase`.`DocTemplates`(
 	`id` int NOT NULL AUTO_INCREMENT ,
@@ -133,6 +138,7 @@ CREATE TABLE IF NOT EXISTS `Edocbase`.`Contracts` (
   INDEX `fk_Contracts_2` (`expert_id` ASC) ,
   INDEX `fk_Contracts_3` (`idProducts` ASC) ,
   INDEX `fk_Contracts_4` (`Contract_type` ASC) ,
+  INDEX `fk_Contracts_4` (`Contract_status` ASC) ,
   CONSTRAINT `fk_Contracts_01`
     FOREIGN KEY (`agent_id`)
     REFERENCES `Edocbase`.`Agents` (`idAgents` )
@@ -151,6 +157,11 @@ CREATE TABLE IF NOT EXISTS `Edocbase`.`Contracts` (
   CONSTRAINT `fk_Contracts_4`
     FOREIGN KEY (`Contract_type` )
     REFERENCES `Edocbase`.`ContractTypes` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_Contracts_5`
+    FOREIGN KEY (`Contract_status` )
+    REFERENCES `Edocbase`.`ContractStatus` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION
 ) ENGINE = InnoDB;
