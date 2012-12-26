@@ -391,6 +391,8 @@
             // 
             // tableAdapterManager
             // 
+            this.tableAdapterManager.Agents_contactsTableAdapter = null;
+            this.tableAdapterManager.Agents_typesTableAdapter = null;
             this.tableAdapterManager.AgentsTableAdapter = null;
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
             this.tableAdapterManager.ContractsTableAdapter = null;
