@@ -78,7 +78,7 @@ CREATE TABLE IF NOT EXISTS `Edocbase`.`ProdGost` (
   `id` INT NOT NULL ,
   `idProducts` INT NULL ,
   `GOST_numb` VARCHAR(15) NULL ,
-  `Prod_type` VARCHAR(31) NULL ,
+  `Prod_type` VARCHAR(80) NULL ,
   PRIMARY KEY (`id`) ,
   INDEX `fk_ProdGost_1` (`idProducts` ASC) ,
   CONSTRAINT `fk_ProdGost_1`
