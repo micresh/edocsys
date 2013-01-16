@@ -92,6 +92,8 @@
             this.bindingNavigatorMoveNextItem1 = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveLastItem1 = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripLabelAgent = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripButtonSaveContact = new System.Windows.Forms.ToolStripButton();
             this.agentsDataGridView = new System.Windows.Forms.DataGridView();
             this.Ag_fullname = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.agINNDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -118,8 +120,6 @@
             this.ag_telTextBox = new System.Windows.Forms.TextBox();
             this.ag_faxTextBox = new System.Windows.Forms.TextBox();
             this.ag_mailTextBox = new System.Windows.Forms.TextBox();
-            this.toolStripLabelAgent = new System.Windows.Forms.ToolStripLabel();
-            this.toolStripButtonSaveContact = new System.Windows.Forms.ToolStripButton();
             ag_type_idLabel = new System.Windows.Forms.Label();
             ag_INNLabel = new System.Windows.Forms.Label();
             ag_fullnameLabel = new System.Windows.Forms.Label();
@@ -743,6 +743,22 @@
             this.bindingNavigatorSeparator5.Name = "bindingNavigatorSeparator5";
             this.bindingNavigatorSeparator5.Size = new System.Drawing.Size(6, 25);
             // 
+            // toolStripLabelAgent
+            // 
+            this.toolStripLabelAgent.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripLabelAgent.Name = "toolStripLabelAgent";
+            this.toolStripLabelAgent.Size = new System.Drawing.Size(97, 22);
+            this.toolStripLabelAgent.Text = "Контрагент: НЕТ";
+            // 
+            // toolStripButtonSaveContact
+            // 
+            this.toolStripButtonSaveContact.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonSaveContact.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonSaveContact.Image")));
+            this.toolStripButtonSaveContact.Name = "toolStripButtonSaveContact";
+            this.toolStripButtonSaveContact.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonSaveContact.Text = "Save Data";
+            this.toolStripButtonSaveContact.Click += new System.EventHandler(this.toolStripButtonSaveContact_Click);
+            // 
             // agentsDataGridView
             // 
             this.agentsDataGridView.AllowUserToAddRows = false;
@@ -1012,22 +1028,6 @@
             this.ag_mailTextBox.Name = "ag_mailTextBox";
             this.ag_mailTextBox.Size = new System.Drawing.Size(408, 20);
             this.ag_mailTextBox.TabIndex = 23;
-            // 
-            // toolStripLabelAgent
-            // 
-            this.toolStripLabelAgent.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.toolStripLabelAgent.Name = "toolStripLabelAgent";
-            this.toolStripLabelAgent.Size = new System.Drawing.Size(97, 22);
-            this.toolStripLabelAgent.Text = "Контрагент: НЕТ";
-            // 
-            // toolStripButtonSaveContact
-            // 
-            this.toolStripButtonSaveContact.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonSaveContact.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonSaveContact.Image")));
-            this.toolStripButtonSaveContact.Name = "toolStripButtonSaveContact";
-            this.toolStripButtonSaveContact.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButtonSaveContact.Text = "Save Data";
-            this.toolStripButtonSaveContact.Click += new System.EventHandler(this.toolStripButtonSaveContact_Click);
             // 
             // ClientsForm
             // 

@@ -174,5 +174,10 @@ namespace Edocsys
         {
             cueerntUserToolStripStatusLabel.Text = "Пользователь: " + ConnectionManager.CurrentUser;
         }
+
+        private void ContractToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            wmgr.ShowContractsForm();
+        }
     }
 }

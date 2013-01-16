@@ -26,6 +26,7 @@ namespace Edocsys
             try
             {
                 this.Validate();
+
                 this.contractsBindingSource.EndEdit();
 
                 this.tableAdapterManager.UpdateAll(this.edocbaseDataSet);
@@ -51,11 +52,10 @@ namespace Edocsys
             this.contractTypesTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
 
 
-
-            this.contractTypesTableAdapter.Fill(this.edocbaseDataSet.ContractTypes);
             this.productsTableAdapter.Fill(this.edocbaseDataSet.Products);
             this.contractsTableAdapter.FillProposal(this.edocbaseDataSet.Contracts);
             this.agentsTableAdapter.Fill(this.edocbaseDataSet.Agents);
+            this.contractTypesTableAdapter.Fill(this.edocbaseDataSet.ContractTypes);
         }
 
         private void contractsDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -72,7 +72,7 @@ namespace Edocsys
                         try
                         {
                             //send proposal
-                            this.contractsTableAdapter.SendProposal(Constants.ContractStatuses.WaitForExpertAssigment, idContract);
+                            this.contractsTableAdapter.SendProposal((int)Constants.ContractStatuses.WaitForExpertAssigment, idContract);
 
                             //refresh data
                             this.edocbaseDataSet.AcceptChanges();
@@ -87,11 +87,6 @@ namespace Edocsys
                     }
                 }
             }
-        }
-
-        private void bindingNavigatorAddNewItem_Click(object sender, EventArgs e)
-        {
-            contractsDataGridView.CurrentRow.Cells["Contract_type"].Value = 0;
         }
     }
 }

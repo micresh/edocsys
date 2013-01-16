@@ -30,7 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProductionForm));
-            System.Windows.Forms.Label nameLabel;
             this.edocbaseDataSet = new Edocsys.EdocbaseDataSet();
             this.productsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.productsTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.ProductsTableAdapter();
@@ -53,24 +52,19 @@
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ProductArea = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.productAreasBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.productAreasTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.ProductAreasTableAdapter();
-            this.nameTextBox = new System.Windows.Forms.TextBox();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.prodGostBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.prodGostTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.ProdGostTableAdapter();
             this.prodGostDataGridView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            nameLabel = new System.Windows.Forms.Label();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.edocbaseDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productsBindingNavigator)).BeginInit();
             this.productsBindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.productsDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.productAreasBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.prodGostBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.prodGostDataGridView)).BeginInit();
             this.SuspendLayout();
@@ -96,12 +90,15 @@
             this.tableAdapterManager.AgentsTableAdapter = null;
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
             this.tableAdapterManager.ContractsTableAdapter = null;
+            this.tableAdapterManager.ContractStatusTableAdapter = null;
             this.tableAdapterManager.ContractTypesTableAdapter = null;
+            this.tableAdapterManager.DocTemplatesTableAdapter = null;
+            this.tableAdapterManager.documentsTableAdapter = null;
             this.tableAdapterManager.Exec_contractsTableAdapter = null;
             this.tableAdapterManager.ExpertsTableAdapter = null;
             this.tableAdapterManager.log_journalTableAdapter = null;
             this.tableAdapterManager.ProdGostTableAdapter = this.prodGostTableAdapter;
-            this.tableAdapterManager.ProductAreasTableAdapter = this.productAreasTableAdapter;
+            this.tableAdapterManager.ProductAreasTableAdapter = null;
             this.tableAdapterManager.ProductsTableAdapter = this.productsTableAdapter;
             this.tableAdapterManager.UpdateOrder = Edocsys.EdocbaseDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             this.tableAdapterManager.usersTableAdapter = null;
@@ -228,7 +225,7 @@
             this.productsBindingNavigatorSaveItem.Name = "productsBindingNavigatorSaveItem";
             this.productsBindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 23);
             this.productsBindingNavigatorSaveItem.Text = "Save Data";
-            this.productsBindingNavigatorSaveItem.Click += new System.EventHandler(this.productsBindingNavigatorSaveItem_Click_2);
+            this.productsBindingNavigatorSaveItem.Click += new System.EventHandler(this.productsBindingNavigatorSaveItem_Click_3);
             // 
             // productsDataGridView
             // 
@@ -239,68 +236,42 @@
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn3,
             this.dataGridViewTextBoxColumn4,
-            this.ProductArea});
+            this.dataGridViewTextBoxColumn5});
             this.productsDataGridView.DataSource = this.productsBindingSource;
-            this.productsDataGridView.Location = new System.Drawing.Point(21, 26);
+            this.productsDataGridView.Location = new System.Drawing.Point(12, 28);
             this.productsDataGridView.Name = "productsDataGridView";
-            this.productsDataGridView.Size = new System.Drawing.Size(544, 220);
+            this.productsDataGridView.Size = new System.Drawing.Size(551, 220);
             this.productsDataGridView.TabIndex = 1;
             // 
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.DataPropertyName = "idProducts";
-            this.dataGridViewTextBoxColumn1.HeaderText = "Идентификационный номер";
+            this.dataGridViewTextBoxColumn1.HeaderText = "idProducts";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             // 
             // dataGridViewTextBoxColumn2
             // 
             this.dataGridViewTextBoxColumn2.DataPropertyName = "Product_name";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Наименование продукта";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Product_name";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             // 
             // dataGridViewTextBoxColumn3
             // 
             this.dataGridViewTextBoxColumn3.DataPropertyName = "Product_OKP";
-            this.dataGridViewTextBoxColumn3.HeaderText = "Код ОКП";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Product_OKP";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             // 
             // dataGridViewTextBoxColumn4
             // 
             this.dataGridViewTextBoxColumn4.DataPropertyName = "Product_TNVED";
-            this.dataGridViewTextBoxColumn4.HeaderText = "Код ТНВЭД";
+            this.dataGridViewTextBoxColumn4.HeaderText = "Product_TNVED";
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             // 
-            // ProductArea
+            // dataGridViewTextBoxColumn5
             // 
-            this.ProductArea.DataPropertyName = "ProductArea";
-            this.ProductArea.HeaderText = "Область";
-            this.ProductArea.Name = "ProductArea";
-            // 
-            // productAreasBindingSource
-            // 
-            this.productAreasBindingSource.DataMember = "ProductAreas";
-            this.productAreasBindingSource.DataSource = this.edocbaseDataSet;
-            // 
-            // productAreasTableAdapter
-            // 
-            this.productAreasTableAdapter.ClearBeforeFill = true;
-            // 
-            // nameLabel
-            // 
-            nameLabel.AutoSize = true;
-            nameLabel.Location = new System.Drawing.Point(600, 31);
-            nameLabel.Name = "nameLabel";
-            nameLabel.Size = new System.Drawing.Size(124, 13);
-            nameLabel.TabIndex = 2;
-            nameLabel.Text = "Область аккредитации";
-            // 
-            // nameTextBox
-            // 
-            this.nameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productAreasBindingSource, "name", true));
-            this.nameTextBox.Location = new System.Drawing.Point(730, 28);
-            this.nameTextBox.Name = "nameTextBox";
-            this.nameTextBox.Size = new System.Drawing.Size(100, 20);
-            this.nameTextBox.TabIndex = 3;
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "ProductArea";
+            this.dataGridViewTextBoxColumn5.HeaderText = "ProductArea";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             // 
             // prodGostBindingSource
             // 
@@ -316,48 +287,46 @@
             this.prodGostDataGridView.AutoGenerateColumns = false;
             this.prodGostDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.prodGostDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn5,
             this.dataGridViewTextBoxColumn6,
             this.dataGridViewTextBoxColumn7,
-            this.dataGridViewTextBoxColumn8});
+            this.dataGridViewTextBoxColumn8,
+            this.dataGridViewTextBoxColumn9});
             this.prodGostDataGridView.DataSource = this.prodGostBindingSource;
-            this.prodGostDataGridView.Location = new System.Drawing.Point(603, 144);
+            this.prodGostDataGridView.Location = new System.Drawing.Point(12, 254);
             this.prodGostDataGridView.Name = "prodGostDataGridView";
-            this.prodGostDataGridView.Size = new System.Drawing.Size(300, 220);
-            this.prodGostDataGridView.TabIndex = 4;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "id";
-            this.dataGridViewTextBoxColumn5.HeaderText = "id";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.prodGostDataGridView.Size = new System.Drawing.Size(551, 220);
+            this.prodGostDataGridView.TabIndex = 2;
             // 
             // dataGridViewTextBoxColumn6
             // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "idProducts";
-            this.dataGridViewTextBoxColumn6.HeaderText = "idProducts";
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "id";
+            this.dataGridViewTextBoxColumn6.HeaderText = "id";
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             // 
             // dataGridViewTextBoxColumn7
             // 
-            this.dataGridViewTextBoxColumn7.DataPropertyName = "GOST_numb";
-            this.dataGridViewTextBoxColumn7.HeaderText = "GOST_numb";
+            this.dataGridViewTextBoxColumn7.DataPropertyName = "idProducts";
+            this.dataGridViewTextBoxColumn7.HeaderText = "idProducts";
             this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
             // 
             // dataGridViewTextBoxColumn8
             // 
-            this.dataGridViewTextBoxColumn8.DataPropertyName = "Prod_type";
-            this.dataGridViewTextBoxColumn8.HeaderText = "Prod_type";
+            this.dataGridViewTextBoxColumn8.DataPropertyName = "GOST_numb";
+            this.dataGridViewTextBoxColumn8.HeaderText = "GOST_numb";
             this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            this.dataGridViewTextBoxColumn9.DataPropertyName = "Prod_type";
+            this.dataGridViewTextBoxColumn9.HeaderText = "Prod_type";
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
             // 
             // ProductionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1037, 453);
+            this.ClientSize = new System.Drawing.Size(1037, 530);
             this.Controls.Add(this.prodGostDataGridView);
-            this.Controls.Add(nameLabel);
-            this.Controls.Add(this.nameTextBox);
             this.Controls.Add(this.productsDataGridView);
             this.Controls.Add(this.productsBindingNavigator);
             this.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Edocsys.Properties.Settings.Default, "ProductionFormText", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
@@ -370,7 +339,6 @@
             this.productsBindingNavigator.ResumeLayout(false);
             this.productsBindingNavigator.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.productsDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.productAreasBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.prodGostBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.prodGostDataGridView)).EndInit();
             this.ResumeLayout(false);
@@ -402,17 +370,15 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ProductArea;
-        private EdocbaseDataSetTableAdapters.ProductAreasTableAdapter productAreasTableAdapter;
-        private System.Windows.Forms.BindingSource productAreasBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private EdocbaseDataSetTableAdapters.ProdGostTableAdapter prodGostTableAdapter;
-        private System.Windows.Forms.TextBox nameTextBox;
         private System.Windows.Forms.BindingSource prodGostBindingSource;
         private System.Windows.Forms.DataGridView prodGostDataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
+
 
 
     }

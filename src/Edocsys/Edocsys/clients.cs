@@ -72,11 +72,15 @@ namespace Edocsys
 
         private void agentsBindingSource_CurrentChanged(object sender, EventArgs e)
         {
-            DataRow currentRow = edocbaseDataSet.Tables["Agents"].DefaultView[agentsBindingSource.Position].Row;
+            if ((agentsBindingSource.Position >= 0)
+                && (edocbaseDataSet.Tables["Agents"].DefaultView.Count > agentsBindingSource.Position))
+            {
+                DataRow currentRow = edocbaseDataSet.Tables["Agents"].DefaultView[agentsBindingSource.Position].Row;
 
-            string agent = String.Format("Контрагент: {0}", Convert.ToString(currentRow["Ag_name"]));
+                string agent = String.Format("Контрагент: {0}", Convert.ToString(currentRow["Ag_name"]));
 
-            toolStripLabelAgent.Text = agent;
+                toolStripLabelAgent.Text = agent;
+            }
         }
     }
 }

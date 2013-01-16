@@ -142,14 +142,14 @@
             // ProposalToolStripMenuItem
             // 
             this.ProposalToolStripMenuItem.Name = "ProposalToolStripMenuItem";
-            this.ProposalToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.ProposalToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
             this.ProposalToolStripMenuItem.Text = global::Edocsys.Properties.Settings.Default.ProposalToolStripMenuItemText;
             this.ProposalToolStripMenuItem.Click += new System.EventHandler(this.proposalToolStripMenuItem_Click);
             // 
             // ContractToolStripMenuItem
             // 
             this.ContractToolStripMenuItem.Name = "ContractToolStripMenuItem";
-            this.ContractToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.ContractToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
             this.ContractToolStripMenuItem.Text = global::Edocsys.Properties.Settings.Default.ContractToolStripMenuItemText;
             this.ContractToolStripMenuItem.Click += new System.EventHandler(this.ContractToolStripMenuItem_Click);
             // 
@@ -382,6 +382,7 @@
             // 
             // edocbaseDataSet
             // 
+            this.edocbaseDataSet.DataSetName = "EdocbaseDataSet";
             this.edocbaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // usersBindingSource
