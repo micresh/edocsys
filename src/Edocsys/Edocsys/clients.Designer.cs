@@ -501,7 +501,10 @@
             this.tableAdapterManager.AgentsTableAdapter = this.agentsTableAdapter;
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
             this.tableAdapterManager.ContractsTableAdapter = null;
+            this.tableAdapterManager.ContractStatusTableAdapter = null;
             this.tableAdapterManager.ContractTypesTableAdapter = null;
+            this.tableAdapterManager.DocTemplatesTableAdapter = null;
+            this.tableAdapterManager.documentsTableAdapter = null;
             this.tableAdapterManager.Exec_contractsTableAdapter = null;
             this.tableAdapterManager.ExpertsTableAdapter = null;
             this.tableAdapterManager.log_journalTableAdapter = null;
@@ -762,6 +765,7 @@
             // agentsDataGridView
             // 
             this.agentsDataGridView.AllowUserToAddRows = false;
+            this.agentsDataGridView.AllowUserToDeleteRows = false;
             this.agentsDataGridView.AutoGenerateColumns = false;
             this.agentsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.agentsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -771,7 +775,10 @@
             this.agentsDataGridView.DataSource = this.agentsBindingSource;
             this.agentsDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.agentsDataGridView.Location = new System.Drawing.Point(0, 0);
+            this.agentsDataGridView.MultiSelect = false;
             this.agentsDataGridView.Name = "agentsDataGridView";
+            this.agentsDataGridView.ReadOnly = true;
+            this.agentsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.agentsDataGridView.Size = new System.Drawing.Size(618, 522);
             this.agentsDataGridView.TabIndex = 7;
             // 
