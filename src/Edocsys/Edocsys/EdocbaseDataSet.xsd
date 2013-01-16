@@ -9,10 +9,10 @@
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="AgentsTableAdapter" GeneratorDataComponentClassName="AgentsTableAdapter" Name="Agents" UserDataComponentName="AgentsTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="EdocbaseConnectionString (Settings)" DbObjectName="Edocbase.agents" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="EdocbaseConnectionString (Settings)" DbObjectName="Edocbase.Agents" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>DELETE FROM `edocbase`.`agents` WHERE ((`idAgents` = @Original_idAgents) AND ((@IsNull_Ag_type_id = 1 AND `Ag_type_id` IS NULL) OR (`Ag_type_id` = @Original_Ag_type_id)) AND ((@IsNull_Ag_fullname = 1 AND `Ag_fullname` IS NULL) OR (`Ag_fullname` = @Original_Ag_fullname)) AND ((@IsNull_Ag_INN = 1 AND `Ag_INN` IS NULL) OR (`Ag_INN` = @Original_Ag_INN)) AND ((@IsNull_Ag_addr = 1 AND `Ag_addr` IS NULL) OR (`Ag_addr` = @Original_Ag_addr)) AND ((@IsNull_Ag_tel = 1 AND `Ag_tel` IS NULL) OR (`Ag_tel` = @Original_Ag_tel)) AND ((@IsNull_Ag_fax = 1 AND `Ag_fax` IS NULL) OR (`Ag_fax` = @Original_Ag_fax)) AND ((@IsNull_Ag_mail = 1 AND `Ag_mail` IS NULL) OR (`Ag_mail` = @Original_Ag_mail)) AND ((@IsNull_Ag_OGRN = 1 AND `Ag_OGRN` IS NULL) OR (`Ag_OGRN` = @Original_Ag_OGRN)) AND ((@IsNull_Ag_KPP = 1 AND `Ag_KPP` IS NULL) OR (`Ag_KPP` = @Original_Ag_KPP)) AND ((@IsNull_Ag_OKPO = 1 AND `Ag_OKPO` IS NULL) OR (`Ag_OKPO` = @Original_Ag_OKPO)) AND ((@IsNull_Ag_Rcou = 1 AND `Ag_Rcou` IS NULL) OR (`Ag_Rcou` = @Original_Ag_Rcou)) AND ((@IsNull_Ag_Kcou = 1 AND `Ag_Kcou` IS NULL) OR (`Ag_Kcou` = @Original_Ag_Kcou)) AND ((@IsNull_Ag_BIK = 1 AND `Ag_BIK` IS NULL) OR (`Ag_BIK` = @Original_Ag_BIK)) AND ((@IsNull_Ag_bank = 1 AND `Ag_bank` IS NULL) OR (`Ag_bank` = @Original_Ag_bank)) AND ((@IsNull_Ag_doc = 1 AND `Ag_doc` IS NULL) OR (`Ag_doc` = @Original_Ag_doc)) AND ((@IsNull_Ag_pers_status = 1 AND `Ag_pers_status` IS NULL) OR (`Ag_pers_status` = @Original_Ag_pers_status)) AND ((@IsNull_Ag_pers_lastname = 1 AND `Ag_pers_lastname` IS NULL) OR (`Ag_pers_lastname` = @Original_Ag_pers_lastname)) AND ((@IsNull_Ag_pers_firstname = 1 AND `Ag_pers_firstname` IS NULL) OR (`Ag_pers_firstname` = @Original_Ag_pers_firstname)) AND ((@IsNull_Ag_pers_middlename = 1 AND `Ag_pers_middlename` IS NULL) OR (`Ag_pers_middlename` = @Original_Ag_pers_middlename)))</CommandText>
+                    <CommandText>DELETE FROM `Agents` WHERE ((`idAgents` = @Original_idAgents) AND ((@IsNull_Ag_type_id = 1 AND `Ag_type_id` IS NULL) OR (`Ag_type_id` = @Original_Ag_type_id)) AND ((@IsNull_Ag_fullname = 1 AND `Ag_fullname` IS NULL) OR (`Ag_fullname` = @Original_Ag_fullname)) AND ((@IsNull_Ag_INN = 1 AND `Ag_INN` IS NULL) OR (`Ag_INN` = @Original_Ag_INN)) AND ((@IsNull_Ag_addr = 1 AND `Ag_addr` IS NULL) OR (`Ag_addr` = @Original_Ag_addr)) AND ((@IsNull_Ag_tel = 1 AND `Ag_tel` IS NULL) OR (`Ag_tel` = @Original_Ag_tel)) AND ((@IsNull_Ag_fax = 1 AND `Ag_fax` IS NULL) OR (`Ag_fax` = @Original_Ag_fax)) AND ((@IsNull_Ag_mail = 1 AND `Ag_mail` IS NULL) OR (`Ag_mail` = @Original_Ag_mail)) AND ((@IsNull_Ag_OGRN = 1 AND `Ag_OGRN` IS NULL) OR (`Ag_OGRN` = @Original_Ag_OGRN)) AND ((@IsNull_Ag_KPP = 1 AND `Ag_KPP` IS NULL) OR (`Ag_KPP` = @Original_Ag_KPP)) AND ((@IsNull_Ag_OKPO = 1 AND `Ag_OKPO` IS NULL) OR (`Ag_OKPO` = @Original_Ag_OKPO)) AND ((@IsNull_Ag_Rcou = 1 AND `Ag_Rcou` IS NULL) OR (`Ag_Rcou` = @Original_Ag_Rcou)) AND ((@IsNull_Ag_Kcou = 1 AND `Ag_Kcou` IS NULL) OR (`Ag_Kcou` = @Original_Ag_Kcou)) AND ((@IsNull_Ag_BIK = 1 AND `Ag_BIK` IS NULL) OR (`Ag_BIK` = @Original_Ag_BIK)) AND ((@IsNull_Ag_bank = 1 AND `Ag_bank` IS NULL) OR (`Ag_bank` = @Original_Ag_bank)) AND ((@IsNull_Ag_doc = 1 AND `Ag_doc` IS NULL) OR (`Ag_doc` = @Original_Ag_doc)) AND ((@IsNull_Ag_pers_status = 1 AND `Ag_pers_status` IS NULL) OR (`Ag_pers_status` = @Original_Ag_pers_status)) AND ((@IsNull_Ag_pers_lastname = 1 AND `Ag_pers_lastname` IS NULL) OR (`Ag_pers_lastname` = @Original_Ag_pers_lastname)) AND ((@IsNull_Ag_pers_firstname = 1 AND `Ag_pers_firstname` IS NULL) OR (`Ag_pers_firstname` = @Original_Ag_pers_firstname)) AND ((@IsNull_Ag_pers_middlename = 1 AND `Ag_pers_middlename` IS NULL) OR (`Ag_pers_middlename` = @Original_Ag_pers_middlename)))</CommandText>
                     <Parameters>
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_idAgents" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="idAgents" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Ag_type_id" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Ag_type_id" SourceColumnNullMapping="true" SourceVersion="Original" />
@@ -58,7 +58,7 @@
                 </DeleteCommand>
                 <InsertCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>INSERT INTO `edocbase`.`agents` (`Ag_type_id`, `Ag_fullname`, `Ag_INN`, `Ag_addr`, `Ag_tel`, `Ag_fax`, `Ag_mail`, `Ag_OGRN`, `Ag_KPP`, `Ag_OKPO`, `Ag_Rcou`, `Ag_Kcou`, `Ag_BIK`, `Ag_bank`, `Ag_doc`, `Ag_pers_status`, `Ag_pers_lastname`, `Ag_pers_firstname`, `Ag_pers_middlename`) VALUES (@Ag_type_id, @Ag_fullname, @Ag_INN, @Ag_addr, @Ag_tel, @Ag_fax, @Ag_mail, @Ag_OGRN, @Ag_KPP, @Ag_OKPO, @Ag_Rcou, @Ag_Kcou, @Ag_BIK, @Ag_bank, @Ag_doc, @Ag_pers_status, @Ag_pers_lastname, @Ag_pers_firstname, @Ag_pers_middlename)</CommandText>
+                    <CommandText>INSERT INTO `Agents` (`Ag_type_id`, `Ag_fullname`, `Ag_INN`, `Ag_addr`, `Ag_tel`, `Ag_fax`, `Ag_mail`, `Ag_OGRN`, `Ag_KPP`, `Ag_OKPO`, `Ag_Rcou`, `Ag_Kcou`, `Ag_BIK`, `Ag_bank`, `Ag_doc`, `Ag_pers_status`, `Ag_pers_lastname`, `Ag_pers_firstname`, `Ag_pers_middlename`) VALUES (@Ag_type_id, @Ag_fullname, @Ag_INN, @Ag_addr, @Ag_tel, @Ag_fax, @Ag_mail, @Ag_OGRN, @Ag_KPP, @Ag_OKPO, @Ag_Rcou, @Ag_Kcou, @Ag_BIK, @Ag_bank, @Ag_doc, @Ag_pers_status, @Ag_pers_lastname, @Ag_pers_firstname, @Ag_pers_middlename)</CommandText>
                     <Parameters>
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="SByte" Direction="Input" ParameterName="@Ag_type_id" Precision="0" ProviderType="Byte" Scale="0" Size="0" SourceColumn="Ag_type_id" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Ag_fullname" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Ag_fullname" SourceColumnNullMapping="false" SourceVersion="Current" />
@@ -106,13 +106,13 @@ Ag_pers_status,
 Ag_pers_firstname,
 Ag_pers_middlename
 FROM
-agents</CommandText>
+Agents</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
                 <UpdateCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>UPDATE `edocbase`.`agents` SET `Ag_type_id` = @Ag_type_id, `Ag_fullname` = @Ag_fullname, `Ag_INN` = @Ag_INN, `Ag_addr` = @Ag_addr, `Ag_tel` = @Ag_tel, `Ag_fax` = @Ag_fax, `Ag_mail` = @Ag_mail, `Ag_OGRN` = @Ag_OGRN, `Ag_KPP` = @Ag_KPP, `Ag_OKPO` = @Ag_OKPO, `Ag_Rcou` = @Ag_Rcou, `Ag_Kcou` = @Ag_Kcou, `Ag_BIK` = @Ag_BIK, `Ag_bank` = @Ag_bank, `Ag_doc` = @Ag_doc, `Ag_pers_status` = @Ag_pers_status, `Ag_pers_lastname` = @Ag_pers_lastname, `Ag_pers_firstname` = @Ag_pers_firstname, `Ag_pers_middlename` = @Ag_pers_middlename WHERE ((`idAgents` = @Original_idAgents) AND ((@IsNull_Ag_type_id = 1 AND `Ag_type_id` IS NULL) OR (`Ag_type_id` = @Original_Ag_type_id)) AND ((@IsNull_Ag_fullname = 1 AND `Ag_fullname` IS NULL) OR (`Ag_fullname` = @Original_Ag_fullname)) AND ((@IsNull_Ag_INN = 1 AND `Ag_INN` IS NULL) OR (`Ag_INN` = @Original_Ag_INN)) AND ((@IsNull_Ag_addr = 1 AND `Ag_addr` IS NULL) OR (`Ag_addr` = @Original_Ag_addr)) AND ((@IsNull_Ag_tel = 1 AND `Ag_tel` IS NULL) OR (`Ag_tel` = @Original_Ag_tel)) AND ((@IsNull_Ag_fax = 1 AND `Ag_fax` IS NULL) OR (`Ag_fax` = @Original_Ag_fax)) AND ((@IsNull_Ag_mail = 1 AND `Ag_mail` IS NULL) OR (`Ag_mail` = @Original_Ag_mail)) AND ((@IsNull_Ag_OGRN = 1 AND `Ag_OGRN` IS NULL) OR (`Ag_OGRN` = @Original_Ag_OGRN)) AND ((@IsNull_Ag_KPP = 1 AND `Ag_KPP` IS NULL) OR (`Ag_KPP` = @Original_Ag_KPP)) AND ((@IsNull_Ag_OKPO = 1 AND `Ag_OKPO` IS NULL) OR (`Ag_OKPO` = @Original_Ag_OKPO)) AND ((@IsNull_Ag_Rcou = 1 AND `Ag_Rcou` IS NULL) OR (`Ag_Rcou` = @Original_Ag_Rcou)) AND ((@IsNull_Ag_Kcou = 1 AND `Ag_Kcou` IS NULL) OR (`Ag_Kcou` = @Original_Ag_Kcou)) AND ((@IsNull_Ag_BIK = 1 AND `Ag_BIK` IS NULL) OR (`Ag_BIK` = @Original_Ag_BIK)) AND ((@IsNull_Ag_bank = 1 AND `Ag_bank` IS NULL) OR (`Ag_bank` = @Original_Ag_bank)) AND ((@IsNull_Ag_doc = 1 AND `Ag_doc` IS NULL) OR (`Ag_doc` = @Original_Ag_doc)) AND ((@IsNull_Ag_pers_status = 1 AND `Ag_pers_status` IS NULL) OR (`Ag_pers_status` = @Original_Ag_pers_status)) AND ((@IsNull_Ag_pers_lastname = 1 AND `Ag_pers_lastname` IS NULL) OR (`Ag_pers_lastname` = @Original_Ag_pers_lastname)) AND ((@IsNull_Ag_pers_firstname = 1 AND `Ag_pers_firstname` IS NULL) OR (`Ag_pers_firstname` = @Original_Ag_pers_firstname)) AND ((@IsNull_Ag_pers_middlename = 1 AND `Ag_pers_middlename` IS NULL) OR (`Ag_pers_middlename` = @Original_Ag_pers_middlename)))</CommandText>
+                    <CommandText>UPDATE `Agents` SET `Ag_type_id` = @Ag_type_id, `Ag_fullname` = @Ag_fullname, `Ag_INN` = @Ag_INN, `Ag_addr` = @Ag_addr, `Ag_tel` = @Ag_tel, `Ag_fax` = @Ag_fax, `Ag_mail` = @Ag_mail, `Ag_OGRN` = @Ag_OGRN, `Ag_KPP` = @Ag_KPP, `Ag_OKPO` = @Ag_OKPO, `Ag_Rcou` = @Ag_Rcou, `Ag_Kcou` = @Ag_Kcou, `Ag_BIK` = @Ag_BIK, `Ag_bank` = @Ag_bank, `Ag_doc` = @Ag_doc, `Ag_pers_status` = @Ag_pers_status, `Ag_pers_lastname` = @Ag_pers_lastname, `Ag_pers_firstname` = @Ag_pers_firstname, `Ag_pers_middlename` = @Ag_pers_middlename WHERE ((`idAgents` = @Original_idAgents) AND ((@IsNull_Ag_type_id = 1 AND `Ag_type_id` IS NULL) OR (`Ag_type_id` = @Original_Ag_type_id)) AND ((@IsNull_Ag_fullname = 1 AND `Ag_fullname` IS NULL) OR (`Ag_fullname` = @Original_Ag_fullname)) AND ((@IsNull_Ag_INN = 1 AND `Ag_INN` IS NULL) OR (`Ag_INN` = @Original_Ag_INN)) AND ((@IsNull_Ag_addr = 1 AND `Ag_addr` IS NULL) OR (`Ag_addr` = @Original_Ag_addr)) AND ((@IsNull_Ag_tel = 1 AND `Ag_tel` IS NULL) OR (`Ag_tel` = @Original_Ag_tel)) AND ((@IsNull_Ag_fax = 1 AND `Ag_fax` IS NULL) OR (`Ag_fax` = @Original_Ag_fax)) AND ((@IsNull_Ag_mail = 1 AND `Ag_mail` IS NULL) OR (`Ag_mail` = @Original_Ag_mail)) AND ((@IsNull_Ag_OGRN = 1 AND `Ag_OGRN` IS NULL) OR (`Ag_OGRN` = @Original_Ag_OGRN)) AND ((@IsNull_Ag_KPP = 1 AND `Ag_KPP` IS NULL) OR (`Ag_KPP` = @Original_Ag_KPP)) AND ((@IsNull_Ag_OKPO = 1 AND `Ag_OKPO` IS NULL) OR (`Ag_OKPO` = @Original_Ag_OKPO)) AND ((@IsNull_Ag_Rcou = 1 AND `Ag_Rcou` IS NULL) OR (`Ag_Rcou` = @Original_Ag_Rcou)) AND ((@IsNull_Ag_Kcou = 1 AND `Ag_Kcou` IS NULL) OR (`Ag_Kcou` = @Original_Ag_Kcou)) AND ((@IsNull_Ag_BIK = 1 AND `Ag_BIK` IS NULL) OR (`Ag_BIK` = @Original_Ag_BIK)) AND ((@IsNull_Ag_bank = 1 AND `Ag_bank` IS NULL) OR (`Ag_bank` = @Original_Ag_bank)) AND ((@IsNull_Ag_doc = 1 AND `Ag_doc` IS NULL) OR (`Ag_doc` = @Original_Ag_doc)) AND ((@IsNull_Ag_pers_status = 1 AND `Ag_pers_status` IS NULL) OR (`Ag_pers_status` = @Original_Ag_pers_status)) AND ((@IsNull_Ag_pers_lastname = 1 AND `Ag_pers_lastname` IS NULL) OR (`Ag_pers_lastname` = @Original_Ag_pers_lastname)) AND ((@IsNull_Ag_pers_firstname = 1 AND `Ag_pers_firstname` IS NULL) OR (`Ag_pers_firstname` = @Original_Ag_pers_firstname)) AND ((@IsNull_Ag_pers_middlename = 1 AND `Ag_pers_middlename` IS NULL) OR (`Ag_pers_middlename` = @Original_Ag_pers_middlename)))</CommandText>
                     <Parameters>
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="SByte" Direction="Input" ParameterName="@Ag_type_id" Precision="0" ProviderType="Byte" Scale="0" Size="0" SourceColumn="Ag_type_id" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Ag_fullname" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Ag_fullname" SourceColumnNullMapping="false" SourceVersion="Current" />
@@ -200,38 +200,36 @@ agents</CommandText>
               <Mapping SourceColumn="Ag_pers_middlename" DataSetColumn="Ag_pers_middlename" />
             </Mappings>
             <Sources>
-              <DbSource ConnectionRef="EdocbaseConnectionString (Settings)" DbObjectName="Edocbase.agents" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillShortInfo" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByShortInfo" GeneratorSourceName="FillShortInfo" GetMethodModifier="Public" GetMethodName="GetDataByShortInfo" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByShortInfo" UserSourceName="FillShortInfo">
+              <DbSource ConnectionRef="EdocbaseConnectionString (Settings)" DbObjectName="Edocbase.Agents" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillShortInfo" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByShortInfo" GeneratorSourceName="FillShortInfo" GetMethodModifier="Public" GetMethodName="GetDataByShortInfo" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByShortInfo" UserSourceName="FillShortInfo">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT
-agents.idAgents,
-agents.Ag_type_id, 
-agents.Ag_fullname,
-CONCAT(agents_types.Agent_type, ' ', agents.Ag_fullname) AS ag_name,
-agents.Ag_INN,
-agents.Ag_tel,
-agents.Ag_fax,
-agents.Ag_mail,
-agents.Ag_addr,
-agents.Ag_OGRN,
-agents.Ag_KPP,
-agents.Ag_OKPO,
-agents.Ag_Rcou,
-agents.Ag_Kcou,
-agents.Ag_BIK,
-agents.Ag_bank,
-agents.Ag_doc,
-agents.Ag_pers_status,
-agents.Ag_pers_lastname,
-agents.Ag_pers_firstname,
-agents.Ag_pers_middlename,
-CONCAT(agents.Ag_pers_lastname, ' ',  substr(agents.Ag_pers_firstname, 1, 1), 
-                  '. ', substr(agents.Ag_pers_middlename, 1, 1), '.') AS Contact_FullName
-FROM agents
+Agents.idAgents,
+Agents.Ag_type_id, 
+Agents.Ag_fullname,
+CONCAT(Agents_types.Agent_type, ' ', Agents.Ag_fullname) AS ag_name,
+Agents.Ag_INN,
+Agents.Ag_tel,
+Agents.Ag_fax,
+Agents.Ag_mail,
+Agents.Ag_addr,
+Agents.Ag_OGRN,
+Agents.Ag_KPP,
+Agents.Ag_OKPO,
+Agents.Ag_Rcou,
+Agents.Ag_Kcou,
+Agents.Ag_BIK,
+Agents.Ag_bank,
+Agents.Ag_doc,
+Agents.Ag_pers_status,
+Agents.Ag_pers_lastname,
+Agents.Ag_pers_firstname,
+Agents.Ag_pers_middlename,
+CONCAT(Agents.Ag_pers_lastname, ' ',  substr(Agents.Ag_pers_firstname, 1, 1), 
+                  '. ', substr(Agents.Ag_pers_middlename, 1, 1), '.') AS Contact_FullName
+FROM Agents
 INNER JOIN
-  agents_types ON agents.Ag_type_id = agents_types.idAgents_types
-
-</CommandText>
+  Agents_types ON Agents.Ag_type_id = Agents_types.idAgents_types</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -989,10 +987,10 @@ WHERE (contracts.Contract_type = 1)</CommandText>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Agents_contactsTableAdapter" GeneratorDataComponentClassName="Agents_contactsTableAdapter" Name="Agents_contacts" UserDataComponentName="Agents_contactsTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="EdocbaseConnectionString (Settings)" DbObjectName="Edocbase.agents_contacts" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="EdocbaseConnectionString (Settings)" DbObjectName="Edocbase.Agents_contacts" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>DELETE FROM `edocbase`.`agents_contacts` WHERE ((`idAgents_contacts` = @Original_idAgents_contacts) AND ((@IsNull_ac_agent_id = 1 AND `ac_agent_id` IS NULL) OR (`ac_agent_id` = @Original_ac_agent_id)) AND ((@IsNull_ac_person = 1 AND `ac_person` IS NULL) OR (`ac_person` = @Original_ac_person)) AND ((@IsNull_ac_status = 1 AND `ac_status` IS NULL) OR (`ac_status` = @Original_ac_status)) AND ((@IsNull_ac_phone = 1 AND `ac_phone` IS NULL) OR (`ac_phone` = @Original_ac_phone)) AND ((@IsNull_ac_fax = 1 AND `ac_fax` IS NULL) OR (`ac_fax` = @Original_ac_fax)) AND ((@IsNull_ac_email = 1 AND `ac_email` IS NULL) OR (`ac_email` = @Original_ac_email)))</CommandText>
+                    <CommandText>DELETE FROM `Agents_contacts` WHERE ((`idAgents_contacts` = @Original_idAgents_contacts) AND ((@IsNull_ac_agent_id = 1 AND `ac_agent_id` IS NULL) OR (`ac_agent_id` = @Original_ac_agent_id)) AND ((@IsNull_ac_person = 1 AND `ac_person` IS NULL) OR (`ac_person` = @Original_ac_person)) AND ((@IsNull_ac_status = 1 AND `ac_status` IS NULL) OR (`ac_status` = @Original_ac_status)) AND ((@IsNull_ac_phone = 1 AND `ac_phone` IS NULL) OR (`ac_phone` = @Original_ac_phone)) AND ((@IsNull_ac_fax = 1 AND `ac_fax` IS NULL) OR (`ac_fax` = @Original_ac_fax)) AND ((@IsNull_ac_email = 1 AND `ac_email` IS NULL) OR (`ac_email` = @Original_ac_email)))</CommandText>
                     <Parameters>
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_idAgents_contacts" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="idAgents_contacts" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_ac_agent_id" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="ac_agent_id" SourceColumnNullMapping="true" SourceVersion="Original" />
@@ -1012,7 +1010,7 @@ WHERE (contracts.Contract_type = 1)</CommandText>
                 </DeleteCommand>
                 <InsertCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>INSERT INTO `edocbase`.`agents_contacts` (`ac_agent_id`, `ac_person`, `ac_status`, `ac_phone`, `ac_fax`, `ac_email`) VALUES (@ac_agent_id, @ac_person, @ac_status, @ac_phone, @ac_fax, @ac_email)</CommandText>
+                    <CommandText>INSERT INTO `Agents_contacts` (`ac_agent_id`, `ac_person`, `ac_status`, `ac_phone`, `ac_fax`, `ac_email`) VALUES (@ac_agent_id, @ac_person, @ac_status, @ac_phone, @ac_fax, @ac_email)</CommandText>
                     <Parameters>
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@ac_agent_id" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="ac_agent_id" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@ac_person" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="ac_person" SourceColumnNullMapping="false" SourceVersion="Current" />
@@ -1025,13 +1023,22 @@ WHERE (contracts.Contract_type = 1)</CommandText>
                 </InsertCommand>
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT `idAgents_contacts`, `ac_agent_id`, `ac_person`, `ac_status`, `ac_phone`, `ac_fax`, `ac_email` FROM `agents_contacts`</CommandText>
+                    <CommandText>SELECT
+`idAgents_contacts`,
+`ac_agent_id`,
+`ac_person`,
+`ac_status`,
+`ac_phone`,
+`ac_fax`,
+`ac_email`
+FROM
+`Agents_contacts`</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
                 <UpdateCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>UPDATE `edocbase`.`agents_contacts` SET `ac_agent_id` = @ac_agent_id, `ac_person` = @ac_person, `ac_status` = @ac_status, `ac_phone` = @ac_phone, `ac_fax` = @ac_fax, `ac_email` = @ac_email WHERE ((`idAgents_contacts` = @Original_idAgents_contacts) AND ((@IsNull_ac_agent_id = 1 AND `ac_agent_id` IS NULL) OR (`ac_agent_id` = @Original_ac_agent_id)) AND ((@IsNull_ac_person = 1 AND `ac_person` IS NULL) OR (`ac_person` = @Original_ac_person)) AND ((@IsNull_ac_status = 1 AND `ac_status` IS NULL) OR (`ac_status` = @Original_ac_status)) AND ((@IsNull_ac_phone = 1 AND `ac_phone` IS NULL) OR (`ac_phone` = @Original_ac_phone)) AND ((@IsNull_ac_fax = 1 AND `ac_fax` IS NULL) OR (`ac_fax` = @Original_ac_fax)) AND ((@IsNull_ac_email = 1 AND `ac_email` IS NULL) OR (`ac_email` = @Original_ac_email)))</CommandText>
+                    <CommandText>UPDATE `Agents_contacts` SET `ac_agent_id` = @ac_agent_id, `ac_person` = @ac_person, `ac_status` = @ac_status, `ac_phone` = @ac_phone, `ac_fax` = @ac_fax, `ac_email` = @ac_email WHERE ((`idAgents_contacts` = @Original_idAgents_contacts) AND ((@IsNull_ac_agent_id = 1 AND `ac_agent_id` IS NULL) OR (`ac_agent_id` = @Original_ac_agent_id)) AND ((@IsNull_ac_person = 1 AND `ac_person` IS NULL) OR (`ac_person` = @Original_ac_person)) AND ((@IsNull_ac_status = 1 AND `ac_status` IS NULL) OR (`ac_status` = @Original_ac_status)) AND ((@IsNull_ac_phone = 1 AND `ac_phone` IS NULL) OR (`ac_phone` = @Original_ac_phone)) AND ((@IsNull_ac_fax = 1 AND `ac_fax` IS NULL) OR (`ac_fax` = @Original_ac_fax)) AND ((@IsNull_ac_email = 1 AND `ac_email` IS NULL) OR (`ac_email` = @Original_ac_email)))</CommandText>
                     <Parameters>
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@ac_agent_id" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="ac_agent_id" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@ac_person" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="ac_person" SourceColumnNullMapping="false" SourceVersion="Current" />
@@ -1070,10 +1077,10 @@ WHERE (contracts.Contract_type = 1)</CommandText>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Agents_typesTableAdapter" GeneratorDataComponentClassName="Agents_typesTableAdapter" Name="Agents_types" UserDataComponentName="Agents_typesTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="EdocbaseConnectionString (Settings)" DbObjectName="Edocbase.agents_types" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="EdocbaseConnectionString (Settings)" DbObjectName="Edocbase.Agents_types" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>DELETE FROM `agents_types` WHERE ((`idAgents_types` = @Original_idAgents_types) AND ((@IsNull_Agent_type = 1 AND `Agent_type` IS NULL) OR (`Agent_type` = @Original_Agent_type)))</CommandText>
+                    <CommandText>DELETE FROM `Agents_types` WHERE ((`idAgents_types` = @Original_idAgents_types) AND ((@IsNull_Agent_type = 1 AND `Agent_type` IS NULL) OR (`Agent_type` = @Original_Agent_type)))</CommandText>
                     <Parameters>
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="SByte" Direction="Input" ParameterName="@Original_idAgents_types" Precision="0" ProviderType="Byte" Scale="0" Size="0" SourceColumn="idAgents_types" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Agent_type" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Agent_type" SourceColumnNullMapping="true" SourceVersion="Original" />
@@ -1083,24 +1090,22 @@ WHERE (contracts.Contract_type = 1)</CommandText>
                 </DeleteCommand>
                 <InsertCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>INSERT INTO `agents_types` (`idAgents_types`, `Agent_type`) VALUES (@idAgents_types, @Agent_type)</CommandText>
+                    <CommandText>INSERT INTO `Agents_types` (`Agent_type`) VALUES (@Agent_type)</CommandText>
                     <Parameters>
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="SByte" Direction="Input" ParameterName="@idAgents_types" Precision="0" ProviderType="Byte" Scale="0" Size="0" SourceColumn="idAgents_types" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Agent_type" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Agent_type" SourceColumnNullMapping="false" SourceVersion="Current" />
                     </Parameters>
                   </DbCommand>
                 </InsertCommand>
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT `idAgents_types`, `Agent_type` FROM `agents_types`</CommandText>
+                    <CommandText>SELECT `idAgents_types`, `Agent_type` FROM `Agents_types`</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
                 <UpdateCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>UPDATE `agents_types` SET `idAgents_types` = @idAgents_types, `Agent_type` = @Agent_type WHERE ((`idAgents_types` = @Original_idAgents_types) AND ((@IsNull_Agent_type = 1 AND `Agent_type` IS NULL) OR (`Agent_type` = @Original_Agent_type)))</CommandText>
+                    <CommandText>UPDATE `Agents_types` SET `Agent_type` = @Agent_type WHERE ((`idAgents_types` = @Original_idAgents_types) AND ((@IsNull_Agent_type = 1 AND `Agent_type` IS NULL) OR (`Agent_type` = @Original_Agent_type)))</CommandText>
                     <Parameters>
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="SByte" Direction="Input" ParameterName="@idAgents_types" Precision="0" ProviderType="Byte" Scale="0" Size="0" SourceColumn="idAgents_types" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Agent_type" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Agent_type" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="SByte" Direction="Input" ParameterName="@Original_idAgents_types" Precision="0" ProviderType="Byte" Scale="0" Size="0" SourceColumn="idAgents_types" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Agent_type" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Agent_type" SourceColumnNullMapping="true" SourceVersion="Original" />
@@ -1124,7 +1129,7 @@ WHERE (contracts.Contract_type = 1)</CommandText>
   <xs:element name="EdocbaseDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="EdocbaseDataSet" msprop:Generator_UserDSName="EdocbaseDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="users" msprop:Generator_TableClassName="usersDataTable" msprop:Generator_TableVarName="tableusers" msprop:Generator_RowChangedName="usersRowChanged" msprop:Generator_TablePropName="users" msprop:Generator_RowDeletingName="usersRowDeleting" msprop:Generator_RowChangingName="usersRowChanging" msprop:Generator_RowEvHandlerName="usersRowChangeEventHandler" msprop:Generator_RowDeletedName="usersRowDeleted" msprop:Generator_RowClassName="usersRow" msprop:Generator_UserTableName="users" msprop:Generator_RowEvArgName="usersRowChangeEvent">
+        <xs:element name="users" msprop:Generator_TableClassName="usersDataTable" msprop:Generator_TableVarName="tableusers" msprop:Generator_TablePropName="users" msprop:Generator_RowDeletingName="usersRowDeleting" msprop:Generator_UserTableName="users" msprop:Generator_RowChangingName="usersRowChanging" msprop:Generator_RowEvHandlerName="usersRowChangeEventHandler" msprop:Generator_RowDeletedName="usersRowDeleted" msprop:Generator_RowEvArgName="usersRowChangeEvent" msprop:Generator_RowChangedName="usersRowChanged" msprop:Generator_RowClassName="usersRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="login" msprop:Generator_ColumnVarNameInTable="columnlogin" msprop:Generator_ColumnPropNameInRow="login" msprop:Generator_ColumnPropNameInTable="loginColumn" msprop:Generator_UserColumnName="login" minOccurs="0">
@@ -1152,7 +1157,7 @@ WHERE (contracts.Contract_type = 1)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Products" msprop:Generator_TableClassName="ProductsDataTable" msprop:Generator_TableVarName="tableProducts" msprop:Generator_RowChangedName="ProductsRowChanged" msprop:Generator_TablePropName="Products" msprop:Generator_RowDeletingName="ProductsRowDeleting" msprop:Generator_RowChangingName="ProductsRowChanging" msprop:Generator_RowEvHandlerName="ProductsRowChangeEventHandler" msprop:Generator_RowDeletedName="ProductsRowDeleted" msprop:Generator_RowClassName="ProductsRow" msprop:Generator_UserTableName="Products" msprop:Generator_RowEvArgName="ProductsRowChangeEvent">
+        <xs:element name="Products" msprop:Generator_TableClassName="ProductsDataTable" msprop:Generator_TableVarName="tableProducts" msprop:Generator_TablePropName="Products" msprop:Generator_RowDeletingName="ProductsRowDeleting" msprop:Generator_UserTableName="Products" msprop:Generator_RowChangingName="ProductsRowChanging" msprop:Generator_RowEvHandlerName="ProductsRowChangeEventHandler" msprop:Generator_RowDeletedName="ProductsRowDeleted" msprop:Generator_RowEvArgName="ProductsRowChangeEvent" msprop:Generator_RowChangedName="ProductsRowChanged" msprop:Generator_RowClassName="ProductsRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="idProducts" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnidProducts" msprop:Generator_ColumnPropNameInRow="idProducts" msprop:Generator_ColumnPropNameInTable="idProductsColumn" msprop:Generator_UserColumnName="idProducts" type="xs:int" />
@@ -1181,7 +1186,7 @@ WHERE (contracts.Contract_type = 1)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="ProdGost" msprop:Generator_TableClassName="ProdGostDataTable" msprop:Generator_TableVarName="tableProdGost" msprop:Generator_RowChangedName="ProdGostRowChanged" msprop:Generator_TablePropName="ProdGost" msprop:Generator_RowDeletingName="ProdGostRowDeleting" msprop:Generator_RowChangingName="ProdGostRowChanging" msprop:Generator_RowEvHandlerName="ProdGostRowChangeEventHandler" msprop:Generator_RowDeletedName="ProdGostRowDeleted" msprop:Generator_RowClassName="ProdGostRow" msprop:Generator_UserTableName="ProdGost" msprop:Generator_RowEvArgName="ProdGostRowChangeEvent">
+        <xs:element name="ProdGost" msprop:Generator_TableClassName="ProdGostDataTable" msprop:Generator_TableVarName="tableProdGost" msprop:Generator_TablePropName="ProdGost" msprop:Generator_RowDeletingName="ProdGostRowDeleting" msprop:Generator_UserTableName="ProdGost" msprop:Generator_RowChangingName="ProdGostRowChanging" msprop:Generator_RowEvHandlerName="ProdGostRowChangeEventHandler" msprop:Generator_RowDeletedName="ProdGostRowDeleted" msprop:Generator_RowEvArgName="ProdGostRowChangeEvent" msprop:Generator_RowChangedName="ProdGostRowChanged" msprop:Generator_RowClassName="ProdGostRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />
@@ -1203,7 +1208,7 @@ WHERE (contracts.Contract_type = 1)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="log_journal" msprop:Generator_TableClassName="log_journalDataTable" msprop:Generator_TableVarName="tablelog_journal" msprop:Generator_RowChangedName="log_journalRowChanged" msprop:Generator_TablePropName="log_journal" msprop:Generator_RowDeletingName="log_journalRowDeleting" msprop:Generator_RowChangingName="log_journalRowChanging" msprop:Generator_RowEvHandlerName="log_journalRowChangeEventHandler" msprop:Generator_RowDeletedName="log_journalRowDeleted" msprop:Generator_RowClassName="log_journalRow" msprop:Generator_UserTableName="log_journal" msprop:Generator_RowEvArgName="log_journalRowChangeEvent">
+        <xs:element name="log_journal" msprop:Generator_TableClassName="log_journalDataTable" msprop:Generator_TableVarName="tablelog_journal" msprop:Generator_TablePropName="log_journal" msprop:Generator_RowDeletingName="log_journalRowDeleting" msprop:Generator_UserTableName="log_journal" msprop:Generator_RowChangingName="log_journalRowChanging" msprop:Generator_RowEvHandlerName="log_journalRowChangeEventHandler" msprop:Generator_RowDeletedName="log_journalRowDeleted" msprop:Generator_RowEvArgName="log_journalRowChangeEvent" msprop:Generator_RowChangedName="log_journalRowChanged" msprop:Generator_RowClassName="log_journalRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="sessid" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnsessid" msprop:Generator_ColumnPropNameInRow="sessid" msprop:Generator_ColumnPropNameInTable="sessidColumn" msprop:Generator_UserColumnName="sessid" type="xs:int" />
@@ -1219,7 +1224,7 @@ WHERE (contracts.Contract_type = 1)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Experts" msprop:Generator_TableClassName="ExpertsDataTable" msprop:Generator_TableVarName="tableExperts" msprop:Generator_RowChangedName="ExpertsRowChanged" msprop:Generator_TablePropName="Experts" msprop:Generator_RowDeletingName="ExpertsRowDeleting" msprop:Generator_RowChangingName="ExpertsRowChanging" msprop:Generator_RowEvHandlerName="ExpertsRowChangeEventHandler" msprop:Generator_RowDeletedName="ExpertsRowDeleted" msprop:Generator_RowClassName="ExpertsRow" msprop:Generator_UserTableName="Experts" msprop:Generator_RowEvArgName="ExpertsRowChangeEvent">
+        <xs:element name="Experts" msprop:Generator_TableClassName="ExpertsDataTable" msprop:Generator_TableVarName="tableExperts" msprop:Generator_TablePropName="Experts" msprop:Generator_RowDeletingName="ExpertsRowDeleting" msprop:Generator_UserTableName="Experts" msprop:Generator_RowChangingName="ExpertsRowChanging" msprop:Generator_RowEvHandlerName="ExpertsRowChangeEventHandler" msprop:Generator_RowDeletedName="ExpertsRowDeleted" msprop:Generator_RowEvArgName="ExpertsRowChangeEvent" msprop:Generator_RowChangedName="ExpertsRowChanged" msprop:Generator_RowClassName="ExpertsRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="idExperts" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnidExperts" msprop:Generator_ColumnPropNameInRow="idExperts" msprop:Generator_ColumnPropNameInTable="idExpertsColumn" msprop:Generator_UserColumnName="idExperts" type="xs:int" />
@@ -1254,7 +1259,7 @@ WHERE (contracts.Contract_type = 1)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Exec_contracts" msprop:Generator_TableClassName="Exec_contractsDataTable" msprop:Generator_TableVarName="tableExec_contracts" msprop:Generator_RowChangedName="Exec_contractsRowChanged" msprop:Generator_TablePropName="Exec_contracts" msprop:Generator_RowDeletingName="Exec_contractsRowDeleting" msprop:Generator_RowChangingName="Exec_contractsRowChanging" msprop:Generator_RowEvHandlerName="Exec_contractsRowChangeEventHandler" msprop:Generator_RowDeletedName="Exec_contractsRowDeleted" msprop:Generator_RowClassName="Exec_contractsRow" msprop:Generator_UserTableName="Exec_contracts" msprop:Generator_RowEvArgName="Exec_contractsRowChangeEvent">
+        <xs:element name="Exec_contracts" msprop:Generator_TableClassName="Exec_contractsDataTable" msprop:Generator_TableVarName="tableExec_contracts" msprop:Generator_TablePropName="Exec_contracts" msprop:Generator_RowDeletingName="Exec_contractsRowDeleting" msprop:Generator_UserTableName="Exec_contracts" msprop:Generator_RowChangingName="Exec_contractsRowChanging" msprop:Generator_RowEvHandlerName="Exec_contractsRowChangeEventHandler" msprop:Generator_RowDeletedName="Exec_contractsRowDeleted" msprop:Generator_RowEvArgName="Exec_contractsRowChangeEvent" msprop:Generator_RowChangedName="Exec_contractsRowChanged" msprop:Generator_RowClassName="Exec_contractsRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="idContract" msprop:Generator_ColumnVarNameInTable="columnidContract" msprop:Generator_ColumnPropNameInRow="idContract" msprop:Generator_ColumnPropNameInTable="idContractColumn" msprop:Generator_UserColumnName="idContract" type="xs:int" />
@@ -1270,7 +1275,7 @@ WHERE (contracts.Contract_type = 1)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Contracts" msprop:Generator_TableClassName="ContractsDataTable" msprop:Generator_TableVarName="tableContracts" msprop:Generator_RowChangedName="ContractsRowChanged" msprop:Generator_TablePropName="Contracts" msprop:Generator_RowDeletingName="ContractsRowDeleting" msprop:Generator_RowChangingName="ContractsRowChanging" msprop:Generator_RowEvHandlerName="ContractsRowChangeEventHandler" msprop:Generator_RowDeletedName="ContractsRowDeleted" msprop:Generator_RowClassName="ContractsRow" msprop:Generator_UserTableName="Contracts" msprop:Generator_RowEvArgName="ContractsRowChangeEvent">
+        <xs:element name="Contracts" msprop:Generator_TableClassName="ContractsDataTable" msprop:Generator_TableVarName="tableContracts" msprop:Generator_TablePropName="Contracts" msprop:Generator_RowDeletingName="ContractsRowDeleting" msprop:Generator_UserTableName="Contracts" msprop:Generator_RowChangingName="ContractsRowChanging" msprop:Generator_RowEvHandlerName="ContractsRowChangeEventHandler" msprop:Generator_RowDeletedName="ContractsRowDeleted" msprop:Generator_RowEvArgName="ContractsRowChangeEvent" msprop:Generator_RowChangedName="ContractsRowChanged" msprop:Generator_RowClassName="ContractsRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="idContract" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnidContract" msprop:Generator_ColumnPropNameInRow="idContract" msprop:Generator_ColumnPropNameInTable="idContractColumn" msprop:Generator_UserColumnName="idContract" type="xs:int" />
@@ -1315,7 +1320,7 @@ WHERE (contracts.Contract_type = 1)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Agents" msprop:Generator_TableClassName="AgentsDataTable" msprop:Generator_TableVarName="tableAgents" msprop:Generator_RowChangedName="AgentsRowChanged" msprop:Generator_TablePropName="Agents" msprop:Generator_RowDeletingName="AgentsRowDeleting" msprop:Generator_RowChangingName="AgentsRowChanging" msprop:Generator_RowEvHandlerName="AgentsRowChangeEventHandler" msprop:Generator_RowDeletedName="AgentsRowDeleted" msprop:Generator_RowClassName="AgentsRow" msprop:Generator_UserTableName="Agents" msprop:Generator_RowEvArgName="AgentsRowChangeEvent">
+        <xs:element name="Agents" msprop:Generator_TableClassName="AgentsDataTable" msprop:Generator_TableVarName="tableAgents" msprop:Generator_TablePropName="Agents" msprop:Generator_RowDeletingName="AgentsRowDeleting" msprop:Generator_UserTableName="Agents" msprop:Generator_RowChangingName="AgentsRowChanging" msprop:Generator_RowEvHandlerName="AgentsRowChangeEventHandler" msprop:Generator_RowDeletedName="AgentsRowDeleted" msprop:Generator_RowEvArgName="AgentsRowChangeEvent" msprop:Generator_RowChangedName="AgentsRowChanged" msprop:Generator_RowClassName="AgentsRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="idAgents" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnidAgents" msprop:Generator_ColumnPropNameInRow="idAgents" msprop:Generator_ColumnPropNameInTable="idAgentsColumn" msprop:Generator_UserColumnName="idAgents" type="xs:int" />
@@ -1449,7 +1454,7 @@ WHERE (contracts.Contract_type = 1)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="ContractTypes" msprop:Generator_TableClassName="ContractTypesDataTable" msprop:Generator_TableVarName="tableContractTypes" msprop:Generator_RowChangedName="ContractTypesRowChanged" msprop:Generator_TablePropName="ContractTypes" msprop:Generator_RowDeletingName="ContractTypesRowDeleting" msprop:Generator_RowChangingName="ContractTypesRowChanging" msprop:Generator_RowEvHandlerName="ContractTypesRowChangeEventHandler" msprop:Generator_RowDeletedName="ContractTypesRowDeleted" msprop:Generator_RowClassName="ContractTypesRow" msprop:Generator_UserTableName="ContractTypes" msprop:Generator_RowEvArgName="ContractTypesRowChangeEvent">
+        <xs:element name="ContractTypes" msprop:Generator_TableClassName="ContractTypesDataTable" msprop:Generator_TableVarName="tableContractTypes" msprop:Generator_TablePropName="ContractTypes" msprop:Generator_RowDeletingName="ContractTypesRowDeleting" msprop:Generator_UserTableName="ContractTypes" msprop:Generator_RowChangingName="ContractTypesRowChanging" msprop:Generator_RowEvHandlerName="ContractTypesRowChangeEventHandler" msprop:Generator_RowDeletedName="ContractTypesRowDeleted" msprop:Generator_RowEvArgName="ContractTypesRowChangeEvent" msprop:Generator_RowChangedName="ContractTypesRowChanged" msprop:Generator_RowClassName="ContractTypesRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:byte" />
@@ -1463,7 +1468,7 @@ WHERE (contracts.Contract_type = 1)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="ProductAreas" msprop:Generator_TableClassName="ProductAreasDataTable" msprop:Generator_TableVarName="tableProductAreas" msprop:Generator_RowChangedName="ProductAreasRowChanged" msprop:Generator_TablePropName="ProductAreas" msprop:Generator_RowDeletingName="ProductAreasRowDeleting" msprop:Generator_RowChangingName="ProductAreasRowChanging" msprop:Generator_RowEvHandlerName="ProductAreasRowChangeEventHandler" msprop:Generator_RowDeletedName="ProductAreasRowDeleted" msprop:Generator_RowClassName="ProductAreasRow" msprop:Generator_UserTableName="ProductAreas" msprop:Generator_RowEvArgName="ProductAreasRowChangeEvent">
+        <xs:element name="ProductAreas" msprop:Generator_TableClassName="ProductAreasDataTable" msprop:Generator_TableVarName="tableProductAreas" msprop:Generator_TablePropName="ProductAreas" msprop:Generator_RowDeletingName="ProductAreasRowDeleting" msprop:Generator_UserTableName="ProductAreas" msprop:Generator_RowChangingName="ProductAreasRowChanging" msprop:Generator_RowEvHandlerName="ProductAreasRowChangeEventHandler" msprop:Generator_RowDeletedName="ProductAreasRowDeleted" msprop:Generator_RowEvArgName="ProductAreasRowChangeEvent" msprop:Generator_RowChangedName="ProductAreasRowChanged" msprop:Generator_RowClassName="ProductAreasRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:byte" />
@@ -1477,7 +1482,7 @@ WHERE (contracts.Contract_type = 1)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="AssignedContractsDataTable" msprop:Generator_TableClassName="AssignedContractsDataTableDataTable" msprop:Generator_TableVarName="tableAssignedContractsDataTable" msprop:Generator_RowChangedName="AssignedContractsDataTableRowChanged" msprop:Generator_TablePropName="AssignedContractsDataTable" msprop:Generator_RowDeletingName="AssignedContractsDataTableRowDeleting" msprop:Generator_RowChangingName="AssignedContractsDataTableRowChanging" msprop:Generator_RowEvHandlerName="AssignedContractsDataTableRowChangeEventHandler" msprop:Generator_RowDeletedName="AssignedContractsDataTableRowDeleted" msprop:Generator_RowClassName="AssignedContractsDataTableRow" msprop:Generator_UserTableName="AssignedContractsDataTable" msprop:Generator_RowEvArgName="AssignedContractsDataTableRowChangeEvent">
+        <xs:element name="AssignedContractsDataTable" msprop:Generator_TableClassName="AssignedContractsDataTableDataTable" msprop:Generator_TableVarName="tableAssignedContractsDataTable" msprop:Generator_TablePropName="AssignedContractsDataTable" msprop:Generator_RowDeletingName="AssignedContractsDataTableRowDeleting" msprop:Generator_UserTableName="AssignedContractsDataTable" msprop:Generator_RowChangingName="AssignedContractsDataTableRowChanging" msprop:Generator_RowEvHandlerName="AssignedContractsDataTableRowChangeEventHandler" msprop:Generator_RowDeletedName="AssignedContractsDataTableRowDeleted" msprop:Generator_RowEvArgName="AssignedContractsDataTableRowChangeEvent" msprop:Generator_RowChangedName="AssignedContractsDataTableRowChanged" msprop:Generator_RowClassName="AssignedContractsDataTableRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="idContract" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnidContract" msprop:Generator_ColumnPropNameInRow="idContract" msprop:Generator_ColumnPropNameInTable="idContractColumn" msprop:Generator_UserColumnName="idContract" type="xs:int" />
@@ -1508,7 +1513,7 @@ WHERE (contracts.Contract_type = 1)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="ExpertAssignmentDataTable" msprop:Generator_TableClassName="ExpertAssignmentDataTableDataTable" msprop:Generator_TableVarName="tableExpertAssignmentDataTable" msprop:Generator_RowChangedName="ExpertAssignmentDataTableRowChanged" msprop:Generator_TablePropName="ExpertAssignmentDataTable" msprop:Generator_RowDeletingName="ExpertAssignmentDataTableRowDeleting" msprop:Generator_RowChangingName="ExpertAssignmentDataTableRowChanging" msprop:Generator_RowEvHandlerName="ExpertAssignmentDataTableRowChangeEventHandler" msprop:Generator_RowDeletedName="ExpertAssignmentDataTableRowDeleted" msprop:Generator_RowClassName="ExpertAssignmentDataTableRow" msprop:Generator_UserTableName="ExpertAssignmentDataTable" msprop:Generator_RowEvArgName="ExpertAssignmentDataTableRowChangeEvent">
+        <xs:element name="ExpertAssignmentDataTable" msprop:Generator_TableClassName="ExpertAssignmentDataTableDataTable" msprop:Generator_TableVarName="tableExpertAssignmentDataTable" msprop:Generator_TablePropName="ExpertAssignmentDataTable" msprop:Generator_RowDeletingName="ExpertAssignmentDataTableRowDeleting" msprop:Generator_UserTableName="ExpertAssignmentDataTable" msprop:Generator_RowChangingName="ExpertAssignmentDataTableRowChanging" msprop:Generator_RowEvHandlerName="ExpertAssignmentDataTableRowChangeEventHandler" msprop:Generator_RowDeletedName="ExpertAssignmentDataTableRowDeleted" msprop:Generator_RowEvArgName="ExpertAssignmentDataTableRowChangeEvent" msprop:Generator_RowChangedName="ExpertAssignmentDataTableRowChanged" msprop:Generator_RowClassName="ExpertAssignmentDataTableRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="idContract" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnidContract" msprop:Generator_ColumnPropNameInRow="idContract" msprop:Generator_ColumnPropNameInTable="idContractColumn" msprop:Generator_UserColumnName="idContract" type="xs:int" />
@@ -1539,7 +1544,7 @@ WHERE (contracts.Contract_type = 1)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Agents_contacts" msprop:Generator_TableClassName="Agents_contactsDataTable" msprop:Generator_TableVarName="tableAgents_contacts" msprop:Generator_TablePropName="Agents_contacts" msprop:Generator_RowDeletingName="Agents_contactsRowDeleting" msprop:Generator_RowChangingName="Agents_contactsRowChanging" msprop:Generator_RowEvHandlerName="Agents_contactsRowChangeEventHandler" msprop:Generator_RowDeletedName="Agents_contactsRowDeleted" msprop:Generator_UserTableName="Agents_contacts" msprop:Generator_RowChangedName="Agents_contactsRowChanged" msprop:Generator_RowEvArgName="Agents_contactsRowChangeEvent" msprop:Generator_RowClassName="Agents_contactsRow">
+        <xs:element name="Agents_contacts" msprop:Generator_TableClassName="Agents_contactsDataTable" msprop:Generator_TableVarName="tableAgents_contacts" msprop:Generator_TablePropName="Agents_contacts" msprop:Generator_RowDeletingName="Agents_contactsRowDeleting" msprop:Generator_UserTableName="Agents_contacts" msprop:Generator_RowChangingName="Agents_contactsRowChanging" msprop:Generator_RowEvHandlerName="Agents_contactsRowChangeEventHandler" msprop:Generator_RowDeletedName="Agents_contactsRowDeleted" msprop:Generator_RowEvArgName="Agents_contactsRowChangeEvent" msprop:Generator_RowChangedName="Agents_contactsRowChanged" msprop:Generator_RowClassName="Agents_contactsRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="idAgents_contacts" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnidAgents_contacts" msprop:Generator_ColumnPropNameInRow="idAgents_contacts" msprop:Generator_ColumnPropNameInTable="idAgents_contactsColumn" msprop:Generator_UserColumnName="idAgents_contacts" type="xs:int" />
@@ -1582,7 +1587,7 @@ WHERE (contracts.Contract_type = 1)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Agents_types" msprop:Generator_TableClassName="Agents_typesDataTable" msprop:Generator_TableVarName="tableAgents_types" msprop:Generator_TablePropName="Agents_types" msprop:Generator_RowDeletingName="Agents_typesRowDeleting" msprop:Generator_RowChangingName="Agents_typesRowChanging" msprop:Generator_RowEvHandlerName="Agents_typesRowChangeEventHandler" msprop:Generator_RowDeletedName="Agents_typesRowDeleted" msprop:Generator_UserTableName="Agents_types" msprop:Generator_RowChangedName="Agents_typesRowChanged" msprop:Generator_RowEvArgName="Agents_typesRowChangeEvent" msprop:Generator_RowClassName="Agents_typesRow">
+        <xs:element name="Agents_types" msprop:Generator_TableClassName="Agents_typesDataTable" msprop:Generator_TableVarName="tableAgents_types" msprop:Generator_TablePropName="Agents_types" msprop:Generator_RowDeletingName="Agents_typesRowDeleting" msprop:Generator_UserTableName="Agents_types" msprop:Generator_RowChangingName="Agents_typesRowChanging" msprop:Generator_RowEvHandlerName="Agents_typesRowChangeEventHandler" msprop:Generator_RowDeletedName="Agents_typesRowDeleted" msprop:Generator_RowEvArgName="Agents_typesRowChangeEvent" msprop:Generator_RowChangedName="Agents_typesRowChanged" msprop:Generator_RowClassName="Agents_typesRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="idAgents_types" msprop:Generator_ColumnVarNameInTable="columnidAgents_types" msprop:Generator_ColumnPropNameInRow="idAgents_types" msprop:Generator_ColumnPropNameInTable="idAgents_typesColumn" msprop:Generator_UserColumnName="idAgents_types" type="xs:byte" />
@@ -1653,15 +1658,15 @@ WHERE (contracts.Contract_type = 1)</CommandText>
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="fk_ProdGost_1" msdata:parent="Products" msdata:child="ProdGost" msdata:parentkey="idProducts" msdata:childkey="idProducts" msprop:Generator_UserChildTable="ProdGost" msprop:Generator_ChildPropName="GetProdGostRows" msprop:Generator_UserRelationName="fk_ProdGost_1" msprop:Generator_ParentPropName="ProductsRow" msprop:Generator_RelationVarName="relationfk_ProdGost_1" msprop:Generator_UserParentTable="Products" />
-      <msdata:Relationship name="fk_Exec_contracts_1" msdata:parent="Contracts" msdata:child="Exec_contracts" msdata:parentkey="idContract" msdata:childkey="idContract" msprop:Generator_UserChildTable="Exec_contracts" msprop:Generator_ChildPropName="GetExec_contractsRows" msprop:Generator_UserRelationName="fk_Exec_contracts_1" msprop:Generator_ParentPropName="ContractsRow" msprop:Generator_RelationVarName="relationfk_Exec_contracts_1" msprop:Generator_UserParentTable="Contracts" />
-      <msdata:Relationship name="fk_Contracts_3" msdata:parent="Products" msdata:child="Contracts" msdata:parentkey="idProducts" msdata:childkey="idProducts" msprop:Generator_UserChildTable="Contracts" msprop:Generator_ChildPropName="GetContractsRows" msprop:Generator_UserRelationName="fk_Contracts_3" msprop:Generator_ParentPropName="ProductsRow" msprop:Generator_RelationVarName="relationfk_Contracts_3" msprop:Generator_UserParentTable="Products" />
-      <msdata:Relationship name="fk_Contracts_2" msdata:parent="Experts" msdata:child="Contracts" msdata:parentkey="idExperts" msdata:childkey="expert_id" msprop:Generator_UserChildTable="Contracts" msprop:Generator_ChildPropName="GetContractsRows" msprop:Generator_UserRelationName="fk_Contracts_2" msprop:Generator_ParentPropName="ExpertsRow" msprop:Generator_RelationVarName="relationfk_Contracts_2" msprop:Generator_UserParentTable="Experts" />
-      <msdata:Relationship name="fk_Contracts_1" msdata:parent="Agents" msdata:child="Contracts" msdata:parentkey="idAgents" msdata:childkey="agent_id" msprop:Generator_UserChildTable="Contracts" msprop:Generator_ChildPropName="GetContractsRows" msprop:Generator_UserRelationName="fk_Contracts_1" msprop:Generator_ParentPropName="AgentsRow" msprop:Generator_RelationVarName="relationfk_Contracts_1" msprop:Generator_UserParentTable="Agents" />
-      <msdata:Relationship name="fk_Contracts_4" msdata:parent="ContractTypes" msdata:child="Contracts" msdata:parentkey="id" msdata:childkey="Contract_type" msprop:Generator_UserChildTable="Contracts" msprop:Generator_ChildPropName="GetContractsRows" msprop:Generator_UserRelationName="fk_Contracts_4" msprop:Generator_ParentPropName="ContractTypesRow" msprop:Generator_RelationVarName="relationfk_Contracts_4" msprop:Generator_UserParentTable="ContractTypes" />
-      <msdata:Relationship name="ProductAreas_Products" msdata:parent="ProductAreas" msdata:child="Products" msdata:parentkey="id" msdata:childkey="ProductArea" msprop:Generator_UserChildTable="Products" msprop:Generator_ChildPropName="GetProductsRows" msprop:Generator_UserRelationName="ProductAreas_Products" msprop:Generator_ParentPropName="ProductAreasRow" msprop:Generator_RelationVarName="relationProductAreas_Products" msprop:Generator_UserParentTable="ProductAreas" />
-      <msdata:Relationship name="Agents_Agents_contacts" msdata:parent="Agents" msdata:child="Agents_contacts" msdata:parentkey="idAgents" msdata:childkey="ac_agent_id" msprop:Generator_UserChildTable="Agents_contacts" msprop:Generator_ChildPropName="GetAgents_contactsRows" msprop:Generator_UserRelationName="Agents_Agents_contacts" msprop:Generator_ParentPropName="AgentsRow" msprop:Generator_RelationVarName="relationAgents_Agents_contacts" msprop:Generator_UserParentTable="Agents" />
-      <msdata:Relationship name="agents_types_Agents" msdata:parent="Agents_types" msdata:child="Agents" msdata:parentkey="idAgents_types" msdata:childkey="Ag_type_id" msprop:Generator_UserChildTable="Agents" msprop:Generator_ChildPropName="GetAgentsRows" msprop:Generator_UserRelationName="agents_types_Agents" msprop:Generator_RelationVarName="relationagents_types_Agents" msprop:Generator_UserParentTable="Agents_types" msprop:Generator_ParentPropName="Agents_typesRow" />
+      <msdata:Relationship name="fk_ProdGost_1" msdata:parent="Products" msdata:child="ProdGost" msdata:parentkey="idProducts" msdata:childkey="idProducts" msprop:Generator_UserChildTable="ProdGost" msprop:Generator_ChildPropName="GetProdGostRows" msprop:Generator_UserParentTable="Products" msprop:Generator_UserRelationName="fk_ProdGost_1" msprop:Generator_RelationVarName="relationfk_ProdGost_1" msprop:Generator_ParentPropName="ProductsRow" />
+      <msdata:Relationship name="fk_Exec_contracts_1" msdata:parent="Contracts" msdata:child="Exec_contracts" msdata:parentkey="idContract" msdata:childkey="idContract" msprop:Generator_UserChildTable="Exec_contracts" msprop:Generator_ChildPropName="GetExec_contractsRows" msprop:Generator_UserParentTable="Contracts" msprop:Generator_UserRelationName="fk_Exec_contracts_1" msprop:Generator_RelationVarName="relationfk_Exec_contracts_1" msprop:Generator_ParentPropName="ContractsRow" />
+      <msdata:Relationship name="fk_Contracts_3" msdata:parent="Products" msdata:child="Contracts" msdata:parentkey="idProducts" msdata:childkey="idProducts" msprop:Generator_UserChildTable="Contracts" msprop:Generator_ChildPropName="GetContractsRows" msprop:Generator_UserParentTable="Products" msprop:Generator_UserRelationName="fk_Contracts_3" msprop:Generator_RelationVarName="relationfk_Contracts_3" msprop:Generator_ParentPropName="ProductsRow" />
+      <msdata:Relationship name="fk_Contracts_2" msdata:parent="Experts" msdata:child="Contracts" msdata:parentkey="idExperts" msdata:childkey="expert_id" msprop:Generator_UserChildTable="Contracts" msprop:Generator_ChildPropName="GetContractsRows" msprop:Generator_UserParentTable="Experts" msprop:Generator_UserRelationName="fk_Contracts_2" msprop:Generator_RelationVarName="relationfk_Contracts_2" msprop:Generator_ParentPropName="ExpertsRow" />
+      <msdata:Relationship name="fk_Contracts_1" msdata:parent="Agents" msdata:child="Contracts" msdata:parentkey="idAgents" msdata:childkey="agent_id" msprop:Generator_UserChildTable="Contracts" msprop:Generator_ChildPropName="GetContractsRows" msprop:Generator_UserParentTable="Agents" msprop:Generator_UserRelationName="fk_Contracts_1" msprop:Generator_RelationVarName="relationfk_Contracts_1" msprop:Generator_ParentPropName="AgentsRow" />
+      <msdata:Relationship name="fk_Contracts_4" msdata:parent="ContractTypes" msdata:child="Contracts" msdata:parentkey="id" msdata:childkey="Contract_type" msprop:Generator_UserChildTable="Contracts" msprop:Generator_ChildPropName="GetContractsRows" msprop:Generator_UserParentTable="ContractTypes" msprop:Generator_UserRelationName="fk_Contracts_4" msprop:Generator_RelationVarName="relationfk_Contracts_4" msprop:Generator_ParentPropName="ContractTypesRow" />
+      <msdata:Relationship name="ProductAreas_Products" msdata:parent="ProductAreas" msdata:child="Products" msdata:parentkey="id" msdata:childkey="ProductArea" msprop:Generator_UserChildTable="Products" msprop:Generator_ChildPropName="GetProductsRows" msprop:Generator_UserParentTable="ProductAreas" msprop:Generator_UserRelationName="ProductAreas_Products" msprop:Generator_RelationVarName="relationProductAreas_Products" msprop:Generator_ParentPropName="ProductAreasRow" />
+      <msdata:Relationship name="Agents_Agents_contacts" msdata:parent="Agents" msdata:child="Agents_contacts" msdata:parentkey="idAgents" msdata:childkey="ac_agent_id" msprop:Generator_UserChildTable="Agents_contacts" msprop:Generator_ChildPropName="GetAgents_contactsRows" msprop:Generator_UserParentTable="Agents" msprop:Generator_UserRelationName="Agents_Agents_contacts" msprop:Generator_RelationVarName="relationAgents_Agents_contacts" msprop:Generator_ParentPropName="AgentsRow" />
+      <msdata:Relationship name="agents_types_Agents" msdata:parent="Agents_types" msdata:child="Agents" msdata:parentkey="idAgents_types" msdata:childkey="Ag_type_id" msprop:Generator_UserChildTable="Agents" msprop:Generator_ChildPropName="GetAgentsRows" msprop:Generator_ParentPropName="Agents_typesRow" msprop:Generator_UserRelationName="agents_types_Agents" msprop:Generator_RelationVarName="relationagents_types_Agents" msprop:Generator_UserParentTable="Agents_types" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>
