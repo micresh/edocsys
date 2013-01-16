@@ -957,5 +957,17 @@ namespace Edocsys.Properties {
                 this["DocTemplateOperationsText"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Договора")]
+        public string ContractsFormTitle {
+            get {
+                return ((string)(this["ContractsFormTitle"]));
+            }
+            set {
+                this["ContractsFormTitle"] = value;
+            }
+        }
     }
 }

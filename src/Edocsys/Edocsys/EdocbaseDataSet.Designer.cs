@@ -3151,7 +3151,7 @@ namespace Edocsys {
                 this.columnid.AllowDBNull = false;
                 this.columnid.Unique = true;
                 this.columnGOST_numb.MaxLength = 15;
-                this.columnProd_type.MaxLength = 31;
+                this.columnProd_type.MaxLength = 80;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4002,6 +4002,13 @@ namespace Edocsys {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public ContractTypesRow FindByid(int id) {
+                return ((ContractTypesRow)(this.Rows.Find(new object[] {
+                            id})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public override global::System.Data.DataTable Clone() {
                 ContractTypesDataTable cln = ((ContractTypesDataTable)(base.Clone()));
                 cln.InitVars();
@@ -4029,7 +4036,7 @@ namespace Edocsys {
                 this.columnid = new global::System.Data.DataColumn("id", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnid);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint2", new global::System.Data.DataColumn[] {
-                                this.columnid}, false));
+                                this.columnid}, true));
                 this.columnname.MaxLength = 30;
                 this.columnid.AllowDBNull = false;
                 this.columnid.Unique = true;
@@ -12269,7 +12276,7 @@ FROM            Agents INNER JOIN
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM `edocbase`.`contracts` WHERE ((`idContract` = @Original_idContract) AND ((@IsNull_idProducts = 1 AND `idProducts` IS NULL) OR (`idProducts` = @Original_idProducts)) AND ((@IsNull_emission_type = 1 AND `emission_type` IS NULL) OR (`emission_type` = @Original_emission_type)) AND ((@IsNull_Client_docs = 1 AND `Client_docs` IS NULL) OR (`Client_docs` = @Original_Client_docs)) AND ((@IsNull_Schem_type = 1 AND `Schem_type` IS NULL) OR (`Schem_type` = @Original_Schem_type)) AND ((@IsNull_Contract_value_1 = 1 AND `Contract_value_1` IS NULL) OR (`Contract_value_1` = @Original_Contract_value_1)) AND ((@IsNull_Contract_value_full = 1 AND `Contract_value_full` IS NULL) OR (`Contract_value_full` = @Original_Contract_value_full)) AND (`agent_id` = @Original_agent_id) AND ((@IsNull_Contract_number = 1 AND `Contract_number` IS NULL) OR (`Contract_number` = @Original_Contract_number)) AND ((@IsNull_Bid_type = 1 AND `Bid_type` IS NULL) OR (`Bid_type` = @Original_Bid_type)) AND ((@IsNull_expert_id = 1 AND `expert_id` IS NULL) OR (`expert_id` = @Original_expert_id)) AND ((@IsNull_Cash_income = 1 AND `Cash_income` IS NULL) OR (`Cash_income` = @Original_Cash_income)) AND ((@IsNull_Contract_status = 1 AND `Contract_status` IS NULL) OR (`Contract_status` = @Original_Contract_status)) AND ((@IsNull_Contract_type = 1 AND `Contract_type` IS NULL) OR (`Contract_type` = @Original_Contract_type)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM `Contracts` WHERE ((`idContract` = @Original_idContract) AND ((@IsNull_idProducts = 1 AND `idProducts` IS NULL) OR (`idProducts` = @Original_idProducts)) AND ((@IsNull_emission_type = 1 AND `emission_type` IS NULL) OR (`emission_type` = @Original_emission_type)) AND ((@IsNull_Client_docs = 1 AND `Client_docs` IS NULL) OR (`Client_docs` = @Original_Client_docs)) AND ((@IsNull_Schem_type = 1 AND `Schem_type` IS NULL) OR (`Schem_type` = @Original_Schem_type)) AND ((@IsNull_Contract_value_1 = 1 AND `Contract_value_1` IS NULL) OR (`Contract_value_1` = @Original_Contract_value_1)) AND ((@IsNull_Contract_value_full = 1 AND `Contract_value_full` IS NULL) OR (`Contract_value_full` = @Original_Contract_value_full)) AND (`agent_id` = @Original_agent_id) AND ((@IsNull_Contract_number = 1 AND `Contract_number` IS NULL) OR (`Contract_number` = @Original_Contract_number)) AND ((@IsNull_Bid_type = 1 AND `Bid_type` IS NULL) OR (`Bid_type` = @Original_Bid_type)) AND ((@IsNull_expert_id = 1 AND `expert_id` IS NULL) OR (`expert_id` = @Original_expert_id)) AND ((@IsNull_Cash_income = 1 AND `Cash_income` IS NULL) OR (`Cash_income` = @Original_Cash_income)) AND ((@IsNull_Contract_status = 1 AND `Contract_status` IS NULL) OR (`Contract_status` = @Original_Contract_status)) AND ((@IsNull_Contract_type = 1 AND `Contract_type` IS NULL) OR (`Contract_type` = @Original_Contract_type)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@Original_idContract";
@@ -12493,7 +12500,7 @@ FROM            Agents INNER JOIN
             this._adapter.DeleteCommand.Parameters.Add(param);
             this._adapter.InsertCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO `edocbase`.`contracts` (`idProducts`, `emission_type`, `Client_docs`, `Schem_type`, `Add_data`, `Contract_value_1`, `Contract_value_full`, `agent_id`, `Contract_number`, `Bid_type`, `expert_id`, `Cash_income`, `Contract_status`, `Contract_type`) VALUES (@idProducts, @emission_type, @Client_docs, @Schem_type, @Add_data, @Contract_value_1, @Contract_value_full, @agent_id, @Contract_number, @Bid_type, @expert_id, @Cash_income, @Contract_status, @Contract_type)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO `Contracts` (`idProducts`, `emission_type`, `Client_docs`, `Schem_type`, `Add_data`, `Contract_value_1`, `Contract_value_full`, `agent_id`, `Contract_number`, `Bid_type`, `expert_id`, `Cash_income`, `Contract_status`, `Contract_type`) VALUES (@idProducts, @emission_type, @Client_docs, @Schem_type, @Add_data, @Contract_value_1, @Contract_value_full, @agent_id, @Contract_number, @Bid_type, @expert_id, @Cash_income, @Contract_status, @Contract_type)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@idProducts";
@@ -12594,11 +12601,29 @@ FROM            Agents INNER JOIN
             this._adapter.InsertCommand.Parameters.Add(param);
             this._adapter.UpdateCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE       contracts
-SET                idProducts = @idProducts, emission_type = @emission_type, Client_docs = @Client_docs, Schem_type = @Schem_type, Add_data = @Add_data, 
-                         Contract_value_1 = @Contract_value_1, Contract_value_full = @Contract_value_full, agent_id = @agent_id, Contract_number = @Contract_number, 
-                         Bid_type = @Bid_type, expert_id = @expert_id, Cash_income = @Cash_income, Contract_status = @Contract_status, Contract_type = @Contract_type
-WHERE        (idContract = @Original_idContract)";
+            this._adapter.UpdateCommand.CommandText = "UPDATE `Contracts` SET `idProducts` = @idProducts, `emission_type` = @emission_ty" +
+                "pe, `Client_docs` = @Client_docs, `Schem_type` = @Schem_type, `Add_data` = @Add_" +
+                "data, `Contract_value_1` = @Contract_value_1, `Contract_value_full` = @Contract_" +
+                "value_full, `agent_id` = @agent_id, `Contract_number` = @Contract_number, `Bid_t" +
+                "ype` = @Bid_type, `expert_id` = @expert_id, `Cash_income` = @Cash_income, `Contr" +
+                "act_status` = @Contract_status, `Contract_type` = @Contract_type WHERE ((`idCont" +
+                "ract` = @Original_idContract) AND ((@IsNull_idProducts = 1 AND `idProducts` IS N" +
+                "ULL) OR (`idProducts` = @Original_idProducts)) AND ((@IsNull_emission_type = 1 A" +
+                "ND `emission_type` IS NULL) OR (`emission_type` = @Original_emission_type)) AND " +
+                "((@IsNull_Client_docs = 1 AND `Client_docs` IS NULL) OR (`Client_docs` = @Origin" +
+                "al_Client_docs)) AND ((@IsNull_Schem_type = 1 AND `Schem_type` IS NULL) OR (`Sch" +
+                "em_type` = @Original_Schem_type)) AND ((@IsNull_Contract_value_1 = 1 AND `Contra" +
+                "ct_value_1` IS NULL) OR (`Contract_value_1` = @Original_Contract_value_1)) AND (" +
+                "(@IsNull_Contract_value_full = 1 AND `Contract_value_full` IS NULL) OR (`Contrac" +
+                "t_value_full` = @Original_Contract_value_full)) AND (`agent_id` = @Original_agen" +
+                "t_id) AND ((@IsNull_Contract_number = 1 AND `Contract_number` IS NULL) OR (`Cont" +
+                "ract_number` = @Original_Contract_number)) AND ((@IsNull_Bid_type = 1 AND `Bid_t" +
+                "ype` IS NULL) OR (`Bid_type` = @Original_Bid_type)) AND ((@IsNull_expert_id = 1 " +
+                "AND `expert_id` IS NULL) OR (`expert_id` = @Original_expert_id)) AND ((@IsNull_C" +
+                "ash_income = 1 AND `Cash_income` IS NULL) OR (`Cash_income` = @Original_Cash_inc" +
+                "ome)) AND ((@IsNull_Contract_status = 1 AND `Contract_status` IS NULL) OR (`Cont" +
+                "ract_status` = @Original_Contract_status)) AND ((@IsNull_Contract_type = 1 AND `" +
+                "Contract_type` IS NULL) OR (`Contract_type` = @Original_Contract_type)))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@idProducts";
@@ -12611,7 +12636,6 @@ WHERE        (idContract = @Original_idContract)";
             param.ParameterName = "@emission_type";
             param.DbType = global::System.Data.DbType.String;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
-            param.Size = 45;
             param.IsNullable = true;
             param.SourceColumn = "emission_type";
             this._adapter.UpdateCommand.Parameters.Add(param);
@@ -12619,7 +12643,6 @@ WHERE        (idContract = @Original_idContract)";
             param.ParameterName = "@Client_docs";
             param.DbType = global::System.Data.DbType.String;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
-            param.Size = 45;
             param.IsNullable = true;
             param.SourceColumn = "Client_docs";
             this._adapter.UpdateCommand.Parameters.Add(param);
@@ -12627,15 +12650,12 @@ WHERE        (idContract = @Original_idContract)";
             param.ParameterName = "@Schem_type";
             param.DbType = global::System.Data.DbType.String;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
-            param.Size = 45;
             param.IsNullable = true;
             param.SourceColumn = "Schem_type";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@Add_data";
-            param.DbType = global::System.Data.DbType.String;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Text;
-            param.Size = 2147483647;
             param.IsNullable = true;
             param.SourceColumn = "Add_data";
             this._adapter.UpdateCommand.Parameters.Add(param);
@@ -12669,9 +12689,8 @@ WHERE        (idContract = @Original_idContract)";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@Bid_type";
-            param.DbType = global::System.Data.DbType.Object;
+            param.DbType = global::System.Data.DbType.SByte;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Byte;
-            param.Size = 1024;
             param.IsNullable = true;
             param.SourceColumn = "Bid_type";
             this._adapter.UpdateCommand.Parameters.Add(param);
@@ -12684,9 +12703,8 @@ WHERE        (idContract = @Original_idContract)";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@Cash_income";
-            param.DbType = global::System.Data.DbType.Object;
+            param.DbType = global::System.Data.DbType.SByte;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Byte;
-            param.Size = 1024;
             param.IsNullable = true;
             param.SourceColumn = "Cash_income";
             this._adapter.UpdateCommand.Parameters.Add(param);
@@ -12712,6 +12730,218 @@ WHERE        (idContract = @Original_idContract)";
             param.SourceColumn = "idContract";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@IsNull_idProducts";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "idProducts";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Original_idProducts";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "idProducts";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@IsNull_emission_type";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "emission_type";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Original_emission_type";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "emission_type";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@IsNull_Client_docs";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "Client_docs";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Original_Client_docs";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "Client_docs";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@IsNull_Schem_type";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "Schem_type";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Original_Schem_type";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "Schem_type";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@IsNull_Contract_value_1";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "Contract_value_1";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Original_Contract_value_1";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int24;
+            param.IsNullable = true;
+            param.SourceColumn = "Contract_value_1";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@IsNull_Contract_value_full";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "Contract_value_full";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Original_Contract_value_full";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int24;
+            param.IsNullable = true;
+            param.SourceColumn = "Contract_value_full";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Original_agent_id";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "agent_id";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@IsNull_Contract_number";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "Contract_number";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Original_Contract_number";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "Contract_number";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@IsNull_Bid_type";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "Bid_type";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Original_Bid_type";
+            param.DbType = global::System.Data.DbType.SByte;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Byte;
+            param.IsNullable = true;
+            param.SourceColumn = "Bid_type";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@IsNull_expert_id";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "expert_id";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Original_expert_id";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "expert_id";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@IsNull_Cash_income";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "Cash_income";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Original_Cash_income";
+            param.DbType = global::System.Data.DbType.SByte;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Byte;
+            param.IsNullable = true;
+            param.SourceColumn = "Cash_income";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@IsNull_Contract_status";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "Contract_status";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Original_Contract_status";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "Contract_status";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@IsNull_Contract_type";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "Contract_type";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Original_Contract_type";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "Contract_type";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -12727,13 +12957,14 @@ WHERE        (idContract = @Original_idContract)";
             this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[4];
             this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT        idContract, idProducts, emission_type, Client_docs, Schem_type, Add_data, Contract_value_1, Contract_value_full, agent_id, Contract_number, Bid_type, expert_id, 
-                         Cash_income, Contract_status, Contract_type
-FROM            contracts";
+            this._commandCollection[0].CommandText = "SELECT\r\nidContract,\r\nidProducts,\r\nemission_type,\r\nClient_docs,\r\nSchem_type,\r\nAdd_" +
+                "data,\r\nContract_value_1,\r\nContract_value_full,\r\nagent_id,\r\nContract_number,\r\nBid" +
+                "_type,\r\nexpert_id,\r\nCash_income,\r\nContract_status,\r\nContract_type\r\nFROM\r\nContrac" +
+                "ts";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "UPDATE       contracts\r\nSET                Contract_status = @Contract_status, ex" +
+            this._commandCollection[1].CommandText = "UPDATE       Contracts\r\nSET                Contract_status = @Contract_status, ex" +
                 "pert_id = @expert_id\r\nWHERE        (idContract = @Original_idContract)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
@@ -12760,12 +12991,26 @@ FROM            contracts";
             this._commandCollection[1].Parameters.Add(param);
             this._commandCollection[2] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = @"SELECT        contracts.Add_data, contracts.Client_docs, contracts.Contract_type, contracts.Schem_type, contracts.emission_type, contracts.idContract, contracts.idProducts, contracts.Contract_status,
-                         products.Product_name, contracts.agent_id, agents.Ag_fullname
-FROM            contracts INNER JOIN
-                         products ON contracts.idProducts = products.idProducts INNER JOIN
-                         agents ON contracts.agent_id = agents.idAgents
-WHERE        (contracts.Contract_status = 0)";
+            this._commandCollection[2].CommandText = @"SELECT
+Contracts.Add_data,
+Contracts.Client_docs,
+Contracts.Contract_type,
+Contracts.Schem_type,
+Contracts.emission_type,
+Contracts.idContract,
+Contracts.idProducts,
+Contracts.Contract_status,
+Products.Product_name,
+Contracts.agent_id,
+Agents.Ag_fullname
+FROM
+Contracts
+INNER JOIN
+Products ON Contracts.idProducts = Products.idProducts
+INNER JOIN
+Agents ON Contracts.agent_id = Agents.idAgents
+WHERE
+(Contracts.Contract_status = 0)";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[3] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[3].Connection = this.Connection;
@@ -13089,7 +13334,35 @@ WHERE        (contracts.Contract_status = 0)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(global::System.Nullable<int> idProducts, string emission_type, string Client_docs, string Schem_type, string Add_data, global::System.Nullable<int> Contract_value_1, global::System.Nullable<int> Contract_value_full, int agent_id, global::System.Nullable<int> Contract_number, object Bid_type, global::System.Nullable<int> expert_id, object Cash_income, global::System.Nullable<int> Contract_status, global::System.Nullable<int> Contract_type, int Original_idContract) {
+        public virtual int Update(
+                    global::System.Nullable<int> idProducts, 
+                    string emission_type, 
+                    string Client_docs, 
+                    string Schem_type, 
+                    string Add_data, 
+                    global::System.Nullable<int> Contract_value_1, 
+                    global::System.Nullable<int> Contract_value_full, 
+                    int agent_id, 
+                    global::System.Nullable<int> Contract_number, 
+                    global::System.Nullable<byte> Bid_type, 
+                    global::System.Nullable<int> expert_id, 
+                    global::System.Nullable<byte> Cash_income, 
+                    global::System.Nullable<int> Contract_status, 
+                    global::System.Nullable<int> Contract_type, 
+                    int Original_idContract, 
+                    global::System.Nullable<int> Original_idProducts, 
+                    string Original_emission_type, 
+                    string Original_Client_docs, 
+                    string Original_Schem_type, 
+                    global::System.Nullable<int> Original_Contract_value_1, 
+                    global::System.Nullable<int> Original_Contract_value_full, 
+                    int Original_agent_id, 
+                    global::System.Nullable<int> Original_Contract_number, 
+                    global::System.Nullable<byte> Original_Bid_type, 
+                    global::System.Nullable<int> Original_expert_id, 
+                    global::System.Nullable<byte> Original_Cash_income, 
+                    global::System.Nullable<int> Original_Contract_status, 
+                    global::System.Nullable<int> Original_Contract_type) {
             if ((idProducts.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(idProducts.Value));
             }
@@ -13139,11 +13412,11 @@ WHERE        (contracts.Contract_status = 0)";
             else {
                 this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
-            if ((Bid_type == null)) {
-                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
+            if ((Bid_type.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((byte)(Bid_type.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(Bid_type));
+                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
             }
             if ((expert_id.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(expert_id.Value));
@@ -13151,11 +13424,11 @@ WHERE        (contracts.Contract_status = 0)";
             else {
                 this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
             }
-            if ((Cash_income == null)) {
-                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
+            if ((Cash_income.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((byte)(Cash_income.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(Cash_income));
+                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
             }
             if ((Contract_status.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[12].Value = ((int)(Contract_status.Value));
@@ -13170,6 +13443,103 @@ WHERE        (contracts.Contract_status = 0)";
                 this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
             }
             this.Adapter.UpdateCommand.Parameters[14].Value = ((int)(Original_idContract));
+            if ((Original_idProducts.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((int)(Original_idProducts.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
+            }
+            if ((Original_emission_type == null)) {
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[18].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((string)(Original_emission_type));
+            }
+            if ((Original_Client_docs == null)) {
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[20].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((string)(Original_Client_docs));
+            }
+            if ((Original_Schem_type == null)) {
+                this.Adapter.UpdateCommand.Parameters[21].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[22].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[21].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[22].Value = ((string)(Original_Schem_type));
+            }
+            if ((Original_Contract_value_1.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[23].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[24].Value = ((int)(Original_Contract_value_1.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[23].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[24].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Contract_value_full.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[25].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[26].Value = ((int)(Original_Contract_value_full.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[25].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[26].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[27].Value = ((int)(Original_agent_id));
+            if ((Original_Contract_number.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[28].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[29].Value = ((int)(Original_Contract_number.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[28].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[29].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Bid_type.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[30].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[31].Value = ((byte)(Original_Bid_type.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[30].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[31].Value = global::System.DBNull.Value;
+            }
+            if ((Original_expert_id.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[32].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[33].Value = ((int)(Original_expert_id.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[32].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[33].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Cash_income.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[34].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[35].Value = ((byte)(Original_Cash_income.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[34].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[35].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Contract_status.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[36].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[37].Value = ((int)(Original_Contract_status.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[36].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[37].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Contract_type.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[38].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[39].Value = ((int)(Original_Contract_type.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[38].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[39].Value = global::System.DBNull.Value;
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -17005,8 +17375,8 @@ WHERE        (contracts.Contract_status = 0)";
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM `edocbase`.`contracttypes` WHERE ((`id` = @Original_id) AND ((@IsNull" +
-                "_name = 1 AND `name` IS NULL) OR (`name` = @Original_name)))";
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM `ContractTypes` WHERE ((`id` = @Original_id) AND ((@IsNull_name = 1 A" +
+                "ND `name` IS NULL) OR (`name` = @Original_name)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@Original_id";
@@ -17035,7 +17405,7 @@ WHERE        (contracts.Contract_status = 0)";
             this._adapter.DeleteCommand.Parameters.Add(param);
             this._adapter.InsertCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO `edocbase`.`contracttypes` (`id`, `name`) VALUES (@id, @name)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO `ContractTypes` (`id`, `name`) VALUES (@id, @name)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@id";
@@ -17053,9 +17423,8 @@ WHERE        (contracts.Contract_status = 0)";
             this._adapter.InsertCommand.Parameters.Add(param);
             this._adapter.UpdateCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = "UPDATE `edocbase`.`contracttypes` SET `id` = @id, `name` = @name WHERE ((`id` = @" +
-                "Original_id) AND ((@IsNull_name = 1 AND `name` IS NULL) OR (`name` = @Original_n" +
-                "ame)))";
+            this._adapter.UpdateCommand.CommandText = "UPDATE `ContractTypes` SET `id` = @id, `name` = @name WHERE ((`id` = @Original_id" +
+                ") AND ((@IsNull_name = 1 AND `name` IS NULL) OR (`name` = @Original_name)))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@id";
@@ -17111,7 +17480,7 @@ WHERE        (contracts.Contract_status = 0)";
             this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[1];
             this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT name FROM contracttypes";
+            this._commandCollection[0].CommandText = "SELECT        id, name\r\nFROM            ContractTypes";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -17261,6 +17630,14 @@ WHERE        (contracts.Contract_status = 0)";
                     this.Adapter.UpdateCommand.Connection.Close();
                 }
             }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(string name, int Original_id, string Original_name) {
+            return this.Update(Original_id, name, Original_id, Original_name);
         }
     }
     
@@ -17800,13 +18177,24 @@ WHERE        (contracts.Contract_status = 0)";
             this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[1];
             this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT        contracts.idContract, contracts.agent_id, contracts.idProducts, contracts.expert_id, agents.Ag_fullname, products.Product_name, CONCAT(experts.Expert_Lastname, 
-                         ' ', experts.Expert_Firstname, ' ', experts.Expert_Middlename) AS expert_fullname
-FROM            contracts INNER JOIN
-                         products ON contracts.idProducts = products.idProducts INNER JOIN
-                         agents ON contracts.agent_id = agents.idAgents INNER JOIN
-                         experts ON contracts.agent_id = experts.idExperts
-WHERE        (contracts.Contract_status = 2)";
+            this._commandCollection[0].CommandText = @"SELECT
+Contracts.idContract,
+Contracts.agent_id,
+Contracts.idProducts,
+Contracts.expert_id,
+Agents.Ag_fullname,
+Products.Product_name,
+CONCAT(Experts.Expert_Lastname, ' ', Experts.Expert_Firstname, ' ', Experts.Expert_Middlename) AS expert_fullname
+FROM
+Contracts
+INNER JOIN
+Products ON Contracts.idProducts = Products.idProducts
+INNER JOIN
+Agents ON Contracts.agent_id = Agents.idAgents
+INNER JOIN
+Experts ON Contracts.expert_id = Experts.idExperts
+WHERE
+(Contracts.Contract_status = 2)";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -17979,12 +18367,22 @@ WHERE        (contracts.Contract_status = 2)";
             this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[1];
             this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT        contracts.idContract, contracts.agent_id, contracts.idProducts, contracts.expert_id, agents.Ag_fullname, products.Product_name, CONCAT('(', contracts.idContract, ') ', 
-                         agents.Ag_fullname, '. ', products.Product_name) AS contract_fullname
-FROM            contracts INNER JOIN
-                         products ON contracts.idProducts = products.idProducts INNER JOIN
-                         agents ON contracts.agent_id = agents.idAgents
-WHERE        (contracts.Contract_status = 1)";
+            this._commandCollection[0].CommandText = @"SELECT
+Contracts.idContract,
+Contracts.agent_id,
+Contracts.idProducts,
+Contracts.expert_id,
+Agents.Ag_fullname,
+Products.Product_name,
+CONCAT('(', Contracts.idContract, ') ', Agents.Ag_fullname, '. ', Products.Product_name) AS contract_fullname
+FROM
+Contracts
+INNER JOIN
+Products ON Contracts.idProducts = Products.idProducts
+INNER JOIN
+Agents ON Contracts.agent_id = Agents.idAgents
+WHERE
+(Contracts.Contract_status = 1)";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -19263,8 +19661,8 @@ WHERE        (contracts.Contract_status = 1)";
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM `edocbase`.`contractstatus` WHERE (((@IsNull_name = 1 AND `name` IS N" +
-                "ULL) OR (`name` = @Original_name)) AND (`id` = @Original_id))";
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM `ContractStatus` WHERE (((@IsNull_name = 1 AND `name` IS NULL) OR (`n" +
+                "ame` = @Original_name)) AND (`id` = @Original_id))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@IsNull_name";
@@ -19293,7 +19691,7 @@ WHERE        (contracts.Contract_status = 1)";
             this._adapter.DeleteCommand.Parameters.Add(param);
             this._adapter.InsertCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO `edocbase`.`contractstatus` (`name`, `id`) VALUES (@name, @id)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO `ContractStatus` (`name`, `id`) VALUES (@name, @id)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@name";
@@ -19311,9 +19709,8 @@ WHERE        (contracts.Contract_status = 1)";
             this._adapter.InsertCommand.Parameters.Add(param);
             this._adapter.UpdateCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = "UPDATE `edocbase`.`contractstatus` SET `name` = @name, `id` = @id WHERE (((@IsNul" +
-                "l_name = 1 AND `name` IS NULL) OR (`name` = @Original_name)) AND (`id` = @Origin" +
-                "al_id))";
+            this._adapter.UpdateCommand.CommandText = "UPDATE `ContractStatus` SET `name` = @name, `id` = @id WHERE (((@IsNull_name = 1 " +
+                "AND `name` IS NULL) OR (`name` = @Original_name)) AND (`id` = @Original_id))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@name";
@@ -19369,7 +19766,7 @@ WHERE        (contracts.Contract_status = 1)";
             this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[1];
             this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT        name, id\r\nFROM            contractstatus";
+            this._commandCollection[0].CommandText = "SELECT        name, id\r\nFROM            ContractStatus";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         

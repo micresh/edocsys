@@ -241,5 +241,8 @@
     <Setting Name="DocTemplateOperationsText" Type="System.String" Scope="User">
       <Value Profile="(Default)">Шаблон не выбран</Value>
     </Setting>
+    <Setting Name="ContractsFormTitle" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Договора</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
