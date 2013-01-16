@@ -31,28 +31,17 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ContractsForm));
             this.edocbaseDataSet = new Edocsys.EdocbaseDataSet();
-            this.contractsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.contractsTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.ContractsTableAdapter();
             this.tableAdapterManager = new Edocsys.EdocbaseDataSetTableAdapters.TableAdapterManager();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.contractsDataGridView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabControl = new System.Windows.Forms.TabControl();
+            this.tabPageExpertAssigned = new System.Windows.Forms.TabPage();
+            this.contractsToStartDataTableDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn27 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.contractsBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
+            this.ProcessTaskColumn = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.contractsToStartDataTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.contractsToStartBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
@@ -65,30 +54,63 @@
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.contractsBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.bindingNavigator1 = new System.Windows.Forms.BindingNavigator(this.components);
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
-            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton6 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripButton7 = new System.Windows.Forms.ToolStripButton();
+            this.tabPageTaskProcessed = new System.Windows.Forms.TabPage();
+            this.taskProcessedDataTableDataGridView = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TaskReadyColumn = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.taskProcessedDataTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tabPageTaskReady = new System.Windows.Forms.TabPage();
+            this.taskReadyDataTableDataGridView = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ConfirmTaskFinishedColumn = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.taskReadyDataTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tabPageTaskFinished = new System.Windows.Forms.TabPage();
+            this.taskFinishedDataTableDataGridView = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.taskFinishedDataTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tabPageBadJob = new System.Windows.Forms.TabPage();
+            this.contractsToStartDataTableTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.ContractsToStartDataTableTableAdapter();
+            this.contractsTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.ContractsTableAdapter();
+            this.exec_contractsTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.Exec_contractsTableAdapter();
+            this.taskProcessedDataTableTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.TaskProcessedDataTableTableAdapter();
+            this.taskReadyDataTableTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.TaskReadyDataTableTableAdapter();
+            this.taskFinishedDataTableTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.TaskFinishedDataTableTableAdapter();
+            this.badJobsDataTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.badJobsDataTableTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.BadJobsDataTableTableAdapter();
+            this.badJobsDataTableDataGridView = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn23 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn24 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn25 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.edocbaseDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.contractsBindingSource)).BeginInit();
-            this.tabControl1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.contractsDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.contractsBindingNavigator)).BeginInit();
-            this.contractsBindingNavigator.SuspendLayout();
-            this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
-            this.bindingNavigator1.SuspendLayout();
+            this.tabControl.SuspendLayout();
+            this.tabPageExpertAssigned.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.contractsToStartDataTableDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.contractsToStartDataTableBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.contractsToStartBindingNavigator)).BeginInit();
+            this.contractsToStartBindingNavigator.SuspendLayout();
+            this.tabPageTaskProcessed.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.taskProcessedDataTableDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.taskProcessedDataTableBindingSource)).BeginInit();
+            this.tabPageTaskReady.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.taskReadyDataTableDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.taskReadyDataTableBindingSource)).BeginInit();
+            this.tabPageTaskFinished.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.taskFinishedDataTableDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.taskFinishedDataTableBindingSource)).BeginInit();
+            this.tabPageBadJob.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.badJobsDataTableBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.badJobsDataTableDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // edocbaseDataSet
@@ -96,22 +118,14 @@
             this.edocbaseDataSet.DataSetName = "EdocbaseDataSet";
             this.edocbaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // contractsBindingSource
-            // 
-            this.contractsBindingSource.DataMember = "Contracts";
-            this.contractsBindingSource.DataSource = this.edocbaseDataSet;
-            // 
-            // contractsTableAdapter
-            // 
-            this.contractsTableAdapter.ClearBeforeFill = true;
-            // 
             // tableAdapterManager
             // 
             this.tableAdapterManager.Agents_contactsTableAdapter = null;
             this.tableAdapterManager.Agents_typesTableAdapter = null;
             this.tableAdapterManager.AgentsTableAdapter = null;
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.ContractsTableAdapter = this.contractsTableAdapter;
+            this.tableAdapterManager.Connection = null;
+            this.tableAdapterManager.ContractsTableAdapter = null;
             this.tableAdapterManager.ContractStatusTableAdapter = null;
             this.tableAdapterManager.ContractTypesTableAdapter = null;
             this.tableAdapterManager.DocTemplatesTableAdapter = null;
@@ -125,155 +139,99 @@
             this.tableAdapterManager.UpdateOrder = Edocsys.EdocbaseDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             this.tableAdapterManager.usersTableAdapter = null;
             // 
-            // tabControl1
+            // tabControl
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Location = new System.Drawing.Point(0, 0);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(883, 418);
-            this.tabControl1.TabIndex = 2;
-            this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
+            this.tabControl.Controls.Add(this.tabPageExpertAssigned);
+            this.tabControl.Controls.Add(this.tabPageTaskProcessed);
+            this.tabControl.Controls.Add(this.tabPageTaskReady);
+            this.tabControl.Controls.Add(this.tabPageTaskFinished);
+            this.tabControl.Controls.Add(this.tabPageBadJob);
+            this.tabControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl.Location = new System.Drawing.Point(0, 0);
+            this.tabControl.Name = "tabControl";
+            this.tabControl.SelectedIndex = 0;
+            this.tabControl.Size = new System.Drawing.Size(931, 418);
+            this.tabControl.TabIndex = 2;
             // 
-            // tabPage1
+            // tabPageExpertAssigned
             // 
-            this.tabPage1.AutoScroll = true;
-            this.tabPage1.Controls.Add(this.contractsDataGridView);
-            this.tabPage1.Controls.Add(this.contractsBindingNavigator);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(875, 392);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "tabPage1";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
+            this.tabPageExpertAssigned.AutoScroll = true;
+            this.tabPageExpertAssigned.Controls.Add(this.contractsToStartDataTableDataGridView);
+            this.tabPageExpertAssigned.Controls.Add(this.contractsToStartBindingNavigator);
+            this.tabPageExpertAssigned.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Edocsys.Properties.Settings.Default, "TabExpertAssigned", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.tabPageExpertAssigned.Location = new System.Drawing.Point(4, 22);
+            this.tabPageExpertAssigned.Name = "tabPageExpertAssigned";
+            this.tabPageExpertAssigned.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageExpertAssigned.Size = new System.Drawing.Size(923, 392);
+            this.tabPageExpertAssigned.TabIndex = 0;
+            this.tabPageExpertAssigned.Text = global::Edocsys.Properties.Settings.Default.TabExpertAssigned;
+            this.tabPageExpertAssigned.UseVisualStyleBackColor = true;
             // 
-            // contractsDataGridView
+            // contractsToStartDataTableDataGridView
             // 
-            this.contractsDataGridView.AutoGenerateColumns = false;
-            this.contractsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.contractsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
+            this.contractsToStartDataTableDataGridView.AutoGenerateColumns = false;
+            this.contractsToStartDataTableDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.contractsToStartDataTableDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn5,
             this.dataGridViewTextBoxColumn6,
             this.dataGridViewTextBoxColumn7,
             this.dataGridViewTextBoxColumn8,
-            this.dataGridViewTextBoxColumn9,
-            this.dataGridViewTextBoxColumn10,
-            this.dataGridViewTextBoxColumn11,
-            this.dataGridViewTextBoxColumn12,
-            this.dataGridViewCheckBoxColumn1,
-            this.dataGridViewTextBoxColumn13,
-            this.dataGridViewTextBoxColumn27});
-            this.contractsDataGridView.DataSource = this.contractsBindingSource;
-            this.contractsDataGridView.Location = new System.Drawing.Point(22, 46);
-            this.contractsDataGridView.Name = "contractsDataGridView";
-            this.contractsDataGridView.Size = new System.Drawing.Size(645, 274);
-            this.contractsDataGridView.TabIndex = 3;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "idContract";
-            this.dataGridViewTextBoxColumn1.HeaderText = "idContract";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.ProcessTaskColumn});
+            this.contractsToStartDataTableDataGridView.DataSource = this.contractsToStartDataTableBindingSource;
+            this.contractsToStartDataTableDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.contractsToStartDataTableDataGridView.Location = new System.Drawing.Point(3, 28);
+            this.contractsToStartDataTableDataGridView.Name = "contractsToStartDataTableDataGridView";
+            this.contractsToStartDataTableDataGridView.Size = new System.Drawing.Size(917, 361);
+            this.contractsToStartDataTableDataGridView.TabIndex = 3;
+            this.contractsToStartDataTableDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.contractsToStartDataTableDataGridView_CellClick);
             // 
             // dataGridViewTextBoxColumn2
             // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "idProducts";
-            this.dataGridViewTextBoxColumn2.HeaderText = "idProducts";
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "Contract_number";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Номер договора";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "emission_type";
-            this.dataGridViewTextBoxColumn3.HeaderText = "emission_type";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "Client_docs";
-            this.dataGridViewTextBoxColumn4.HeaderText = "Client_docs";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "Schem_type";
-            this.dataGridViewTextBoxColumn5.HeaderText = "Schem_type";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn2.ToolTipText = "Номер договора";
             // 
             // dataGridViewTextBoxColumn6
             // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "Add_data";
-            this.dataGridViewTextBoxColumn6.HeaderText = "Add_data";
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "Ag_fullname";
+            this.dataGridViewTextBoxColumn6.HeaderText = "Контрагнет";
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ToolTipText = "Контрагент";
+            this.dataGridViewTextBoxColumn6.Width = 200;
             // 
             // dataGridViewTextBoxColumn7
             // 
-            this.dataGridViewTextBoxColumn7.DataPropertyName = "Contract_value_1";
-            this.dataGridViewTextBoxColumn7.HeaderText = "Contract_value_1";
+            this.dataGridViewTextBoxColumn7.DataPropertyName = "Product_name";
+            this.dataGridViewTextBoxColumn7.HeaderText = "Продукция";
             this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.ToolTipText = "Продукция";
+            this.dataGridViewTextBoxColumn7.Width = 250;
             // 
             // dataGridViewTextBoxColumn8
             // 
-            this.dataGridViewTextBoxColumn8.DataPropertyName = "Contract_value_full";
-            this.dataGridViewTextBoxColumn8.HeaderText = "Contract_value_full";
+            this.dataGridViewTextBoxColumn8.DataPropertyName = "expert_fullname";
+            this.dataGridViewTextBoxColumn8.HeaderText = "Эксперт";
             this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            this.dataGridViewTextBoxColumn8.ToolTipText = "Эксперт";
+            this.dataGridViewTextBoxColumn8.Width = 200;
             // 
-            // dataGridViewTextBoxColumn9
+            // ProcessTaskColumn
             // 
-            this.dataGridViewTextBoxColumn9.DataPropertyName = "agent_id";
-            this.dataGridViewTextBoxColumn9.HeaderText = "agent_id";
-            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            this.ProcessTaskColumn.HeaderText = "Начать работы";
+            this.ProcessTaskColumn.Name = "ProcessTaskColumn";
             // 
-            // dataGridViewTextBoxColumn10
+            // contractsToStartDataTableBindingSource
             // 
-            this.dataGridViewTextBoxColumn10.DataPropertyName = "Contract_number";
-            this.dataGridViewTextBoxColumn10.HeaderText = "Contract_number";
-            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            this.contractsToStartDataTableBindingSource.DataMember = "ContractsToStartDataTable";
+            this.contractsToStartDataTableBindingSource.DataSource = this.edocbaseDataSet;
             // 
-            // dataGridViewTextBoxColumn11
+            // contractsToStartBindingNavigator
             // 
-            this.dataGridViewTextBoxColumn11.DataPropertyName = "Bid_type";
-            this.dataGridViewTextBoxColumn11.HeaderText = "Bid_type";
-            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
-            // 
-            // dataGridViewTextBoxColumn12
-            // 
-            this.dataGridViewTextBoxColumn12.DataPropertyName = "expert_id";
-            this.dataGridViewTextBoxColumn12.HeaderText = "expert_id";
-            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
-            // 
-            // dataGridViewCheckBoxColumn1
-            // 
-            this.dataGridViewCheckBoxColumn1.DataPropertyName = "Cash_income";
-            this.dataGridViewCheckBoxColumn1.HeaderText = "Cash_income";
-            this.dataGridViewCheckBoxColumn1.Name = "dataGridViewCheckBoxColumn1";
-            // 
-            // dataGridViewTextBoxColumn13
-            // 
-            this.dataGridViewTextBoxColumn13.DataPropertyName = "Contract_type";
-            this.dataGridViewTextBoxColumn13.HeaderText = "Contract_type";
-            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
-            // 
-            // dataGridViewTextBoxColumn27
-            // 
-            this.dataGridViewTextBoxColumn27.DataPropertyName = "Contract_status";
-            this.dataGridViewTextBoxColumn27.HeaderText = "Contract_status";
-            this.dataGridViewTextBoxColumn27.Name = "dataGridViewTextBoxColumn27";
-            // 
-            // contractsBindingNavigator
-            // 
-            this.contractsBindingNavigator.AddNewItem = this.bindingNavigatorAddNewItem;
-            this.contractsBindingNavigator.BindingSource = this.contractsBindingSource;
-            this.contractsBindingNavigator.CountItem = this.bindingNavigatorCountItem;
-            this.contractsBindingNavigator.DeleteItem = this.bindingNavigatorDeleteItem;
-            this.contractsBindingNavigator.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.contractsToStartBindingNavigator.AddNewItem = this.bindingNavigatorAddNewItem;
+            this.contractsToStartBindingNavigator.CountItem = this.bindingNavigatorCountItem;
+            this.contractsToStartBindingNavigator.DeleteItem = this.bindingNavigatorDeleteItem;
+            this.contractsToStartBindingNavigator.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.bindingNavigatorMoveFirstItem,
             this.bindingNavigatorMovePreviousItem,
             this.bindingNavigatorSeparator,
@@ -286,17 +244,16 @@
             this.bindingNavigatorAddNewItem,
             this.bindingNavigatorDeleteItem,
             this.contractsBindingNavigatorSaveItem});
-            this.contractsBindingNavigator.Location = new System.Drawing.Point(3, 3);
-            this.contractsBindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
-            this.contractsBindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastItem;
-            this.contractsBindingNavigator.MoveNextItem = this.bindingNavigatorMoveNextItem;
-            this.contractsBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
-            this.contractsBindingNavigator.Name = "contractsBindingNavigator";
-            this.contractsBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.contractsBindingNavigator.Size = new System.Drawing.Size(869, 25);
-            this.contractsBindingNavigator.TabIndex = 3;
-            this.contractsBindingNavigator.Text = "bindingNavigator1";
-            this.contractsBindingNavigator.RefreshItems += new System.EventHandler(this.contractsBindingNavigator_RefreshItems);
+            this.contractsToStartBindingNavigator.Location = new System.Drawing.Point(3, 3);
+            this.contractsToStartBindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
+            this.contractsToStartBindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastItem;
+            this.contractsToStartBindingNavigator.MoveNextItem = this.bindingNavigatorMoveNextItem;
+            this.contractsToStartBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
+            this.contractsToStartBindingNavigator.Name = "contractsToStartBindingNavigator";
+            this.contractsToStartBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
+            this.contractsToStartBindingNavigator.Size = new System.Drawing.Size(917, 25);
+            this.contractsToStartBindingNavigator.TabIndex = 3;
+            this.contractsToStartBindingNavigator.Text = "bindingNavigator1";
             // 
             // bindingNavigatorAddNewItem
             // 
@@ -391,164 +348,345 @@
             this.contractsBindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 22);
             this.contractsBindingNavigatorSaveItem.Text = "Save Data";
             // 
-            // tabPage2
+            // tabPageTaskProcessed
             // 
-            this.tabPage2.Controls.Add(this.bindingNavigator1);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(851, 354);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.tabPageTaskProcessed.AutoScroll = true;
+            this.tabPageTaskProcessed.Controls.Add(this.taskProcessedDataTableDataGridView);
+            this.tabPageTaskProcessed.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Edocsys.Properties.Settings.Default, "TabTaskProcessed", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.tabPageTaskProcessed.Location = new System.Drawing.Point(4, 22);
+            this.tabPageTaskProcessed.Name = "tabPageTaskProcessed";
+            this.tabPageTaskProcessed.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageTaskProcessed.Size = new System.Drawing.Size(923, 392);
+            this.tabPageTaskProcessed.TabIndex = 1;
+            this.tabPageTaskProcessed.Text = global::Edocsys.Properties.Settings.Default.TabTaskProcessed;
+            this.tabPageTaskProcessed.UseVisualStyleBackColor = true;
             // 
-            // bindingNavigator1
+            // taskProcessedDataTableDataGridView
             // 
-            this.bindingNavigator1.AddNewItem = this.toolStripButton1;
-            this.bindingNavigator1.BindingSource = this.contractsBindingSource;
-            this.bindingNavigator1.CountItem = this.toolStripLabel1;
-            this.bindingNavigator1.DeleteItem = this.toolStripButton2;
-            this.bindingNavigator1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton3,
-            this.toolStripButton4,
-            this.toolStripSeparator1,
-            this.toolStripTextBox1,
-            this.toolStripLabel1,
-            this.toolStripSeparator2,
-            this.toolStripButton5,
-            this.toolStripButton6,
-            this.toolStripSeparator3,
-            this.toolStripButton1,
-            this.toolStripButton2,
-            this.toolStripButton7});
-            this.bindingNavigator1.Location = new System.Drawing.Point(3, 3);
-            this.bindingNavigator1.MoveFirstItem = this.toolStripButton3;
-            this.bindingNavigator1.MoveLastItem = this.toolStripButton6;
-            this.bindingNavigator1.MoveNextItem = this.toolStripButton5;
-            this.bindingNavigator1.MovePreviousItem = this.toolStripButton4;
-            this.bindingNavigator1.Name = "bindingNavigator1";
-            this.bindingNavigator1.PositionItem = this.toolStripTextBox1;
-            this.bindingNavigator1.Size = new System.Drawing.Size(845, 25);
-            this.bindingNavigator1.TabIndex = 5;
-            this.bindingNavigator1.Text = "bindingNavigator1";
+            this.taskProcessedDataTableDataGridView.AutoGenerateColumns = false;
+            this.taskProcessedDataTableDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.taskProcessedDataTableDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn10,
+            this.dataGridViewTextBoxColumn11,
+            this.dataGridViewTextBoxColumn12,
+            this.dataGridViewTextBoxColumn13,
+            this.TaskReadyColumn});
+            this.taskProcessedDataTableDataGridView.DataSource = this.taskProcessedDataTableBindingSource;
+            this.taskProcessedDataTableDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.taskProcessedDataTableDataGridView.Location = new System.Drawing.Point(3, 3);
+            this.taskProcessedDataTableDataGridView.Name = "taskProcessedDataTableDataGridView";
+            this.taskProcessedDataTableDataGridView.Size = new System.Drawing.Size(917, 386);
+            this.taskProcessedDataTableDataGridView.TabIndex = 0;
+            this.taskProcessedDataTableDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.taskProcessedDataTableDataGridView_CellClick);
             // 
-            // toolStripButton1
+            // dataGridViewTextBoxColumn3
             // 
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.RightToLeftAutoMirrorImage = true;
-            this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton1.Text = "Add new";
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "Contract_number";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Номер договора";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ToolTipText = "Номер договора";
             // 
-            // toolStripLabel1
+            // dataGridViewTextBoxColumn10
             // 
-            this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(35, 22);
-            this.toolStripLabel1.Text = "of {0}";
-            this.toolStripLabel1.ToolTipText = "Total number of items";
+            this.dataGridViewTextBoxColumn10.DataPropertyName = "Ag_fullname";
+            this.dataGridViewTextBoxColumn10.HeaderText = "Контрагент";
+            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            this.dataGridViewTextBoxColumn10.ToolTipText = "Контрагент";
+            this.dataGridViewTextBoxColumn10.Width = 200;
             // 
-            // toolStripButton2
+            // dataGridViewTextBoxColumn11
             // 
-            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
-            this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.RightToLeftAutoMirrorImage = true;
-            this.toolStripButton2.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton2.Text = "Delete";
+            this.dataGridViewTextBoxColumn11.DataPropertyName = "Product_name";
+            this.dataGridViewTextBoxColumn11.HeaderText = "Продукция";
+            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
+            this.dataGridViewTextBoxColumn11.ToolTipText = "Продукция";
+            this.dataGridViewTextBoxColumn11.Width = 250;
             // 
-            // toolStripButton3
+            // dataGridViewTextBoxColumn12
             // 
-            this.toolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton3.Image")));
-            this.toolStripButton3.Name = "toolStripButton3";
-            this.toolStripButton3.RightToLeftAutoMirrorImage = true;
-            this.toolStripButton3.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton3.Text = "Move first";
+            this.dataGridViewTextBoxColumn12.DataPropertyName = "expert_fullname";
+            this.dataGridViewTextBoxColumn12.HeaderText = "Эксперт";
+            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
+            this.dataGridViewTextBoxColumn12.ToolTipText = "Эксперт";
+            this.dataGridViewTextBoxColumn12.Width = 200;
             // 
-            // toolStripButton4
+            // dataGridViewTextBoxColumn13
             // 
-            this.toolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton4.Image")));
-            this.toolStripButton4.Name = "toolStripButton4";
-            this.toolStripButton4.RightToLeftAutoMirrorImage = true;
-            this.toolStripButton4.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton4.Text = "Move previous";
+            this.dataGridViewTextBoxColumn13.DataPropertyName = "Contract_start";
+            this.dataGridViewTextBoxColumn13.HeaderText = "Начало работ";
+            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
+            this.dataGridViewTextBoxColumn13.ToolTipText = "Начало работ";
             // 
-            // toolStripSeparator1
+            // TaskReadyColumn
             // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            this.TaskReadyColumn.HeaderText = "Оформить акт";
+            this.TaskReadyColumn.Name = "TaskReadyColumn";
             // 
-            // toolStripTextBox1
+            // taskProcessedDataTableBindingSource
             // 
-            this.toolStripTextBox1.AccessibleName = "Position";
-            this.toolStripTextBox1.AutoSize = false;
-            this.toolStripTextBox1.Name = "toolStripTextBox1";
-            this.toolStripTextBox1.Size = new System.Drawing.Size(50, 21);
-            this.toolStripTextBox1.Text = "0";
-            this.toolStripTextBox1.ToolTipText = "Current position";
+            this.taskProcessedDataTableBindingSource.DataMember = "TaskProcessedDataTable";
+            this.taskProcessedDataTableBindingSource.DataSource = this.edocbaseDataSet;
             // 
-            // toolStripSeparator2
+            // tabPageTaskReady
             // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
+            this.tabPageTaskReady.AutoScroll = true;
+            this.tabPageTaskReady.Controls.Add(this.taskReadyDataTableDataGridView);
+            this.tabPageTaskReady.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Edocsys.Properties.Settings.Default, "TabTaskReady", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.tabPageTaskReady.Location = new System.Drawing.Point(4, 22);
+            this.tabPageTaskReady.Name = "tabPageTaskReady";
+            this.tabPageTaskReady.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageTaskReady.Size = new System.Drawing.Size(923, 392);
+            this.tabPageTaskReady.TabIndex = 2;
+            this.tabPageTaskReady.Text = global::Edocsys.Properties.Settings.Default.TabTaskReady;
+            this.tabPageTaskReady.UseVisualStyleBackColor = true;
             // 
-            // toolStripButton5
+            // taskReadyDataTableDataGridView
             // 
-            this.toolStripButton5.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton5.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton5.Image")));
-            this.toolStripButton5.Name = "toolStripButton5";
-            this.toolStripButton5.RightToLeftAutoMirrorImage = true;
-            this.toolStripButton5.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton5.Text = "Move next";
+            this.taskReadyDataTableDataGridView.AutoGenerateColumns = false;
+            this.taskReadyDataTableDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.taskReadyDataTableDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn4,
+            this.dataGridViewTextBoxColumn15,
+            this.dataGridViewTextBoxColumn16,
+            this.dataGridViewTextBoxColumn17,
+            this.ConfirmTaskFinishedColumn});
+            this.taskReadyDataTableDataGridView.DataSource = this.taskReadyDataTableBindingSource;
+            this.taskReadyDataTableDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.taskReadyDataTableDataGridView.Location = new System.Drawing.Point(3, 3);
+            this.taskReadyDataTableDataGridView.Name = "taskReadyDataTableDataGridView";
+            this.taskReadyDataTableDataGridView.Size = new System.Drawing.Size(917, 386);
+            this.taskReadyDataTableDataGridView.TabIndex = 0;
+            this.taskReadyDataTableDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.taskReadyDataTableDataGridView_CellClick);
             // 
-            // toolStripButton6
+            // dataGridViewTextBoxColumn4
             // 
-            this.toolStripButton6.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton6.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton6.Image")));
-            this.toolStripButton6.Name = "toolStripButton6";
-            this.toolStripButton6.RightToLeftAutoMirrorImage = true;
-            this.toolStripButton6.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton6.Text = "Move last";
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "Contract_number";
+            this.dataGridViewTextBoxColumn4.HeaderText = "Номер договара";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ToolTipText = "Номер договара";
             // 
-            // toolStripSeparator3
+            // dataGridViewTextBoxColumn15
             // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
+            this.dataGridViewTextBoxColumn15.DataPropertyName = "Ag_fullname";
+            this.dataGridViewTextBoxColumn15.HeaderText = "Контаргент";
+            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
+            this.dataGridViewTextBoxColumn15.ToolTipText = "Контрагент";
+            this.dataGridViewTextBoxColumn15.Width = 200;
             // 
-            // toolStripButton7
+            // dataGridViewTextBoxColumn16
             // 
-            this.toolStripButton7.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton7.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton7.Image")));
-            this.toolStripButton7.Name = "toolStripButton7";
-            this.toolStripButton7.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton7.Text = "Save Data";
+            this.dataGridViewTextBoxColumn16.DataPropertyName = "Product_name";
+            this.dataGridViewTextBoxColumn16.HeaderText = "Продукция";
+            this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
+            this.dataGridViewTextBoxColumn16.ToolTipText = "Продукция";
+            this.dataGridViewTextBoxColumn16.Width = 250;
+            // 
+            // dataGridViewTextBoxColumn17
+            // 
+            this.dataGridViewTextBoxColumn17.DataPropertyName = "expert_fullname";
+            this.dataGridViewTextBoxColumn17.HeaderText = "Эксперт";
+            this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
+            this.dataGridViewTextBoxColumn17.ToolTipText = "Эксперт";
+            this.dataGridViewTextBoxColumn17.Width = 200;
+            // 
+            // ConfirmTaskFinishedColumn
+            // 
+            this.ConfirmTaskFinishedColumn.HeaderText = "Подтвердить выполнение";
+            this.ConfirmTaskFinishedColumn.Name = "ConfirmTaskFinishedColumn";
+            this.ConfirmTaskFinishedColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.ConfirmTaskFinishedColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // taskReadyDataTableBindingSource
+            // 
+            this.taskReadyDataTableBindingSource.DataMember = "TaskReadyDataTable";
+            this.taskReadyDataTableBindingSource.DataSource = this.edocbaseDataSet;
+            // 
+            // tabPageTaskFinished
+            // 
+            this.tabPageTaskFinished.AutoScroll = true;
+            this.tabPageTaskFinished.Controls.Add(this.taskFinishedDataTableDataGridView);
+            this.tabPageTaskFinished.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Edocsys.Properties.Settings.Default, "TabTaskFinished", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.tabPageTaskFinished.Location = new System.Drawing.Point(4, 22);
+            this.tabPageTaskFinished.Name = "tabPageTaskFinished";
+            this.tabPageTaskFinished.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageTaskFinished.Size = new System.Drawing.Size(923, 392);
+            this.tabPageTaskFinished.TabIndex = 3;
+            this.tabPageTaskFinished.Text = global::Edocsys.Properties.Settings.Default.TabTaskFinished;
+            this.tabPageTaskFinished.UseVisualStyleBackColor = true;
+            // 
+            // taskFinishedDataTableDataGridView
+            // 
+            this.taskFinishedDataTableDataGridView.AutoGenerateColumns = false;
+            this.taskFinishedDataTableDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.taskFinishedDataTableDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn5,
+            this.dataGridViewTextBoxColumn19,
+            this.dataGridViewTextBoxColumn20,
+            this.dataGridViewTextBoxColumn21});
+            this.taskFinishedDataTableDataGridView.DataSource = this.taskFinishedDataTableBindingSource;
+            this.taskFinishedDataTableDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.taskFinishedDataTableDataGridView.Location = new System.Drawing.Point(3, 3);
+            this.taskFinishedDataTableDataGridView.Name = "taskFinishedDataTableDataGridView";
+            this.taskFinishedDataTableDataGridView.Size = new System.Drawing.Size(917, 386);
+            this.taskFinishedDataTableDataGridView.TabIndex = 0;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "Contract_number";
+            this.dataGridViewTextBoxColumn5.HeaderText = "Номер договара";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ToolTipText = "Номер договора";
+            // 
+            // dataGridViewTextBoxColumn19
+            // 
+            this.dataGridViewTextBoxColumn19.DataPropertyName = "Ag_fullname";
+            this.dataGridViewTextBoxColumn19.HeaderText = "Контрагент";
+            this.dataGridViewTextBoxColumn19.Name = "dataGridViewTextBoxColumn19";
+            this.dataGridViewTextBoxColumn19.ToolTipText = "Контрагент";
+            this.dataGridViewTextBoxColumn19.Width = 200;
+            // 
+            // dataGridViewTextBoxColumn20
+            // 
+            this.dataGridViewTextBoxColumn20.DataPropertyName = "Product_name";
+            this.dataGridViewTextBoxColumn20.HeaderText = "Продукция";
+            this.dataGridViewTextBoxColumn20.Name = "dataGridViewTextBoxColumn20";
+            this.dataGridViewTextBoxColumn20.ToolTipText = "Продукция";
+            this.dataGridViewTextBoxColumn20.Width = 250;
+            // 
+            // dataGridViewTextBoxColumn21
+            // 
+            this.dataGridViewTextBoxColumn21.DataPropertyName = "expert_fullname";
+            this.dataGridViewTextBoxColumn21.HeaderText = "Эксперт";
+            this.dataGridViewTextBoxColumn21.Name = "dataGridViewTextBoxColumn21";
+            this.dataGridViewTextBoxColumn21.ToolTipText = "Эксперт";
+            this.dataGridViewTextBoxColumn21.Width = 200;
+            // 
+            // taskFinishedDataTableBindingSource
+            // 
+            this.taskFinishedDataTableBindingSource.DataMember = "TaskFinishedDataTable";
+            this.taskFinishedDataTableBindingSource.DataSource = this.edocbaseDataSet;
+            // 
+            // tabPageBadJob
+            // 
+            this.tabPageBadJob.Controls.Add(this.badJobsDataTableDataGridView);
+            this.tabPageBadJob.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Edocsys.Properties.Settings.Default, "TabBadJob", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.tabPageBadJob.Location = new System.Drawing.Point(4, 22);
+            this.tabPageBadJob.Name = "tabPageBadJob";
+            this.tabPageBadJob.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageBadJob.Size = new System.Drawing.Size(923, 392);
+            this.tabPageBadJob.TabIndex = 4;
+            this.tabPageBadJob.Text = global::Edocsys.Properties.Settings.Default.TabBadJob;
+            this.tabPageBadJob.UseVisualStyleBackColor = true;
+            // 
+            // contractsToStartDataTableTableAdapter
+            // 
+            this.contractsToStartDataTableTableAdapter.ClearBeforeFill = true;
+            // 
+            // contractsTableAdapter
+            // 
+            this.contractsTableAdapter.ClearBeforeFill = true;
+            // 
+            // exec_contractsTableAdapter
+            // 
+            this.exec_contractsTableAdapter.ClearBeforeFill = true;
+            // 
+            // taskProcessedDataTableTableAdapter
+            // 
+            this.taskProcessedDataTableTableAdapter.ClearBeforeFill = true;
+            // 
+            // taskReadyDataTableTableAdapter
+            // 
+            this.taskReadyDataTableTableAdapter.ClearBeforeFill = true;
+            // 
+            // taskFinishedDataTableTableAdapter
+            // 
+            this.taskFinishedDataTableTableAdapter.ClearBeforeFill = true;
+            // 
+            // badJobsDataTableBindingSource
+            // 
+            this.badJobsDataTableBindingSource.DataMember = "BadJobsDataTable";
+            this.badJobsDataTableBindingSource.DataSource = this.edocbaseDataSet;
+            // 
+            // badJobsDataTableTableAdapter
+            // 
+            this.badJobsDataTableTableAdapter.ClearBeforeFill = true;
+            // 
+            // badJobsDataTableDataGridView
+            // 
+            this.badJobsDataTableDataGridView.AutoGenerateColumns = false;
+            this.badJobsDataTableDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.badJobsDataTableDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn9,
+            this.dataGridViewTextBoxColumn23,
+            this.dataGridViewTextBoxColumn24,
+            this.dataGridViewTextBoxColumn25});
+            this.badJobsDataTableDataGridView.DataSource = this.badJobsDataTableBindingSource;
+            this.badJobsDataTableDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.badJobsDataTableDataGridView.Location = new System.Drawing.Point(3, 3);
+            this.badJobsDataTableDataGridView.Name = "badJobsDataTableDataGridView";
+            this.badJobsDataTableDataGridView.Size = new System.Drawing.Size(917, 386);
+            this.badJobsDataTableDataGridView.TabIndex = 0;
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            this.dataGridViewTextBoxColumn9.DataPropertyName = "Contract_number";
+            this.dataGridViewTextBoxColumn9.HeaderText = "Номер договора";
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            this.dataGridViewTextBoxColumn9.ToolTipText = "Номер договора";
+            // 
+            // dataGridViewTextBoxColumn23
+            // 
+            this.dataGridViewTextBoxColumn23.DataPropertyName = "Ag_fullname";
+            this.dataGridViewTextBoxColumn23.HeaderText = "Контрагент";
+            this.dataGridViewTextBoxColumn23.Name = "dataGridViewTextBoxColumn23";
+            this.dataGridViewTextBoxColumn23.ToolTipText = "Контрагент";
+            // 
+            // dataGridViewTextBoxColumn24
+            // 
+            this.dataGridViewTextBoxColumn24.DataPropertyName = "Product_name";
+            this.dataGridViewTextBoxColumn24.HeaderText = "Продукция";
+            this.dataGridViewTextBoxColumn24.Name = "dataGridViewTextBoxColumn24";
+            this.dataGridViewTextBoxColumn24.ToolTipText = "Продукция";
+            // 
+            // dataGridViewTextBoxColumn25
+            // 
+            this.dataGridViewTextBoxColumn25.DataPropertyName = "expert_fullname";
+            this.dataGridViewTextBoxColumn25.HeaderText = "Эксперт";
+            this.dataGridViewTextBoxColumn25.Name = "dataGridViewTextBoxColumn25";
+            this.dataGridViewTextBoxColumn25.ToolTipText = "Эксперт";
             // 
             // ContractsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(883, 418);
-            this.Controls.Add(this.tabControl1);
+            this.ClientSize = new System.Drawing.Size(931, 418);
+            this.Controls.Add(this.tabControl);
             this.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Edocsys.Properties.Settings.Default, "ContractsFormTitle", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.Name = "ContractsForm";
             this.Text = global::Edocsys.Properties.Settings.Default.ContractsFormTitle;
             this.Load += new System.EventHandler(this.ContractsForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.edocbaseDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.contractsBindingSource)).EndInit();
-            this.tabControl1.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.contractsDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.contractsBindingNavigator)).EndInit();
-            this.contractsBindingNavigator.ResumeLayout(false);
-            this.contractsBindingNavigator.PerformLayout();
-            this.tabPage2.ResumeLayout(false);
-            this.tabPage2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).EndInit();
-            this.bindingNavigator1.ResumeLayout(false);
-            this.bindingNavigator1.PerformLayout();
+            this.tabControl.ResumeLayout(false);
+            this.tabPageExpertAssigned.ResumeLayout(false);
+            this.tabPageExpertAssigned.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.contractsToStartDataTableDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.contractsToStartDataTableBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.contractsToStartBindingNavigator)).EndInit();
+            this.contractsToStartBindingNavigator.ResumeLayout(false);
+            this.contractsToStartBindingNavigator.PerformLayout();
+            this.tabPageTaskProcessed.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.taskProcessedDataTableDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.taskProcessedDataTableBindingSource)).EndInit();
+            this.tabPageTaskReady.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.taskReadyDataTableDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.taskReadyDataTableBindingSource)).EndInit();
+            this.tabPageTaskFinished.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.taskFinishedDataTableDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.taskFinishedDataTableBindingSource)).EndInit();
+            this.tabPageBadJob.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.badJobsDataTableBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.badJobsDataTableDataGridView)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -556,12 +694,10 @@
         #endregion
 
         private EdocbaseDataSet edocbaseDataSet;
-        private System.Windows.Forms.BindingSource contractsBindingSource;
-        private EdocbaseDataSetTableAdapters.ContractsTableAdapter contractsTableAdapter;
         private EdocbaseDataSetTableAdapters.TableAdapterManager tableAdapterManager;
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.BindingNavigator contractsBindingNavigator;
+        private System.Windows.Forms.TabControl tabControl;
+        private System.Windows.Forms.TabPage tabPageExpertAssigned;
+        private System.Windows.Forms.BindingNavigator contractsToStartBindingNavigator;
         private System.Windows.Forms.ToolStripButton bindingNavigatorAddNewItem;
         private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem;
         private System.Windows.Forms.ToolStripButton bindingNavigatorDeleteItem;
@@ -574,35 +710,50 @@
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
         private System.Windows.Forms.ToolStripButton contractsBindingNavigatorSaveItem;
-        private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.BindingNavigator bindingNavigator1;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
-        private System.Windows.Forms.ToolStripLabel toolStripLabel1;
-        private System.Windows.Forms.ToolStripButton toolStripButton2;
-        private System.Windows.Forms.ToolStripButton toolStripButton3;
-        private System.Windows.Forms.ToolStripButton toolStripButton4;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripTextBox toolStripTextBox1;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
-        private System.Windows.Forms.ToolStripButton toolStripButton5;
-        private System.Windows.Forms.ToolStripButton toolStripButton6;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
-        private System.Windows.Forms.ToolStripButton toolStripButton7;
-        private System.Windows.Forms.DataGridView contractsDataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.TabPage tabPageTaskProcessed;
+        private System.Windows.Forms.TabPage tabPageTaskReady;
+        private System.Windows.Forms.TabPage tabPageTaskFinished;
+        private System.Windows.Forms.TabPage tabPageBadJob;
+        private System.Windows.Forms.BindingSource contractsToStartDataTableBindingSource;
+        private EdocbaseDataSetTableAdapters.ContractsToStartDataTableTableAdapter contractsToStartDataTableTableAdapter;
+        private System.Windows.Forms.DataGridView contractsToStartDataTableDataGridView;
+        private EdocbaseDataSetTableAdapters.ContractsTableAdapter contractsTableAdapter;
+        private EdocbaseDataSetTableAdapters.Exec_contractsTableAdapter exec_contractsTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
+        private System.Windows.Forms.DataGridViewButtonColumn ProcessTaskColumn;
+        private System.Windows.Forms.BindingSource taskProcessedDataTableBindingSource;
+        private EdocbaseDataSetTableAdapters.TaskProcessedDataTableTableAdapter taskProcessedDataTableTableAdapter;
+        private System.Windows.Forms.DataGridView taskProcessedDataTableDataGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn27;
+        private System.Windows.Forms.DataGridViewButtonColumn TaskReadyColumn;
+        private System.Windows.Forms.BindingSource taskReadyDataTableBindingSource;
+        private EdocbaseDataSetTableAdapters.TaskReadyDataTableTableAdapter taskReadyDataTableTableAdapter;
+        private System.Windows.Forms.DataGridView taskReadyDataTableDataGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
+        private System.Windows.Forms.DataGridViewButtonColumn ConfirmTaskFinishedColumn;
+        private System.Windows.Forms.BindingSource taskFinishedDataTableBindingSource;
+        private EdocbaseDataSetTableAdapters.TaskFinishedDataTableTableAdapter taskFinishedDataTableTableAdapter;
+        private System.Windows.Forms.DataGridView taskFinishedDataTableDataGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn19;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn20;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn21;
+        private System.Windows.Forms.BindingSource badJobsDataTableBindingSource;
+        private EdocbaseDataSetTableAdapters.BadJobsDataTableTableAdapter badJobsDataTableTableAdapter;
+        private System.Windows.Forms.DataGridView badJobsDataTableDataGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn23;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn24;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn25;
     }
 }

@@ -969,5 +969,65 @@ namespace Edocsys.Properties {
                 this["ContractsFormTitle"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("К заявке прикреплен эксперт")]
+        public string TabExpertAssigned {
+            get {
+                return ((string)(this["TabExpertAssigned"]));
+            }
+            set {
+                this["TabExpertAssigned"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Начата работа по заявке")]
+        public string TabTaskProcessed {
+            get {
+                return ((string)(this["TabTaskProcessed"]));
+            }
+            set {
+                this["TabTaskProcessed"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Оформлен акт выполненных работ")]
+        public string TabTaskReady {
+            get {
+                return ((string)(this["TabTaskReady"]));
+            }
+            set {
+                this["TabTaskReady"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Акт утвержден руководителем")]
+        public string TabTaskFinished {
+            get {
+                return ((string)(this["TabTaskFinished"]));
+            }
+            set {
+                this["TabTaskFinished"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Невыполненные задания")]
+        public string TabBadJob {
+            get {
+                return ((string)(this["TabBadJob"]));
+            }
+            set {
+                this["TabBadJob"] = value;
+            }
+        }
     }
 }

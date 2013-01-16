@@ -76,6 +76,7 @@
             this.productsTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.ProductsTableAdapter();
             this.contractTypesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.contractTypesTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.ContractTypesTableAdapter();
+            this.exec_contractsTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.Exec_contractsTableAdapter();
             proposalProductLabel = new System.Windows.Forms.Label();
             proposalEmissionLabel = new System.Windows.Forms.Label();
             proposalClientDocsLabel = new System.Windows.Forms.Label();
@@ -531,6 +532,10 @@
             // 
             this.contractTypesTableAdapter.ClearBeforeFill = true;
             // 
+            // exec_contractsTableAdapter
+            // 
+            this.exec_contractsTableAdapter.ClearBeforeFill = true;
+            // 
             // ProposalForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -603,5 +608,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn add_data;
         private System.Windows.Forms.DataGridViewButtonColumn SendProposalColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn Contract_status;
+        private EdocbaseDataSetTableAdapters.Exec_contractsTableAdapter exec_contractsTableAdapter;
     }
 }

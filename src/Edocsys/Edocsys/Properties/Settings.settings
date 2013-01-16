@@ -244,5 +244,20 @@
     <Setting Name="ContractsFormTitle" Type="System.String" Scope="User">
       <Value Profile="(Default)">Договора</Value>
     </Setting>
+    <Setting Name="TabExpertAssigned" Type="System.String" Scope="User">
+      <Value Profile="(Default)">К заявке прикреплен эксперт</Value>
+    </Setting>
+    <Setting Name="TabTaskProcessed" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Начата работа по заявке</Value>
+    </Setting>
+    <Setting Name="TabTaskReady" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Оформлен акт выполненных работ</Value>
+    </Setting>
+    <Setting Name="TabTaskFinished" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Акт утвержден руководителем</Value>
+    </Setting>
+    <Setting Name="TabBadJob" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Невыполненные задания</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

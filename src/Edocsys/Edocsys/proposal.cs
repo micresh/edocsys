@@ -45,17 +45,20 @@ namespace Edocsys
 
         private void ProposalForm_Load(object sender, EventArgs e)
         {
-
             this.agentsTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
             this.productsTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
             this.contractsTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
             this.contractTypesTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
+            this.exec_contractsTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
 
 
             this.productsTableAdapter.Fill(this.edocbaseDataSet.Products);
             this.contractsTableAdapter.FillProposal(this.edocbaseDataSet.Contracts);
             this.agentsTableAdapter.Fill(this.edocbaseDataSet.Agents);
             this.contractTypesTableAdapter.Fill(this.edocbaseDataSet.ContractTypes);
+            this.exec_contractsTableAdapter.Fill(this.edocbaseDataSet.Exec_contracts);
+
+
         }
 
         private void contractsDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -73,6 +76,9 @@ namespace Edocsys
                         {
                             //send proposal
                             this.contractsTableAdapter.SendProposal((int)Constants.ContractStatuses.WaitForExpertAssigment, idContract);
+
+                            //add executed contract
+                            this.exec_contractsTableAdapter.TaskStart(idContract);
 
                             //refresh data
                             this.edocbaseDataSet.AcceptChanges();
