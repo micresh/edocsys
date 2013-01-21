@@ -79,19 +79,19 @@
             this.dataGridViewTextBoxColumn21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.taskFinishedDataTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabPageBadJob = new System.Windows.Forms.TabPage();
+            this.badJobsDataTableDataGridView = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn23 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn24 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn25 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.badJobsDataTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.contractsToStartDataTableTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.ContractsToStartDataTableTableAdapter();
             this.contractsTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.ContractsTableAdapter();
             this.exec_contractsTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.Exec_contractsTableAdapter();
             this.taskProcessedDataTableTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.TaskProcessedDataTableTableAdapter();
             this.taskReadyDataTableTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.TaskReadyDataTableTableAdapter();
             this.taskFinishedDataTableTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.TaskFinishedDataTableTableAdapter();
-            this.badJobsDataTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.badJobsDataTableTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.BadJobsDataTableTableAdapter();
-            this.badJobsDataTableDataGridView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn23 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn24 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn25 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.edocbaseDataSet)).BeginInit();
             this.tabControl.SuspendLayout();
             this.tabPageExpertAssigned.SuspendLayout();
@@ -109,8 +109,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.taskFinishedDataTableDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.taskFinishedDataTableBindingSource)).BeginInit();
             this.tabPageBadJob.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.badJobsDataTableBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.badJobsDataTableDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.badJobsDataTableBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // edocbaseDataSet
@@ -579,39 +579,6 @@
             this.tabPageBadJob.Text = global::Edocsys.Properties.Settings.Default.TabBadJob;
             this.tabPageBadJob.UseVisualStyleBackColor = true;
             // 
-            // contractsToStartDataTableTableAdapter
-            // 
-            this.contractsToStartDataTableTableAdapter.ClearBeforeFill = true;
-            // 
-            // contractsTableAdapter
-            // 
-            this.contractsTableAdapter.ClearBeforeFill = true;
-            // 
-            // exec_contractsTableAdapter
-            // 
-            this.exec_contractsTableAdapter.ClearBeforeFill = true;
-            // 
-            // taskProcessedDataTableTableAdapter
-            // 
-            this.taskProcessedDataTableTableAdapter.ClearBeforeFill = true;
-            // 
-            // taskReadyDataTableTableAdapter
-            // 
-            this.taskReadyDataTableTableAdapter.ClearBeforeFill = true;
-            // 
-            // taskFinishedDataTableTableAdapter
-            // 
-            this.taskFinishedDataTableTableAdapter.ClearBeforeFill = true;
-            // 
-            // badJobsDataTableBindingSource
-            // 
-            this.badJobsDataTableBindingSource.DataMember = "BadJobsDataTable";
-            this.badJobsDataTableBindingSource.DataSource = this.edocbaseDataSet;
-            // 
-            // badJobsDataTableTableAdapter
-            // 
-            this.badJobsDataTableTableAdapter.ClearBeforeFill = true;
-            // 
             // badJobsDataTableDataGridView
             // 
             this.badJobsDataTableDataGridView.AutoGenerateColumns = false;
@@ -656,6 +623,39 @@
             this.dataGridViewTextBoxColumn25.Name = "dataGridViewTextBoxColumn25";
             this.dataGridViewTextBoxColumn25.ToolTipText = "Эксперт";
             // 
+            // badJobsDataTableBindingSource
+            // 
+            this.badJobsDataTableBindingSource.DataMember = "BadJobsDataTable";
+            this.badJobsDataTableBindingSource.DataSource = this.edocbaseDataSet;
+            // 
+            // contractsToStartDataTableTableAdapter
+            // 
+            this.contractsToStartDataTableTableAdapter.ClearBeforeFill = true;
+            // 
+            // contractsTableAdapter
+            // 
+            this.contractsTableAdapter.ClearBeforeFill = true;
+            // 
+            // exec_contractsTableAdapter
+            // 
+            this.exec_contractsTableAdapter.ClearBeforeFill = true;
+            // 
+            // taskProcessedDataTableTableAdapter
+            // 
+            this.taskProcessedDataTableTableAdapter.ClearBeforeFill = true;
+            // 
+            // taskReadyDataTableTableAdapter
+            // 
+            this.taskReadyDataTableTableAdapter.ClearBeforeFill = true;
+            // 
+            // taskFinishedDataTableTableAdapter
+            // 
+            this.taskFinishedDataTableTableAdapter.ClearBeforeFill = true;
+            // 
+            // badJobsDataTableTableAdapter
+            // 
+            this.badJobsDataTableTableAdapter.ClearBeforeFill = true;
+            // 
             // ContractsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -685,8 +685,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.taskFinishedDataTableDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.taskFinishedDataTableBindingSource)).EndInit();
             this.tabPageBadJob.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.badJobsDataTableBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.badJobsDataTableDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.badJobsDataTableBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }

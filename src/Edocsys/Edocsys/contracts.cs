@@ -18,26 +18,63 @@ namespace Edocsys
 
         private void contractsBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
-            this.Validate();
-            this.contractsToStartDataTableBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.edocbaseDataSet);
 
         }
+
+
+        private void UpdateDatabaseAndRefresh()
+        {
+            try
+            {
+                this.Validate();
+
+                this.tableAdapterManager.UpdateAll(this.edocbaseDataSet);
+
+                this.edocbaseDataSet.AcceptChanges();
+
+
+                this.exec_contractsTableAdapter.Fill(this.edocbaseDataSet.Exec_contracts);
+                this.contractsTableAdapter.Fill(this.edocbaseDataSet.Contracts);
+
+                this.contractsToStartDataTableTableAdapter.Fill(this.edocbaseDataSet.ContractsToStartDataTable);
+                this.badJobsDataTableTableAdapter.Fill(this.edocbaseDataSet.BadJobsDataTable);
+                this.taskFinishedDataTableTableAdapter.Fill(this.edocbaseDataSet.TaskFinishedDataTable);
+                this.taskReadyDataTableTableAdapter.Fill(this.edocbaseDataSet.TaskReadyDataTable);
+                this.taskProcessedDataTableTableAdapter.Fill(this.edocbaseDataSet.TaskProcessedDataTable);
+
+
+                this.contractsToStartDataTableDataGridView.Refresh();
+                this.badJobsDataTableDataGridView.Refresh();
+                this.taskFinishedDataTableDataGridView.Refresh();
+                this.taskReadyDataTableDataGridView.Refresh();
+                this.taskProcessedDataTableDataGridView.Refresh();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Save Error");
+            }
+            /**/
+        }
+
+
 
         private void ContractsForm_Load(object sender, EventArgs e)
         {
 
-            this.contractsToStartDataTableTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
             this.exec_contractsTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
             this.contractsTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
+
+            this.contractsToStartDataTableTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
             this.taskFinishedDataTableTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
             this.taskReadyDataTableTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
             this.taskProcessedDataTableTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
             this.badJobsDataTableTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
 
-            this.contractsToStartDataTableTableAdapter.Fill(this.edocbaseDataSet.ContractsToStartDataTable);
+
             this.exec_contractsTableAdapter.Fill(this.edocbaseDataSet.Exec_contracts);
             this.contractsTableAdapter.Fill(this.edocbaseDataSet.Contracts);
+            
+            this.contractsToStartDataTableTableAdapter.Fill(this.edocbaseDataSet.ContractsToStartDataTable);
             this.badJobsDataTableTableAdapter.Fill(this.edocbaseDataSet.BadJobsDataTable);
             this.taskFinishedDataTableTableAdapter.Fill(this.edocbaseDataSet.TaskFinishedDataTable);
             this.taskReadyDataTableTableAdapter.Fill(this.edocbaseDataSet.TaskReadyDataTable);
@@ -62,12 +99,12 @@ namespace Edocsys
 
                             //add executed contract
                             DateTime now = DateTime.Now;
-                            DateTime nxt = DateTime.Now;
+                            DateTime nxt = now; ;
                             nxt = nxt.AddMonths(9);
                             this.exec_contractsTableAdapter.TaskProcessed(now, nxt, idContract);
 
                             //refresh data
-                            this.edocbaseDataSet.AcceptChanges();
+                            UpdateDatabaseAndRefresh();
 
                          }
                         catch (Exception ex)
@@ -88,7 +125,7 @@ namespace Edocsys
                     DataRow currentRow = edocbaseDataSet.Tables["TaskProcessedDataTable"].DefaultView[taskProcessedDataTableBindingSource.Position].Row;
                     int idContract = Convert.ToInt32(currentRow["idContract"]);
 
-                    if (MessageBox.Show("Оформить акт договара #" + idContract, "Подтвердить оформление акта", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    if (MessageBox.Show("Оформить акт договора #" + idContract, "Подтвердить оформление акта", MessageBoxButtons.YesNo) == DialogResult.Yes)
                     {
                         try
                         {
@@ -97,7 +134,7 @@ namespace Edocsys
 
 
                             //refresh data
-                            this.edocbaseDataSet.AcceptChanges();
+                            UpdateDatabaseAndRefresh();
 
                         }
                         catch (Exception ex)
@@ -119,7 +156,7 @@ namespace Edocsys
                     DataRow currentRow = edocbaseDataSet.Tables["TaskReadyDataTable"].DefaultView[taskReadyDataTableBindingSource.Position].Row;
                     int idContract = Convert.ToInt32(currentRow["idContract"]);
 
-                    if (MessageBox.Show("Подтвердить выполненеи договара #" + idContract, "Подтвердить выполнение работ", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    if (MessageBox.Show("Подтвердить выполнение договора #" + idContract, "Подтвердить выполнение работ", MessageBoxButtons.YesNo) == DialogResult.Yes)
                     {
                         try
                         {
@@ -127,8 +164,7 @@ namespace Edocsys
                             this.contractsTableAdapter.TaskFinished((int)Constants.ContractStatuses.TaskFinished, idContract);
 
                             //refresh data
-                            this.edocbaseDataSet.AcceptChanges();
-
+                            UpdateDatabaseAndRefresh();
                         }
                         catch (Exception ex)
                         {
@@ -138,5 +174,6 @@ namespace Edocsys
                 }
             }
         }
+
     }
 }
