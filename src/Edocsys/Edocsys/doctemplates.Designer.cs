@@ -68,7 +68,7 @@
             this.tableAdapterManager.ContractStatusTableAdapter = null;
             this.tableAdapterManager.ContractTypesTableAdapter = null;
             this.tableAdapterManager.DocTemplatesTableAdapter = this.docTemplatesTableAdapter;
-            this.tableAdapterManager.documentsTableAdapter = null;
+            this.tableAdapterManager.DocumentsTableAdapter = null;
             this.tableAdapterManager.Exec_contractsTableAdapter = null;
             this.tableAdapterManager.ExpertsTableAdapter = null;
             this.tableAdapterManager.log_journalTableAdapter = null;

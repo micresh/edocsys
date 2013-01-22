@@ -1077,5 +1077,65 @@ namespace Edocsys.Properties {
                 this["TemplatePresenceText"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Сгенерировать заявку")]
+        public string GenerateProposalTitle {
+            get {
+                return ((string)(this["GenerateProposalTitle"]));
+            }
+            set {
+                this["GenerateProposalTitle"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Редактировать файл заявки")]
+        public string EditProposalButton {
+            get {
+                return ((string)(this["EditProposalButton"]));
+            }
+            set {
+                this["EditProposalButton"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Операции с документом заявки")]
+        public string ProposalOperationsGroupBox {
+            get {
+                return ((string)(this["ProposalOperationsGroupBox"]));
+            }
+            set {
+                this["ProposalOperationsGroupBox"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Сохранть файл заявки на диск")]
+        public string SaveProposalButton {
+            get {
+                return ((string)(this["SaveProposalButton"]));
+            }
+            set {
+                this["SaveProposalButton"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Загрузить файл заявки с диска")]
+        public string LoadProposalButton {
+            get {
+                return ((string)(this["LoadProposalButton"]));
+            }
+            set {
+                this["LoadProposalButton"] = value;
+            }
+        }
     }
 }

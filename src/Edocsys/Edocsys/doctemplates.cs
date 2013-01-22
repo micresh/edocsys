@@ -29,66 +29,72 @@ namespace Edocsys
 
         private void loadTemplateButton_Click(object sender, EventArgs e)
         {
-            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            if (openFileDialog.ShowDialog() != DialogResult.OK)
             {
+                return;
+            }
 
-                FileStream fs = new FileStream(openFileDialog.FileName, FileMode.Open, FileAccess.Read);
+            byte[] data = BlobLoader.LoadFormFile(openFileDialog.FileName);
 
-                byte[] tmplData = new byte[fs.Length];
-                fs.Read(tmplData, 0, Convert.ToInt32(fs.Length));
 
-                fs.Close();
+            if ((templatesDataTableBindingSource.Position < 0) ||
+                (templatesDataTableBindingSource.Position >= templatesDataTableBindingSource.Count))
+            {
+                //contract not selected
+                MessageBox.Show("Не выбран шаблон", "Ошибка");
+                return;
+            }
 
-                if (templatesDataTableBindingSource.Position >= 0)
+
+            DataRow currentRow = edocbaseDataSet.Tables["TemplatesDataTable"].DefaultView[templatesDataTableBindingSource.Position].Row;
+            int idContractType = Convert.ToInt32(currentRow["id"]);
+
+            DataRowView row = GetTemplateDataRow(idContractType);
+
+            if (row == null)
+            {
+                //template not found -> add new template
+                row = edocbaseDataSet.Tables["DocTemplates"].DefaultView.AddNew();
+            }
+            else
+            {
+                //template exists -> update?
+                if (MessageBox.Show("Обновить шаблон для типа '" + currentRow["name"] + "'", "Подтвердить обновление шаблона", MessageBoxButtons.YesNo) != DialogResult.Yes)
                 {
-                    DataRow currentRow = edocbaseDataSet.Tables["TemplatesDataTable"].DefaultView[templatesDataTableBindingSource.Position].Row;
-                    int idContractType = Convert.ToInt32(currentRow["id"]);
-
-                    int currentTemplate = GetTemplateID(idContractType);
-
-                    if (currentTemplate < 0)
-                    {
-                        //template not found -> add new template
-
-                        DataRowView rowView = edocbaseDataSet.Tables["DocTemplates"].DefaultView.AddNew();
-
-                        rowView["type"] = idContractType;
-                        rowView["template"] = tmplData;
-
-                        rowView.EndEdit();
-
-                        UpdateAndRefresh();
-                    }
-                    else
-                    {
-                        //template exists -> update?
-                        if (MessageBox.Show("Обновить шаблон для типа '" + currentRow["name"] + "'", "Подтвердить обновление шаблона", MessageBoxButtons.YesNo) == DialogResult.Yes)
-                        {
-                            try
-                            {
-                                DataRow row = edocbaseDataSet.Tables["DocTemplates"].DefaultView[currentTemplate].Row;
-
-                                row["template"] = tmplData;
-                                row.EndEdit();
-   
-                                UpdateAndRefresh();
-                            }
-                            catch (Exception ex)
-                            {
-                                MessageBox.Show(ex.Message, "Save Error");
-                            }
-                        }
-                    }
+                    return;
                 }
+            }
+
+            //save
+            try
+            {
+                row["type"] = idContractType;
+                row["template"] = data;
+
+                row.EndEdit();
+
+                UpdateAndRefresh();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Save Error");
             }
         }
 
-        private int GetTemplateID(int idContractType)
+        private DataRowView GetTemplateDataRow(int idContractType)
         {
             edocbaseDataSet.Tables["DocTemplates"].DefaultView.Sort = "type";
 
-            int currentTemplate = edocbaseDataSet.Tables["DocTemplates"].DefaultView.Find(idContractType);
-            return currentTemplate;
+            DataRowView[] docTempls = edocbaseDataSet.Tables["DocTemplates"].DefaultView.FindRows(idContractType);
+
+            DataRowView row = null;
+
+            if (docTempls.Length == 1)
+            {
+                row = docTempls[0];
+            }
+
+            return row;
         }
 
         private void UpdateAndRefresh()
@@ -103,109 +109,129 @@ namespace Edocsys
 
         private void saveTemplateButton_Click(object sender, EventArgs e)
         {
-
-            if (templatesDataTableBindingSource.Position >= 0)
+            if ((templatesDataTableBindingSource.Position < 0) ||
+                (templatesDataTableBindingSource.Position >= templatesDataTableBindingSource.Count))
             {
-                DataRow currentRow = edocbaseDataSet.Tables["TemplatesDataTable"].DefaultView[templatesDataTableBindingSource.Position].Row;
-
-                bool exists = Convert.ToBoolean(currentRow["template_presence"]);
-
-                int idContractType = Convert.ToInt32(currentRow["id"]);
-
-                if (exists)
-                {
-                    if (saveFileDialog.ShowDialog() == DialogResult.OK)
-                    {
-                        SaveTemplateByID(saveFileDialog.FileName, idContractType);
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Шаблон отсутствует в БД", "Отсутствие шаблона");
-                }
+                //contract not selected
+                MessageBox.Show("Не выбран шаблон", "Ошибка");
+                return;
             }
+
+            DataRow currentRow = edocbaseDataSet.Tables["TemplatesDataTable"].DefaultView[templatesDataTableBindingSource.Position].Row;
+
+            bool exists = Convert.ToBoolean(currentRow["template_presence"]);
+
+            int idContractType = Convert.ToInt32(currentRow["id"]);
+
+            if (!exists)
+            {
+                MessageBox.Show("Шаблон отсутствует в БД", "Отсутствие шаблона");
+            }
+
+            if (saveFileDialog.ShowDialog() != DialogResult.OK)
+            {
+                return;
+            }
+
+            DataRowView row = GetTemplatessDataRow(idContractType);
+
+            if (row == null)
+            {
+                MessageBox.Show("Шаблон отсутствует в БД", "Отсутствие шаблона");
+            }
+
+            byte[] data = (byte[])row["template"];
+
+            BlobLoader.SaveToFile(saveFileDialog.FileName, data);
+
         }
 
-        private void SaveTemplateByID(string filename, int idContractType)
+
+        private DataRowView GetTemplatessDataRow(int type)
         {
             edocbaseDataSet.Tables["DocTemplates"].DefaultView.Sort = "type";
+            
+            DataRowView[] currentDocs = edocbaseDataSet.Tables["DocTemplates"].DefaultView.FindRows(type);
 
-            int currentTemplate = edocbaseDataSet.Tables["DocTemplates"].DefaultView.Find(idContractType);
-            if (currentTemplate >= 0)
+            DataRowView row = null;
+
+            if (currentDocs.Length > 0)
             {
-                //template not found -> add new template
+                //found docs -> check for our type
 
-                DataRow row = edocbaseDataSet.Tables["DocTemplates"].DefaultView[currentTemplate].Row;
-
-
-                byte[] tmplData = (byte[])row["template"];
-
-                FileStream fs = new FileStream(filename, FileMode.Create, FileAccess.Write);
-
-
-                fs.Write(tmplData, 0, tmplData.Length);
-
-                fs.Close();
-
+                int i = 0;
+                while (i < currentDocs.Length)
+                {
+                    if (Convert.ToInt32(currentDocs[i]["type"]) == type)
+                    {
+                        //found doc -> return it
+                        return currentDocs[i];
+                    }
+                    i++;
+                }
             }
+
+            return row;
         }
 
         private void editTemplateButton_Click(object sender, EventArgs e)
         {
-            if (templatesDataTableBindingSource.Position >= 0)
+            if ((templatesDataTableBindingSource.Position < 0) ||
+                (templatesDataTableBindingSource.Position >= templatesDataTableBindingSource.Count))
             {
-                DataRow currentRow = edocbaseDataSet.Tables["TemplatesDataTable"].DefaultView[templatesDataTableBindingSource.Position].Row;
-
-                bool exists = Convert.ToBoolean(currentRow["template_presence"]);
-                int idContractType = Convert.ToInt32(currentRow["id"]);
-
-                if (exists)
-                {
-                    string extension = "docx";
-                    //make temporary file
-                    string filename = System.IO.Path.GetTempFileName() + "." + extension;
-
-                    SaveTemplateByID(filename, idContractType);
-
-                    var process = Process.Start(filename);
-                    
-                    process.WaitForExit();
-
-
-                    int currentTemplate = GetTemplateID(idContractType);
-
-
-                    FileStream fs = new FileStream(filename, FileMode.Open, FileAccess.Read);
-                    byte[] tmplData = new byte[fs.Length];
-                    fs.Read(tmplData, 0, Convert.ToInt32(fs.Length));
-                    fs.Close();
-
-                    //template exists -> update?
-                    if (MessageBox.Show("Обновить шаблон для типа '" + currentRow["name"] + "'", "Подтвердить обновление шаблона", MessageBoxButtons.YesNo) == DialogResult.Yes)
-                    {
-                        try
-                        {
-                            DataRow row = edocbaseDataSet.Tables["DocTemplates"].DefaultView[currentTemplate].Row;
-
-                            row["template"] = tmplData;
-                            row.EndEdit();
-   
-                            UpdateAndRefresh();
-                        }
-                        catch (Exception ex)
-                        {
-                            MessageBox.Show(ex.Message, "Save Error");
-                        }
-                    }
-                    // Clean up temporary file
-                    System.IO.File.Delete(filename); 
-
-                }
-                else
-                {
-                    MessageBox.Show("Шаблон отсутствует в БД", "Отсутствие шаблона");
-                }
+                //contract not selected
+                MessageBox.Show("Не выбран шаблон", "Ошибка");
+                return;
             }
+
+            DataRow currentRow = edocbaseDataSet.Tables["TemplatesDataTable"].DefaultView[templatesDataTableBindingSource.Position].Row;
+
+            bool exists = Convert.ToBoolean(currentRow["template_presence"]);
+            int type = Convert.ToInt32(currentRow["id"]);
+
+            if (!exists)
+            {
+                MessageBox.Show("Шаблон отсутствует в БД", "Отсутствие шаблона");
+            }
+
+            DataRowView row = GetTemplatessDataRow(type);
+
+            if (row == null)
+            {
+                MessageBox.Show("Шаблон отсутствует в БД", "Отсутствие шаблона");
+            }
+
+            byte[] data = (byte[])row["template"];
+                
+            string filename = BlobLoader.SaveToTemporaryFile(data);
+
+
+            Process process = Process.Start(filename);
+            
+            process.WaitForExit();
+
+
+            data = BlobLoader.LoadFormFile(filename);
+
+
+            //template exists -> update?
+            if (MessageBox.Show("Обновить шаблон для типа '" + currentRow["name"] + "'", "Подтвердить обновление шаблона", MessageBoxButtons.YesNo) != DialogResult.Yes)
+            {
+                return;
+            }
+            try
+            {
+                row["template"] = data;
+                row.EndEdit();
+                
+                UpdateAndRefresh();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Save Error");
+            }
+            // Clean up temporary file
+            System.IO.File.Delete(filename); 
         }
     }
 }

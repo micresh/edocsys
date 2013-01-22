@@ -1,0 +1,8 @@
+{_ID_}                  idContract	идентификационный номер заявки
+{_PRODUCTS_}            idProducts	идентификационный номер продукта
+{_EMISSION_TYPE_}       emission_type	тип выпуска продукта
+{_CLIENT_DOCS_}         Client_docs	Учредительные документы
+{_SCHEM_TYPE_}          Schem_type	тип схемы сертификации
+{_ADD_DATA_}            Add_data	дополнительные сведения
+{_CONTRACT_TYPE_}       Contract_type	тип договора
+{_CONTRACT_VALUE_1_}    Contract_value_1	промежуточная сумма договора

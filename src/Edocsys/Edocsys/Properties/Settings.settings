@@ -271,5 +271,20 @@
     <Setting Name="TemplatePresenceText" Type="System.String" Scope="User">
       <Value Profile="(Default)">Наличие загруженного шаблона</Value>
     </Setting>
+    <Setting Name="GenerateProposalTitle" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Сгенерировать заявку</Value>
+    </Setting>
+    <Setting Name="EditProposalButton" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Редактировать файл заявки</Value>
+    </Setting>
+    <Setting Name="ProposalOperationsGroupBox" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Операции с документом заявки</Value>
+    </Setting>
+    <Setting Name="SaveProposalButton" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Сохранть файл заявки на диск</Value>
+    </Setting>
+    <Setting Name="LoadProposalButton" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Загрузить файл заявки с диска</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

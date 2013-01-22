@@ -76,6 +76,7 @@
     <Compile Include="assignexpert.Designer.cs">
       <DependentUpon>assignexpert.cs</DependentUpon>
     </Compile>
+    <Compile Include="BlobLoader.cs" />
     <Compile Include="clients.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -102,6 +103,7 @@
     <Compile Include="doctemplates.Designer.cs">
       <DependentUpon>doctemplates.cs</DependentUpon>
     </Compile>
+    <Compile Include="DocXgenerator.cs" />
     <Compile Include="EdocbaseDataSet.cs">
       <DependentUpon>EdocbaseDataSet.xsd</DependentUpon>
       <SubType>Component</SubType>
