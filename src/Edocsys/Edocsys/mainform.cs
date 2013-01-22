@@ -179,5 +179,10 @@ namespace Edocsys
         {
             wmgr.ShowContractsForm();
         }
+
+        private void docTemplatesFormToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            wmgr.ShowDocTemplatesForm();
+        }
     }
 }

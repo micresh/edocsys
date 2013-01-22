@@ -259,5 +259,17 @@
     <Setting Name="TabBadJob" Type="System.String" Scope="User">
       <Value Profile="(Default)">Невыполненные задания</Value>
     </Setting>
+    <Setting Name="LoadTemplateButton" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Загрузить шаблон документа</Value>
+    </Setting>
+    <Setting Name="EditTemplateButton" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Изменить шаблон документа</Value>
+    </Setting>
+    <Setting Name="SaveTemplateButton" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Сохранить шаблон на диск</Value>
+    </Setting>
+    <Setting Name="TemplatePresenceText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Наличие загруженного шаблона</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

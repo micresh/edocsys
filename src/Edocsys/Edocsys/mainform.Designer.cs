@@ -47,6 +47,7 @@
             this.ExpertsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
             this.AssignexpertToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.docTemplatesFormToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.WindowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.HelpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
@@ -142,14 +143,14 @@
             // ProposalToolStripMenuItem
             // 
             this.ProposalToolStripMenuItem.Name = "ProposalToolStripMenuItem";
-            this.ProposalToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.ProposalToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
             this.ProposalToolStripMenuItem.Text = global::Edocsys.Properties.Settings.Default.ProposalToolStripMenuItemText;
             this.ProposalToolStripMenuItem.Click += new System.EventHandler(this.proposalToolStripMenuItem_Click);
             // 
             // ContractToolStripMenuItem
             // 
             this.ContractToolStripMenuItem.Name = "ContractToolStripMenuItem";
-            this.ContractToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.ContractToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
             this.ContractToolStripMenuItem.Text = global::Edocsys.Properties.Settings.Default.ContractToolStripMenuItemText;
             this.ContractToolStripMenuItem.Click += new System.EventHandler(this.ContractToolStripMenuItem_Click);
             // 
@@ -182,7 +183,8 @@
             this.AdmpanelToolStripMenuItem,
             this.ExpertsToolStripMenuItem,
             this.toolStripMenuItem2,
-            this.AssignexpertToolStripMenuItem});
+            this.AssignexpertToolStripMenuItem,
+            this.docTemplatesFormToolStripMenuItem});
             this.AdmToolStripMenuItem.Name = "AdmToolStripMenuItem";
             this.AdmToolStripMenuItem.Size = new System.Drawing.Size(134, 20);
             this.AdmToolStripMenuItem.Text = global::Edocsys.Properties.Settings.Default.AdmToolStripMenuItemText;
@@ -212,6 +214,13 @@
             this.AssignexpertToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
             this.AssignexpertToolStripMenuItem.Text = global::Edocsys.Properties.Settings.Default.AssighExpertFormText;
             this.AssignexpertToolStripMenuItem.Click += new System.EventHandler(this.AssignexpertToolStripMenuItem_Click);
+            // 
+            // docTemplatesFormToolStripMenuItem
+            // 
+            this.docTemplatesFormToolStripMenuItem.Name = "docTemplatesFormToolStripMenuItem";
+            this.docTemplatesFormToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
+            this.docTemplatesFormToolStripMenuItem.Text = global::Edocsys.Properties.Settings.Default.DocTemplatesTitle;
+            this.docTemplatesFormToolStripMenuItem.Click += new System.EventHandler(this.docTemplatesFormToolStripMenuItem_Click);
             // 
             // WindowToolStripMenuItem
             // 
@@ -382,6 +391,7 @@
             // 
             // edocbaseDataSet
             // 
+            this.edocbaseDataSet.DataSetName = "EdocbaseDataSet";
             this.edocbaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // usersBindingSource
@@ -481,6 +491,7 @@
         private System.Windows.Forms.ToolStripButton fillUsersToolStripButton;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
         private System.Windows.Forms.ToolStripStatusLabel cueerntUserToolStripStatusLabel;
+        private System.Windows.Forms.ToolStripMenuItem docTemplatesFormToolStripMenuItem;
     }
 }
 
