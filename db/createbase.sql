@@ -202,14 +202,20 @@ CREATE TABLE IF NOT EXISTS `Edocbase`.`log_journal` (
 ) ENGINE = InnoDB;
 
 CREATE TABLE IF NOT EXISTS `Edocbase`.`documents`(
-	`id` int NOT NULL AUTO_INCREMENT ,
-	`idContract` int NOT NULL,
-	`document` MEDIUMBLOB NOT NULL,
-	PRIMARY KEY (`id`),
+    `id` int NOT NULL AUTO_INCREMENT ,
+    `idContract` int NOT NULL,
+    `type` int(11) NOT NULL,
+    `document` MEDIUMBLOB NOT NULL,
+    PRIMARY KEY (`id`),
   INDEX `fk_documents_1` (`idContract` ASC) ,
   CONSTRAINT `fk_documents_1`
     FOREIGN KEY (`idContract` )
     REFERENCES `Edocbase`.`Contracts` (`idContract` )
     ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_documents_2`
+    FOREIGN KEY (`type` )
+    REFERENCES `Edocbase`.`ContractTypes` (`id` )
+    ON DELETE NO ACTION
     ON UPDATE NO ACTION
-	) ENGINE = InnoDB;
+) ENGINE = InnoDB;
