@@ -1608,25 +1608,68 @@ DocTemplates ON ContractTypes.id = DocTemplates.type</CommandText>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ContractInfoDataTableTableAdapter" GeneratorDataComponentClassName="ContractInfoDataTableTableAdapter" Name="ContractInfoDataTable" UserDataComponentName="ContractInfoDataTableTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="EdocbaseConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="EdocbaseConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT        contracts.idContract, contracts.emission_type, contracts.Client_docs, contracts.Schem_type, contracts.Add_data, contracts.Contract_value_1, 
-                         contracts.Contract_value_full, contracts.Contract_number, contracts.Contract_status, contracts.Bid_type, contracts.Cash_income, contracttypes.name, 
-                         exec_contracts.Contract_start, exec_contracts.Contract_1_reatt, exec_contracts.Contract_2_reatt, exec_contracts.Contract_resume, exec_contracts.exec_1_reatt, 
-                         exec_contracts.exec_2_reatt, exec_contracts.exec_resume, exec_contracts.sample_income, exec_contracts.protocol_income, agents.Ag_type_id, 
-                         agents_types.Agent_type, agents.Ag_fullname, agents.Ag_INN, agents.Ag_tel, agents.Ag_fax, agents.Ag_addr, agents.Ag_mail, agents.Ag_OGRN, agents.Ag_KPP, 
-                         agents.Ag_OKPO, agents.Ag_Rcou, agents.Ag_Kcou, agents.Ag_BIK, agents.Ag_bank, agents.Ag_doc, agents.Ag_pers_status, agents.Ag_pers_lastname, 
-                         agents.Ag_pers_firstname, agents.Ag_pers_middlename, products.Product_name, products.Product_OKP, products.Product_TNVED, productareas.name AS Expr1, 
-                         products.ProductArea, experts.Expert_Firstname, experts.Expert_Lastname, experts.Expert_Middlename
-FROM            contracts INNER JOIN
-                         contracttypes ON contracts.Contract_type = contracttypes.id INNER JOIN
-                         exec_contracts ON contracts.idContract = exec_contracts.idContract INNER JOIN
-                         products ON contracts.idProducts = products.idProducts INNER JOIN
-                         experts ON contracts.expert_id = experts.idExperts INNER JOIN
-                         agents ON contracts.agent_id = agents.idAgents INNER JOIN
-                         agents_types ON agents.Ag_type_id = agents_types.idAgents_types INNER JOIN
-                         productareas ON products.ProductArea = productareas.id</CommandText>
+                    <CommandText>SELECT
+Contracts.idContract,
+Contracts.emission_type,
+Contracts.Client_docs,
+Contracts.Schem_type,
+Contracts.Add_data,
+Contracts.Contract_value_1,
+Contracts.Contract_value_full,
+Contracts.Contract_number,
+Contracts.Contract_status,
+Contracts.Bid_type,
+Contracts.Cash_income,
+contracttypes.name,
+Exec_contracts.Contract_start,
+Exec_contracts.Contract_1_reatt,
+Exec_contracts.Contract_2_reatt,
+Exec_contracts.Contract_resume,
+Exec_contracts.exec_1_reatt,
+Exec_contracts.exec_2_reatt,
+Exec_contracts.exec_resume,
+Exec_contracts.sample_income,
+Exec_contracts.protocol_income,
+Agents.Ag_type_id, 
+Agents_types.Agent_type,
+Agents.Ag_fullname,
+Agents.Ag_INN,
+Agents.Ag_tel,
+Agents.Ag_fax,
+Agents.Ag_addr,
+Agents.Ag_mail,
+Agents.Ag_OGRN,
+Agents.Ag_KPP,
+Agents.Ag_OKPO,
+Agents.Ag_Rcou,
+Agents.Ag_Kcou,
+Agents.Ag_BIK,
+Agents.Ag_bank,
+Agents.Ag_doc,
+Agents.Ag_pers_status,
+Agents.Ag_pers_lastname,
+Agents.Ag_pers_firstname,
+Agents.Ag_pers_middlename,
+Products.Product_name,
+Products.Product_OKP,
+Products.Product_TNVED,
+ProductAreas.name AS ProductAreaName,
+Products.ProductArea,
+Experts.Expert_Firstname,
+Experts.Expert_Lastname,
+Experts.Expert_Middlename
+FROM
+Contracts 
+LEFT OUTER JOIN ContractTypes ON Contracts.Contract_type = ContractTypes.id
+LEFT OUTER JOIN Exec_contracts ON Contracts.idContract = Exec_contracts.idContract
+LEFT OUTER JOIN Products ON Contracts.idProducts = Products.idProducts
+LEFT OUTER JOIN Experts ON Contracts.expert_id = Experts.idExperts
+LEFT OUTER JOIN Agents ON Contracts.agent_id = Agents.idAgents
+LEFT OUTER JOIN Agents_types ON Agents.Ag_type_id = Agents_types.idAgents_types
+LEFT OUTER JOIN ProductAreas ON Products.ProductArea = ProductAreas.id</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -1677,56 +1720,11 @@ FROM            contracts INNER JOIN
               <Mapping SourceColumn="Product_name" DataSetColumn="Product_name" />
               <Mapping SourceColumn="Product_OKP" DataSetColumn="Product_OKP" />
               <Mapping SourceColumn="Product_TNVED" DataSetColumn="Product_TNVED" />
-              <Mapping SourceColumn="Expr1" DataSetColumn="Expr1" />
               <Mapping SourceColumn="ProductArea" DataSetColumn="ProductArea" />
               <Mapping SourceColumn="Expert_Firstname" DataSetColumn="Expert_Firstname" />
               <Mapping SourceColumn="Expert_Lastname" DataSetColumn="Expert_Lastname" />
               <Mapping SourceColumn="Expert_Middlename" DataSetColumn="Expert_Middlename" />
-            </Mappings>
-            <Sources />
-          </TableAdapter>
-          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ProposalsDataTableTableAdapter" GeneratorDataComponentClassName="ProposalsDataTableTableAdapter" Name="ProposalsDataTable" UserDataComponentName="ProposalsDataTableTableAdapter">
-            <MainSource>
-              <DbSource ConnectionRef="EdocbaseConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
-                <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT
-Contracts.Add_data,
-Contracts.Client_docs,
-Contracts.Contract_type,
-Contracts.Schem_type,
-Contracts.emission_type,
-Contracts.idContract,
-Contracts.idProducts,
-Contracts.Contract_status,
-Products.Product_name,
-Contracts.agent_id,
-Agents.Ag_fullname
-FROM
-Contracts
-INNER JOIN
-Products ON Contracts.idProducts = Products.idProducts
-INNER JOIN
-Agents ON Contracts.agent_id = Agents.idAgents
-WHERE
-(Contracts.Contract_status = 0)</CommandText>
-                    <Parameters />
-                  </DbCommand>
-                </SelectCommand>
-              </DbSource>
-            </MainSource>
-            <Mappings>
-              <Mapping SourceColumn="Add_data" DataSetColumn="Add_data" />
-              <Mapping SourceColumn="Client_docs" DataSetColumn="Client_docs" />
-              <Mapping SourceColumn="Contract_type" DataSetColumn="Contract_type" />
-              <Mapping SourceColumn="Schem_type" DataSetColumn="Schem_type" />
-              <Mapping SourceColumn="emission_type" DataSetColumn="emission_type" />
-              <Mapping SourceColumn="idContract" DataSetColumn="idContract" />
-              <Mapping SourceColumn="idProducts" DataSetColumn="idProducts" />
-              <Mapping SourceColumn="Contract_status" DataSetColumn="Contract_status" />
-              <Mapping SourceColumn="Product_name" DataSetColumn="Product_name" />
-              <Mapping SourceColumn="agent_id" DataSetColumn="agent_id" />
-              <Mapping SourceColumn="Ag_fullname" DataSetColumn="Ag_fullname" />
+              <Mapping SourceColumn="ProductAreaName" DataSetColumn="ProductAreaName" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -1738,7 +1736,7 @@ WHERE
   <xs:element name="EdocbaseDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="EdocbaseDataSet" msprop:Generator_UserDSName="EdocbaseDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="users" msprop:Generator_TableClassName="usersDataTable" msprop:Generator_TableVarName="tableusers" msprop:Generator_RowChangedName="usersRowChanged" msprop:Generator_TablePropName="users" msprop:Generator_RowDeletingName="usersRowDeleting" msprop:Generator_RowChangingName="usersRowChanging" msprop:Generator_RowEvHandlerName="usersRowChangeEventHandler" msprop:Generator_RowDeletedName="usersRowDeleted" msprop:Generator_RowClassName="usersRow" msprop:Generator_UserTableName="users" msprop:Generator_RowEvArgName="usersRowChangeEvent">
+        <xs:element name="users" msprop:Generator_TableClassName="usersDataTable" msprop:Generator_TableVarName="tableusers" msprop:Generator_TablePropName="users" msprop:Generator_RowDeletingName="usersRowDeleting" msprop:Generator_RowChangingName="usersRowChanging" msprop:Generator_RowEvHandlerName="usersRowChangeEventHandler" msprop:Generator_RowDeletedName="usersRowDeleted" msprop:Generator_UserTableName="users" msprop:Generator_RowChangedName="usersRowChanged" msprop:Generator_RowEvArgName="usersRowChangeEvent" msprop:Generator_RowClassName="usersRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="login" msprop:Generator_ColumnVarNameInTable="columnlogin" msprop:Generator_ColumnPropNameInRow="login" msprop:Generator_ColumnPropNameInTable="loginColumn" msprop:Generator_UserColumnName="login" minOccurs="0">
@@ -1766,7 +1764,7 @@ WHERE
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Products" msprop:Generator_TableClassName="ProductsDataTable" msprop:Generator_TableVarName="tableProducts" msprop:Generator_RowChangedName="ProductsRowChanged" msprop:Generator_TablePropName="Products" msprop:Generator_RowDeletingName="ProductsRowDeleting" msprop:Generator_RowChangingName="ProductsRowChanging" msprop:Generator_RowEvHandlerName="ProductsRowChangeEventHandler" msprop:Generator_RowDeletedName="ProductsRowDeleted" msprop:Generator_RowClassName="ProductsRow" msprop:Generator_UserTableName="Products" msprop:Generator_RowEvArgName="ProductsRowChangeEvent">
+        <xs:element name="Products" msprop:Generator_TableClassName="ProductsDataTable" msprop:Generator_TableVarName="tableProducts" msprop:Generator_TablePropName="Products" msprop:Generator_RowDeletingName="ProductsRowDeleting" msprop:Generator_RowChangingName="ProductsRowChanging" msprop:Generator_RowEvHandlerName="ProductsRowChangeEventHandler" msprop:Generator_RowDeletedName="ProductsRowDeleted" msprop:Generator_UserTableName="Products" msprop:Generator_RowChangedName="ProductsRowChanged" msprop:Generator_RowEvArgName="ProductsRowChangeEvent" msprop:Generator_RowClassName="ProductsRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="idProducts" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnidProducts" msprop:Generator_ColumnPropNameInRow="idProducts" msprop:Generator_ColumnPropNameInTable="idProductsColumn" msprop:Generator_UserColumnName="idProducts" type="xs:int" />
@@ -1795,7 +1793,7 @@ WHERE
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="ProdGost" msprop:Generator_TableClassName="ProdGostDataTable" msprop:Generator_TableVarName="tableProdGost" msprop:Generator_RowChangedName="ProdGostRowChanged" msprop:Generator_TablePropName="ProdGost" msprop:Generator_RowDeletingName="ProdGostRowDeleting" msprop:Generator_RowChangingName="ProdGostRowChanging" msprop:Generator_RowEvHandlerName="ProdGostRowChangeEventHandler" msprop:Generator_RowDeletedName="ProdGostRowDeleted" msprop:Generator_RowClassName="ProdGostRow" msprop:Generator_UserTableName="ProdGost" msprop:Generator_RowEvArgName="ProdGostRowChangeEvent">
+        <xs:element name="ProdGost" msprop:Generator_TableClassName="ProdGostDataTable" msprop:Generator_TableVarName="tableProdGost" msprop:Generator_TablePropName="ProdGost" msprop:Generator_RowDeletingName="ProdGostRowDeleting" msprop:Generator_RowChangingName="ProdGostRowChanging" msprop:Generator_RowEvHandlerName="ProdGostRowChangeEventHandler" msprop:Generator_RowDeletedName="ProdGostRowDeleted" msprop:Generator_UserTableName="ProdGost" msprop:Generator_RowChangedName="ProdGostRowChanged" msprop:Generator_RowEvArgName="ProdGostRowChangeEvent" msprop:Generator_RowClassName="ProdGostRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />
@@ -1817,7 +1815,7 @@ WHERE
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="log_journal" msprop:Generator_TableClassName="log_journalDataTable" msprop:Generator_TableVarName="tablelog_journal" msprop:Generator_RowChangedName="log_journalRowChanged" msprop:Generator_TablePropName="log_journal" msprop:Generator_RowDeletingName="log_journalRowDeleting" msprop:Generator_RowChangingName="log_journalRowChanging" msprop:Generator_RowEvHandlerName="log_journalRowChangeEventHandler" msprop:Generator_RowDeletedName="log_journalRowDeleted" msprop:Generator_RowClassName="log_journalRow" msprop:Generator_UserTableName="log_journal" msprop:Generator_RowEvArgName="log_journalRowChangeEvent">
+        <xs:element name="log_journal" msprop:Generator_TableClassName="log_journalDataTable" msprop:Generator_TableVarName="tablelog_journal" msprop:Generator_TablePropName="log_journal" msprop:Generator_RowDeletingName="log_journalRowDeleting" msprop:Generator_RowChangingName="log_journalRowChanging" msprop:Generator_RowEvHandlerName="log_journalRowChangeEventHandler" msprop:Generator_RowDeletedName="log_journalRowDeleted" msprop:Generator_UserTableName="log_journal" msprop:Generator_RowChangedName="log_journalRowChanged" msprop:Generator_RowEvArgName="log_journalRowChangeEvent" msprop:Generator_RowClassName="log_journalRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="sessid" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnsessid" msprop:Generator_ColumnPropNameInRow="sessid" msprop:Generator_ColumnPropNameInTable="sessidColumn" msprop:Generator_UserColumnName="sessid" type="xs:int" />
@@ -1833,7 +1831,7 @@ WHERE
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Experts" msprop:Generator_TableClassName="ExpertsDataTable" msprop:Generator_TableVarName="tableExperts" msprop:Generator_RowChangedName="ExpertsRowChanged" msprop:Generator_TablePropName="Experts" msprop:Generator_RowDeletingName="ExpertsRowDeleting" msprop:Generator_RowChangingName="ExpertsRowChanging" msprop:Generator_RowEvHandlerName="ExpertsRowChangeEventHandler" msprop:Generator_RowDeletedName="ExpertsRowDeleted" msprop:Generator_RowClassName="ExpertsRow" msprop:Generator_UserTableName="Experts" msprop:Generator_RowEvArgName="ExpertsRowChangeEvent">
+        <xs:element name="Experts" msprop:Generator_TableClassName="ExpertsDataTable" msprop:Generator_TableVarName="tableExperts" msprop:Generator_TablePropName="Experts" msprop:Generator_RowDeletingName="ExpertsRowDeleting" msprop:Generator_RowChangingName="ExpertsRowChanging" msprop:Generator_RowEvHandlerName="ExpertsRowChangeEventHandler" msprop:Generator_RowDeletedName="ExpertsRowDeleted" msprop:Generator_UserTableName="Experts" msprop:Generator_RowChangedName="ExpertsRowChanged" msprop:Generator_RowEvArgName="ExpertsRowChangeEvent" msprop:Generator_RowClassName="ExpertsRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="idExperts" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnidExperts" msprop:Generator_ColumnPropNameInRow="idExperts" msprop:Generator_ColumnPropNameInTable="idExpertsColumn" msprop:Generator_UserColumnName="idExperts" type="xs:int" />
@@ -1868,7 +1866,7 @@ WHERE
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Exec_contracts" msprop:Generator_TableClassName="Exec_contractsDataTable" msprop:Generator_TableVarName="tableExec_contracts" msprop:Generator_RowChangedName="Exec_contractsRowChanged" msprop:Generator_TablePropName="Exec_contracts" msprop:Generator_RowDeletingName="Exec_contractsRowDeleting" msprop:Generator_RowChangingName="Exec_contractsRowChanging" msprop:Generator_RowEvHandlerName="Exec_contractsRowChangeEventHandler" msprop:Generator_RowDeletedName="Exec_contractsRowDeleted" msprop:Generator_RowClassName="Exec_contractsRow" msprop:Generator_UserTableName="Exec_contracts" msprop:Generator_RowEvArgName="Exec_contractsRowChangeEvent">
+        <xs:element name="Exec_contracts" msprop:Generator_TableClassName="Exec_contractsDataTable" msprop:Generator_TableVarName="tableExec_contracts" msprop:Generator_TablePropName="Exec_contracts" msprop:Generator_RowDeletingName="Exec_contractsRowDeleting" msprop:Generator_RowChangingName="Exec_contractsRowChanging" msprop:Generator_RowEvHandlerName="Exec_contractsRowChangeEventHandler" msprop:Generator_RowDeletedName="Exec_contractsRowDeleted" msprop:Generator_UserTableName="Exec_contracts" msprop:Generator_RowChangedName="Exec_contractsRowChanged" msprop:Generator_RowEvArgName="Exec_contractsRowChangeEvent" msprop:Generator_RowClassName="Exec_contractsRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="idContract" msprop:Generator_ColumnVarNameInTable="columnidContract" msprop:Generator_ColumnPropNameInRow="idContract" msprop:Generator_ColumnPropNameInTable="idContractColumn" msprop:Generator_UserColumnName="idContract" type="xs:int" />
@@ -1884,7 +1882,7 @@ WHERE
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Contracts" msprop:Generator_TableClassName="ContractsDataTable" msprop:Generator_TableVarName="tableContracts" msprop:Generator_RowChangedName="ContractsRowChanged" msprop:Generator_TablePropName="Contracts" msprop:Generator_RowDeletingName="ContractsRowDeleting" msprop:Generator_RowChangingName="ContractsRowChanging" msprop:Generator_RowEvHandlerName="ContractsRowChangeEventHandler" msprop:Generator_RowDeletedName="ContractsRowDeleted" msprop:Generator_RowClassName="ContractsRow" msprop:Generator_UserTableName="Contracts" msprop:Generator_RowEvArgName="ContractsRowChangeEvent">
+        <xs:element name="Contracts" msprop:Generator_TableClassName="ContractsDataTable" msprop:Generator_TableVarName="tableContracts" msprop:Generator_TablePropName="Contracts" msprop:Generator_RowDeletingName="ContractsRowDeleting" msprop:Generator_RowChangingName="ContractsRowChanging" msprop:Generator_RowEvHandlerName="ContractsRowChangeEventHandler" msprop:Generator_RowDeletedName="ContractsRowDeleted" msprop:Generator_UserTableName="Contracts" msprop:Generator_RowChangedName="ContractsRowChanged" msprop:Generator_RowEvArgName="ContractsRowChangeEvent" msprop:Generator_RowClassName="ContractsRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="idContract" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnidContract" msprop:Generator_ColumnPropNameInRow="idContract" msprop:Generator_ColumnPropNameInTable="idContractColumn" msprop:Generator_UserColumnName="idContract" type="xs:int" />
@@ -1929,7 +1927,7 @@ WHERE
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Agents" msprop:Generator_TableClassName="AgentsDataTable" msprop:Generator_TableVarName="tableAgents" msprop:Generator_RowChangedName="AgentsRowChanged" msprop:Generator_TablePropName="Agents" msprop:Generator_RowDeletingName="AgentsRowDeleting" msprop:Generator_RowChangingName="AgentsRowChanging" msprop:Generator_RowEvHandlerName="AgentsRowChangeEventHandler" msprop:Generator_RowDeletedName="AgentsRowDeleted" msprop:Generator_RowClassName="AgentsRow" msprop:Generator_UserTableName="Agents" msprop:Generator_RowEvArgName="AgentsRowChangeEvent">
+        <xs:element name="Agents" msprop:Generator_TableClassName="AgentsDataTable" msprop:Generator_TableVarName="tableAgents" msprop:Generator_TablePropName="Agents" msprop:Generator_RowDeletingName="AgentsRowDeleting" msprop:Generator_RowChangingName="AgentsRowChanging" msprop:Generator_RowEvHandlerName="AgentsRowChangeEventHandler" msprop:Generator_RowDeletedName="AgentsRowDeleted" msprop:Generator_UserTableName="Agents" msprop:Generator_RowChangedName="AgentsRowChanged" msprop:Generator_RowEvArgName="AgentsRowChangeEvent" msprop:Generator_RowClassName="AgentsRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="idAgents" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnidAgents" msprop:Generator_ColumnPropNameInRow="idAgents" msprop:Generator_ColumnPropNameInTable="idAgentsColumn" msprop:Generator_UserColumnName="idAgents" type="xs:int" />
@@ -2063,7 +2061,7 @@ WHERE
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="ContractTypes" msprop:Generator_TableClassName="ContractTypesDataTable" msprop:Generator_TableVarName="tableContractTypes" msprop:Generator_RowChangedName="ContractTypesRowChanged" msprop:Generator_TablePropName="ContractTypes" msprop:Generator_RowDeletingName="ContractTypesRowDeleting" msprop:Generator_RowChangingName="ContractTypesRowChanging" msprop:Generator_RowEvHandlerName="ContractTypesRowChangeEventHandler" msprop:Generator_RowDeletedName="ContractTypesRowDeleted" msprop:Generator_RowClassName="ContractTypesRow" msprop:Generator_UserTableName="ContractTypes" msprop:Generator_RowEvArgName="ContractTypesRowChangeEvent">
+        <xs:element name="ContractTypes" msprop:Generator_TableClassName="ContractTypesDataTable" msprop:Generator_TableVarName="tableContractTypes" msprop:Generator_TablePropName="ContractTypes" msprop:Generator_RowDeletingName="ContractTypesRowDeleting" msprop:Generator_RowChangingName="ContractTypesRowChanging" msprop:Generator_RowEvHandlerName="ContractTypesRowChangeEventHandler" msprop:Generator_RowDeletedName="ContractTypesRowDeleted" msprop:Generator_UserTableName="ContractTypes" msprop:Generator_RowChangedName="ContractTypesRowChanged" msprop:Generator_RowEvArgName="ContractTypesRowChangeEvent" msprop:Generator_RowClassName="ContractTypesRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="name" msprop:Generator_ColumnVarNameInTable="columnname" msprop:Generator_ColumnPropNameInRow="name" msprop:Generator_ColumnPropNameInTable="nameColumn" msprop:Generator_UserColumnName="name" minOccurs="0">
@@ -2077,7 +2075,7 @@ WHERE
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="ProductAreas" msprop:Generator_TableClassName="ProductAreasDataTable" msprop:Generator_TableVarName="tableProductAreas" msprop:Generator_RowChangedName="ProductAreasRowChanged" msprop:Generator_TablePropName="ProductAreas" msprop:Generator_RowDeletingName="ProductAreasRowDeleting" msprop:Generator_RowChangingName="ProductAreasRowChanging" msprop:Generator_RowEvHandlerName="ProductAreasRowChangeEventHandler" msprop:Generator_RowDeletedName="ProductAreasRowDeleted" msprop:Generator_RowClassName="ProductAreasRow" msprop:Generator_UserTableName="ProductAreas" msprop:Generator_RowEvArgName="ProductAreasRowChangeEvent">
+        <xs:element name="ProductAreas" msprop:Generator_TableClassName="ProductAreasDataTable" msprop:Generator_TableVarName="tableProductAreas" msprop:Generator_TablePropName="ProductAreas" msprop:Generator_RowDeletingName="ProductAreasRowDeleting" msprop:Generator_RowChangingName="ProductAreasRowChanging" msprop:Generator_RowEvHandlerName="ProductAreasRowChangeEventHandler" msprop:Generator_RowDeletedName="ProductAreasRowDeleted" msprop:Generator_UserTableName="ProductAreas" msprop:Generator_RowChangedName="ProductAreasRowChanged" msprop:Generator_RowEvArgName="ProductAreasRowChangeEvent" msprop:Generator_RowClassName="ProductAreasRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:byte" />
@@ -2091,7 +2089,7 @@ WHERE
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="AssignedContractsDataTable" msprop:Generator_TableClassName="AssignedContractsDataTableDataTable" msprop:Generator_TableVarName="tableAssignedContractsDataTable" msprop:Generator_RowChangedName="AssignedContractsDataTableRowChanged" msprop:Generator_TablePropName="AssignedContractsDataTable" msprop:Generator_RowDeletingName="AssignedContractsDataTableRowDeleting" msprop:Generator_RowChangingName="AssignedContractsDataTableRowChanging" msprop:Generator_RowEvHandlerName="AssignedContractsDataTableRowChangeEventHandler" msprop:Generator_RowDeletedName="AssignedContractsDataTableRowDeleted" msprop:Generator_RowClassName="AssignedContractsDataTableRow" msprop:Generator_UserTableName="AssignedContractsDataTable" msprop:Generator_RowEvArgName="AssignedContractsDataTableRowChangeEvent">
+        <xs:element name="AssignedContractsDataTable" msprop:Generator_TableClassName="AssignedContractsDataTableDataTable" msprop:Generator_TableVarName="tableAssignedContractsDataTable" msprop:Generator_TablePropName="AssignedContractsDataTable" msprop:Generator_RowDeletingName="AssignedContractsDataTableRowDeleting" msprop:Generator_RowChangingName="AssignedContractsDataTableRowChanging" msprop:Generator_RowEvHandlerName="AssignedContractsDataTableRowChangeEventHandler" msprop:Generator_RowDeletedName="AssignedContractsDataTableRowDeleted" msprop:Generator_UserTableName="AssignedContractsDataTable" msprop:Generator_RowChangedName="AssignedContractsDataTableRowChanged" msprop:Generator_RowEvArgName="AssignedContractsDataTableRowChangeEvent" msprop:Generator_RowClassName="AssignedContractsDataTableRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="idContract" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnidContract" msprop:Generator_ColumnPropNameInRow="idContract" msprop:Generator_ColumnPropNameInTable="idContractColumn" msprop:Generator_UserColumnName="idContract" type="xs:int" />
@@ -2122,7 +2120,7 @@ WHERE
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="ExpertAssignmentDataTable" msprop:Generator_TableClassName="ExpertAssignmentDataTableDataTable" msprop:Generator_TableVarName="tableExpertAssignmentDataTable" msprop:Generator_RowChangedName="ExpertAssignmentDataTableRowChanged" msprop:Generator_TablePropName="ExpertAssignmentDataTable" msprop:Generator_RowDeletingName="ExpertAssignmentDataTableRowDeleting" msprop:Generator_RowChangingName="ExpertAssignmentDataTableRowChanging" msprop:Generator_RowEvHandlerName="ExpertAssignmentDataTableRowChangeEventHandler" msprop:Generator_RowDeletedName="ExpertAssignmentDataTableRowDeleted" msprop:Generator_RowClassName="ExpertAssignmentDataTableRow" msprop:Generator_UserTableName="ExpertAssignmentDataTable" msprop:Generator_RowEvArgName="ExpertAssignmentDataTableRowChangeEvent">
+        <xs:element name="ExpertAssignmentDataTable" msprop:Generator_TableClassName="ExpertAssignmentDataTableDataTable" msprop:Generator_TableVarName="tableExpertAssignmentDataTable" msprop:Generator_TablePropName="ExpertAssignmentDataTable" msprop:Generator_RowDeletingName="ExpertAssignmentDataTableRowDeleting" msprop:Generator_RowChangingName="ExpertAssignmentDataTableRowChanging" msprop:Generator_RowEvHandlerName="ExpertAssignmentDataTableRowChangeEventHandler" msprop:Generator_RowDeletedName="ExpertAssignmentDataTableRowDeleted" msprop:Generator_UserTableName="ExpertAssignmentDataTable" msprop:Generator_RowChangedName="ExpertAssignmentDataTableRowChanged" msprop:Generator_RowEvArgName="ExpertAssignmentDataTableRowChangeEvent" msprop:Generator_RowClassName="ExpertAssignmentDataTableRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="idContract" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnidContract" msprop:Generator_ColumnPropNameInRow="idContract" msprop:Generator_ColumnPropNameInTable="idContractColumn" msprop:Generator_UserColumnName="idContract" type="xs:int" />
@@ -2153,7 +2151,7 @@ WHERE
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Agents_contacts" msprop:Generator_TableClassName="Agents_contactsDataTable" msprop:Generator_TableVarName="tableAgents_contacts" msprop:Generator_RowChangedName="Agents_contactsRowChanged" msprop:Generator_TablePropName="Agents_contacts" msprop:Generator_RowDeletingName="Agents_contactsRowDeleting" msprop:Generator_RowChangingName="Agents_contactsRowChanging" msprop:Generator_RowEvHandlerName="Agents_contactsRowChangeEventHandler" msprop:Generator_RowDeletedName="Agents_contactsRowDeleted" msprop:Generator_RowClassName="Agents_contactsRow" msprop:Generator_UserTableName="Agents_contacts" msprop:Generator_RowEvArgName="Agents_contactsRowChangeEvent">
+        <xs:element name="Agents_contacts" msprop:Generator_TableClassName="Agents_contactsDataTable" msprop:Generator_TableVarName="tableAgents_contacts" msprop:Generator_TablePropName="Agents_contacts" msprop:Generator_RowDeletingName="Agents_contactsRowDeleting" msprop:Generator_RowChangingName="Agents_contactsRowChanging" msprop:Generator_RowEvHandlerName="Agents_contactsRowChangeEventHandler" msprop:Generator_RowDeletedName="Agents_contactsRowDeleted" msprop:Generator_UserTableName="Agents_contacts" msprop:Generator_RowChangedName="Agents_contactsRowChanged" msprop:Generator_RowEvArgName="Agents_contactsRowChangeEvent" msprop:Generator_RowClassName="Agents_contactsRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="idAgents_contacts" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnidAgents_contacts" msprop:Generator_ColumnPropNameInRow="idAgents_contacts" msprop:Generator_ColumnPropNameInTable="idAgents_contactsColumn" msprop:Generator_UserColumnName="idAgents_contacts" type="xs:int" />
@@ -2196,7 +2194,7 @@ WHERE
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Agents_types" msprop:Generator_TableClassName="Agents_typesDataTable" msprop:Generator_TableVarName="tableAgents_types" msprop:Generator_RowChangedName="Agents_typesRowChanged" msprop:Generator_TablePropName="Agents_types" msprop:Generator_RowDeletingName="Agents_typesRowDeleting" msprop:Generator_RowChangingName="Agents_typesRowChanging" msprop:Generator_RowEvHandlerName="Agents_typesRowChangeEventHandler" msprop:Generator_RowDeletedName="Agents_typesRowDeleted" msprop:Generator_RowClassName="Agents_typesRow" msprop:Generator_UserTableName="Agents_types" msprop:Generator_RowEvArgName="Agents_typesRowChangeEvent">
+        <xs:element name="Agents_types" msprop:Generator_TableClassName="Agents_typesDataTable" msprop:Generator_TableVarName="tableAgents_types" msprop:Generator_TablePropName="Agents_types" msprop:Generator_RowDeletingName="Agents_typesRowDeleting" msprop:Generator_RowChangingName="Agents_typesRowChanging" msprop:Generator_RowEvHandlerName="Agents_typesRowChangeEventHandler" msprop:Generator_RowDeletedName="Agents_typesRowDeleted" msprop:Generator_UserTableName="Agents_types" msprop:Generator_RowChangedName="Agents_typesRowChanged" msprop:Generator_RowEvArgName="Agents_typesRowChangeEvent" msprop:Generator_RowClassName="Agents_typesRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="idAgents_types" msprop:Generator_ColumnVarNameInTable="columnidAgents_types" msprop:Generator_ColumnPropNameInRow="idAgents_types" msprop:Generator_ColumnPropNameInTable="idAgents_typesColumn" msprop:Generator_UserColumnName="idAgents_types" type="xs:byte" />
@@ -2210,7 +2208,7 @@ WHERE
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="ContractStatus" msprop:Generator_TableClassName="ContractStatusDataTable" msprop:Generator_TableVarName="tableContractStatus" msprop:Generator_RowChangedName="ContractStatusRowChanged" msprop:Generator_TablePropName="ContractStatus" msprop:Generator_RowDeletingName="ContractStatusRowDeleting" msprop:Generator_RowChangingName="ContractStatusRowChanging" msprop:Generator_RowEvHandlerName="ContractStatusRowChangeEventHandler" msprop:Generator_RowDeletedName="ContractStatusRowDeleted" msprop:Generator_RowClassName="ContractStatusRow" msprop:Generator_UserTableName="ContractStatus" msprop:Generator_RowEvArgName="ContractStatusRowChangeEvent">
+        <xs:element name="ContractStatus" msprop:Generator_TableClassName="ContractStatusDataTable" msprop:Generator_TableVarName="tableContractStatus" msprop:Generator_TablePropName="ContractStatus" msprop:Generator_RowDeletingName="ContractStatusRowDeleting" msprop:Generator_RowChangingName="ContractStatusRowChanging" msprop:Generator_RowEvHandlerName="ContractStatusRowChangeEventHandler" msprop:Generator_RowDeletedName="ContractStatusRowDeleted" msprop:Generator_UserTableName="ContractStatus" msprop:Generator_RowChangedName="ContractStatusRowChanged" msprop:Generator_RowEvArgName="ContractStatusRowChangeEvent" msprop:Generator_RowClassName="ContractStatusRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="name" msprop:Generator_ColumnVarNameInTable="columnname" msprop:Generator_ColumnPropNameInRow="name" msprop:Generator_ColumnPropNameInTable="nameColumn" msprop:Generator_UserColumnName="name" minOccurs="0">
@@ -2224,7 +2222,7 @@ WHERE
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="DocTemplates" msprop:Generator_TableClassName="DocTemplatesDataTable" msprop:Generator_TableVarName="tableDocTemplates" msprop:Generator_RowChangedName="DocTemplatesRowChanged" msprop:Generator_TablePropName="DocTemplates" msprop:Generator_RowDeletingName="DocTemplatesRowDeleting" msprop:Generator_RowChangingName="DocTemplatesRowChanging" msprop:Generator_RowEvHandlerName="DocTemplatesRowChangeEventHandler" msprop:Generator_RowDeletedName="DocTemplatesRowDeleted" msprop:Generator_RowClassName="DocTemplatesRow" msprop:Generator_UserTableName="DocTemplates" msprop:Generator_RowEvArgName="DocTemplatesRowChangeEvent">
+        <xs:element name="DocTemplates" msprop:Generator_TableClassName="DocTemplatesDataTable" msprop:Generator_TableVarName="tableDocTemplates" msprop:Generator_TablePropName="DocTemplates" msprop:Generator_RowDeletingName="DocTemplatesRowDeleting" msprop:Generator_RowChangingName="DocTemplatesRowChanging" msprop:Generator_RowEvHandlerName="DocTemplatesRowChangeEventHandler" msprop:Generator_RowDeletedName="DocTemplatesRowDeleted" msprop:Generator_UserTableName="DocTemplates" msprop:Generator_RowChangedName="DocTemplatesRowChanged" msprop:Generator_RowEvArgName="DocTemplatesRowChangeEvent" msprop:Generator_RowClassName="DocTemplatesRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />
@@ -2233,7 +2231,7 @@ WHERE
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Documents" msprop:Generator_TableClassName="DocumentsDataTable" msprop:Generator_TableVarName="tableDocuments" msprop:Generator_RowChangedName="DocumentsRowChanged" msprop:Generator_TablePropName="Documents" msprop:Generator_RowDeletingName="DocumentsRowDeleting" msprop:Generator_RowChangingName="DocumentsRowChanging" msprop:Generator_RowEvHandlerName="DocumentsRowChangeEventHandler" msprop:Generator_RowDeletedName="DocumentsRowDeleted" msprop:Generator_RowClassName="DocumentsRow" msprop:Generator_UserTableName="Documents" msprop:Generator_RowEvArgName="DocumentsRowChangeEvent">
+        <xs:element name="Documents" msprop:Generator_TableClassName="DocumentsDataTable" msprop:Generator_TableVarName="tableDocuments" msprop:Generator_TablePropName="Documents" msprop:Generator_RowDeletingName="DocumentsRowDeleting" msprop:Generator_RowChangingName="DocumentsRowChanging" msprop:Generator_RowEvHandlerName="DocumentsRowChangeEventHandler" msprop:Generator_RowDeletedName="DocumentsRowDeleted" msprop:Generator_UserTableName="Documents" msprop:Generator_RowChangedName="DocumentsRowChanged" msprop:Generator_RowEvArgName="DocumentsRowChangeEvent" msprop:Generator_RowClassName="DocumentsRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />
@@ -2243,7 +2241,7 @@ WHERE
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="ContractsToStartDataTable" msprop:Generator_TableClassName="ContractsToStartDataTableDataTable" msprop:Generator_TableVarName="tableContractsToStartDataTable" msprop:Generator_RowChangedName="ContractsToStartDataTableRowChanged" msprop:Generator_TablePropName="ContractsToStartDataTable" msprop:Generator_RowDeletingName="ContractsToStartDataTableRowDeleting" msprop:Generator_RowChangingName="ContractsToStartDataTableRowChanging" msprop:Generator_RowEvHandlerName="ContractsToStartDataTableRowChangeEventHandler" msprop:Generator_RowDeletedName="ContractsToStartDataTableRowDeleted" msprop:Generator_RowClassName="ContractsToStartDataTableRow" msprop:Generator_UserTableName="ContractsToStartDataTable" msprop:Generator_RowEvArgName="ContractsToStartDataTableRowChangeEvent">
+        <xs:element name="ContractsToStartDataTable" msprop:Generator_TableClassName="ContractsToStartDataTableDataTable" msprop:Generator_TableVarName="tableContractsToStartDataTable" msprop:Generator_TablePropName="ContractsToStartDataTable" msprop:Generator_RowDeletingName="ContractsToStartDataTableRowDeleting" msprop:Generator_RowChangingName="ContractsToStartDataTableRowChanging" msprop:Generator_RowEvHandlerName="ContractsToStartDataTableRowChangeEventHandler" msprop:Generator_RowDeletedName="ContractsToStartDataTableRowDeleted" msprop:Generator_UserTableName="ContractsToStartDataTable" msprop:Generator_RowChangedName="ContractsToStartDataTableRowChanged" msprop:Generator_RowEvArgName="ContractsToStartDataTableRowChangeEvent" msprop:Generator_RowClassName="ContractsToStartDataTableRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="idContract" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnidContract" msprop:Generator_ColumnPropNameInRow="idContract" msprop:Generator_ColumnPropNameInTable="idContractColumn" msprop:Generator_UserColumnName="idContract" type="xs:int" />
@@ -2275,104 +2273,7 @@ WHERE
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="TaskProcessedDataTable" msprop:Generator_TableClassName="TaskProcessedDataTableDataTable" msprop:Generator_TableVarName="tableTaskProcessedDataTable" msprop:Generator_RowChangedName="TaskProcessedDataTableRowChanged" msprop:Generator_TablePropName="TaskProcessedDataTable" msprop:Generator_RowDeletingName="TaskProcessedDataTableRowDeleting" msprop:Generator_RowChangingName="TaskProcessedDataTableRowChanging" msprop:Generator_RowEvHandlerName="TaskProcessedDataTableRowChangeEventHandler" msprop:Generator_RowDeletedName="TaskProcessedDataTableRowDeleted" msprop:Generator_RowClassName="TaskProcessedDataTableRow" msprop:Generator_UserTableName="TaskProcessedDataTable" msprop:Generator_RowEvArgName="TaskProcessedDataTableRowChangeEvent">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element name="idContract" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnidContract" msprop:Generator_ColumnPropNameInRow="idContract" msprop:Generator_ColumnPropNameInTable="idContractColumn" msprop:Generator_UserColumnName="idContract" type="xs:int" />
-              <xs:element name="Contract_number" msprop:Generator_ColumnVarNameInTable="columnContract_number" msprop:Generator_ColumnPropNameInRow="Contract_number" msprop:Generator_ColumnPropNameInTable="Contract_numberColumn" msprop:Generator_UserColumnName="Contract_number" type="xs:int" minOccurs="0" />
-              <xs:element name="agent_id" msprop:Generator_ColumnVarNameInTable="columnagent_id" msprop:Generator_ColumnPropNameInRow="agent_id" msprop:Generator_ColumnPropNameInTable="agent_idColumn" msprop:Generator_UserColumnName="agent_id" type="xs:int" />
-              <xs:element name="idProducts" msprop:Generator_ColumnVarNameInTable="columnidProducts" msprop:Generator_ColumnPropNameInRow="idProducts" msprop:Generator_ColumnPropNameInTable="idProductsColumn" msprop:Generator_UserColumnName="idProducts" type="xs:int" minOccurs="0" />
-              <xs:element name="expert_id" msprop:Generator_ColumnVarNameInTable="columnexpert_id" msprop:Generator_ColumnPropNameInRow="expert_id" msprop:Generator_ColumnPropNameInTable="expert_idColumn" msprop:Generator_UserColumnName="expert_id" type="xs:int" minOccurs="0" />
-              <xs:element name="Ag_fullname" msprop:Generator_ColumnVarNameInTable="columnAg_fullname" msprop:Generator_ColumnPropNameInRow="Ag_fullname" msprop:Generator_ColumnPropNameInTable="Ag_fullnameColumn" msprop:Generator_UserColumnName="Ag_fullname" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="63" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="Product_name" msprop:Generator_ColumnVarNameInTable="columnProduct_name" msprop:Generator_ColumnPropNameInRow="Product_name" msprop:Generator_ColumnPropNameInTable="Product_nameColumn" msprop:Generator_UserColumnName="Product_name" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="45" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="expert_fullname" msprop:Generator_ColumnVarNameInTable="columnexpert_fullname" msprop:Generator_ColumnPropNameInRow="expert_fullname" msprop:Generator_ColumnPropNameInTable="expert_fullnameColumn" msprop:Generator_UserColumnName="expert_fullname" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="92" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="Contract_start" msprop:Generator_ColumnVarNameInTable="columnContract_start" msprop:Generator_ColumnPropNameInRow="Contract_start" msprop:Generator_ColumnPropNameInTable="Contract_startColumn" msprop:Generator_UserColumnName="Contract_start" type="xs:dateTime" minOccurs="0" />
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
-        <xs:element name="TaskReadyDataTable" msprop:Generator_TableClassName="TaskReadyDataTableDataTable" msprop:Generator_TableVarName="tableTaskReadyDataTable" msprop:Generator_RowChangedName="TaskReadyDataTableRowChanged" msprop:Generator_TablePropName="TaskReadyDataTable" msprop:Generator_RowDeletingName="TaskReadyDataTableRowDeleting" msprop:Generator_RowChangingName="TaskReadyDataTableRowChanging" msprop:Generator_RowEvHandlerName="TaskReadyDataTableRowChangeEventHandler" msprop:Generator_RowDeletedName="TaskReadyDataTableRowDeleted" msprop:Generator_RowClassName="TaskReadyDataTableRow" msprop:Generator_UserTableName="TaskReadyDataTable" msprop:Generator_RowEvArgName="TaskReadyDataTableRowChangeEvent">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element name="idContract" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnidContract" msprop:Generator_ColumnPropNameInRow="idContract" msprop:Generator_ColumnPropNameInTable="idContractColumn" msprop:Generator_UserColumnName="idContract" type="xs:int" />
-              <xs:element name="Contract_number" msprop:Generator_ColumnVarNameInTable="columnContract_number" msprop:Generator_ColumnPropNameInRow="Contract_number" msprop:Generator_ColumnPropNameInTable="Contract_numberColumn" msprop:Generator_UserColumnName="Contract_number" type="xs:int" minOccurs="0" />
-              <xs:element name="agent_id" msprop:Generator_ColumnVarNameInTable="columnagent_id" msprop:Generator_ColumnPropNameInRow="agent_id" msprop:Generator_ColumnPropNameInTable="agent_idColumn" msprop:Generator_UserColumnName="agent_id" type="xs:int" />
-              <xs:element name="idProducts" msprop:Generator_ColumnVarNameInTable="columnidProducts" msprop:Generator_ColumnPropNameInRow="idProducts" msprop:Generator_ColumnPropNameInTable="idProductsColumn" msprop:Generator_UserColumnName="idProducts" type="xs:int" minOccurs="0" />
-              <xs:element name="expert_id" msprop:Generator_ColumnVarNameInTable="columnexpert_id" msprop:Generator_ColumnPropNameInRow="expert_id" msprop:Generator_ColumnPropNameInTable="expert_idColumn" msprop:Generator_UserColumnName="expert_id" type="xs:int" minOccurs="0" />
-              <xs:element name="Ag_fullname" msprop:Generator_ColumnVarNameInTable="columnAg_fullname" msprop:Generator_ColumnPropNameInRow="Ag_fullname" msprop:Generator_ColumnPropNameInTable="Ag_fullnameColumn" msprop:Generator_UserColumnName="Ag_fullname" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="63" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="Product_name" msprop:Generator_ColumnVarNameInTable="columnProduct_name" msprop:Generator_ColumnPropNameInRow="Product_name" msprop:Generator_ColumnPropNameInTable="Product_nameColumn" msprop:Generator_UserColumnName="Product_name" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="45" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="expert_fullname" msprop:Generator_ColumnVarNameInTable="columnexpert_fullname" msprop:Generator_ColumnPropNameInRow="expert_fullname" msprop:Generator_ColumnPropNameInTable="expert_fullnameColumn" msprop:Generator_UserColumnName="expert_fullname" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="92" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
-        <xs:element name="TaskFinishedDataTable" msprop:Generator_TableClassName="TaskFinishedDataTableDataTable" msprop:Generator_TableVarName="tableTaskFinishedDataTable" msprop:Generator_RowChangedName="TaskFinishedDataTableRowChanged" msprop:Generator_TablePropName="TaskFinishedDataTable" msprop:Generator_RowDeletingName="TaskFinishedDataTableRowDeleting" msprop:Generator_RowChangingName="TaskFinishedDataTableRowChanging" msprop:Generator_RowEvHandlerName="TaskFinishedDataTableRowChangeEventHandler" msprop:Generator_RowDeletedName="TaskFinishedDataTableRowDeleted" msprop:Generator_RowClassName="TaskFinishedDataTableRow" msprop:Generator_UserTableName="TaskFinishedDataTable" msprop:Generator_RowEvArgName="TaskFinishedDataTableRowChangeEvent">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element name="idContract" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnidContract" msprop:Generator_ColumnPropNameInRow="idContract" msprop:Generator_ColumnPropNameInTable="idContractColumn" msprop:Generator_UserColumnName="idContract" type="xs:int" />
-              <xs:element name="Contract_number" msprop:Generator_ColumnVarNameInTable="columnContract_number" msprop:Generator_ColumnPropNameInRow="Contract_number" msprop:Generator_ColumnPropNameInTable="Contract_numberColumn" msprop:Generator_UserColumnName="Contract_number" type="xs:int" minOccurs="0" />
-              <xs:element name="agent_id" msprop:Generator_ColumnVarNameInTable="columnagent_id" msprop:Generator_ColumnPropNameInRow="agent_id" msprop:Generator_ColumnPropNameInTable="agent_idColumn" msprop:Generator_UserColumnName="agent_id" type="xs:int" />
-              <xs:element name="idProducts" msprop:Generator_ColumnVarNameInTable="columnidProducts" msprop:Generator_ColumnPropNameInRow="idProducts" msprop:Generator_ColumnPropNameInTable="idProductsColumn" msprop:Generator_UserColumnName="idProducts" type="xs:int" minOccurs="0" />
-              <xs:element name="expert_id" msprop:Generator_ColumnVarNameInTable="columnexpert_id" msprop:Generator_ColumnPropNameInRow="expert_id" msprop:Generator_ColumnPropNameInTable="expert_idColumn" msprop:Generator_UserColumnName="expert_id" type="xs:int" minOccurs="0" />
-              <xs:element name="Ag_fullname" msprop:Generator_ColumnVarNameInTable="columnAg_fullname" msprop:Generator_ColumnPropNameInRow="Ag_fullname" msprop:Generator_ColumnPropNameInTable="Ag_fullnameColumn" msprop:Generator_UserColumnName="Ag_fullname" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="63" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="Product_name" msprop:Generator_ColumnVarNameInTable="columnProduct_name" msprop:Generator_ColumnPropNameInRow="Product_name" msprop:Generator_ColumnPropNameInTable="Product_nameColumn" msprop:Generator_UserColumnName="Product_name" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="45" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="expert_fullname" msprop:Generator_ColumnVarNameInTable="columnexpert_fullname" msprop:Generator_ColumnPropNameInRow="expert_fullname" msprop:Generator_ColumnPropNameInTable="expert_fullnameColumn" msprop:Generator_UserColumnName="expert_fullname" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="92" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
-        <xs:element name="BadJobsDataTable" msprop:Generator_TableClassName="BadJobsDataTableDataTable" msprop:Generator_TableVarName="tableBadJobsDataTable" msprop:Generator_RowChangedName="BadJobsDataTableRowChanged" msprop:Generator_TablePropName="BadJobsDataTable" msprop:Generator_RowDeletingName="BadJobsDataTableRowDeleting" msprop:Generator_RowChangingName="BadJobsDataTableRowChanging" msprop:Generator_RowEvHandlerName="BadJobsDataTableRowChangeEventHandler" msprop:Generator_RowDeletedName="BadJobsDataTableRowDeleted" msprop:Generator_RowClassName="BadJobsDataTableRow" msprop:Generator_UserTableName="BadJobsDataTable" msprop:Generator_RowEvArgName="BadJobsDataTableRowChangeEvent">
+        <xs:element name="TaskProcessedDataTable" msprop:Generator_TableClassName="TaskProcessedDataTableDataTable" msprop:Generator_TableVarName="tableTaskProcessedDataTable" msprop:Generator_TablePropName="TaskProcessedDataTable" msprop:Generator_RowDeletingName="TaskProcessedDataTableRowDeleting" msprop:Generator_RowChangingName="TaskProcessedDataTableRowChanging" msprop:Generator_RowEvHandlerName="TaskProcessedDataTableRowChangeEventHandler" msprop:Generator_RowDeletedName="TaskProcessedDataTableRowDeleted" msprop:Generator_UserTableName="TaskProcessedDataTable" msprop:Generator_RowChangedName="TaskProcessedDataTableRowChanged" msprop:Generator_RowEvArgName="TaskProcessedDataTableRowChangeEvent" msprop:Generator_RowClassName="TaskProcessedDataTableRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="idContract" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnidContract" msprop:Generator_ColumnPropNameInRow="idContract" msprop:Generator_ColumnPropNameInTable="idContractColumn" msprop:Generator_UserColumnName="idContract" type="xs:int" />
@@ -2405,7 +2306,104 @@ WHERE
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="TemplatesDataTable" msprop:Generator_TableClassName="TemplatesDataTableDataTable" msprop:Generator_TableVarName="tableTemplatesDataTable" msprop:Generator_TablePropName="TemplatesDataTable" msprop:Generator_RowDeletingName="TemplatesDataTableRowDeleting" msprop:Generator_RowChangingName="TemplatesDataTableRowChanging" msprop:Generator_RowEvHandlerName="TemplatesDataTableRowChangeEventHandler" msprop:Generator_RowDeletedName="TemplatesDataTableRowDeleted" msprop:Generator_UserTableName="TemplatesDataTable" msprop:Generator_RowChangedName="TemplatesDataTableRowChanged" msprop:Generator_RowEvArgName="TemplatesDataTableRowChangeEvent" msprop:Generator_RowClassName="TemplatesDataTableRow">
+        <xs:element name="TaskReadyDataTable" msprop:Generator_TableClassName="TaskReadyDataTableDataTable" msprop:Generator_TableVarName="tableTaskReadyDataTable" msprop:Generator_TablePropName="TaskReadyDataTable" msprop:Generator_RowDeletingName="TaskReadyDataTableRowDeleting" msprop:Generator_RowChangingName="TaskReadyDataTableRowChanging" msprop:Generator_RowEvHandlerName="TaskReadyDataTableRowChangeEventHandler" msprop:Generator_RowDeletedName="TaskReadyDataTableRowDeleted" msprop:Generator_UserTableName="TaskReadyDataTable" msprop:Generator_RowChangedName="TaskReadyDataTableRowChanged" msprop:Generator_RowEvArgName="TaskReadyDataTableRowChangeEvent" msprop:Generator_RowClassName="TaskReadyDataTableRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="idContract" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnidContract" msprop:Generator_ColumnPropNameInRow="idContract" msprop:Generator_ColumnPropNameInTable="idContractColumn" msprop:Generator_UserColumnName="idContract" type="xs:int" />
+              <xs:element name="Contract_number" msprop:Generator_ColumnVarNameInTable="columnContract_number" msprop:Generator_ColumnPropNameInRow="Contract_number" msprop:Generator_ColumnPropNameInTable="Contract_numberColumn" msprop:Generator_UserColumnName="Contract_number" type="xs:int" minOccurs="0" />
+              <xs:element name="agent_id" msprop:Generator_ColumnVarNameInTable="columnagent_id" msprop:Generator_ColumnPropNameInRow="agent_id" msprop:Generator_ColumnPropNameInTable="agent_idColumn" msprop:Generator_UserColumnName="agent_id" type="xs:int" />
+              <xs:element name="idProducts" msprop:Generator_ColumnVarNameInTable="columnidProducts" msprop:Generator_ColumnPropNameInRow="idProducts" msprop:Generator_ColumnPropNameInTable="idProductsColumn" msprop:Generator_UserColumnName="idProducts" type="xs:int" minOccurs="0" />
+              <xs:element name="expert_id" msprop:Generator_ColumnVarNameInTable="columnexpert_id" msprop:Generator_ColumnPropNameInRow="expert_id" msprop:Generator_ColumnPropNameInTable="expert_idColumn" msprop:Generator_UserColumnName="expert_id" type="xs:int" minOccurs="0" />
+              <xs:element name="Ag_fullname" msprop:Generator_ColumnVarNameInTable="columnAg_fullname" msprop:Generator_ColumnPropNameInRow="Ag_fullname" msprop:Generator_ColumnPropNameInTable="Ag_fullnameColumn" msprop:Generator_UserColumnName="Ag_fullname" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="63" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Product_name" msprop:Generator_ColumnVarNameInTable="columnProduct_name" msprop:Generator_ColumnPropNameInRow="Product_name" msprop:Generator_ColumnPropNameInTable="Product_nameColumn" msprop:Generator_UserColumnName="Product_name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="45" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="expert_fullname" msprop:Generator_ColumnVarNameInTable="columnexpert_fullname" msprop:Generator_ColumnPropNameInRow="expert_fullname" msprop:Generator_ColumnPropNameInTable="expert_fullnameColumn" msprop:Generator_UserColumnName="expert_fullname" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="92" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="TaskFinishedDataTable" msprop:Generator_TableClassName="TaskFinishedDataTableDataTable" msprop:Generator_TableVarName="tableTaskFinishedDataTable" msprop:Generator_TablePropName="TaskFinishedDataTable" msprop:Generator_RowDeletingName="TaskFinishedDataTableRowDeleting" msprop:Generator_RowChangingName="TaskFinishedDataTableRowChanging" msprop:Generator_RowEvHandlerName="TaskFinishedDataTableRowChangeEventHandler" msprop:Generator_RowDeletedName="TaskFinishedDataTableRowDeleted" msprop:Generator_UserTableName="TaskFinishedDataTable" msprop:Generator_RowChangedName="TaskFinishedDataTableRowChanged" msprop:Generator_RowEvArgName="TaskFinishedDataTableRowChangeEvent" msprop:Generator_RowClassName="TaskFinishedDataTableRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="idContract" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnidContract" msprop:Generator_ColumnPropNameInRow="idContract" msprop:Generator_ColumnPropNameInTable="idContractColumn" msprop:Generator_UserColumnName="idContract" type="xs:int" />
+              <xs:element name="Contract_number" msprop:Generator_ColumnVarNameInTable="columnContract_number" msprop:Generator_ColumnPropNameInRow="Contract_number" msprop:Generator_ColumnPropNameInTable="Contract_numberColumn" msprop:Generator_UserColumnName="Contract_number" type="xs:int" minOccurs="0" />
+              <xs:element name="agent_id" msprop:Generator_ColumnVarNameInTable="columnagent_id" msprop:Generator_ColumnPropNameInRow="agent_id" msprop:Generator_ColumnPropNameInTable="agent_idColumn" msprop:Generator_UserColumnName="agent_id" type="xs:int" />
+              <xs:element name="idProducts" msprop:Generator_ColumnVarNameInTable="columnidProducts" msprop:Generator_ColumnPropNameInRow="idProducts" msprop:Generator_ColumnPropNameInTable="idProductsColumn" msprop:Generator_UserColumnName="idProducts" type="xs:int" minOccurs="0" />
+              <xs:element name="expert_id" msprop:Generator_ColumnVarNameInTable="columnexpert_id" msprop:Generator_ColumnPropNameInRow="expert_id" msprop:Generator_ColumnPropNameInTable="expert_idColumn" msprop:Generator_UserColumnName="expert_id" type="xs:int" minOccurs="0" />
+              <xs:element name="Ag_fullname" msprop:Generator_ColumnVarNameInTable="columnAg_fullname" msprop:Generator_ColumnPropNameInRow="Ag_fullname" msprop:Generator_ColumnPropNameInTable="Ag_fullnameColumn" msprop:Generator_UserColumnName="Ag_fullname" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="63" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Product_name" msprop:Generator_ColumnVarNameInTable="columnProduct_name" msprop:Generator_ColumnPropNameInRow="Product_name" msprop:Generator_ColumnPropNameInTable="Product_nameColumn" msprop:Generator_UserColumnName="Product_name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="45" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="expert_fullname" msprop:Generator_ColumnVarNameInTable="columnexpert_fullname" msprop:Generator_ColumnPropNameInRow="expert_fullname" msprop:Generator_ColumnPropNameInTable="expert_fullnameColumn" msprop:Generator_UserColumnName="expert_fullname" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="92" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="BadJobsDataTable" msprop:Generator_TableClassName="BadJobsDataTableDataTable" msprop:Generator_TableVarName="tableBadJobsDataTable" msprop:Generator_TablePropName="BadJobsDataTable" msprop:Generator_RowDeletingName="BadJobsDataTableRowDeleting" msprop:Generator_RowChangingName="BadJobsDataTableRowChanging" msprop:Generator_RowEvHandlerName="BadJobsDataTableRowChangeEventHandler" msprop:Generator_RowDeletedName="BadJobsDataTableRowDeleted" msprop:Generator_UserTableName="BadJobsDataTable" msprop:Generator_RowChangedName="BadJobsDataTableRowChanged" msprop:Generator_RowEvArgName="BadJobsDataTableRowChangeEvent" msprop:Generator_RowClassName="BadJobsDataTableRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="idContract" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnidContract" msprop:Generator_ColumnPropNameInRow="idContract" msprop:Generator_ColumnPropNameInTable="idContractColumn" msprop:Generator_UserColumnName="idContract" type="xs:int" />
+              <xs:element name="Contract_number" msprop:Generator_ColumnVarNameInTable="columnContract_number" msprop:Generator_ColumnPropNameInRow="Contract_number" msprop:Generator_ColumnPropNameInTable="Contract_numberColumn" msprop:Generator_UserColumnName="Contract_number" type="xs:int" minOccurs="0" />
+              <xs:element name="agent_id" msprop:Generator_ColumnVarNameInTable="columnagent_id" msprop:Generator_ColumnPropNameInRow="agent_id" msprop:Generator_ColumnPropNameInTable="agent_idColumn" msprop:Generator_UserColumnName="agent_id" type="xs:int" />
+              <xs:element name="idProducts" msprop:Generator_ColumnVarNameInTable="columnidProducts" msprop:Generator_ColumnPropNameInRow="idProducts" msprop:Generator_ColumnPropNameInTable="idProductsColumn" msprop:Generator_UserColumnName="idProducts" type="xs:int" minOccurs="0" />
+              <xs:element name="expert_id" msprop:Generator_ColumnVarNameInTable="columnexpert_id" msprop:Generator_ColumnPropNameInRow="expert_id" msprop:Generator_ColumnPropNameInTable="expert_idColumn" msprop:Generator_UserColumnName="expert_id" type="xs:int" minOccurs="0" />
+              <xs:element name="Ag_fullname" msprop:Generator_ColumnVarNameInTable="columnAg_fullname" msprop:Generator_ColumnPropNameInRow="Ag_fullname" msprop:Generator_ColumnPropNameInTable="Ag_fullnameColumn" msprop:Generator_UserColumnName="Ag_fullname" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="63" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Product_name" msprop:Generator_ColumnVarNameInTable="columnProduct_name" msprop:Generator_ColumnPropNameInRow="Product_name" msprop:Generator_ColumnPropNameInTable="Product_nameColumn" msprop:Generator_UserColumnName="Product_name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="45" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="expert_fullname" msprop:Generator_ColumnVarNameInTable="columnexpert_fullname" msprop:Generator_ColumnPropNameInRow="expert_fullname" msprop:Generator_ColumnPropNameInTable="expert_fullnameColumn" msprop:Generator_UserColumnName="expert_fullname" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="92" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Contract_start" msprop:Generator_ColumnVarNameInTable="columnContract_start" msprop:Generator_ColumnPropNameInRow="Contract_start" msprop:Generator_ColumnPropNameInTable="Contract_startColumn" msprop:Generator_UserColumnName="Contract_start" type="xs:dateTime" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="TemplatesDataTable" msprop:Generator_TableClassName="TemplatesDataTableDataTable" msprop:Generator_TableVarName="tableTemplatesDataTable" msprop:Generator_RowChangedName="TemplatesDataTableRowChanged" msprop:Generator_TablePropName="TemplatesDataTable" msprop:Generator_RowDeletingName="TemplatesDataTableRowDeleting" msprop:Generator_RowChangingName="TemplatesDataTableRowChanging" msprop:Generator_RowEvHandlerName="TemplatesDataTableRowChangeEventHandler" msprop:Generator_RowDeletedName="TemplatesDataTableRowDeleted" msprop:Generator_RowClassName="TemplatesDataTableRow" msprop:Generator_UserTableName="TemplatesDataTable" msprop:Generator_RowEvArgName="TemplatesDataTableRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />
@@ -2422,7 +2420,7 @@ WHERE
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="ContractInfoDataTable" msprop:Generator_TableClassName="ContractInfoDataTableDataTable" msprop:Generator_TableVarName="tableContractInfoDataTable" msprop:Generator_RowChangedName="ContractInfoDataTableRowChanged" msprop:Generator_TablePropName="ContractInfoDataTable" msprop:Generator_RowDeletingName="ContractInfoDataTableRowDeleting" msprop:Generator_RowChangingName="ContractInfoDataTableRowChanging" msprop:Generator_RowEvHandlerName="ContractInfoDataTableRowChangeEventHandler" msprop:Generator_RowDeletedName="ContractInfoDataTableRowDeleted" msprop:Generator_RowClassName="ContractInfoDataTableRow" msprop:Generator_UserTableName="ContractInfoDataTable" msprop:Generator_RowEvArgName="ContractInfoDataTableRowChangeEvent">
+        <xs:element name="ContractInfoDataTable" msprop:Generator_TableClassName="ContractInfoDataTableDataTable" msprop:Generator_TableVarName="tableContractInfoDataTable" msprop:Generator_TablePropName="ContractInfoDataTable" msprop:Generator_RowDeletingName="ContractInfoDataTableRowDeleting" msprop:Generator_RowChangingName="ContractInfoDataTableRowChanging" msprop:Generator_RowEvHandlerName="ContractInfoDataTableRowChangeEventHandler" msprop:Generator_RowDeletedName="ContractInfoDataTableRowDeleted" msprop:Generator_UserTableName="ContractInfoDataTable" msprop:Generator_RowChangedName="ContractInfoDataTableRowChanged" msprop:Generator_RowEvArgName="ContractInfoDataTableRowChangeEvent" msprop:Generator_RowClassName="ContractInfoDataTableRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="idContract" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnidContract" msprop:Generator_ColumnPropNameInRow="idContract" msprop:Generator_ColumnPropNameInTable="idContractColumn" msprop:Generator_UserColumnName="idContract" type="xs:int" />
@@ -2631,13 +2629,6 @@ WHERE
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Expr1" msprop:Generator_ColumnVarNameInTable="columnExpr1" msprop:Generator_ColumnPropNameInRow="Expr1" msprop:Generator_ColumnPropNameInTable="Expr1Column" msprop:Generator_UserColumnName="Expr1" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="40" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
               <xs:element name="ProductArea" msprop:Generator_ColumnVarNameInTable="columnProductArea" msprop:Generator_ColumnPropNameInRow="ProductArea" msprop:Generator_ColumnPropNameInTable="ProductAreaColumn" msprop:Generator_UserColumnName="ProductArea" type="xs:byte" minOccurs="0" />
               <xs:element name="Expert_Firstname" msprop:Generator_ColumnVarNameInTable="columnExpert_Firstname" msprop:Generator_ColumnPropNameInRow="Expert_Firstname" msprop:Generator_ColumnPropNameInTable="Expert_FirstnameColumn" msprop:Generator_UserColumnName="Expert_Firstname" minOccurs="0">
                 <xs:simpleType>
@@ -2660,56 +2651,10 @@ WHERE
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
-        <xs:element name="ProposalsDataTable" msprop:Generator_TableClassName="ProposalsDataTableDataTable" msprop:Generator_TableVarName="tableProposalsDataTable" msprop:Generator_TablePropName="ProposalsDataTable" msprop:Generator_RowDeletingName="ProposalsDataTableRowDeleting" msprop:Generator_RowChangingName="ProposalsDataTableRowChanging" msprop:Generator_RowEvHandlerName="ProposalsDataTableRowChangeEventHandler" msprop:Generator_RowDeletedName="ProposalsDataTableRowDeleted" msprop:Generator_UserTableName="ProposalsDataTable" msprop:Generator_RowChangedName="ProposalsDataTableRowChanged" msprop:Generator_RowEvArgName="ProposalsDataTableRowChangeEvent" msprop:Generator_RowClassName="ProposalsDataTableRow">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element name="Add_data" msprop:Generator_ColumnVarNameInTable="columnAdd_data" msprop:Generator_ColumnPropNameInRow="Add_data" msprop:Generator_ColumnPropNameInTable="Add_dataColumn" msprop:Generator_UserColumnName="Add_data" minOccurs="0">
+              <xs:element name="ProductAreaName" msprop:Generator_ColumnVarNameInTable="columnProductAreaName" msprop:Generator_ColumnPropNameInRow="ProductAreaName" msprop:Generator_ColumnPropNameInTable="ProductAreaNameColumn" msprop:Generator_UserColumnName="ProductAreaName" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
-                    <xs:maxLength value="21845" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="Client_docs" msprop:Generator_ColumnVarNameInTable="columnClient_docs" msprop:Generator_ColumnPropNameInRow="Client_docs" msprop:Generator_ColumnPropNameInTable="Client_docsColumn" msprop:Generator_UserColumnName="Client_docs" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="45" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="Contract_type" msprop:Generator_ColumnVarNameInTable="columnContract_type" msprop:Generator_ColumnPropNameInRow="Contract_type" msprop:Generator_ColumnPropNameInTable="Contract_typeColumn" msprop:Generator_UserColumnName="Contract_type" type="xs:int" minOccurs="0" />
-              <xs:element name="Schem_type" msprop:Generator_ColumnVarNameInTable="columnSchem_type" msprop:Generator_ColumnPropNameInRow="Schem_type" msprop:Generator_ColumnPropNameInTable="Schem_typeColumn" msprop:Generator_UserColumnName="Schem_type" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="45" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="emission_type" msprop:Generator_ColumnVarNameInTable="columnemission_type" msprop:Generator_ColumnPropNameInRow="emission_type" msprop:Generator_ColumnPropNameInTable="emission_typeColumn" msprop:Generator_UserColumnName="emission_type" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="45" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="idContract" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnidContract" msprop:Generator_ColumnPropNameInRow="idContract" msprop:Generator_ColumnPropNameInTable="idContractColumn" msprop:Generator_UserColumnName="idContract" type="xs:int" />
-              <xs:element name="idProducts" msprop:Generator_ColumnVarNameInTable="columnidProducts" msprop:Generator_ColumnPropNameInRow="idProducts" msprop:Generator_ColumnPropNameInTable="idProductsColumn" msprop:Generator_UserColumnName="idProducts" type="xs:int" minOccurs="0" />
-              <xs:element name="Contract_status" msprop:Generator_ColumnVarNameInTable="columnContract_status" msprop:Generator_ColumnPropNameInRow="Contract_status" msprop:Generator_ColumnPropNameInTable="Contract_statusColumn" msprop:Generator_UserColumnName="Contract_status" type="xs:int" minOccurs="0" />
-              <xs:element name="Product_name" msprop:Generator_ColumnVarNameInTable="columnProduct_name" msprop:Generator_ColumnPropNameInRow="Product_name" msprop:Generator_ColumnPropNameInTable="Product_nameColumn" msprop:Generator_UserColumnName="Product_name" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="45" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="agent_id" msprop:Generator_ColumnVarNameInTable="columnagent_id" msprop:Generator_ColumnPropNameInRow="agent_id" msprop:Generator_ColumnPropNameInTable="agent_idColumn" msprop:Generator_UserColumnName="agent_id" type="xs:int" />
-              <xs:element name="Ag_fullname" msprop:Generator_ColumnVarNameInTable="columnAg_fullname" msprop:Generator_ColumnPropNameInRow="Ag_fullname" msprop:Generator_ColumnPropNameInTable="Ag_fullnameColumn" msprop:Generator_UserColumnName="Ag_fullname" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="63" />
+                    <xs:maxLength value="40" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
@@ -2806,30 +2751,26 @@ WHERE
       <xs:selector xpath=".//mstns:ContractInfoDataTable" />
       <xs:field xpath="mstns:idContract" />
     </xs:unique>
-    <xs:unique name="ProposalsDataTable_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
-      <xs:selector xpath=".//mstns:ProposalsDataTable" />
-      <xs:field xpath="mstns:idContract" />
-    </xs:unique>
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="fk_ProdGost_1" msdata:parent="Products" msdata:child="ProdGost" msdata:parentkey="idProducts" msdata:childkey="idProducts" msprop:Generator_UserChildTable="ProdGost" msprop:Generator_ChildPropName="GetProdGostRows" msprop:Generator_UserRelationName="fk_ProdGost_1" msprop:Generator_ParentPropName="ProductsRow" msprop:Generator_RelationVarName="relationfk_ProdGost_1" msprop:Generator_UserParentTable="Products" />
-      <msdata:Relationship name="fk_Exec_contracts_1" msdata:parent="Contracts" msdata:child="Exec_contracts" msdata:parentkey="idContract" msdata:childkey="idContract" msprop:Generator_UserChildTable="Exec_contracts" msprop:Generator_ChildPropName="GetExec_contractsRows" msprop:Generator_UserRelationName="fk_Exec_contracts_1" msprop:Generator_ParentPropName="ContractsRow" msprop:Generator_RelationVarName="relationfk_Exec_contracts_1" msprop:Generator_UserParentTable="Contracts" />
-      <msdata:Relationship name="fk_Contracts_2" msdata:parent="Experts" msdata:child="Contracts" msdata:parentkey="idExperts" msdata:childkey="expert_id" msprop:Generator_UserChildTable="Contracts" msprop:Generator_ChildPropName="GetContractsRows" msprop:Generator_UserRelationName="fk_Contracts_2" msprop:Generator_ParentPropName="ExpertsRow" msprop:Generator_RelationVarName="relationfk_Contracts_2" msprop:Generator_UserParentTable="Experts" />
-      <msdata:Relationship name="fk_Contracts_1" msdata:parent="Agents" msdata:child="Contracts" msdata:parentkey="idAgents" msdata:childkey="agent_id" msprop:Generator_UserChildTable="Contracts" msprop:Generator_ChildPropName="GetContractsRows" msprop:Generator_UserRelationName="fk_Contracts_1" msprop:Generator_ParentPropName="AgentsRow" msprop:Generator_RelationVarName="relationfk_Contracts_1" msprop:Generator_UserParentTable="Agents" />
-      <msdata:Relationship name="ProductAreas_Products" msdata:parent="ProductAreas" msdata:child="Products" msdata:parentkey="id" msdata:childkey="ProductArea" msprop:Generator_UserChildTable="Products" msprop:Generator_ChildPropName="GetProductsRows" msprop:Generator_UserRelationName="ProductAreas_Products" msprop:Generator_ParentPropName="ProductAreasRow" msprop:Generator_RelationVarName="relationProductAreas_Products" msprop:Generator_UserParentTable="ProductAreas" />
-      <msdata:Relationship name="Agents_Agents_contacts" msdata:parent="Agents" msdata:child="Agents_contacts" msdata:parentkey="idAgents" msdata:childkey="ac_agent_id" msprop:Generator_UserChildTable="Agents_contacts" msprop:Generator_ChildPropName="GetAgents_contactsRows" msprop:Generator_UserRelationName="Agents_Agents_contacts" msprop:Generator_ParentPropName="AgentsRow" msprop:Generator_RelationVarName="relationAgents_Agents_contacts" msprop:Generator_UserParentTable="Agents" />
-      <msdata:Relationship name="agents_types_Agents" msdata:parent="Agents_types" msdata:child="Agents" msdata:parentkey="idAgents_types" msdata:childkey="Ag_type_id" msprop:Generator_UserChildTable="Agents" msprop:Generator_ChildPropName="GetAgentsRows" msprop:Generator_UserRelationName="agents_types_Agents" msprop:Generator_RelationVarName="relationagents_types_Agents" msprop:Generator_UserParentTable="Agents_types" msprop:Generator_ParentPropName="Agents_typesRow" />
-      <msdata:Relationship name="fk_Contracts_5" msdata:parent="ContractStatus" msdata:child="Contracts" msdata:parentkey="id" msdata:childkey="Contract_status" msprop:Generator_UserChildTable="Contracts" msprop:Generator_ChildPropName="GetContractsRows" msprop:Generator_UserRelationName="fk_Contracts_5" msprop:Generator_ParentPropName="ContractStatusRow" msprop:Generator_RelationVarName="relationfk_Contracts_5" msprop:Generator_UserParentTable="ContractStatus" />
-      <msdata:Relationship name="fk_Contracts_4" msdata:parent="ContractTypes" msdata:child="Contracts" msdata:parentkey="id" msdata:childkey="Contract_type" msprop:Generator_UserChildTable="Contracts" msprop:Generator_ChildPropName="GetContractsRows" msprop:Generator_UserRelationName="fk_Contracts_4" msprop:Generator_ParentPropName="ContractTypesRow" msprop:Generator_RelationVarName="relationfk_Contracts_4" msprop:Generator_UserParentTable="ContractTypes" />
-      <msdata:Relationship name="fk_Contracts_11" msdata:parent="ContractTypes" msdata:child="DocTemplates" msdata:parentkey="id" msdata:childkey="id" msprop:Generator_UserChildTable="DocTemplates" msprop:Generator_ChildPropName="GetDocTemplatesRows" msprop:Generator_UserRelationName="fk_Contracts_11" msprop:Generator_RelationVarName="relationfk_Contracts_11" msprop:Generator_UserParentTable="ContractTypes" msprop:Generator_ParentPropName="ContractTypesRow" />
-      <msdata:Relationship name="fk_documents_1" msdata:parent="Contracts" msdata:child="Documents" msdata:parentkey="idContract" msdata:childkey="idContract" msprop:Generator_UserChildTable="Documents" msprop:Generator_ChildPropName="GetDocumentsRows" msprop:Generator_UserRelationName="fk_documents_1" msprop:Generator_RelationVarName="relationfk_documents_1" msprop:Generator_UserParentTable="Contracts" msprop:Generator_ParentPropName="ContractsRow" />
-      <msdata:Relationship name="fk_Contracts_3" msdata:parent="Products" msdata:child="Contracts" msdata:parentkey="idProducts" msdata:childkey="idProducts" msprop:Generator_UserChildTable="Contracts" msprop:Generator_ChildPropName="GetContractsRows" msprop:Generator_UserRelationName="fk_Contracts_3" msprop:Generator_RelationVarName="relationfk_Contracts_3" msprop:Generator_UserParentTable="Products" msprop:Generator_ParentPropName="ProductsRow" />
-      <msdata:Relationship name="fk_Contracts_41" msdata:parent="TemplatesDataTable" msdata:child="Contracts" msdata:parentkey="id" msdata:childkey="Contract_type" msprop:Generator_UserChildTable="Contracts" msprop:Generator_ChildPropName="GetContractsRows" msprop:Generator_UserRelationName="fk_Contracts_41" msprop:Generator_RelationVarName="relationfk_Contracts_41" msprop:Generator_UserParentTable="TemplatesDataTable" msprop:Generator_ParentPropName="TemplatesDataTableRow" />
-      <msdata:Relationship name="fk_Contracts_12" msdata:parent="TemplatesDataTable" msdata:child="DocTemplates" msdata:parentkey="id" msdata:childkey="id" msprop:Generator_UserChildTable="DocTemplates" msprop:Generator_ChildPropName="GetDocTemplatesRows" msprop:Generator_UserRelationName="fk_Contracts_12" msprop:Generator_RelationVarName="relationfk_Contracts_12" msprop:Generator_UserParentTable="TemplatesDataTable" msprop:Generator_ParentPropName="TemplatesDataTableRow" />
-      <msdata:Relationship name="fk_Contracts_13" msdata:parent="ContractTypes" msdata:child="TemplatesDataTable" msdata:parentkey="id" msdata:childkey="id" msprop:Generator_UserChildTable="TemplatesDataTable" msprop:Generator_ChildPropName="GetTemplatesDataTableRows" msprop:Generator_UserRelationName="fk_Contracts_13" msprop:Generator_ParentPropName="ContractTypesRow" msprop:Generator_RelationVarName="relationfk_Contracts_13" msprop:Generator_UserParentTable="ContractTypes" />
-      <msdata:Relationship name="fk_Agents_1" msdata:parent="Agents_types" msdata:child="ContractInfoDataTable" msdata:parentkey="idAgents_types" msdata:childkey="Ag_type_id" msprop:Generator_UserChildTable="ContractInfoDataTable" msprop:Generator_ChildPropName="GetContractInfoDataTableRows" msprop:Generator_UserRelationName="fk_Agents_1" msprop:Generator_RelationVarName="relationfk_Agents_1" msprop:Generator_UserParentTable="Agents_types" msprop:Generator_ParentPropName="Agents_typesRow" />
-      <msdata:Relationship name="fk_documents_2" msdata:parent="ContractTypes" msdata:child="Documents" msdata:parentkey="id" msdata:childkey="type" msprop:Generator_UserChildTable="Documents" msprop:Generator_ChildPropName="GetDocumentsRows" msprop:Generator_UserRelationName="fk_documents_2" msprop:Generator_RelationVarName="relationfk_documents_2" msprop:Generator_UserParentTable="ContractTypes" msprop:Generator_ParentPropName="ContractTypesRow" />
+      <msdata:Relationship name="fk_ProdGost_1" msdata:parent="Products" msdata:child="ProdGost" msdata:parentkey="idProducts" msdata:childkey="idProducts" msprop:Generator_UserChildTable="ProdGost" msprop:Generator_ChildPropName="GetProdGostRows" msprop:Generator_UserRelationName="fk_ProdGost_1" msprop:Generator_RelationVarName="relationfk_ProdGost_1" msprop:Generator_UserParentTable="Products" msprop:Generator_ParentPropName="ProductsRow" />
+      <msdata:Relationship name="fk_Exec_contracts_1" msdata:parent="Contracts" msdata:child="Exec_contracts" msdata:parentkey="idContract" msdata:childkey="idContract" msprop:Generator_UserChildTable="Exec_contracts" msprop:Generator_ChildPropName="GetExec_contractsRows" msprop:Generator_UserRelationName="fk_Exec_contracts_1" msprop:Generator_RelationVarName="relationfk_Exec_contracts_1" msprop:Generator_UserParentTable="Contracts" msprop:Generator_ParentPropName="ContractsRow" />
+      <msdata:Relationship name="fk_Contracts_2" msdata:parent="Experts" msdata:child="Contracts" msdata:parentkey="idExperts" msdata:childkey="expert_id" msprop:Generator_UserChildTable="Contracts" msprop:Generator_ChildPropName="GetContractsRows" msprop:Generator_UserRelationName="fk_Contracts_2" msprop:Generator_RelationVarName="relationfk_Contracts_2" msprop:Generator_UserParentTable="Experts" msprop:Generator_ParentPropName="ExpertsRow" />
+      <msdata:Relationship name="fk_Contracts_1" msdata:parent="Agents" msdata:child="Contracts" msdata:parentkey="idAgents" msdata:childkey="agent_id" msprop:Generator_UserChildTable="Contracts" msprop:Generator_ChildPropName="GetContractsRows" msprop:Generator_UserRelationName="fk_Contracts_1" msprop:Generator_RelationVarName="relationfk_Contracts_1" msprop:Generator_UserParentTable="Agents" msprop:Generator_ParentPropName="AgentsRow" />
+      <msdata:Relationship name="ProductAreas_Products" msdata:parent="ProductAreas" msdata:child="Products" msdata:parentkey="id" msdata:childkey="ProductArea" msprop:Generator_UserChildTable="Products" msprop:Generator_ChildPropName="GetProductsRows" msprop:Generator_UserRelationName="ProductAreas_Products" msprop:Generator_RelationVarName="relationProductAreas_Products" msprop:Generator_UserParentTable="ProductAreas" msprop:Generator_ParentPropName="ProductAreasRow" />
+      <msdata:Relationship name="Agents_Agents_contacts" msdata:parent="Agents" msdata:child="Agents_contacts" msdata:parentkey="idAgents" msdata:childkey="ac_agent_id" msprop:Generator_UserChildTable="Agents_contacts" msprop:Generator_ChildPropName="GetAgents_contactsRows" msprop:Generator_UserRelationName="Agents_Agents_contacts" msprop:Generator_RelationVarName="relationAgents_Agents_contacts" msprop:Generator_UserParentTable="Agents" msprop:Generator_ParentPropName="AgentsRow" />
+      <msdata:Relationship name="agents_types_Agents" msdata:parent="Agents_types" msdata:child="Agents" msdata:parentkey="idAgents_types" msdata:childkey="Ag_type_id" msprop:Generator_UserChildTable="Agents" msprop:Generator_ChildPropName="GetAgentsRows" msprop:Generator_UserRelationName="agents_types_Agents" msprop:Generator_ParentPropName="Agents_typesRow" msprop:Generator_RelationVarName="relationagents_types_Agents" msprop:Generator_UserParentTable="Agents_types" />
+      <msdata:Relationship name="fk_Contracts_5" msdata:parent="ContractStatus" msdata:child="Contracts" msdata:parentkey="id" msdata:childkey="Contract_status" msprop:Generator_UserChildTable="Contracts" msprop:Generator_ChildPropName="GetContractsRows" msprop:Generator_UserRelationName="fk_Contracts_5" msprop:Generator_RelationVarName="relationfk_Contracts_5" msprop:Generator_UserParentTable="ContractStatus" msprop:Generator_ParentPropName="ContractStatusRow" />
+      <msdata:Relationship name="fk_Contracts_4" msdata:parent="ContractTypes" msdata:child="Contracts" msdata:parentkey="id" msdata:childkey="Contract_type" msprop:Generator_UserChildTable="Contracts" msprop:Generator_ChildPropName="GetContractsRows" msprop:Generator_UserRelationName="fk_Contracts_4" msprop:Generator_RelationVarName="relationfk_Contracts_4" msprop:Generator_UserParentTable="ContractTypes" msprop:Generator_ParentPropName="ContractTypesRow" />
+      <msdata:Relationship name="fk_Contracts_11" msdata:parent="ContractTypes" msdata:child="DocTemplates" msdata:parentkey="id" msdata:childkey="id" msprop:Generator_UserChildTable="DocTemplates" msprop:Generator_ChildPropName="GetDocTemplatesRows" msprop:Generator_UserRelationName="fk_Contracts_11" msprop:Generator_ParentPropName="ContractTypesRow" msprop:Generator_RelationVarName="relationfk_Contracts_11" msprop:Generator_UserParentTable="ContractTypes" />
+      <msdata:Relationship name="fk_documents_1" msdata:parent="Contracts" msdata:child="Documents" msdata:parentkey="idContract" msdata:childkey="idContract" msprop:Generator_UserChildTable="Documents" msprop:Generator_ChildPropName="GetDocumentsRows" msprop:Generator_UserRelationName="fk_documents_1" msprop:Generator_ParentPropName="ContractsRow" msprop:Generator_RelationVarName="relationfk_documents_1" msprop:Generator_UserParentTable="Contracts" />
+      <msdata:Relationship name="fk_Contracts_3" msdata:parent="Products" msdata:child="Contracts" msdata:parentkey="idProducts" msdata:childkey="idProducts" msprop:Generator_UserChildTable="Contracts" msprop:Generator_ChildPropName="GetContractsRows" msprop:Generator_UserRelationName="fk_Contracts_3" msprop:Generator_ParentPropName="ProductsRow" msprop:Generator_RelationVarName="relationfk_Contracts_3" msprop:Generator_UserParentTable="Products" />
+      <msdata:Relationship name="fk_Contracts_41" msdata:parent="TemplatesDataTable" msdata:child="Contracts" msdata:parentkey="id" msdata:childkey="Contract_type" msprop:Generator_UserChildTable="Contracts" msprop:Generator_ChildPropName="GetContractsRows" msprop:Generator_UserRelationName="fk_Contracts_41" msprop:Generator_ParentPropName="TemplatesDataTableRow" msprop:Generator_RelationVarName="relationfk_Contracts_41" msprop:Generator_UserParentTable="TemplatesDataTable" />
+      <msdata:Relationship name="fk_Contracts_12" msdata:parent="TemplatesDataTable" msdata:child="DocTemplates" msdata:parentkey="id" msdata:childkey="id" msprop:Generator_UserChildTable="DocTemplates" msprop:Generator_ChildPropName="GetDocTemplatesRows" msprop:Generator_UserRelationName="fk_Contracts_12" msprop:Generator_ParentPropName="TemplatesDataTableRow" msprop:Generator_RelationVarName="relationfk_Contracts_12" msprop:Generator_UserParentTable="TemplatesDataTable" />
+      <msdata:Relationship name="fk_Contracts_13" msdata:parent="ContractTypes" msdata:child="TemplatesDataTable" msdata:parentkey="id" msdata:childkey="id" msprop:Generator_UserChildTable="TemplatesDataTable" msprop:Generator_ChildPropName="GetTemplatesDataTableRows" msprop:Generator_UserRelationName="fk_Contracts_13" msprop:Generator_RelationVarName="relationfk_Contracts_13" msprop:Generator_UserParentTable="ContractTypes" msprop:Generator_ParentPropName="ContractTypesRow" />
+      <msdata:Relationship name="fk_Agents_1" msdata:parent="Agents_types" msdata:child="ContractInfoDataTable" msdata:parentkey="idAgents_types" msdata:childkey="Ag_type_id" msprop:Generator_UserChildTable="ContractInfoDataTable" msprop:Generator_ChildPropName="GetContractInfoDataTableRows" msprop:Generator_UserRelationName="fk_Agents_1" msprop:Generator_ParentPropName="Agents_typesRow" msprop:Generator_RelationVarName="relationfk_Agents_1" msprop:Generator_UserParentTable="Agents_types" />
+      <msdata:Relationship name="fk_documents_2" msdata:parent="ContractTypes" msdata:child="Documents" msdata:parentkey="id" msdata:childkey="type" msprop:Generator_UserChildTable="Documents" msprop:Generator_ChildPropName="GetDocumentsRows" msprop:Generator_UserRelationName="fk_documents_2" msprop:Generator_ParentPropName="ContractTypesRow" msprop:Generator_RelationVarName="relationfk_documents_2" msprop:Generator_UserParentTable="ContractTypes" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>

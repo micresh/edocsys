@@ -788,6 +788,7 @@
             this.Ag_fullname.HeaderText = "Название";
             this.Ag_fullname.MinimumWidth = 250;
             this.Ag_fullname.Name = "Ag_fullname";
+            this.Ag_fullname.ReadOnly = true;
             this.Ag_fullname.ToolTipText = "Название";
             this.Ag_fullname.Width = 250;
             // 
@@ -796,6 +797,7 @@
             this.agINNDataGridViewTextBoxColumn.DataPropertyName = "Ag_INN";
             this.agINNDataGridViewTextBoxColumn.HeaderText = "ИНН";
             this.agINNDataGridViewTextBoxColumn.Name = "agINNDataGridViewTextBoxColumn";
+            this.agINNDataGridViewTextBoxColumn.ReadOnly = true;
             this.agINNDataGridViewTextBoxColumn.ToolTipText = "ИНН";
             // 
             // person_shortname
@@ -804,6 +806,7 @@
             this.person_shortname.HeaderText = "Ф.И.О. ответственного";
             this.person_shortname.MinimumWidth = 200;
             this.person_shortname.Name = "person_shortname";
+            this.person_shortname.ReadOnly = true;
             this.person_shortname.ToolTipText = "Ф.И.О. ответственного";
             this.person_shortname.Width = 200;
             // 

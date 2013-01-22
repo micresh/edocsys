@@ -72,8 +72,6 @@ namespace Edocsys {
         
         private ContractInfoDataTableDataTable tableContractInfoDataTable;
         
-        private ProposalsDataTableDataTable tableProposalsDataTable;
-        
         private global::System.Data.DataRelation relationfk_ProdGost_1;
         
         private global::System.Data.DataRelation relationfk_Exec_contracts_1;
@@ -207,9 +205,6 @@ namespace Edocsys {
                 }
                 if ((ds.Tables["ContractInfoDataTable"] != null)) {
                     base.Tables.Add(new ContractInfoDataTableDataTable(ds.Tables["ContractInfoDataTable"]));
-                }
-                if ((ds.Tables["ProposalsDataTable"] != null)) {
-                    base.Tables.Add(new ProposalsDataTableDataTable(ds.Tables["ProposalsDataTable"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -471,16 +466,6 @@ namespace Edocsys {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Browsable(false)]
-        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public ProposalsDataTableDataTable ProposalsDataTable {
-            get {
-                return this.tableProposalsDataTable;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.BrowsableAttribute(true)]
         [global::System.ComponentModel.DesignerSerializationVisibilityAttribute(global::System.ComponentModel.DesignerSerializationVisibility.Visible)]
         public override global::System.Data.SchemaSerializationMode SchemaSerializationMode {
@@ -617,9 +602,6 @@ namespace Edocsys {
                 }
                 if ((ds.Tables["ContractInfoDataTable"] != null)) {
                     base.Tables.Add(new ContractInfoDataTableDataTable(ds.Tables["ContractInfoDataTable"]));
-                }
-                if ((ds.Tables["ProposalsDataTable"] != null)) {
-                    base.Tables.Add(new ProposalsDataTableDataTable(ds.Tables["ProposalsDataTable"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -798,12 +780,6 @@ namespace Edocsys {
                     this.tableContractInfoDataTable.InitVars();
                 }
             }
-            this.tableProposalsDataTable = ((ProposalsDataTableDataTable)(base.Tables["ProposalsDataTable"]));
-            if ((initTable == true)) {
-                if ((this.tableProposalsDataTable != null)) {
-                    this.tableProposalsDataTable.InitVars();
-                }
-            }
             this.relationfk_ProdGost_1 = this.Relations["fk_ProdGost_1"];
             this.relationfk_Exec_contracts_1 = this.Relations["fk_Exec_contracts_1"];
             this.relationfk_Contracts_2 = this.Relations["fk_Contracts_2"];
@@ -879,8 +855,6 @@ namespace Edocsys {
             base.Tables.Add(this.tableTemplatesDataTable);
             this.tableContractInfoDataTable = new ContractInfoDataTableDataTable();
             base.Tables.Add(this.tableContractInfoDataTable);
-            this.tableProposalsDataTable = new ProposalsDataTableDataTable();
-            base.Tables.Add(this.tableProposalsDataTable);
             this.relationfk_ProdGost_1 = new global::System.Data.DataRelation("fk_ProdGost_1", new global::System.Data.DataColumn[] {
                         this.tableProducts.idProductsColumn}, new global::System.Data.DataColumn[] {
                         this.tableProdGost.idProductsColumn}, false);
@@ -1097,12 +1071,6 @@ namespace Edocsys {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private bool ShouldSerializeProposalsDataTable() {
-            return false;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void SchemaChanged(object sender, global::System.ComponentModel.CollectionChangeEventArgs e) {
             if ((e.Action == global::System.ComponentModel.CollectionChangeAction.Remove)) {
                 this.InitVars();
@@ -1227,9 +1195,6 @@ namespace Edocsys {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public delegate void ContractInfoDataTableRowChangeEventHandler(object sender, ContractInfoDataTableRowChangeEvent e);
-        
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public delegate void ProposalsDataTableRowChangeEventHandler(object sender, ProposalsDataTableRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -9204,8 +9169,6 @@ namespace Edocsys {
             
             private global::System.Data.DataColumn columnProduct_TNVED;
             
-            private global::System.Data.DataColumn columnExpr1;
-            
             private global::System.Data.DataColumn columnProductArea;
             
             private global::System.Data.DataColumn columnExpert_Firstname;
@@ -9213,6 +9176,8 @@ namespace Edocsys {
             private global::System.Data.DataColumn columnExpert_Lastname;
             
             private global::System.Data.DataColumn columnExpert_Middlename;
+            
+            private global::System.Data.DataColumn columnProductAreaName;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -9601,14 +9566,6 @@ namespace Edocsys {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Expr1Column {
-                get {
-                    return this.columnExpr1;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public global::System.Data.DataColumn ProductAreaColumn {
                 get {
                     return this.columnProductArea;
@@ -9636,6 +9593,14 @@ namespace Edocsys {
             public global::System.Data.DataColumn Expert_MiddlenameColumn {
                 get {
                     return this.columnExpert_Middlename;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn ProductAreaNameColumn {
+                get {
+                    return this.columnProductAreaName;
                 }
             }
             
@@ -9720,11 +9685,11 @@ namespace Edocsys {
                         string Product_name, 
                         string Product_OKP, 
                         string Product_TNVED, 
-                        string Expr1, 
                         sbyte ProductArea, 
                         string Expert_Firstname, 
                         string Expert_Lastname, 
-                        string Expert_Middlename) {
+                        string Expert_Middlename, 
+                        string ProductAreaName) {
                 ContractInfoDataTableRow rowContractInfoDataTableRow = ((ContractInfoDataTableRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -9771,11 +9736,11 @@ namespace Edocsys {
                         Product_name,
                         Product_OKP,
                         Product_TNVED,
-                        Expr1,
                         ProductArea,
                         Expert_Firstname,
                         Expert_Lastname,
-                        Expert_Middlename};
+                        Expert_Middlename,
+                        ProductAreaName};
                 if ((parentAgents_typesRowByfk_Agents_1 != null)) {
                     columnValuesArray[21] = parentAgents_typesRowByfk_Agents_1[0];
                 }
@@ -9852,11 +9817,11 @@ namespace Edocsys {
                 this.columnProduct_name = base.Columns["Product_name"];
                 this.columnProduct_OKP = base.Columns["Product_OKP"];
                 this.columnProduct_TNVED = base.Columns["Product_TNVED"];
-                this.columnExpr1 = base.Columns["Expr1"];
                 this.columnProductArea = base.Columns["ProductArea"];
                 this.columnExpert_Firstname = base.Columns["Expert_Firstname"];
                 this.columnExpert_Lastname = base.Columns["Expert_Lastname"];
                 this.columnExpert_Middlename = base.Columns["Expert_Middlename"];
+                this.columnProductAreaName = base.Columns["ProductAreaName"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -9950,8 +9915,6 @@ namespace Edocsys {
                 base.Columns.Add(this.columnProduct_OKP);
                 this.columnProduct_TNVED = new global::System.Data.DataColumn("Product_TNVED", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnProduct_TNVED);
-                this.columnExpr1 = new global::System.Data.DataColumn("Expr1", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnExpr1);
                 this.columnProductArea = new global::System.Data.DataColumn("ProductArea", typeof(sbyte), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnProductArea);
                 this.columnExpert_Firstname = new global::System.Data.DataColumn("Expert_Firstname", typeof(string), null, global::System.Data.MappingType.Element);
@@ -9960,6 +9923,8 @@ namespace Edocsys {
                 base.Columns.Add(this.columnExpert_Lastname);
                 this.columnExpert_Middlename = new global::System.Data.DataColumn("Expert_Middlename", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnExpert_Middlename);
+                this.columnProductAreaName = new global::System.Data.DataColumn("ProductAreaName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnProductAreaName);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnidContract}, true));
                 this.columnidContract.AutoIncrement = true;
@@ -9994,10 +9959,10 @@ namespace Edocsys {
                 this.columnProduct_name.MaxLength = 45;
                 this.columnProduct_OKP.MaxLength = 31;
                 this.columnProduct_TNVED.MaxLength = 31;
-                this.columnExpr1.MaxLength = 40;
                 this.columnExpert_Firstname.MaxLength = 30;
                 this.columnExpert_Lastname.MaxLength = 30;
                 this.columnExpert_Middlename.MaxLength = 30;
+                this.columnProductAreaName.MaxLength = 40;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -10084,414 +10049,6 @@ namespace Edocsys {
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
                 attribute2.FixedValue = "ContractInfoDataTableDataTable";
-                type.Attributes.Add(attribute2);
-                type.Particle = sequence;
-                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
-                if (xs.Contains(dsSchema.TargetNamespace)) {
-                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
-                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
-                    try {
-                        global::System.Xml.Schema.XmlSchema schema = null;
-                        dsSchema.Write(s1);
-                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
-                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
-                            s2.SetLength(0);
-                            schema.Write(s2);
-                            if ((s1.Length == s2.Length)) {
-                                s1.Position = 0;
-                                s2.Position = 0;
-                                for (; ((s1.Position != s1.Length) 
-                                            && (s1.ReadByte() == s2.ReadByte())); ) {
-                                    ;
-                                }
-                                if ((s1.Position == s1.Length)) {
-                                    return type;
-                                }
-                            }
-                        }
-                    }
-                    finally {
-                        if ((s1 != null)) {
-                            s1.Close();
-                        }
-                        if ((s2 != null)) {
-                            s2.Close();
-                        }
-                    }
-                }
-                xs.Add(dsSchema);
-                return type;
-            }
-        }
-        
-        /// <summary>
-        ///Represents the strongly named DataTable class.
-        ///</summary>
-        [global::System.Serializable()]
-        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class ProposalsDataTableDataTable : global::System.Data.TypedTableBase<ProposalsDataTableRow> {
-            
-            private global::System.Data.DataColumn columnAdd_data;
-            
-            private global::System.Data.DataColumn columnClient_docs;
-            
-            private global::System.Data.DataColumn columnContract_type;
-            
-            private global::System.Data.DataColumn columnSchem_type;
-            
-            private global::System.Data.DataColumn columnemission_type;
-            
-            private global::System.Data.DataColumn columnidContract;
-            
-            private global::System.Data.DataColumn columnidProducts;
-            
-            private global::System.Data.DataColumn columnContract_status;
-            
-            private global::System.Data.DataColumn columnProduct_name;
-            
-            private global::System.Data.DataColumn columnagent_id;
-            
-            private global::System.Data.DataColumn columnAg_fullname;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ProposalsDataTableDataTable() {
-                this.TableName = "ProposalsDataTable";
-                this.BeginInit();
-                this.InitClass();
-                this.EndInit();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal ProposalsDataTableDataTable(global::System.Data.DataTable table) {
-                this.TableName = table.TableName;
-                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
-                    this.CaseSensitive = table.CaseSensitive;
-                }
-                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
-                    this.Locale = table.Locale;
-                }
-                if ((table.Namespace != table.DataSet.Namespace)) {
-                    this.Namespace = table.Namespace;
-                }
-                this.Prefix = table.Prefix;
-                this.MinimumCapacity = table.MinimumCapacity;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected ProposalsDataTableDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
-                    base(info, context) {
-                this.InitVars();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Add_dataColumn {
-                get {
-                    return this.columnAdd_data;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Client_docsColumn {
-                get {
-                    return this.columnClient_docs;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Contract_typeColumn {
-                get {
-                    return this.columnContract_type;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Schem_typeColumn {
-                get {
-                    return this.columnSchem_type;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn emission_typeColumn {
-                get {
-                    return this.columnemission_type;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn idContractColumn {
-                get {
-                    return this.columnidContract;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn idProductsColumn {
-                get {
-                    return this.columnidProducts;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Contract_statusColumn {
-                get {
-                    return this.columnContract_status;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Product_nameColumn {
-                get {
-                    return this.columnProduct_name;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn agent_idColumn {
-                get {
-                    return this.columnagent_id;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Ag_fullnameColumn {
-                get {
-                    return this.columnAg_fullname;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            [global::System.ComponentModel.Browsable(false)]
-            public int Count {
-                get {
-                    return this.Rows.Count;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ProposalsDataTableRow this[int index] {
-                get {
-                    return ((ProposalsDataTableRow)(this.Rows[index]));
-                }
-            }
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event ProposalsDataTableRowChangeEventHandler ProposalsDataTableRowChanging;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event ProposalsDataTableRowChangeEventHandler ProposalsDataTableRowChanged;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event ProposalsDataTableRowChangeEventHandler ProposalsDataTableRowDeleting;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event ProposalsDataTableRowChangeEventHandler ProposalsDataTableRowDeleted;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void AddProposalsDataTableRow(ProposalsDataTableRow row) {
-                this.Rows.Add(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ProposalsDataTableRow AddProposalsDataTableRow(string Add_data, string Client_docs, int Contract_type, string Schem_type, string emission_type, int idProducts, int Contract_status, string Product_name, int agent_id, string Ag_fullname) {
-                ProposalsDataTableRow rowProposalsDataTableRow = ((ProposalsDataTableRow)(this.NewRow()));
-                object[] columnValuesArray = new object[] {
-                        Add_data,
-                        Client_docs,
-                        Contract_type,
-                        Schem_type,
-                        emission_type,
-                        null,
-                        idProducts,
-                        Contract_status,
-                        Product_name,
-                        agent_id,
-                        Ag_fullname};
-                rowProposalsDataTableRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowProposalsDataTableRow);
-                return rowProposalsDataTableRow;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ProposalsDataTableRow FindByidContract(int idContract) {
-                return ((ProposalsDataTableRow)(this.Rows.Find(new object[] {
-                            idContract})));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public override global::System.Data.DataTable Clone() {
-                ProposalsDataTableDataTable cln = ((ProposalsDataTableDataTable)(base.Clone()));
-                cln.InitVars();
-                return cln;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override global::System.Data.DataTable CreateInstance() {
-                return new ProposalsDataTableDataTable();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal void InitVars() {
-                this.columnAdd_data = base.Columns["Add_data"];
-                this.columnClient_docs = base.Columns["Client_docs"];
-                this.columnContract_type = base.Columns["Contract_type"];
-                this.columnSchem_type = base.Columns["Schem_type"];
-                this.columnemission_type = base.Columns["emission_type"];
-                this.columnidContract = base.Columns["idContract"];
-                this.columnidProducts = base.Columns["idProducts"];
-                this.columnContract_status = base.Columns["Contract_status"];
-                this.columnProduct_name = base.Columns["Product_name"];
-                this.columnagent_id = base.Columns["agent_id"];
-                this.columnAg_fullname = base.Columns["Ag_fullname"];
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            private void InitClass() {
-                this.columnAdd_data = new global::System.Data.DataColumn("Add_data", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnAdd_data);
-                this.columnClient_docs = new global::System.Data.DataColumn("Client_docs", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnClient_docs);
-                this.columnContract_type = new global::System.Data.DataColumn("Contract_type", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnContract_type);
-                this.columnSchem_type = new global::System.Data.DataColumn("Schem_type", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnSchem_type);
-                this.columnemission_type = new global::System.Data.DataColumn("emission_type", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnemission_type);
-                this.columnidContract = new global::System.Data.DataColumn("idContract", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnidContract);
-                this.columnidProducts = new global::System.Data.DataColumn("idProducts", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnidProducts);
-                this.columnContract_status = new global::System.Data.DataColumn("Contract_status", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnContract_status);
-                this.columnProduct_name = new global::System.Data.DataColumn("Product_name", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnProduct_name);
-                this.columnagent_id = new global::System.Data.DataColumn("agent_id", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnagent_id);
-                this.columnAg_fullname = new global::System.Data.DataColumn("Ag_fullname", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnAg_fullname);
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnidContract}, true));
-                this.columnAdd_data.MaxLength = 21845;
-                this.columnClient_docs.MaxLength = 45;
-                this.columnSchem_type.MaxLength = 45;
-                this.columnemission_type.MaxLength = 45;
-                this.columnidContract.AutoIncrement = true;
-                this.columnidContract.AutoIncrementSeed = -1;
-                this.columnidContract.AutoIncrementStep = -1;
-                this.columnidContract.AllowDBNull = false;
-                this.columnidContract.Unique = true;
-                this.columnProduct_name.MaxLength = 45;
-                this.columnagent_id.AllowDBNull = false;
-                this.columnAg_fullname.MaxLength = 63;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ProposalsDataTableRow NewProposalsDataTableRow() {
-                return ((ProposalsDataTableRow)(this.NewRow()));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new ProposalsDataTableRow(builder);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override global::System.Type GetRowType() {
-                return typeof(ProposalsDataTableRow);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanged(e);
-                if ((this.ProposalsDataTableRowChanged != null)) {
-                    this.ProposalsDataTableRowChanged(this, new ProposalsDataTableRowChangeEvent(((ProposalsDataTableRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanging(e);
-                if ((this.ProposalsDataTableRowChanging != null)) {
-                    this.ProposalsDataTableRowChanging(this, new ProposalsDataTableRowChangeEvent(((ProposalsDataTableRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleted(e);
-                if ((this.ProposalsDataTableRowDeleted != null)) {
-                    this.ProposalsDataTableRowDeleted(this, new ProposalsDataTableRowChangeEvent(((ProposalsDataTableRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleting(e);
-                if ((this.ProposalsDataTableRowDeleting != null)) {
-                    this.ProposalsDataTableRowDeleting(this, new ProposalsDataTableRowChangeEvent(((ProposalsDataTableRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void RemoveProposalsDataTableRow(ProposalsDataTableRow row) {
-                this.Rows.Remove(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
-                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                EdocbaseDataSet ds = new EdocbaseDataSet();
-                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
-                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
-                any1.MinOccurs = new decimal(0);
-                any1.MaxOccurs = decimal.MaxValue;
-                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any1);
-                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
-                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
-                any2.MinOccurs = new decimal(1);
-                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any2);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute1.Name = "namespace";
-                attribute1.FixedValue = ds.Namespace;
-                type.Attributes.Add(attribute1);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "ProposalsDataTableDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -15575,22 +15132,6 @@ namespace Edocsys {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Expr1 {
-                get {
-                    try {
-                        return ((string)(this[this.tableContractInfoDataTable.Expr1Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Expr1\' in table \'ContractInfoDataTable\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableContractInfoDataTable.Expr1Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public sbyte ProductArea {
                 get {
                     try {
@@ -15653,6 +15194,23 @@ namespace Edocsys {
                 }
                 set {
                     this[this.tableContractInfoDataTable.Expert_MiddlenameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string ProductAreaName {
+                get {
+                    try {
+                        return ((string)(this[this.tableContractInfoDataTable.ProductAreaNameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ProductAreaName\' in table \'ContractInfoDataTable\' is DBNull" +
+                                ".", e);
+                    }
+                }
+                set {
+                    this[this.tableContractInfoDataTable.ProductAreaNameColumn] = value;
                 }
             }
             
@@ -16185,18 +15743,6 @@ namespace Edocsys {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsExpr1Null() {
-                return this.IsNull(this.tableContractInfoDataTable.Expr1Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetExpr1Null() {
-                this[this.tableContractInfoDataTable.Expr1Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsProductAreaNull() {
                 return this.IsNull(this.tableContractInfoDataTable.ProductAreaColumn);
             }
@@ -16242,294 +15788,17 @@ namespace Edocsys {
             public void SetExpert_MiddlenameNull() {
                 this[this.tableContractInfoDataTable.Expert_MiddlenameColumn] = global::System.Convert.DBNull;
             }
-        }
-        
-        /// <summary>
-        ///Represents strongly named DataRow class.
-        ///</summary>
-        public partial class ProposalsDataTableRow : global::System.Data.DataRow {
-            
-            private ProposalsDataTableDataTable tableProposalsDataTable;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal ProposalsDataTableRow(global::System.Data.DataRowBuilder rb) : 
-                    base(rb) {
-                this.tableProposalsDataTable = ((ProposalsDataTableDataTable)(this.Table));
+            public bool IsProductAreaNameNull() {
+                return this.IsNull(this.tableContractInfoDataTable.ProductAreaNameColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Add_data {
-                get {
-                    try {
-                        return ((string)(this[this.tableProposalsDataTable.Add_dataColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Add_data\' in table \'ProposalsDataTable\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableProposalsDataTable.Add_dataColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Client_docs {
-                get {
-                    try {
-                        return ((string)(this[this.tableProposalsDataTable.Client_docsColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Client_docs\' in table \'ProposalsDataTable\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableProposalsDataTable.Client_docsColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int Contract_type {
-                get {
-                    try {
-                        return ((int)(this[this.tableProposalsDataTable.Contract_typeColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Contract_type\' in table \'ProposalsDataTable\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableProposalsDataTable.Contract_typeColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Schem_type {
-                get {
-                    try {
-                        return ((string)(this[this.tableProposalsDataTable.Schem_typeColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Schem_type\' in table \'ProposalsDataTable\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableProposalsDataTable.Schem_typeColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string emission_type {
-                get {
-                    try {
-                        return ((string)(this[this.tableProposalsDataTable.emission_typeColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'emission_type\' in table \'ProposalsDataTable\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableProposalsDataTable.emission_typeColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int idContract {
-                get {
-                    return ((int)(this[this.tableProposalsDataTable.idContractColumn]));
-                }
-                set {
-                    this[this.tableProposalsDataTable.idContractColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int idProducts {
-                get {
-                    try {
-                        return ((int)(this[this.tableProposalsDataTable.idProductsColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'idProducts\' in table \'ProposalsDataTable\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableProposalsDataTable.idProductsColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int Contract_status {
-                get {
-                    try {
-                        return ((int)(this[this.tableProposalsDataTable.Contract_statusColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Contract_status\' in table \'ProposalsDataTable\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableProposalsDataTable.Contract_statusColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Product_name {
-                get {
-                    try {
-                        return ((string)(this[this.tableProposalsDataTable.Product_nameColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Product_name\' in table \'ProposalsDataTable\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableProposalsDataTable.Product_nameColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int agent_id {
-                get {
-                    return ((int)(this[this.tableProposalsDataTable.agent_idColumn]));
-                }
-                set {
-                    this[this.tableProposalsDataTable.agent_idColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Ag_fullname {
-                get {
-                    try {
-                        return ((string)(this[this.tableProposalsDataTable.Ag_fullnameColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Ag_fullname\' in table \'ProposalsDataTable\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableProposalsDataTable.Ag_fullnameColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsAdd_dataNull() {
-                return this.IsNull(this.tableProposalsDataTable.Add_dataColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetAdd_dataNull() {
-                this[this.tableProposalsDataTable.Add_dataColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsClient_docsNull() {
-                return this.IsNull(this.tableProposalsDataTable.Client_docsColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetClient_docsNull() {
-                this[this.tableProposalsDataTable.Client_docsColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsContract_typeNull() {
-                return this.IsNull(this.tableProposalsDataTable.Contract_typeColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetContract_typeNull() {
-                this[this.tableProposalsDataTable.Contract_typeColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsSchem_typeNull() {
-                return this.IsNull(this.tableProposalsDataTable.Schem_typeColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetSchem_typeNull() {
-                this[this.tableProposalsDataTable.Schem_typeColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool Isemission_typeNull() {
-                return this.IsNull(this.tableProposalsDataTable.emission_typeColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void Setemission_typeNull() {
-                this[this.tableProposalsDataTable.emission_typeColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsidProductsNull() {
-                return this.IsNull(this.tableProposalsDataTable.idProductsColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetidProductsNull() {
-                this[this.tableProposalsDataTable.idProductsColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsContract_statusNull() {
-                return this.IsNull(this.tableProposalsDataTable.Contract_statusColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetContract_statusNull() {
-                this[this.tableProposalsDataTable.Contract_statusColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsProduct_nameNull() {
-                return this.IsNull(this.tableProposalsDataTable.Product_nameColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetProduct_nameNull() {
-                this[this.tableProposalsDataTable.Product_nameColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsAg_fullnameNull() {
-                return this.IsNull(this.tableProposalsDataTable.Ag_fullnameColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetAg_fullnameNull() {
-                this[this.tableProposalsDataTable.Ag_fullnameColumn] = global::System.Convert.DBNull;
+            public void SetProductAreaNameNull() {
+                this[this.tableContractInfoDataTable.ProductAreaNameColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -17335,40 +16604,6 @@ namespace Edocsys {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public ContractInfoDataTableRow Row {
-                get {
-                    return this.eventRow;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataRowAction Action {
-                get {
-                    return this.eventAction;
-                }
-            }
-        }
-        
-        /// <summary>
-        ///Row event argument class
-        ///</summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public class ProposalsDataTableRowChangeEvent : global::System.EventArgs {
-            
-            private ProposalsDataTableRow eventRow;
-            
-            private global::System.Data.DataRowAction eventAction;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ProposalsDataTableRowChangeEvent(ProposalsDataTableRow row, global::System.Data.DataRowAction action) {
-                this.eventRow = row;
-                this.eventAction = action;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ProposalsDataTableRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -29422,11 +28657,11 @@ OR
             tableMapping.ColumnMappings.Add("Product_name", "Product_name");
             tableMapping.ColumnMappings.Add("Product_OKP", "Product_OKP");
             tableMapping.ColumnMappings.Add("Product_TNVED", "Product_TNVED");
-            tableMapping.ColumnMappings.Add("Expr1", "Expr1");
             tableMapping.ColumnMappings.Add("ProductArea", "ProductArea");
             tableMapping.ColumnMappings.Add("Expert_Firstname", "Expert_Firstname");
             tableMapping.ColumnMappings.Add("Expert_Lastname", "Expert_Lastname");
             tableMapping.ColumnMappings.Add("Expert_Middlename", "Expert_Middlename");
+            tableMapping.ColumnMappings.Add("ProductAreaName", "ProductAreaName");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -29443,32 +28678,28 @@ OR
             this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[1];
             this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT        contracts.idContract, contracts.emission_type, contracts.Client_doc" +
-                "s, contracts.Schem_type, contracts.Add_data, contracts.Contract_value_1, \r\n     " +
-                "                    contracts.Contract_value_full, contracts.Contract_number, co" +
-                "ntracts.Contract_status, contracts.Bid_type, contracts.Cash_income, contracttype" +
-                "s.name, \r\n                         exec_contracts.Contract_start, exec_contracts" +
-                ".Contract_1_reatt, exec_contracts.Contract_2_reatt, exec_contracts.Contract_resu" +
-                "me, exec_contracts.exec_1_reatt, \r\n                         exec_contracts.exec_" +
-                "2_reatt, exec_contracts.exec_resume, exec_contracts.sample_income, exec_contract" +
-                "s.protocol_income, agents.Ag_type_id, \r\n                         agents_types.Ag" +
-                "ent_type, agents.Ag_fullname, agents.Ag_INN, agents.Ag_tel, agents.Ag_fax, agent" +
-                "s.Ag_addr, agents.Ag_mail, agents.Ag_OGRN, agents.Ag_KPP, \r\n                    " +
-                "     agents.Ag_OKPO, agents.Ag_Rcou, agents.Ag_Kcou, agents.Ag_BIK, agents.Ag_ba" +
-                "nk, agents.Ag_doc, agents.Ag_pers_status, agents.Ag_pers_lastname, \r\n           " +
-                "              agents.Ag_pers_firstname, agents.Ag_pers_middlename, products.Prod" +
-                "uct_name, products.Product_OKP, products.Product_TNVED, productareas.name AS Exp" +
-                "r1, \r\n                         products.ProductArea, experts.Expert_Firstname, e" +
-                "xperts.Expert_Lastname, experts.Expert_Middlename\r\nFROM            contracts INN" +
-                "ER JOIN\r\n                         contracttypes ON contracts.Contract_type = con" +
-                "tracttypes.id INNER JOIN\r\n                         exec_contracts ON contracts.i" +
-                "dContract = exec_contracts.idContract INNER JOIN\r\n                         produ" +
-                "cts ON contracts.idProducts = products.idProducts INNER JOIN\r\n                  " +
-                "       experts ON contracts.expert_id = experts.idExperts INNER JOIN\r\n          " +
-                "               agents ON contracts.agent_id = agents.idAgents INNER JOIN\r\n      " +
-                "                   agents_types ON agents.Ag_type_id = agents_types.idAgents_typ" +
-                "es INNER JOIN\r\n                         productareas ON products.ProductArea = p" +
-                "roductareas.id";
+            this._commandCollection[0].CommandText = "SELECT\r\nContracts.idContract,\r\nContracts.emission_type,\r\nContracts.Client_docs,\r\n" +
+                "Contracts.Schem_type,\r\nContracts.Add_data,\r\nContracts.Contract_value_1,\r\nContrac" +
+                "ts.Contract_value_full,\r\nContracts.Contract_number,\r\nContracts.Contract_status,\r" +
+                "\nContracts.Bid_type,\r\nContracts.Cash_income,\r\ncontracttypes.name,\r\nExec_contract" +
+                "s.Contract_start,\r\nExec_contracts.Contract_1_reatt,\r\nExec_contracts.Contract_2_r" +
+                "eatt,\r\nExec_contracts.Contract_resume,\r\nExec_contracts.exec_1_reatt,\r\nExec_contr" +
+                "acts.exec_2_reatt,\r\nExec_contracts.exec_resume,\r\nExec_contracts.sample_income,\r\n" +
+                "Exec_contracts.protocol_income,\r\nAgents.Ag_type_id, \r\nAgents_types.Agent_type,\r\n" +
+                "Agents.Ag_fullname,\r\nAgents.Ag_INN,\r\nAgents.Ag_tel,\r\nAgents.Ag_fax,\r\nAgents.Ag_a" +
+                "ddr,\r\nAgents.Ag_mail,\r\nAgents.Ag_OGRN,\r\nAgents.Ag_KPP,\r\nAgents.Ag_OKPO,\r\nAgents." +
+                "Ag_Rcou,\r\nAgents.Ag_Kcou,\r\nAgents.Ag_BIK,\r\nAgents.Ag_bank,\r\nAgents.Ag_doc,\r\nAgen" +
+                "ts.Ag_pers_status,\r\nAgents.Ag_pers_lastname,\r\nAgents.Ag_pers_firstname,\r\nAgents." +
+                "Ag_pers_middlename,\r\nProducts.Product_name,\r\nProducts.Product_OKP,\r\nProducts.Pro" +
+                "duct_TNVED,\r\nProductAreas.name AS ProductAreaName,\r\nProducts.ProductArea,\r\nExper" +
+                "ts.Expert_Firstname,\r\nExperts.Expert_Lastname,\r\nExperts.Expert_Middlename\r\nFROM\r" +
+                "\nContracts \r\nLEFT OUTER JOIN ContractTypes ON Contracts.Contract_type = Contract" +
+                "Types.id\r\nLEFT OUTER JOIN Exec_contracts ON Contracts.idContract = Exec_contract" +
+                "s.idContract\r\nLEFT OUTER JOIN Products ON Contracts.idProducts = Products.idProd" +
+                "ucts\r\nLEFT OUTER JOIN Experts ON Contracts.expert_id = Experts.idExperts\r\nLEFT O" +
+                "UTER JOIN Agents ON Contracts.agent_id = Agents.idAgents\r\nLEFT OUTER JOIN Agents" +
+                "_types ON Agents.Ag_type_id = Agents_types.idAgents_types\r\nLEFT OUTER JOIN Produ" +
+                "ctAreas ON Products.ProductArea = ProductAreas.id";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -29492,202 +28723,6 @@ OR
         public virtual EdocbaseDataSet.ContractInfoDataTableDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             EdocbaseDataSet.ContractInfoDataTableDataTable dataTable = new EdocbaseDataSet.ContractInfoDataTableDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
-        }
-    }
-    
-    /// <summary>
-    ///Represents the connection and commands used to retrieve and save data.
-    ///</summary>
-    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
-    [global::System.ComponentModel.ToolboxItem(true)]
-    [global::System.ComponentModel.DataObjectAttribute(true)]
-    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
-        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
-    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class ProposalsDataTableTableAdapter : global::System.ComponentModel.Component {
-        
-        private global::MySql.Data.MySqlClient.MySqlDataAdapter _adapter;
-        
-        private global::MySql.Data.MySqlClient.MySqlConnection _connection;
-        
-        private global::MySql.Data.MySqlClient.MySqlTransaction _transaction;
-        
-        private global::MySql.Data.MySqlClient.MySqlCommand[] _commandCollection;
-        
-        private bool _clearBeforeFill;
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public ProposalsDataTableTableAdapter() {
-            this.ClearBeforeFill = true;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        protected internal global::MySql.Data.MySqlClient.MySqlDataAdapter Adapter {
-            get {
-                if ((this._adapter == null)) {
-                    this.InitAdapter();
-                }
-                return this._adapter;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        internal global::MySql.Data.MySqlClient.MySqlConnection Connection {
-            get {
-                if ((this._connection == null)) {
-                    this.InitConnection();
-                }
-                return this._connection;
-            }
-            set {
-                this._connection = value;
-                if ((this.Adapter.InsertCommand != null)) {
-                    this.Adapter.InsertCommand.Connection = value;
-                }
-                if ((this.Adapter.DeleteCommand != null)) {
-                    this.Adapter.DeleteCommand.Connection = value;
-                }
-                if ((this.Adapter.UpdateCommand != null)) {
-                    this.Adapter.UpdateCommand.Connection = value;
-                }
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    if ((this.CommandCollection[i] != null)) {
-                        ((global::MySql.Data.MySqlClient.MySqlCommand)(this.CommandCollection[i])).Connection = value;
-                    }
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        internal global::MySql.Data.MySqlClient.MySqlTransaction Transaction {
-            get {
-                return this._transaction;
-            }
-            set {
-                this._transaction = value;
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    this.CommandCollection[i].Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.DeleteCommand != null))) {
-                    this.Adapter.DeleteCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.InsertCommand != null))) {
-                    this.Adapter.InsertCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.UpdateCommand != null))) {
-                    this.Adapter.UpdateCommand.Transaction = this._transaction;
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        protected global::MySql.Data.MySqlClient.MySqlCommand[] CommandCollection {
-            get {
-                if ((this._commandCollection == null)) {
-                    this.InitCommandCollection();
-                }
-                return this._commandCollection;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public bool ClearBeforeFill {
-            get {
-                return this._clearBeforeFill;
-            }
-            set {
-                this._clearBeforeFill = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private void InitAdapter() {
-            this._adapter = new global::MySql.Data.MySqlClient.MySqlDataAdapter();
-            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
-            tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "ProposalsDataTable";
-            tableMapping.ColumnMappings.Add("Add_data", "Add_data");
-            tableMapping.ColumnMappings.Add("Client_docs", "Client_docs");
-            tableMapping.ColumnMappings.Add("Contract_type", "Contract_type");
-            tableMapping.ColumnMappings.Add("Schem_type", "Schem_type");
-            tableMapping.ColumnMappings.Add("emission_type", "emission_type");
-            tableMapping.ColumnMappings.Add("idContract", "idContract");
-            tableMapping.ColumnMappings.Add("idProducts", "idProducts");
-            tableMapping.ColumnMappings.Add("Contract_status", "Contract_status");
-            tableMapping.ColumnMappings.Add("Product_name", "Product_name");
-            tableMapping.ColumnMappings.Add("agent_id", "agent_id");
-            tableMapping.ColumnMappings.Add("Ag_fullname", "Ag_fullname");
-            this._adapter.TableMappings.Add(tableMapping);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private void InitConnection() {
-            this._connection = new global::MySql.Data.MySqlClient.MySqlConnection();
-            this._connection.ConnectionString = global::Edocsys.Properties.Settings.Default.EdocbaseConnectionString;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private void InitCommandCollection() {
-            this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[1];
-            this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
-            this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT
-Contracts.Add_data,
-Contracts.Client_docs,
-Contracts.Contract_type,
-Contracts.Schem_type,
-Contracts.emission_type,
-Contracts.idContract,
-Contracts.idProducts,
-Contracts.Contract_status,
-Products.Product_name,
-Contracts.agent_id,
-Agents.Ag_fullname
-FROM
-Contracts
-INNER JOIN
-Products ON Contracts.idProducts = Products.idProducts
-INNER JOIN
-Agents ON Contracts.agent_id = Agents.idAgents
-WHERE
-(Contracts.Contract_status = 0)";
-            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(EdocbaseDataSet.ProposalsDataTableDataTable dataTable) {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual EdocbaseDataSet.ProposalsDataTableDataTable GetData() {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            EdocbaseDataSet.ProposalsDataTableDataTable dataTable = new EdocbaseDataSet.ProposalsDataTableDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
