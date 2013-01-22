@@ -105,7 +105,7 @@ CREATE TABLE IF NOT EXISTS `Edocbase`.`DocTemplates`(
 	`template` MEDIUMBLOB NOT NULL,
 	PRIMARY KEY (`id`),
 	CONSTRAINT `fk_Contracts_1`
-    FOREIGN KEY (`id`)
+    FOREIGN KEY (`type`)
     REFERENCES `Edocbase`.`ContractTypes` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION
