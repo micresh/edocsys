@@ -102,7 +102,7 @@ CREATE TABLE IF NOT EXISTS `Edocbase`.`ContractStatus` (
 CREATE TABLE IF NOT EXISTS `Edocbase`.`DocTemplates`(
 	`id` int NOT NULL AUTO_INCREMENT ,
 	`type` int NOT NULL,
-	`template` BLOB NOT NULL,
+	`template` MEDIUMBLOB NOT NULL,
 	PRIMARY KEY (`id`),
 	CONSTRAINT `fk_Contracts_1`
     FOREIGN KEY (`id`)
@@ -204,7 +204,7 @@ CREATE TABLE IF NOT EXISTS `Edocbase`.`log_journal` (
 CREATE TABLE IF NOT EXISTS `Edocbase`.`documents`(
 	`id` int NOT NULL AUTO_INCREMENT ,
 	`idContract` int NOT NULL,
-	`document` BLOB NOT NULL,
+	`document` MEDIUMBLOB NOT NULL,
 	PRIMARY KEY (`id`),
   INDEX `fk_documents_1` (`idContract` ASC) ,
   CONSTRAINT `fk_documents_1`
