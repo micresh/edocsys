@@ -1137,5 +1137,89 @@ namespace Edocsys.Properties {
                 this["LoadProposalButton"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Тип проводимых работ")]
+        public string ContractTypeText {
+            get {
+                return ((string)(this["ContractTypeText"]));
+            }
+            set {
+                this["ContractTypeText"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Операции с документом контракта")]
+        public string ContractOperationGroupBox {
+            get {
+                return ((string)(this["ContractOperationGroupBox"]));
+            }
+            set {
+                this["ContractOperationGroupBox"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Сгенерировать договор")]
+        public string GenerateContractTitle {
+            get {
+                return ((string)(this["GenerateContractTitle"]));
+            }
+            set {
+                this["GenerateContractTitle"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Номер договора")]
+        public string ContractNumberTitle {
+            get {
+                return ((string)(this["ContractNumberTitle"]));
+            }
+            set {
+                this["ContractNumberTitle"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Редактировать файл договора")]
+        public string EditContractTitle {
+            get {
+                return ((string)(this["EditContractTitle"]));
+            }
+            set {
+                this["EditContractTitle"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Сохранть файл договора на диск")]
+        public string SaveContractTitle {
+            get {
+                return ((string)(this["SaveContractTitle"]));
+            }
+            set {
+                this["SaveContractTitle"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Загрузить файл договора с диска")]
+        public string LoadContractTitle {
+            get {
+                return ((string)(this["LoadContractTitle"]));
+            }
+            set {
+                this["LoadContractTitle"] = value;
+            }
+        }
     }
 }

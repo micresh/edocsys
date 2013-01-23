@@ -27,7 +27,6 @@ namespace Edocsys
             RefreshData();
         }
 
-
         private void SaveProposal()
         {
             this.Validate();
@@ -56,27 +55,23 @@ namespace Edocsys
                 this.templatesDataTableTableAdapter.Fill(this.edocbaseDataSet.TemplatesDataTable);
                 this.documentsTableAdapter.Fill(this.edocbaseDataSet.Documents);
 
-
-                this.contractTypesTableAdapter.Fill(this.edocbaseDataSet.ContractTypes);
-
                 contractsBindingSource.Position = pos;
+
                 this.contractsDataGridView.Refresh();
             }   
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Save Error");
+                MessageBox.Show(ex.Message, "Refresh Error");
             }
             /**/
         }
-
-
 
         private void ProposalForm_Load(object sender, EventArgs e)
         {
             this.agentsTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
             this.productsTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
             this.contractsTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
-            this.contractTypesTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
+            this.contractTypesForDocsTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
             this.exec_contractsTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
 
             this.templatesDataTableTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
@@ -84,19 +79,9 @@ namespace Edocsys
             this.documentsTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
 
 
+            this.contractTypesForDocsTableAdapter.Fill(this.edocbaseDataSet.ContractTypesForDocs);
 
-            this.productsTableAdapter.Fill(this.edocbaseDataSet.Products);
-            this.agentsTableAdapter.Fill(this.edocbaseDataSet.Agents);
-
-            this.contractInfoDataTableTableAdapter.Fill(this.edocbaseDataSet.ContractInfoDataTable);
-            this.contractsTableAdapter.FillProposal(this.edocbaseDataSet.Contracts);
-            this.exec_contractsTableAdapter.Fill(this.edocbaseDataSet.Exec_contracts);
-
-            this.templatesDataTableTableAdapter.Fill(this.edocbaseDataSet.TemplatesDataTable);
-            this.documentsTableAdapter.Fill(this.edocbaseDataSet.Documents);
-
-            
-            this.contractTypesTableAdapter.Fill(this.edocbaseDataSet.ContractTypes);
+            RefreshData();
         }
 
         private void contractsDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -151,15 +136,26 @@ namespace Edocsys
 
         private int GetContractID()
         {
-            int idContract = -1;
+            int id = -1;
 
             DataRow currentRow = edocbaseDataSet.Tables["Contracts"].DefaultView[contractsBindingSource.Position].Row;
 
-            idContract = Convert.ToInt32(currentRow["idContract"]);
+            id = Convert.ToInt32(currentRow["idContract"]);
 
-            return idContract;
+            return id;
         }
 
+        private int GetContractTypeID()
+        {
+            int id = -1;
+
+            DataRow currentRow = edocbaseDataSet.Tables["Contracts"].DefaultView[contractsBindingSource.Position].Row;
+
+            id = Convert.ToInt32(currentRow["Contract_type"]);
+
+            return id;
+        }
+        
         private DataRow GetContractInfoDataRow(int idContract)
         {
 
@@ -175,7 +171,6 @@ namespace Edocsys
 
             return row;
         }
-
 
         private DataRowView GetDocumentsDataRow(int idContract, int type)
         {
@@ -206,6 +201,11 @@ namespace Edocsys
 
         private void buttonGenerateProposalDoc_Click(object sender, EventArgs e)
         {
+            GenerateDoc((int)Constants.ContractTypes.Proposal);
+        }
+
+        private void GenerateDoc(int docType)
+        {
 
             if ((contractsBindingSource.Position < 0) ||
                 (contractsBindingSource.Position >= contractsBindingSource.Count))
@@ -230,7 +230,7 @@ namespace Edocsys
             Dictionary<string, string> subs = DocXGenerator.GetReplacementKeyValues(currentContact);
 
             //get template row for proposal
-            DataRow row = GetTemplateDataRow((int)Constants.ContractTypes.Proposal);
+            DataRow row = GetTemplateDataRow(docType);
 
             if (row == null)
             {
@@ -245,12 +245,12 @@ namespace Edocsys
             //replace placeholders in doc
             DocXGenerator.RepalceKeyValuesInDocX(filename, subs);
 
-            
+
 
             //load generated contract to DB
             data = BlobLoader.LoadFormFile(filename);
 
-            DataRowView currentDoc = GetDocumentsDataRow(idContract, (int)Constants.ContractTypes.Proposal);
+            DataRowView currentDoc = GetDocumentsDataRow(idContract, docType);
 
 
             if (currentDoc == null)
@@ -270,7 +270,7 @@ namespace Edocsys
             try
             {
                 currentDoc["document"] = data;
-                currentDoc["type"] = Convert.ToInt32(Constants.ContractTypes.Proposal);
+                currentDoc["type"] = docType;
                 currentDoc["idContract"] = idContract;
 
                 currentDoc.EndEdit();
@@ -279,7 +279,7 @@ namespace Edocsys
 
                 RefreshData();
             }
-             catch (Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Save Error");
             }
@@ -294,6 +294,12 @@ namespace Edocsys
 
         private void buttonEditProposal_Click(object sender, EventArgs e)
         {
+            int docType = (int)Constants.ContractTypes.Proposal;
+            EditDoc(docType);
+        }
+
+        private void EditDoc(int docType)
+        {
             if ((contractsBindingSource.Position < 0) ||
                 (contractsBindingSource.Position >= contractsBindingSource.Count))
             {
@@ -304,7 +310,7 @@ namespace Edocsys
 
             int idContract = GetContractID();
 
-            DataRowView currentDoc = GetDocumentsDataRow(idContract, (int)Constants.ContractTypes.Proposal);
+            DataRowView currentDoc = GetDocumentsDataRow(idContract, docType);
 
             if (currentDoc == null)
             {
@@ -322,7 +328,7 @@ namespace Edocsys
 
             process.WaitForExit();
 
-            
+
 
             //file changed -> update?
             if (MessageBox.Show("Обновить документ для заявки #" + idContract, "Подтвердить обновление документа", MessageBoxButtons.YesNo) != DialogResult.Yes)
@@ -354,6 +360,12 @@ namespace Edocsys
 
         private void buttonSaveProposal_Click(object sender, EventArgs e)
         {
+            int docType = (int)Constants.ContractTypes.Proposal;
+            SaveDoc(docType);
+        }
+
+        private void SaveDoc(int docType)
+        {
             if ((contractsBindingSource.Position < 0) ||
                 (contractsBindingSource.Position >= contractsBindingSource.Count))
             {
@@ -370,7 +382,7 @@ namespace Edocsys
 
             int idContract = GetContractID();
 
-            DataRowView currentDoc = GetDocumentsDataRow(idContract, (int)Constants.ContractTypes.Proposal);
+            DataRowView currentDoc = GetDocumentsDataRow(idContract, docType);
 
             if (currentDoc == null)
             {
@@ -385,6 +397,12 @@ namespace Edocsys
         }
 
         private void buttonLoadProposal_Click(object sender, EventArgs e)
+        {
+            int docType = (int)Constants.ContractTypes.Proposal;
+            LoadDoc(docType);
+        }
+
+        private void LoadDoc(int docType)
         {
             if ((contractsBindingSource.Position < 0) ||
                 (contractsBindingSource.Position >= contractsBindingSource.Count))
@@ -402,7 +420,7 @@ namespace Edocsys
 
             int idContract = GetContractID();
 
-            DataRowView currentDoc = GetDocumentsDataRow(idContract, (int)Constants.ContractTypes.Proposal);
+            DataRowView currentDoc = GetDocumentsDataRow(idContract, docType);
 
             try
             {
@@ -427,6 +445,24 @@ namespace Edocsys
             currentDoc["Contract_type"] = (int)Constants.ContractTypes.Proposal;
             currentDoc["Contract_status"] = (int)Constants.ContractStatuses.NewProposal;
 
+        }
+
+        private void buttonGenerateContract_Click(object sender, EventArgs e)
+        {
+            int docType = GetContractTypeID();
+            GenerateDoc(docType);
+        }
+
+        private void buttonEditContract_Click(object sender, EventArgs e)
+        {
+            int docType = GetContractTypeID();
+            EditDoc(docType);
+        }
+
+        private void buttonSaveContract_Click(object sender, EventArgs e)
+        {
+            int docType = GetContractTypeID();
+            SaveDoc(docType);
         }
     }
 }
