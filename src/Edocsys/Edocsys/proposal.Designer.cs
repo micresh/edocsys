@@ -56,6 +56,16 @@
             this.contractsBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.mainSplitContainer = new System.Windows.Forms.SplitContainer();
             this.contractsDataGridView = new System.Windows.Forms.DataGridView();
+            this.idContract = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Contract_number = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.emission_type = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.client_docs = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.scheme_type = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.add_data = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.agent_shortname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idProducts = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SendProposalColumn = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Contract_status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contract_numberTextBox = new System.Windows.Forms.TextBox();
             this.contract_typeComboBox = new System.Windows.Forms.ComboBox();
             this.contractTypesForDocsBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -94,16 +104,6 @@
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.contractTypesForDocsTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.ContractTypesForDocsTableAdapter();
-            this.idContract = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Contract_number = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.emission_type = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.client_docs = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.scheme_type = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.add_data = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.agent_shortname = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idProducts = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SendProposalColumn = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.Contract_status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             proposalProductLabel = new System.Windows.Forms.Label();
             proposalEmissionLabel = new System.Windows.Forms.Label();
             proposalClientDocsLabel = new System.Windows.Forms.Label();
@@ -423,6 +423,90 @@
             this.contractsDataGridView.TabIndex = 2;
             this.contractsDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.contractsDataGridView_CellClick);
             // 
+            // idContract
+            // 
+            this.idContract.DataPropertyName = "idContract";
+            this.idContract.HeaderText = "#";
+            this.idContract.Name = "idContract";
+            this.idContract.ReadOnly = true;
+            this.idContract.ToolTipText = "#";
+            this.idContract.Width = 30;
+            // 
+            // Contract_number
+            // 
+            this.Contract_number.DataPropertyName = "Contract_number";
+            this.Contract_number.HeaderText = "№ договора";
+            this.Contract_number.Name = "Contract_number";
+            this.Contract_number.Width = 70;
+            // 
+            // emission_type
+            // 
+            this.emission_type.DataPropertyName = "emission_type";
+            this.emission_type.HeaderText = "Тип выпуска продукции";
+            this.emission_type.Name = "emission_type";
+            this.emission_type.ReadOnly = true;
+            this.emission_type.ToolTipText = "Тип выпуска продукции";
+            this.emission_type.Width = 150;
+            // 
+            // client_docs
+            // 
+            this.client_docs.DataPropertyName = "Client_docs";
+            this.client_docs.HeaderText = "Учредительные документы";
+            this.client_docs.Name = "client_docs";
+            this.client_docs.ReadOnly = true;
+            this.client_docs.ToolTipText = "Учредительные документы";
+            this.client_docs.Width = 150;
+            // 
+            // scheme_type
+            // 
+            this.scheme_type.DataPropertyName = "Schem_type";
+            this.scheme_type.HeaderText = "Схема сертификации";
+            this.scheme_type.MinimumWidth = 15;
+            this.scheme_type.Name = "scheme_type";
+            this.scheme_type.ReadOnly = true;
+            this.scheme_type.Width = 150;
+            // 
+            // add_data
+            // 
+            this.add_data.DataPropertyName = "Add_data";
+            this.add_data.HeaderText = "Дополнительные сведения";
+            this.add_data.MinimumWidth = 15;
+            this.add_data.Name = "add_data";
+            this.add_data.ReadOnly = true;
+            this.add_data.ToolTipText = "Дополнительные сведения";
+            // 
+            // agent_shortname
+            // 
+            this.agent_shortname.DataPropertyName = "Ag_fullname";
+            this.agent_shortname.HeaderText = "Название контрагента";
+            this.agent_shortname.Name = "agent_shortname";
+            this.agent_shortname.ReadOnly = true;
+            this.agent_shortname.ToolTipText = "Название контрагента";
+            this.agent_shortname.Width = 200;
+            // 
+            // idProducts
+            // 
+            this.idProducts.DataPropertyName = "Product_name";
+            this.idProducts.HeaderText = "Наименование продукции";
+            this.idProducts.Name = "idProducts";
+            this.idProducts.ReadOnly = true;
+            this.idProducts.ToolTipText = "Наименование продукции";
+            this.idProducts.Width = 250;
+            // 
+            // SendProposalColumn
+            // 
+            this.SendProposalColumn.HeaderText = "Отправить заявку";
+            this.SendProposalColumn.Name = "SendProposalColumn";
+            this.SendProposalColumn.Text = "Отправить";
+            this.SendProposalColumn.ToolTipText = "Отправить";
+            this.SendProposalColumn.UseColumnTextForButtonValue = true;
+            // 
+            // Contract_status
+            // 
+            this.Contract_status.HeaderText = "T";
+            this.Contract_status.Name = "Contract_status";
+            this.Contract_status.Visible = false;
+            // 
             // contract_numberTextBox
             // 
             this.contract_numberTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.contractsBindingSource, "Contract_number", true));
@@ -472,6 +556,7 @@
             this.buttonLoadProposal.TabIndex = 20;
             this.buttonLoadProposal.Text = global::Edocsys.Properties.Settings.Default.LoadProposalButton;
             this.buttonLoadProposal.UseVisualStyleBackColor = true;
+            this.buttonLoadProposal.Click += new System.EventHandler(this.buttonLoadProposal_Click);
             // 
             // buttonSaveProposal
             // 
@@ -482,6 +567,7 @@
             this.buttonSaveProposal.TabIndex = 19;
             this.buttonSaveProposal.Text = global::Edocsys.Properties.Settings.Default.SaveProposalButton;
             this.buttonSaveProposal.UseVisualStyleBackColor = true;
+            this.buttonSaveProposal.Click += new System.EventHandler(this.buttonSaveProposal_Click);
             // 
             // buttonEditProposal
             // 
@@ -492,6 +578,7 @@
             this.buttonEditProposal.TabIndex = 18;
             this.buttonEditProposal.Text = global::Edocsys.Properties.Settings.Default.EditProposalButton;
             this.buttonEditProposal.UseVisualStyleBackColor = true;
+            this.buttonEditProposal.Click += new System.EventHandler(this.buttonEditProposal_Click);
             // 
             // buttonGenerateProposalDoc
             // 
@@ -502,6 +589,7 @@
             this.buttonGenerateProposalDoc.TabIndex = 17;
             this.buttonGenerateProposalDoc.Text = global::Edocsys.Properties.Settings.Default.GenerateProposalTitle;
             this.buttonGenerateProposalDoc.UseVisualStyleBackColor = true;
+            this.buttonGenerateProposalDoc.Click += new System.EventHandler(this.buttonGenerateProposalDoc_Click);
             // 
             // groupBoxContract
             // 
@@ -723,90 +811,6 @@
             // contractTypesForDocsTableAdapter
             // 
             this.contractTypesForDocsTableAdapter.ClearBeforeFill = true;
-            // 
-            // idContract
-            // 
-            this.idContract.DataPropertyName = "idContract";
-            this.idContract.HeaderText = "#";
-            this.idContract.Name = "idContract";
-            this.idContract.ReadOnly = true;
-            this.idContract.ToolTipText = "#";
-            this.idContract.Width = 30;
-            // 
-            // Contract_number
-            // 
-            this.Contract_number.DataPropertyName = "Contract_number";
-            this.Contract_number.HeaderText = "№ договора";
-            this.Contract_number.Name = "Contract_number";
-            this.Contract_number.Width = 70;
-            // 
-            // emission_type
-            // 
-            this.emission_type.DataPropertyName = "emission_type";
-            this.emission_type.HeaderText = "Тип выпуска продукции";
-            this.emission_type.Name = "emission_type";
-            this.emission_type.ReadOnly = true;
-            this.emission_type.ToolTipText = "Тип выпуска продукции";
-            this.emission_type.Width = 150;
-            // 
-            // client_docs
-            // 
-            this.client_docs.DataPropertyName = "Client_docs";
-            this.client_docs.HeaderText = "Учредительные документы";
-            this.client_docs.Name = "client_docs";
-            this.client_docs.ReadOnly = true;
-            this.client_docs.ToolTipText = "Учредительные документы";
-            this.client_docs.Width = 150;
-            // 
-            // scheme_type
-            // 
-            this.scheme_type.DataPropertyName = "Schem_type";
-            this.scheme_type.HeaderText = "Схема сертификации";
-            this.scheme_type.MinimumWidth = 15;
-            this.scheme_type.Name = "scheme_type";
-            this.scheme_type.ReadOnly = true;
-            this.scheme_type.Width = 150;
-            // 
-            // add_data
-            // 
-            this.add_data.DataPropertyName = "Add_data";
-            this.add_data.HeaderText = "Дополнительные сведения";
-            this.add_data.MinimumWidth = 15;
-            this.add_data.Name = "add_data";
-            this.add_data.ReadOnly = true;
-            this.add_data.ToolTipText = "Дополнительные сведения";
-            // 
-            // agent_shortname
-            // 
-            this.agent_shortname.DataPropertyName = "Ag_fullname";
-            this.agent_shortname.HeaderText = "Название контрагента";
-            this.agent_shortname.Name = "agent_shortname";
-            this.agent_shortname.ReadOnly = true;
-            this.agent_shortname.ToolTipText = "Название контрагента";
-            this.agent_shortname.Width = 200;
-            // 
-            // idProducts
-            // 
-            this.idProducts.DataPropertyName = "Product_name";
-            this.idProducts.HeaderText = "Наименование продукции";
-            this.idProducts.Name = "idProducts";
-            this.idProducts.ReadOnly = true;
-            this.idProducts.ToolTipText = "Наименование продукции";
-            this.idProducts.Width = 250;
-            // 
-            // SendProposalColumn
-            // 
-            this.SendProposalColumn.HeaderText = "Отправить заявку";
-            this.SendProposalColumn.Name = "SendProposalColumn";
-            this.SendProposalColumn.Text = "Отправить";
-            this.SendProposalColumn.ToolTipText = "Отправить";
-            this.SendProposalColumn.UseColumnTextForButtonValue = true;
-            // 
-            // Contract_status
-            // 
-            this.Contract_status.HeaderText = "T";
-            this.Contract_status.Name = "Contract_status";
-            this.Contract_status.Visible = false;
             // 
             // ProposalForm
             // 
