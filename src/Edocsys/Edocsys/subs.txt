@@ -1,8 +1,45 @@
-{_ID_}                  idContract	идентификационный номер заявки
-{_PRODUCTS_}            idProducts	идентификационный номер продукта
-{_EMISSION_TYPE_}       emission_type	тип выпуска продукта
-{_CLIENT_DOCS_}         Client_docs	Учредительные документы
-{_SCHEM_TYPE_}          Schem_type	тип схемы сертификации
-{_ADD_DATA_}            Add_data	дополнительные сведения
-{_CONTRACT_TYPE_}       Contract_type	тип договора
-{_CONTRACT_VALUE_1_}    Contract_value_1	промежуточная сумма договора
+{_ID_}                      idContract              идентификационный номер заявки
+{_PRODUCTS_}                idProducts              идентификационный номер продукта
+{_EMISSION_TYPE_}           emission_type           тип выпуска продукта
+{_CLIENT_DOCS_}             Client_docs             Учредительные документы
+{_SCHEM_TYPE_}              Schem_type              тип схемы сертификации
+{_ADD_DATA_}                Add_data                дополнительные сведения
+{_CONTRACT_TYPE_}           Contract_type           тип договора
+{_CONTRACT_VALUE_1_}        Contract_value_1        промежуточная сумма договора
+{_CONTRACT_NUMBER_}         Contract_number         Номер контракта
+{_CONTRACT_VALUE_FULL_}     Contract_value_full     итоговая сумма догвора
+{_AGENT_ID_}                agent_id                идентификационный номер контрагента
+{_BID_TYPE_}                Bid_type                вид поступления договора
+{_CASH_INCOME_}             Cash_income             наличие оплаты
+{_CONTRACT_START_}          Contract_start          дата начала действия договора
+{_CONTRACT_1_REATT_}        Contract_1_reatt        дата 1-ой реаттестации
+{_CONTRACT_2_REATT_}        Contract_2_reatt        дата 2-ой реаттестации
+{_CONTRACT_RESUME_}         Contract_resume         дата итоговой реаттестации
+{_EXEC_1_REATT_}            exec_1_reatt            дата исполнения 1-ой реаттестации
+{_EXEC_2_REATT_}            exec_2_reatt            дата исполнения 2-ой реаттестации
+{_EXEC_RESUME_}             exec_resume             дата исполнения итоговой реаттестации
+{_SAMPLE_INCOME_}           sample_income           дата поступления образцов
+{_PROTOCOL_INCOME_}         protocol_income         дата поступления протокола
+{_AGENT_FNAME_}             Ag_name                 полное название организации
+{_AGENT_NAME_}              Ag_fullname             название организации
+{_AGENT_INN_}               Ag_INN                  ИНН
+{_AGENT_ADDR_}              Ag_addr                 адрес контрагента
+{_AGENT_OGRN_}              Ag_OGRN                 ОГРН
+{_AGENT_KPP_}               Ag_KPP                  КПП
+{_AGENT_OKPO_}              Ag_OKPO                 ОКПО
+{_AGENT_RS_}                Ag_Rcou                 расчетный счет
+{_AGENT_KS_}                Ag_Kcou                 корреспондирующий счет
+{_AGENT_BIK_}               Ag_BIK                  БИК 
+{_AGENT_BANK_}              Ag_bank                 Название банка
+{_AGENT_DOC_}               Ag_doc                  документы агента
+{_AGENT_TEL_}               Ag_tel                  
+{_AGENT_FAX_}               Ag_fax                  
+{_AGENT_STATUS_}            Ag_pers_status          должность ответственного за подписание договора лица
+{_AGENT_P_FIO_}             Ag_FIO                  Фамилия И.О.
+{_AGENT_P_IOF_}             Ag_IOF                  И.О. Фамилия
+{_AGENT_P_LNAME_}           Ag_pers_lastname        Фамилия
+{_AGENT_P_FNAME_}           Ag_pers_firstname       Имя
+{_AGENT_P_MNAME_}           Ag_pers_middlename      Отчество
+{_PRODUCT_NAME_}            Product_name            Название продукции
+{_PRODUCT_OKP_}             Product_OKP             код ОКП
+{_PRODUCT_TNVED_}           Product_TNVED           код ТН ВЭД
