@@ -805,6 +805,7 @@ namespace Edocsys {
             this.DataSetName = "EdocbaseDataSet";
             this.Prefix = "";
             this.Namespace = "http://tempuri.org/EdocbaseDataSet.xsd";
+            this.CaseSensitive = true;
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
             this.tableAgents = new AgentsDataTable();
@@ -27083,8 +27084,8 @@ WHERE
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM `edocbase`.`documents` WHERE ((`id` = @Original_id) AND (`idContract`" +
-                " = @Original_idContract) AND (`type` = @Original_type))";
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM `Documents` WHERE ((`id` = @Original_id) AND (`idContract` = @Origina" +
+                "l_idContract) AND (`type` = @Original_type))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@Original_id";
@@ -27112,8 +27113,8 @@ WHERE
             this._adapter.DeleteCommand.Parameters.Add(param);
             this._adapter.InsertCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO `edocbase`.`documents` (`idContract`, `document`, `type`) VALUES (@id" +
-                "Contract, @document, @type)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO `Documents` (`idContract`, `document`, `type`) VALUES (@idContract, @" +
+                "document, @type)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@idContract";
@@ -27138,9 +27139,9 @@ WHERE
             this._adapter.InsertCommand.Parameters.Add(param);
             this._adapter.UpdateCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = "UPDATE `edocbase`.`documents` SET `idContract` = @idContract, `document` = @docum" +
-                "ent, `type` = @type WHERE ((`id` = @Original_id) AND (`idContract` = @Original_i" +
-                "dContract) AND (`type` = @Original_type))";
+            this._adapter.UpdateCommand.CommandText = "UPDATE `Documents` SET `idContract` = @idContract, `document` = @document, `type`" +
+                " = @type WHERE ((`id` = @Original_id) AND (`idContract` = @Original_idContract) " +
+                "AND (`type` = @Original_type))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@idContract";
@@ -28680,7 +28681,7 @@ OR
             this._commandCollection[0].CommandText = "SELECT\r\nContracts.idContract,\r\nContracts.emission_type,\r\nContracts.Client_docs,\r\n" +
                 "Contracts.Schem_type,\r\nContracts.Add_data,\r\nContracts.Contract_value_1,\r\nContrac" +
                 "ts.Contract_value_full,\r\nContracts.Contract_number,\r\nContracts.Contract_status,\r" +
-                "\nContracts.Bid_type,\r\nContracts.Cash_income,\r\ncontracttypes.name,\r\nExec_contract" +
+                "\nContracts.Bid_type,\r\nContracts.Cash_income,\r\nContractTypes.name,\r\nExec_contract" +
                 "s.Contract_start,\r\nExec_contracts.Contract_1_reatt,\r\nExec_contracts.Contract_2_r" +
                 "eatt,\r\nExec_contracts.Contract_resume,\r\nExec_contracts.exec_1_reatt,\r\nExec_contr" +
                 "acts.exec_2_reatt,\r\nExec_contracts.exec_resume,\r\nExec_contracts.sample_income,\r\n" +
