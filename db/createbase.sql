@@ -89,7 +89,7 @@ CREATE TABLE IF NOT EXISTS `edocbase`.`products` (
   `tnved`               VARCHAR(31) NULL,
   `product_araes_id`    INT NULL,
   PRIMARY KEY (`idProducts`),
-  INDEX `fk_products_product_areas` (`id` ASC) ,
+  INDEX `fk_products_product_areas` (`product_araes_id` ASC) ,
   CONSTRAINT `fk_products_product_areas`
     FOREIGN KEY (`product_araes_id` )
     REFERENCES `edocbase`.`products` (`id` )
@@ -105,10 +105,31 @@ CREATE TABLE IF NOT EXISTS `edocbase`.`product_gosts` (
   `number`              VARCHAR(15) NULL ,
   `type`                VARCHAR(80) NULL ,
   PRIMARY KEY (`id`),
-  INDEX `fk_product_gosts_products` (`id` ASC) ,
+  INDEX `fk_product_gosts_products` (`products_id` ASC) ,
   CONSTRAINT `fk_product_gosts_products`
     FOREIGN KEY (`products_id`)
     REFERENCES `edocbase`.`products` (`id` )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION
+) ENGINE = InnoDB;
+
+
+-- Выбраные ГОСТы для проведения работ
+CREATE TABLE IF NOT EXISTS `edocbase`.`selected_gosts` (
+  `id`                  INT NOT NULL AUTO_INCREMENT,
+  `contracts_id`        INT NOT NULL ,
+  `product_gosts_id`    INT NOT NULL ,
+  PRIMARY KEY (`id`),
+  INDEX `fk_selected_gosts_contracts` (`contracts_id` ASC) ,
+  INDEX `fk_selected_gosts_product_gosts` (`product_gosts_id` ASC) ,
+  CONSTRAINT `fk_product_gosts_contracts`
+    FOREIGN KEY (`contracts_id`)
+    REFERENCES `edocbase`.`contracts` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_selected_gosts_product_gosts`
+    FOREIGN KEY (`product_gosts_id`)
+    REFERENCES `edocbase`.`product_gosts` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION
 ) ENGINE = InnoDB;
