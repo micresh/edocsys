@@ -88,7 +88,7 @@ CREATE TABLE IF NOT EXISTS `edocbase`.`products` (
   `okp`                 VARCHAR(31) NULL,
   `tnved`               VARCHAR(31) NULL,
   `product_araes_id`    INT NULL,
-  PRIMARY KEY (`idProducts`),
+  PRIMARY KEY (`id`),
   INDEX `fk_products_product_areas` (`product_araes_id` ASC) ,
   CONSTRAINT `fk_products_product_areas`
     FOREIGN KEY (`product_araes_id` )
@@ -113,26 +113,6 @@ CREATE TABLE IF NOT EXISTS `edocbase`.`product_gosts` (
     ON UPDATE NO ACTION
 ) ENGINE = InnoDB;
 
-
--- Выбраные ГОСТы для проведения работ
-CREATE TABLE IF NOT EXISTS `edocbase`.`selected_gosts` (
-  `id`                  INT NOT NULL AUTO_INCREMENT,
-  `contracts_id`        INT NOT NULL ,
-  `product_gosts_id`    INT NOT NULL ,
-  PRIMARY KEY (`id`),
-  INDEX `fk_selected_gosts_contracts` (`contracts_id` ASC) ,
-  INDEX `fk_selected_gosts_product_gosts` (`product_gosts_id` ASC) ,
-  CONSTRAINT `fk_product_gosts_contracts`
-    FOREIGN KEY (`contracts_id`)
-    REFERENCES `edocbase`.`contracts` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_selected_gosts_product_gosts`
-    FOREIGN KEY (`product_gosts_id`)
-    REFERENCES `edocbase`.`product_gosts` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION
-) ENGINE = InnoDB;
 
 
 -- Типы договоров
@@ -199,7 +179,7 @@ CREATE TABLE IF NOT EXISTS `edocbase`.`contracts` (
   `date_contract`       DATE NULL ,
   -- Схема сертификации
   `scheme_type`         VARCHAR(45) NULL ,
-  --- Дополнительная информация
+  -- Дополнительная информация
   `add_data`            TEXT NULL,
   -- Стоимость первого этапа
   `cost`                INT NULL ,
@@ -215,21 +195,21 @@ CREATE TABLE IF NOT EXISTS `edocbase`.`contracts` (
   `date_sample_income`  DATE NULL ,
   -- Дата поступления протокола
   `date_protocol_income`  DATE NULL ,
-  -- Планируема дата первого инспекционного контроля
+  -- Планируема дата первого инспекционного контроля/реаттестации
   `date_planed_reatt_1` DATE NULL ,
-  -- Реальная дата перого инспекционного контроля
+  -- Реальная дата перого инспекционного контроля/реаттестации
   `date_real_reatt_1`   DATE NULL ,
-  -- Планируема дата второго инспекционного контроля
-  `date_planed_reatt_1` DATE NULL ,
-  -- Реальная дата второго инспекционного контроля
-  `date_real_reatt_1`   DATE NULL ,
+  -- Планируема дата второго инспекционного контроля/реаттестации
+  `date_planed_reatt_2` DATE NULL ,
+  -- Реальная дата второго инспекционного контроля/реаттестации
+  `date_real_reatt_2`   DATE NULL ,
   -- Планируема дата ресертефикации
   `date_planed_resert`  DATE NULL ,
   -- Реальная дата ресертефикации
   `date_real_resert`    DATE NULL ,
   -- Источник поступления договора
   `source_types_id`     INT NULL DEFAULT 0,   -- UNUSED
-  PRIMARY KEY (`idContract`) ,
+  PRIMARY KEY (`id`) ,
   INDEX `fk_contracts_agents` (`agents_id` ASC) ,
   INDEX `fk_contracts_experts` (`experts_id` ASC) ,
   INDEX `fk_contracts_products` (`products_id` ASC) ,
@@ -258,7 +238,7 @@ CREATE TABLE IF NOT EXISTS `edocbase`.`contracts` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_contracts_contract_status`
-    FOREIGN KEY (`contract_status` )
+    FOREIGN KEY (`contract_status_id` )
     REFERENCES `edocbase`.`contract_status` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
@@ -270,6 +250,26 @@ CREATE TABLE IF NOT EXISTS `edocbase`.`contracts` (
   CONSTRAINT `fk_contracts_source_types`
     FOREIGN KEY (`source_types_id` )
     REFERENCES `edocbase`.`source_types` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION
+) ENGINE = InnoDB;
+
+-- Выбраные ГОСТы для проведения работ
+CREATE TABLE IF NOT EXISTS `edocbase`.`selected_gosts` (
+  `id`                  INT NOT NULL AUTO_INCREMENT,
+  `contracts_id`        INT NOT NULL ,
+  `product_gosts_id`    INT NOT NULL ,
+  PRIMARY KEY (`id`),
+  INDEX `fk_selected_gosts_contracts` (`contracts_id` ASC) ,
+  INDEX `fk_selected_gosts_product_gosts` (`product_gosts_id` ASC) ,
+  CONSTRAINT `fk_product_gosts_contracts`
+    FOREIGN KEY (`contracts_id`)
+    REFERENCES `edocbase`.`contracts` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_selected_gosts_product_gosts`
+    FOREIGN KEY (`product_gosts_id`)
+    REFERENCES `edocbase`.`product_gosts` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION
 ) ENGINE = InnoDB;
