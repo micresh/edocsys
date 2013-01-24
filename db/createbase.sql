@@ -1,221 +1,315 @@
-DROP DATABASE IF EXISTS `Edocbase`;
+DROP DATABASE IF EXISTS `edocbase`;
 
-CREATE DATABASE IF NOT EXISTS `Edocbase`;
+CREATE DATABASE IF NOT EXISTS `edocbase`;
 
 GRANT ALL PRIVILEGES ON *.* TO root@localhost IDENTIFIED BY 'po12jein45bf';
 
-CREATE TABLE IF NOT EXISTS `Edocbase`.`Agents_types` (
-  `idAgents_types` TINYINT(4) NOT NULL AUTO_INCREMENT,
-  `Agent_type` VARCHAR(8) NULL ,
-  PRIMARY KEY (`idAgents_types`)
+                        -- DB
+-- Типы правового: ООО/ОАО/ЗАО
+CREATE TABLE IF NOT EXISTS `edocbase`.`agent_types` (
+  `id`                  INT(11) NOT NULL AUTO_INCREMENT,
+  `name`                VARCHAR(8) NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE = InnoDB;
 
-CREATE TABLE IF NOT EXISTS `Edocbase`.`Agents` (
-  `idAgents` INT NOT NULL AUTO_INCREMENT,
-  `Ag_type_id` TINYINT(4) DEFAULT 0,
-  `Ag_fullname` VARCHAR(63) DEFAULT NULL,
-  `Ag_INN` VARCHAR(15) DEFAULT NULL,
-  `Ag_tel` VARCHAR(15) NULL ,
-  `Ag_fax` VARCHAR(15) NULL ,
-  `Ag_mail` VARCHAR(31) NULL ,
-  `Ag_addr` VARCHAR(255) DEFAULT NULL,
-  `Ag_OGRN` VARCHAR(15) DEFAULT NULL,
-  `Ag_KPP` VARCHAR(15) DEFAULT NULL,
-  `Ag_OKPO` VARCHAR(15) DEFAULT NULL,
-  `Ag_Rcou` VARCHAR(15) DEFAULT NULL,
-  `Ag_Kcou` VARCHAR(15) DEFAULT NULL,
-  `Ag_BIK` VARCHAR(15) DEFAULT NULL,
-  `Ag_bank` VARCHAR(127) DEFAULT NULL,
-  `Ag_doc` VARCHAR(45) DEFAULT NULL,
-  `Ag_pers_status` VARCHAR(45) NULL ,
-  `Ag_pers_lastname` VARCHAR(30) NULL ,
-  `Ag_pers_firstname` VARCHAR(30) NULL ,
-  `Ag_pers_middlename` VARCHAR(30) NULL ,
-  PRIMARY KEY (`idAgents`),
-  INDEX `fk_Agents_` (`Ag_type_id` ASC) ,
-  CONSTRAINT `fk_Agents_1`
-    FOREIGN KEY (`Ag_type_id`)
-    REFERENCES `Agents_types` (`idAgents_types`)
+-- Контрагенты
+CREATE TABLE IF NOT EXISTS `edocbase`.`agents` (
+  `id`                  INT(11) NOT NULL AUTO_INCREMENT,
+  `agent_types_id`      INT(11) DEFAULT 0,
+  `name`                VARCHAR(63) DEFAULT NULL,
+  `inn`                 VARCHAR(15) DEFAULT NULL,
+  `phone`               VARCHAR(15) NULL ,
+  `fax`                 VARCHAR(15) NULL ,
+  `email`               VARCHAR(31) NULL ,
+  `address`             VARCHAR(255) DEFAULT NULL,
+  `ogrn`                VARCHAR(15) DEFAULT NULL,
+  `kpp`                 VARCHAR(15) DEFAULT NULL,
+  `okpo`                VARCHAR(15) DEFAULT NULL,
+  `rs`                  VARCHAR(15) DEFAULT NULL,
+  `ks`                  VARCHAR(15) DEFAULT NULL,
+  `bik`                 VARCHAR(15) DEFAULT NULL,
+  `bank`                VARCHAR(127) DEFAULT NULL,
+  -- Основание деятельности
+  `osnovanie`           VARCHAR(45) DEFAULT NULL,
+  `pers_status`         VARCHAR(45) NULL ,
+  `pers_lastname`       VARCHAR(30) NULL ,
+  `pers_firstname`      VARCHAR(30) NULL ,
+  `pers_middlename`     VARCHAR(30) NULL ,
+  PRIMARY KEY (`id`),
+  INDEX `fk_agents_agent_types` (`agent_types_id` ASC) ,
+  CONSTRAINT `fk_agents_agent_types`
+    FOREIGN KEY (`agent_types_id`) 
+    REFERENCES `agent_types` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION
 ) ENGINE=InnoDB;
 
-CREATE TABLE IF NOT EXISTS `Edocbase`.`Agents_contacts` (
-  `idAgents_contacts` INT NOT NULL AUTO_INCREMENT,
-  `ac_agent_id` INT DEFAULT 0,
-  `ac_person` VARCHAR(75) DEFAULT NULL,
-  `ac_status` VARCHAR(45) DEFAULT NULL,
-  `ac_phone` VARCHAR(15) DEFAULT NULL,
-  `ac_fax` VARCHAR(15) DEFAULT NULL,
-  `ac_email` VARCHAR(45) DEFAULT NULL,
-  PRIMARY KEY (`idAgents_contacts`),
-  INDEX `fk_Agents_contacts_1` (`ac_agent_id` ASC) ,
-  CONSTRAINT `fk_Agents_contacts_1`
-      FOREIGN KEY (`ac_agent_id`)
-      REFERENCES `Agents` (`idAgents`)
+-- Контакны контрагентов
+CREATE TABLE IF NOT EXISTS `edocbase`.`agents_contacts` (
+  `id`                  INT NOT NULL AUTO_INCREMENT,
+  `agents_id`           INT DEFAULT 0,
+  `person`              VARCHAR(75) DEFAULT NULL,
+  `status`              VARCHAR(45) DEFAULT NULL,
+  `phone`               VARCHAR(15) DEFAULT NULL,
+  `fax`                 VARCHAR(15) DEFAULT NULL,
+  `email`               VARCHAR(45) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_agents_agents_contacts` (`agents_id` ASC) ,
+  CONSTRAINT `fk_agents_agents_contacts`
+      FOREIGN KEY (`agents_id`)
+      REFERENCES `agents` (`id`)
       ON DELETE NO ACTION
       ON UPDATE NO ACTION
 ) ENGINE=InnoDB;
 
-CREATE TABLE IF NOT EXISTS `Edocbase`.`Experts` (
-  `idExperts` INT NOT NULL AUTO_INCREMENT ,
-  `Expert_Lastname` VARCHAR(30) NULL ,
-  `Expert_Firstname` VARCHAR(30) NULL ,
-  `Expert_Middlename` VARCHAR(30) NULL ,
-  PRIMARY KEY (`idExperts`)
+
+-- Эксперты
+CREATE TABLE IF NOT EXISTS `edocbase`.`experts` (
+  `id`                  INT NOT NULL AUTO_INCREMENT ,
+  `lastname`            VARCHAR(30) NULL,
+  `firstname`           VARCHAR(30) NULL,
+  `middlename`          VARCHAR(30) NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE = InnoDB;
 
-CREATE  TABLE IF NOT EXISTS `Edocbase`.`Products` (
-  `idProducts` INT NOT NULL AUTO_INCREMENT ,
-  `Product_name` VARCHAR(45) NULL ,
-  `Product_OKP` VARCHAR(31) NULL ,
-  `Product_TNVED` VARCHAR(31) NULL ,
-  `ProductArea` TINYINT NULL,
-  PRIMARY KEY (`idProducts`)
+
+-- Области сертификации/лаб. исследования
+CREATE TABLE IF NOT EXISTS `edocbase`.`product_areas` (
+    `id`                INT NOT NULL,
+    `name`              VARCHAR(40),
+    PRIMARY KEY (`id`)
 ) ENGINE = InnoDB;
 
-CREATE TABLE IF NOT EXISTS `Edocbase`.`ProdGost` (
-  `id` INT NOT NULL ,
-  `idProducts` INT NULL ,
-  `GOST_numb` VARCHAR(15) NULL ,
-  `Prod_type` VARCHAR(80) NULL ,
-  PRIMARY KEY (`id`) ,
-  INDEX `fk_ProdGost_1` (`idProducts` ASC) ,
-  CONSTRAINT `fk_ProdGost_1`
-    FOREIGN KEY (`idProducts` )
-    REFERENCES `Edocbase`.`Products` (`idProducts` )
+
+-- Продукция
+CREATE TABLE IF NOT EXISTS `edocbase`.`products` (
+  `id`                  INT NOT NULL AUTO_INCREMENT,
+  `name`                VARCHAR(45) NULL,
+  `okp`                 VARCHAR(31) NULL,
+  `tnved`               VARCHAR(31) NULL,
+  `product_araes_id`    INT NULL,
+  PRIMARY KEY (`idProducts`),
+  INDEX `fk_products_product_areas` (`id` ASC) ,
+  CONSTRAINT `fk_products_product_areas`
+    FOREIGN KEY (`product_araes_id` )
+    REFERENCES `edocbase`.`products` (`id` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION
 ) ENGINE = InnoDB;
 
-CREATE TABLE IF NOT EXISTS `Edocbase`.`ContractTypes` (
-    `id` INT not null ,
-    `name` VARCHAR(45) ,
-    PRIMARY KEY (`id`)
-) ENGINE = InnoDB;
-CREATE TABLE IF NOT EXISTS `Edocbase`.`ContractStatus` (
-    `id` INT not null ,
-    `name` VARCHAR(30) ,
-    PRIMARY KEY (`id`)
-) ENGINE = InnoDB;
 
-CREATE TABLE IF NOT EXISTS `Edocbase`.`DocTemplates`(
-	`id` int NOT NULL AUTO_INCREMENT ,
-	`type` int NOT NULL,
-	`template` MEDIUMBLOB NOT NULL,
-	PRIMARY KEY (`id`),
-	CONSTRAINT `fk_Contracts_1`
-    FOREIGN KEY (`type`)
-    REFERENCES `Edocbase`.`ContractTypes` (`id`)
+-- ГОСТы продукции
+CREATE TABLE IF NOT EXISTS `edocbase`.`product_gosts` (
+  `id`                  INT NOT NULL ,
+  `products_id`         INT NULL ,
+  `number`              VARCHAR(15) NULL ,
+  `type`                VARCHAR(80) NULL ,
+  PRIMARY KEY (`id`),
+  INDEX `fk_product_gosts_products` (`id` ASC) ,
+  CONSTRAINT `fk_product_gosts_products`
+    FOREIGN KEY (`products_id`)
+    REFERENCES `edocbase`.`products` (`id` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION
-	) ENGINE = InnoDB;
+) ENGINE = InnoDB;
 
-CREATE TABLE IF NOT EXISTS `Edocbase`.`ProductAreas` (
-    `id` INT NOT null ,
-    `name` VARCHAR(40) ,
+
+-- Типы договоров
+CREATE TABLE IF NOT EXISTS `edocbase`.`contract_types` (
+    `id`                INT NOT NULL ,
+    `name`              VARCHAR(45) ,
     PRIMARY KEY (`id`)
 ) ENGINE = InnoDB;
 
-CREATE TABLE IF NOT EXISTS `Edocbase`.`Contracts` (
-  `idContract` INT NOT NULL AUTO_INCREMENT ,
-  `idProducts` INT NULL ,
-  `emission_type` VARCHAR(45) NULL ,
-  `Client_docs` VARCHAR(45) NULL ,
-  `Schem_type` VARCHAR(45) NULL ,
-  `Add_data` TEXT NULL ,
-  `Contract_type` INT NULL ,
-  `Contract_value_1` MEDIUMINT NULL ,
-  `Contract_value_full` MEDIUMINT NULL ,
-  `agent_id` INT NOT NULL ,
-  `Contract_number` INT NULL ,
-  `Contract_status` INT NULL ,
-  `Bid_type` TINYINT NULL ,
-  `expert_id` INT NULL ,
-  `Cash_income` TINYINT(1) NULL ,
+
+-- Статус договора
+CREATE TABLE IF NOT EXISTS `edocbase`.`contract_status` (
+    `id`                INT NOT NULL ,
+    `name`              VARCHAR(30) ,
+    PRIMARY KEY (`id`)
+) ENGINE = InnoDB;
+
+
+-- Шаблоны документов
+CREATE TABLE IF NOT EXISTS `edocbase`.`doc_templates`(
+  `id`                  INT NOT NULL AUTO_INCREMENT ,
+  `contract_types_id`   INT NOT NULL,
+  `template`            MEDIUMBLOB NOT NULL,
+  PRIMARY KEY (`id`),
+  CONSTRAINT `fk_doc_templates_contracts`
+    FOREIGN KEY (`contract_types_id`)
+    REFERENCES `edocbase`.`contract_types` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION
+) ENGINE = InnoDB;
+
+
+-- Тип выпуска продукции: серияная или партия фиксированного размера
+CREATE TABLE IF NOT EXISTS `edocbase`.`emission_types` (
+    `id`                INT NOT NULL ,
+    `name`              VARCHAR(45) ,
+    PRIMARY KEY (`id`)
+) ENGINE = InnoDB;
+
+
+-- Источники получения договоров
+CREATE TABLE IF NOT EXISTS `edocbase`.`source_types` (
+    `id`                INT NOT NULL ,
+    `name`              VARCHAR(45) ,
+    PRIMARY KEY (`id`)
+) ENGINE = InnoDB;
+
+
+-- Договора
+CREATE TABLE IF NOT EXISTS `edocbase`.`contracts` (
+  `id`                  INT NOT NULL AUTO_INCREMENT ,
+  `products_id`         INT NOT NULL DEFAULT 0,
+  `agents_id`           INT NOT NULL DEFAULT 0,
+  `experts_id`          INT NOT NULL DEFAULT 0,
+  `contract_types_id`   INT NOT NULL DEFAULT 0,
+  `contract_status_id`  INT NOT NULL DEFAULT 0,
+  -- Тип выпуска продукции: серияная или партия фиксированного размера
+  `emission_types_id`   INT NULL DEFAULT 0,
+  -- Номер договора
+  `number`              VARCHAR(9) NULL ,
+  -- Датаподачи заявки
+  `date_proposal`       DATE NULL ,
+  -- Дата заключения договора
+  `date_contract`       DATE NULL ,
+  -- Схема сертификации
+  `scheme_type`         VARCHAR(45) NULL ,
+  --- Дополнительная информация
+  `add_data`            TEXT NULL,
+  -- Стоимость первого этапа
+  `cost`                INT NULL ,
+  -- Общая стоимость
+  `total_cost`          INT NULL ,
+  -- Признак оплаты
+  `cash_income`         TINYINT(1) NULL ,
+  -- Дата начала поступления оплаты
+  `date_cash_income`    DATE NULL ,
+  -- Дата начала работ
+  `date_start`          DATE NULL ,
+  -- Поступление образца
+  `date_sample_income`  DATE NULL ,
+  -- Дата поступления протокола
+  `date_protocol_income`  DATE NULL ,
+  -- Планируема дата первого инспекционного контроля
+  `date_planed_reatt_1` DATE NULL ,
+  -- Реальная дата перого инспекционного контроля
+  `date_real_reatt_1`   DATE NULL ,
+  -- Планируема дата второго инспекционного контроля
+  `date_planed_reatt_1` DATE NULL ,
+  -- Реальная дата второго инспекционного контроля
+  `date_real_reatt_1`   DATE NULL ,
+  -- Планируема дата ресертефикации
+  `date_planed_resert`  DATE NULL ,
+  -- Реальная дата ресертефикации
+  `date_real_resert`    DATE NULL ,
+  -- Источник поступления договора
+  `source_types_id`     INT NULL DEFAULT 0,   -- UNUSED
   PRIMARY KEY (`idContract`) ,
-  INDEX `fk_Contracts_01` (`agent_id` ASC) ,
-  INDEX `fk_Contracts_2` (`expert_id` ASC) ,
-  INDEX `fk_Contracts_3` (`idProducts` ASC) ,
-  INDEX `fk_Contracts_4` (`Contract_type` ASC) ,
-  INDEX `fk_Contracts_5` (`Contract_status` ASC) ,
-  CONSTRAINT `fk_Contracts_01`
-    FOREIGN KEY (`agent_id`)
-    REFERENCES `Edocbase`.`Agents` (`idAgents` )
+  INDEX `fk_contracts_agents` (`agents_id` ASC) ,
+  INDEX `fk_contracts_experts` (`experts_id` ASC) ,
+  INDEX `fk_contracts_products` (`products_id` ASC) ,
+  INDEX `fk_contracts_contract_types` (`contract_types_id` ASC) ,
+  INDEX `fk_contracts_contract_status` (`contract_status_id` ASC) ,
+  INDEX `fk_contracts_emission_types` (`emission_types_id` ASC) ,
+  INDEX `fk_contracts_source_types` (`source_types_id` ASC) ,
+  CONSTRAINT `fk_contracts_agents`
+    FOREIGN KEY (`agents_id`)
+    REFERENCES `edocbase`.`agents` (`id` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_Contracts_2`
-    FOREIGN KEY (`expert_id` )
-    REFERENCES `Edocbase`.`Experts` (`idExperts` )
+  CONSTRAINT `fk_contracts_experts`
+    FOREIGN KEY (`experts_id` )
+    REFERENCES `edocbase`.`experts` (`id` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_Contracts_3`
-    FOREIGN KEY (`idProducts` )
-    REFERENCES `Edocbase`.`Products` (`idProducts` )
+  CONSTRAINT `fk_contracts_products`
+    FOREIGN KEY (`products_id` )
+    REFERENCES `edocbase`.`products` (`id` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_Contracts_4`
-    FOREIGN KEY (`Contract_type` )
-    REFERENCES `Edocbase`.`ContractTypes` (`id`)
+  CONSTRAINT `fk_contracts_contract_types`
+    FOREIGN KEY (`contract_types_id` )
+    REFERENCES `edocbase`.`contract_types` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_Contracts_5`
-    FOREIGN KEY (`Contract_status` )
-    REFERENCES `Edocbase`.`ContractStatus` (`id`)
+  CONSTRAINT `fk_contracts_contract_status`
+    FOREIGN KEY (`contract_status` )
+    REFERENCES `edocbase`.`contract_status` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_contracts_emission_types`
+    FOREIGN KEY (`emission_types_id` )
+    REFERENCES `edocbase`.`emission_types` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_contracts_source_types`
+    FOREIGN KEY (`source_types_id` )
+    REFERENCES `edocbase`.`source_types` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION
 ) ENGINE = InnoDB;
 
-CREATE TABLE IF NOT EXISTS `Edocbase`.`Exec_contracts` (
-  `idContract` INT NOT NULL ,
-  `Contract_start` DATE NULL ,
-  `Contract_1_reatt` DATE NULL ,
-  `Contract_2_reatt` DATE NULL ,
-  `Contract_resume` DATE NULL ,
-  `exec_1_reatt` DATE NULL ,
-  `exec_2_reatt` DATE NULL ,
-  `exec_resume` DATE NULL ,
-  `sample_income` DATE NULL ,
-  `protocol_income` DATE NULL ,
-  PRIMARY KEY (`idContract`) ,
-  INDEX `fk_Exec_contracts_1` (`idContract` ASC) ,
-  CONSTRAINT `fk_Exec_contracts_1`
-    FOREIGN KEY (`idContract` )
-    REFERENCES `Edocbase`.`Contracts` (`idContract` )
+
+-- Группы пользователей
+CREATE TABLE IF NOT EXISTS `edocbase`.`user_types` (
+    `id`                INT NOT NULL ,
+    `name`              VARCHAR(30) ,
+    PRIMARY KEY (`id`)
+) ENGINE = InnoDB;
+
+
+-- Пользователи
+CREATE TABLE IF NOT EXISTS `edocbase`.`users` (
+  `id`                  INT NOT NULL AUTO_INCREMENT,
+  `login`               VARCHAR(50) NULL ,
+  `password`            VARCHAR(50) NULL ,
+  `user_types_id`       INT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE = InnoDB;
+
+
+-- Лог полсещений
+CREATE TABLE IF NOT EXISTS `edocbase`.`log_journal` (
+  `id`                  INT NOT NULL AUTO_INCREMENT ,
+  `time_enter`          DATETIME NULL ,
+  `time_leave`          DATETIME NULL ,
+  `users_id`            INT NULL ,
+  PRIMARY KEY (`id`),
+  CONSTRAINT `fk_log_journal_users`
+    FOREIGN KEY (`users_id` )
+    REFERENCES `edocbase`.`users` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION
 ) ENGINE = InnoDB;
 
-CREATE TABLE IF NOT EXISTS `Edocbase`.`users` (
-  `login` VARCHAR(50) NULL ,
-  `password` VARCHAR(50) NULL ,
-  `type` INT NULL ,
-  `log_database` VARCHAR(50) NULL
-) ENGINE = InnoDB;
 
-CREATE TABLE IF NOT EXISTS `Edocbase`.`log_journal` (
-  `sessid` int NOT NULL AUTO_INCREMENT ,
-  `time_in` DATETIME NULL ,
-  `time_out` DATETIME NULL ,
-  `uname` VARCHAR(50) NULL ,
-  PRIMARY KEY (`sessid`) 
-) ENGINE = InnoDB;
-
-CREATE TABLE IF NOT EXISTS `Edocbase`.`documents`(
-    `id` int NOT NULL AUTO_INCREMENT ,
-    `idContract` int NOT NULL,
-    `type` int(11) NOT NULL,
-    `document` MEDIUMBLOB NOT NULL,
-    PRIMARY KEY (`id`),
-  INDEX `fk_documents_1` (`idContract` ASC) ,
-  CONSTRAINT `fk_documents_1`
-    FOREIGN KEY (`idContract` )
-    REFERENCES `Edocbase`.`Contracts` (`idContract` )
+-- Докуметнция
+CREATE TABLE IF NOT EXISTS `edocbase`.`documents`(
+  `id`                  INT NOT NULL AUTO_INCREMENT ,
+  `contracts_id`        INT NOT NULL,
+  `contract_types_id`   INT NOT NULL,
+  `users_id`            INT NOT NULL,
+  `date_modify`         DATETIME NULL ,
+  `document`            MEDIUMBLOB NOT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_documents_contracts` (`contracts_id` ASC) ,
+  CONSTRAINT `fk_documents_contracts`
+    FOREIGN KEY (`contracts_id`)
+    REFERENCES `edocbase`.`contracts` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_documents_2`
-    FOREIGN KEY (`type` )
-    REFERENCES `Edocbase`.`ContractTypes` (`id` )
+  CONSTRAINT `fk_documents_contract_types`
+    FOREIGN KEY (`contract_types_id`)
+    REFERENCES `edocbase`.`contract_types` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_documents_users`
+    FOREIGN KEY (`users_id`)
+    REFERENCES `edocbase`.`users` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION
 ) ENGINE = InnoDB;
