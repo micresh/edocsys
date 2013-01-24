@@ -73,7 +73,8 @@ namespace Edocsys
 
                 row.EndEdit();
 
-                UpdateAndRefresh();
+                UpdateChanges();
+                RefreshDataTables();
             }
             catch (Exception ex)
             {
@@ -97,14 +98,21 @@ namespace Edocsys
             return row;
         }
 
-        private void UpdateAndRefresh()
+        private void UpdateChanges()
         {
             this.tableAdapterManager.UpdateAll(this.edocbaseDataSet);
 
             edocbaseDataSet.AcceptChanges();
+        }
+
+        private void RefreshDataTables()
+        {
+            int pos = this.templatesDataTableBindingSource.Position;
 
             this.docTemplatesTableAdapter.Fill(this.edocbaseDataSet.DocTemplates);
             this.templatesDataTableTableAdapter.Fill(this.edocbaseDataSet.TemplatesDataTable);
+
+            this.templatesDataTableBindingSource.Position = pos;
         }
 
         private void saveTemplateButton_Click(object sender, EventArgs e)
@@ -224,7 +232,8 @@ namespace Edocsys
                 row["template"] = data;
                 row.EndEdit();
                 
-                UpdateAndRefresh();
+                UpdateChanges();
+                RefreshDataTables();
             }
             catch (Exception ex)
             {

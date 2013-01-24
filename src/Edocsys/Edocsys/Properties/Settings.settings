@@ -286,5 +286,26 @@
     <Setting Name="LoadProposalButton" Type="System.String" Scope="User">
       <Value Profile="(Default)">Загрузить файл заявки с диска</Value>
     </Setting>
+    <Setting Name="ContractTypeText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Тип проводимых работ</Value>
+    </Setting>
+    <Setting Name="ContractOperationGroupBox" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Операции с документом контракта</Value>
+    </Setting>
+    <Setting Name="GenerateContractTitle" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Сгенерировать договор</Value>
+    </Setting>
+    <Setting Name="ContractNumberTitle" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Номер договора</Value>
+    </Setting>
+    <Setting Name="EditContractTitle" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Редактировать файл договора</Value>
+    </Setting>
+    <Setting Name="SaveContractTitle" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Сохранть файл договора на диск</Value>
+    </Setting>
+    <Setting Name="LoadContractTitle" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Загрузить файл договора с диска</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
