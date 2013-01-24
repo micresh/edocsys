@@ -5,12 +5,34 @@ CREATE DATABASE IF NOT EXISTS `edocbase`;
 GRANT ALL PRIVILEGES ON *.* TO root@localhost IDENTIFIED BY 'po12jein45bf';
 
                         -- DB
+-- Группы пользователей
+CREATE TABLE IF NOT EXISTS `edocbase`.`user_types` (
+    `id`                INT NOT NULL ,
+    `name`              VARCHAR(30) ,
+    PRIMARY KEY (`id`)
+) ENGINE = InnoDB;
+
+
+-- Пользователи
+CREATE TABLE IF NOT EXISTS `edocbase`.`users` (
+  `id`                  INT NOT NULL AUTO_INCREMENT,
+  `login`               VARCHAR(50) NULL ,
+  `password`            VARCHAR(50) NULL ,
+  `lastname`            VARCHAR(30) NULL,
+  `firstname`           VARCHAR(30) NULL,
+  `middlename`          VARCHAR(30) NULL,
+  `user_types_id`       INT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE = InnoDB;
+
+
 -- Типы правового: ООО/ОАО/ЗАО
 CREATE TABLE IF NOT EXISTS `edocbase`.`agent_types` (
   `id`                  INT(11) NOT NULL AUTO_INCREMENT,
   `name`                VARCHAR(8) NULL,
   PRIMARY KEY (`id`)
 ) ENGINE = InnoDB;
+
 
 -- Контрагенты
 CREATE TABLE IF NOT EXISTS `edocbase`.`agents` (
@@ -44,6 +66,7 @@ CREATE TABLE IF NOT EXISTS `edocbase`.`agents` (
     ON UPDATE NO ACTION
 ) ENGINE=InnoDB;
 
+
 -- Контакны контрагентов
 CREATE TABLE IF NOT EXISTS `edocbase`.`agents_contacts` (
   `id`                  INT NOT NULL AUTO_INCREMENT,
@@ -61,16 +84,6 @@ CREATE TABLE IF NOT EXISTS `edocbase`.`agents_contacts` (
       ON DELETE NO ACTION
       ON UPDATE NO ACTION
 ) ENGINE=InnoDB;
-
-
--- Эксперты
-CREATE TABLE IF NOT EXISTS `edocbase`.`experts` (
-  `id`                  INT NOT NULL AUTO_INCREMENT ,
-  `lastname`            VARCHAR(30) NULL,
-  `firstname`           VARCHAR(30) NULL,
-  `middlename`          VARCHAR(30) NULL,
-  PRIMARY KEY (`id`)
-) ENGINE = InnoDB;
 
 
 -- Области сертификации/лаб. исследования
@@ -179,8 +192,10 @@ CREATE TABLE IF NOT EXISTS `edocbase`.`contracts` (
   `date_contract`       DATE NULL ,
   -- Схема сертификации
   `scheme_type`         VARCHAR(45) NULL ,
-  -- Дополнительная информация
-  `add_data`            TEXT NULL,
+  -- Дополнительная информация о заявке
+  `add_data_proposal`   TEXT NULL,
+  -- Дополнительная информация о договоре
+  `add_data_contract`   TEXT NULL,
   -- Стоимость первого этапа
   `cost`                INT NULL ,
   -- Общая стоимость
@@ -211,7 +226,7 @@ CREATE TABLE IF NOT EXISTS `edocbase`.`contracts` (
   `source_types_id`     INT NULL DEFAULT 0,   -- UNUSED
   PRIMARY KEY (`id`) ,
   INDEX `fk_contracts_agents` (`agents_id` ASC) ,
-  INDEX `fk_contracts_experts` (`experts_id` ASC) ,
+  INDEX `fk_contracts_users` (`experts_id` ASC) ,
   INDEX `fk_contracts_products` (`products_id` ASC) ,
   INDEX `fk_contracts_contract_types` (`contract_types_id` ASC) ,
   INDEX `fk_contracts_contract_status` (`contract_status_id` ASC) ,
@@ -222,9 +237,9 @@ CREATE TABLE IF NOT EXISTS `edocbase`.`contracts` (
     REFERENCES `edocbase`.`agents` (`id` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_contracts_experts`
+  CONSTRAINT `fk_contracts_users`
     FOREIGN KEY (`experts_id` )
-    REFERENCES `edocbase`.`experts` (`id` )
+    REFERENCES `edocbase`.`users` (`id` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_contracts_products`
@@ -272,24 +287,6 @@ CREATE TABLE IF NOT EXISTS `edocbase`.`selected_gosts` (
     REFERENCES `edocbase`.`product_gosts` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION
-) ENGINE = InnoDB;
-
-
--- Группы пользователей
-CREATE TABLE IF NOT EXISTS `edocbase`.`user_types` (
-    `id`                INT NOT NULL ,
-    `name`              VARCHAR(30) ,
-    PRIMARY KEY (`id`)
-) ENGINE = InnoDB;
-
-
--- Пользователи
-CREATE TABLE IF NOT EXISTS `edocbase`.`users` (
-  `id`                  INT NOT NULL AUTO_INCREMENT,
-  `login`               VARCHAR(50) NULL ,
-  `password`            VARCHAR(50) NULL ,
-  `user_types_id`       INT NULL,
-  PRIMARY KEY (`id`)
 ) ENGINE = InnoDB;
 
 
