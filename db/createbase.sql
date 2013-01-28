@@ -8,7 +8,7 @@ GRANT ALL PRIVILEGES ON *.* TO root@localhost IDENTIFIED BY 'po12jein45bf';
 -- Группы пользователей
 CREATE TABLE IF NOT EXISTS `edocbase`.`user_types` (
     `id`                INT NOT NULL ,
-    `name`              VARCHAR(30) ,
+    `name`              VARCHAR(20) ,
     PRIMARY KEY (`id`)
 ) ENGINE = InnoDB;
 
@@ -16,11 +16,11 @@ CREATE TABLE IF NOT EXISTS `edocbase`.`user_types` (
 -- Пользователи
 CREATE TABLE IF NOT EXISTS `edocbase`.`users` (
   `id`                  INT NOT NULL AUTO_INCREMENT,
-  `login`               VARCHAR(50) NULL ,
-  `password`            VARCHAR(50) NULL ,
-  `lastname`            VARCHAR(30) NULL,
-  `firstname`           VARCHAR(30) NULL,
-  `middlename`          VARCHAR(30) NULL,
+  `login`               VARCHAR(32) NULL,
+  `password`            VARCHAR(32) NULL,
+  `lastname`            VARCHAR(32) NULL,
+  `firstname`           VARCHAR(32) NULL,
+  `middlename`          VARCHAR(32) NULL,
   `user_types_id`       INT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE = InnoDB;
@@ -51,8 +51,8 @@ CREATE TABLE IF NOT EXISTS `edocbase`.`agents` (
   `ks`                  VARCHAR(15) DEFAULT NULL,
   `bik`                 VARCHAR(15) DEFAULT NULL,
   `bank`                VARCHAR(127) DEFAULT NULL,
-  -- Основание деятельности
-  `osnovanie`           VARCHAR(45) DEFAULT NULL,
+  -- Основание деятельности (документ)
+  `signing_authority_doc`  VARCHAR(45) DEFAULT NULL,
   `pers_status`         VARCHAR(45) NULL ,
   `pers_lastname`       VARCHAR(30) NULL ,
   `pers_firstname`      VARCHAR(30) NULL ,
@@ -131,7 +131,7 @@ CREATE TABLE IF NOT EXISTS `edocbase`.`product_gosts` (
 -- Типы договоров
 CREATE TABLE IF NOT EXISTS `edocbase`.`contract_types` (
     `id`                INT NOT NULL ,
-    `name`              VARCHAR(45) ,
+    `name`              VARCHAR(55) ,
     PRIMARY KEY (`id`)
 ) ENGINE = InnoDB;
 
@@ -139,7 +139,7 @@ CREATE TABLE IF NOT EXISTS `edocbase`.`contract_types` (
 -- Статус договора
 CREATE TABLE IF NOT EXISTS `edocbase`.`contract_status` (
     `id`                INT NOT NULL ,
-    `name`              VARCHAR(30) ,
+    `name`              VARCHAR(45) ,
     PRIMARY KEY (`id`)
 ) ENGINE = InnoDB;
 

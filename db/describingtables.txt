@@ -1,95 +1,95 @@
 `Edocbase`.`Agents` (
-  `idAgents` INT NOT NULL AUTO_INCREMENT ,  - идентификационный номер контрагента
-  `Ag_type_id` tinyint(4) DEFAULT 0,        - ID формы собственности
-  `Ag_fullname` VARCHAR(45) NULL ,          - полное название организации
-  `Ag_INN` VARCHAR(45) NULL ,               - ИНН
-  `Ag_addr` VARCHAR(45) NULL ,              - адрес контрагента
-  `Ag_OGRN` VARCHAR(45) NULL ,              - ОГРН
-  `Ag_KPP` VARCHAR(45) NULL ,               - КПП
-  `Ag_OKPO` VARCHAR(45) NULL ,              - ОКПО
-  `Ag_Rcou` VARCHAR(45) NULL ,              - расчетный счет
-  `Ag_Kcou` VARCHAR(45) NULL ,              - корреспондирующий счет
-  `Ag_BIK` VARCHAR(45) NULL ,               - БИК 
-  `Ag_bank` VARCHAR(45) NULL ,              - Название банка
-  `Ag_doc` VARCHAR(45) NULL ,               -  документы агента
-  `Ag_pers_status` VARCHAR(45) NULL ,       - должность ответственного за подписание договора лица
-  `Ag_pers_lastname` VARCHAR(30) NULL ,     - Фамилия
-  `Ag_pers_firstname` VARCHAR(30) NULL ,    - Имя
-  `Ag_pers_middlename` VARCHAR(30) NULL ,   - Отчество
+  `idAgents` INT NOT NULL AUTO_INCREMENT ,  - РёРґРµРЅС‚РёС„РёРєР°С†РёРѕРЅРЅС‹Р№ РЅРѕРјРµСЂ РєРѕРЅС‚СЂР°РіРµРЅС‚Р°
+  `Ag_type_id` tinyint(4) DEFAULT 0,        - ID С„РѕСЂРјС‹ СЃРѕР±СЃС‚РІРµРЅРЅРѕСЃС‚Рё
+  `Ag_fullname` VARCHAR(45) NULL ,          - РїРѕР»РЅРѕРµ РЅР°Р·РІР°РЅРёРµ РѕСЂРіР°РЅРёР·Р°С†РёРё
+  `Ag_INN` VARCHAR(45) NULL ,               - РРќРќ
+  `Ag_addr` VARCHAR(45) NULL ,              - Р°РґСЂРµСЃ РєРѕРЅС‚СЂР°РіРµРЅС‚Р°
+  `Ag_OGRN` VARCHAR(45) NULL ,              - РћР“Р Рќ
+  `Ag_KPP` VARCHAR(45) NULL ,               - РљРџРџ
+  `Ag_OKPO` VARCHAR(45) NULL ,              - РћРљРџРћ
+  `Ag_Rcou` VARCHAR(45) NULL ,              - СЂР°СЃС‡РµС‚РЅС‹Р№ СЃС‡РµС‚
+  `Ag_Kcou` VARCHAR(45) NULL ,              - РєРѕСЂСЂРµСЃРїРѕРЅРґРёСЂСѓСЋС‰РёР№ СЃС‡РµС‚
+  `Ag_BIK` VARCHAR(45) NULL ,               - Р‘РРљ 
+  `Ag_bank` VARCHAR(45) NULL ,              - РќР°Р·РІР°РЅРёРµ Р±Р°РЅРєР°
+  `Ag_doc` VARCHAR(45) NULL ,               -  РґРѕРєСѓРјРµРЅС‚С‹ Р°РіРµРЅС‚Р°
+  `Ag_pers_status` VARCHAR(45) NULL ,       - РґРѕР»Р¶РЅРѕСЃС‚СЊ РѕС‚РІРµС‚СЃС‚РІРµРЅРЅРѕРіРѕ Р·Р° РїРѕРґРїРёСЃР°РЅРёРµ РґРѕРіРѕРІРѕСЂР° Р»РёС†Р°
+  `Ag_pers_lastname` VARCHAR(30) NULL ,     - Р¤Р°РјРёР»РёСЏ
+  `Ag_pers_firstname` VARCHAR(30) NULL ,    - РРјСЏ
+  `Ag_pers_middlename` VARCHAR(30) NULL ,   - РћС‚С‡РµСЃС‚РІРѕ
 
 
--- контактные лица контрагентов
+-- РєРѕРЅС‚Р°РєС‚РЅС‹Рµ Р»РёС†Р° РєРѕРЅС‚СЂР°РіРµРЅС‚РѕРІ
 `Edocbase`.`Agents_contacts` (
-  `idAgents_contacts` INT NOT NULL,     - ID контактного лица
-  `ac_agent_id` INT DEFAULT 0,          - ID контрагента
-  `ac_person` VARCHAR(75) DEFAULT NULL, - Ф.И.О.
-  `ac_status` VARCHAR(45) DEFAULT NULL, - Должность
-  `ac_phone` VARCHAR(15) DEFAULT NULL,  - телефон контактного лица контрагента
-  `ac_fax` VARCHAR(15) DEFAULT NULL,    - факс контрагента
-  `ac_email` VARCHAR(45) DEFAULT NULL,  - электронная почта контрагента
+  `idAgents_contacts` INT NOT NULL,     - ID РєРѕРЅС‚Р°РєС‚РЅРѕРіРѕ Р»РёС†Р°
+  `ac_agent_id` INT DEFAULT 0,          - ID РєРѕРЅС‚СЂР°РіРµРЅС‚Р°
+  `ac_person` VARCHAR(75) DEFAULT NULL, - Р¤.Р.Рћ.
+  `ac_status` VARCHAR(45) DEFAULT NULL, - Р”РѕР»Р¶РЅРѕСЃС‚СЊ
+  `ac_phone` VARCHAR(15) DEFAULT NULL,  - С‚РµР»РµС„РѕРЅ РєРѕРЅС‚Р°РєС‚РЅРѕРіРѕ Р»РёС†Р° РєРѕРЅС‚СЂР°РіРµРЅС‚Р°
+  `ac_fax` VARCHAR(15) DEFAULT NULL,    - С„Р°РєСЃ РєРѕРЅС‚СЂР°РіРµРЅС‚Р°
+  `ac_email` VARCHAR(45) DEFAULT NULL,  - СЌР»РµРєС‚СЂРѕРЅРЅР°СЏ РїРѕС‡С‚Р° РєРѕРЅС‚СЂР°РіРµРЅС‚Р°
 
 
--- формы собситвенности
+-- С„РѕСЂРјС‹ СЃРѕР±СЃРёС‚РІРµРЅРЅРѕСЃС‚Рё
 `Edocbase`.`Agents_types` (
   `idAgents_types` TINYINT NOT NULL ,   - ID
-  `Agent_type` VARCHAR(8) NULL ,        - Название
+  `Agent_type` VARCHAR(8) NULL ,        - РќР°Р·РІР°РЅРёРµ
 
 `Edocbase`.`Experts` (
-  `idExperts` INT NOT NULL AUTO_INCREMENT , - номер эксперта
-  `Expert_Lastname` VARCHAR(45) NULL , - Фамилия эксперта
-  `Expert_Firstname` VARCHAR(45) NULL , - Имя эксперта
-  `Expert_Middlename` VARCHAR(45) NULL , - Отчество эксперта
+  `idExperts` INT NOT NULL AUTO_INCREMENT , - РЅРѕРјРµСЂ СЌРєСЃРїРµСЂС‚Р°
+  `Expert_Lastname` VARCHAR(45) NULL , - Р¤Р°РјРёР»РёСЏ СЌРєСЃРїРµСЂС‚Р°
+  `Expert_Firstname` VARCHAR(45) NULL , - РРјСЏ СЌРєСЃРїРµСЂС‚Р°
+  `Expert_Middlename` VARCHAR(45) NULL , - РћС‚С‡РµСЃС‚РІРѕ СЌРєСЃРїРµСЂС‚Р°
 
 `Edocbase`.`Products` (
-  `idProducts` INT NOT NULL AUTO_INCREMENT , - номер продукции
-  `Product_name` VARCHAR(45) NULL , - Название продукции
-  `Product_OKP` VARCHAR(45) NULL , - код ОКП
-  `Product_TNVED` VARCHAR(45) NULL , - код ТН ВЭД
+  `idProducts` INT NOT NULL AUTO_INCREMENT , - РЅРѕРјРµСЂ РїСЂРѕРґСѓРєС†РёРё
+  `Product_name` VARCHAR(45) NULL , - РќР°Р·РІР°РЅРёРµ РїСЂРѕРґСѓРєС†РёРё
+  `Product_OKP` VARCHAR(45) NULL , - РєРѕРґ РћРљРџ
+  `Product_TNVED` VARCHAR(45) NULL , - РєРѕРґ РўРќ Р’Р­Р”
   PRIMARY KEY (`idProducts`) )
 
  `Edocbase`.`ProdGost` (
-  `id` INT NOT NULL , - идентификационный номер
-  `idProducts` INT NULL , - идномер продукта
-  `GOST_numb` VARCHAR(45) NULL , - номер ГОСТА, по которому проводится серификация
-  `Prod_type` VARCHAR(45) NULL , - тип продукта
+  `id` INT NOT NULL , - РёРґРµРЅС‚РёС„РёРєР°С†РёРѕРЅРЅС‹Р№ РЅРѕРјРµСЂ
+  `idProducts` INT NULL , - РёРґРЅРѕРјРµСЂ РїСЂРѕРґСѓРєС‚Р°
+  `GOST_numb` VARCHAR(45) NULL , - РЅРѕРјРµСЂ Р“РћРЎРўРђ, РїРѕ РєРѕС‚РѕСЂРѕРјСѓ РїСЂРѕРІРѕРґРёС‚СЃСЏ СЃРµСЂРёС„РёРєР°С†РёСЏ
+  `Prod_type` VARCHAR(45) NULL , - С‚РёРї РїСЂРѕРґСѓРєС‚Р°
 
  `Edocbase`.`Contracts` (
-  `idContract` INT NOT NULL AUTO_INCREMENT ,  -идентификационный номер заявки
-  `idProducts` INT NULL , - идентификационный номер продукта
-  `emission_type` VARCHAR(45) NULL , - тип выпуска продукта
-  `Client_docs` VARCHAR(45) NULL , - Учредительные документы
-  `Schem_type` INT NULL , - тип схемы сертификации
-  `Add_data` VARCHAR(45) NULL , - дополнительные сведения
-  `Contract_type` INT NULL , - тип договора
-  `Contract_value_1` MEDIUMINT NULL , - промежуточная сумма договора
-  `Contract_value_full` MEDIUMINT NULL ,  итоговая сумма догвора
-  `agent_id` INT NULL , - идентификационный номер контрагента
-  `Contract_number` INT NULL , - Номер контракта
-  `Contract_status` INT NULL , - Статус исполнения контракта
-  `Bid_type` TINYINT NULL , - вид поступления договора
-  `expert_id` INT NULL , -  номер эксперта, составлявшего документ
-  `Cash_income` TINYINT(1) NULL , - наличие оплаты
+  `idContract` INT NOT NULL AUTO_INCREMENT ,  -РёРґРµРЅС‚РёС„РёРєР°С†РёРѕРЅРЅС‹Р№ РЅРѕРјРµСЂ Р·Р°СЏРІРєРё
+  `idProducts` INT NULL , - РёРґРµРЅС‚РёС„РёРєР°С†РёРѕРЅРЅС‹Р№ РЅРѕРјРµСЂ РїСЂРѕРґСѓРєС‚Р°
+  `emission_type` VARCHAR(45) NULL , - С‚РёРї РІС‹РїСѓСЃРєР° РїСЂРѕРґСѓРєС‚Р°
+  `Client_docs` VARCHAR(45) NULL , - РЈС‡СЂРµРґРёС‚РµР»СЊРЅС‹Рµ РґРѕРєСѓРјРµРЅС‚С‹
+  `Schem_type` INT NULL , - С‚РёРї СЃС…РµРјС‹ СЃРµСЂС‚РёС„РёРєР°С†РёРё
+  `Add_data` VARCHAR(45) NULL , - РґРѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹Рµ СЃРІРµРґРµРЅРёСЏ
+  `Contract_type` INT NULL , - С‚РёРї РґРѕРіРѕРІРѕСЂР°
+  `Contract_value_1` MEDIUMINT NULL , - РїСЂРѕРјРµР¶СѓС‚РѕС‡РЅР°СЏ СЃСѓРјРјР° РґРѕРіРѕРІРѕСЂР°
+  `Contract_value_full` MEDIUMINT NULL ,  РёС‚РѕРіРѕРІР°СЏ СЃСѓРјРјР° РґРѕРіРІРѕСЂР°
+  `agent_id` INT NULL , - РёРґРµРЅС‚РёС„РёРєР°С†РёРѕРЅРЅС‹Р№ РЅРѕРјРµСЂ РєРѕРЅС‚СЂР°РіРµРЅС‚Р°
+  `Contract_number` INT NULL , - РќРѕРјРµСЂ РєРѕРЅС‚СЂР°РєС‚Р°
+  `Contract_status` INT NULL , - РЎС‚Р°С‚СѓСЃ РёСЃРїРѕР»РЅРµРЅРёСЏ РєРѕРЅС‚СЂР°РєС‚Р°
+  `Bid_type` TINYINT NULL , - РІРёРґ РїРѕСЃС‚СѓРїР»РµРЅРёСЏ РґРѕРіРѕРІРѕСЂР°
+  `expert_id` INT NULL , -  РЅРѕРјРµСЂ СЌРєСЃРїРµСЂС‚Р°, СЃРѕСЃС‚Р°РІР»СЏРІС€РµРіРѕ РґРѕРєСѓРјРµРЅС‚
+  `Cash_income` TINYINT(1) NULL , - РЅР°Р»РёС‡РёРµ РѕРїР»Р°С‚С‹
 
  `Edocbase`.`Exec_contracts` (
-  `idContract` INT NOT NULL , - номер контракта
-  `Contract_start` DATE NULL , - дата начала действия договора
-  `Contract_1_reatt` DATE NULL , - дата 1-ой реаттестации
-  `Contract_2_reatt` DATE NULL , - дата 2-ой реаттестации
-  `Contract_resume` DATE NULL , - дата итоговой реаттестации
-  `exec_1_reatt` DATE NULL , - дата исполнения 1-ой реаттестации
-  `exec_2_reatt` DATE NULL , - дата исполнения 2-ой реаттестации
-  `exec_resume` DATE NULL , - дата исполнения итоговой реаттестации
-  `sample_income` DATE NULL , - дата поступления образцов
-  `protocol_income` DATE NULL , - дата поступления протокола
+  `idContract` INT NOT NULL , - РЅРѕРјРµСЂ РєРѕРЅС‚СЂР°РєС‚Р°
+  `Contract_start` DATE NULL , - РґР°С‚Р° РЅР°С‡Р°Р»Р° РґРµР№СЃС‚РІРёСЏ РґРѕРіРѕРІРѕСЂР°
+  `Contract_1_reatt` DATE NULL , - РґР°С‚Р° 1-РѕР№ СЂРµР°С‚С‚РµСЃС‚Р°С†РёРё
+  `Contract_2_reatt` DATE NULL , - РґР°С‚Р° 2-РѕР№ СЂРµР°С‚С‚РµСЃС‚Р°С†РёРё
+  `Contract_resume` DATE NULL , - РґР°С‚Р° РёС‚РѕРіРѕРІРѕР№ СЂРµР°С‚С‚РµСЃС‚Р°С†РёРё
+  `exec_1_reatt` DATE NULL , - РґР°С‚Р° РёСЃРїРѕР»РЅРµРЅРёСЏ 1-РѕР№ СЂРµР°С‚С‚РµСЃС‚Р°С†РёРё
+  `exec_2_reatt` DATE NULL , - РґР°С‚Р° РёСЃРїРѕР»РЅРµРЅРёСЏ 2-РѕР№ СЂРµР°С‚С‚РµСЃС‚Р°С†РёРё
+  `exec_resume` DATE NULL , - РґР°С‚Р° РёСЃРїРѕР»РЅРµРЅРёСЏ РёС‚РѕРіРѕРІРѕР№ СЂРµР°С‚С‚РµСЃС‚Р°С†РёРё
+  `sample_income` DATE NULL , - РґР°С‚Р° РїРѕСЃС‚СѓРїР»РµРЅРёСЏ РѕР±СЂР°Р·С†РѕРІ
+  `protocol_income` DATE NULL , - РґР°С‚Р° РїРѕСЃС‚СѓРїР»РµРЅРёСЏ РїСЂРѕС‚РѕРєРѕР»Р°
 
 `Edocbase`.`users` (
-  `login` VARCHAR(50) NULL , - Логин в систему
-  `password` VARCHAR(50) NULL , - пароль
-  `type` INT NULL , - тип пользователя
-  `log_database` VARCHAR(50) NULL ) - логин в базе данных
+  `login` VARCHAR(50) NULL , - Р›РѕРіРёРЅ РІ СЃРёСЃС‚РµРјСѓ
+  `password` VARCHAR(50) NULL , - РїР°СЂРѕР»СЊ
+  `type` INT NULL , - С‚РёРї РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ
+  `log_database` VARCHAR(50) NULL ) - Р»РѕРіРёРЅ РІ Р±Р°Р·Рµ РґР°РЅРЅС‹С…
 
 `Edocbase`.`log_journal` (
-  `sessid` int NOT NULL AUTO_INCREMENT , - номер сессии
-  `time_in` DATETIME NULL , - время начала сессии
-  `time_out` DATETIME NULL , - время окончания сессии
-  `uname` VARCHAR(50) NULL , - имя пользователя
+  `sessid` int NOT NULL AUTO_INCREMENT , - РЅРѕРјРµСЂ СЃРµСЃСЃРёРё
+  `time_in` DATETIME NULL , - РІСЂРµРјСЏ РЅР°С‡Р°Р»Р° СЃРµСЃСЃРёРё
+  `time_out` DATETIME NULL , - РІСЂРµРјСЏ РѕРєРѕРЅС‡Р°РЅРёСЏ СЃРµСЃСЃРёРё
+  `uname` VARCHAR(50) NULL , - РёРјСЏ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ

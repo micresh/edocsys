@@ -1,31 +1,49 @@
-﻿-- insert users into users table
-INSERT INTO `Edocbase`.`users` (`login`, `password`, `type`, `log_database`) VALUES ('admin', md5('123'),1,'admin');
-INSERT INTO `Edocbase`.`users` (`login`, `password`, `type`, `log_database`) VALUES ('expert', md5('123'),1,'expert');
-INSERT INTO `Edocbase`.`users` (`login`, `password`, `type`, `log_database`) VALUES ('direktor', md5('123'),1,'direktor');
-INSERT INTO `Edocbase`.`users` (`login`, `password`, `type`, `log_database`) VALUES ('defuser', md5('123'),1,'defuser');
-
--- insert contracttypes into ContractTypes table
-INSERT INTO `Edocbase`.`ContractTypes` (`id`, `name`) VALUES (0,'Заявка');
-INSERT INTO `Edocbase`.`ContractTypes` (`id`, `name`) VALUES (1,'Лабораторные исследования');
-INSERT INTO `Edocbase`.`ContractTypes` (`id`, `name`) VALUES (2,'Сертификация');
-INSERT INTO `Edocbase`.`ContractTypes` (`id`, `name`) VALUES (3,'Лабораторные исследования с сертификацией');
+-- insert user types into table
+INSERT INTO `edocbase`.`user_types` (`id`, `name`) VALUES ('1', 'Администратор');
+INSERT INTO `edocbase`.`user_types` (`id`, `name`) VALUES ('2', 'Эксперт');
+INSERT INTO `edocbase`.`user_types` (`id`, `name`) VALUES ('3', 'Директор');
 
 
--- insert contracttypes into ContractStatus table
-INSERT INTO `Edocbase`.`ContractStatus` (`id`, `name`) VALUES (0,'Заявка добавлена');
-INSERT INTO `Edocbase`.`ContractStatus` (`id`, `name`) VALUES (1,'Ожидание прикрепления эксперта');
-INSERT INTO `Edocbase`.`ContractStatus` (`id`, `name`) VALUES (2,'К заявке прикреплен эксперт');
-INSERT INTO `Edocbase`.`ContractStatus` (`id`, `name`) VALUES (3,'Начата работа по заявке');
-INSERT INTO `Edocbase`.`ContractStatus` (`id`, `name`) VALUES (4,'Оформлен акт выполненных работ');
-INSERT INTO `Edocbase`.`ContractStatus` (`id`, `name`) VALUES (5,'Акт утвержден руководителем');
-INSERT INTO `Edocbase`.`ContractStatus` (`id`, `name`) VALUES (20,'Невыполнение по вине заказчика');
-INSERT INTO `Edocbase`.`ContractStatus` (`id`, `name`) VALUES (21,'Невыполнение по вине эксперта');
+-- insert users into users table
+INSERT INTO `edocbase`.`users` (`login`, `password`, `lastname`, `firstname`, `middlename`, `user_types_id`) VALUES ('admin',    md5('123'), 'A', 'A', 'A', 1);
+INSERT INTO `edocbase`.`users` (`login`, `password`, `lastname`, `firstname`, `middlename`, `user_types_id`) VALUES ('expert',   md5('123'), 'E', 'E', 'E', 2);
+INSERT INTO `edocbase`.`users` (`login`, `password`, `lastname`, `firstname`, `middlename`, `user_types_id`) VALUES ('direktor', md5('123'), 'D', 'D', 'D', 3);
 
--- insert productareas into ProductAreas table
-INSERT INTO `Edocbase`.`ProductAreas` (`id`, `name`) VALUES (0,'Область сертификации');
-INSERT INTO `Edocbase`.`ProductAreas` (`id`, `name`) VALUES (1,'Область лабораторных исследований');
 
--- insert productareas into Agents_types table
-INSERT INTO `Edocbase`.`Agents_types` (`idAgents_types`, `Agent_type`) VALUES (1, 'ООО');
-INSERT INTO `Edocbase`.`Agents_types` (`idAgents_types`, `Agent_type`) VALUES (2, 'ОАО');
-INSERT INTO `Edocbase`.`Agents_types` (`idAgents_types`, `Agent_type`) VALUES (3, 'ЗАО');
+-- insert contract_types into contract_types table
+INSERT INTO `edocbase`.`contract_types` (`id`, `name`) VALUES (0,'Заявка');
+INSERT INTO `edocbase`.`contract_types` (`id`, `name`) VALUES (1,'Акт выполненных работ');
+INSERT INTO `edocbase`.`contract_types` (`id`, `name`) VALUES (2,'Документ о первом инспекционном контроле/реаттестации');
+INSERT INTO `edocbase`.`contract_types` (`id`, `name`) VALUES (3,'Документ о втором инспекционном контроле/реаттестации');
+
+INSERT INTO `edocbase`.`contract_types` (`id`, `name`) VALUES (10,'Сертификация');
+INSERT INTO `edocbase`.`contract_types` (`id`, `name`) VALUES (11,'Сертификация с декларацией');
+INSERT INTO `edocbase`.`contract_types` (`id`, `name`) VALUES (12,'Лабораторные исследования');
+INSERT INTO `edocbase`.`contract_types` (`id`, `name`) VALUES (13,'Лабораторные исследования с сертификацией');
+
+
+-- insert contract statuses into contract_status table
+INSERT INTO `edocbase`.`contract_status` (`id`, `name`) VALUES (0,'Заявка добавлена');
+INSERT INTO `edocbase`.`contract_status` (`id`, `name`) VALUES (1,'Закрепление эксперта');
+INSERT INTO `edocbase`.`contract_status` (`id`, `name`) VALUES (2,'Заключение договора');
+INSERT INTO `edocbase`.`contract_status` (`id`, `name`) VALUES (3,'Подготовка к работе');
+INSERT INTO `edocbase`.`contract_status` (`id`, `name`) VALUES (4,'В работе');
+INSERT INTO `edocbase`.`contract_status` (`id`, `name`) VALUES (5,'Подтверждение выполнения руководителем');
+INSERT INTO `edocbase`.`contract_status` (`id`, `name`) VALUES (6,'Подтверждение выполнения клиентом');
+INSERT INTO `edocbase`.`contract_status` (`id`, `name`) VALUES (7,'Заключение договора реаттестации');
+INSERT INTO `edocbase`.`contract_status` (`id`, `name`) VALUES (8,'Договора на инспекционном контроле');
+INSERT INTO `edocbase`.`contract_status` (`id`, `name`) VALUES (9,'Завершенные договора');
+
+INSERT INTO `edocbase`.`contract_status` (`id`, `name`) VALUES (20,'Невыполнение по вине заказчика');
+INSERT INTO `edocbase`.`contract_status` (`id`, `name`) VALUES (21,'Невыполнение по вине эксперта');
+
+
+-- insert product_areas into product_areas table
+INSERT INTO `edocbase`.`product_areas` (`id`, `name`) VALUES (0,'Область сертификации');
+INSERT INTO `edocbase`.`product_areas` (`id`, `name`) VALUES (1,'Область лабораторных исследований');
+
+
+-- insert agent types into agent_types table
+INSERT INTO `edocbase`.`agent_types` (`id`, `name`) VALUES (1, 'ООО');
+INSERT INTO `edocbase`.`agent_types` (`id`, `name`) VALUES (2, 'ОАО');
+INSERT INTO `edocbase`.`agent_types` (`id`, `name`) VALUES (3, 'ЗАО');
