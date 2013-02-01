@@ -106,11 +106,11 @@ CREATE TABLE IF NOT EXISTS `edocbase`.`products` (
   `name`                VARCHAR(45) NULL,
   `okp`                 VARCHAR(31) NULL,
   `tnved`               VARCHAR(31) NULL,
-  `product_araes_id`    INT NULL,
+  `product_areas_id`    INT NULL,
   PRIMARY KEY (`id`),
-  INDEX `fk_products_product_areas` (`product_araes_id` ASC) ,
+  INDEX `fk_products_product_areas` (`product_areas_id` ASC) ,
   CONSTRAINT `fk_products_product_areas`
-    FOREIGN KEY (`product_araes_id` )
+    FOREIGN KEY (`product_areas_id` )
     REFERENCES `edocbase`.`product_areas` ( `id` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION
@@ -200,7 +200,7 @@ CREATE TABLE IF NOT EXISTS `edocbase`.`contracts` (
   `scheme_type`         VARCHAR(45) NULL ,
   -- Дополнительная информация о заявке
   `add_data_proposal`   TEXT NULL,
-  -- Дополнительная информация о договоре (доп. название продукции)
+  -- Дополнительная информация о договоре
   `add_data_contract`   TEXT NULL,
   -- Стоимость первого этапа
   `cost`                INT NULL ,
