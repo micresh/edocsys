@@ -22,7 +22,13 @@ CREATE TABLE IF NOT EXISTS `edocbase`.`users` (
   `firstname`           VARCHAR(32) NULL,
   `middlename`          VARCHAR(32) NULL,
   `user_types_id`       INT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  INDEX `fk_users_user_types` (`user_types_id` ASC) ,
+  CONSTRAINT `fk_users_user_types`
+    FOREIGN KEY (`user_types_id`) 
+    REFERENCES `user_types` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION
 ) ENGINE = InnoDB;
 
 
