@@ -95,7 +95,7 @@
       <Value Profile="(Default)">Область аккредитации</Value>
     </Setting>
     <Setting Name="ProductionFormText" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Продукция</Value>
+      <Value Profile="(Default)">Область аккредитации</Value>
     </Setting>
     <Setting Name="ExpertsFormText" Type="System.String" Scope="User">
       <Value Profile="(Default)">Эксперты</Value>
