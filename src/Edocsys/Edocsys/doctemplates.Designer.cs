@@ -31,6 +31,8 @@
             this.components = new System.ComponentModel.Container();
             this.edocbaseDataSet = new Edocsys.EdocbaseDataSet();
             this.tableAdapterManager = new Edocsys.EdocbaseDataSetTableAdapters.TableAdapterManager();
+            this.doc_templatesTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.doc_templatesTableAdapter();
+            this.templatesDataTableTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.templatesDataTableTableAdapter();
             this.docTemplatesOperaqtionsGroupBox = new System.Windows.Forms.GroupBox();
             this.template_presenceCheckBox = new System.Windows.Forms.CheckBox();
             this.templatesDataTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -38,52 +40,55 @@
             this.saveTemplateButton = new System.Windows.Forms.Button();
             this.loadTemplateButton = new System.Windows.Forms.Button();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
-            this.docTemplatesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.doc_templatesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.templatesDataTableDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-
-            //this.docTemplatesTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.DocTemplatesTableAdapter();
-            //this.templatesDataTableTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.TemplatesDataTableTableAdapter();
-
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.edocbaseDataSet)).BeginInit();
             this.docTemplatesOperaqtionsGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.templatesDataTableBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.docTemplatesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.doc_templatesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.templatesDataTableDataGridView)).BeginInit();
-
             this.SuspendLayout();
             // 
             // edocbaseDataSet
             // 
+            this.edocbaseDataSet.CaseSensitive = true;
             this.edocbaseDataSet.DataSetName = "EdocbaseDataSet";
             this.edocbaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // tableAdapterManager
             // 
-            //this.tableAdapterManager.Agents_contactsTableAdapter = null;
-            //this.tableAdapterManager.Agents_typesTableAdapter = null;
-            //this.tableAdapterManager.AgentsTableAdapter = null;
-            //this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            //this.tableAdapterManager.ContractsTableAdapter = null;
-            //this.tableAdapterManager.ContractStatusTableAdapter = null;
-            //this.tableAdapterManager.ContractTypesTableAdapter = null;
-            //this.tableAdapterManager.DocTemplatesTableAdapter = this.docTemplatesTableAdapter;
-            //this.tableAdapterManager.DocumentsTableAdapter = null;
-            //this.tableAdapterManager.Exec_contractsTableAdapter = null;
-            //this.tableAdapterManager.ExpertsTableAdapter = null;
-            //this.tableAdapterManager.log_journalTableAdapter = null;
-            //this.tableAdapterManager.ProdGostTableAdapter = null;
-            //this.tableAdapterManager.ProductAreasTableAdapter = null;
-            //this.tableAdapterManager.ProductsTableAdapter = null;
-            //this.tableAdapterManager.UpdateOrder = Edocsys.EdocbaseDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            //this.tableAdapterManager.usersTableAdapter = null;
+            this.tableAdapterManager.agent_typesTableAdapter = null;
+            this.tableAdapterManager.agents_contactsTableAdapter = null;
+            this.tableAdapterManager.agentsTableAdapter = null;
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.contract_statusTableAdapter = null;
+            this.tableAdapterManager.contract_types_for_workDataTablesTableAdapter = null;
+            this.tableAdapterManager.contract_typesTableAdapter = null;
+            this.tableAdapterManager.contractsTableAdapter = null;
+            this.tableAdapterManager.doc_templatesTableAdapter = this.doc_templatesTableAdapter;
+            this.tableAdapterManager.documentsTableAdapter = null;
+            this.tableAdapterManager.emission_typesTableAdapter = null;
+            this.tableAdapterManager.expertsTableAdapter = null;
+            this.tableAdapterManager.log_journalTableAdapter = null;
+            this.tableAdapterManager.product_areasTableAdapter = null;
+            this.tableAdapterManager.product_gostsTableAdapter = null;
+            this.tableAdapterManager.productsTableAdapter = null;
+            this.tableAdapterManager.selected_gostsTableAdapter = null;
+            this.tableAdapterManager.source_typesTableAdapter = null;
+            this.tableAdapterManager.UpdateOrder = Edocsys.EdocbaseDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            this.tableAdapterManager.user_typesTableAdapter = null;
+            this.tableAdapterManager.usersTableAdapter = null;
             // 
-            // docTemplatesTableAdapter
+            // doc_templatesTableAdapter
             // 
-            //this.docTemplatesTableAdapter.ClearBeforeFill = true;
+            this.doc_templatesTableAdapter.ClearBeforeFill = true;
+            // 
+            // templatesDataTableTableAdapter
+            // 
+            this.templatesDataTableTableAdapter.ClearBeforeFill = true;
             // 
             // docTemplatesOperaqtionsGroupBox
             // 
@@ -112,7 +117,7 @@
             // 
             // templatesDataTableBindingSource
             // 
-            this.templatesDataTableBindingSource.DataMember = "TemplatesDataTable";
+            this.templatesDataTableBindingSource.DataMember = "templatesDataTable";
             this.templatesDataTableBindingSource.DataSource = this.edocbaseDataSet;
             // 
             // editTemplateButton
@@ -152,14 +157,10 @@
             // 
             this.openFileDialog.Filter = "Файлы Word 2007-2010| *.docx|Все файлы|*.*";
             // 
-            // docTemplatesBindingSource
+            // doc_templatesBindingSource
             // 
-            this.docTemplatesBindingSource.DataMember = "DocTemplates";
-            this.docTemplatesBindingSource.DataSource = this.edocbaseDataSet;
-            // 
-            // templatesDataTableTableAdapter
-            // 
-            //this.templatesDataTableTableAdapter.ClearBeforeFill = true;
+            this.doc_templatesBindingSource.DataMember = "doc_templates";
+            this.doc_templatesBindingSource.DataSource = this.edocbaseDataSet;
             // 
             // templatesDataTableDataGridView
             // 
@@ -169,7 +170,6 @@
             this.templatesDataTableDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.templatesDataTableDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
             this.dataGridViewCheckBoxColumn1});
             this.templatesDataTableDataGridView.DataSource = this.templatesDataTableBindingSource;
             this.templatesDataTableDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -189,14 +189,6 @@
             this.dataGridViewTextBoxColumn2.ReadOnly = true;
             this.dataGridViewTextBoxColumn2.ToolTipText = "Тип документа";
             this.dataGridViewTextBoxColumn2.Width = 350;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "DTid";
-            this.dataGridViewTextBoxColumn3.HeaderText = "DTid";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            this.dataGridViewTextBoxColumn3.Visible = false;
             // 
             // dataGridViewCheckBoxColumn1
             // 
@@ -224,7 +216,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.edocbaseDataSet)).EndInit();
             this.docTemplatesOperaqtionsGroupBox.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.templatesDataTableBindingSource)).EndInit();
-//            ((System.ComponentModel.ISupportInitialize)(this.docTemplatesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.doc_templatesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.templatesDataTableDataGridView)).EndInit();
             this.ResumeLayout(false);
 
@@ -239,17 +231,14 @@
         private System.Windows.Forms.Button loadTemplateButton;
         private System.Windows.Forms.Button saveTemplateButton;
         private System.Windows.Forms.Button editTemplateButton;
-        private System.Windows.Forms.BindingSource docTemplatesBindingSource;
+        private System.Windows.Forms.BindingSource doc_templatesBindingSource;
         private System.Windows.Forms.BindingSource templatesDataTableBindingSource;
         private System.Windows.Forms.DataGridView templatesDataTableDataGridView;
         private System.Windows.Forms.CheckBox template_presenceCheckBox;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn1;
         private System.Windows.Forms.SaveFileDialog saveFileDialog;
-
-        //private EdocbaseDataSetTableAdapters.DocTemplatesTableAdapter docTemplatesTableAdapter;
-        //private EdocbaseDataSetTableAdapters.TemplatesDataTableTableAdapter templatesDataTableTableAdapter;
-
+        private EdocbaseDataSetTableAdapters.doc_templatesTableAdapter doc_templatesTableAdapter;
+        private EdocbaseDataSetTableAdapters.templatesDataTableTableAdapter templatesDataTableTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn1;
     }
 }
