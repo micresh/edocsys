@@ -39,14 +39,12 @@
             this.DocToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ProposalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ContractToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.CatalogToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ContractorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ProductionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ExpertAssignToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.AgentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.AdmToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.AdmpanelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ExpertsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
-            this.AssignexpertToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.docTemplatesFormToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.WindowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.HelpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -83,7 +81,6 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.FileToolStripMenuItem,
             this.DocToolStripMenuItem,
-            this.CatalogToolStripMenuItem,
             this.AdmToolStripMenuItem,
             this.WindowToolStripMenuItem,
             this.HelpToolStripMenuItem});
@@ -135,47 +132,40 @@
             // 
             this.DocToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ProposalToolStripMenuItem,
-            this.ContractToolStripMenuItem});
+            this.ContractToolStripMenuItem,
+            this.ExpertAssignToolStripMenuItem,
+            this.AgentsToolStripMenuItem});
             this.DocToolStripMenuItem.Name = "DocToolStripMenuItem";
-            this.DocToolStripMenuItem.Size = new System.Drawing.Size(82, 20);
+            this.DocToolStripMenuItem.Size = new System.Drawing.Size(97, 20);
             this.DocToolStripMenuItem.Text = global::Edocsys.Properties.Settings.Default.DocToolStripMenuItemText;
             // 
             // ProposalToolStripMenuItem
             // 
             this.ProposalToolStripMenuItem.Name = "ProposalToolStripMenuItem";
-            this.ProposalToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
+            this.ProposalToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
             this.ProposalToolStripMenuItem.Text = global::Edocsys.Properties.Settings.Default.ProposalToolStripMenuItemText;
             this.ProposalToolStripMenuItem.Click += new System.EventHandler(this.proposalToolStripMenuItem_Click);
             // 
             // ContractToolStripMenuItem
             // 
             this.ContractToolStripMenuItem.Name = "ContractToolStripMenuItem";
-            this.ContractToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
+            this.ContractToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
             this.ContractToolStripMenuItem.Text = global::Edocsys.Properties.Settings.Default.ContractToolStripMenuItemText;
             this.ContractToolStripMenuItem.Click += new System.EventHandler(this.ContractToolStripMenuItem_Click);
             // 
-            // CatalogToolStripMenuItem
+            // ExpertAssignToolStripMenuItem
             // 
-            this.CatalogToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ContractorToolStripMenuItem,
-            this.ProductionToolStripMenuItem});
-            this.CatalogToolStripMenuItem.Name = "CatalogToolStripMenuItem";
-            this.CatalogToolStripMenuItem.Size = new System.Drawing.Size(94, 20);
-            this.CatalogToolStripMenuItem.Text = global::Edocsys.Properties.Settings.Default.CatalogToolStripMenuText;
+            this.ExpertAssignToolStripMenuItem.Name = "ExpertAssignToolStripMenuItem";
+            this.ExpertAssignToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
+            this.ExpertAssignToolStripMenuItem.Text = "Назначение эксперта";
+            this.ExpertAssignToolStripMenuItem.Click += new System.EventHandler(this.ExpertAssignToolStripMenuItem_Click);
             // 
-            // ContractorToolStripMenuItem
+            // AgentsToolStripMenuItem
             // 
-            this.ContractorToolStripMenuItem.Name = "ContractorToolStripMenuItem";
-            this.ContractorToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
-            this.ContractorToolStripMenuItem.Text = global::Edocsys.Properties.Settings.Default.ContractorToolStripMenuItemText;
-            this.ContractorToolStripMenuItem.Click += new System.EventHandler(this.ContractorToolStripMenuItem_Click);
-            // 
-            // ProductionToolStripMenuItem
-            // 
-            this.ProductionToolStripMenuItem.Name = "ProductionToolStripMenuItem";
-            this.ProductionToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
-            this.ProductionToolStripMenuItem.Text = global::Edocsys.Properties.Settings.Default.ProductionToolStripMenuItemText;
-            this.ProductionToolStripMenuItem.Click += new System.EventHandler(this.ProductionToolStripMenuItem_Click);
+            this.AgentsToolStripMenuItem.Name = "AgentsToolStripMenuItem";
+            this.AgentsToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
+            this.AgentsToolStripMenuItem.Text = "Контрагенты";
+            this.AgentsToolStripMenuItem.Click += new System.EventHandler(this.AgentsToolStripMenuItem_Click);
             // 
             // AdmToolStripMenuItem
             // 
@@ -183,7 +173,6 @@
             this.AdmpanelToolStripMenuItem,
             this.ExpertsToolStripMenuItem,
             this.toolStripMenuItem2,
-            this.AssignexpertToolStripMenuItem,
             this.docTemplatesFormToolStripMenuItem});
             this.AdmToolStripMenuItem.Name = "AdmToolStripMenuItem";
             this.AdmToolStripMenuItem.Size = new System.Drawing.Size(134, 20);
@@ -207,13 +196,6 @@
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
             this.toolStripMenuItem2.Size = new System.Drawing.Size(230, 6);
-            // 
-            // AssignexpertToolStripMenuItem
-            // 
-            this.AssignexpertToolStripMenuItem.Name = "AssignexpertToolStripMenuItem";
-            this.AssignexpertToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
-            this.AssignexpertToolStripMenuItem.Text = global::Edocsys.Properties.Settings.Default.AssighExpertFormText;
-            this.AssignexpertToolStripMenuItem.Click += new System.EventHandler(this.AssignexpertToolStripMenuItem_Click);
             // 
             // docTemplatesFormToolStripMenuItem
             // 
@@ -391,6 +373,7 @@
             // 
             // edocbaseDataSet
             // 
+            this.edocbaseDataSet.CaseSensitive = true;
             this.edocbaseDataSet.DataSetName = "EdocbaseDataSet";
             this.edocbaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
@@ -407,6 +390,7 @@
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
             this.tableAdapterManager.ContractsTableAdapter = null;
             this.tableAdapterManager.ContractStatusTableAdapter = null;
+            this.tableAdapterManager.ContractTypesForDocsTableAdapter = null;
             this.tableAdapterManager.ContractTypesTableAdapter = null;
             this.tableAdapterManager.DocTemplatesTableAdapter = null;
             this.tableAdapterManager.DocumentsTableAdapter = null;
@@ -459,13 +443,9 @@
         private System.Windows.Forms.ToolStripMenuItem DocToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ProposalToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem AdmpanelToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem AssignexpertToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ExpertsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ContractToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem HelpToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem CatalogToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem ContractorToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem ProductionToolStripMenuItem;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripMenuItem WindowToolStripMenuItem;
@@ -492,6 +472,8 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
         private System.Windows.Forms.ToolStripStatusLabel cueerntUserToolStripStatusLabel;
         private System.Windows.Forms.ToolStripMenuItem docTemplatesFormToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ExpertAssignToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem AgentsToolStripMenuItem;
     }
 }
 
