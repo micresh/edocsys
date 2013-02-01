@@ -446,13 +446,9 @@
         private System.Windows.Forms.ToolStripMenuItem DocToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ProposalToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem AdmpanelToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem AssignexpertToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ExpertsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ContractToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem HelpToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem CatalogToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem ContractorToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem ProductionToolStripMenuItem;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripMenuItem WindowToolStripMenuItem;
