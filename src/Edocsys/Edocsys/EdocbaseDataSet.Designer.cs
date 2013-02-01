@@ -4185,7 +4185,7 @@ namespace Edocsys {
                 this.columntemplate_presence = new global::System.Data.DataColumn("template_presence", typeof(long), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columntemplate_presence);
                 this.columnid.AllowDBNull = false;
-                this.columnname.MaxLength = 45;
+                this.columnname.MaxLength = 55;
                 this.columndoc_templates_id.AutoIncrement = true;
                 this.columndoc_templates_id.AutoIncrementSeed = -1;
                 this.columndoc_templates_id.AutoIncrementStep = -1;
