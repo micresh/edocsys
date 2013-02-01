@@ -111,7 +111,7 @@ CREATE TABLE IF NOT EXISTS `edocbase`.`products` (
   INDEX `fk_products_product_areas` (`product_araes_id` ASC) ,
   CONSTRAINT `fk_products_product_areas`
     FOREIGN KEY (`product_araes_id` )
-    REFERENCES `edocbase`.`products` (`id` )
+    REFERENCES `edocbase`.`product_areas` ( `id` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION
 ) ENGINE = InnoDB;
