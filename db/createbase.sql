@@ -200,7 +200,7 @@ CREATE TABLE IF NOT EXISTS `edocbase`.`contracts` (
   `scheme_type`         VARCHAR(45) NULL ,
   -- Дополнительная информация о заявке
   `add_data_proposal`   TEXT NULL,
-  -- Дополнительная информация о договоре
+  -- Дополнительная информация о договоре (доп. название продукции)
   `add_data_contract`   TEXT NULL,
   -- Стоимость первого этапа
   `cost`                INT NULL ,
