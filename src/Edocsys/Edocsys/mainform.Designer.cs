@@ -69,6 +69,7 @@
             this.edocbaseDataSet = new Edocsys.EdocbaseDataSet();
             this.usersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tableAdapterManager = new Edocsys.EdocbaseDataSetTableAdapters.TableAdapterManager();
+            this.ProductionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -173,7 +174,8 @@
             this.AdmpanelToolStripMenuItem,
             this.ExpertsToolStripMenuItem,
             this.toolStripMenuItem2,
-            this.docTemplatesFormToolStripMenuItem});
+            this.docTemplatesFormToolStripMenuItem,
+            this.ProductionToolStripMenuItem});
             this.AdmToolStripMenuItem.Name = "AdmToolStripMenuItem";
             this.AdmToolStripMenuItem.Size = new System.Drawing.Size(134, 20);
             this.AdmToolStripMenuItem.Text = global::Edocsys.Properties.Settings.Default.AdmToolStripMenuItemText;
@@ -406,6 +408,13 @@
             this.tableAdapterManager.user_typesTableAdapter = null;
             this.tableAdapterManager.usersTableAdapter = this.usersTableAdapter;
             // 
+            // ProductionToolStripMenuItem
+            // 
+            this.ProductionToolStripMenuItem.Name = "ProductionToolStripMenuItem";
+            this.ProductionToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
+            this.ProductionToolStripMenuItem.Text = "Область аккредитации";
+            this.ProductionToolStripMenuItem.Click += new System.EventHandler(this.ProductionToolStripMenuItem_Click_1);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -477,6 +486,7 @@
         private System.Windows.Forms.ToolStripMenuItem docTemplatesFormToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ExpertAssignToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem AgentsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ProductionToolStripMenuItem;
     }
 }
 

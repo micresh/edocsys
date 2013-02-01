@@ -194,5 +194,10 @@ namespace Edocsys
         {
             wmgr.ShowClientsForm();
         }
+
+        private void ProductionToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            wmgr.ShowProductionForm();
+        }
     }
 }
