@@ -47,3 +47,12 @@ INSERT INTO `edocbase`.`product_areas` (`id`, `name`) VALUES (1,'Область 
 INSERT INTO `edocbase`.`agent_types` (`id`, `name`) VALUES (1, 'ООО');
 INSERT INTO `edocbase`.`agent_types` (`id`, `name`) VALUES (2, 'ОАО');
 INSERT INTO `edocbase`.`agent_types` (`id`, `name`) VALUES (3, 'ЗАО');
+
+-- insert emission types into emission_types table
+INSERT INTO `edocbase`.`emission_types` (`id`, `name`) VALUES (1, 'еденичное производство');
+INSERT INTO `edocbase`.`emission_types` (`id`, `name`) VALUES (2, 'серийный выпуск');
+
+-- insert source types into source_types table
+INSERT INTO `edocbase`.`source_types` (`id`, `name`) VALUES (1, 'лично в офисе');
+INSERT INTO `edocbase`.`source_types` (`id`, `name`) VALUES (2, 'по телефону');
+INSERT INTO `edocbase`.`source_types` (`id`, `name`) VALUES (3, 'через интернет');
