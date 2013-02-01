@@ -1055,7 +1055,7 @@
             this.agentsBindingNavigator.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.agentsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.edocbaseDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.agentstypesBindingSource)).EndInit();
+//            ((System.ComponentModel.ISupportInitialize)(this.agentstypesBindingSource)).EndInit();
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
@@ -1063,7 +1063,7 @@
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.agents_contactsDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.agents_contactsBindingSource)).EndInit();
+//            ((System.ComponentModel.ISupportInitialize)(this.agents_contactsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigatorContacts)).EndInit();
             this.bindingNavigatorContacts.ResumeLayout(false);
             this.bindingNavigatorContacts.PerformLayout();

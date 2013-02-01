@@ -835,7 +835,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.mainSplitContainer)).EndInit();
             this.mainSplitContainer.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.contractsDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.contractTypesForDocsBindingSource)).EndInit();
+//            ((System.ComponentModel.ISupportInitialize)(this.contractTypesForDocsBindingSource)).EndInit();
             this.porposalGenerationGroupBox.ResumeLayout(false);
             this.groupBoxContract.ResumeLayout(false);
             this.groupBoxContract.PerformLayout();
@@ -843,7 +843,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.productsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.templatesDataTableBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.contractInfoDataTableBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.docTemplatesBindingSource)).EndInit();
+//            ((System.ComponentModel.ISupportInitialize)(this.docTemplatesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.documentsBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

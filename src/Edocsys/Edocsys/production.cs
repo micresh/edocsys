@@ -24,6 +24,10 @@ namespace Edocsys
 
         private void ProductionForm_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'edocbaseDataSet.product_gosts' table. You can move, or remove it, as needed.
+            this.product_gostsTableAdapter.Fill(this.edocbaseDataSet.product_gosts);
+            // TODO: This line of code loads data into the 'edocbaseDataSet.products' table. You can move, or remove it, as needed.
+            this.productsTableAdapter.Fill(this.edocbaseDataSet.products);
             //this.prodGostTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
             //// TODO: This line of code loads data into the 'edocbaseDataSet.ProdGost' table. You can move, or remove it, as needed.
             //this.prodGostTableAdapter.Fill(this.edocbaseDataSet.ProdGost);
@@ -54,6 +58,14 @@ namespace Edocsys
         }
 
         private void productsBindingNavigatorSaveItem_Click_3(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.productsBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.edocbaseDataSet);
+
+        }
+
+        private void productsBindingNavigatorSaveItem_Click_4(object sender, EventArgs e)
         {
             this.Validate();
             this.productsBindingSource.EndEdit();
