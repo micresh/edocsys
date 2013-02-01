@@ -20,14 +20,15 @@ namespace Edocsys
         {
             try
             {
+                int pos = agentsBindingSource.Position;
+                this.Validate();
+                this.agentsBindingSource.EndEdit();
+                this.tableAdapterManager.UpdateAll(this.edocbaseDataSet);
 
-                //this.Validate();
-                //this.agentsBindingSource.EndEdit();
-                //this.tableAdapterManager.UpdateAll(this.edocbaseDataSet);
-
-                //this.edocbaseDataSet.AcceptChanges();
-                //this.agentsTableAdapter.FillShortInfo(this.edocbaseDataSet.Agents);
-                //this.agentsDataGridView.Refresh();
+                this.edocbaseDataSet.AcceptChanges();
+                this.agentsTableAdapter.Fill(this.edocbaseDataSet.agents);
+                this.agentsDataGridView.Refresh();
+                agentsBindingSource.Position = pos;
             }
             catch (Exception ex)
             {
@@ -37,32 +38,27 @@ namespace Edocsys
 
         private void clients_Load(object sender, EventArgs e)
         {
-            //this.agentsTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
-            //this.agents_typesTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
-            //this.agents_contactsTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
+            this.agentsTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
+            this.agent_typesTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
+            this.agents_contactsTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
 
-            //this.agentsTableAdapter.FillShortInfo(this.edocbaseDataSet.Agents);
-            //this.agents_typesTableAdapter.Fill(this.edocbaseDataSet.Agents_types);
-            //this.agents_contactsTableAdapter.Fill(this.edocbaseDataSet.Agents_contacts);
+
+            this.agentsTableAdapter.Fill(this.edocbaseDataSet.agents);
+            this.agent_typesTableAdapter.Fill(this.edocbaseDataSet.agent_types);
+            this.agents_contactsTableAdapter.Fill(this.edocbaseDataSet.agents_contacts);
         }
 
         private void toolStripButtonSaveContact_Click(object sender, EventArgs e)
         {
             try
             {
-                //DataRow currentRow = edocbaseDataSet.Tables["Agents"].DefaultView[agentsBindingSource.Position].Row;
+                this.Validate();
+                this.agents_contactsBindingSource.EndEdit();
+                this.tableAdapterManager.UpdateAll(this.edocbaseDataSet);
 
-                //int idAgent = Convert.ToInt32(currentRow["idAgents"]);
-                //agents_contactsDataGridView.CurrentRow.Cells["ac_agent_id"].Value = idAgent;
-
-
-                //this.Validate();
-                //this.agents_contactsBindingSource.EndEdit();
-                //this.tableAdapterManager.UpdateAll(this.edocbaseDataSet);
-
-                //this.edocbaseDataSet.AcceptChanges();
-                //this.agents_contactsTableAdapter.Fill(this.edocbaseDataSet.Agents_contacts);
-                //this.agents_contactsDataGridView.Refresh();
+                this.edocbaseDataSet.AcceptChanges();
+                this.agents_contactsTableAdapter.Fill(this.edocbaseDataSet.agents_contacts);
+                this.agents_contactsDataGridView.Refresh();
             }
             catch (Exception ex)
             {
@@ -72,15 +68,31 @@ namespace Edocsys
 
         private void agentsBindingSource_CurrentChanged(object sender, EventArgs e)
         {
-            //if ((agentsBindingSource.Position >= 0)
-            //    && (edocbaseDataSet.Tables["Agents"].DefaultView.Count > agentsBindingSource.Position))
-            //{
-            //    DataRow currentRow = edocbaseDataSet.Tables["Agents"].DefaultView[agentsBindingSource.Position].Row;
+            if ((agentsBindingSource.Position >= 0)
+                && (edocbaseDataSet.agents.DefaultView.Count > agentsBindingSource.Position))
+            {
+                DataRow currentRow = edocbaseDataSet.agents.DefaultView[agentsBindingSource.Position].Row;
 
-            //    string agent = String.Format("Контрагент: {0}", Convert.ToString(currentRow["Ag_name"]));
+                string agent = String.Format("Контрагент: {0}", Convert.ToString(currentRow["name"]));
 
-            //    toolStripLabelAgent.Text = agent;
-            //}
+                toolStripLabelAgent.Text = agent;
+            }
+        }
+
+        private void bindingNavigatorAddNewItem1_Click(object sender, EventArgs e)
+        {
+            DataRowView row = edocbaseDataSet.agents_contacts.DefaultView.AddNew();
+
+            DataRow currentRow = edocbaseDataSet.agents.DefaultView[agentsBindingSource.Position].Row;
+
+            int idAgent = Convert.ToInt32(currentRow["id"]);
+
+            row["agents_id"] = idAgent;
+        }
+
+        private void bindingNavigatorAddNewItem_Click(object sender, EventArgs e)
+        {
+            DataRowView row = edocbaseDataSet.agents.DefaultView.AddNew();
         }
     }
 }

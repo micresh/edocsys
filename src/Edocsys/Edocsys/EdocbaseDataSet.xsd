@@ -566,7 +566,7 @@ agent_types</CommandText>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="agentsTableAdapter" GeneratorDataComponentClassName="agentsTableAdapter" Name="agents" UserDataComponentName="agentsTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="EdocbaseConnectionString (Settings)" DbObjectName="edocbase.agents" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="EdocbaseConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM `agents` WHERE ((`id` = @Original_id) AND ((@IsNull_agent_types_id = 1 AND `agent_types_id` IS NULL) OR (`agent_types_id` = @Original_agent_types_id)) AND ((@IsNull_name = 1 AND `name` IS NULL) OR (`name` = @Original_name)) AND ((@IsNull_inn = 1 AND `inn` IS NULL) OR (`inn` = @Original_inn)) AND ((@IsNull_phone = 1 AND `phone` IS NULL) OR (`phone` = @Original_phone)) AND ((@IsNull_fax = 1 AND `fax` IS NULL) OR (`fax` = @Original_fax)) AND ((@IsNull_email = 1 AND `email` IS NULL) OR (`email` = @Original_email)) AND ((@IsNull_address = 1 AND `address` IS NULL) OR (`address` = @Original_address)) AND ((@IsNull_ogrn = 1 AND `ogrn` IS NULL) OR (`ogrn` = @Original_ogrn)) AND ((@IsNull_kpp = 1 AND `kpp` IS NULL) OR (`kpp` = @Original_kpp)) AND ((@IsNull_okpo = 1 AND `okpo` IS NULL) OR (`okpo` = @Original_okpo)) AND ((@IsNull_rs = 1 AND `rs` IS NULL) OR (`rs` = @Original_rs)) AND ((@IsNull_ks = 1 AND `ks` IS NULL) OR (`ks` = @Original_ks)) AND ((@IsNull_bik = 1 AND `bik` IS NULL) OR (`bik` = @Original_bik)) AND ((@IsNull_bank = 1 AND `bank` IS NULL) OR (`bank` = @Original_bank)) AND ((@IsNull_signing_authority_doc = 1 AND `signing_authority_doc` IS NULL) OR (`signing_authority_doc` = @Original_signing_authority_doc)) AND ((@IsNull_pers_status = 1 AND `pers_status` IS NULL) OR (`pers_status` = @Original_pers_status)) AND ((@IsNull_pers_lastname = 1 AND `pers_lastname` IS NULL) OR (`pers_lastname` = @Original_pers_lastname)) AND ((@IsNull_pers_firstname = 1 AND `pers_firstname` IS NULL) OR (`pers_firstname` = @Original_pers_firstname)) AND ((@IsNull_pers_middlename = 1 AND `pers_middlename` IS NULL) OR (`pers_middlename` = @Original_pers_middlename)))</CommandText>
@@ -640,30 +640,14 @@ agent_types</CommandText>
                   </DbCommand>
                 </InsertCommand>
                 <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT
-id,
-agent_types_id,
-name,
-inn,
-phone,
-fax,
-email,
-address,
-ogrn,
-kpp,
-okpo,
-rs,
-ks,
-bik,
-bank,
-signing_authority_doc,
-pers_status,
-pers_lastname,
-pers_firstname, 
-pers_middlename
-FROM
-agents</CommandText>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT        agents.id, agents.agent_types_id, agents.name, agents.inn, agents.phone, agents.fax, agents.email, agents.address, agents.ogrn, agents.kpp, agents.okpo, 
+                         agents.ks, agents.rs, agents.bank, agents.bik, agents.signing_authority_doc, agents.pers_status, agents.pers_lastname, agents.pers_firstname, 
+                         agents.pers_middlename, agent_types.name AS agent_types_name, agent_types.id AS agent_types_id, CONCAT(agent_types.name, ' ', agents.name) AS fullname, 
+                         CONCAT(agents.pers_lastname, ' ', substr(agents.pers_firstname, 1, 1), '. ', substr(agents.pers_middlename, 1, 1), '.') AS contact_pers_name_FIO, 
+                         CONCAT(substr(agents.pers_firstname, 1, 1), '. ', substr(agents.pers_middlename, 1, 1), '. ', agents.pers_lastname) AS contact_pers_name_IOF
+FROM            agents INNER JOIN
+                         agent_types ON agents.agent_types_id = agent_types.id</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -750,47 +734,6 @@ agents</CommandText>
               <Mapping SourceColumn="ks" DataSetColumn="ks" />
               <Mapping SourceColumn="bik" DataSetColumn="bik" />
               <Mapping SourceColumn="bank" DataSetColumn="bank" />
-              <Mapping SourceColumn="signing_authority_doc" DataSetColumn="signing_authority_doc" />
-              <Mapping SourceColumn="pers_status" DataSetColumn="pers_status" />
-              <Mapping SourceColumn="pers_lastname" DataSetColumn="pers_lastname" />
-              <Mapping SourceColumn="pers_firstname" DataSetColumn="pers_firstname" />
-              <Mapping SourceColumn="pers_middlename" DataSetColumn="pers_middlename" />
-            </Mappings>
-            <Sources />
-          </TableAdapter>
-          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="agents_infoDataTableTableAdapter" GeneratorDataComponentClassName="agents_infoDataTableTableAdapter" Name="agents_infoDataTable" UserDataComponentName="agents_infoDataTableTableAdapter">
-            <MainSource>
-              <DbSource ConnectionRef="EdocbaseConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
-                <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT        agents.id, agents.agent_types_id, agents.name, agents.inn, agents.phone, agents.fax, agents.email, agents.address, agents.ogrn, agents.kpp, agents.okpo, 
-                         agents.ks, agents.rs, agents.bank, agents.bik, agents.signing_authority_doc, agents.pers_status, agents.pers_lastname, agents.pers_firstname, 
-                         agents.pers_middlename, agent_types.name AS agent_types_name, agent_types.id AS agent_types_id, CONCAT(agent_types.name, ' ', agents.name) AS fullname, 
-                         CONCAT(agents.pers_lastname, ' ', substr(agents.pers_firstname, 1, 1), '. ', substr(agents.pers_middlename, 1, 1), '.') AS contact_pers_name_FIO, 
-                         CONCAT(substr(agents.pers_firstname, 1, 1), '. ', substr(agents.pers_middlename, 1, 1), '. ', agents.pers_lastname) AS contact_pers_name_IOF
-FROM            agents INNER JOIN
-                         agent_types ON agents.agent_types_id = agent_types.id</CommandText>
-                    <Parameters />
-                  </DbCommand>
-                </SelectCommand>
-              </DbSource>
-            </MainSource>
-            <Mappings>
-              <Mapping SourceColumn="id" DataSetColumn="id" />
-              <Mapping SourceColumn="agent_types_id" DataSetColumn="agent_types_id" />
-              <Mapping SourceColumn="name" DataSetColumn="name" />
-              <Mapping SourceColumn="inn" DataSetColumn="inn" />
-              <Mapping SourceColumn="phone" DataSetColumn="phone" />
-              <Mapping SourceColumn="fax" DataSetColumn="fax" />
-              <Mapping SourceColumn="email" DataSetColumn="email" />
-              <Mapping SourceColumn="address" DataSetColumn="address" />
-              <Mapping SourceColumn="ogrn" DataSetColumn="ogrn" />
-              <Mapping SourceColumn="kpp" DataSetColumn="kpp" />
-              <Mapping SourceColumn="okpo" DataSetColumn="okpo" />
-              <Mapping SourceColumn="ks" DataSetColumn="ks" />
-              <Mapping SourceColumn="rs" DataSetColumn="rs" />
-              <Mapping SourceColumn="bank" DataSetColumn="bank" />
-              <Mapping SourceColumn="bik" DataSetColumn="bik" />
               <Mapping SourceColumn="signing_authority_doc" DataSetColumn="signing_authority_doc" />
               <Mapping SourceColumn="pers_status" DataSetColumn="pers_status" />
               <Mapping SourceColumn="pers_lastname" DataSetColumn="pers_lastname" />
@@ -2660,140 +2603,6 @@ products</CommandText>
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
-        <xs:element name="agents_infoDataTable" msprop:Generator_TableClassName="agents_infoDataTableDataTable" msprop:Generator_TableVarName="tableagents_infoDataTable" msprop:Generator_TablePropName="agents_infoDataTable" msprop:Generator_RowDeletingName="agents_infoDataTableRowDeleting" msprop:Generator_UserTableName="agents_infoDataTable" msprop:Generator_RowChangingName="agents_infoDataTableRowChanging" msprop:Generator_RowEvHandlerName="agents_infoDataTableRowChangeEventHandler" msprop:Generator_RowDeletedName="agents_infoDataTableRowDeleted" msprop:Generator_RowEvArgName="agents_infoDataTableRowChangeEvent" msprop:Generator_RowChangedName="agents_infoDataTableRowChanged" msprop:Generator_RowClassName="agents_infoDataTableRow">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element name="id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />
-              <xs:element name="agent_types_id" msprop:Generator_ColumnVarNameInTable="columnagent_types_id" msprop:Generator_ColumnPropNameInRow="agent_types_id" msprop:Generator_ColumnPropNameInTable="agent_types_idColumn" msprop:Generator_UserColumnName="agent_types_id" type="xs:int" minOccurs="0" />
-              <xs:element name="name" msprop:Generator_ColumnVarNameInTable="columnname" msprop:Generator_ColumnPropNameInRow="name" msprop:Generator_ColumnPropNameInTable="nameColumn" msprop:Generator_UserColumnName="name" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="63" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="inn" msprop:Generator_ColumnVarNameInTable="columninn" msprop:Generator_ColumnPropNameInRow="inn" msprop:Generator_ColumnPropNameInTable="innColumn" msprop:Generator_UserColumnName="inn" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="15" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="phone" msprop:Generator_ColumnVarNameInTable="columnphone" msprop:Generator_ColumnPropNameInRow="phone" msprop:Generator_ColumnPropNameInTable="phoneColumn" msprop:Generator_UserColumnName="phone" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="15" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="fax" msprop:Generator_ColumnVarNameInTable="columnfax" msprop:Generator_ColumnPropNameInRow="fax" msprop:Generator_ColumnPropNameInTable="faxColumn" msprop:Generator_UserColumnName="fax" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="15" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="email" msprop:Generator_ColumnVarNameInTable="columnemail" msprop:Generator_ColumnPropNameInRow="email" msprop:Generator_ColumnPropNameInTable="emailColumn" msprop:Generator_UserColumnName="email" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="31" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="address" msprop:Generator_ColumnVarNameInTable="columnaddress" msprop:Generator_ColumnPropNameInRow="address" msprop:Generator_ColumnPropNameInTable="addressColumn" msprop:Generator_UserColumnName="address" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="255" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="ogrn" msprop:Generator_ColumnVarNameInTable="columnogrn" msprop:Generator_ColumnPropNameInRow="ogrn" msprop:Generator_ColumnPropNameInTable="ogrnColumn" msprop:Generator_UserColumnName="ogrn" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="15" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="kpp" msprop:Generator_ColumnVarNameInTable="columnkpp" msprop:Generator_ColumnPropNameInRow="kpp" msprop:Generator_ColumnPropNameInTable="kppColumn" msprop:Generator_UserColumnName="kpp" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="15" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="okpo" msprop:Generator_ColumnVarNameInTable="columnokpo" msprop:Generator_ColumnPropNameInRow="okpo" msprop:Generator_ColumnPropNameInTable="okpoColumn" msprop:Generator_UserColumnName="okpo" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="15" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="ks" msprop:Generator_ColumnVarNameInTable="columnks" msprop:Generator_ColumnPropNameInRow="ks" msprop:Generator_ColumnPropNameInTable="ksColumn" msprop:Generator_UserColumnName="ks" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="15" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="rs" msprop:Generator_ColumnVarNameInTable="columnrs" msprop:Generator_ColumnPropNameInRow="rs" msprop:Generator_ColumnPropNameInTable="rsColumn" msprop:Generator_UserColumnName="rs" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="15" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="bank" msprop:Generator_ColumnVarNameInTable="columnbank" msprop:Generator_ColumnPropNameInRow="bank" msprop:Generator_ColumnPropNameInTable="bankColumn" msprop:Generator_UserColumnName="bank" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="127" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="bik" msprop:Generator_ColumnVarNameInTable="columnbik" msprop:Generator_ColumnPropNameInRow="bik" msprop:Generator_ColumnPropNameInTable="bikColumn" msprop:Generator_UserColumnName="bik" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="15" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="signing_authority_doc" msprop:Generator_ColumnVarNameInTable="columnsigning_authority_doc" msprop:Generator_ColumnPropNameInRow="signing_authority_doc" msprop:Generator_ColumnPropNameInTable="signing_authority_docColumn" msprop:Generator_UserColumnName="signing_authority_doc" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="45" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="pers_status" msprop:Generator_ColumnVarNameInTable="columnpers_status" msprop:Generator_ColumnPropNameInRow="pers_status" msprop:Generator_ColumnPropNameInTable="pers_statusColumn" msprop:Generator_UserColumnName="pers_status" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="45" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="pers_lastname" msprop:Generator_ColumnVarNameInTable="columnpers_lastname" msprop:Generator_ColumnPropNameInRow="pers_lastname" msprop:Generator_ColumnPropNameInTable="pers_lastnameColumn" msprop:Generator_UserColumnName="pers_lastname" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="30" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="pers_firstname" msprop:Generator_ColumnVarNameInTable="columnpers_firstname" msprop:Generator_ColumnPropNameInRow="pers_firstname" msprop:Generator_ColumnPropNameInTable="pers_firstnameColumn" msprop:Generator_UserColumnName="pers_firstname" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="30" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="pers_middlename" msprop:Generator_ColumnVarNameInTable="columnpers_middlename" msprop:Generator_ColumnPropNameInRow="pers_middlename" msprop:Generator_ColumnPropNameInTable="pers_middlenameColumn" msprop:Generator_UserColumnName="pers_middlename" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="30" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
               <xs:element name="agent_types_name" msprop:Generator_ColumnVarNameInTable="columnagent_types_name" msprop:Generator_ColumnPropNameInRow="agent_types_name" msprop:Generator_ColumnPropNameInTable="agent_types_nameColumn" msprop:Generator_UserColumnName="agent_types_name" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
@@ -3226,11 +3035,6 @@ products</CommandText>
       <xs:selector xpath=".//mstns:agents" />
       <xs:field xpath="mstns:id" />
     </xs:unique>
-    <xs:unique name="agents_infoDataTable_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
-      <xs:selector xpath=".//mstns:agents_infoDataTable" />
-      <xs:field xpath="mstns:id" />
-      <xs:field xpath="mstns:agent_types_id1" />
-    </xs:unique>
     <xs:unique name="agents_contacts_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:agents_contacts" />
       <xs:field xpath="mstns:id" />
@@ -3299,7 +3103,6 @@ products</CommandText>
   <xs:annotation>
     <xs:appinfo>
       <msdata:Relationship name="fk_agents_agent_types" msdata:parent="agent_types" msdata:child="agents" msdata:parentkey="id" msdata:childkey="agent_types_id" msprop:Generator_UserChildTable="agents" msprop:Generator_ChildPropName="GetagentsRows" msprop:Generator_ParentPropName="agent_typesRow" msprop:Generator_UserRelationName="fk_agents_agent_types" msprop:Generator_RelationVarName="relationfk_agents_agent_types" msprop:Generator_UserParentTable="agent_types" />
-      <msdata:Relationship name="fk_agents_agent_types1" msdata:parent="agents_infoDataTable" msdata:child="agents" msdata:parentkey="id" msdata:childkey="agent_types_id" msprop:Generator_UserChildTable="agents" msprop:Generator_ChildPropName="GetagentsRows" msprop:Generator_ParentPropName="agents_infoDataTableRow" msprop:Generator_UserRelationName="fk_agents_agent_types1" msprop:Generator_RelationVarName="relationfk_agents_agent_types1" msprop:Generator_UserParentTable="agents_infoDataTable" />
       <msdata:Relationship name="fk_agents_agents_contacts" msdata:parent="agents" msdata:child="agents_contacts" msdata:parentkey="id" msdata:childkey="agents_id" msprop:Generator_UserChildTable="agents_contacts" msprop:Generator_ChildPropName="Getagents_contactsRows" msprop:Generator_ParentPropName="agentsRow" msprop:Generator_UserRelationName="fk_agents_agents_contacts" msprop:Generator_RelationVarName="relationfk_agents_agents_contacts" msprop:Generator_UserParentTable="agents" />
       <msdata:Relationship name="fk_contracts_agents" msdata:parent="agents" msdata:child="contracts" msdata:parentkey="id" msdata:childkey="agents_id" msprop:Generator_UserChildTable="contracts" msprop:Generator_ChildPropName="GetcontractsRows" msprop:Generator_ParentPropName="agentsRow" msprop:Generator_UserRelationName="fk_contracts_agents" msprop:Generator_RelationVarName="relationfk_contracts_agents" msprop:Generator_UserParentTable="agents" />
       <msdata:Relationship name="fk_contracts_contract_status" msdata:parent="contract_status" msdata:child="contracts" msdata:parentkey="id" msdata:childkey="contract_status_id" msprop:Generator_UserChildTable="contracts" msprop:Generator_ChildPropName="GetcontractsRows" msprop:Generator_ParentPropName="contract_statusRow" msprop:Generator_UserRelationName="fk_contracts_contract_status" msprop:Generator_RelationVarName="relationfk_contracts_contract_status" msprop:Generator_UserParentTable="contract_status" />

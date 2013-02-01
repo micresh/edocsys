@@ -48,8 +48,6 @@ namespace Edocsys {
         
         private agentsDataTable tableagents;
         
-        private agents_infoDataTableDataTable tableagents_infoDataTable;
-        
         private agents_contactsDataTable tableagents_contacts;
         
         private contract_statusDataTable tablecontract_status;
@@ -83,8 +81,6 @@ namespace Edocsys {
         private productsDataTable tableproducts;
         
         private global::System.Data.DataRelation relationfk_agents_agent_types;
-        
-        private global::System.Data.DataRelation relationfk_agents_agent_types1;
         
         private global::System.Data.DataRelation relationfk_agents_agents_contacts;
         
@@ -201,9 +197,6 @@ namespace Edocsys {
                 }
                 if ((ds.Tables["agents"] != null)) {
                     base.Tables.Add(new agentsDataTable(ds.Tables["agents"]));
-                }
-                if ((ds.Tables["agents_infoDataTable"] != null)) {
-                    base.Tables.Add(new agents_infoDataTableDataTable(ds.Tables["agents_infoDataTable"]));
                 }
                 if ((ds.Tables["agents_contacts"] != null)) {
                     base.Tables.Add(new agents_contactsDataTable(ds.Tables["agents_contacts"]));
@@ -388,16 +381,6 @@ namespace Edocsys {
         public agentsDataTable agents {
             get {
                 return this.tableagents;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Browsable(false)]
-        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public agents_infoDataTableDataTable agents_infoDataTable {
-            get {
-                return this.tableagents_infoDataTable;
             }
         }
         
@@ -664,9 +647,6 @@ namespace Edocsys {
                 if ((ds.Tables["agents"] != null)) {
                     base.Tables.Add(new agentsDataTable(ds.Tables["agents"]));
                 }
-                if ((ds.Tables["agents_infoDataTable"] != null)) {
-                    base.Tables.Add(new agents_infoDataTableDataTable(ds.Tables["agents_infoDataTable"]));
-                }
                 if ((ds.Tables["agents_contacts"] != null)) {
                     base.Tables.Add(new agents_contactsDataTable(ds.Tables["agents_contacts"]));
                 }
@@ -820,12 +800,6 @@ namespace Edocsys {
                     this.tableagents.InitVars();
                 }
             }
-            this.tableagents_infoDataTable = ((agents_infoDataTableDataTable)(base.Tables["agents_infoDataTable"]));
-            if ((initTable == true)) {
-                if ((this.tableagents_infoDataTable != null)) {
-                    this.tableagents_infoDataTable.InitVars();
-                }
-            }
             this.tableagents_contacts = ((agents_contactsDataTable)(base.Tables["agents_contacts"]));
             if ((initTable == true)) {
                 if ((this.tableagents_contacts != null)) {
@@ -923,7 +897,6 @@ namespace Edocsys {
                 }
             }
             this.relationfk_agents_agent_types = this.Relations["fk_agents_agent_types"];
-            this.relationfk_agents_agent_types1 = this.Relations["fk_agents_agent_types1"];
             this.relationfk_agents_agents_contacts = this.Relations["fk_agents_agents_contacts"];
             this.relationfk_contracts_agents = this.Relations["fk_contracts_agents"];
             this.relationfk_contracts_contract_status = this.Relations["fk_contracts_contract_status"];
@@ -985,8 +958,6 @@ namespace Edocsys {
             base.Tables.Add(this.tableagent_types);
             this.tableagents = new agentsDataTable();
             base.Tables.Add(this.tableagents);
-            this.tableagents_infoDataTable = new agents_infoDataTableDataTable();
-            base.Tables.Add(this.tableagents_infoDataTable);
             this.tableagents_contacts = new agents_contactsDataTable();
             base.Tables.Add(this.tableagents_contacts);
             this.tablecontract_status = new contract_statusDataTable();
@@ -1023,10 +994,6 @@ namespace Edocsys {
                         this.tableagent_types.idColumn}, new global::System.Data.DataColumn[] {
                         this.tableagents.agent_types_idColumn}, false);
             this.Relations.Add(this.relationfk_agents_agent_types);
-            this.relationfk_agents_agent_types1 = new global::System.Data.DataRelation("fk_agents_agent_types1", new global::System.Data.DataColumn[] {
-                        this.tableagents_infoDataTable.idColumn}, new global::System.Data.DataColumn[] {
-                        this.tableagents.agent_types_idColumn}, false);
-            this.Relations.Add(this.relationfk_agents_agent_types1);
             this.relationfk_agents_agents_contacts = new global::System.Data.DataRelation("fk_agents_agents_contacts", new global::System.Data.DataColumn[] {
                         this.tableagents.idColumn}, new global::System.Data.DataColumn[] {
                         this.tableagents_contacts.agents_idColumn}, false);
@@ -1202,12 +1169,6 @@ namespace Edocsys {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private bool ShouldSerializeagents() {
-            return false;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private bool ShouldSerializeagents_infoDataTable() {
             return false;
         }
         
@@ -1397,9 +1358,6 @@ namespace Edocsys {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public delegate void agentsRowChangeEventHandler(object sender, agentsRowChangeEvent e);
-        
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public delegate void agents_infoDataTableRowChangeEventHandler(object sender, agents_infoDataTableRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public delegate void agents_contactsRowChangeEventHandler(object sender, agents_contactsRowChangeEvent e);
@@ -5972,6 +5930,16 @@ namespace Edocsys {
             
             private global::System.Data.DataColumn columnpers_middlename;
             
+            private global::System.Data.DataColumn columnagent_types_name;
+            
+            private global::System.Data.DataColumn columnagent_types_id1;
+            
+            private global::System.Data.DataColumn columnfullname;
+            
+            private global::System.Data.DataColumn columncontact_pers_name_FIO;
+            
+            private global::System.Data.DataColumn columncontact_pers_name_IOF;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public agentsDataTable() {
@@ -6167,6 +6135,46 @@ namespace Edocsys {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn agent_types_nameColumn {
+                get {
+                    return this.columnagent_types_name;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn agent_types_id1Column {
+                get {
+                    return this.columnagent_types_id1;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn fullnameColumn {
+                get {
+                    return this.columnfullname;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn contact_pers_name_FIOColumn {
+                get {
+                    return this.columncontact_pers_name_FIO;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn contact_pers_name_IOFColumn {
+                get {
+                    return this.columncontact_pers_name_IOF;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -6221,7 +6229,11 @@ namespace Edocsys {
                         string pers_status, 
                         string pers_lastname, 
                         string pers_firstname, 
-                        string pers_middlename) {
+                        string pers_middlename, 
+                        string agent_types_name, 
+                        string fullname, 
+                        string contact_pers_name_FIO, 
+                        string contact_pers_name_IOF) {
                 agentsRow rowagentsRow = ((agentsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -6243,7 +6255,12 @@ namespace Edocsys {
                         pers_status,
                         pers_lastname,
                         pers_firstname,
-                        pers_middlename};
+                        pers_middlename,
+                        agent_types_name,
+                        null,
+                        fullname,
+                        contact_pers_name_FIO,
+                        contact_pers_name_IOF};
                 if ((parentagent_typesRowByfk_agents_agent_types != null)) {
                     columnValuesArray[1] = parentagent_typesRowByfk_agents_agent_types[0];
                 }
@@ -6296,6 +6313,11 @@ namespace Edocsys {
                 this.columnpers_lastname = base.Columns["pers_lastname"];
                 this.columnpers_firstname = base.Columns["pers_firstname"];
                 this.columnpers_middlename = base.Columns["pers_middlename"];
+                this.columnagent_types_name = base.Columns["agent_types_name"];
+                this.columnagent_types_id1 = base.Columns["agent_types_id1"];
+                this.columnfullname = base.Columns["fullname"];
+                this.columncontact_pers_name_FIO = base.Columns["contact_pers_name_FIO"];
+                this.columncontact_pers_name_IOF = base.Columns["contact_pers_name_IOF"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6341,6 +6363,16 @@ namespace Edocsys {
                 base.Columns.Add(this.columnpers_firstname);
                 this.columnpers_middlename = new global::System.Data.DataColumn("pers_middlename", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnpers_middlename);
+                this.columnagent_types_name = new global::System.Data.DataColumn("agent_types_name", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnagent_types_name);
+                this.columnagent_types_id1 = new global::System.Data.DataColumn("agent_types_id1", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnagent_types_id1);
+                this.columnfullname = new global::System.Data.DataColumn("fullname", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnfullname);
+                this.columncontact_pers_name_FIO = new global::System.Data.DataColumn("contact_pers_name_FIO", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncontact_pers_name_FIO);
+                this.columncontact_pers_name_IOF = new global::System.Data.DataColumn("contact_pers_name_IOF", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncontact_pers_name_IOF);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnid}, true));
                 this.columnid.AutoIncrement = true;
@@ -6366,6 +6398,14 @@ namespace Edocsys {
                 this.columnpers_lastname.MaxLength = 30;
                 this.columnpers_firstname.MaxLength = 30;
                 this.columnpers_middlename.MaxLength = 30;
+                this.columnagent_types_name.MaxLength = 8;
+                this.columnagent_types_id1.AutoIncrement = true;
+                this.columnagent_types_id1.AutoIncrementSeed = -1;
+                this.columnagent_types_id1.AutoIncrementStep = -1;
+                this.columnagent_types_id1.AllowDBNull = false;
+                this.columnfullname.MaxLength = 72;
+                this.columncontact_pers_name_FIO.MaxLength = 36;
+                this.columncontact_pers_name_IOF.MaxLength = 36;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6452,653 +6492,6 @@ namespace Edocsys {
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
                 attribute2.FixedValue = "agentsDataTable";
-                type.Attributes.Add(attribute2);
-                type.Particle = sequence;
-                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
-                if (xs.Contains(dsSchema.TargetNamespace)) {
-                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
-                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
-                    try {
-                        global::System.Xml.Schema.XmlSchema schema = null;
-                        dsSchema.Write(s1);
-                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
-                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
-                            s2.SetLength(0);
-                            schema.Write(s2);
-                            if ((s1.Length == s2.Length)) {
-                                s1.Position = 0;
-                                s2.Position = 0;
-                                for (; ((s1.Position != s1.Length) 
-                                            && (s1.ReadByte() == s2.ReadByte())); ) {
-                                    ;
-                                }
-                                if ((s1.Position == s1.Length)) {
-                                    return type;
-                                }
-                            }
-                        }
-                    }
-                    finally {
-                        if ((s1 != null)) {
-                            s1.Close();
-                        }
-                        if ((s2 != null)) {
-                            s2.Close();
-                        }
-                    }
-                }
-                xs.Add(dsSchema);
-                return type;
-            }
-        }
-        
-        /// <summary>
-        ///Represents the strongly named DataTable class.
-        ///</summary>
-        [global::System.Serializable()]
-        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class agents_infoDataTableDataTable : global::System.Data.TypedTableBase<agents_infoDataTableRow> {
-            
-            private global::System.Data.DataColumn columnid;
-            
-            private global::System.Data.DataColumn columnagent_types_id;
-            
-            private global::System.Data.DataColumn columnname;
-            
-            private global::System.Data.DataColumn columninn;
-            
-            private global::System.Data.DataColumn columnphone;
-            
-            private global::System.Data.DataColumn columnfax;
-            
-            private global::System.Data.DataColumn columnemail;
-            
-            private global::System.Data.DataColumn columnaddress;
-            
-            private global::System.Data.DataColumn columnogrn;
-            
-            private global::System.Data.DataColumn columnkpp;
-            
-            private global::System.Data.DataColumn columnokpo;
-            
-            private global::System.Data.DataColumn columnks;
-            
-            private global::System.Data.DataColumn columnrs;
-            
-            private global::System.Data.DataColumn columnbank;
-            
-            private global::System.Data.DataColumn columnbik;
-            
-            private global::System.Data.DataColumn columnsigning_authority_doc;
-            
-            private global::System.Data.DataColumn columnpers_status;
-            
-            private global::System.Data.DataColumn columnpers_lastname;
-            
-            private global::System.Data.DataColumn columnpers_firstname;
-            
-            private global::System.Data.DataColumn columnpers_middlename;
-            
-            private global::System.Data.DataColumn columnagent_types_name;
-            
-            private global::System.Data.DataColumn columnagent_types_id1;
-            
-            private global::System.Data.DataColumn columnfullname;
-            
-            private global::System.Data.DataColumn columncontact_pers_name_FIO;
-            
-            private global::System.Data.DataColumn columncontact_pers_name_IOF;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public agents_infoDataTableDataTable() {
-                this.TableName = "agents_infoDataTable";
-                this.BeginInit();
-                this.InitClass();
-                this.EndInit();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal agents_infoDataTableDataTable(global::System.Data.DataTable table) {
-                this.TableName = table.TableName;
-                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
-                    this.CaseSensitive = table.CaseSensitive;
-                }
-                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
-                    this.Locale = table.Locale;
-                }
-                if ((table.Namespace != table.DataSet.Namespace)) {
-                    this.Namespace = table.Namespace;
-                }
-                this.Prefix = table.Prefix;
-                this.MinimumCapacity = table.MinimumCapacity;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected agents_infoDataTableDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
-                    base(info, context) {
-                this.InitVars();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn idColumn {
-                get {
-                    return this.columnid;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn agent_types_idColumn {
-                get {
-                    return this.columnagent_types_id;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn nameColumn {
-                get {
-                    return this.columnname;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn innColumn {
-                get {
-                    return this.columninn;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn phoneColumn {
-                get {
-                    return this.columnphone;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn faxColumn {
-                get {
-                    return this.columnfax;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn emailColumn {
-                get {
-                    return this.columnemail;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn addressColumn {
-                get {
-                    return this.columnaddress;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn ogrnColumn {
-                get {
-                    return this.columnogrn;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn kppColumn {
-                get {
-                    return this.columnkpp;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn okpoColumn {
-                get {
-                    return this.columnokpo;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn ksColumn {
-                get {
-                    return this.columnks;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn rsColumn {
-                get {
-                    return this.columnrs;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn bankColumn {
-                get {
-                    return this.columnbank;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn bikColumn {
-                get {
-                    return this.columnbik;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn signing_authority_docColumn {
-                get {
-                    return this.columnsigning_authority_doc;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn pers_statusColumn {
-                get {
-                    return this.columnpers_status;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn pers_lastnameColumn {
-                get {
-                    return this.columnpers_lastname;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn pers_firstnameColumn {
-                get {
-                    return this.columnpers_firstname;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn pers_middlenameColumn {
-                get {
-                    return this.columnpers_middlename;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn agent_types_nameColumn {
-                get {
-                    return this.columnagent_types_name;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn agent_types_id1Column {
-                get {
-                    return this.columnagent_types_id1;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn fullnameColumn {
-                get {
-                    return this.columnfullname;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn contact_pers_name_FIOColumn {
-                get {
-                    return this.columncontact_pers_name_FIO;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn contact_pers_name_IOFColumn {
-                get {
-                    return this.columncontact_pers_name_IOF;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            [global::System.ComponentModel.Browsable(false)]
-            public int Count {
-                get {
-                    return this.Rows.Count;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public agents_infoDataTableRow this[int index] {
-                get {
-                    return ((agents_infoDataTableRow)(this.Rows[index]));
-                }
-            }
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event agents_infoDataTableRowChangeEventHandler agents_infoDataTableRowChanging;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event agents_infoDataTableRowChangeEventHandler agents_infoDataTableRowChanged;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event agents_infoDataTableRowChangeEventHandler agents_infoDataTableRowDeleting;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event agents_infoDataTableRowChangeEventHandler agents_infoDataTableRowDeleted;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void Addagents_infoDataTableRow(agents_infoDataTableRow row) {
-                this.Rows.Add(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public agents_infoDataTableRow Addagents_infoDataTableRow(
-                        int agent_types_id, 
-                        string name, 
-                        string inn, 
-                        string phone, 
-                        string fax, 
-                        string email, 
-                        string address, 
-                        string ogrn, 
-                        string kpp, 
-                        string okpo, 
-                        string ks, 
-                        string rs, 
-                        string bank, 
-                        string bik, 
-                        string signing_authority_doc, 
-                        string pers_status, 
-                        string pers_lastname, 
-                        string pers_firstname, 
-                        string pers_middlename, 
-                        string agent_types_name, 
-                        string fullname, 
-                        string contact_pers_name_FIO, 
-                        string contact_pers_name_IOF) {
-                agents_infoDataTableRow rowagents_infoDataTableRow = ((agents_infoDataTableRow)(this.NewRow()));
-                object[] columnValuesArray = new object[] {
-                        null,
-                        agent_types_id,
-                        name,
-                        inn,
-                        phone,
-                        fax,
-                        email,
-                        address,
-                        ogrn,
-                        kpp,
-                        okpo,
-                        ks,
-                        rs,
-                        bank,
-                        bik,
-                        signing_authority_doc,
-                        pers_status,
-                        pers_lastname,
-                        pers_firstname,
-                        pers_middlename,
-                        agent_types_name,
-                        null,
-                        fullname,
-                        contact_pers_name_FIO,
-                        contact_pers_name_IOF};
-                rowagents_infoDataTableRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowagents_infoDataTableRow);
-                return rowagents_infoDataTableRow;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public agents_infoDataTableRow FindByidagent_types_id1(int id, int agent_types_id1) {
-                return ((agents_infoDataTableRow)(this.Rows.Find(new object[] {
-                            id,
-                            agent_types_id1})));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public override global::System.Data.DataTable Clone() {
-                agents_infoDataTableDataTable cln = ((agents_infoDataTableDataTable)(base.Clone()));
-                cln.InitVars();
-                return cln;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override global::System.Data.DataTable CreateInstance() {
-                return new agents_infoDataTableDataTable();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal void InitVars() {
-                this.columnid = base.Columns["id"];
-                this.columnagent_types_id = base.Columns["agent_types_id"];
-                this.columnname = base.Columns["name"];
-                this.columninn = base.Columns["inn"];
-                this.columnphone = base.Columns["phone"];
-                this.columnfax = base.Columns["fax"];
-                this.columnemail = base.Columns["email"];
-                this.columnaddress = base.Columns["address"];
-                this.columnogrn = base.Columns["ogrn"];
-                this.columnkpp = base.Columns["kpp"];
-                this.columnokpo = base.Columns["okpo"];
-                this.columnks = base.Columns["ks"];
-                this.columnrs = base.Columns["rs"];
-                this.columnbank = base.Columns["bank"];
-                this.columnbik = base.Columns["bik"];
-                this.columnsigning_authority_doc = base.Columns["signing_authority_doc"];
-                this.columnpers_status = base.Columns["pers_status"];
-                this.columnpers_lastname = base.Columns["pers_lastname"];
-                this.columnpers_firstname = base.Columns["pers_firstname"];
-                this.columnpers_middlename = base.Columns["pers_middlename"];
-                this.columnagent_types_name = base.Columns["agent_types_name"];
-                this.columnagent_types_id1 = base.Columns["agent_types_id1"];
-                this.columnfullname = base.Columns["fullname"];
-                this.columncontact_pers_name_FIO = base.Columns["contact_pers_name_FIO"];
-                this.columncontact_pers_name_IOF = base.Columns["contact_pers_name_IOF"];
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            private void InitClass() {
-                this.columnid = new global::System.Data.DataColumn("id", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnid);
-                this.columnagent_types_id = new global::System.Data.DataColumn("agent_types_id", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnagent_types_id);
-                this.columnname = new global::System.Data.DataColumn("name", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnname);
-                this.columninn = new global::System.Data.DataColumn("inn", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columninn);
-                this.columnphone = new global::System.Data.DataColumn("phone", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnphone);
-                this.columnfax = new global::System.Data.DataColumn("fax", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnfax);
-                this.columnemail = new global::System.Data.DataColumn("email", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnemail);
-                this.columnaddress = new global::System.Data.DataColumn("address", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnaddress);
-                this.columnogrn = new global::System.Data.DataColumn("ogrn", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnogrn);
-                this.columnkpp = new global::System.Data.DataColumn("kpp", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnkpp);
-                this.columnokpo = new global::System.Data.DataColumn("okpo", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnokpo);
-                this.columnks = new global::System.Data.DataColumn("ks", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnks);
-                this.columnrs = new global::System.Data.DataColumn("rs", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnrs);
-                this.columnbank = new global::System.Data.DataColumn("bank", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnbank);
-                this.columnbik = new global::System.Data.DataColumn("bik", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnbik);
-                this.columnsigning_authority_doc = new global::System.Data.DataColumn("signing_authority_doc", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnsigning_authority_doc);
-                this.columnpers_status = new global::System.Data.DataColumn("pers_status", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnpers_status);
-                this.columnpers_lastname = new global::System.Data.DataColumn("pers_lastname", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnpers_lastname);
-                this.columnpers_firstname = new global::System.Data.DataColumn("pers_firstname", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnpers_firstname);
-                this.columnpers_middlename = new global::System.Data.DataColumn("pers_middlename", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnpers_middlename);
-                this.columnagent_types_name = new global::System.Data.DataColumn("agent_types_name", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnagent_types_name);
-                this.columnagent_types_id1 = new global::System.Data.DataColumn("agent_types_id1", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnagent_types_id1);
-                this.columnfullname = new global::System.Data.DataColumn("fullname", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnfullname);
-                this.columncontact_pers_name_FIO = new global::System.Data.DataColumn("contact_pers_name_FIO", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columncontact_pers_name_FIO);
-                this.columncontact_pers_name_IOF = new global::System.Data.DataColumn("contact_pers_name_IOF", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columncontact_pers_name_IOF);
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnid,
-                                this.columnagent_types_id1}, true));
-                this.columnid.AutoIncrement = true;
-                this.columnid.AutoIncrementSeed = -1;
-                this.columnid.AutoIncrementStep = -1;
-                this.columnid.AllowDBNull = false;
-                this.columnname.MaxLength = 63;
-                this.columninn.MaxLength = 15;
-                this.columnphone.MaxLength = 15;
-                this.columnfax.MaxLength = 15;
-                this.columnemail.MaxLength = 31;
-                this.columnaddress.MaxLength = 255;
-                this.columnogrn.MaxLength = 15;
-                this.columnkpp.MaxLength = 15;
-                this.columnokpo.MaxLength = 15;
-                this.columnks.MaxLength = 15;
-                this.columnrs.MaxLength = 15;
-                this.columnbank.MaxLength = 127;
-                this.columnbik.MaxLength = 15;
-                this.columnsigning_authority_doc.MaxLength = 45;
-                this.columnpers_status.MaxLength = 45;
-                this.columnpers_lastname.MaxLength = 30;
-                this.columnpers_firstname.MaxLength = 30;
-                this.columnpers_middlename.MaxLength = 30;
-                this.columnagent_types_name.MaxLength = 8;
-                this.columnagent_types_id1.AutoIncrement = true;
-                this.columnagent_types_id1.AutoIncrementSeed = -1;
-                this.columnagent_types_id1.AutoIncrementStep = -1;
-                this.columnagent_types_id1.AllowDBNull = false;
-                this.columnfullname.MaxLength = 72;
-                this.columncontact_pers_name_FIO.MaxLength = 36;
-                this.columncontact_pers_name_IOF.MaxLength = 36;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public agents_infoDataTableRow Newagents_infoDataTableRow() {
-                return ((agents_infoDataTableRow)(this.NewRow()));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new agents_infoDataTableRow(builder);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override global::System.Type GetRowType() {
-                return typeof(agents_infoDataTableRow);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanged(e);
-                if ((this.agents_infoDataTableRowChanged != null)) {
-                    this.agents_infoDataTableRowChanged(this, new agents_infoDataTableRowChangeEvent(((agents_infoDataTableRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanging(e);
-                if ((this.agents_infoDataTableRowChanging != null)) {
-                    this.agents_infoDataTableRowChanging(this, new agents_infoDataTableRowChangeEvent(((agents_infoDataTableRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleted(e);
-                if ((this.agents_infoDataTableRowDeleted != null)) {
-                    this.agents_infoDataTableRowDeleted(this, new agents_infoDataTableRowChangeEvent(((agents_infoDataTableRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleting(e);
-                if ((this.agents_infoDataTableRowDeleting != null)) {
-                    this.agents_infoDataTableRowDeleting(this, new agents_infoDataTableRowChangeEvent(((agents_infoDataTableRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void Removeagents_infoDataTableRow(agents_infoDataTableRow row) {
-                this.Rows.Remove(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
-                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                EdocbaseDataSet ds = new EdocbaseDataSet();
-                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
-                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
-                any1.MinOccurs = new decimal(0);
-                any1.MaxOccurs = decimal.MaxValue;
-                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any1);
-                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
-                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
-                any2.MinOccurs = new decimal(1);
-                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any2);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute1.Name = "namespace";
-                attribute1.FixedValue = ds.Namespace;
-                type.Attributes.Add(attribute1);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "agents_infoDataTableDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -15941,23 +15334,87 @@ namespace Edocsys {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string agent_types_name {
+                get {
+                    try {
+                        return ((string)(this[this.tableagents.agent_types_nameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'agent_types_name\' in table \'agents\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableagents.agent_types_nameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int agent_types_id1 {
+                get {
+                    return ((int)(this[this.tableagents.agent_types_id1Column]));
+                }
+                set {
+                    this[this.tableagents.agent_types_id1Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string fullname {
+                get {
+                    try {
+                        return ((string)(this[this.tableagents.fullnameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'fullname\' in table \'agents\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableagents.fullnameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string contact_pers_name_FIO {
+                get {
+                    try {
+                        return ((string)(this[this.tableagents.contact_pers_name_FIOColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'contact_pers_name_FIO\' in table \'agents\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableagents.contact_pers_name_FIOColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string contact_pers_name_IOF {
+                get {
+                    try {
+                        return ((string)(this[this.tableagents.contact_pers_name_IOFColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'contact_pers_name_IOF\' in table \'agents\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableagents.contact_pers_name_IOFColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public agent_typesRow agent_typesRow {
                 get {
                     return ((agent_typesRow)(this.GetParentRow(this.Table.ParentRelations["fk_agents_agent_types"])));
                 }
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["fk_agents_agent_types"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public agents_infoDataTableRow agents_infoDataTableRow {
-                get {
-                    return ((agents_infoDataTableRow)(this.GetParentRow(this.Table.ParentRelations["fk_agents_agent_types1"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["fk_agents_agent_types1"]);
                 }
             }
             
@@ -16191,6 +15648,54 @@ namespace Edocsys {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isagent_types_nameNull() {
+                return this.IsNull(this.tableagents.agent_types_nameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setagent_types_nameNull() {
+                this[this.tableagents.agent_types_nameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsfullnameNull() {
+                return this.IsNull(this.tableagents.fullnameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetfullnameNull() {
+                this[this.tableagents.fullnameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Iscontact_pers_name_FIONull() {
+                return this.IsNull(this.tableagents.contact_pers_name_FIOColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setcontact_pers_name_FIONull() {
+                this[this.tableagents.contact_pers_name_FIOColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Iscontact_pers_name_IOFNull() {
+                return this.IsNull(this.tableagents.contact_pers_name_IOFColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setcontact_pers_name_IOFNull() {
+                this[this.tableagents.contact_pers_name_IOFColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public agents_contactsRow[] Getagents_contactsRows() {
                 if ((this.Table.ChildRelations["fk_agents_agents_contacts"] == null)) {
                     return new agents_contactsRow[0];
@@ -16208,703 +15713,6 @@ namespace Edocsys {
                 }
                 else {
                     return ((contractsRow[])(base.GetChildRows(this.Table.ChildRelations["fk_contracts_agents"])));
-                }
-            }
-        }
-        
-        /// <summary>
-        ///Represents strongly named DataRow class.
-        ///</summary>
-        public partial class agents_infoDataTableRow : global::System.Data.DataRow {
-            
-            private agents_infoDataTableDataTable tableagents_infoDataTable;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal agents_infoDataTableRow(global::System.Data.DataRowBuilder rb) : 
-                    base(rb) {
-                this.tableagents_infoDataTable = ((agents_infoDataTableDataTable)(this.Table));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int id {
-                get {
-                    return ((int)(this[this.tableagents_infoDataTable.idColumn]));
-                }
-                set {
-                    this[this.tableagents_infoDataTable.idColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int agent_types_id {
-                get {
-                    try {
-                        return ((int)(this[this.tableagents_infoDataTable.agent_types_idColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'agent_types_id\' in table \'agents_infoDataTable\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableagents_infoDataTable.agent_types_idColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string name {
-                get {
-                    try {
-                        return ((string)(this[this.tableagents_infoDataTable.nameColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'name\' in table \'agents_infoDataTable\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableagents_infoDataTable.nameColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string inn {
-                get {
-                    try {
-                        return ((string)(this[this.tableagents_infoDataTable.innColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'inn\' in table \'agents_infoDataTable\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableagents_infoDataTable.innColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string phone {
-                get {
-                    try {
-                        return ((string)(this[this.tableagents_infoDataTable.phoneColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'phone\' in table \'agents_infoDataTable\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableagents_infoDataTable.phoneColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string fax {
-                get {
-                    try {
-                        return ((string)(this[this.tableagents_infoDataTable.faxColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'fax\' in table \'agents_infoDataTable\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableagents_infoDataTable.faxColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string email {
-                get {
-                    try {
-                        return ((string)(this[this.tableagents_infoDataTable.emailColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'email\' in table \'agents_infoDataTable\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableagents_infoDataTable.emailColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string address {
-                get {
-                    try {
-                        return ((string)(this[this.tableagents_infoDataTable.addressColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'address\' in table \'agents_infoDataTable\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableagents_infoDataTable.addressColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string ogrn {
-                get {
-                    try {
-                        return ((string)(this[this.tableagents_infoDataTable.ogrnColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ogrn\' in table \'agents_infoDataTable\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableagents_infoDataTable.ogrnColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string kpp {
-                get {
-                    try {
-                        return ((string)(this[this.tableagents_infoDataTable.kppColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'kpp\' in table \'agents_infoDataTable\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableagents_infoDataTable.kppColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string okpo {
-                get {
-                    try {
-                        return ((string)(this[this.tableagents_infoDataTable.okpoColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'okpo\' in table \'agents_infoDataTable\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableagents_infoDataTable.okpoColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string ks {
-                get {
-                    try {
-                        return ((string)(this[this.tableagents_infoDataTable.ksColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ks\' in table \'agents_infoDataTable\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableagents_infoDataTable.ksColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string rs {
-                get {
-                    try {
-                        return ((string)(this[this.tableagents_infoDataTable.rsColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'rs\' in table \'agents_infoDataTable\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableagents_infoDataTable.rsColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string bank {
-                get {
-                    try {
-                        return ((string)(this[this.tableagents_infoDataTable.bankColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'bank\' in table \'agents_infoDataTable\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableagents_infoDataTable.bankColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string bik {
-                get {
-                    try {
-                        return ((string)(this[this.tableagents_infoDataTable.bikColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'bik\' in table \'agents_infoDataTable\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableagents_infoDataTable.bikColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string signing_authority_doc {
-                get {
-                    try {
-                        return ((string)(this[this.tableagents_infoDataTable.signing_authority_docColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'signing_authority_doc\' in table \'agents_infoDataTable\' is D" +
-                                "BNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableagents_infoDataTable.signing_authority_docColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string pers_status {
-                get {
-                    try {
-                        return ((string)(this[this.tableagents_infoDataTable.pers_statusColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'pers_status\' in table \'agents_infoDataTable\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableagents_infoDataTable.pers_statusColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string pers_lastname {
-                get {
-                    try {
-                        return ((string)(this[this.tableagents_infoDataTable.pers_lastnameColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'pers_lastname\' in table \'agents_infoDataTable\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableagents_infoDataTable.pers_lastnameColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string pers_firstname {
-                get {
-                    try {
-                        return ((string)(this[this.tableagents_infoDataTable.pers_firstnameColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'pers_firstname\' in table \'agents_infoDataTable\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableagents_infoDataTable.pers_firstnameColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string pers_middlename {
-                get {
-                    try {
-                        return ((string)(this[this.tableagents_infoDataTable.pers_middlenameColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'pers_middlename\' in table \'agents_infoDataTable\' is DBNull." +
-                                "", e);
-                    }
-                }
-                set {
-                    this[this.tableagents_infoDataTable.pers_middlenameColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string agent_types_name {
-                get {
-                    try {
-                        return ((string)(this[this.tableagents_infoDataTable.agent_types_nameColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'agent_types_name\' in table \'agents_infoDataTable\' is DBNull" +
-                                ".", e);
-                    }
-                }
-                set {
-                    this[this.tableagents_infoDataTable.agent_types_nameColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int agent_types_id1 {
-                get {
-                    return ((int)(this[this.tableagents_infoDataTable.agent_types_id1Column]));
-                }
-                set {
-                    this[this.tableagents_infoDataTable.agent_types_id1Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string fullname {
-                get {
-                    try {
-                        return ((string)(this[this.tableagents_infoDataTable.fullnameColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'fullname\' in table \'agents_infoDataTable\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableagents_infoDataTable.fullnameColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string contact_pers_name_FIO {
-                get {
-                    try {
-                        return ((string)(this[this.tableagents_infoDataTable.contact_pers_name_FIOColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'contact_pers_name_FIO\' in table \'agents_infoDataTable\' is D" +
-                                "BNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableagents_infoDataTable.contact_pers_name_FIOColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string contact_pers_name_IOF {
-                get {
-                    try {
-                        return ((string)(this[this.tableagents_infoDataTable.contact_pers_name_IOFColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'contact_pers_name_IOF\' in table \'agents_infoDataTable\' is D" +
-                                "BNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableagents_infoDataTable.contact_pers_name_IOFColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool Isagent_types_idNull() {
-                return this.IsNull(this.tableagents_infoDataTable.agent_types_idColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void Setagent_types_idNull() {
-                this[this.tableagents_infoDataTable.agent_types_idColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsnameNull() {
-                return this.IsNull(this.tableagents_infoDataTable.nameColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetnameNull() {
-                this[this.tableagents_infoDataTable.nameColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsinnNull() {
-                return this.IsNull(this.tableagents_infoDataTable.innColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetinnNull() {
-                this[this.tableagents_infoDataTable.innColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsphoneNull() {
-                return this.IsNull(this.tableagents_infoDataTable.phoneColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetphoneNull() {
-                this[this.tableagents_infoDataTable.phoneColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsfaxNull() {
-                return this.IsNull(this.tableagents_infoDataTable.faxColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetfaxNull() {
-                this[this.tableagents_infoDataTable.faxColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsemailNull() {
-                return this.IsNull(this.tableagents_infoDataTable.emailColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetemailNull() {
-                this[this.tableagents_infoDataTable.emailColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsaddressNull() {
-                return this.IsNull(this.tableagents_infoDataTable.addressColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetaddressNull() {
-                this[this.tableagents_infoDataTable.addressColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsogrnNull() {
-                return this.IsNull(this.tableagents_infoDataTable.ogrnColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetogrnNull() {
-                this[this.tableagents_infoDataTable.ogrnColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IskppNull() {
-                return this.IsNull(this.tableagents_infoDataTable.kppColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetkppNull() {
-                this[this.tableagents_infoDataTable.kppColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsokpoNull() {
-                return this.IsNull(this.tableagents_infoDataTable.okpoColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetokpoNull() {
-                this[this.tableagents_infoDataTable.okpoColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsksNull() {
-                return this.IsNull(this.tableagents_infoDataTable.ksColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetksNull() {
-                this[this.tableagents_infoDataTable.ksColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsrsNull() {
-                return this.IsNull(this.tableagents_infoDataTable.rsColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetrsNull() {
-                this[this.tableagents_infoDataTable.rsColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsbankNull() {
-                return this.IsNull(this.tableagents_infoDataTable.bankColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetbankNull() {
-                this[this.tableagents_infoDataTable.bankColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsbikNull() {
-                return this.IsNull(this.tableagents_infoDataTable.bikColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetbikNull() {
-                this[this.tableagents_infoDataTable.bikColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool Issigning_authority_docNull() {
-                return this.IsNull(this.tableagents_infoDataTable.signing_authority_docColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void Setsigning_authority_docNull() {
-                this[this.tableagents_infoDataTable.signing_authority_docColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool Ispers_statusNull() {
-                return this.IsNull(this.tableagents_infoDataTable.pers_statusColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void Setpers_statusNull() {
-                this[this.tableagents_infoDataTable.pers_statusColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool Ispers_lastnameNull() {
-                return this.IsNull(this.tableagents_infoDataTable.pers_lastnameColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void Setpers_lastnameNull() {
-                this[this.tableagents_infoDataTable.pers_lastnameColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool Ispers_firstnameNull() {
-                return this.IsNull(this.tableagents_infoDataTable.pers_firstnameColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void Setpers_firstnameNull() {
-                this[this.tableagents_infoDataTable.pers_firstnameColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool Ispers_middlenameNull() {
-                return this.IsNull(this.tableagents_infoDataTable.pers_middlenameColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void Setpers_middlenameNull() {
-                this[this.tableagents_infoDataTable.pers_middlenameColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool Isagent_types_nameNull() {
-                return this.IsNull(this.tableagents_infoDataTable.agent_types_nameColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void Setagent_types_nameNull() {
-                this[this.tableagents_infoDataTable.agent_types_nameColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsfullnameNull() {
-                return this.IsNull(this.tableagents_infoDataTable.fullnameColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetfullnameNull() {
-                this[this.tableagents_infoDataTable.fullnameColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool Iscontact_pers_name_FIONull() {
-                return this.IsNull(this.tableagents_infoDataTable.contact_pers_name_FIOColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void Setcontact_pers_name_FIONull() {
-                this[this.tableagents_infoDataTable.contact_pers_name_FIOColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool Iscontact_pers_name_IOFNull() {
-                return this.IsNull(this.tableagents_infoDataTable.contact_pers_name_IOFColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void Setcontact_pers_name_IOFNull() {
-                this[this.tableagents_infoDataTable.contact_pers_name_IOFColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public agentsRow[] GetagentsRows() {
-                if ((this.Table.ChildRelations["fk_agents_agent_types1"] == null)) {
-                    return new agentsRow[0];
-                }
-                else {
-                    return ((agentsRow[])(base.GetChildRows(this.Table.ChildRelations["fk_agents_agent_types1"])));
                 }
             }
         }
@@ -19908,40 +18716,6 @@ namespace Edocsys {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public agentsRow Row {
-                get {
-                    return this.eventRow;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataRowAction Action {
-                get {
-                    return this.eventAction;
-                }
-            }
-        }
-        
-        /// <summary>
-        ///Row event argument class
-        ///</summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public class agents_infoDataTableRowChangeEvent : global::System.EventArgs {
-            
-            private agents_infoDataTableRow eventRow;
-            
-            private global::System.Data.DataRowAction eventAction;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public agents_infoDataTableRowChangeEvent(agents_infoDataTableRow row, global::System.Data.DataRowAction action) {
-                this.eventRow = row;
-                this.eventAction = action;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public agents_infoDataTableRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -23079,6 +21853,11 @@ doc_templates ON contract_types.id = doc_templates.contract_types_id";
             tableMapping.ColumnMappings.Add("pers_lastname", "pers_lastname");
             tableMapping.ColumnMappings.Add("pers_firstname", "pers_firstname");
             tableMapping.ColumnMappings.Add("pers_middlename", "pers_middlename");
+            tableMapping.ColumnMappings.Add("agent_types_name", "agent_types_name");
+            tableMapping.ColumnMappings.Add("agent_types_id1", "agent_types_id1");
+            tableMapping.ColumnMappings.Add("fullname", "fullname");
+            tableMapping.ColumnMappings.Add("contact_pers_name_FIO", "contact_pers_name_FIO");
+            tableMapping.ColumnMappings.Add("contact_pers_name_IOF", "contact_pers_name_IOF");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
@@ -24082,9 +22861,13 @@ doc_templates ON contract_types.id = doc_templates.contract_types_id";
             this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[1];
             this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT\r\nid,\r\nagent_types_id,\r\nname,\r\ninn,\r\nphone,\r\nfax,\r\nemail,\r\naddress,\r\nogrn,\r" +
-                "\nkpp,\r\nokpo,\r\nrs,\r\nks,\r\nbik,\r\nbank,\r\nsigning_authority_doc,\r\npers_status,\r\npers_" +
-                "lastname,\r\npers_firstname, \r\npers_middlename\r\nFROM\r\nagents";
+            this._commandCollection[0].CommandText = @"SELECT        agents.id, agents.agent_types_id, agents.name, agents.inn, agents.phone, agents.fax, agents.email, agents.address, agents.ogrn, agents.kpp, agents.okpo, 
+                         agents.ks, agents.rs, agents.bank, agents.bik, agents.signing_authority_doc, agents.pers_status, agents.pers_lastname, agents.pers_firstname, 
+                         agents.pers_middlename, agent_types.name AS agent_types_name, agent_types.id AS agent_types_id, CONCAT(agent_types.name, ' ', agents.name) AS fullname, 
+                         CONCAT(agents.pers_lastname, ' ', substr(agents.pers_firstname, 1, 1), '. ', substr(agents.pers_middlename, 1, 1), '.') AS contact_pers_name_FIO, 
+                         CONCAT(substr(agents.pers_firstname, 1, 1), '. ', substr(agents.pers_middlename, 1, 1), '. ', agents.pers_lastname) AS contact_pers_name_IOF
+FROM            agents INNER JOIN
+                         agent_types ON agents.agent_types_id = agent_types.id";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -24814,203 +23597,6 @@ doc_templates ON contract_types.id = doc_templates.contract_types_id";
                     this.Adapter.UpdateCommand.Connection.Close();
                 }
             }
-        }
-    }
-    
-    /// <summary>
-    ///Represents the connection and commands used to retrieve and save data.
-    ///</summary>
-    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
-    [global::System.ComponentModel.ToolboxItem(true)]
-    [global::System.ComponentModel.DataObjectAttribute(true)]
-    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
-        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
-    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class agents_infoDataTableTableAdapter : global::System.ComponentModel.Component {
-        
-        private global::MySql.Data.MySqlClient.MySqlDataAdapter _adapter;
-        
-        private global::MySql.Data.MySqlClient.MySqlConnection _connection;
-        
-        private global::MySql.Data.MySqlClient.MySqlTransaction _transaction;
-        
-        private global::MySql.Data.MySqlClient.MySqlCommand[] _commandCollection;
-        
-        private bool _clearBeforeFill;
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public agents_infoDataTableTableAdapter() {
-            this.ClearBeforeFill = true;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        protected internal global::MySql.Data.MySqlClient.MySqlDataAdapter Adapter {
-            get {
-                if ((this._adapter == null)) {
-                    this.InitAdapter();
-                }
-                return this._adapter;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        internal global::MySql.Data.MySqlClient.MySqlConnection Connection {
-            get {
-                if ((this._connection == null)) {
-                    this.InitConnection();
-                }
-                return this._connection;
-            }
-            set {
-                this._connection = value;
-                if ((this.Adapter.InsertCommand != null)) {
-                    this.Adapter.InsertCommand.Connection = value;
-                }
-                if ((this.Adapter.DeleteCommand != null)) {
-                    this.Adapter.DeleteCommand.Connection = value;
-                }
-                if ((this.Adapter.UpdateCommand != null)) {
-                    this.Adapter.UpdateCommand.Connection = value;
-                }
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    if ((this.CommandCollection[i] != null)) {
-                        ((global::MySql.Data.MySqlClient.MySqlCommand)(this.CommandCollection[i])).Connection = value;
-                    }
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        internal global::MySql.Data.MySqlClient.MySqlTransaction Transaction {
-            get {
-                return this._transaction;
-            }
-            set {
-                this._transaction = value;
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    this.CommandCollection[i].Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.DeleteCommand != null))) {
-                    this.Adapter.DeleteCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.InsertCommand != null))) {
-                    this.Adapter.InsertCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.UpdateCommand != null))) {
-                    this.Adapter.UpdateCommand.Transaction = this._transaction;
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        protected global::MySql.Data.MySqlClient.MySqlCommand[] CommandCollection {
-            get {
-                if ((this._commandCollection == null)) {
-                    this.InitCommandCollection();
-                }
-                return this._commandCollection;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public bool ClearBeforeFill {
-            get {
-                return this._clearBeforeFill;
-            }
-            set {
-                this._clearBeforeFill = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private void InitAdapter() {
-            this._adapter = new global::MySql.Data.MySqlClient.MySqlDataAdapter();
-            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
-            tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "agents_infoDataTable";
-            tableMapping.ColumnMappings.Add("id", "id");
-            tableMapping.ColumnMappings.Add("agent_types_id", "agent_types_id");
-            tableMapping.ColumnMappings.Add("name", "name");
-            tableMapping.ColumnMappings.Add("inn", "inn");
-            tableMapping.ColumnMappings.Add("phone", "phone");
-            tableMapping.ColumnMappings.Add("fax", "fax");
-            tableMapping.ColumnMappings.Add("email", "email");
-            tableMapping.ColumnMappings.Add("address", "address");
-            tableMapping.ColumnMappings.Add("ogrn", "ogrn");
-            tableMapping.ColumnMappings.Add("kpp", "kpp");
-            tableMapping.ColumnMappings.Add("okpo", "okpo");
-            tableMapping.ColumnMappings.Add("ks", "ks");
-            tableMapping.ColumnMappings.Add("rs", "rs");
-            tableMapping.ColumnMappings.Add("bank", "bank");
-            tableMapping.ColumnMappings.Add("bik", "bik");
-            tableMapping.ColumnMappings.Add("signing_authority_doc", "signing_authority_doc");
-            tableMapping.ColumnMappings.Add("pers_status", "pers_status");
-            tableMapping.ColumnMappings.Add("pers_lastname", "pers_lastname");
-            tableMapping.ColumnMappings.Add("pers_firstname", "pers_firstname");
-            tableMapping.ColumnMappings.Add("pers_middlename", "pers_middlename");
-            tableMapping.ColumnMappings.Add("agent_types_name", "agent_types_name");
-            tableMapping.ColumnMappings.Add("agent_types_id1", "agent_types_id1");
-            tableMapping.ColumnMappings.Add("fullname", "fullname");
-            tableMapping.ColumnMappings.Add("contact_pers_name_FIO", "contact_pers_name_FIO");
-            tableMapping.ColumnMappings.Add("contact_pers_name_IOF", "contact_pers_name_IOF");
-            this._adapter.TableMappings.Add(tableMapping);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private void InitConnection() {
-            this._connection = new global::MySql.Data.MySqlClient.MySqlConnection();
-            this._connection.ConnectionString = global::Edocsys.Properties.Settings.Default.EdocbaseConnectionString;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private void InitCommandCollection() {
-            this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[1];
-            this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
-            this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT        agents.id, agents.agent_types_id, agents.name, agents.inn, agents.phone, agents.fax, agents.email, agents.address, agents.ogrn, agents.kpp, agents.okpo, 
-                         agents.ks, agents.rs, agents.bank, agents.bik, agents.signing_authority_doc, agents.pers_status, agents.pers_lastname, agents.pers_firstname, 
-                         agents.pers_middlename, agent_types.name AS agent_types_name, agent_types.id AS agent_types_id, CONCAT(agent_types.name, ' ', agents.name) AS fullname, 
-                         CONCAT(agents.pers_lastname, ' ', substr(agents.pers_firstname, 1, 1), '. ', substr(agents.pers_middlename, 1, 1), '.') AS contact_pers_name_FIO, 
-                         CONCAT(substr(agents.pers_firstname, 1, 1), '. ', substr(agents.pers_middlename, 1, 1), '. ', agents.pers_lastname) AS contact_pers_name_IOF
-FROM            agents INNER JOIN
-                         agent_types ON agents.agent_types_id = agent_types.id";
-            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(EdocbaseDataSet.agents_infoDataTableDataTable dataTable) {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual EdocbaseDataSet.agents_infoDataTableDataTable GetData() {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            EdocbaseDataSet.agents_infoDataTableDataTable dataTable = new EdocbaseDataSet.agents_infoDataTableDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
         }
     }
     
@@ -34867,15 +33453,6 @@ contracts";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private int UpdateUpdatedRows(EdocbaseDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._user_typesTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.user_types.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._user_typesTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
             if ((this._product_areasTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.product_areas.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
@@ -34891,6 +33468,15 @@ contracts";
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._agent_typesTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._user_typesTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.user_types.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._user_typesTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -34921,12 +33507,12 @@ contracts";
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._usersTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.users.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._contract_typesTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.contract_types.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._usersTableAdapter.Update(updatedRows));
+                    result = (result + this._contract_typesTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -34939,12 +33525,12 @@ contracts";
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._contract_typesTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.contract_types.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._usersTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.users.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._contract_typesTableAdapter.Update(updatedRows));
+                    result = (result + this._usersTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -35048,14 +33634,6 @@ contracts";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private int UpdateInsertedRows(EdocbaseDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._user_typesTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.user_types.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._user_typesTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             if ((this._product_areasTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.product_areas.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
@@ -35069,6 +33647,14 @@ contracts";
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._agent_typesTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._user_typesTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.user_types.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._user_typesTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -35096,11 +33682,11 @@ contracts";
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._usersTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.users.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._contract_typesTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.contract_types.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._usersTableAdapter.Update(addedRows));
+                    result = (result + this._contract_typesTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -35112,11 +33698,11 @@ contracts";
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._contract_typesTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.contract_types.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._usersTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.users.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._contract_typesTableAdapter.Update(addedRows));
+                    result = (result + this._usersTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -35290,11 +33876,11 @@ contracts";
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._contract_typesTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.contract_types.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._usersTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.users.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._contract_typesTableAdapter.Update(deletedRows));
+                    result = (result + this._usersTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -35306,11 +33892,11 @@ contracts";
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._usersTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.users.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._contract_typesTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.contract_types.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._usersTableAdapter.Update(deletedRows));
+                    result = (result + this._contract_typesTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -35338,6 +33924,14 @@ contracts";
                     allChangedRows.AddRange(deletedRows);
                 }
             }
+            if ((this._user_typesTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.user_types.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._user_typesTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
             if ((this._agent_typesTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.agent_types.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
@@ -35351,14 +33945,6 @@ contracts";
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._product_areasTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._user_typesTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.user_types.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._user_typesTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }

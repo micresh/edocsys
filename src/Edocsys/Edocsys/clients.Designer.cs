@@ -49,10 +49,18 @@
             System.Windows.Forms.Label ag_pers_lastnameLabel;
             System.Windows.Forms.Label ag_pers_middlenameLabel;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ClientsForm));
-            this.agentsBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
-            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
+            this.agents_contactsDataGridView = new System.Windows.Forms.DataGridView();
+            this.person = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.agents_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.phoneDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.faxDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.emailDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.agents_contactsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.agentsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.edocbaseDataSet = new Edocsys.EdocbaseDataSet();
+            this.agentsBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
+            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
@@ -64,22 +72,10 @@
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.agentsBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
-            this.agentstypesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tableAdapterManager = new Edocsys.EdocbaseDataSetTableAdapters.TableAdapterManager();
-            //this.agentsTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.AgentsTableAdapter();
-            //this.agents_contactsTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.Agents_contactsTableAdapter();
-            //this.agents_typesTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.Agents_typesTableAdapter();
+            this.agentsTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.agentsTableAdapter();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.agents_contactsDataGridView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ac_agent_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idAgents_contacts = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.agents_contactsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.bindingNavigatorContacts = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewItem1 = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorCountItem1 = new System.Windows.Forms.ToolStripLabel();
@@ -96,30 +92,57 @@
             this.toolStripButtonSaveContact = new System.Windows.Forms.ToolStripButton();
             this.agentsDataGridView = new System.Windows.Forms.DataGridView();
             this.Ag_fullname = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.agINNDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.person_shortname = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.ag_pers_statusTextBox = new System.Windows.Forms.TextBox();
-            this.ag_docTextBox = new System.Windows.Forms.TextBox();
-            this.ag_pers_firstnameTextBox = new System.Windows.Forms.TextBox();
-            this.ag_pers_lastnameTextBox = new System.Windows.Forms.TextBox();
-            this.ag_pers_middlenameTextBox = new System.Windows.Forms.TextBox();
+            this.pers_statusTextBox = new System.Windows.Forms.TextBox();
+            this.docTextBox = new System.Windows.Forms.TextBox();
+            this.pers_firstnameTextBox = new System.Windows.Forms.TextBox();
+            this.pers_lastnameTextBox = new System.Windows.Forms.TextBox();
+            this.pers_middlenameTextBox = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.ag_bankTextBox = new System.Windows.Forms.TextBox();
-            this.ag_RcouTextBox = new System.Windows.Forms.TextBox();
-            this.ag_KcouTextBox = new System.Windows.Forms.TextBox();
-            this.ag_BIKTextBox = new System.Windows.Forms.TextBox();
-            this.ag_OGRNTextBox = new System.Windows.Forms.TextBox();
-            this.ag_KPPTextBox = new System.Windows.Forms.TextBox();
-            this.ag_OKPOTextBox = new System.Windows.Forms.TextBox();
+            this.bankTextBox = new System.Windows.Forms.TextBox();
+            this.rsTextBox = new System.Windows.Forms.TextBox();
+            this.ksTextBox = new System.Windows.Forms.TextBox();
+            this.BIKTextBox = new System.Windows.Forms.TextBox();
+            this.OGRNTextBox = new System.Windows.Forms.TextBox();
+            this.KPPTextBox = new System.Windows.Forms.TextBox();
+            this.OKPOTextBox = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.ag_type_idComboBox = new System.Windows.Forms.ComboBox();
-            this.ag_INNTextBox = new System.Windows.Forms.TextBox();
-            this.ag_fullnameTextBox = new System.Windows.Forms.TextBox();
-            this.ag_addrTextBox = new System.Windows.Forms.TextBox();
-            this.ag_telTextBox = new System.Windows.Forms.TextBox();
-            this.ag_faxTextBox = new System.Windows.Forms.TextBox();
-            this.ag_mailTextBox = new System.Windows.Forms.TextBox();
+            this.agent_types_idComboBox = new System.Windows.Forms.ComboBox();
+            this.agent_typesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.INNTextBox = new System.Windows.Forms.TextBox();
+            this.nameTextBox = new System.Windows.Forms.TextBox();
+            this.addrTextBox = new System.Windows.Forms.TextBox();
+            this.phoneTextBox = new System.Windows.Forms.TextBox();
+            this.faxTextBox = new System.Windows.Forms.TextBox();
+            this.emailTextBox = new System.Windows.Forms.TextBox();
+            this.agent_typesTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.agent_typesTableAdapter();
+            this.agents_contactsTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.agents_contactsTableAdapter();
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.agenttypesidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.innDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.phoneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.faxDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.addressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ogrnDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.kppDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.okpoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ksDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bikDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bankDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.signingauthoritydocDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.persstatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.perslastnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.persfirstnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.persmiddlenameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.agenttypesnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.agenttypesid1DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fullnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contactpersnameFIODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contactpersnameIOFDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ag_type_idLabel = new System.Windows.Forms.Label();
             ag_INNLabel = new System.Windows.Forms.Label();
             ag_fullnameLabel = new System.Windows.Forms.Label();
@@ -139,24 +162,24 @@
             ag_pers_firstnameLabel = new System.Windows.Forms.Label();
             ag_pers_lastnameLabel = new System.Windows.Forms.Label();
             ag_pers_middlenameLabel = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.agentsBindingNavigator)).BeginInit();
-            this.agentsBindingNavigator.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.agents_contactsDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.agents_contactsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.agentsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.edocbaseDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.agentstypesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.agentsBindingNavigator)).BeginInit();
+            this.agentsBindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.groupBox4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.agents_contactsDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.agents_contactsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigatorContacts)).BeginInit();
             this.bindingNavigatorContacts.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.agentsDataGridView)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.agent_typesBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // ag_type_idLabel
@@ -349,6 +372,79 @@
             ag_pers_middlenameLabel.TabIndex = 48;
             ag_pers_middlenameLabel.Text = global::Edocsys.Properties.Settings.Default.AgentsPersonMiddleNameText;
             // 
+            // agents_contactsDataGridView
+            // 
+            this.agents_contactsDataGridView.AutoGenerateColumns = false;
+            this.agents_contactsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.agents_contactsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.person,
+            this.agents_id,
+            this.status,
+            this.phoneDataGridViewTextBoxColumn1,
+            this.faxDataGridViewTextBoxColumn1,
+            this.emailDataGridViewTextBoxColumn1});
+            this.agents_contactsDataGridView.DataSource = this.agents_contactsBindingSource;
+            this.agents_contactsDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.agents_contactsDataGridView.Location = new System.Drawing.Point(3, 41);
+            this.agents_contactsDataGridView.MultiSelect = false;
+            this.agents_contactsDataGridView.Name = "agents_contactsDataGridView";
+            this.agents_contactsDataGridView.Size = new System.Drawing.Size(612, 144);
+            this.agents_contactsDataGridView.TabIndex = 3;
+            // 
+            // person
+            // 
+            this.person.DataPropertyName = "person";
+            this.person.HeaderText = "Ф.И.О.";
+            this.person.Name = "person";
+            // 
+            // agents_id
+            // 
+            this.agents_id.DataPropertyName = "agents_id";
+            this.agents_id.HeaderText = "agents_id";
+            this.agents_id.Name = "agents_id";
+            // 
+            // status
+            // 
+            this.status.DataPropertyName = "status";
+            this.status.HeaderText = "Должность";
+            this.status.Name = "status";
+            // 
+            // phoneDataGridViewTextBoxColumn1
+            // 
+            this.phoneDataGridViewTextBoxColumn1.DataPropertyName = "phone";
+            this.phoneDataGridViewTextBoxColumn1.HeaderText = "Телефон";
+            this.phoneDataGridViewTextBoxColumn1.Name = "phoneDataGridViewTextBoxColumn1";
+            // 
+            // faxDataGridViewTextBoxColumn1
+            // 
+            this.faxDataGridViewTextBoxColumn1.DataPropertyName = "fax";
+            this.faxDataGridViewTextBoxColumn1.HeaderText = "Факс";
+            this.faxDataGridViewTextBoxColumn1.Name = "faxDataGridViewTextBoxColumn1";
+            // 
+            // emailDataGridViewTextBoxColumn1
+            // 
+            this.emailDataGridViewTextBoxColumn1.DataPropertyName = "email";
+            this.emailDataGridViewTextBoxColumn1.HeaderText = "E-mail";
+            this.emailDataGridViewTextBoxColumn1.Name = "emailDataGridViewTextBoxColumn1";
+            // 
+            // agents_contactsBindingSource
+            // 
+            this.agents_contactsBindingSource.DataMember = "fk_agents_agents_contacts";
+            this.agents_contactsBindingSource.DataSource = this.agentsBindingSource;
+            // 
+            // agentsBindingSource
+            // 
+            this.agentsBindingSource.AllowNew = true;
+            this.agentsBindingSource.DataMember = "agents";
+            this.agentsBindingSource.DataSource = this.edocbaseDataSet;
+            this.agentsBindingSource.CurrentChanged += new System.EventHandler(this.agentsBindingSource_CurrentChanged);
+            // 
+            // edocbaseDataSet
+            // 
+            this.edocbaseDataSet.CaseSensitive = true;
+            this.edocbaseDataSet.DataSetName = "EdocbaseDataSet";
+            this.edocbaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // agentsBindingNavigator
             // 
             this.agentsBindingNavigator.AddNewItem = this.bindingNavigatorAddNewItem;
@@ -387,18 +483,7 @@
             this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorAddNewItem.Text = "Add new";
-            // 
-            // agentsBindingSource
-            // 
-            this.agentsBindingSource.AllowNew = true;
-            this.agentsBindingSource.DataMember = "Agents";
-            this.agentsBindingSource.DataSource = this.edocbaseDataSet;
-            this.agentsBindingSource.CurrentChanged += new System.EventHandler(this.agentsBindingSource_CurrentChanged);
-            // 
-            // edocbaseDataSet
-            // 
-            this.edocbaseDataSet.DataSetName = "EdocbaseDataSet";
-            this.edocbaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.bindingNavigatorAddNewItem.Click += new System.EventHandler(this.bindingNavigatorAddNewItem_Click);
             // 
             // bindingNavigatorCountItem
             // 
@@ -485,42 +570,33 @@
             this.agentsBindingNavigatorSaveItem.Text = "Save Data";
             this.agentsBindingNavigatorSaveItem.Click += new System.EventHandler(this.agentsBindingNavigatorSaveItem_Click);
             // 
-            // agentstypesBindingSource
+            // tableAdapterManager
             // 
-            this.agentstypesBindingSource.DataMember = "Agents_types";
-            this.agentstypesBindingSource.DataSource = this.edocbaseDataSet;
+            this.tableAdapterManager.agent_typesTableAdapter = null;
+            this.tableAdapterManager.agents_contactsTableAdapter = null;
+            this.tableAdapterManager.agentsTableAdapter = this.agentsTableAdapter;
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.contract_statusTableAdapter = null;
+            this.tableAdapterManager.contract_types_for_workDataTablesTableAdapter = null;
+            this.tableAdapterManager.contract_typesTableAdapter = null;
+            this.tableAdapterManager.contractsTableAdapter = null;
+            this.tableAdapterManager.doc_templatesTableAdapter = null;
+            this.tableAdapterManager.documentsTableAdapter = null;
+            this.tableAdapterManager.emission_typesTableAdapter = null;
+            this.tableAdapterManager.expertsTableAdapter = null;
+            this.tableAdapterManager.log_journalTableAdapter = null;
+            this.tableAdapterManager.product_areasTableAdapter = null;
+            this.tableAdapterManager.product_gostsTableAdapter = null;
+            this.tableAdapterManager.productsTableAdapter = null;
+            this.tableAdapterManager.selected_gostsTableAdapter = null;
+            this.tableAdapterManager.source_typesTableAdapter = null;
+            this.tableAdapterManager.UpdateOrder = Edocsys.EdocbaseDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            this.tableAdapterManager.user_typesTableAdapter = null;
+            this.tableAdapterManager.usersTableAdapter = null;
             // 
             // agentsTableAdapter
             // 
-            //this.agentsTableAdapter.ClearBeforeFill = true;
-            // 
-            // tableAdapterManager
-            // 
-            //this.tableAdapterManager.Agents_contactsTableAdapter = this.agents_contactsTableAdapter;
-            //this.tableAdapterManager.Agents_typesTableAdapter = null;
-            //this.tableAdapterManager.AgentsTableAdapter = this.agentsTableAdapter;
-            //this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            //this.tableAdapterManager.ContractsTableAdapter = null;
-            //this.tableAdapterManager.ContractStatusTableAdapter = null;
-            //this.tableAdapterManager.ContractTypesTableAdapter = null;
-            //this.tableAdapterManager.DocTemplatesTableAdapter = null;
-            //this.tableAdapterManager.DocumentsTableAdapter = null;
-            //this.tableAdapterManager.Exec_contractsTableAdapter = null;
-            //this.tableAdapterManager.ExpertsTableAdapter = null;
-            //this.tableAdapterManager.log_journalTableAdapter = null;
-            //this.tableAdapterManager.ProdGostTableAdapter = null;
-            //this.tableAdapterManager.ProductAreasTableAdapter = null;
-            //this.tableAdapterManager.ProductsTableAdapter = null;
-            //this.tableAdapterManager.UpdateOrder = Edocsys.EdocbaseDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            //this.tableAdapterManager.usersTableAdapter = null;
-            // 
-            // agents_contactsTableAdapter
-            // 
-            //this.agents_contactsTableAdapter.ClearBeforeFill = true;
-            // 
-            // agents_typesTableAdapter
-            // 
-            //this.agents_typesTableAdapter.ClearBeforeFill = true;
+            this.agentsTableAdapter.ClearBeforeFill = true;
             // 
             // splitContainer1
             // 
@@ -556,79 +632,6 @@
             this.groupBox4.TabIndex = 49;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = global::Edocsys.Properties.Settings.Default.AgentsContactsText;
-            // 
-            // agents_contactsDataGridView
-            // 
-            this.agents_contactsDataGridView.AutoGenerateColumns = false;
-            this.agents_contactsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.agents_contactsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn5,
-            this.dataGridViewTextBoxColumn6,
-            this.dataGridViewTextBoxColumn7,
-            this.ac_agent_id,
-            this.idAgents_contacts});
-            this.agents_contactsDataGridView.DataSource = this.agents_contactsBindingSource;
-            this.agents_contactsDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.agents_contactsDataGridView.Location = new System.Drawing.Point(3, 41);
-            this.agents_contactsDataGridView.Name = "agents_contactsDataGridView";
-            this.agents_contactsDataGridView.Size = new System.Drawing.Size(612, 144);
-            this.agents_contactsDataGridView.TabIndex = 3;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "ac_person";
-            this.dataGridViewTextBoxColumn3.HeaderText = "Ф.И.О.";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ToolTipText = "Ф.И.О.";
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "ac_status";
-            this.dataGridViewTextBoxColumn4.HeaderText = "Должность";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ToolTipText = "Должность";
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "ac_phone";
-            this.dataGridViewTextBoxColumn5.HeaderText = "Телефон";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.ToolTipText = "Телефон";
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "ac_fax";
-            this.dataGridViewTextBoxColumn6.HeaderText = "Факс";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.ToolTipText = "Факс";
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            this.dataGridViewTextBoxColumn7.DataPropertyName = "ac_email";
-            this.dataGridViewTextBoxColumn7.HeaderText = "E-mail";
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            this.dataGridViewTextBoxColumn7.ToolTipText = "E-mail";
-            // 
-            // ac_agent_id
-            // 
-            this.ac_agent_id.DataPropertyName = "ac_agent_id";
-            this.ac_agent_id.HeaderText = "ac_agent_id";
-            this.ac_agent_id.Name = "ac_agent_id";
-            this.ac_agent_id.Visible = false;
-            // 
-            // idAgents_contacts
-            // 
-            this.idAgents_contacts.DataPropertyName = "idAgents_contacts";
-            this.idAgents_contacts.HeaderText = "idAgents_contacts";
-            this.idAgents_contacts.Name = "idAgents_contacts";
-            this.idAgents_contacts.Visible = false;
-            // 
-            // agents_contactsBindingSource
-            // 
-            this.agents_contactsBindingSource.DataMember = "Agents_Agents_contacts";
-            this.agents_contactsBindingSource.DataSource = this.agentsBindingSource;
             // 
             // bindingNavigatorContacts
             // 
@@ -669,6 +672,7 @@
             this.bindingNavigatorAddNewItem1.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorAddNewItem1.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorAddNewItem1.Text = "Add new";
+            this.bindingNavigatorAddNewItem1.Click += new System.EventHandler(this.bindingNavigatorAddNewItem1_Click);
             // 
             // bindingNavigatorCountItem1
             // 
@@ -770,8 +774,32 @@
             this.agentsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.agentsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Ag_fullname,
-            this.agINNDataGridViewTextBoxColumn,
-            this.person_shortname});
+            this.person_shortname,
+            this.idDataGridViewTextBoxColumn,
+            this.agenttypesidDataGridViewTextBoxColumn,
+            this.nameDataGridViewTextBoxColumn,
+            this.innDataGridViewTextBoxColumn,
+            this.phoneDataGridViewTextBoxColumn,
+            this.faxDataGridViewTextBoxColumn,
+            this.emailDataGridViewTextBoxColumn,
+            this.addressDataGridViewTextBoxColumn,
+            this.ogrnDataGridViewTextBoxColumn,
+            this.kppDataGridViewTextBoxColumn,
+            this.okpoDataGridViewTextBoxColumn,
+            this.rsDataGridViewTextBoxColumn,
+            this.ksDataGridViewTextBoxColumn,
+            this.bikDataGridViewTextBoxColumn,
+            this.bankDataGridViewTextBoxColumn,
+            this.signingauthoritydocDataGridViewTextBoxColumn,
+            this.persstatusDataGridViewTextBoxColumn,
+            this.perslastnameDataGridViewTextBoxColumn,
+            this.persfirstnameDataGridViewTextBoxColumn,
+            this.persmiddlenameDataGridViewTextBoxColumn,
+            this.agenttypesnameDataGridViewTextBoxColumn,
+            this.agenttypesid1DataGridViewTextBoxColumn,
+            this.fullnameDataGridViewTextBoxColumn,
+            this.contactpersnameFIODataGridViewTextBoxColumn,
+            this.contactpersnameIOFDataGridViewTextBoxColumn});
             this.agentsDataGridView.DataSource = this.agentsBindingSource;
             this.agentsDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.agentsDataGridView.Location = new System.Drawing.Point(0, 0);
@@ -784,7 +812,7 @@
             // 
             // Ag_fullname
             // 
-            this.Ag_fullname.DataPropertyName = "Ag_name";
+            this.Ag_fullname.DataPropertyName = "name";
             this.Ag_fullname.HeaderText = "Название";
             this.Ag_fullname.MinimumWidth = 250;
             this.Ag_fullname.Name = "Ag_fullname";
@@ -792,17 +820,9 @@
             this.Ag_fullname.ToolTipText = "Название";
             this.Ag_fullname.Width = 250;
             // 
-            // agINNDataGridViewTextBoxColumn
-            // 
-            this.agINNDataGridViewTextBoxColumn.DataPropertyName = "Ag_INN";
-            this.agINNDataGridViewTextBoxColumn.HeaderText = "ИНН";
-            this.agINNDataGridViewTextBoxColumn.Name = "agINNDataGridViewTextBoxColumn";
-            this.agINNDataGridViewTextBoxColumn.ReadOnly = true;
-            this.agINNDataGridViewTextBoxColumn.ToolTipText = "ИНН";
-            // 
             // person_shortname
             // 
-            this.person_shortname.DataPropertyName = "Contact_FullName";
+            this.person_shortname.DataPropertyName = "contact_pers_name_FIO";
             this.person_shortname.HeaderText = "Ф.И.О. ответственного";
             this.person_shortname.MinimumWidth = 200;
             this.person_shortname.Name = "person_shortname";
@@ -812,232 +832,420 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.ag_pers_statusTextBox);
-            this.groupBox3.Controls.Add(this.ag_docTextBox);
+            this.groupBox3.Controls.Add(this.pers_statusTextBox);
+            this.groupBox3.Controls.Add(this.docTextBox);
             this.groupBox3.Controls.Add(ag_docLabel);
             this.groupBox3.Controls.Add(ag_pers_statusLabel);
             this.groupBox3.Controls.Add(ag_pers_firstnameLabel);
-            this.groupBox3.Controls.Add(this.ag_pers_firstnameTextBox);
+            this.groupBox3.Controls.Add(this.pers_firstnameTextBox);
             this.groupBox3.Controls.Add(ag_pers_lastnameLabel);
-            this.groupBox3.Controls.Add(this.ag_pers_lastnameTextBox);
+            this.groupBox3.Controls.Add(this.pers_lastnameTextBox);
             this.groupBox3.Controls.Add(ag_pers_middlenameLabel);
-            this.groupBox3.Controls.Add(this.ag_pers_middlenameTextBox);
+            this.groupBox3.Controls.Add(this.pers_middlenameTextBox);
             this.groupBox3.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Edocsys.Properties.Settings.Default, "AgentsContactPersonText", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox3.Location = new System.Drawing.Point(0, 334);
+            this.groupBox3.Location = new System.Drawing.Point(0, 323);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(490, 188);
+            this.groupBox3.Size = new System.Drawing.Size(490, 199);
             this.groupBox3.TabIndex = 46;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = global::Edocsys.Properties.Settings.Default.AgentsContactPersonText;
             // 
-            // ag_pers_statusTextBox
+            // pers_statusTextBox
             // 
-            this.ag_pers_statusTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.agentsBindingSource, "Ag_pers_status", true));
-            this.ag_pers_statusTextBox.Location = new System.Drawing.Point(79, 72);
-            this.ag_pers_statusTextBox.Name = "ag_pers_statusTextBox";
-            this.ag_pers_statusTextBox.Size = new System.Drawing.Size(398, 20);
-            this.ag_pers_statusTextBox.TabIndex = 51;
+            this.pers_statusTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.agentsBindingSource, "pers_status", true));
+            this.pers_statusTextBox.Location = new System.Drawing.Point(79, 72);
+            this.pers_statusTextBox.Name = "pers_statusTextBox";
+            this.pers_statusTextBox.Size = new System.Drawing.Size(398, 20);
+            this.pers_statusTextBox.TabIndex = 51;
             // 
-            // ag_docTextBox
+            // docTextBox
             // 
-            this.ag_docTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.agentsBindingSource, "Ag_doc", true));
-            this.ag_docTextBox.Location = new System.Drawing.Point(79, 22);
-            this.ag_docTextBox.Multiline = true;
-            this.ag_docTextBox.Name = "ag_docTextBox";
-            this.ag_docTextBox.Size = new System.Drawing.Size(398, 47);
-            this.ag_docTextBox.TabIndex = 50;
+            this.docTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.agentsBindingSource, "signing_authority_doc", true));
+            this.docTextBox.Location = new System.Drawing.Point(79, 22);
+            this.docTextBox.Multiline = true;
+            this.docTextBox.Name = "docTextBox";
+            this.docTextBox.Size = new System.Drawing.Size(398, 47);
+            this.docTextBox.TabIndex = 50;
             // 
-            // ag_pers_firstnameTextBox
+            // pers_firstnameTextBox
             // 
-            this.ag_pers_firstnameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.agentsBindingSource, "Ag_pers_firstname", true));
-            this.ag_pers_firstnameTextBox.Location = new System.Drawing.Point(79, 121);
-            this.ag_pers_firstnameTextBox.Name = "ag_pers_firstnameTextBox";
-            this.ag_pers_firstnameTextBox.Size = new System.Drawing.Size(398, 20);
-            this.ag_pers_firstnameTextBox.TabIndex = 45;
+            this.pers_firstnameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.agentsBindingSource, "pers_firstname", true));
+            this.pers_firstnameTextBox.Location = new System.Drawing.Point(79, 121);
+            this.pers_firstnameTextBox.Name = "pers_firstnameTextBox";
+            this.pers_firstnameTextBox.Size = new System.Drawing.Size(398, 20);
+            this.pers_firstnameTextBox.TabIndex = 45;
             // 
-            // ag_pers_lastnameTextBox
+            // pers_lastnameTextBox
             // 
-            this.ag_pers_lastnameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.agentsBindingSource, "Ag_pers_lastname", true));
-            this.ag_pers_lastnameTextBox.Location = new System.Drawing.Point(79, 96);
-            this.ag_pers_lastnameTextBox.Name = "ag_pers_lastnameTextBox";
-            this.ag_pers_lastnameTextBox.Size = new System.Drawing.Size(399, 20);
-            this.ag_pers_lastnameTextBox.TabIndex = 47;
+            this.pers_lastnameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.agentsBindingSource, "pers_lastname", true));
+            this.pers_lastnameTextBox.Location = new System.Drawing.Point(79, 96);
+            this.pers_lastnameTextBox.Name = "pers_lastnameTextBox";
+            this.pers_lastnameTextBox.Size = new System.Drawing.Size(399, 20);
+            this.pers_lastnameTextBox.TabIndex = 47;
             // 
-            // ag_pers_middlenameTextBox
+            // pers_middlenameTextBox
             // 
-            this.ag_pers_middlenameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.agentsBindingSource, "Ag_pers_middlename", true));
-            this.ag_pers_middlenameTextBox.Location = new System.Drawing.Point(79, 147);
-            this.ag_pers_middlenameTextBox.Name = "ag_pers_middlenameTextBox";
-            this.ag_pers_middlenameTextBox.Size = new System.Drawing.Size(399, 20);
-            this.ag_pers_middlenameTextBox.TabIndex = 49;
+            this.pers_middlenameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.agentsBindingSource, "pers_middlename", true));
+            this.pers_middlenameTextBox.Location = new System.Drawing.Point(79, 147);
+            this.pers_middlenameTextBox.Name = "pers_middlenameTextBox";
+            this.pers_middlenameTextBox.Size = new System.Drawing.Size(399, 20);
+            this.pers_middlenameTextBox.TabIndex = 49;
             // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(ag_bankLabel);
-            this.groupBox2.Controls.Add(this.ag_bankTextBox);
+            this.groupBox2.Controls.Add(this.bankTextBox);
             this.groupBox2.Controls.Add(ag_RcouLabel);
-            this.groupBox2.Controls.Add(this.ag_RcouTextBox);
+            this.groupBox2.Controls.Add(this.rsTextBox);
             this.groupBox2.Controls.Add(ag_KcouLabel);
-            this.groupBox2.Controls.Add(this.ag_KcouTextBox);
+            this.groupBox2.Controls.Add(this.ksTextBox);
             this.groupBox2.Controls.Add(ag_BIKLabel);
-            this.groupBox2.Controls.Add(this.ag_BIKTextBox);
+            this.groupBox2.Controls.Add(this.BIKTextBox);
             this.groupBox2.Controls.Add(ag_OGRNLabel);
-            this.groupBox2.Controls.Add(this.ag_OGRNTextBox);
+            this.groupBox2.Controls.Add(this.OGRNTextBox);
             this.groupBox2.Controls.Add(ag_KPPLabel);
-            this.groupBox2.Controls.Add(this.ag_KPPTextBox);
+            this.groupBox2.Controls.Add(this.KPPTextBox);
             this.groupBox2.Controls.Add(ag_OKPOLabel);
-            this.groupBox2.Controls.Add(this.ag_OKPOTextBox);
+            this.groupBox2.Controls.Add(this.OKPOTextBox);
             this.groupBox2.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Edocsys.Properties.Settings.Default, "AgentsBankInformationText", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupBox2.Location = new System.Drawing.Point(0, 186);
+            this.groupBox2.Location = new System.Drawing.Point(0, 175);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(490, 148);
             this.groupBox2.TabIndex = 45;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = global::Edocsys.Properties.Settings.Default.AgentsBankInformationText;
             // 
-            // ag_bankTextBox
+            // bankTextBox
             // 
-            this.ag_bankTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.agentsBindingSource, "Ag_bank", true));
-            this.ag_bankTextBox.Location = new System.Drawing.Point(129, 92);
-            this.ag_bankTextBox.Name = "ag_bankTextBox";
-            this.ag_bankTextBox.Size = new System.Drawing.Size(348, 20);
-            this.ag_bankTextBox.TabIndex = 37;
+            this.bankTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.agentsBindingSource, "bank", true));
+            this.bankTextBox.Location = new System.Drawing.Point(129, 92);
+            this.bankTextBox.Name = "bankTextBox";
+            this.bankTextBox.Size = new System.Drawing.Size(348, 20);
+            this.bankTextBox.TabIndex = 37;
             // 
-            // ag_RcouTextBox
+            // rsTextBox
             // 
-            this.ag_RcouTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.agentsBindingSource, "Ag_Rcou", true));
-            this.ag_RcouTextBox.Location = new System.Drawing.Point(70, 40);
-            this.ag_RcouTextBox.Name = "ag_RcouTextBox";
-            this.ag_RcouTextBox.Size = new System.Drawing.Size(408, 20);
-            this.ag_RcouTextBox.TabIndex = 31;
+            this.rsTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.agentsBindingSource, "rs", true));
+            this.rsTextBox.Location = new System.Drawing.Point(70, 40);
+            this.rsTextBox.Name = "rsTextBox";
+            this.rsTextBox.Size = new System.Drawing.Size(408, 20);
+            this.rsTextBox.TabIndex = 31;
             // 
-            // ag_KcouTextBox
+            // ksTextBox
             // 
-            this.ag_KcouTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.agentsBindingSource, "Ag_Kcou", true));
-            this.ag_KcouTextBox.Location = new System.Drawing.Point(70, 66);
-            this.ag_KcouTextBox.Name = "ag_KcouTextBox";
-            this.ag_KcouTextBox.Size = new System.Drawing.Size(408, 20);
-            this.ag_KcouTextBox.TabIndex = 33;
+            this.ksTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.agentsBindingSource, "ks", true));
+            this.ksTextBox.Location = new System.Drawing.Point(70, 66);
+            this.ksTextBox.Name = "ksTextBox";
+            this.ksTextBox.Size = new System.Drawing.Size(408, 20);
+            this.ksTextBox.TabIndex = 33;
             // 
-            // ag_BIKTextBox
+            // BIKTextBox
             // 
-            this.ag_BIKTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.agentsBindingSource, "Ag_BIK", true));
-            this.ag_BIKTextBox.Location = new System.Drawing.Point(71, 15);
-            this.ag_BIKTextBox.Name = "ag_BIKTextBox";
-            this.ag_BIKTextBox.Size = new System.Drawing.Size(173, 20);
-            this.ag_BIKTextBox.TabIndex = 35;
+            this.BIKTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.agentsBindingSource, "bik", true));
+            this.BIKTextBox.Location = new System.Drawing.Point(71, 15);
+            this.BIKTextBox.Name = "BIKTextBox";
+            this.BIKTextBox.Size = new System.Drawing.Size(173, 20);
+            this.BIKTextBox.TabIndex = 35;
             // 
-            // ag_OGRNTextBox
+            // OGRNTextBox
             // 
-            this.ag_OGRNTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.agentsBindingSource, "Ag_OGRN", true));
-            this.ag_OGRNTextBox.Location = new System.Drawing.Point(70, 118);
-            this.ag_OGRNTextBox.Name = "ag_OGRNTextBox";
-            this.ag_OGRNTextBox.Size = new System.Drawing.Size(173, 20);
-            this.ag_OGRNTextBox.TabIndex = 25;
+            this.OGRNTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.agentsBindingSource, "ogrn", true));
+            this.OGRNTextBox.Location = new System.Drawing.Point(70, 118);
+            this.OGRNTextBox.Name = "OGRNTextBox";
+            this.OGRNTextBox.Size = new System.Drawing.Size(173, 20);
+            this.OGRNTextBox.TabIndex = 25;
             // 
-            // ag_KPPTextBox
+            // KPPTextBox
             // 
-            this.ag_KPPTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.agentsBindingSource, "Ag_KPP", true));
-            this.ag_KPPTextBox.Location = new System.Drawing.Point(304, 15);
-            this.ag_KPPTextBox.Name = "ag_KPPTextBox";
-            this.ag_KPPTextBox.Size = new System.Drawing.Size(174, 20);
-            this.ag_KPPTextBox.TabIndex = 27;
+            this.KPPTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.agentsBindingSource, "kpp", true));
+            this.KPPTextBox.Location = new System.Drawing.Point(304, 15);
+            this.KPPTextBox.Name = "KPPTextBox";
+            this.KPPTextBox.Size = new System.Drawing.Size(174, 20);
+            this.KPPTextBox.TabIndex = 27;
             // 
-            // ag_OKPOTextBox
+            // OKPOTextBox
             // 
-            this.ag_OKPOTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.agentsBindingSource, "Ag_OKPO", true));
-            this.ag_OKPOTextBox.Location = new System.Drawing.Point(304, 118);
-            this.ag_OKPOTextBox.Name = "ag_OKPOTextBox";
-            this.ag_OKPOTextBox.Size = new System.Drawing.Size(173, 20);
-            this.ag_OKPOTextBox.TabIndex = 29;
+            this.OKPOTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.agentsBindingSource, "okpo", true));
+            this.OKPOTextBox.Location = new System.Drawing.Point(304, 118);
+            this.OKPOTextBox.Name = "OKPOTextBox";
+            this.OKPOTextBox.Size = new System.Drawing.Size(173, 20);
+            this.OKPOTextBox.TabIndex = 29;
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(ag_type_idLabel);
-            this.groupBox1.Controls.Add(this.ag_type_idComboBox);
+            this.groupBox1.Controls.Add(this.agent_types_idComboBox);
             this.groupBox1.Controls.Add(ag_INNLabel);
-            this.groupBox1.Controls.Add(this.ag_INNTextBox);
+            this.groupBox1.Controls.Add(this.INNTextBox);
             this.groupBox1.Controls.Add(ag_fullnameLabel);
-            this.groupBox1.Controls.Add(this.ag_fullnameTextBox);
+            this.groupBox1.Controls.Add(this.nameTextBox);
             this.groupBox1.Controls.Add(ag_addrLabel);
-            this.groupBox1.Controls.Add(this.ag_addrTextBox);
+            this.groupBox1.Controls.Add(this.addrTextBox);
             this.groupBox1.Controls.Add(ag_telLabel);
-            this.groupBox1.Controls.Add(this.ag_telTextBox);
+            this.groupBox1.Controls.Add(this.phoneTextBox);
             this.groupBox1.Controls.Add(ag_faxLabel);
-            this.groupBox1.Controls.Add(this.ag_faxTextBox);
+            this.groupBox1.Controls.Add(this.faxTextBox);
             this.groupBox1.Controls.Add(ag_mailLabel);
-            this.groupBox1.Controls.Add(this.ag_mailTextBox);
+            this.groupBox1.Controls.Add(this.emailTextBox);
             this.groupBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Edocsys.Properties.Settings.Default, "AgentsContactInformationText", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(490, 186);
+            this.groupBox1.Size = new System.Drawing.Size(490, 175);
             this.groupBox1.TabIndex = 44;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = global::Edocsys.Properties.Settings.Default.AgentsContactInformationText;
             // 
-            // ag_type_idComboBox
+            // agent_types_idComboBox
             // 
-            this.ag_type_idComboBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.agentsBindingSource, "Ag_type_id", true));
-            this.ag_type_idComboBox.DataSource = this.agentstypesBindingSource;
-            this.ag_type_idComboBox.DisplayMember = "Agent_type";
-            this.ag_type_idComboBox.FormattingEnabled = true;
-            this.ag_type_idComboBox.Location = new System.Drawing.Point(129, 45);
-            this.ag_type_idComboBox.Name = "ag_type_idComboBox";
-            this.ag_type_idComboBox.Size = new System.Drawing.Size(121, 21);
-            this.ag_type_idComboBox.TabIndex = 28;
-            this.ag_type_idComboBox.ValueMember = "idAgents_types";
+            this.agent_types_idComboBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.agentsBindingSource, "agent_types_id", true));
+            this.agent_types_idComboBox.DataSource = this.agent_typesBindingSource;
+            this.agent_types_idComboBox.DisplayMember = "name";
+            this.agent_types_idComboBox.FormattingEnabled = true;
+            this.agent_types_idComboBox.Location = new System.Drawing.Point(129, 45);
+            this.agent_types_idComboBox.Name = "agent_types_idComboBox";
+            this.agent_types_idComboBox.Size = new System.Drawing.Size(121, 21);
+            this.agent_types_idComboBox.TabIndex = 28;
+            this.agent_types_idComboBox.ValueMember = "id";
             // 
-            // ag_INNTextBox
+            // agent_typesBindingSource
             // 
-            this.ag_INNTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.agentsBindingSource, "Ag_INN", true));
-            this.ag_INNTextBox.Location = new System.Drawing.Point(303, 45);
-            this.ag_INNTextBox.Name = "ag_INNTextBox";
-            this.ag_INNTextBox.Size = new System.Drawing.Size(174, 20);
-            this.ag_INNTextBox.TabIndex = 27;
+            this.agent_typesBindingSource.DataMember = "agent_types";
+            this.agent_typesBindingSource.DataSource = this.edocbaseDataSet;
             // 
-            // ag_fullnameTextBox
+            // INNTextBox
             // 
-            this.ag_fullnameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.agentsBindingSource, "Ag_fullname", true));
-            this.ag_fullnameTextBox.Location = new System.Drawing.Point(100, 19);
-            this.ag_fullnameTextBox.Name = "ag_fullnameTextBox";
-            this.ag_fullnameTextBox.Size = new System.Drawing.Size(377, 20);
-            this.ag_fullnameTextBox.TabIndex = 25;
+            this.INNTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.agentsBindingSource, "inn", true));
+            this.INNTextBox.Location = new System.Drawing.Point(303, 45);
+            this.INNTextBox.Name = "INNTextBox";
+            this.INNTextBox.Size = new System.Drawing.Size(174, 20);
+            this.INNTextBox.TabIndex = 27;
             // 
-            // ag_addrTextBox
+            // nameTextBox
             // 
-            this.ag_addrTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.agentsBindingSource, "Ag_addr", true));
-            this.ag_addrTextBox.Location = new System.Drawing.Point(70, 71);
-            this.ag_addrTextBox.Multiline = true;
-            this.ag_addrTextBox.Name = "ag_addrTextBox";
-            this.ag_addrTextBox.Size = new System.Drawing.Size(408, 49);
-            this.ag_addrTextBox.TabIndex = 17;
+            this.nameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.agentsBindingSource, "name", true));
+            this.nameTextBox.Location = new System.Drawing.Point(100, 19);
+            this.nameTextBox.Name = "nameTextBox";
+            this.nameTextBox.Size = new System.Drawing.Size(377, 20);
+            this.nameTextBox.TabIndex = 25;
             // 
-            // ag_telTextBox
+            // addrTextBox
             // 
-            this.ag_telTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.agentsBindingSource, "Ag_tel", true));
-            this.ag_telTextBox.Location = new System.Drawing.Point(70, 126);
-            this.ag_telTextBox.Name = "ag_telTextBox";
-            this.ag_telTextBox.Size = new System.Drawing.Size(174, 20);
-            this.ag_telTextBox.TabIndex = 19;
+            this.addrTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.agentsBindingSource, "address", true));
+            this.addrTextBox.Location = new System.Drawing.Point(70, 71);
+            this.addrTextBox.Multiline = true;
+            this.addrTextBox.Name = "addrTextBox";
+            this.addrTextBox.Size = new System.Drawing.Size(408, 49);
+            this.addrTextBox.TabIndex = 17;
             // 
-            // ag_faxTextBox
+            // phoneTextBox
             // 
-            this.ag_faxTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.agentsBindingSource, "Ag_fax", true));
-            this.ag_faxTextBox.Location = new System.Drawing.Point(305, 126);
-            this.ag_faxTextBox.Name = "ag_faxTextBox";
-            this.ag_faxTextBox.Size = new System.Drawing.Size(173, 20);
-            this.ag_faxTextBox.TabIndex = 21;
+            this.phoneTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.agentsBindingSource, "phone", true));
+            this.phoneTextBox.Location = new System.Drawing.Point(70, 126);
+            this.phoneTextBox.Name = "phoneTextBox";
+            this.phoneTextBox.Size = new System.Drawing.Size(174, 20);
+            this.phoneTextBox.TabIndex = 19;
             // 
-            // ag_mailTextBox
+            // faxTextBox
             // 
-            this.ag_mailTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.agentsBindingSource, "Ag_mail", true));
-            this.ag_mailTextBox.Location = new System.Drawing.Point(70, 152);
-            this.ag_mailTextBox.Name = "ag_mailTextBox";
-            this.ag_mailTextBox.Size = new System.Drawing.Size(408, 20);
-            this.ag_mailTextBox.TabIndex = 23;
+            this.faxTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.agentsBindingSource, "fax", true));
+            this.faxTextBox.Location = new System.Drawing.Point(305, 126);
+            this.faxTextBox.Name = "faxTextBox";
+            this.faxTextBox.Size = new System.Drawing.Size(173, 20);
+            this.faxTextBox.TabIndex = 21;
+            // 
+            // emailTextBox
+            // 
+            this.emailTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.agentsBindingSource, "email", true));
+            this.emailTextBox.Location = new System.Drawing.Point(70, 152);
+            this.emailTextBox.Name = "emailTextBox";
+            this.emailTextBox.Size = new System.Drawing.Size(408, 20);
+            this.emailTextBox.TabIndex = 23;
+            // 
+            // agent_typesTableAdapter
+            // 
+            this.agent_typesTableAdapter.ClearBeforeFill = true;
+            // 
+            // agents_contactsTableAdapter
+            // 
+            this.agents_contactsTableAdapter.ClearBeforeFill = true;
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "id";
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // agenttypesidDataGridViewTextBoxColumn
+            // 
+            this.agenttypesidDataGridViewTextBoxColumn.DataPropertyName = "agent_types_id";
+            this.agenttypesidDataGridViewTextBoxColumn.HeaderText = "agent_types_id";
+            this.agenttypesidDataGridViewTextBoxColumn.Name = "agenttypesidDataGridViewTextBoxColumn";
+            this.agenttypesidDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "name";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // innDataGridViewTextBoxColumn
+            // 
+            this.innDataGridViewTextBoxColumn.DataPropertyName = "inn";
+            this.innDataGridViewTextBoxColumn.HeaderText = "inn";
+            this.innDataGridViewTextBoxColumn.Name = "innDataGridViewTextBoxColumn";
+            this.innDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // phoneDataGridViewTextBoxColumn
+            // 
+            this.phoneDataGridViewTextBoxColumn.DataPropertyName = "phone";
+            this.phoneDataGridViewTextBoxColumn.HeaderText = "phone";
+            this.phoneDataGridViewTextBoxColumn.Name = "phoneDataGridViewTextBoxColumn";
+            this.phoneDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // faxDataGridViewTextBoxColumn
+            // 
+            this.faxDataGridViewTextBoxColumn.DataPropertyName = "fax";
+            this.faxDataGridViewTextBoxColumn.HeaderText = "fax";
+            this.faxDataGridViewTextBoxColumn.Name = "faxDataGridViewTextBoxColumn";
+            this.faxDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // emailDataGridViewTextBoxColumn
+            // 
+            this.emailDataGridViewTextBoxColumn.DataPropertyName = "email";
+            this.emailDataGridViewTextBoxColumn.HeaderText = "email";
+            this.emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
+            this.emailDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // addressDataGridViewTextBoxColumn
+            // 
+            this.addressDataGridViewTextBoxColumn.DataPropertyName = "address";
+            this.addressDataGridViewTextBoxColumn.HeaderText = "address";
+            this.addressDataGridViewTextBoxColumn.Name = "addressDataGridViewTextBoxColumn";
+            this.addressDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // ogrnDataGridViewTextBoxColumn
+            // 
+            this.ogrnDataGridViewTextBoxColumn.DataPropertyName = "ogrn";
+            this.ogrnDataGridViewTextBoxColumn.HeaderText = "ogrn";
+            this.ogrnDataGridViewTextBoxColumn.Name = "ogrnDataGridViewTextBoxColumn";
+            this.ogrnDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // kppDataGridViewTextBoxColumn
+            // 
+            this.kppDataGridViewTextBoxColumn.DataPropertyName = "kpp";
+            this.kppDataGridViewTextBoxColumn.HeaderText = "kpp";
+            this.kppDataGridViewTextBoxColumn.Name = "kppDataGridViewTextBoxColumn";
+            this.kppDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // okpoDataGridViewTextBoxColumn
+            // 
+            this.okpoDataGridViewTextBoxColumn.DataPropertyName = "okpo";
+            this.okpoDataGridViewTextBoxColumn.HeaderText = "okpo";
+            this.okpoDataGridViewTextBoxColumn.Name = "okpoDataGridViewTextBoxColumn";
+            this.okpoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // rsDataGridViewTextBoxColumn
+            // 
+            this.rsDataGridViewTextBoxColumn.DataPropertyName = "rs";
+            this.rsDataGridViewTextBoxColumn.HeaderText = "rs";
+            this.rsDataGridViewTextBoxColumn.Name = "rsDataGridViewTextBoxColumn";
+            this.rsDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // ksDataGridViewTextBoxColumn
+            // 
+            this.ksDataGridViewTextBoxColumn.DataPropertyName = "ks";
+            this.ksDataGridViewTextBoxColumn.HeaderText = "ks";
+            this.ksDataGridViewTextBoxColumn.Name = "ksDataGridViewTextBoxColumn";
+            this.ksDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // bikDataGridViewTextBoxColumn
+            // 
+            this.bikDataGridViewTextBoxColumn.DataPropertyName = "bik";
+            this.bikDataGridViewTextBoxColumn.HeaderText = "bik";
+            this.bikDataGridViewTextBoxColumn.Name = "bikDataGridViewTextBoxColumn";
+            this.bikDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // bankDataGridViewTextBoxColumn
+            // 
+            this.bankDataGridViewTextBoxColumn.DataPropertyName = "bank";
+            this.bankDataGridViewTextBoxColumn.HeaderText = "bank";
+            this.bankDataGridViewTextBoxColumn.Name = "bankDataGridViewTextBoxColumn";
+            this.bankDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // signingauthoritydocDataGridViewTextBoxColumn
+            // 
+            this.signingauthoritydocDataGridViewTextBoxColumn.DataPropertyName = "signing_authority_doc";
+            this.signingauthoritydocDataGridViewTextBoxColumn.HeaderText = "signing_authority_doc";
+            this.signingauthoritydocDataGridViewTextBoxColumn.Name = "signingauthoritydocDataGridViewTextBoxColumn";
+            this.signingauthoritydocDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // persstatusDataGridViewTextBoxColumn
+            // 
+            this.persstatusDataGridViewTextBoxColumn.DataPropertyName = "pers_status";
+            this.persstatusDataGridViewTextBoxColumn.HeaderText = "pers_status";
+            this.persstatusDataGridViewTextBoxColumn.Name = "persstatusDataGridViewTextBoxColumn";
+            this.persstatusDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // perslastnameDataGridViewTextBoxColumn
+            // 
+            this.perslastnameDataGridViewTextBoxColumn.DataPropertyName = "pers_lastname";
+            this.perslastnameDataGridViewTextBoxColumn.HeaderText = "pers_lastname";
+            this.perslastnameDataGridViewTextBoxColumn.Name = "perslastnameDataGridViewTextBoxColumn";
+            this.perslastnameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // persfirstnameDataGridViewTextBoxColumn
+            // 
+            this.persfirstnameDataGridViewTextBoxColumn.DataPropertyName = "pers_firstname";
+            this.persfirstnameDataGridViewTextBoxColumn.HeaderText = "pers_firstname";
+            this.persfirstnameDataGridViewTextBoxColumn.Name = "persfirstnameDataGridViewTextBoxColumn";
+            this.persfirstnameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // persmiddlenameDataGridViewTextBoxColumn
+            // 
+            this.persmiddlenameDataGridViewTextBoxColumn.DataPropertyName = "pers_middlename";
+            this.persmiddlenameDataGridViewTextBoxColumn.HeaderText = "pers_middlename";
+            this.persmiddlenameDataGridViewTextBoxColumn.Name = "persmiddlenameDataGridViewTextBoxColumn";
+            this.persmiddlenameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // agenttypesnameDataGridViewTextBoxColumn
+            // 
+            this.agenttypesnameDataGridViewTextBoxColumn.DataPropertyName = "agent_types_name";
+            this.agenttypesnameDataGridViewTextBoxColumn.HeaderText = "agent_types_name";
+            this.agenttypesnameDataGridViewTextBoxColumn.Name = "agenttypesnameDataGridViewTextBoxColumn";
+            this.agenttypesnameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // agenttypesid1DataGridViewTextBoxColumn
+            // 
+            this.agenttypesid1DataGridViewTextBoxColumn.DataPropertyName = "agent_types_id1";
+            this.agenttypesid1DataGridViewTextBoxColumn.HeaderText = "agent_types_id1";
+            this.agenttypesid1DataGridViewTextBoxColumn.Name = "agenttypesid1DataGridViewTextBoxColumn";
+            this.agenttypesid1DataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // fullnameDataGridViewTextBoxColumn
+            // 
+            this.fullnameDataGridViewTextBoxColumn.DataPropertyName = "fullname";
+            this.fullnameDataGridViewTextBoxColumn.HeaderText = "fullname";
+            this.fullnameDataGridViewTextBoxColumn.Name = "fullnameDataGridViewTextBoxColumn";
+            this.fullnameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // contactpersnameFIODataGridViewTextBoxColumn
+            // 
+            this.contactpersnameFIODataGridViewTextBoxColumn.DataPropertyName = "contact_pers_name_FIO";
+            this.contactpersnameFIODataGridViewTextBoxColumn.HeaderText = "contact_pers_name_FIO";
+            this.contactpersnameFIODataGridViewTextBoxColumn.Name = "contactpersnameFIODataGridViewTextBoxColumn";
+            this.contactpersnameFIODataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // contactpersnameIOFDataGridViewTextBoxColumn
+            // 
+            this.contactpersnameIOFDataGridViewTextBoxColumn.DataPropertyName = "contact_pers_name_IOF";
+            this.contactpersnameIOFDataGridViewTextBoxColumn.HeaderText = "contact_pers_name_IOF";
+            this.contactpersnameIOFDataGridViewTextBoxColumn.Name = "contactpersnameIOFDataGridViewTextBoxColumn";
+            this.contactpersnameIOFDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // ClientsForm
             // 
@@ -1050,20 +1258,19 @@
             this.Name = "ClientsForm";
             this.Text = global::Edocsys.Properties.Settings.Default.ClientsFormText;
             this.Load += new System.EventHandler(this.clients_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.agents_contactsDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.agents_contactsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.agentsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.edocbaseDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.agentsBindingNavigator)).EndInit();
             this.agentsBindingNavigator.ResumeLayout(false);
             this.agentsBindingNavigator.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.agentsBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.edocbaseDataSet)).EndInit();
-//            ((System.ComponentModel.ISupportInitialize)(this.agentstypesBindingSource)).EndInit();
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.agents_contactsDataGridView)).EndInit();
-//            ((System.ComponentModel.ISupportInitialize)(this.agents_contactsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigatorContacts)).EndInit();
             this.bindingNavigatorContacts.ResumeLayout(false);
             this.bindingNavigatorContacts.PerformLayout();
@@ -1074,6 +1281,7 @@
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.agent_typesBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1097,41 +1305,31 @@
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
         private System.Windows.Forms.ToolStripButton agentsBindingNavigatorSaveItem;
         private EdocbaseDataSetTableAdapters.TableAdapterManager tableAdapterManager;
-        private System.Windows.Forms.BindingSource agentstypesBindingSource;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.DataGridView agentsDataGridView;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.TextBox ag_pers_statusTextBox;
-        private System.Windows.Forms.TextBox ag_docTextBox;
-        private System.Windows.Forms.TextBox ag_pers_firstnameTextBox;
-        private System.Windows.Forms.TextBox ag_pers_lastnameTextBox;
-        private System.Windows.Forms.TextBox ag_pers_middlenameTextBox;
+        private System.Windows.Forms.TextBox pers_statusTextBox;
+        private System.Windows.Forms.TextBox docTextBox;
+        private System.Windows.Forms.TextBox pers_firstnameTextBox;
+        private System.Windows.Forms.TextBox pers_lastnameTextBox;
+        private System.Windows.Forms.TextBox pers_middlenameTextBox;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.TextBox ag_bankTextBox;
-        private System.Windows.Forms.TextBox ag_RcouTextBox;
-        private System.Windows.Forms.TextBox ag_KcouTextBox;
-        private System.Windows.Forms.TextBox ag_BIKTextBox;
-        private System.Windows.Forms.TextBox ag_OGRNTextBox;
-        private System.Windows.Forms.TextBox ag_KPPTextBox;
-        private System.Windows.Forms.TextBox ag_OKPOTextBox;
+        private System.Windows.Forms.TextBox bankTextBox;
+        private System.Windows.Forms.TextBox rsTextBox;
+        private System.Windows.Forms.TextBox ksTextBox;
+        private System.Windows.Forms.TextBox BIKTextBox;
+        private System.Windows.Forms.TextBox OGRNTextBox;
+        private System.Windows.Forms.TextBox KPPTextBox;
+        private System.Windows.Forms.TextBox OKPOTextBox;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.ComboBox ag_type_idComboBox;
-        private System.Windows.Forms.TextBox ag_INNTextBox;
-        private System.Windows.Forms.TextBox ag_fullnameTextBox;
-        private System.Windows.Forms.TextBox ag_addrTextBox;
-        private System.Windows.Forms.TextBox ag_telTextBox;
-        private System.Windows.Forms.TextBox ag_faxTextBox;
-        private System.Windows.Forms.TextBox ag_mailTextBox;
-        private System.Windows.Forms.BindingSource agents_contactsBindingSource;
+        private System.Windows.Forms.ComboBox agent_types_idComboBox;
+        private System.Windows.Forms.TextBox INNTextBox;
+        private System.Windows.Forms.TextBox nameTextBox;
+        private System.Windows.Forms.TextBox addrTextBox;
+        private System.Windows.Forms.TextBox phoneTextBox;
+        private System.Windows.Forms.TextBox faxTextBox;
+        private System.Windows.Forms.TextBox emailTextBox;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.DataGridView agents_contactsDataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ac_agent_id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idAgents_contacts;
         private System.Windows.Forms.BindingNavigator bindingNavigatorContacts;
         private System.Windows.Forms.ToolStripButton bindingNavigatorAddNewItem1;
         private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem1;
@@ -1144,11 +1342,47 @@
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveNextItem1;
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem1;
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Ag_fullname;
-        private System.Windows.Forms.DataGridViewTextBoxColumn agINNDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn person_shortname;
         private System.Windows.Forms.ToolStripLabel toolStripLabelAgent;
         private System.Windows.Forms.ToolStripButton toolStripButtonSaveContact;
+        private EdocbaseDataSetTableAdapters.agentsTableAdapter agentsTableAdapter;
+        private EdocbaseDataSetTableAdapters.agent_typesTableAdapter agent_typesTableAdapter;
+        private EdocbaseDataSetTableAdapters.agents_contactsTableAdapter agents_contactsTableAdapter;
+        private System.Windows.Forms.BindingSource agent_typesBindingSource;
+        private System.Windows.Forms.DataGridView agents_contactsDataGridView;
+        private System.Windows.Forms.BindingSource agents_contactsBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Ag_fullname;
+        private System.Windows.Forms.DataGridViewTextBoxColumn person_shortname;
+        private System.Windows.Forms.DataGridViewTextBoxColumn person;
+        private System.Windows.Forms.DataGridViewTextBoxColumn agents_id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn status;
+        private System.Windows.Forms.DataGridViewTextBoxColumn phoneDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn faxDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn emailDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn agenttypesidDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn innDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn phoneDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn faxDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn emailDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn addressDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ogrnDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn kppDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn okpoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn rsDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ksDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn bikDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn bankDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn signingauthoritydocDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn persstatusDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn perslastnameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn persfirstnameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn persmiddlenameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn agenttypesnameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn agenttypesid1DataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fullnameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn contactpersnameFIODataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn contactpersnameIOFDataGridViewTextBoxColumn;
 
         //private EdocbaseDataSetTableAdapters.Agents_typesTableAdapter agents_typesTableAdapter;
         //private EdocbaseDataSetTableAdapters.AgentsTableAdapter agentsTableAdapter;
