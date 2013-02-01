@@ -184,5 +184,15 @@ namespace Edocsys
         {
             wmgr.ShowDocTemplatesForm();
         }
+
+        private void ExpertAssignToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            wmgr.ShowAssignexpertForm();
+        }
+
+        private void AgentsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            wmgr.ShowClientsForm();
+        }
     }
 }
