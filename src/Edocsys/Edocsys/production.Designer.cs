@@ -32,7 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProductionForm));
             this.edocbaseDataSet = new Edocsys.EdocbaseDataSet();
             this.productsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.productsTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.ProductsTableAdapter();
+            //this.productsTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.ProductsTableAdapter();
             this.tableAdapterManager = new Edocsys.EdocbaseDataSetTableAdapters.TableAdapterManager();
             this.productsBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
@@ -54,7 +54,7 @@
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.prodGostBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.prodGostTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.ProdGostTableAdapter();
+            //this.prodGostTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.ProdGostTableAdapter();
             this.prodGostDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -81,25 +81,25 @@
             // 
             // productsTableAdapter
             // 
-            this.productsTableAdapter.ClearBeforeFill = true;
+            //this.productsTableAdapter.ClearBeforeFill = true;
             // 
             // tableAdapterManager
             // 
-            this.tableAdapterManager.Agents_contactsTableAdapter = null;
-            this.tableAdapterManager.Agents_typesTableAdapter = null;
-            this.tableAdapterManager.AgentsTableAdapter = null;
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.ContractsTableAdapter = null;
-            this.tableAdapterManager.ContractStatusTableAdapter = null;
-            this.tableAdapterManager.ContractTypesTableAdapter = null;
-            this.tableAdapterManager.DocTemplatesTableAdapter = null;
-            this.tableAdapterManager.DocumentsTableAdapter = null;
-            this.tableAdapterManager.Exec_contractsTableAdapter = null;
-            this.tableAdapterManager.ExpertsTableAdapter = null;
-            this.tableAdapterManager.log_journalTableAdapter = null;
-            this.tableAdapterManager.ProdGostTableAdapter = this.prodGostTableAdapter;
-            this.tableAdapterManager.ProductAreasTableAdapter = null;
-            this.tableAdapterManager.ProductsTableAdapter = this.productsTableAdapter;
+            //this.tableAdapterManager.Agents_contactsTableAdapter = null;
+            //this.tableAdapterManager.Agents_typesTableAdapter = null;
+            //this.tableAdapterManager.AgentsTableAdapter = null;
+            //this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            //this.tableAdapterManager.ContractsTableAdapter = null;
+            //this.tableAdapterManager.ContractStatusTableAdapter = null;
+            //this.tableAdapterManager.ContractTypesTableAdapter = null;
+            //this.tableAdapterManager.DocTemplatesTableAdapter = null;
+            //this.tableAdapterManager.DocumentsTableAdapter = null;
+            //this.tableAdapterManager.Exec_contractsTableAdapter = null;
+            //this.tableAdapterManager.ExpertsTableAdapter = null;
+            //this.tableAdapterManager.log_journalTableAdapter = null;
+            //this.tableAdapterManager.ProdGostTableAdapter = this.prodGostTableAdapter;
+            //this.tableAdapterManager.ProductAreasTableAdapter = null;
+            //this.tableAdapterManager.ProductsTableAdapter = this.productsTableAdapter;
             this.tableAdapterManager.UpdateOrder = Edocsys.EdocbaseDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             this.tableAdapterManager.usersTableAdapter = null;
             // 
@@ -280,7 +280,7 @@
             // 
             // prodGostTableAdapter
             // 
-            this.prodGostTableAdapter.ClearBeforeFill = true;
+            //this.prodGostTableAdapter.ClearBeforeFill = true;
             // 
             // prodGostDataGridView
             // 
@@ -350,8 +350,6 @@
 
         private EdocbaseDataSet edocbaseDataSet;
         private System.Windows.Forms.BindingSource productsBindingSource;
-        private EdocbaseDataSetTableAdapters.ProductsTableAdapter productsTableAdapter;
-        private EdocbaseDataSetTableAdapters.TableAdapterManager tableAdapterManager;
         private System.Windows.Forms.BindingNavigator productsBindingNavigator;
         private System.Windows.Forms.ToolStripButton bindingNavigatorAddNewItem;
         private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem;
@@ -371,7 +369,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private EdocbaseDataSetTableAdapters.ProdGostTableAdapter prodGostTableAdapter;
         private System.Windows.Forms.BindingSource prodGostBindingSource;
         private System.Windows.Forms.DataGridView prodGostDataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
@@ -379,7 +376,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
 
-
+        private EdocbaseDataSetTableAdapters.TableAdapterManager tableAdapterManager;
+        //private EdocbaseDataSetTableAdapters.ProductsTableAdapter productsTableAdapter;
+        //private EdocbaseDataSetTableAdapters.ProdGostTableAdapter prodGostTableAdapter;
 
     }
 }

@@ -26,16 +26,16 @@ namespace Edocsys
 
         private void AssignExpertForm_Load(object sender, EventArgs e)
         {
-            this.expertsTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
-            this.expertAssignmentDataTableTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
-            this.assignedContractsDataTableTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
-            this.contractsTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
+            //this.expertsTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
+            //this.expertAssignmentDataTableTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
+            //this.assignedContractsDataTableTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
+            //this.contractsTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
 
 
-            this.expertsTableAdapter.Fill(this.edocbaseDataSet.Experts);
-            this.expertAssignmentDataTableTableAdapter.Fill(this.edocbaseDataSet.ExpertAssignmentDataTable);
-            this.assignedContractsDataTableTableAdapter.Fill(this.edocbaseDataSet.AssignedContractsDataTable);
-            this.contractsTableAdapter.Fill(this.edocbaseDataSet.Contracts);
+            //this.expertsTableAdapter.Fill(this.edocbaseDataSet.Experts);
+            //this.expertAssignmentDataTableTableAdapter.Fill(this.edocbaseDataSet.ExpertAssignmentDataTable);
+            //this.assignedContractsDataTableTableAdapter.Fill(this.edocbaseDataSet.AssignedContractsDataTable);
+            //this.contractsTableAdapter.Fill(this.edocbaseDataSet.Contracts);
         }
 
         private void assignButton_Click(object sender, EventArgs e)
@@ -63,15 +63,15 @@ namespace Edocsys
                 try
                 {
                     //assign expert
-                    this.contractsTableAdapter.AssignExpert((int)Constants.ContractStatuses.ExpertAssigned, idExpert, idContract);
+                    //this.contractsTableAdapter.AssignExpert((int)Constants.ContractStatuses.ExpertAssigned, idExpert, idContract);
 
                     //refresh data
-                    this.edocbaseDataSet.AcceptChanges();
-                    this.expertAssignmentDataTableTableAdapter.Fill(this.edocbaseDataSet.ExpertAssignmentDataTable);
-                    this.assignedContractsDataTableTableAdapter.Fill(this.edocbaseDataSet.AssignedContractsDataTable);
+                    //this.edocbaseDataSet.AcceptChanges();
+                    //this.expertAssignmentDataTableTableAdapter.Fill(this.edocbaseDataSet.ExpertAssignmentDataTable);
+                    //this.assignedContractsDataTableTableAdapter.Fill(this.edocbaseDataSet.AssignedContractsDataTable);
 
-                    this.contractsDataGridView.Refresh();
-                    this.assignedContractsDataGridView.Refresh();
+                    //this.contractsDataGridView.Refresh();
+                    //this.assignedContractsDataGridView.Refresh();
                 }
                 catch (Exception ex)
                 {

@@ -88,7 +88,7 @@
             this.toolStripButton7 = new System.Windows.Forms.ToolStripButton();
             this.proposalLabel = new System.Windows.Forms.Label();
             this.tableAdapterManager = new Edocsys.EdocbaseDataSetTableAdapters.TableAdapterManager();
-            this.expertsTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.ExpertsTableAdapter();
+            //this.expertsTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.ExpertsTableAdapter();
             this.assignedContractsDataTableTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.AssignedContractsDataTableTableAdapter();
             this.expertAssignmentDataTableTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.ExpertAssignmentDataTableTableAdapter();
             this.contractsBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -696,25 +696,25 @@
             // 
             // tableAdapterManager
             // 
-            this.tableAdapterManager.Agents_contactsTableAdapter = null;
-            this.tableAdapterManager.Agents_typesTableAdapter = null;
-            this.tableAdapterManager.AgentsTableAdapter = null;
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.Connection = null;
-            this.tableAdapterManager.ContractsTableAdapter = null;
-            this.tableAdapterManager.ContractTypesTableAdapter = null;
-            this.tableAdapterManager.Exec_contractsTableAdapter = null;
-            this.tableAdapterManager.ExpertsTableAdapter = null;
-            this.tableAdapterManager.log_journalTableAdapter = null;
-            this.tableAdapterManager.ProdGostTableAdapter = null;
-            this.tableAdapterManager.ProductAreasTableAdapter = null;
-            this.tableAdapterManager.ProductsTableAdapter = null;
+            //this.tableAdapterManager.Agents_contactsTableAdapter = null;
+            //this.tableAdapterManager.Agents_typesTableAdapter = null;
+            //this.tableAdapterManager.AgentsTableAdapter = null;
+            //this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            //this.tableAdapterManager.Connection = null;
+            //this.tableAdapterManager.ContractsTableAdapter = null;
+            //this.tableAdapterManager.ContractTypesTableAdapter = null;
+            //this.tableAdapterManager.Exec_contractsTableAdapter = null;
+            //this.tableAdapterManager.ExpertsTableAdapter = null;
+            //this.tableAdapterManager.log_journalTableAdapter = null;
+            //this.tableAdapterManager.ProdGostTableAdapter = null;
+            //this.tableAdapterManager.ProductAreasTableAdapter = null;
+            //this.tableAdapterManager.ProductsTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = Edocsys.EdocbaseDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             this.tableAdapterManager.usersTableAdapter = null;
             // 
             // expertsTableAdapter
             // 
-            this.expertsTableAdapter.ClearBeforeFill = true;
+            //this.expertsTableAdapter.ClearBeforeFill = true;
             // 
             // assignedContractsDataTableTableAdapter
             // 
@@ -731,7 +731,7 @@
             // 
             // contractsTableAdapter
             // 
-            this.contractsTableAdapter.ClearBeforeFill = true;
+            //this.contractsTableAdapter.ClearBeforeFill = true;
             // 
             // AssignExpertForm
             // 
@@ -805,7 +805,6 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label labelExperts;
         private System.Windows.Forms.BindingSource expertsBindingSource;
-        private EdocbaseDataSetTableAdapters.ExpertsTableAdapter expertsTableAdapter;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label;
         private System.Windows.Forms.Label proposalLabel;
@@ -842,5 +841,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
         private System.Windows.Forms.BindingSource contractsBindingSource;
         private EdocbaseDataSetTableAdapters.ContractsTableAdapter contractsTableAdapter;
+
+        //private EdocbaseDataSetTableAdapters.ExpertsTableAdapter expertsTableAdapter;
     }
 }

@@ -27,7 +27,7 @@ namespace Edocsys
         private void ReportClientForm_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'edocbaseDataSet.Contracts' table. You can move, or remove it, as needed.
-            this.contractsTableAdapter.Fill(this.edocbaseDataSet.Contracts);
+            //this.contractsTableAdapter.Fill(this.edocbaseDataSet.Contracts);
 
         }
     }

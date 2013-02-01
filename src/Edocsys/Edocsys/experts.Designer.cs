@@ -32,8 +32,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ExpertsForm));
             this.edocbaseDataSet = new Edocsys.EdocbaseDataSet();
             this.expertsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.expertsTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.ExpertsTableAdapter();
-            this.tableAdapterManager = new Edocsys.EdocbaseDataSetTableAdapters.TableAdapterManager();
+            //this.expertsTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.ExpertsTableAdapter();
+            //this.tableAdapterManager = new Edocsys.EdocbaseDataSetTableAdapters.TableAdapterManager();
             this.expertsBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
@@ -71,21 +71,21 @@
             // 
             // expertsTableAdapter
             // 
-            this.expertsTableAdapter.ClearBeforeFill = true;
+            //this.expertsTableAdapter.ClearBeforeFill = true;
             // 
             // tableAdapterManager
             // 
-            this.tableAdapterManager.AgentsTableAdapter = null;
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.ContractsTableAdapter = null;
-            this.tableAdapterManager.ContractTypesTableAdapter = null;
-            this.tableAdapterManager.Exec_contractsTableAdapter = null;
-            this.tableAdapterManager.ExpertsTableAdapter = this.expertsTableAdapter;
-            this.tableAdapterManager.log_journalTableAdapter = null;
-            this.tableAdapterManager.ProdGostTableAdapter = null;
-            this.tableAdapterManager.ProductsTableAdapter = null;
-            this.tableAdapterManager.UpdateOrder = Edocsys.EdocbaseDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            this.tableAdapterManager.usersTableAdapter = null;
+            //this.tableAdapterManager.AgentsTableAdapter = null;
+            //this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            //this.tableAdapterManager.ContractsTableAdapter = null;
+            //this.tableAdapterManager.ContractTypesTableAdapter = null;
+            //this.tableAdapterManager.Exec_contractsTableAdapter = null;
+            //this.tableAdapterManager.ExpertsTableAdapter = this.expertsTableAdapter;
+            //this.tableAdapterManager.log_journalTableAdapter = null;
+            //this.tableAdapterManager.ProdGostTableAdapter = null;
+            //this.tableAdapterManager.ProductsTableAdapter = null;
+            //this.tableAdapterManager.UpdateOrder = Edocsys.EdocbaseDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            //this.tableAdapterManager.usersTableAdapter = null;
             // 
             // expertsBindingNavigator
             // 
@@ -287,8 +287,6 @@
 
         private EdocbaseDataSet edocbaseDataSet;
         private System.Windows.Forms.BindingSource expertsBindingSource;
-        private EdocbaseDataSetTableAdapters.ExpertsTableAdapter expertsTableAdapter;
-        private EdocbaseDataSetTableAdapters.TableAdapterManager tableAdapterManager;
         private System.Windows.Forms.BindingNavigator expertsBindingNavigator;
         private System.Windows.Forms.ToolStripButton bindingNavigatorAddNewItem;
         private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem;
@@ -307,5 +305,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+
+        //private EdocbaseDataSetTableAdapters.ExpertsTableAdapter expertsTableAdapter;
+        //private EdocbaseDataSetTableAdapters.TableAdapterManager tableAdapterManager;
+
     }
 }

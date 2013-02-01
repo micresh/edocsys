@@ -401,21 +401,21 @@
             // 
             // tableAdapterManager
             // 
-            this.tableAdapterManager.Agents_contactsTableAdapter = null;
-            this.tableAdapterManager.Agents_typesTableAdapter = null;
-            this.tableAdapterManager.AgentsTableAdapter = null;
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.ContractsTableAdapter = null;
-            this.tableAdapterManager.ContractStatusTableAdapter = null;
-            this.tableAdapterManager.ContractTypesTableAdapter = null;
-            this.tableAdapterManager.DocTemplatesTableAdapter = null;
-            this.tableAdapterManager.DocumentsTableAdapter = null;
-            this.tableAdapterManager.Exec_contractsTableAdapter = null;
-            this.tableAdapterManager.ExpertsTableAdapter = null;
-            this.tableAdapterManager.log_journalTableAdapter = null;
-            this.tableAdapterManager.ProdGostTableAdapter = null;
-            this.tableAdapterManager.ProductAreasTableAdapter = null;
-            this.tableAdapterManager.ProductsTableAdapter = null;
+            //this.tableAdapterManager.Agents_contactsTableAdapter = null;
+            //this.tableAdapterManager.Agents_typesTableAdapter = null;
+            //this.tableAdapterManager.AgentsTableAdapter = null;
+            //this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            //this.tableAdapterManager.ContractsTableAdapter = null;
+            //this.tableAdapterManager.ContractStatusTableAdapter = null;
+            //this.tableAdapterManager.ContractTypesTableAdapter = null;
+            //this.tableAdapterManager.DocTemplatesTableAdapter = null;
+            //this.tableAdapterManager.DocumentsTableAdapter = null;
+            //this.tableAdapterManager.Exec_contractsTableAdapter = null;
+            //this.tableAdapterManager.ExpertsTableAdapter = null;
+            //this.tableAdapterManager.log_journalTableAdapter = null;
+            //this.tableAdapterManager.ProdGostTableAdapter = null;
+            //this.tableAdapterManager.ProductAreasTableAdapter = null;
+            //this.tableAdapterManager.ProductsTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = Edocsys.EdocbaseDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             this.tableAdapterManager.usersTableAdapter = this.usersTableAdapter;
             // 

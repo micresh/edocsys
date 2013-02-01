@@ -31,7 +31,6 @@
             this.components = new System.ComponentModel.Container();
             this.edocbaseDataSet = new Edocsys.EdocbaseDataSet();
             this.tableAdapterManager = new Edocsys.EdocbaseDataSetTableAdapters.TableAdapterManager();
-            this.docTemplatesTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.DocTemplatesTableAdapter();
             this.docTemplatesOperaqtionsGroupBox = new System.Windows.Forms.GroupBox();
             this.template_presenceCheckBox = new System.Windows.Forms.CheckBox();
             this.templatesDataTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -40,17 +39,21 @@
             this.loadTemplateButton = new System.Windows.Forms.Button();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.docTemplatesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.templatesDataTableTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.TemplatesDataTableTableAdapter();
             this.templatesDataTableDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+
+            //this.docTemplatesTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.DocTemplatesTableAdapter();
+            //this.templatesDataTableTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.TemplatesDataTableTableAdapter();
+
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.edocbaseDataSet)).BeginInit();
             this.docTemplatesOperaqtionsGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.templatesDataTableBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.docTemplatesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.templatesDataTableDataGridView)).BeginInit();
+
             this.SuspendLayout();
             // 
             // edocbaseDataSet
@@ -60,27 +63,27 @@
             // 
             // tableAdapterManager
             // 
-            this.tableAdapterManager.Agents_contactsTableAdapter = null;
-            this.tableAdapterManager.Agents_typesTableAdapter = null;
-            this.tableAdapterManager.AgentsTableAdapter = null;
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.ContractsTableAdapter = null;
-            this.tableAdapterManager.ContractStatusTableAdapter = null;
-            this.tableAdapterManager.ContractTypesTableAdapter = null;
-            this.tableAdapterManager.DocTemplatesTableAdapter = this.docTemplatesTableAdapter;
-            this.tableAdapterManager.DocumentsTableAdapter = null;
-            this.tableAdapterManager.Exec_contractsTableAdapter = null;
-            this.tableAdapterManager.ExpertsTableAdapter = null;
-            this.tableAdapterManager.log_journalTableAdapter = null;
-            this.tableAdapterManager.ProdGostTableAdapter = null;
-            this.tableAdapterManager.ProductAreasTableAdapter = null;
-            this.tableAdapterManager.ProductsTableAdapter = null;
-            this.tableAdapterManager.UpdateOrder = Edocsys.EdocbaseDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            this.tableAdapterManager.usersTableAdapter = null;
+            //this.tableAdapterManager.Agents_contactsTableAdapter = null;
+            //this.tableAdapterManager.Agents_typesTableAdapter = null;
+            //this.tableAdapterManager.AgentsTableAdapter = null;
+            //this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            //this.tableAdapterManager.ContractsTableAdapter = null;
+            //this.tableAdapterManager.ContractStatusTableAdapter = null;
+            //this.tableAdapterManager.ContractTypesTableAdapter = null;
+            //this.tableAdapterManager.DocTemplatesTableAdapter = this.docTemplatesTableAdapter;
+            //this.tableAdapterManager.DocumentsTableAdapter = null;
+            //this.tableAdapterManager.Exec_contractsTableAdapter = null;
+            //this.tableAdapterManager.ExpertsTableAdapter = null;
+            //this.tableAdapterManager.log_journalTableAdapter = null;
+            //this.tableAdapterManager.ProdGostTableAdapter = null;
+            //this.tableAdapterManager.ProductAreasTableAdapter = null;
+            //this.tableAdapterManager.ProductsTableAdapter = null;
+            //this.tableAdapterManager.UpdateOrder = Edocsys.EdocbaseDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            //this.tableAdapterManager.usersTableAdapter = null;
             // 
             // docTemplatesTableAdapter
             // 
-            this.docTemplatesTableAdapter.ClearBeforeFill = true;
+            //this.docTemplatesTableAdapter.ClearBeforeFill = true;
             // 
             // docTemplatesOperaqtionsGroupBox
             // 
@@ -156,7 +159,7 @@
             // 
             // templatesDataTableTableAdapter
             // 
-            this.templatesDataTableTableAdapter.ClearBeforeFill = true;
+            //this.templatesDataTableTableAdapter.ClearBeforeFill = true;
             // 
             // templatesDataTableDataGridView
             // 
@@ -237,14 +240,16 @@
         private System.Windows.Forms.Button saveTemplateButton;
         private System.Windows.Forms.Button editTemplateButton;
         private System.Windows.Forms.BindingSource docTemplatesBindingSource;
-        private EdocbaseDataSetTableAdapters.DocTemplatesTableAdapter docTemplatesTableAdapter;
         private System.Windows.Forms.BindingSource templatesDataTableBindingSource;
-        private EdocbaseDataSetTableAdapters.TemplatesDataTableTableAdapter templatesDataTableTableAdapter;
         private System.Windows.Forms.DataGridView templatesDataTableDataGridView;
         private System.Windows.Forms.CheckBox template_presenceCheckBox;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn1;
         private System.Windows.Forms.SaveFileDialog saveFileDialog;
+
+        //private EdocbaseDataSetTableAdapters.DocTemplatesTableAdapter docTemplatesTableAdapter;
+        //private EdocbaseDataSetTableAdapters.TemplatesDataTableTableAdapter templatesDataTableTableAdapter;
+
     }
 }

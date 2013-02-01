@@ -90,20 +90,21 @@
             this.proposalEmissionTypeTextBox = new System.Windows.Forms.TextBox();
             this.contractsTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.ContractsTableAdapter();
             this.tableAdapterManager = new Edocsys.EdocbaseDataSetTableAdapters.TableAdapterManager();
-            this.agentsTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.AgentsTableAdapter();
-            this.productsTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.ProductsTableAdapter();
-            this.exec_contractsTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.Exec_contractsTableAdapter();
             this.templatesDataTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.templatesDataTableTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.TemplatesDataTableTableAdapter();
             this.contractInfoDataTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.contractInfoDataTableTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.ContractInfoDataTableTableAdapter();
             this.docTemplatesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.docTemplatesTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.DocTemplatesTableAdapter();
+            //this.agentsTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.AgentsTableAdapter();
+            //this.productsTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.ProductsTableAdapter();
+            //this.exec_contractsTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.Exec_contractsTableAdapter();
+            //this.templatesDataTableTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.TemplatesDataTableTableAdapter();
+            //this.docTemplatesTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.DocTemplatesTableAdapter();
+            //this.documentsTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.DocumentsTableAdapter();
+            //this.contractTypesForDocsTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.ContractTypesForDocsTableAdapter();
+
             this.documentsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.documentsTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.DocumentsTableAdapter();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
-            this.contractTypesForDocsTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.ContractTypesForDocsTableAdapter();
             proposalProductLabel = new System.Windows.Forms.Label();
             proposalEmissionLabel = new System.Windows.Forms.Label();
             proposalClientDocsLabel = new System.Windows.Forms.Label();
@@ -729,40 +730,40 @@
             // 
             // contractsTableAdapter
             // 
-            this.contractsTableAdapter.ClearBeforeFill = true;
+            //this.contractsTableAdapter.ClearBeforeFill = true;
             // 
             // tableAdapterManager
             // 
-            this.tableAdapterManager.Agents_contactsTableAdapter = null;
-            this.tableAdapterManager.Agents_typesTableAdapter = null;
-            this.tableAdapterManager.AgentsTableAdapter = null;
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.ContractsTableAdapter = this.contractsTableAdapter;
-            this.tableAdapterManager.ContractStatusTableAdapter = null;
-            this.tableAdapterManager.ContractTypesForDocsTableAdapter = null;
-            this.tableAdapterManager.ContractTypesTableAdapter = null;
-            this.tableAdapterManager.DocTemplatesTableAdapter = null;
-            this.tableAdapterManager.DocumentsTableAdapter = null;
-            this.tableAdapterManager.Exec_contractsTableAdapter = null;
-            this.tableAdapterManager.ExpertsTableAdapter = null;
-            this.tableAdapterManager.log_journalTableAdapter = null;
-            this.tableAdapterManager.ProdGostTableAdapter = null;
-            this.tableAdapterManager.ProductAreasTableAdapter = null;
-            this.tableAdapterManager.ProductsTableAdapter = null;
-            this.tableAdapterManager.UpdateOrder = Edocsys.EdocbaseDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            this.tableAdapterManager.usersTableAdapter = null;
+            //this.tableAdapterManager.Agents_contactsTableAdapter = null;
+            //this.tableAdapterManager.Agents_typesTableAdapter = null;
+            //this.tableAdapterManager.AgentsTableAdapter = null;
+            //this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            //this.tableAdapterManager.ContractsTableAdapter = this.contractsTableAdapter;
+            //this.tableAdapterManager.ContractStatusTableAdapter = null;
+            //this.tableAdapterManager.ContractTypesForDocsTableAdapter = null;
+            //this.tableAdapterManager.ContractTypesTableAdapter = null;
+            //this.tableAdapterManager.DocTemplatesTableAdapter = null;
+            //this.tableAdapterManager.DocumentsTableAdapter = null;
+            //this.tableAdapterManager.Exec_contractsTableAdapter = null;
+            //this.tableAdapterManager.ExpertsTableAdapter = null;
+            //this.tableAdapterManager.log_journalTableAdapter = null;
+            //this.tableAdapterManager.ProdGostTableAdapter = null;
+            //this.tableAdapterManager.ProductAreasTableAdapter = null;
+            //this.tableAdapterManager.ProductsTableAdapter = null;
+            //this.tableAdapterManager.UpdateOrder = Edocsys.EdocbaseDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            //this.tableAdapterManager.usersTableAdapter = null;
             // 
             // agentsTableAdapter
             // 
-            this.agentsTableAdapter.ClearBeforeFill = true;
+            //this.agentsTableAdapter.ClearBeforeFill = true;
             // 
             // productsTableAdapter
             // 
-            this.productsTableAdapter.ClearBeforeFill = true;
+            //this.productsTableAdapter.ClearBeforeFill = true;
             // 
             // exec_contractsTableAdapter
             // 
-            this.exec_contractsTableAdapter.ClearBeforeFill = true;
+            //this.exec_contractsTableAdapter.ClearBeforeFill = true;
             // 
             // templatesDataTableBindingSource
             // 
@@ -771,7 +772,7 @@
             // 
             // templatesDataTableTableAdapter
             // 
-            this.templatesDataTableTableAdapter.ClearBeforeFill = true;
+            //this.templatesDataTableTableAdapter.ClearBeforeFill = true;
             // 
             // contractInfoDataTableBindingSource
             // 
@@ -789,7 +790,7 @@
             // 
             // docTemplatesTableAdapter
             // 
-            this.docTemplatesTableAdapter.ClearBeforeFill = true;
+            //this.docTemplatesTableAdapter.ClearBeforeFill = true;
             // 
             // documentsBindingSource
             // 
@@ -798,7 +799,7 @@
             // 
             // documentsTableAdapter
             // 
-            this.documentsTableAdapter.ClearBeforeFill = true;
+            //this.documentsTableAdapter.ClearBeforeFill = true;
             // 
             // openFileDialog
             // 
@@ -810,7 +811,7 @@
             // 
             // contractTypesForDocsTableAdapter
             // 
-            this.contractTypesForDocsTableAdapter.ClearBeforeFill = true;
+            //this.contractTypesForDocsTableAdapter.ClearBeforeFill = true;
             // 
             // ProposalForm
             // 
@@ -872,27 +873,20 @@
         private System.Windows.Forms.TextBox proposalEmissionTypeTextBox;
         private System.Windows.Forms.ComboBox productComboBox;
         private System.Windows.Forms.BindingSource productsBindingSource;
-        private EdocbaseDataSetTableAdapters.ProductsTableAdapter productsTableAdapter;
         private System.Windows.Forms.TextBox clientDocsTextBox;
         private System.Windows.Forms.TextBox addDataTextBox;
         private System.Windows.Forms.TextBox schemeTypeTextBox;
         private System.Windows.Forms.SplitContainer mainSplitContainer;
         private System.Windows.Forms.ComboBox proposalAgentsComboBox;
         private System.Windows.Forms.BindingSource agentsBindingSource;
-        private EdocbaseDataSetTableAdapters.AgentsTableAdapter agentsTableAdapter;
-        private EdocbaseDataSetTableAdapters.Exec_contractsTableAdapter exec_contractsTableAdapter;
         private System.Windows.Forms.BindingSource templatesDataTableBindingSource;
-        private EdocbaseDataSetTableAdapters.TemplatesDataTableTableAdapter templatesDataTableTableAdapter;
         private System.Windows.Forms.BindingSource contractInfoDataTableBindingSource;
         private EdocbaseDataSetTableAdapters.ContractInfoDataTableTableAdapter contractInfoDataTableTableAdapter;
         private System.Windows.Forms.BindingSource docTemplatesBindingSource;
-        private EdocbaseDataSetTableAdapters.DocTemplatesTableAdapter docTemplatesTableAdapter;
         private System.Windows.Forms.BindingSource documentsBindingSource;
-        private EdocbaseDataSetTableAdapters.DocumentsTableAdapter documentsTableAdapter;
         private System.Windows.Forms.OpenFileDialog openFileDialog;
         private System.Windows.Forms.SaveFileDialog saveFileDialog;
         private System.Windows.Forms.BindingSource contractTypesForDocsBindingSource;
-        private EdocbaseDataSetTableAdapters.ContractTypesForDocsTableAdapter contractTypesForDocsTableAdapter;
         private System.Windows.Forms.GroupBox porposalGenerationGroupBox;
         private System.Windows.Forms.Button buttonLoadProposal;
         private System.Windows.Forms.Button buttonSaveProposal;
@@ -916,5 +910,14 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn idProducts;
         private System.Windows.Forms.DataGridViewButtonColumn SendProposalColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn Contract_status;
+
+        //private EdocbaseDataSetTableAdapters.TemplatesDataTableTableAdapter templatesDataTableTableAdapter;
+        //private EdocbaseDataSetTableAdapters.ProductsTableAdapter productsTableAdapter;
+        //private EdocbaseDataSetTableAdapters.AgentsTableAdapter agentsTableAdapter;
+        //private EdocbaseDataSetTableAdapters.Exec_contractsTableAdapter exec_contractsTableAdapter;
+        //private EdocbaseDataSetTableAdapters.DocTemplatesTableAdapter docTemplatesTableAdapter;
+        //private EdocbaseDataSetTableAdapters.DocumentsTableAdapter documentsTableAdapter;
+        //private EdocbaseDataSetTableAdapters.ContractTypesForDocsTableAdapter contractTypesForDocsTableAdapter;
+
     }
 }

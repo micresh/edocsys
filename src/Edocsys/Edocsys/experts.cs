@@ -21,13 +21,13 @@ namespace Edocsys
             try
             {
 
-                this.Validate();
-                this.expertsBindingSource.EndEdit();
-                this.tableAdapterManager.UpdateAll(this.edocbaseDataSet);
+                //this.Validate();
+                //this.expertsBindingSource.EndEdit();
+                //this.tableAdapterManager.UpdateAll(this.edocbaseDataSet);
 
-                this.edocbaseDataSet.AcceptChanges();
-                this.expertsTableAdapter.Fill(this.edocbaseDataSet.Experts);
-                this.expertsDataGridView.Refresh();
+                //this.edocbaseDataSet.AcceptChanges();
+                //this.expertsTableAdapter.Fill(this.edocbaseDataSet.Experts);
+                //this.expertsDataGridView.Refresh();
             }
             catch (Exception ex)
             {
@@ -38,10 +38,10 @@ namespace Edocsys
         private void ExpertsForm_Load(object sender, EventArgs e)
         {
 
-            this.expertsTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
+            //this.expertsTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
 
-            // TODO: This line of code loads data into the 'edocbaseDataSet.Experts' table. You can move, or remove it, as needed.
-            this.expertsTableAdapter.Fill(this.edocbaseDataSet.Experts);
+            //// TODO: This line of code loads data into the 'edocbaseDataSet.Experts' table. You can move, or remove it, as needed.
+            //this.expertsTableAdapter.Fill(this.edocbaseDataSet.Experts);
 
         }
     }

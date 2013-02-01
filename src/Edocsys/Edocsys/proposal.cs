@@ -43,21 +43,21 @@ namespace Edocsys
         {
             try
             {
-                int pos = contractsBindingSource.Position;
+                //int pos = contractsBindingSource.Position;
 
-                this.productsTableAdapter.Fill(this.edocbaseDataSet.Products);
-                this.agentsTableAdapter.Fill(this.edocbaseDataSet.Agents);
+                //this.productsTableAdapter.Fill(this.edocbaseDataSet.Products);
+                //this.agentsTableAdapter.Fill(this.edocbaseDataSet.Agents);
 
-                this.contractInfoDataTableTableAdapter.Fill(this.edocbaseDataSet.ContractInfoDataTable);
-                this.contractsTableAdapter.FillProposal(this.edocbaseDataSet.Contracts);
-                this.exec_contractsTableAdapter.Fill(this.edocbaseDataSet.Exec_contracts);
+                //this.contractInfoDataTableTableAdapter.Fill(this.edocbaseDataSet.ContractInfoDataTable);
+                //this.contractsTableAdapter.FillProposal(this.edocbaseDataSet.Contracts);
+                //this.exec_contractsTableAdapter.Fill(this.edocbaseDataSet.Exec_contracts);
 
-                this.templatesDataTableTableAdapter.Fill(this.edocbaseDataSet.TemplatesDataTable);
-                this.documentsTableAdapter.Fill(this.edocbaseDataSet.Documents);
+                //this.templatesDataTableTableAdapter.Fill(this.edocbaseDataSet.TemplatesDataTable);
+                //this.documentsTableAdapter.Fill(this.edocbaseDataSet.Documents);
 
-                contractsBindingSource.Position = pos;
+                //contractsBindingSource.Position = pos;
 
-                this.contractsDataGridView.Refresh();
+                //this.contractsDataGridView.Refresh();
             }   
             catch (Exception ex)
             {
@@ -68,53 +68,53 @@ namespace Edocsys
 
         private void ProposalForm_Load(object sender, EventArgs e)
         {
-            this.agentsTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
-            this.productsTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
-            this.contractsTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
-            this.contractTypesForDocsTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
-            this.exec_contractsTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
+            //this.agentsTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
+            //this.productsTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
+            //this.contractsTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
+            //this.contractTypesForDocsTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
+            //this.exec_contractsTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
 
-            this.templatesDataTableTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
-            this.contractInfoDataTableTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
-            this.documentsTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
+            //this.templatesDataTableTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
+            //this.contractInfoDataTableTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
+            //this.documentsTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
 
 
-            this.contractTypesForDocsTableAdapter.Fill(this.edocbaseDataSet.ContractTypesForDocs);
+            //this.contractTypesForDocsTableAdapter.Fill(this.edocbaseDataSet.ContractTypesForDocs);
 
-            RefreshData();
+            //RefreshData();
         }
 
         private void contractsDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == contractsDataGridView.Columns["SendProposalColumn"].Index)
-            {
-                if (contractsBindingSource.Position >= 0)
-                {
-                    DataRow currentRow = edocbaseDataSet.Tables["Contracts"].DefaultView[contractsBindingSource.Position].Row;
-                    int idContract = Convert.ToInt32(currentRow["idContract"]);
+            //if (e.ColumnIndex == contractsDataGridView.Columns["SendProposalColumn"].Index)
+            //{
+            //    if (contractsBindingSource.Position >= 0)
+            //    {
+            //        DataRow currentRow = edocbaseDataSet.Tables["Contracts"].DefaultView[contractsBindingSource.Position].Row;
+            //        int idContract = Convert.ToInt32(currentRow["idContract"]);
 
-                    if (MessageBox.Show("Отправить заявку #" + idContract, "Подтвердить отправку заявки", MessageBoxButtons.YesNo) == DialogResult.Yes)
-                    {
-                        try
-                        {
-                            //send proposal
-                            this.contractsTableAdapter.SendProposal((int)Constants.ContractStatuses.WaitForExpertAssigment, idContract);
+            //        if (MessageBox.Show("Отправить заявку #" + idContract, "Подтвердить отправку заявки", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            //        {
+            //            try
+            //            {
+            //                //send proposal
+            //                this.contractsTableAdapter.SendProposal((int)Constants.ContractStatuses.WaitForExpertAssigment, idContract);
 
-                            //add executed contract
-                            this.exec_contractsTableAdapter.TaskStart(idContract);
+            //                //add executed contract
+            //                this.exec_contractsTableAdapter.TaskStart(idContract);
 
-                            //refresh data
-                            SaveProposal();
-                            RefreshData();
+            //                //refresh data
+            //                SaveProposal();
+            //                RefreshData();
 
-                        }
-                        catch (Exception ex)
-                        {
-                            MessageBox.Show(ex.Message, "Save Error");
-                        }
-                    }
-                }
-            }
+            //            }
+            //            catch (Exception ex)
+            //            {
+            //                MessageBox.Show(ex.Message, "Save Error");
+            //            }
+            //        }
+            //    }
+            //}
         }
 
         private DataRow GetTemplateDataRow(int type)
@@ -287,9 +287,9 @@ namespace Edocsys
 
         private void UpdateDocuments()
         {
-            this.documentsTableAdapter.Update(this.edocbaseDataSet.Documents);
+            //this.documentsTableAdapter.Update(this.edocbaseDataSet.Documents);
 
-            this.edocbaseDataSet.AcceptChanges();
+            //this.edocbaseDataSet.AcceptChanges();
         }
 
         private void buttonEditProposal_Click(object sender, EventArgs e)

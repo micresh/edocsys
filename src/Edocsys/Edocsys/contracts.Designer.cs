@@ -87,8 +87,8 @@
             this.badJobsDataTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.contractsToStartDataTableTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.ContractsToStartDataTableTableAdapter();
             this.contractsTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.ContractsTableAdapter();
-            this.exec_contractsTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.Exec_contractsTableAdapter();
             this.taskProcessedDataTableTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.TaskProcessedDataTableTableAdapter();
+            //this.exec_contractsTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.Exec_contractsTableAdapter();
             this.taskReadyDataTableTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.TaskReadyDataTableTableAdapter();
             this.taskFinishedDataTableTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.TaskFinishedDataTableTableAdapter();
             this.badJobsDataTableTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.BadJobsDataTableTableAdapter();
@@ -120,22 +120,22 @@
             // 
             // tableAdapterManager
             // 
-            this.tableAdapterManager.Agents_contactsTableAdapter = null;
-            this.tableAdapterManager.Agents_typesTableAdapter = null;
-            this.tableAdapterManager.AgentsTableAdapter = null;
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.Connection = null;
-            this.tableAdapterManager.ContractsTableAdapter = null;
-            this.tableAdapterManager.ContractStatusTableAdapter = null;
-            this.tableAdapterManager.ContractTypesTableAdapter = null;
-            this.tableAdapterManager.DocTemplatesTableAdapter = null;
-            this.tableAdapterManager.DocumentsTableAdapter = null;
-            this.tableAdapterManager.Exec_contractsTableAdapter = null;
-            this.tableAdapterManager.ExpertsTableAdapter = null;
-            this.tableAdapterManager.log_journalTableAdapter = null;
-            this.tableAdapterManager.ProdGostTableAdapter = null;
-            this.tableAdapterManager.ProductAreasTableAdapter = null;
-            this.tableAdapterManager.ProductsTableAdapter = null;
+            //this.tableAdapterManager.Agents_contactsTableAdapter = null;
+            //this.tableAdapterManager.Agents_typesTableAdapter = null;
+            //this.tableAdapterManager.AgentsTableAdapter = null;
+            //this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            //this.tableAdapterManager.Connection = null;
+            //this.tableAdapterManager.ContractsTableAdapter = null;
+            //this.tableAdapterManager.ContractStatusTableAdapter = null;
+            //this.tableAdapterManager.ContractTypesTableAdapter = null;
+            //this.tableAdapterManager.DocTemplatesTableAdapter = null;
+            //this.tableAdapterManager.DocumentsTableAdapter = null;
+            //this.tableAdapterManager.Exec_contractsTableAdapter = null;
+            //this.tableAdapterManager.ExpertsTableAdapter = null;
+            //this.tableAdapterManager.log_journalTableAdapter = null;
+            //this.tableAdapterManager.ProdGostTableAdapter = null;
+            //this.tableAdapterManager.ProductAreasTableAdapter = null;
+            //this.tableAdapterManager.ProductsTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = Edocsys.EdocbaseDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             this.tableAdapterManager.usersTableAdapter = null;
             // 
@@ -634,11 +634,11 @@
             // 
             // contractsTableAdapter
             // 
-            this.contractsTableAdapter.ClearBeforeFill = true;
+            //this.contractsTableAdapter.ClearBeforeFill = true;
             // 
             // exec_contractsTableAdapter
             // 
-            this.exec_contractsTableAdapter.ClearBeforeFill = true;
+            //.exec_contractsTableAdapter.ClearBeforeFill = true;
             // 
             // taskProcessedDataTableTableAdapter
             // 
@@ -718,7 +718,6 @@
         private EdocbaseDataSetTableAdapters.ContractsToStartDataTableTableAdapter contractsToStartDataTableTableAdapter;
         private System.Windows.Forms.DataGridView contractsToStartDataTableDataGridView;
         private EdocbaseDataSetTableAdapters.ContractsTableAdapter contractsTableAdapter;
-        private EdocbaseDataSetTableAdapters.Exec_contractsTableAdapter exec_contractsTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
@@ -755,5 +754,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn23;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn24;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn25;
+
+        //private EdocbaseDataSetTableAdapters.Exec_contractsTableAdapter exec_contractsTableAdapter;
     }
 }

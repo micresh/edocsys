@@ -33,7 +33,7 @@ namespace Edocsys
 
         private void btnUseradd_Click(object sender, EventArgs e)
         {
-            usersTableAdapter.Useradd(loginTextBox.Text, psmgr.GetHashString(passwordTextBox.Text), Convert.ToInt32(typeTextBox.Text), log_databaseTextBox.Text);
+            //usersTableAdapter.Useradd(loginTextBox.Text, psmgr.GetHashString(passwordTextBox.Text), Convert.ToInt32(typeTextBox.Text), log_databaseTextBox.Text);
         }
 
         private void btnCheck_Click(object sender, EventArgs e)

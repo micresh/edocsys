@@ -20,11 +20,11 @@ namespace Edocsys
 
         private void DocTemplatesForm_Load(object sender, EventArgs e)
         {
-            this.templatesDataTableTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
-            this.docTemplatesTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
+            //this.templatesDataTableTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
+            //this.docTemplatesTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
 
-            this.templatesDataTableTableAdapter.Fill(this.edocbaseDataSet.TemplatesDataTable);
-            this.docTemplatesTableAdapter.Fill(this.edocbaseDataSet.DocTemplates);
+            //this.templatesDataTableTableAdapter.Fill(this.edocbaseDataSet.TemplatesDataTable);
+            //this.docTemplatesTableAdapter.Fill(this.edocbaseDataSet.DocTemplates);
         }
 
         private void loadTemplateButton_Click(object sender, EventArgs e)
@@ -107,79 +107,80 @@ namespace Edocsys
 
         private void RefreshDataTables()
         {
-            int pos = this.templatesDataTableBindingSource.Position;
+            //int pos = this.templatesDataTableBindingSource.Position;
 
-            this.docTemplatesTableAdapter.Fill(this.edocbaseDataSet.DocTemplates);
-            this.templatesDataTableTableAdapter.Fill(this.edocbaseDataSet.TemplatesDataTable);
+            //this.docTemplatesTableAdapter.Fill(this.edocbaseDataSet.DocTemplates);
+            //this.templatesDataTableTableAdapter.Fill(this.edocbaseDataSet.TemplatesDataTable);
 
-            this.templatesDataTableBindingSource.Position = pos;
+            //this.templatesDataTableBindingSource.Position = pos;
         }
 
         private void saveTemplateButton_Click(object sender, EventArgs e)
         {
-            if ((templatesDataTableBindingSource.Position < 0) ||
-                (templatesDataTableBindingSource.Position >= templatesDataTableBindingSource.Count))
-            {
-                //contract not selected
-                MessageBox.Show("Не выбран шаблон", "Ошибка");
-                return;
-            }
+            //if ((templatesDataTableBindingSource.Position < 0) ||
+            //    (templatesDataTableBindingSource.Position >= templatesDataTableBindingSource.Count))
+            //{
+            //    //contract not selected
+            //    MessageBox.Show("Не выбран шаблон", "Ошибка");
+            //    return;
+            //}
 
-            DataRow currentRow = edocbaseDataSet.Tables["TemplatesDataTable"].DefaultView[templatesDataTableBindingSource.Position].Row;
+            //DataRow currentRow = edocbaseDataSet.Tables["TemplatesDataTable"].DefaultView[templatesDataTableBindingSource.Position].Row;
 
-            bool exists = Convert.ToBoolean(currentRow["template_presence"]);
+            //bool exists = Convert.ToBoolean(currentRow["template_presence"]);
 
-            int idContractType = Convert.ToInt32(currentRow["id"]);
+            //int idContractType = Convert.ToInt32(currentRow["id"]);
 
-            if (!exists)
-            {
-                MessageBox.Show("Шаблон отсутствует в БД", "Отсутствие шаблона");
-            }
+            //if (!exists)
+            //{
+            //    MessageBox.Show("Шаблон отсутствует в БД", "Отсутствие шаблона");
+            //}
 
-            if (saveFileDialog.ShowDialog() != DialogResult.OK)
-            {
-                return;
-            }
+            //if (saveFileDialog.ShowDialog() != DialogResult.OK)
+            //{
+            //    return;
+            //}
 
-            DataRowView row = GetTemplatessDataRow(idContractType);
+            //DataRowView row = GetTemplatessDataRow(idContractType);
 
-            if (row == null)
-            {
-                MessageBox.Show("Шаблон отсутствует в БД", "Отсутствие шаблона");
-            }
+            //if (row == null)
+            //{
+            //    MessageBox.Show("Шаблон отсутствует в БД", "Отсутствие шаблона");
+            //}
 
-            byte[] data = (byte[])row["template"];
+            //byte[] data = (byte[])row["template"];
 
-            BlobLoader.SaveToFile(saveFileDialog.FileName, data);
+            //BlobLoader.SaveToFile(saveFileDialog.FileName, data);
 
         }
 
 
         private DataRowView GetTemplatessDataRow(int type)
         {
-            edocbaseDataSet.Tables["DocTemplates"].DefaultView.Sort = "type";
+            //edocbaseDataSet.Tables["DocTemplates"].DefaultView.Sort = "type";
             
-            DataRowView[] currentDocs = edocbaseDataSet.Tables["DocTemplates"].DefaultView.FindRows(type);
+            //DataRowView[] currentDocs = edocbaseDataSet.Tables["DocTemplates"].DefaultView.FindRows(type);
 
-            DataRowView row = null;
+            //DataRowView row = null;
 
-            if (currentDocs.Length > 0)
-            {
-                //found docs -> check for our type
+            //if (currentDocs.Length > 0)
+            //{
+            //    //found docs -> check for our type
 
-                int i = 0;
-                while (i < currentDocs.Length)
-                {
-                    if (Convert.ToInt32(currentDocs[i]["type"]) == type)
-                    {
-                        //found doc -> return it
-                        return currentDocs[i];
-                    }
-                    i++;
-                }
-            }
+            //    int i = 0;
+            //    while (i < currentDocs.Length)
+            //    {
+            //        if (Convert.ToInt32(currentDocs[i]["type"]) == type)
+            //        {
+            //            //found doc -> return it
+            //            return currentDocs[i];
+            //        }
+            //        i++;
+            //    }
+            //}
 
-            return row;
+            //return row;
+            return null;
         }
 
         private void editTemplateButton_Click(object sender, EventArgs e)

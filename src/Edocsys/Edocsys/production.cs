@@ -24,16 +24,13 @@ namespace Edocsys
 
         private void ProductionForm_Load(object sender, EventArgs e)
         {
-            this.prodGostTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
-            // TODO: This line of code loads data into the 'edocbaseDataSet.ProdGost' table. You can move, or remove it, as needed.
-            this.prodGostTableAdapter.Fill(this.edocbaseDataSet.ProdGost);
-            // TODO: This line of code loads data into the 'edocbaseDataSet.Products' table. You can move, or remove it, as needed.
-            this.productsTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
+            //this.prodGostTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
+            //// TODO: This line of code loads data into the 'edocbaseDataSet.ProdGost' table. You can move, or remove it, as needed.
+            //this.prodGostTableAdapter.Fill(this.edocbaseDataSet.ProdGost);
+            //// TODO: This line of code loads data into the 'edocbaseDataSet.Products' table. You can move, or remove it, as needed.
+            //this.productsTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
                         
-            this.productsTableAdapter.Fill(this.edocbaseDataSet.Products);
-            
-            
-
+            //this.productsTableAdapter.Fill(this.edocbaseDataSet.Products);
         }
 
         private void productsBindingNavigatorSaveItem_Click_1(object sender, EventArgs e)

@@ -65,10 +65,10 @@
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.agentsBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.agentstypesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.agentsTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.AgentsTableAdapter();
             this.tableAdapterManager = new Edocsys.EdocbaseDataSetTableAdapters.TableAdapterManager();
-            this.agents_contactsTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.Agents_contactsTableAdapter();
-            this.agents_typesTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.Agents_typesTableAdapter();
+            //this.agentsTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.AgentsTableAdapter();
+            //this.agents_contactsTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.Agents_contactsTableAdapter();
+            //this.agents_typesTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.Agents_typesTableAdapter();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.agents_contactsDataGridView = new System.Windows.Forms.DataGridView();
@@ -492,35 +492,35 @@
             // 
             // agentsTableAdapter
             // 
-            this.agentsTableAdapter.ClearBeforeFill = true;
+            //this.agentsTableAdapter.ClearBeforeFill = true;
             // 
             // tableAdapterManager
             // 
-            this.tableAdapterManager.Agents_contactsTableAdapter = this.agents_contactsTableAdapter;
-            this.tableAdapterManager.Agents_typesTableAdapter = null;
-            this.tableAdapterManager.AgentsTableAdapter = this.agentsTableAdapter;
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.ContractsTableAdapter = null;
-            this.tableAdapterManager.ContractStatusTableAdapter = null;
-            this.tableAdapterManager.ContractTypesTableAdapter = null;
-            this.tableAdapterManager.DocTemplatesTableAdapter = null;
-            this.tableAdapterManager.DocumentsTableAdapter = null;
-            this.tableAdapterManager.Exec_contractsTableAdapter = null;
-            this.tableAdapterManager.ExpertsTableAdapter = null;
-            this.tableAdapterManager.log_journalTableAdapter = null;
-            this.tableAdapterManager.ProdGostTableAdapter = null;
-            this.tableAdapterManager.ProductAreasTableAdapter = null;
-            this.tableAdapterManager.ProductsTableAdapter = null;
-            this.tableAdapterManager.UpdateOrder = Edocsys.EdocbaseDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            this.tableAdapterManager.usersTableAdapter = null;
+            //this.tableAdapterManager.Agents_contactsTableAdapter = this.agents_contactsTableAdapter;
+            //this.tableAdapterManager.Agents_typesTableAdapter = null;
+            //this.tableAdapterManager.AgentsTableAdapter = this.agentsTableAdapter;
+            //this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            //this.tableAdapterManager.ContractsTableAdapter = null;
+            //this.tableAdapterManager.ContractStatusTableAdapter = null;
+            //this.tableAdapterManager.ContractTypesTableAdapter = null;
+            //this.tableAdapterManager.DocTemplatesTableAdapter = null;
+            //this.tableAdapterManager.DocumentsTableAdapter = null;
+            //this.tableAdapterManager.Exec_contractsTableAdapter = null;
+            //this.tableAdapterManager.ExpertsTableAdapter = null;
+            //this.tableAdapterManager.log_journalTableAdapter = null;
+            //this.tableAdapterManager.ProdGostTableAdapter = null;
+            //this.tableAdapterManager.ProductAreasTableAdapter = null;
+            //this.tableAdapterManager.ProductsTableAdapter = null;
+            //this.tableAdapterManager.UpdateOrder = Edocsys.EdocbaseDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            //this.tableAdapterManager.usersTableAdapter = null;
             // 
             // agents_contactsTableAdapter
             // 
-            this.agents_contactsTableAdapter.ClearBeforeFill = true;
+            //this.agents_contactsTableAdapter.ClearBeforeFill = true;
             // 
             // agents_typesTableAdapter
             // 
-            this.agents_typesTableAdapter.ClearBeforeFill = true;
+            //this.agents_typesTableAdapter.ClearBeforeFill = true;
             // 
             // splitContainer1
             // 
@@ -1098,8 +1098,6 @@
         private System.Windows.Forms.ToolStripButton agentsBindingNavigatorSaveItem;
         private EdocbaseDataSetTableAdapters.TableAdapterManager tableAdapterManager;
         private System.Windows.Forms.BindingSource agentstypesBindingSource;
-        private EdocbaseDataSetTableAdapters.Agents_typesTableAdapter agents_typesTableAdapter;
-        private EdocbaseDataSetTableAdapters.AgentsTableAdapter agentsTableAdapter;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.DataGridView agentsDataGridView;
         private System.Windows.Forms.GroupBox groupBox3;
@@ -1125,7 +1123,6 @@
         private System.Windows.Forms.TextBox ag_faxTextBox;
         private System.Windows.Forms.TextBox ag_mailTextBox;
         private System.Windows.Forms.BindingSource agents_contactsBindingSource;
-        private EdocbaseDataSetTableAdapters.Agents_contactsTableAdapter agents_contactsTableAdapter;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.DataGridView agents_contactsDataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
@@ -1152,5 +1149,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn person_shortname;
         private System.Windows.Forms.ToolStripLabel toolStripLabelAgent;
         private System.Windows.Forms.ToolStripButton toolStripButtonSaveContact;
+
+        //private EdocbaseDataSetTableAdapters.Agents_typesTableAdapter agents_typesTableAdapter;
+        //private EdocbaseDataSetTableAdapters.AgentsTableAdapter agentsTableAdapter;
+        //private EdocbaseDataSetTableAdapters.Agents_contactsTableAdapter agents_contactsTableAdapter;
+
     }
 }
