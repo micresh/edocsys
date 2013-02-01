@@ -29,77 +29,42 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.Label loginLabel;
-            System.Windows.Forms.Label passwordLabel;
-            System.Windows.Forms.Label typeLabel;
-            System.Windows.Forms.Label log_databaseLabel;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UseradmForm));
             this.edocbaseDataSet = new Edocsys.EdocbaseDataSet();
             this.usersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.usersTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.usersTableAdapter();
             this.tableAdapterManager = new Edocsys.EdocbaseDataSetTableAdapters.TableAdapterManager();
+            this.usersBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
+            this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
+            this.bindingNavigatorPositionItem = new System.Windows.Forms.ToolStripTextBox();
+            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
+            this.bindingNavigatorSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
+            this.usersBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.usersDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.loginTextBox = new System.Windows.Forms.TextBox();
-            this.passwordTextBox = new System.Windows.Forms.TextBox();
-            this.typeTextBox = new System.Windows.Forms.TextBox();
-            this.log_databaseTextBox = new System.Windows.Forms.TextBox();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.UsersPage = new System.Windows.Forms.TabPage();
-            this.btnUseradd = new System.Windows.Forms.Button();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.btnCheck = new System.Windows.Forms.Button();
-            loginLabel = new System.Windows.Forms.Label();
-            passwordLabel = new System.Windows.Forms.Label();
-            typeLabel = new System.Windows.Forms.Label();
-            log_databaseLabel = new System.Windows.Forms.Label();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.edocbaseDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.usersBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.usersBindingNavigator)).BeginInit();
+            this.usersBindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.usersDataGridView)).BeginInit();
-            this.tabControl1.SuspendLayout();
-            this.UsersPage.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // loginLabel
-            // 
-            loginLabel.AutoSize = true;
-            loginLabel.Location = new System.Drawing.Point(15, 177);
-            loginLabel.Name = "loginLabel";
-            loginLabel.Size = new System.Drawing.Size(32, 13);
-            loginLabel.TabIndex = 2;
-            loginLabel.Text = "login:";
-            // 
-            // passwordLabel
-            // 
-            passwordLabel.AutoSize = true;
-            passwordLabel.Location = new System.Drawing.Point(168, 177);
-            passwordLabel.Name = "passwordLabel";
-            passwordLabel.Size = new System.Drawing.Size(55, 13);
-            passwordLabel.TabIndex = 4;
-            passwordLabel.Text = "password:";
-            // 
-            // typeLabel
-            // 
-            typeLabel.AutoSize = true;
-            typeLabel.Location = new System.Drawing.Point(346, 177);
-            typeLabel.Name = "typeLabel";
-            typeLabel.Size = new System.Drawing.Size(30, 13);
-            typeLabel.TabIndex = 5;
-            typeLabel.Text = "type:";
-            // 
-            // log_databaseLabel
-            // 
-            log_databaseLabel.AutoSize = true;
-            log_databaseLabel.Location = new System.Drawing.Point(502, 181);
-            log_databaseLabel.Name = "log_databaseLabel";
-            log_databaseLabel.Size = new System.Drawing.Size(71, 13);
-            log_databaseLabel.TabIndex = 7;
-            log_databaseLabel.Text = "log database:";
             // 
             // edocbaseDataSet
             // 
+            this.edocbaseDataSet.CaseSensitive = true;
             this.edocbaseDataSet.DataSetName = "EdocbaseDataSet";
             this.edocbaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
@@ -114,16 +79,151 @@
             // 
             // tableAdapterManager
             // 
+            this.tableAdapterManager.agent_typesTableAdapter = null;
+            this.tableAdapterManager.agents_contactsTableAdapter = null;
+            this.tableAdapterManager.agentsTableAdapter = null;
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            //this.tableAdapterManager.AgentsTableAdapter = null;
-            //this.tableAdapterManager.ContractsTableAdapter = null;
-            //this.tableAdapterManager.Exec_contractsTableAdapter = null;
-            //this.tableAdapterManager.ExpertsTableAdapter = null;
-            //this.tableAdapterManager.log_journalTableAdapter = null;
-            //this.tableAdapterManager.ProdGostTableAdapter = null;
-            //this.tableAdapterManager.ProductsTableAdapter = null;
+            this.tableAdapterManager.contract_statusTableAdapter = null;
+            this.tableAdapterManager.contract_types_for_workDataTablesTableAdapter = null;
+            this.tableAdapterManager.contract_typesTableAdapter = null;
+            this.tableAdapterManager.contractsTableAdapter = null;
+            this.tableAdapterManager.doc_templatesTableAdapter = null;
+            this.tableAdapterManager.documentsTableAdapter = null;
+            this.tableAdapterManager.emission_typesTableAdapter = null;
+            this.tableAdapterManager.expertsTableAdapter = null;
+            this.tableAdapterManager.log_journalTableAdapter = null;
+            this.tableAdapterManager.product_areasTableAdapter = null;
+            this.tableAdapterManager.product_gostsTableAdapter = null;
+            this.tableAdapterManager.productsTableAdapter = null;
+            this.tableAdapterManager.selected_gostsTableAdapter = null;
+            this.tableAdapterManager.source_typesTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = Edocsys.EdocbaseDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            this.tableAdapterManager.user_typesTableAdapter = null;
             this.tableAdapterManager.usersTableAdapter = this.usersTableAdapter;
+            // 
+            // usersBindingNavigator
+            // 
+            this.usersBindingNavigator.AddNewItem = this.bindingNavigatorAddNewItem;
+            this.usersBindingNavigator.BindingSource = this.usersBindingSource;
+            this.usersBindingNavigator.CountItem = this.bindingNavigatorCountItem;
+            this.usersBindingNavigator.DeleteItem = this.bindingNavigatorDeleteItem;
+            this.usersBindingNavigator.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.bindingNavigatorMoveFirstItem,
+            this.bindingNavigatorMovePreviousItem,
+            this.bindingNavigatorSeparator,
+            this.bindingNavigatorPositionItem,
+            this.bindingNavigatorCountItem,
+            this.bindingNavigatorSeparator1,
+            this.bindingNavigatorMoveNextItem,
+            this.bindingNavigatorMoveLastItem,
+            this.bindingNavigatorSeparator2,
+            this.bindingNavigatorAddNewItem,
+            this.bindingNavigatorDeleteItem,
+            this.usersBindingNavigatorSaveItem});
+            this.usersBindingNavigator.Location = new System.Drawing.Point(0, 0);
+            this.usersBindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
+            this.usersBindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastItem;
+            this.usersBindingNavigator.MoveNextItem = this.bindingNavigatorMoveNextItem;
+            this.usersBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
+            this.usersBindingNavigator.Name = "usersBindingNavigator";
+            this.usersBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
+            this.usersBindingNavigator.Size = new System.Drawing.Size(777, 25);
+            this.usersBindingNavigator.TabIndex = 0;
+            this.usersBindingNavigator.Text = "bindingNavigator1";
+            // 
+            // bindingNavigatorMoveFirstItem
+            // 
+            this.bindingNavigatorMoveFirstItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
+            this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
+            this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorMoveFirstItem.Text = "Move first";
+            // 
+            // bindingNavigatorMovePreviousItem
+            // 
+            this.bindingNavigatorMovePreviousItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
+            this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
+            this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorMovePreviousItem.Text = "Move previous";
+            // 
+            // bindingNavigatorSeparator
+            // 
+            this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
+            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 25);
+            // 
+            // bindingNavigatorPositionItem
+            // 
+            this.bindingNavigatorPositionItem.AccessibleName = "Position";
+            this.bindingNavigatorPositionItem.AutoSize = false;
+            this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
+            this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 23);
+            this.bindingNavigatorPositionItem.Text = "0";
+            this.bindingNavigatorPositionItem.ToolTipText = "Current position";
+            // 
+            // bindingNavigatorCountItem
+            // 
+            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(35, 15);
+            this.bindingNavigatorCountItem.Text = "of {0}";
+            this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
+            // 
+            // bindingNavigatorSeparator1
+            // 
+            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator";
+            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 6);
+            // 
+            // bindingNavigatorMoveNextItem
+            // 
+            this.bindingNavigatorMoveNextItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
+            this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
+            this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(23, 20);
+            this.bindingNavigatorMoveNextItem.Text = "Move next";
+            // 
+            // bindingNavigatorMoveLastItem
+            // 
+            this.bindingNavigatorMoveLastItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
+            this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
+            this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(23, 20);
+            this.bindingNavigatorMoveLastItem.Text = "Move last";
+            // 
+            // bindingNavigatorSeparator2
+            // 
+            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator";
+            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 6);
+            // 
+            // bindingNavigatorAddNewItem
+            // 
+            this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
+            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
+            this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorAddNewItem.Text = "Add new";
+            // 
+            // bindingNavigatorDeleteItem
+            // 
+            this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
+            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
+            this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 20);
+            this.bindingNavigatorDeleteItem.Text = "Delete";
+            // 
+            // usersBindingNavigatorSaveItem
+            // 
+            this.usersBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.usersBindingNavigatorSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("usersBindingNavigatorSaveItem.Image")));
+            this.usersBindingNavigatorSaveItem.Name = "usersBindingNavigatorSaveItem";
+            this.usersBindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 23);
+            this.usersBindingNavigatorSaveItem.Text = "Save Data";
+            this.usersBindingNavigatorSaveItem.Click += new System.EventHandler(this.usersBindingNavigatorSaveItem_Click_1);
             // 
             // usersDataGridView
             // 
@@ -132,175 +232,108 @@
             this.usersDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4});
+            this.dataGridViewTextBoxColumn5,
+            this.dataGridViewTextBoxColumn6,
+            this.dataGridViewTextBoxColumn7,
+            this.dataGridViewTextBoxColumn8,
+            this.dataGridViewTextBoxColumn9});
             this.usersDataGridView.DataSource = this.usersBindingSource;
-            this.usersDataGridView.Location = new System.Drawing.Point(6, 14);
+            this.usersDataGridView.Location = new System.Drawing.Point(12, 28);
             this.usersDataGridView.Name = "usersDataGridView";
-            this.usersDataGridView.ReadOnly = true;
-            this.usersDataGridView.Size = new System.Drawing.Size(566, 142);
+            this.usersDataGridView.Size = new System.Drawing.Size(753, 220);
             this.usersDataGridView.TabIndex = 1;
             // 
             // dataGridViewTextBoxColumn1
             // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "login";
-            this.dataGridViewTextBoxColumn1.HeaderText = "login";
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "id";
+            this.dataGridViewTextBoxColumn1.HeaderText = "id";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn2
             // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "password";
-            this.dataGridViewTextBoxColumn2.HeaderText = "password";
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "login";
+            this.dataGridViewTextBoxColumn2.HeaderText = "login";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn3
+            // dataGridViewTextBoxColumn5
             // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "type";
-            this.dataGridViewTextBoxColumn3.HeaderText = "type";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "password";
+            this.dataGridViewTextBoxColumn5.HeaderText = "password";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             // 
-            // dataGridViewTextBoxColumn4
+            // dataGridViewTextBoxColumn6
             // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "log_database";
-            this.dataGridViewTextBoxColumn4.HeaderText = "log_database";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "lastname";
+            this.dataGridViewTextBoxColumn6.HeaderText = "lastname";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             // 
-            // loginTextBox
+            // dataGridViewTextBoxColumn7
             // 
-            this.loginTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.usersBindingSource, "login", true));
-            this.loginTextBox.Location = new System.Drawing.Point(53, 174);
-            this.loginTextBox.Name = "loginTextBox";
-            this.loginTextBox.Size = new System.Drawing.Size(100, 20);
-            this.loginTextBox.TabIndex = 3;
+            this.dataGridViewTextBoxColumn7.DataPropertyName = "firstname";
+            this.dataGridViewTextBoxColumn7.HeaderText = "firstname";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
             // 
-            // passwordTextBox
+            // dataGridViewTextBoxColumn8
             // 
-            this.passwordTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.usersBindingSource, "password", true));
-            this.passwordTextBox.Location = new System.Drawing.Point(229, 174);
-            this.passwordTextBox.Name = "passwordTextBox";
-            this.passwordTextBox.Size = new System.Drawing.Size(100, 20);
-            this.passwordTextBox.TabIndex = 5;
+            this.dataGridViewTextBoxColumn8.DataPropertyName = "middlename";
+            this.dataGridViewTextBoxColumn8.HeaderText = "middlename";
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
             // 
-            // typeTextBox
+            // dataGridViewTextBoxColumn9
             // 
-            this.typeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.usersBindingSource, "type", true));
-            this.typeTextBox.Location = new System.Drawing.Point(382, 174);
-            this.typeTextBox.Name = "typeTextBox";
-            this.typeTextBox.Size = new System.Drawing.Size(100, 20);
-            this.typeTextBox.TabIndex = 6;
-            // 
-            // log_databaseTextBox
-            // 
-            this.log_databaseTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.usersBindingSource, "log_database", true));
-            this.log_databaseTextBox.Location = new System.Drawing.Point(579, 178);
-            this.log_databaseTextBox.Name = "log_databaseTextBox";
-            this.log_databaseTextBox.Size = new System.Drawing.Size(100, 20);
-            this.log_databaseTextBox.TabIndex = 8;
-            // 
-            // tabControl1
-            // 
-            this.tabControl1.Controls.Add(this.UsersPage);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Location = new System.Drawing.Point(12, 12);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(767, 301);
-            this.tabControl1.TabIndex = 9;
-            // 
-            // UsersPage
-            // 
-            this.UsersPage.Controls.Add(this.btnCheck);
-            this.UsersPage.Controls.Add(this.btnUseradd);
-            this.UsersPage.Controls.Add(this.usersDataGridView);
-            this.UsersPage.Controls.Add(log_databaseLabel);
-            this.UsersPage.Controls.Add(this.passwordTextBox);
-            this.UsersPage.Controls.Add(this.log_databaseTextBox);
-            this.UsersPage.Controls.Add(this.loginTextBox);
-            this.UsersPage.Controls.Add(typeLabel);
-            this.UsersPage.Controls.Add(loginLabel);
-            this.UsersPage.Controls.Add(this.typeTextBox);
-            this.UsersPage.Controls.Add(passwordLabel);
-            this.UsersPage.Location = new System.Drawing.Point(4, 22);
-            this.UsersPage.Name = "UsersPage";
-            this.UsersPage.Padding = new System.Windows.Forms.Padding(3);
-            this.UsersPage.Size = new System.Drawing.Size(759, 275);
-            this.UsersPage.TabIndex = 0;
-            this.UsersPage.Text = "Пользователи";
-            this.UsersPage.UseVisualStyleBackColor = true;
-            // 
-            // btnUseradd
-            // 
-            this.btnUseradd.Enabled = false;
-            this.btnUseradd.Location = new System.Drawing.Point(53, 218);
-            this.btnUseradd.Name = "btnUseradd";
-            this.btnUseradd.Size = new System.Drawing.Size(75, 23);
-            this.btnUseradd.TabIndex = 9;
-            this.btnUseradd.Text = "Добавить";
-            this.btnUseradd.UseVisualStyleBackColor = true;
-            this.btnUseradd.Click += new System.EventHandler(this.btnUseradd_Click);
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(759, 275);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // btnCheck
-            // 
-            this.btnCheck.Location = new System.Drawing.Point(156, 217);
-            this.btnCheck.Name = "btnCheck";
-            this.btnCheck.Size = new System.Drawing.Size(75, 23);
-            this.btnCheck.TabIndex = 10;
-            this.btnCheck.Text = "Проверить";
-            this.btnCheck.UseVisualStyleBackColor = true;
-            this.btnCheck.Click += new System.EventHandler(this.btnCheck_Click);
+            this.dataGridViewTextBoxColumn9.DataPropertyName = "user_types_id";
+            this.dataGridViewTextBoxColumn9.HeaderText = "user_types_id";
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
             // 
             // UseradmForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(777, 312);
-            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.usersDataGridView);
+            this.Controls.Add(this.usersBindingNavigator);
             this.Name = "UseradmForm";
-            this.Text = "useradm";
+            this.Text = "Панель администрирования пользователей";
             this.Load += new System.EventHandler(this.UseradmForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.edocbaseDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.usersBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.usersBindingNavigator)).EndInit();
+            this.usersBindingNavigator.ResumeLayout(false);
+            this.usersBindingNavigator.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.usersDataGridView)).EndInit();
-            this.tabControl1.ResumeLayout(false);
-            this.UsersPage.ResumeLayout(false);
-            this.UsersPage.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private EdocbaseDataSet edocbaseDataSet;
         private System.Windows.Forms.BindingSource usersBindingSource;
         private EdocbaseDataSetTableAdapters.usersTableAdapter usersTableAdapter;
         private EdocbaseDataSetTableAdapters.TableAdapterManager tableAdapterManager;
+        private System.Windows.Forms.BindingNavigator usersBindingNavigator;
+        private System.Windows.Forms.ToolStripButton bindingNavigatorAddNewItem;
+        private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem;
+        private System.Windows.Forms.ToolStripButton bindingNavigatorDeleteItem;
+        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveFirstItem;
+        private System.Windows.Forms.ToolStripButton bindingNavigatorMovePreviousItem;
+        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator;
+        private System.Windows.Forms.ToolStripTextBox bindingNavigatorPositionItem;
+        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator1;
+        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveNextItem;
+        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
+        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
+        private System.Windows.Forms.ToolStripButton usersBindingNavigatorSaveItem;
         private System.Windows.Forms.DataGridView usersDataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.TextBox loginTextBox;
-        private System.Windows.Forms.TextBox passwordTextBox;
-        private System.Windows.Forms.TextBox typeTextBox;
-        private System.Windows.Forms.TextBox log_databaseTextBox;
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage UsersPage;
-        private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.Button btnUseradd;
-        private System.Windows.Forms.Button btnCheck;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
     }
 }

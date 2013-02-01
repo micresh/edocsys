@@ -28,6 +28,8 @@ namespace Edocsys
         {
             // TODO: This line of code loads data into the 'edocbaseDataSet.users' table. You can move, or remove it, as needed.
             this.usersTableAdapter.Fill(this.edocbaseDataSet.users);
+            // TODO: This line of code loads data into the 'edocbaseDataSet.users' table. You can move, or remove it, as needed.
+            this.usersTableAdapter.Fill(this.edocbaseDataSet.users);
 
         }
 
@@ -38,13 +40,21 @@ namespace Edocsys
 
         private void btnCheck_Click(object sender, EventArgs e)
         {
-            bool chkdatabaselog;
-            chkdatabaselog = (log_databaseTextBox.Text == "admin") || (log_databaseTextBox.Text == "direktor") || (log_databaseTextBox.Text == "expert");
-            if (chkdatabaselog)
-            {
-                btnUseradd.Enabled = true;
-            }
-            else MessageBox.Show("Неверное имя пользователя в базе данных");
+            //bool chkdatabaselog;
+            //chkdatabaselog = (log_databaseTextBox.Text == "admin") || (log_databaseTextBox.Text == "direktor") || (log_databaseTextBox.Text == "expert");
+            //if (chkdatabaselog)
+            //{
+            //    btnUseradd.Enabled = true;
+            //}
+            //else MessageBox.Show("Неверное имя пользователя в базе данных");
+        }
+
+        private void usersBindingNavigatorSaveItem_Click_1(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.usersBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.edocbaseDataSet);
+
         }
     }
 }
