@@ -224,7 +224,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.edocbaseDataSet)).EndInit();
             this.docTemplatesOperaqtionsGroupBox.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.templatesDataTableBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.docTemplatesBindingSource)).EndInit();
+//            ((System.ComponentModel.ISupportInitialize)(this.docTemplatesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.templatesDataTableDataGridView)).EndInit();
             this.ResumeLayout(false);
 

@@ -66,7 +66,7 @@
       <Value Profile="(Default)">3306</Value>
     </Setting>
     <Setting Name="ConnDatabase" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Edocbase</Value>
+      <Value Profile="(Default)">edocbase</Value>
     </Setting>
     <Setting Name="ProposalEmissionLabelText" Type="System.String" Scope="User">
       <Value Profile="(Default)">Тип выпуска продукции</Value>
@@ -86,10 +86,10 @@
     <Setting Name="EdocbaseConnectionString" Type="(Connection string)" Scope="Application">
       <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
 &lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;ConnectionString&gt;server=192.168.137.85;User Id=root;password=po12jein45bf;Persist Security Info=True;database=Edocbase&lt;/ConnectionString&gt;
+  &lt;ConnectionString&gt;server=192.168.137.85;User Id=root;password=po12jein45bf;Persist Security Info=True;database=edocbase&lt;/ConnectionString&gt;
   &lt;ProviderName&gt;MySql.Data.MySqlClient&lt;/ProviderName&gt;
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
-      <Value Profile="(Default)">server=192.168.137.85;User Id=root;password=po12jein45bf;Persist Security Info=True;database=Edocbase</Value>
+      <Value Profile="(Default)">server=192.168.137.85;User Id=root;password=po12jein45bf;Persist Security Info=True;database=edocbase</Value>
     </Setting>
     <Setting Name="ProductionToolStripMenuItemText" Type="System.String" Scope="User">
       <Value Profile="(Default)">Область аккредитации</Value>
