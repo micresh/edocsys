@@ -1,4 +1,4 @@
-REM @echo off
+@echo off
 SET user=root
 SET pwd=po12jein45bf
 

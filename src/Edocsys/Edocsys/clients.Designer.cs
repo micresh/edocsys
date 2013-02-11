@@ -51,11 +51,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ClientsForm));
             this.agents_contactsDataGridView = new System.Windows.Forms.DataGridView();
             this.person = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.agents_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.phoneDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.faxDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.emailDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.faxDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.agents_contactsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.agentsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.edocbaseDataSet = new Edocsys.EdocbaseDataSet();
@@ -72,6 +71,9 @@
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.agentsBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
+            this.filterToolStripTextBox = new System.Windows.Forms.ToolStripTextBox();
             this.tableAdapterManager = new Edocsys.EdocbaseDataSetTableAdapters.TableAdapterManager();
             this.agentsTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.agentsTableAdapter();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
@@ -91,8 +93,9 @@
             this.toolStripLabelAgent = new System.Windows.Forms.ToolStripLabel();
             this.toolStripButtonSaveContact = new System.Windows.Forms.ToolStripButton();
             this.agentsDataGridView = new System.Windows.Forms.DataGridView();
-            this.Ag_fullname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fullname = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.person_shortname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fullnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.pers_statusTextBox = new System.Windows.Forms.TextBox();
             this.docTextBox = new System.Windows.Forms.TextBox();
@@ -118,31 +121,6 @@
             this.emailTextBox = new System.Windows.Forms.TextBox();
             this.agent_typesTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.agent_typesTableAdapter();
             this.agents_contactsTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.agents_contactsTableAdapter();
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.agenttypesidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.innDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.phoneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.faxDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.addressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ogrnDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.kppDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.okpoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ksDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bikDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bankDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.signingauthoritydocDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.persstatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.perslastnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.persfirstnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.persmiddlenameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.agenttypesnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.agenttypesid1DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fullnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.contactpersnameFIODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.contactpersnameIOFDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ag_type_idLabel = new System.Windows.Forms.Label();
             ag_INNLabel = new System.Windows.Forms.Label();
             ag_fullnameLabel = new System.Windows.Forms.Label();
@@ -378,17 +356,16 @@
             this.agents_contactsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.agents_contactsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.person,
-            this.agents_id,
             this.status,
             this.phoneDataGridViewTextBoxColumn1,
-            this.faxDataGridViewTextBoxColumn1,
-            this.emailDataGridViewTextBoxColumn1});
+            this.emailDataGridViewTextBoxColumn1,
+            this.faxDataGridViewTextBoxColumn1});
             this.agents_contactsDataGridView.DataSource = this.agents_contactsBindingSource;
             this.agents_contactsDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.agents_contactsDataGridView.Location = new System.Drawing.Point(3, 41);
             this.agents_contactsDataGridView.MultiSelect = false;
             this.agents_contactsDataGridView.Name = "agents_contactsDataGridView";
-            this.agents_contactsDataGridView.Size = new System.Drawing.Size(612, 144);
+            this.agents_contactsDataGridView.Size = new System.Drawing.Size(662, 144);
             this.agents_contactsDataGridView.TabIndex = 3;
             // 
             // person
@@ -396,12 +373,7 @@
             this.person.DataPropertyName = "person";
             this.person.HeaderText = "Ф.И.О.";
             this.person.Name = "person";
-            // 
-            // agents_id
-            // 
-            this.agents_id.DataPropertyName = "agents_id";
-            this.agents_id.HeaderText = "agents_id";
-            this.agents_id.Name = "agents_id";
+            this.person.Width = 200;
             // 
             // status
             // 
@@ -415,17 +387,17 @@
             this.phoneDataGridViewTextBoxColumn1.HeaderText = "Телефон";
             this.phoneDataGridViewTextBoxColumn1.Name = "phoneDataGridViewTextBoxColumn1";
             // 
-            // faxDataGridViewTextBoxColumn1
-            // 
-            this.faxDataGridViewTextBoxColumn1.DataPropertyName = "fax";
-            this.faxDataGridViewTextBoxColumn1.HeaderText = "Факс";
-            this.faxDataGridViewTextBoxColumn1.Name = "faxDataGridViewTextBoxColumn1";
-            // 
             // emailDataGridViewTextBoxColumn1
             // 
             this.emailDataGridViewTextBoxColumn1.DataPropertyName = "email";
             this.emailDataGridViewTextBoxColumn1.HeaderText = "E-mail";
             this.emailDataGridViewTextBoxColumn1.Name = "emailDataGridViewTextBoxColumn1";
+            // 
+            // faxDataGridViewTextBoxColumn1
+            // 
+            this.faxDataGridViewTextBoxColumn1.DataPropertyName = "fax";
+            this.faxDataGridViewTextBoxColumn1.HeaderText = "Факс";
+            this.faxDataGridViewTextBoxColumn1.Name = "faxDataGridViewTextBoxColumn1";
             // 
             // agents_contactsBindingSource
             // 
@@ -463,7 +435,10 @@
             this.bindingNavigatorSeparator2,
             this.bindingNavigatorAddNewItem,
             this.bindingNavigatorDeleteItem,
-            this.agentsBindingNavigatorSaveItem});
+            this.agentsBindingNavigatorSaveItem,
+            this.toolStripSeparator1,
+            this.toolStripLabel1,
+            this.filterToolStripTextBox});
             this.agentsBindingNavigator.Location = new System.Drawing.Point(0, 0);
             this.agentsBindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
             this.agentsBindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastItem;
@@ -471,7 +446,7 @@
             this.agentsBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.agentsBindingNavigator.Name = "agentsBindingNavigator";
             this.agentsBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.agentsBindingNavigator.Size = new System.Drawing.Size(1112, 25);
+            this.agentsBindingNavigator.Size = new System.Drawing.Size(1162, 25);
             this.agentsBindingNavigator.TabIndex = 0;
             this.agentsBindingNavigator.Text = "bindingNavigator1";
             // 
@@ -570,6 +545,24 @@
             this.agentsBindingNavigatorSaveItem.Text = "Save Data";
             this.agentsBindingNavigatorSaveItem.Click += new System.EventHandler(this.agentsBindingNavigatorSaveItem_Click);
             // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripLabel1
+            // 
+            this.toolStripLabel1.Name = "toolStripLabel1";
+            this.toolStripLabel1.Size = new System.Drawing.Size(48, 22);
+            this.toolStripLabel1.Text = "Фильтр";
+            // 
+            // filterToolStripTextBox
+            // 
+            this.filterToolStripTextBox.Name = "filterToolStripTextBox";
+            this.filterToolStripTextBox.Size = new System.Drawing.Size(200, 25);
+            this.filterToolStripTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.filterToolStripTextBox_KeyDown);
+            this.filterToolStripTextBox.TextChanged += new System.EventHandler(this.filterToolStripTextBox_TextChanged);
+            // 
             // tableAdapterManager
             // 
             this.tableAdapterManager.agent_typesTableAdapter = null;
@@ -616,8 +609,8 @@
             this.splitContainer1.Panel2.Controls.Add(this.groupBox2);
             this.splitContainer1.Panel2.Controls.Add(this.groupBox1);
             this.splitContainer1.Panel2MinSize = 490;
-            this.splitContainer1.Size = new System.Drawing.Size(1112, 522);
-            this.splitContainer1.SplitterDistance = 618;
+            this.splitContainer1.Size = new System.Drawing.Size(1162, 522);
+            this.splitContainer1.SplitterDistance = 668;
             this.splitContainer1.TabIndex = 8;
             // 
             // groupBox4
@@ -628,7 +621,7 @@
             this.groupBox4.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.groupBox4.Location = new System.Drawing.Point(0, 334);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(618, 188);
+            this.groupBox4.Size = new System.Drawing.Size(668, 188);
             this.groupBox4.TabIndex = 49;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = global::Edocsys.Properties.Settings.Default.AgentsContactsText;
@@ -660,7 +653,7 @@
             this.bindingNavigatorContacts.MovePreviousItem = this.bindingNavigatorMovePreviousItem1;
             this.bindingNavigatorContacts.Name = "bindingNavigatorContacts";
             this.bindingNavigatorContacts.PositionItem = this.bindingNavigatorPositionItem1;
-            this.bindingNavigatorContacts.Size = new System.Drawing.Size(612, 25);
+            this.bindingNavigatorContacts.Size = new System.Drawing.Size(662, 25);
             this.bindingNavigatorContacts.TabIndex = 2;
             this.bindingNavigatorContacts.Text = "bindingNavigatorContacts";
             // 
@@ -773,33 +766,9 @@
             this.agentsDataGridView.AutoGenerateColumns = false;
             this.agentsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.agentsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Ag_fullname,
+            this.fullname,
             this.person_shortname,
-            this.idDataGridViewTextBoxColumn,
-            this.agenttypesidDataGridViewTextBoxColumn,
-            this.nameDataGridViewTextBoxColumn,
-            this.innDataGridViewTextBoxColumn,
-            this.phoneDataGridViewTextBoxColumn,
-            this.faxDataGridViewTextBoxColumn,
-            this.emailDataGridViewTextBoxColumn,
-            this.addressDataGridViewTextBoxColumn,
-            this.ogrnDataGridViewTextBoxColumn,
-            this.kppDataGridViewTextBoxColumn,
-            this.okpoDataGridViewTextBoxColumn,
-            this.rsDataGridViewTextBoxColumn,
-            this.ksDataGridViewTextBoxColumn,
-            this.bikDataGridViewTextBoxColumn,
-            this.bankDataGridViewTextBoxColumn,
-            this.signingauthoritydocDataGridViewTextBoxColumn,
-            this.persstatusDataGridViewTextBoxColumn,
-            this.perslastnameDataGridViewTextBoxColumn,
-            this.persfirstnameDataGridViewTextBoxColumn,
-            this.persmiddlenameDataGridViewTextBoxColumn,
-            this.agenttypesnameDataGridViewTextBoxColumn,
-            this.agenttypesid1DataGridViewTextBoxColumn,
-            this.fullnameDataGridViewTextBoxColumn,
-            this.contactpersnameFIODataGridViewTextBoxColumn,
-            this.contactpersnameIOFDataGridViewTextBoxColumn});
+            this.fullnameDataGridViewTextBoxColumn});
             this.agentsDataGridView.DataSource = this.agentsBindingSource;
             this.agentsDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.agentsDataGridView.Location = new System.Drawing.Point(0, 0);
@@ -807,18 +776,20 @@
             this.agentsDataGridView.Name = "agentsDataGridView";
             this.agentsDataGridView.ReadOnly = true;
             this.agentsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.agentsDataGridView.Size = new System.Drawing.Size(618, 522);
+            this.agentsDataGridView.Size = new System.Drawing.Size(668, 522);
             this.agentsDataGridView.TabIndex = 7;
+            this.agentsDataGridView.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.agentsDataGridView_ColumnHeaderMouseClick);
+            this.agentsDataGridView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.agentsDataGridView_KeyDown);
             // 
-            // Ag_fullname
+            // fullname
             // 
-            this.Ag_fullname.DataPropertyName = "name";
-            this.Ag_fullname.HeaderText = "Название";
-            this.Ag_fullname.MinimumWidth = 250;
-            this.Ag_fullname.Name = "Ag_fullname";
-            this.Ag_fullname.ReadOnly = true;
-            this.Ag_fullname.ToolTipText = "Название";
-            this.Ag_fullname.Width = 250;
+            this.fullname.DataPropertyName = "name";
+            this.fullname.HeaderText = "Название";
+            this.fullname.MinimumWidth = 200;
+            this.fullname.Name = "fullname";
+            this.fullname.ReadOnly = true;
+            this.fullname.ToolTipText = "Название";
+            this.fullname.Width = 200;
             // 
             // person_shortname
             // 
@@ -829,6 +800,14 @@
             this.person_shortname.ReadOnly = true;
             this.person_shortname.ToolTipText = "Ф.И.О. ответственного";
             this.person_shortname.Width = 200;
+            // 
+            // fullnameDataGridViewTextBoxColumn
+            // 
+            this.fullnameDataGridViewTextBoxColumn.DataPropertyName = "fullname";
+            this.fullnameDataGridViewTextBoxColumn.HeaderText = "Полное название";
+            this.fullnameDataGridViewTextBoxColumn.Name = "fullnameDataGridViewTextBoxColumn";
+            this.fullnameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.fullnameDataGridViewTextBoxColumn.Width = 200;
             // 
             // groupBox3
             // 
@@ -1072,186 +1051,11 @@
             // 
             this.agents_contactsTableAdapter.ClearBeforeFill = true;
             // 
-            // idDataGridViewTextBoxColumn
-            // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "id";
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            this.idDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // agenttypesidDataGridViewTextBoxColumn
-            // 
-            this.agenttypesidDataGridViewTextBoxColumn.DataPropertyName = "agent_types_id";
-            this.agenttypesidDataGridViewTextBoxColumn.HeaderText = "agent_types_id";
-            this.agenttypesidDataGridViewTextBoxColumn.Name = "agenttypesidDataGridViewTextBoxColumn";
-            this.agenttypesidDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "name";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // innDataGridViewTextBoxColumn
-            // 
-            this.innDataGridViewTextBoxColumn.DataPropertyName = "inn";
-            this.innDataGridViewTextBoxColumn.HeaderText = "inn";
-            this.innDataGridViewTextBoxColumn.Name = "innDataGridViewTextBoxColumn";
-            this.innDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // phoneDataGridViewTextBoxColumn
-            // 
-            this.phoneDataGridViewTextBoxColumn.DataPropertyName = "phone";
-            this.phoneDataGridViewTextBoxColumn.HeaderText = "phone";
-            this.phoneDataGridViewTextBoxColumn.Name = "phoneDataGridViewTextBoxColumn";
-            this.phoneDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // faxDataGridViewTextBoxColumn
-            // 
-            this.faxDataGridViewTextBoxColumn.DataPropertyName = "fax";
-            this.faxDataGridViewTextBoxColumn.HeaderText = "fax";
-            this.faxDataGridViewTextBoxColumn.Name = "faxDataGridViewTextBoxColumn";
-            this.faxDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // emailDataGridViewTextBoxColumn
-            // 
-            this.emailDataGridViewTextBoxColumn.DataPropertyName = "email";
-            this.emailDataGridViewTextBoxColumn.HeaderText = "email";
-            this.emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
-            this.emailDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // addressDataGridViewTextBoxColumn
-            // 
-            this.addressDataGridViewTextBoxColumn.DataPropertyName = "address";
-            this.addressDataGridViewTextBoxColumn.HeaderText = "address";
-            this.addressDataGridViewTextBoxColumn.Name = "addressDataGridViewTextBoxColumn";
-            this.addressDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // ogrnDataGridViewTextBoxColumn
-            // 
-            this.ogrnDataGridViewTextBoxColumn.DataPropertyName = "ogrn";
-            this.ogrnDataGridViewTextBoxColumn.HeaderText = "ogrn";
-            this.ogrnDataGridViewTextBoxColumn.Name = "ogrnDataGridViewTextBoxColumn";
-            this.ogrnDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // kppDataGridViewTextBoxColumn
-            // 
-            this.kppDataGridViewTextBoxColumn.DataPropertyName = "kpp";
-            this.kppDataGridViewTextBoxColumn.HeaderText = "kpp";
-            this.kppDataGridViewTextBoxColumn.Name = "kppDataGridViewTextBoxColumn";
-            this.kppDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // okpoDataGridViewTextBoxColumn
-            // 
-            this.okpoDataGridViewTextBoxColumn.DataPropertyName = "okpo";
-            this.okpoDataGridViewTextBoxColumn.HeaderText = "okpo";
-            this.okpoDataGridViewTextBoxColumn.Name = "okpoDataGridViewTextBoxColumn";
-            this.okpoDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // rsDataGridViewTextBoxColumn
-            // 
-            this.rsDataGridViewTextBoxColumn.DataPropertyName = "rs";
-            this.rsDataGridViewTextBoxColumn.HeaderText = "rs";
-            this.rsDataGridViewTextBoxColumn.Name = "rsDataGridViewTextBoxColumn";
-            this.rsDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // ksDataGridViewTextBoxColumn
-            // 
-            this.ksDataGridViewTextBoxColumn.DataPropertyName = "ks";
-            this.ksDataGridViewTextBoxColumn.HeaderText = "ks";
-            this.ksDataGridViewTextBoxColumn.Name = "ksDataGridViewTextBoxColumn";
-            this.ksDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // bikDataGridViewTextBoxColumn
-            // 
-            this.bikDataGridViewTextBoxColumn.DataPropertyName = "bik";
-            this.bikDataGridViewTextBoxColumn.HeaderText = "bik";
-            this.bikDataGridViewTextBoxColumn.Name = "bikDataGridViewTextBoxColumn";
-            this.bikDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // bankDataGridViewTextBoxColumn
-            // 
-            this.bankDataGridViewTextBoxColumn.DataPropertyName = "bank";
-            this.bankDataGridViewTextBoxColumn.HeaderText = "bank";
-            this.bankDataGridViewTextBoxColumn.Name = "bankDataGridViewTextBoxColumn";
-            this.bankDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // signingauthoritydocDataGridViewTextBoxColumn
-            // 
-            this.signingauthoritydocDataGridViewTextBoxColumn.DataPropertyName = "signing_authority_doc";
-            this.signingauthoritydocDataGridViewTextBoxColumn.HeaderText = "signing_authority_doc";
-            this.signingauthoritydocDataGridViewTextBoxColumn.Name = "signingauthoritydocDataGridViewTextBoxColumn";
-            this.signingauthoritydocDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // persstatusDataGridViewTextBoxColumn
-            // 
-            this.persstatusDataGridViewTextBoxColumn.DataPropertyName = "pers_status";
-            this.persstatusDataGridViewTextBoxColumn.HeaderText = "pers_status";
-            this.persstatusDataGridViewTextBoxColumn.Name = "persstatusDataGridViewTextBoxColumn";
-            this.persstatusDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // perslastnameDataGridViewTextBoxColumn
-            // 
-            this.perslastnameDataGridViewTextBoxColumn.DataPropertyName = "pers_lastname";
-            this.perslastnameDataGridViewTextBoxColumn.HeaderText = "pers_lastname";
-            this.perslastnameDataGridViewTextBoxColumn.Name = "perslastnameDataGridViewTextBoxColumn";
-            this.perslastnameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // persfirstnameDataGridViewTextBoxColumn
-            // 
-            this.persfirstnameDataGridViewTextBoxColumn.DataPropertyName = "pers_firstname";
-            this.persfirstnameDataGridViewTextBoxColumn.HeaderText = "pers_firstname";
-            this.persfirstnameDataGridViewTextBoxColumn.Name = "persfirstnameDataGridViewTextBoxColumn";
-            this.persfirstnameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // persmiddlenameDataGridViewTextBoxColumn
-            // 
-            this.persmiddlenameDataGridViewTextBoxColumn.DataPropertyName = "pers_middlename";
-            this.persmiddlenameDataGridViewTextBoxColumn.HeaderText = "pers_middlename";
-            this.persmiddlenameDataGridViewTextBoxColumn.Name = "persmiddlenameDataGridViewTextBoxColumn";
-            this.persmiddlenameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // agenttypesnameDataGridViewTextBoxColumn
-            // 
-            this.agenttypesnameDataGridViewTextBoxColumn.DataPropertyName = "agent_types_name";
-            this.agenttypesnameDataGridViewTextBoxColumn.HeaderText = "agent_types_name";
-            this.agenttypesnameDataGridViewTextBoxColumn.Name = "agenttypesnameDataGridViewTextBoxColumn";
-            this.agenttypesnameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // agenttypesid1DataGridViewTextBoxColumn
-            // 
-            this.agenttypesid1DataGridViewTextBoxColumn.DataPropertyName = "agent_types_id1";
-            this.agenttypesid1DataGridViewTextBoxColumn.HeaderText = "agent_types_id1";
-            this.agenttypesid1DataGridViewTextBoxColumn.Name = "agenttypesid1DataGridViewTextBoxColumn";
-            this.agenttypesid1DataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // fullnameDataGridViewTextBoxColumn
-            // 
-            this.fullnameDataGridViewTextBoxColumn.DataPropertyName = "fullname";
-            this.fullnameDataGridViewTextBoxColumn.HeaderText = "fullname";
-            this.fullnameDataGridViewTextBoxColumn.Name = "fullnameDataGridViewTextBoxColumn";
-            this.fullnameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // contactpersnameFIODataGridViewTextBoxColumn
-            // 
-            this.contactpersnameFIODataGridViewTextBoxColumn.DataPropertyName = "contact_pers_name_FIO";
-            this.contactpersnameFIODataGridViewTextBoxColumn.HeaderText = "contact_pers_name_FIO";
-            this.contactpersnameFIODataGridViewTextBoxColumn.Name = "contactpersnameFIODataGridViewTextBoxColumn";
-            this.contactpersnameFIODataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // contactpersnameIOFDataGridViewTextBoxColumn
-            // 
-            this.contactpersnameIOFDataGridViewTextBoxColumn.DataPropertyName = "contact_pers_name_IOF";
-            this.contactpersnameIOFDataGridViewTextBoxColumn.HeaderText = "contact_pers_name_IOF";
-            this.contactpersnameIOFDataGridViewTextBoxColumn.Name = "contactpersnameIOFDataGridViewTextBoxColumn";
-            this.contactpersnameIOFDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
             // ClientsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1112, 547);
+            this.ClientSize = new System.Drawing.Size(1162, 547);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.agentsBindingNavigator);
             this.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Edocsys.Properties.Settings.Default, "ClientsFormText", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
@@ -1350,39 +1154,17 @@
         private System.Windows.Forms.BindingSource agent_typesBindingSource;
         private System.Windows.Forms.DataGridView agents_contactsDataGridView;
         private System.Windows.Forms.BindingSource agents_contactsBindingSource;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Ag_fullname;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fullname;
         private System.Windows.Forms.DataGridViewTextBoxColumn person_shortname;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fullnameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn person;
-        private System.Windows.Forms.DataGridViewTextBoxColumn agents_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn status;
         private System.Windows.Forms.DataGridViewTextBoxColumn phoneDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn faxDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn emailDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn agenttypesidDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn innDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn phoneDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn faxDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn emailDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn addressDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ogrnDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn kppDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn okpoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn rsDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ksDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn bikDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn bankDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn signingauthoritydocDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn persstatusDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn perslastnameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn persfirstnameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn persmiddlenameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn agenttypesnameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn agenttypesid1DataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fullnameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn contactpersnameFIODataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn contactpersnameIOFDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn faxDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel1;
+        private System.Windows.Forms.ToolStripTextBox filterToolStripTextBox;
 
         //private EdocbaseDataSetTableAdapters.Agents_typesTableAdapter agents_typesTableAdapter;
         //private EdocbaseDataSetTableAdapters.AgentsTableAdapter agentsTableAdapter;

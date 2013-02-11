@@ -119,6 +119,7 @@
     <Compile Include="experts.Designer.cs">
       <DependentUpon>experts.cs</DependentUpon>
     </Compile>
+    <Compile Include="FilterHelper.cs" />
     <Compile Include="login.cs">
       <SubType>Form</SubType>
     </Compile>
