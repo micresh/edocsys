@@ -50,7 +50,7 @@ namespace Edocsys
             this.agents_contactsTableAdapter.Fill(this.edocbaseDataSet.agents_contacts);
 
             // create filter with default filter name
-            agentsFilter = new FilterHelper(agentsBindingSource, "name");
+            agentsFilter = new FilterHelper(agentsDataGridView, agentsBindingSource, filterToolStripTextBox.TextBox, "name");
         }
 
         private void toolStripButtonSaveContact_Click(object sender, EventArgs e)
@@ -100,57 +100,5 @@ namespace Edocsys
         {
             DataRowView row = edocbaseDataSet.agents.DefaultView.AddNew();
         }
-
-        private void agentsDataGridView_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            //
-            //MessageBox.Show(agents_contactsBindingSource.Sort);
-            string field = agentsDataGridView.Columns[e.ColumnIndex].DataPropertyName;
-            string value = filterToolStripTextBox.Text;
-
-            agentsFilter.FieldName = field;
-            agentsFilter.ApplyFilter(value);
-        }
-
-        private void agentsDataGridView_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Escape)
-            {
-                agentsFilter.ResetFilter();
-                filterToolStripTextBox.Text = "";
-            }
-            if ((e.KeyCode > Keys.A && e.KeyCode < Keys.Z)
-                 || (e.KeyCode > Keys.D0 && e.KeyCode < Keys.D9)
-                 || (e.KeyCode > Keys.NumPad0 && e.KeyCode < Keys.NumPad9)
-                )
-            {
-                filterToolStripTextBox.Text += String.Format("{0}", (char)e.KeyValue);
-                filterToolStripTextBox.Focus();
-            }
-
-        }
-
-        private void filterToolStripTextBox_TextChanged(object sender, EventArgs e)
-        {
-            agentsFilter.ApplyFilter(((ToolStripTextBox)sender).Text);
-        }
-
-        private void filterToolStripTextBox_KeyDown(object sender, KeyEventArgs e)
-        {
-            // select datagrid
-            if ((e.KeyCode == Keys.Down)
-                || (e.KeyCode == Keys.Enter))
-            {
-                agentsDataGridView.Focus();
-            }
-
-            // remove filter data
-            if (e.KeyCode == Keys.Escape)
-            {
-                filterToolStripTextBox.Text = "";
-                agentsFilter.ResetFilter();
-            }
-        }
-
     }
 }

@@ -560,8 +560,6 @@
             // 
             this.filterToolStripTextBox.Name = "filterToolStripTextBox";
             this.filterToolStripTextBox.Size = new System.Drawing.Size(200, 25);
-            this.filterToolStripTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.filterToolStripTextBox_KeyDown);
-            this.filterToolStripTextBox.TextChanged += new System.EventHandler(this.filterToolStripTextBox_TextChanged);
             // 
             // tableAdapterManager
             // 
@@ -778,8 +776,6 @@
             this.agentsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.agentsDataGridView.Size = new System.Drawing.Size(668, 522);
             this.agentsDataGridView.TabIndex = 7;
-            this.agentsDataGridView.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.agentsDataGridView_ColumnHeaderMouseClick);
-            this.agentsDataGridView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.agentsDataGridView_KeyDown);
             // 
             // fullname
             // 
