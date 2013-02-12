@@ -50,7 +50,7 @@ namespace Edocsys
             this.agents_contactsTableAdapter.Fill(this.edocbaseDataSet.agents_contacts);
 
             // create filter with default filter name
-            agentsFilter = new FilterHelper(agentsDataGridView, agentsBindingSource, filterToolStripTextBox.TextBox, "name");
+            agentsFilter = new FilterHelper(agentsDataGridView, filterToolStripTextBox.TextBox);
         }
 
         private void toolStripButtonSaveContact_Click(object sender, EventArgs e)

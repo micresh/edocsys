@@ -16,6 +16,8 @@ namespace Edocsys
             InitializeComponent();
         }
 
+        private FilterHelper filter;
+
         private void expertsBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
             try
@@ -37,7 +39,7 @@ namespace Edocsys
 
         private void ExpertsForm_Load(object sender, EventArgs e)
         {
-
+            filter = new FilterHelper(this.expertsDataGridView, FilterTextBox.TextBox);
             //this.expertsTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
 
             //// TODO: This line of code loads data into the 'edocbaseDataSet.Experts' table. You can move, or remove it, as needed.

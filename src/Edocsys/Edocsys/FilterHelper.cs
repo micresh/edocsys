@@ -9,31 +9,32 @@ namespace Edocsys
 {
     class FilterHelper
     {
-        public FilterHelper(DataGridView dataGrid, BindingSource source, TextBox filterBox, string fieldName)
+        public FilterHelper(DataGridView dataGrid, TextBox filterBox)
         {
-            this.FieldName = fieldName;
-            this.Source = source;
             this.DataGrid = dataGrid;
             this.FilterBox = filterBox;
 
+            this.FieldName = String.Empty;
             // set events handlers
             this.DataGrid.KeyDown += DataGridView_OnKeyDown;
             this.DataGrid.ColumnHeaderMouseClick += DataGridView_OnColumnHeaderMouseClick;
             this.FilterBox.KeyDown += TextBox_OnKeyDown;
             this.FilterBox.TextChanged += TextBox_OnTextChanged;
+            if (this.DataGrid.Columns.Count > 0)
+                this.FieldName = this.DataGrid.Columns[0].DataPropertyName;
         }
 
         public void ApplyFilter(string value)
         {
-            if (value != String.Empty)
-                Source.Filter = FieldName + " LIKE '%" + value + "%'";
+            if (value != String.Empty && FieldName != String.Empty)
+                ((BindingSource)this.DataGrid.DataSource).Filter = FieldName + " LIKE '%" + value + "%'";
             else
                 ResetFilter();
         }
 
         public void ResetFilter()
         {
-            Source.Filter = "";
+            ((BindingSource)this.DataGrid.DataSource).Filter = "";
         }
 
         // Event handlers
@@ -89,11 +90,6 @@ namespace Edocsys
         }
 
         // Fields Properties
-        public BindingSource Source
-        {
-            get;
-            set;
-        }
         public string FieldName
         {
             get;
