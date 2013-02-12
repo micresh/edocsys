@@ -308,8 +308,6 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private EdocbaseDataSet edocbaseDataSet;
         private System.Windows.Forms.BindingSource usersBindingSource;
         private EdocbaseDataSetTableAdapters.usersTableAdapter usersTableAdapter;

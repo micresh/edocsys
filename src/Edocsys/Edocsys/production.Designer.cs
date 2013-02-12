@@ -385,7 +385,6 @@
         private System.Windows.Forms.ToolStripButton productsBindingNavigatorSaveItem;
         private EdocbaseDataSetTableAdapters.product_gostsTableAdapter product_gostsTableAdapter;
         private System.Windows.Forms.DataGridView productsDataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
         private System.Windows.Forms.BindingSource product_gostsBindingSource;
         private System.Windows.Forms.DataGridView product_gostsDataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
@@ -396,8 +395,5 @@
         private System.Windows.Forms.BindingSource product_areasBindingSource;
         private EdocbaseDataSetTableAdapters.product_areasTableAdapter product_areasTableAdapter;
         private System.Windows.Forms.ComboBox nameComboBox;
-        //private EdocbaseDataSetTableAdapters.ProductsTableAdapter productsTableAdapter;
-        //private EdocbaseDataSetTableAdapters.ProdGostTableAdapter prodGostTableAdapter;
-
     }
 }
