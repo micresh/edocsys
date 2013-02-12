@@ -48,5 +48,11 @@ namespace Edocsys
             Director = 3,
         }
 
+        public enum SourceTypes : int
+        {
+            Personal = 1,
+            Phone = 2,
+            Internet = 3,
+        }
     }
 }

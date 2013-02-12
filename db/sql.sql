@@ -214,7 +214,12 @@ contracts.products_id,
 contracts.agents_id,
 contracts.contract_types_id,
 contracts.contract_status_id,
-products.name,
+contracts.experts_id,
+contracts.source_types_id,
+contracts.date_proposal,
+contracts.scheme_type,
+contracts.add_data_proposal,
+products.name AS products_name,
 products.id AS products_id, 
 agents.id AS agents_id,
 agents.name AS agents_name,
@@ -225,16 +230,47 @@ agent_types.id AS agent_types_id,
 agent_types.name AS agent_types_name,
 CONCAT( agent_types.name, ' ', agents.name ) AS agents_fullname, 
 CONCAT( agents.pers_lastname, ' ', substr(agents.pers_firstname, 1, 1), '. ', substr(agents.pers_middlename, 1, 1), '.' ) AS contact_pers_name_FIO,
-CONCAT( substr(agents.pers_firstname, 1, 1), '. ', substr(agents.pers_middlename, 1, 1), '. ', agents.pers_lastname ) AS contact_pers_name_IOF
-
+CONCAT( substr(agents.pers_firstname, 1, 1), '. ', substr(agents.pers_middlename, 1, 1), '. ', agents.pers_lastname ) AS contact_pers_name_IOF,
+contract_types.id AS contract_types_id,
+contract_types.name AS contract_types_name,
+emission_types.id AS emission_types_id,
+emission_types.name AS emission_types_name
 FROM
 contracts
 LEFT OUTER JOIN agents ON contracts.agents_id = agents.id
 LEFT OUTER JOIN products ON contracts.products_id = products.id
 LEFT OUTER JOIN agent_types ON agents.agent_types_id = agent_types.id
+LEFT OUTER JOIN contract_types ON contracts.contract_types_id = contract_types.id
+LEFT OUTER JOIN emission_types ON contracts.emission_types_id = emission_types.id
+
+DELETE FROM contracts
+WHERE        (id = @id)
+
+INSERT INTO contracts
+(products_id, agents_id, experts_id, contract_status_id, emission_types_id, contract_types_id,
+    number, date_proposal, scheme_type, add_data_proposal, source_types_id)
+VALUES
+(@products_id, @agents_id, @experts_id, @contract_status_id, @emission_types_id, @contract_types_id,
+ @number, @date_proposal, @scheme_type, @add_data_proposal, @source_types_id)
+
+UPDATE contracts
+SET
+products_id = @products_id,
+agents_id = @agents_id,
+experts_id = @experts_id,
+contract_status_id = @contract_status_id,
+emission_types_id = @emission_types_id,
+contract_types_id = @contract_types_id,
+number = @number,
+date_proposal = @date_proposal,
+scheme_type = @scheme_type,
+add_data_proposal = @add_data_proposal,
+source_types_id = @source_types_id
+WHERE
+(id = @Original_id)
 
 
-                         
+
 --- --contracts_info_old
 SELECT 
 Contracts.idContract,

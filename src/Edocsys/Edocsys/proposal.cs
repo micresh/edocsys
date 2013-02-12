@@ -29,33 +29,41 @@ namespace Edocsys
 
         private void SaveProposal()
         {
-            this.Validate();
+            try
+            {
+                this.Validate();
 
-            this.contractsBindingSource.EndEdit();
+                this.contractInfoDataTableBindingSource.EndEdit();
 
-            this.contractsTableAdapter.Update(this.edocbaseDataSet.contracts);
-            this.tableAdapterManager.UpdateAll(this.edocbaseDataSet);
+                this.contractInfoDataTableTableAdapter.Update(this.edocbaseDataSet.ContractInfoDataTable);
+                this.tableAdapterManager.UpdateAll(this.edocbaseDataSet);
 
-            this.edocbaseDataSet.AcceptChanges();
+                this.edocbaseDataSet.AcceptChanges();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Save Error");
+            }
         }
 
         private void RefreshData()
         {
             try
             {
-                int pos = contractsBindingSource.Position;
+                int pos = contractInfoDataTableBindingSource.Position;
 
                 this.productsTableAdapter.Fill(this.edocbaseDataSet.products);
                 this.agentsTableAdapter.Fill(this.edocbaseDataSet.agents);
 
-              
-                this.contractsTableAdapter.Fill(this.edocbaseDataSet.contracts);
+
+                this.contractInfoDataTableTableAdapter.Fill(this.edocbaseDataSet.ContractInfoDataTable);
                 this.emission_typesTableAdapter.Fill(this.edocbaseDataSet.emission_types);
 
                 this.templatesDataTableTableAdapter.Fill(this.edocbaseDataSet.templatesDataTable);
                 this.documentsTableAdapter.Fill(this.edocbaseDataSet.documents);
 
-                contractsBindingSource.Position = pos;
+                contractInfoDataTableBindingSource.Position = pos;
 
                 this.contractsDataGridView.Refresh();
             }   
@@ -68,22 +76,28 @@ namespace Edocsys
 
         private void ProposalForm_Load(object sender, EventArgs e)
         {
+
             this.agentsTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
             this.productsTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
-            this.contractsTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
+            //this.contractsTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
             this.contract_typesTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
             this.templatesDataTableTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
             this.documentsTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
             this.emission_typesTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
 
+            this.contractInfoDataTableTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
+
 
             this.agentsTableAdapter.Fill(this.edocbaseDataSet.agents);
             this.productsTableAdapter.Fill(this.edocbaseDataSet.products);
             this.contract_typesTableAdapter.Fill(this.edocbaseDataSet.contract_types);
-            this.contractsTableAdapter.Fill(this.edocbaseDataSet.contracts);
+            //this.contractsTableAdapter.Fill(this.edocbaseDataSet.contracts);
             this.templatesDataTableTableAdapter.Fill(this.edocbaseDataSet.templatesDataTable);
             this.documentsTableAdapter.Fill(this.edocbaseDataSet.documents);
             this.emission_typesTableAdapter.Fill(this.edocbaseDataSet.emission_types);
+
+
+            this.contractInfoDataTableTableAdapter.Fill(this.edocbaseDataSet.ContractInfoDataTable);
 
             RefreshData();
         }
@@ -448,13 +462,16 @@ namespace Edocsys
 
         private void bindingNavigatorAddNewItem_Click(object sender, EventArgs e)
         {
-            this.contractsBindingSource.AddNew();
-            DataRowView currentDoc = (DataRowView)this.contractsBindingSource.Current;
+            this.contractInfoDataTableBindingSource.AddNew();
+            DataRowView currentDoc = (DataRowView)this.contractInfoDataTableBindingSource.Current;
             currentDoc["contract_status_id"] = (int)Constants.ContractStatuses.NewProposal;
             currentDoc["products_id"] = 0;
             currentDoc["agents_id"] = 0;
             currentDoc["experts_id"] = 1; //assign all to admin
             currentDoc["contract_types_id"] = (int)Constants.ContractTypes.Sertefication;
+            currentDoc["source_types_id"] = (int)Constants.SourceTypes.Personal;
+            currentDoc["date_proposal"] = DateTime.Now;
+            
         }
 
         private void buttonGenerateContract_Click(object sender, EventArgs e)
