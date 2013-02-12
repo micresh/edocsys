@@ -31,60 +31,63 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.Label proposalProductLabel;
             System.Windows.Forms.Label proposalEmissionLabel;
-            System.Windows.Forms.Label proposalClientDocsLabel;
             System.Windows.Forms.Label proposalSchemeTypeLabel;
             System.Windows.Forms.Label proposalAddDataLabel;
             System.Windows.Forms.Label label1;
             System.Windows.Forms.Label contract_typeLabel;
             System.Windows.Forms.Label contract_numberLabel;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProposalForm));
-            this.contractsBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
-            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
-            this.contractsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.edocbaseDataSet = new Edocsys.EdocbaseDataSet();
-            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
-            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
-            this.bindingNavigatorPositionItem = new System.Windows.Forms.ToolStripTextBox();
-            this.bindingNavigatorSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.contractsBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.mainSplitContainer = new System.Windows.Forms.SplitContainer();
             this.contractsDataGridView = new System.Windows.Forms.DataGridView();
-            this.idContract = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Contract_number = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.agent_shortname = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idProducts = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SendProposalColumn = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.Contract_status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contract_numberTextBox = new System.Windows.Forms.TextBox();
             this.contract_typeComboBox = new System.Windows.Forms.ComboBox();
-            this.contractTypesForDocsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.porposalGenerationGroupBox = new System.Windows.Forms.GroupBox();
             this.buttonLoadProposal = new System.Windows.Forms.Button();
             this.buttonSaveProposal = new System.Windows.Forms.Button();
             this.buttonEditProposal = new System.Windows.Forms.Button();
             this.buttonGenerateProposalDoc = new System.Windows.Forms.Button();
             this.proposalAgentsComboBox = new System.Windows.Forms.ComboBox();
-            this.agentsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.addDataTextBox = new System.Windows.Forms.TextBox();
             this.schemeTypeTextBox = new System.Windows.Forms.TextBox();
-            this.clientDocsTextBox = new System.Windows.Forms.TextBox();
             this.productComboBox = new System.Windows.Forms.ComboBox();
-            this.productsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.proposalEmissionTypeTextBox = new System.Windows.Forms.TextBox();
-            this.tableAdapterManager = new Edocsys.EdocbaseDataSetTableAdapters.TableAdapterManager();
-            this.templatesDataTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.contractInfoDataTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.contractInfoDataTableTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.ContractInfoDataTableTableAdapter();
-            this.docTemplatesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.documentsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
+            this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
+            this.bindingNavigatorPositionItem = new System.Windows.Forms.ToolStripTextBox();
+            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
+            this.bindingNavigatorSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
+            this.contractsBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
+            this.contractsBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
+            this.edocbaseDataSet = new Edocsys.EdocbaseDataSet();
+            this.agentsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.agentsTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.agentsTableAdapter();
+            this.tableAdapterManager = new Edocsys.EdocbaseDataSetTableAdapters.TableAdapterManager();
+            this.contractsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.contractsTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.contractsTableAdapter();
+            this.productsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.productsTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.productsTableAdapter();
+            this.contract_typesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.contract_typesTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.contract_typesTableAdapter();
+            this.templatesDataTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.templatesDataTableTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.templatesDataTableTableAdapter();
+            this.documentsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.documentsTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.documentsTableAdapter();
+            this.emission_types_idComboBox = new System.Windows.Forms.ComboBox();
+            this.emission_typesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.emission_typesTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.emission_typesTableAdapter();
+            this.idContract = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Contract_number = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.agent_shortname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idProducts = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SendProposalColumn = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Contract_status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.productsidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.agentsidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -114,29 +117,27 @@
             this.adddatacontractDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             proposalProductLabel = new System.Windows.Forms.Label();
             proposalEmissionLabel = new System.Windows.Forms.Label();
-            proposalClientDocsLabel = new System.Windows.Forms.Label();
             proposalSchemeTypeLabel = new System.Windows.Forms.Label();
             proposalAddDataLabel = new System.Windows.Forms.Label();
             label1 = new System.Windows.Forms.Label();
             contract_typeLabel = new System.Windows.Forms.Label();
             contract_numberLabel = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.contractsBindingNavigator)).BeginInit();
-            this.contractsBindingNavigator.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.contractsBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.edocbaseDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainSplitContainer)).BeginInit();
             this.mainSplitContainer.Panel1.SuspendLayout();
             this.mainSplitContainer.Panel2.SuspendLayout();
             this.mainSplitContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.contractsDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.contractTypesForDocsBindingSource)).BeginInit();
             this.porposalGenerationGroupBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.contractsBindingNavigator)).BeginInit();
+            this.contractsBindingNavigator.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.edocbaseDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.agentsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.contractsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.contract_typesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.templatesDataTableBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.contractInfoDataTableBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.docTemplatesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.documentsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emission_typesBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // proposalProductLabel
@@ -159,21 +160,11 @@
             proposalEmissionLabel.TabIndex = 6;
             proposalEmissionLabel.Text = global::Edocsys.Properties.Settings.Default.ProposalEmissionLabelText;
             // 
-            // proposalClientDocsLabel
-            // 
-            proposalClientDocsLabel.AutoSize = true;
-            proposalClientDocsLabel.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Edocsys.Properties.Settings.Default, "ProposalClientDocsLabelText", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            proposalClientDocsLabel.Location = new System.Drawing.Point(12, 126);
-            proposalClientDocsLabel.Name = "proposalClientDocsLabel";
-            proposalClientDocsLabel.Size = new System.Drawing.Size(146, 13);
-            proposalClientDocsLabel.TabIndex = 9;
-            proposalClientDocsLabel.Text = global::Edocsys.Properties.Settings.Default.ProposalClientDocsLabelText;
-            // 
             // proposalSchemeTypeLabel
             // 
             proposalSchemeTypeLabel.AutoSize = true;
             proposalSchemeTypeLabel.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Edocsys.Properties.Settings.Default, "ProposalSchemeTypeLabelText", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            proposalSchemeTypeLabel.Location = new System.Drawing.Point(12, 148);
+            proposalSchemeTypeLabel.Location = new System.Drawing.Point(12, 133);
             proposalSchemeTypeLabel.Name = "proposalSchemeTypeLabel";
             proposalSchemeTypeLabel.Size = new System.Drawing.Size(115, 13);
             proposalSchemeTypeLabel.TabIndex = 11;
@@ -183,7 +174,7 @@
             // 
             proposalAddDataLabel.AutoSize = true;
             proposalAddDataLabel.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Edocsys.Properties.Settings.Default, "ProposalAddDataLabelText", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            proposalAddDataLabel.Location = new System.Drawing.Point(12, 171);
+            proposalAddDataLabel.Location = new System.Drawing.Point(12, 159);
             proposalAddDataLabel.Name = "proposalAddDataLabel";
             proposalAddDataLabel.Size = new System.Drawing.Size(146, 13);
             proposalAddDataLabel.TabIndex = 13;
@@ -219,142 +210,6 @@
             contract_numberLabel.TabIndex = 25;
             contract_numberLabel.Text = global::Edocsys.Properties.Settings.Default.ContractNumberTitle;
             // 
-            // contractsBindingNavigator
-            // 
-            this.contractsBindingNavigator.AddNewItem = this.bindingNavigatorAddNewItem;
-            this.contractsBindingNavigator.BindingSource = this.contractsBindingSource;
-            this.contractsBindingNavigator.CountItem = this.bindingNavigatorCountItem;
-            this.contractsBindingNavigator.DeleteItem = this.bindingNavigatorDeleteItem;
-            this.contractsBindingNavigator.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.bindingNavigatorMoveFirstItem,
-            this.bindingNavigatorMovePreviousItem,
-            this.bindingNavigatorSeparator,
-            this.bindingNavigatorPositionItem,
-            this.bindingNavigatorCountItem,
-            this.bindingNavigatorSeparator1,
-            this.bindingNavigatorMoveNextItem,
-            this.bindingNavigatorMoveLastItem,
-            this.bindingNavigatorSeparator2,
-            this.bindingNavigatorAddNewItem,
-            this.bindingNavigatorDeleteItem,
-            this.contractsBindingNavigatorSaveItem});
-            this.contractsBindingNavigator.Location = new System.Drawing.Point(0, 0);
-            this.contractsBindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
-            this.contractsBindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastItem;
-            this.contractsBindingNavigator.MoveNextItem = this.bindingNavigatorMoveNextItem;
-            this.contractsBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
-            this.contractsBindingNavigator.Name = "contractsBindingNavigator";
-            this.contractsBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.contractsBindingNavigator.Size = new System.Drawing.Size(1267, 25);
-            this.contractsBindingNavigator.TabIndex = 0;
-            this.contractsBindingNavigator.Text = "bindingNavigator1";
-            // 
-            // bindingNavigatorAddNewItem
-            // 
-            this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
-            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
-            this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorAddNewItem.Text = "Add new";
-            this.bindingNavigatorAddNewItem.Click += new System.EventHandler(this.bindingNavigatorAddNewItem_Click);
-            // 
-            // contractsBindingSource
-            // 
-            this.contractsBindingSource.DataMember = "Contracts";
-            this.contractsBindingSource.DataSource = this.edocbaseDataSet;
-            // 
-            // edocbaseDataSet
-            // 
-            this.edocbaseDataSet.CaseSensitive = true;
-            this.edocbaseDataSet.DataSetName = "EdocbaseDataSet";
-            this.edocbaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // bindingNavigatorCountItem
-            // 
-            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(35, 22);
-            this.bindingNavigatorCountItem.Text = "of {0}";
-            this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
-            // 
-            // bindingNavigatorDeleteItem
-            // 
-            this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
-            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
-            this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorDeleteItem.Text = "Delete";
-            // 
-            // bindingNavigatorMoveFirstItem
-            // 
-            this.bindingNavigatorMoveFirstItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
-            this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
-            this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorMoveFirstItem.Text = "Move first";
-            // 
-            // bindingNavigatorMovePreviousItem
-            // 
-            this.bindingNavigatorMovePreviousItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
-            this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
-            this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorMovePreviousItem.Text = "Move previous";
-            // 
-            // bindingNavigatorSeparator
-            // 
-            this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 25);
-            // 
-            // bindingNavigatorPositionItem
-            // 
-            this.bindingNavigatorPositionItem.AccessibleName = "Position";
-            this.bindingNavigatorPositionItem.AutoSize = false;
-            this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
-            this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 21);
-            this.bindingNavigatorPositionItem.Text = "0";
-            this.bindingNavigatorPositionItem.ToolTipText = "Current position";
-            // 
-            // bindingNavigatorSeparator1
-            // 
-            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
-            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 25);
-            // 
-            // bindingNavigatorMoveNextItem
-            // 
-            this.bindingNavigatorMoveNextItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
-            this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
-            this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorMoveNextItem.Text = "Move next";
-            // 
-            // bindingNavigatorMoveLastItem
-            // 
-            this.bindingNavigatorMoveLastItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
-            this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
-            this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorMoveLastItem.Text = "Move last";
-            // 
-            // bindingNavigatorSeparator2
-            // 
-            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
-            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
-            // 
-            // contractsBindingNavigatorSaveItem
-            // 
-            this.contractsBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.contractsBindingNavigatorSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("contractsBindingNavigatorSaveItem.Image")));
-            this.contractsBindingNavigatorSaveItem.Name = "contractsBindingNavigatorSaveItem";
-            this.contractsBindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 22);
-            this.contractsBindingNavigatorSaveItem.Text = "Save Data";
-            this.contractsBindingNavigatorSaveItem.Click += new System.EventHandler(this.contractsBindingNavigatorSaveItem_Click);
-            // 
             // mainSplitContainer
             // 
             this.mainSplitContainer.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -371,6 +226,7 @@
             // mainSplitContainer.Panel2
             // 
             this.mainSplitContainer.Panel2.AutoScroll = true;
+            this.mainSplitContainer.Panel2.Controls.Add(this.emission_types_idComboBox);
             this.mainSplitContainer.Panel2.Controls.Add(contract_numberLabel);
             this.mainSplitContainer.Panel2.Controls.Add(this.contract_numberTextBox);
             this.mainSplitContainer.Panel2.Controls.Add(this.contract_typeComboBox);
@@ -382,20 +238,18 @@
             this.mainSplitContainer.Panel2.Controls.Add(this.addDataTextBox);
             this.mainSplitContainer.Panel2.Controls.Add(proposalSchemeTypeLabel);
             this.mainSplitContainer.Panel2.Controls.Add(this.schemeTypeTextBox);
-            this.mainSplitContainer.Panel2.Controls.Add(proposalClientDocsLabel);
-            this.mainSplitContainer.Panel2.Controls.Add(this.clientDocsTextBox);
             this.mainSplitContainer.Panel2.Controls.Add(this.productComboBox);
             this.mainSplitContainer.Panel2.Controls.Add(proposalEmissionLabel);
             this.mainSplitContainer.Panel2.Controls.Add(proposalProductLabel);
-            this.mainSplitContainer.Panel2.Controls.Add(this.proposalEmissionTypeTextBox);
             this.mainSplitContainer.Panel2MinSize = 160;
-            this.mainSplitContainer.Size = new System.Drawing.Size(1267, 522);
-            this.mainSplitContainer.SplitterDistance = 320;
+            this.mainSplitContainer.Size = new System.Drawing.Size(950, 555);
+            this.mainSplitContainer.SplitterDistance = 353;
             this.mainSplitContainer.TabIndex = 2;
             // 
             // contractsDataGridView
             // 
             this.contractsDataGridView.AllowUserToAddRows = false;
+            this.contractsDataGridView.AllowUserToDeleteRows = false;
             this.contractsDataGridView.AutoGenerateColumns = false;
             this.contractsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.contractsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -437,61 +291,13 @@
             this.contractsDataGridView.Location = new System.Drawing.Point(0, 0);
             this.contractsDataGridView.Name = "contractsDataGridView";
             this.contractsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.contractsDataGridView.Size = new System.Drawing.Size(1267, 320);
+            this.contractsDataGridView.Size = new System.Drawing.Size(950, 353);
             this.contractsDataGridView.TabIndex = 2;
             this.contractsDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.contractsDataGridView_CellClick);
             // 
-            // idContract
-            // 
-            this.idContract.DataPropertyName = "idContract";
-            this.idContract.HeaderText = "#";
-            this.idContract.Name = "idContract";
-            this.idContract.ReadOnly = true;
-            this.idContract.ToolTipText = "#";
-            this.idContract.Width = 30;
-            // 
-            // Contract_number
-            // 
-            this.Contract_number.DataPropertyName = "Contract_number";
-            this.Contract_number.HeaderText = "№ договора";
-            this.Contract_number.Name = "Contract_number";
-            this.Contract_number.Width = 70;
-            // 
-            // agent_shortname
-            // 
-            this.agent_shortname.DataPropertyName = "Ag_fullname";
-            this.agent_shortname.HeaderText = "Название контрагента";
-            this.agent_shortname.Name = "agent_shortname";
-            this.agent_shortname.ReadOnly = true;
-            this.agent_shortname.ToolTipText = "Название контрагента";
-            this.agent_shortname.Width = 200;
-            // 
-            // idProducts
-            // 
-            this.idProducts.DataPropertyName = "Product_name";
-            this.idProducts.HeaderText = "Наименование продукции";
-            this.idProducts.Name = "idProducts";
-            this.idProducts.ReadOnly = true;
-            this.idProducts.ToolTipText = "Наименование продукции";
-            this.idProducts.Width = 250;
-            // 
-            // SendProposalColumn
-            // 
-            this.SendProposalColumn.HeaderText = "Отправить заявку";
-            this.SendProposalColumn.Name = "SendProposalColumn";
-            this.SendProposalColumn.Text = "Отправить";
-            this.SendProposalColumn.ToolTipText = "Отправить";
-            this.SendProposalColumn.UseColumnTextForButtonValue = true;
-            // 
-            // Contract_status
-            // 
-            this.Contract_status.HeaderText = "T";
-            this.Contract_status.Name = "Contract_status";
-            this.Contract_status.Visible = false;
-            // 
             // contract_numberTextBox
             // 
-            this.contract_numberTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.contractsBindingSource, "Contract_number", true));
+            this.contract_numberTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.contractsBindingSource, "number", true));
             this.contract_numberTextBox.Location = new System.Drawing.Point(167, 10);
             this.contract_numberTextBox.Name = "contract_numberTextBox";
             this.contract_numberTextBox.Size = new System.Drawing.Size(485, 20);
@@ -499,8 +305,8 @@
             // 
             // contract_typeComboBox
             // 
-            this.contract_typeComboBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.contractsBindingSource, "Contract_type", true));
-            this.contract_typeComboBox.DataSource = this.contractTypesForDocsBindingSource;
+            this.contract_typeComboBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.contractsBindingSource, "contract_types_id", true));
+            this.contract_typeComboBox.DataSource = this.contract_typesBindingSource;
             this.contract_typeComboBox.DisplayMember = "name";
             this.contract_typeComboBox.FormattingEnabled = true;
             this.contract_typeComboBox.Location = new System.Drawing.Point(167, 76);
@@ -508,11 +314,6 @@
             this.contract_typeComboBox.Size = new System.Drawing.Size(485, 21);
             this.contract_typeComboBox.TabIndex = 25;
             this.contract_typeComboBox.ValueMember = "id";
-            // 
-            // contractTypesForDocsBindingSource
-            // 
-            this.contractTypesForDocsBindingSource.DataMember = "ContractTypesForDocs";
-            this.contractTypesForDocsBindingSource.DataSource = this.edocbaseDataSet;
             // 
             // porposalGenerationGroupBox
             // 
@@ -522,7 +323,7 @@
             this.porposalGenerationGroupBox.Controls.Add(this.buttonGenerateProposalDoc);
             this.porposalGenerationGroupBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Edocsys.Properties.Settings.Default, "ProposalOperationsGroupBox", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.porposalGenerationGroupBox.Dock = System.Windows.Forms.DockStyle.Right;
-            this.porposalGenerationGroupBox.Location = new System.Drawing.Point(980, 0);
+            this.porposalGenerationGroupBox.Location = new System.Drawing.Point(663, 0);
             this.porposalGenerationGroupBox.Name = "porposalGenerationGroupBox";
             this.porposalGenerationGroupBox.Size = new System.Drawing.Size(287, 198);
             this.porposalGenerationGroupBox.TabIndex = 24;
@@ -575,118 +376,43 @@
             // 
             // proposalAgentsComboBox
             // 
-            this.proposalAgentsComboBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.contractsBindingSource, "agent_id", true));
+            this.proposalAgentsComboBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.contractsBindingSource, "agents_id", true));
             this.proposalAgentsComboBox.DataSource = this.agentsBindingSource;
-            this.proposalAgentsComboBox.DisplayMember = "Ag_fullname";
+            this.proposalAgentsComboBox.DisplayMember = "fullname";
             this.proposalAgentsComboBox.FormattingEnabled = true;
             this.proposalAgentsComboBox.Location = new System.Drawing.Point(167, 32);
             this.proposalAgentsComboBox.Name = "proposalAgentsComboBox";
             this.proposalAgentsComboBox.Size = new System.Drawing.Size(485, 21);
             this.proposalAgentsComboBox.TabIndex = 15;
-            this.proposalAgentsComboBox.ValueMember = "idAgents";
-            // 
-            // agentsBindingSource
-            // 
-            this.agentsBindingSource.DataMember = "Agents";
-            this.agentsBindingSource.DataSource = this.edocbaseDataSet;
+            this.proposalAgentsComboBox.ValueMember = "id";
             // 
             // addDataTextBox
             // 
-            this.addDataTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.contractsBindingSource, "Add_data", true));
-            this.addDataTextBox.Location = new System.Drawing.Point(167, 168);
+            this.addDataTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.contractsBindingSource, "add_data_proposal", true));
+            this.addDataTextBox.Location = new System.Drawing.Point(167, 156);
             this.addDataTextBox.Name = "addDataTextBox";
             this.addDataTextBox.Size = new System.Drawing.Size(485, 20);
             this.addDataTextBox.TabIndex = 12;
             // 
             // schemeTypeTextBox
             // 
-            this.schemeTypeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.contractsBindingSource, "Schem_type", true));
-            this.schemeTypeTextBox.Location = new System.Drawing.Point(167, 145);
+            this.schemeTypeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.contractsBindingSource, "scheme_type", true));
+            this.schemeTypeTextBox.Location = new System.Drawing.Point(167, 130);
             this.schemeTypeTextBox.Name = "schemeTypeTextBox";
             this.schemeTypeTextBox.Size = new System.Drawing.Size(485, 20);
             this.schemeTypeTextBox.TabIndex = 10;
             // 
-            // clientDocsTextBox
-            // 
-            this.clientDocsTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.contractsBindingSource, "Client_docs", true));
-            this.clientDocsTextBox.Location = new System.Drawing.Point(167, 123);
-            this.clientDocsTextBox.Name = "clientDocsTextBox";
-            this.clientDocsTextBox.Size = new System.Drawing.Size(485, 20);
-            this.clientDocsTextBox.TabIndex = 8;
-            // 
             // productComboBox
             // 
-            this.productComboBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.contractsBindingSource, "idProducts", true));
+            this.productComboBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.contractsBindingSource, "products_id", true));
             this.productComboBox.DataSource = this.productsBindingSource;
-            this.productComboBox.DisplayMember = "Product_name";
+            this.productComboBox.DisplayMember = "name";
             this.productComboBox.FormattingEnabled = true;
             this.productComboBox.Location = new System.Drawing.Point(167, 54);
             this.productComboBox.Name = "productComboBox";
             this.productComboBox.Size = new System.Drawing.Size(485, 21);
             this.productComboBox.TabIndex = 7;
-            this.productComboBox.ValueMember = "idProducts";
-            // 
-            // productsBindingSource
-            // 
-            this.productsBindingSource.DataMember = "Products";
-            this.productsBindingSource.DataSource = this.edocbaseDataSet;
-            // 
-            // proposalEmissionTypeTextBox
-            // 
-            this.proposalEmissionTypeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.contractsBindingSource, "emission_type", true));
-            this.proposalEmissionTypeTextBox.Location = new System.Drawing.Point(167, 100);
-            this.proposalEmissionTypeTextBox.Name = "proposalEmissionTypeTextBox";
-            this.proposalEmissionTypeTextBox.Size = new System.Drawing.Size(485, 20);
-            this.proposalEmissionTypeTextBox.TabIndex = 5;
-            // 
-            // tableAdapterManager
-            // 
-            this.tableAdapterManager.agent_typesTableAdapter = null;
-            this.tableAdapterManager.agents_contactsTableAdapter = null;
-            this.tableAdapterManager.agentsTableAdapter = null;
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.Connection = null;
-            this.tableAdapterManager.contract_statusTableAdapter = null;
-            this.tableAdapterManager.contract_types_for_workDataTablesTableAdapter = null;
-            this.tableAdapterManager.contract_typesTableAdapter = null;
-            this.tableAdapterManager.contractsTableAdapter = null;
-            this.tableAdapterManager.doc_templatesTableAdapter = null;
-            this.tableAdapterManager.documentsTableAdapter = null;
-            this.tableAdapterManager.emission_typesTableAdapter = null;
-            this.tableAdapterManager.expertsTableAdapter = null;
-            this.tableAdapterManager.log_journalTableAdapter = null;
-            this.tableAdapterManager.product_areasTableAdapter = null;
-            this.tableAdapterManager.product_gostsTableAdapter = null;
-            this.tableAdapterManager.productsTableAdapter = null;
-            this.tableAdapterManager.selected_gostsTableAdapter = null;
-            this.tableAdapterManager.source_typesTableAdapter = null;
-            this.tableAdapterManager.UpdateOrder = Edocsys.EdocbaseDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            this.tableAdapterManager.user_typesTableAdapter = null;
-            this.tableAdapterManager.usersTableAdapter = null;
-            // 
-            // templatesDataTableBindingSource
-            // 
-            this.templatesDataTableBindingSource.DataMember = "TemplatesDataTable";
-            this.templatesDataTableBindingSource.DataSource = this.edocbaseDataSet;
-            // 
-            // contractInfoDataTableBindingSource
-            // 
-            this.contractInfoDataTableBindingSource.DataMember = "ContractInfoDataTable";
-            this.contractInfoDataTableBindingSource.DataSource = this.edocbaseDataSet;
-            // 
-            // contractInfoDataTableTableAdapter
-            // 
-            this.contractInfoDataTableTableAdapter.ClearBeforeFill = true;
-            // 
-            // docTemplatesBindingSource
-            // 
-            this.docTemplatesBindingSource.DataMember = "DocTemplates";
-            this.docTemplatesBindingSource.DataSource = this.edocbaseDataSet;
-            // 
-            // documentsBindingSource
-            // 
-            this.documentsBindingSource.DataMember = "documents";
-            this.documentsBindingSource.DataSource = this.edocbaseDataSet;
+            this.productComboBox.ValueMember = "id";
             // 
             // openFileDialog
             // 
@@ -695,6 +421,282 @@
             // saveFileDialog
             // 
             this.saveFileDialog.Filter = "Файлы Word 2007-2010| *.docx|Все файлы|*.*";
+            // 
+            // bindingNavigatorMoveFirstItem
+            // 
+            this.bindingNavigatorMoveFirstItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
+            this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
+            this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorMoveFirstItem.Text = "Move first";
+            // 
+            // bindingNavigatorMovePreviousItem
+            // 
+            this.bindingNavigatorMovePreviousItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
+            this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
+            this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorMovePreviousItem.Text = "Move previous";
+            // 
+            // bindingNavigatorSeparator
+            // 
+            this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
+            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 25);
+            // 
+            // bindingNavigatorPositionItem
+            // 
+            this.bindingNavigatorPositionItem.AccessibleName = "Position";
+            this.bindingNavigatorPositionItem.AutoSize = false;
+            this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
+            this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 21);
+            this.bindingNavigatorPositionItem.Text = "0";
+            this.bindingNavigatorPositionItem.ToolTipText = "Current position";
+            // 
+            // bindingNavigatorCountItem
+            // 
+            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(35, 22);
+            this.bindingNavigatorCountItem.Text = "of {0}";
+            this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
+            // 
+            // bindingNavigatorSeparator1
+            // 
+            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
+            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 25);
+            // 
+            // bindingNavigatorMoveNextItem
+            // 
+            this.bindingNavigatorMoveNextItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
+            this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
+            this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorMoveNextItem.Text = "Move next";
+            // 
+            // bindingNavigatorMoveLastItem
+            // 
+            this.bindingNavigatorMoveLastItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
+            this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
+            this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorMoveLastItem.Text = "Move last";
+            // 
+            // bindingNavigatorSeparator2
+            // 
+            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
+            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
+            // 
+            // bindingNavigatorAddNewItem
+            // 
+            this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
+            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
+            this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorAddNewItem.Text = "Add new";
+            this.bindingNavigatorAddNewItem.Click += new System.EventHandler(this.bindingNavigatorAddNewItem_Click);
+            // 
+            // bindingNavigatorDeleteItem
+            // 
+            this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
+            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
+            this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorDeleteItem.Text = "Delete";
+            // 
+            // contractsBindingNavigatorSaveItem
+            // 
+            this.contractsBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.contractsBindingNavigatorSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("contractsBindingNavigatorSaveItem.Image")));
+            this.contractsBindingNavigatorSaveItem.Name = "contractsBindingNavigatorSaveItem";
+            this.contractsBindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 22);
+            this.contractsBindingNavigatorSaveItem.Text = "Save Data";
+            this.contractsBindingNavigatorSaveItem.Click += new System.EventHandler(this.contractsBindingNavigatorSaveItem_Click);
+            // 
+            // contractsBindingNavigator
+            // 
+            this.contractsBindingNavigator.AddNewItem = null;
+            this.contractsBindingNavigator.BindingSource = this.contractsBindingSource;
+            this.contractsBindingNavigator.CountItem = this.bindingNavigatorCountItem;
+            this.contractsBindingNavigator.DeleteItem = this.bindingNavigatorDeleteItem;
+            this.contractsBindingNavigator.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.bindingNavigatorMoveFirstItem,
+            this.bindingNavigatorMovePreviousItem,
+            this.bindingNavigatorSeparator,
+            this.bindingNavigatorPositionItem,
+            this.bindingNavigatorCountItem,
+            this.bindingNavigatorSeparator1,
+            this.bindingNavigatorMoveNextItem,
+            this.bindingNavigatorMoveLastItem,
+            this.bindingNavigatorSeparator2,
+            this.bindingNavigatorAddNewItem,
+            this.bindingNavigatorDeleteItem,
+            this.contractsBindingNavigatorSaveItem});
+            this.contractsBindingNavigator.Location = new System.Drawing.Point(0, 0);
+            this.contractsBindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
+            this.contractsBindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastItem;
+            this.contractsBindingNavigator.MoveNextItem = this.bindingNavigatorMoveNextItem;
+            this.contractsBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
+            this.contractsBindingNavigator.Name = "contractsBindingNavigator";
+            this.contractsBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
+            this.contractsBindingNavigator.Size = new System.Drawing.Size(950, 25);
+            this.contractsBindingNavigator.TabIndex = 0;
+            this.contractsBindingNavigator.Text = "bindingNavigator1";
+            // 
+            // edocbaseDataSet
+            // 
+            this.edocbaseDataSet.CaseSensitive = true;
+            this.edocbaseDataSet.DataSetName = "EdocbaseDataSet";
+            this.edocbaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // agentsBindingSource
+            // 
+            this.agentsBindingSource.DataMember = "agents";
+            this.agentsBindingSource.DataSource = this.edocbaseDataSet;
+            // 
+            // agentsTableAdapter
+            // 
+            this.agentsTableAdapter.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.agent_typesTableAdapter = null;
+            this.tableAdapterManager.agents_contactsTableAdapter = null;
+            this.tableAdapterManager.agentsTableAdapter = this.agentsTableAdapter;
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.contract_statusTableAdapter = null;
+            this.tableAdapterManager.contract_types_for_workDataTablesTableAdapter = null;
+            this.tableAdapterManager.contract_typesTableAdapter = this.contract_typesTableAdapter;
+            this.tableAdapterManager.contractsTableAdapter = this.contractsTableAdapter;
+            this.tableAdapterManager.doc_templatesTableAdapter = null;
+            this.tableAdapterManager.documentsTableAdapter = this.documentsTableAdapter;
+            this.tableAdapterManager.emission_typesTableAdapter = this.emission_typesTableAdapter;
+            this.tableAdapterManager.expertsTableAdapter = null;
+            this.tableAdapterManager.log_journalTableAdapter = null;
+            this.tableAdapterManager.product_areasTableAdapter = null;
+            this.tableAdapterManager.product_gostsTableAdapter = null;
+            this.tableAdapterManager.productsTableAdapter = this.productsTableAdapter;
+            this.tableAdapterManager.selected_gostsTableAdapter = null;
+            this.tableAdapterManager.source_typesTableAdapter = null;
+            this.tableAdapterManager.UpdateOrder = Edocsys.EdocbaseDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            this.tableAdapterManager.user_typesTableAdapter = null;
+            this.tableAdapterManager.usersTableAdapter = null;
+            // 
+            // contractsBindingSource
+            // 
+            this.contractsBindingSource.DataMember = "contracts";
+            this.contractsBindingSource.DataSource = this.edocbaseDataSet;
+            // 
+            // contractsTableAdapter
+            // 
+            this.contractsTableAdapter.ClearBeforeFill = true;
+            // 
+            // productsBindingSource
+            // 
+            this.productsBindingSource.DataMember = "products";
+            this.productsBindingSource.DataSource = this.edocbaseDataSet;
+            // 
+            // productsTableAdapter
+            // 
+            this.productsTableAdapter.ClearBeforeFill = true;
+            // 
+            // contract_typesBindingSource
+            // 
+            this.contract_typesBindingSource.DataMember = "contract_types";
+            this.contract_typesBindingSource.DataSource = this.edocbaseDataSet;
+            // 
+            // contract_typesTableAdapter
+            // 
+            this.contract_typesTableAdapter.ClearBeforeFill = true;
+            // 
+            // templatesDataTableBindingSource
+            // 
+            this.templatesDataTableBindingSource.DataMember = "templatesDataTable";
+            this.templatesDataTableBindingSource.DataSource = this.edocbaseDataSet;
+            // 
+            // templatesDataTableTableAdapter
+            // 
+            this.templatesDataTableTableAdapter.ClearBeforeFill = true;
+            // 
+            // documentsBindingSource
+            // 
+            this.documentsBindingSource.DataMember = "documents";
+            this.documentsBindingSource.DataSource = this.edocbaseDataSet;
+            // 
+            // documentsTableAdapter
+            // 
+            this.documentsTableAdapter.ClearBeforeFill = true;
+            // 
+            // emission_types_idComboBox
+            // 
+            this.emission_types_idComboBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.contractsBindingSource, "emission_types_id", true));
+            this.emission_types_idComboBox.DataSource = this.emission_typesBindingSource;
+            this.emission_types_idComboBox.DisplayMember = "name";
+            this.emission_types_idComboBox.FormattingEnabled = true;
+            this.emission_types_idComboBox.Location = new System.Drawing.Point(167, 103);
+            this.emission_types_idComboBox.Name = "emission_types_idComboBox";
+            this.emission_types_idComboBox.Size = new System.Drawing.Size(485, 21);
+            this.emission_types_idComboBox.TabIndex = 27;
+            this.emission_types_idComboBox.ValueMember = "id";
+            // 
+            // emission_typesBindingSource
+            // 
+            this.emission_typesBindingSource.DataMember = "emission_types";
+            this.emission_typesBindingSource.DataSource = this.edocbaseDataSet;
+            // 
+            // emission_typesTableAdapter
+            // 
+            this.emission_typesTableAdapter.ClearBeforeFill = true;
+            // 
+            // idContract
+            // 
+            this.idContract.DataPropertyName = "id";
+            this.idContract.HeaderText = "#";
+            this.idContract.Name = "idContract";
+            this.idContract.ToolTipText = "#";
+            this.idContract.Width = 30;
+            // 
+            // Contract_number
+            // 
+            this.Contract_number.DataPropertyName = "number";
+            this.Contract_number.HeaderText = "№ договора";
+            this.Contract_number.Name = "Contract_number";
+            this.Contract_number.Width = 70;
+            // 
+            // agent_shortname
+            // 
+            this.agent_shortname.DataPropertyName = "Ag_fullname";
+            this.agent_shortname.HeaderText = "Название контрагента";
+            this.agent_shortname.Name = "agent_shortname";
+            this.agent_shortname.ToolTipText = "Название контрагента";
+            this.agent_shortname.Width = 200;
+            // 
+            // idProducts
+            // 
+            this.idProducts.DataPropertyName = "Product_name";
+            this.idProducts.HeaderText = "Наименование продукции";
+            this.idProducts.Name = "idProducts";
+            this.idProducts.ToolTipText = "Наименование продукции";
+            this.idProducts.Width = 250;
+            // 
+            // SendProposalColumn
+            // 
+            this.SendProposalColumn.HeaderText = "Отправить заявку";
+            this.SendProposalColumn.Name = "SendProposalColumn";
+            this.SendProposalColumn.Text = "Отправить";
+            this.SendProposalColumn.ToolTipText = "Отправить";
+            this.SendProposalColumn.UseColumnTextForButtonValue = true;
+            // 
+            // Contract_status
+            // 
+            this.Contract_status.DataPropertyName = "contract_status_id";
+            this.Contract_status.HeaderText = "T";
+            this.Contract_status.Name = "Contract_status";
+            this.Contract_status.Visible = false;
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -862,32 +864,31 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1267, 547);
+            this.ClientSize = new System.Drawing.Size(950, 580);
             this.Controls.Add(this.mainSplitContainer);
             this.Controls.Add(this.contractsBindingNavigator);
             this.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Edocsys.Properties.Settings.Default, "ProposalFormText", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.Name = "ProposalForm";
             this.Text = global::Edocsys.Properties.Settings.Default.ProposalFormText;
             this.Load += new System.EventHandler(this.ProposalForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.contractsBindingNavigator)).EndInit();
-            this.contractsBindingNavigator.ResumeLayout(false);
-            this.contractsBindingNavigator.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.contractsBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.edocbaseDataSet)).EndInit();
             this.mainSplitContainer.Panel1.ResumeLayout(false);
             this.mainSplitContainer.Panel2.ResumeLayout(false);
             this.mainSplitContainer.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mainSplitContainer)).EndInit();
             this.mainSplitContainer.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.contractsDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.contractTypesForDocsBindingSource)).EndInit();
             this.porposalGenerationGroupBox.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.contractsBindingNavigator)).EndInit();
+            this.contractsBindingNavigator.ResumeLayout(false);
+            this.contractsBindingNavigator.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.edocbaseDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.agentsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.contractsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.contract_typesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.templatesDataTableBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.contractInfoDataTableBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.docTemplatesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.documentsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emission_typesBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -895,40 +896,14 @@
 
         #endregion
 
-        private EdocbaseDataSet edocbaseDataSet;
-        private System.Windows.Forms.BindingSource contractsBindingSource;
-        private EdocbaseDataSetTableAdapters.TableAdapterManager tableAdapterManager;
-        private System.Windows.Forms.BindingNavigator contractsBindingNavigator;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorAddNewItem;
-        private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorDeleteItem;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveFirstItem;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorMovePreviousItem;
-        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator;
-        private System.Windows.Forms.ToolStripTextBox bindingNavigatorPositionItem;
-        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator1;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveNextItem;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
-        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
-        private System.Windows.Forms.ToolStripButton contractsBindingNavigatorSaveItem;
         private System.Windows.Forms.DataGridView contractsDataGridView;
-        private System.Windows.Forms.TextBox proposalEmissionTypeTextBox;
         private System.Windows.Forms.ComboBox productComboBox;
-        private System.Windows.Forms.BindingSource productsBindingSource;
-        private System.Windows.Forms.TextBox clientDocsTextBox;
         private System.Windows.Forms.TextBox addDataTextBox;
         private System.Windows.Forms.TextBox schemeTypeTextBox;
         private System.Windows.Forms.SplitContainer mainSplitContainer;
         private System.Windows.Forms.ComboBox proposalAgentsComboBox;
-        private System.Windows.Forms.BindingSource agentsBindingSource;
-        private System.Windows.Forms.BindingSource templatesDataTableBindingSource;
-        private System.Windows.Forms.BindingSource contractInfoDataTableBindingSource;
-        private EdocbaseDataSetTableAdapters.ContractInfoDataTableTableAdapter contractInfoDataTableTableAdapter;
-        private System.Windows.Forms.BindingSource docTemplatesBindingSource;
-        private System.Windows.Forms.BindingSource documentsBindingSource;
         private System.Windows.Forms.OpenFileDialog openFileDialog;
         private System.Windows.Forms.SaveFileDialog saveFileDialog;
-        private System.Windows.Forms.BindingSource contractTypesForDocsBindingSource;
         private System.Windows.Forms.GroupBox porposalGenerationGroupBox;
         private System.Windows.Forms.Button buttonLoadProposal;
         private System.Windows.Forms.Button buttonSaveProposal;
@@ -936,6 +911,36 @@
         private System.Windows.Forms.Button buttonGenerateProposalDoc;
         private System.Windows.Forms.ComboBox contract_typeComboBox;
         private System.Windows.Forms.TextBox contract_numberTextBox;
+        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveFirstItem;
+        private System.Windows.Forms.ToolStripButton bindingNavigatorMovePreviousItem;
+        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator;
+        private System.Windows.Forms.ToolStripTextBox bindingNavigatorPositionItem;
+        private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem;
+        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator1;
+        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveNextItem;
+        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
+        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
+        private System.Windows.Forms.ToolStripButton bindingNavigatorAddNewItem;
+        private System.Windows.Forms.ToolStripButton bindingNavigatorDeleteItem;
+        private System.Windows.Forms.ToolStripButton contractsBindingNavigatorSaveItem;
+        private System.Windows.Forms.BindingNavigator contractsBindingNavigator;
+        private EdocbaseDataSet edocbaseDataSet;
+        private System.Windows.Forms.BindingSource agentsBindingSource;
+        private EdocbaseDataSetTableAdapters.agentsTableAdapter agentsTableAdapter;
+        private EdocbaseDataSetTableAdapters.TableAdapterManager tableAdapterManager;
+        private EdocbaseDataSetTableAdapters.contractsTableAdapter contractsTableAdapter;
+        private System.Windows.Forms.BindingSource contractsBindingSource;
+        private EdocbaseDataSetTableAdapters.productsTableAdapter productsTableAdapter;
+        private System.Windows.Forms.BindingSource productsBindingSource;
+        private EdocbaseDataSetTableAdapters.contract_typesTableAdapter contract_typesTableAdapter;
+        private System.Windows.Forms.BindingSource contract_typesBindingSource;
+        private System.Windows.Forms.BindingSource templatesDataTableBindingSource;
+        private EdocbaseDataSetTableAdapters.templatesDataTableTableAdapter templatesDataTableTableAdapter;
+        private EdocbaseDataSetTableAdapters.documentsTableAdapter documentsTableAdapter;
+        private System.Windows.Forms.BindingSource documentsBindingSource;
+        private System.Windows.Forms.ComboBox emission_types_idComboBox;
+        private EdocbaseDataSetTableAdapters.emission_typesTableAdapter emission_typesTableAdapter;
+        private System.Windows.Forms.BindingSource emission_typesBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn idContract;
         private System.Windows.Forms.DataGridViewTextBoxColumn Contract_number;
         private System.Windows.Forms.DataGridViewTextBoxColumn agent_shortname;
