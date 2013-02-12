@@ -40,5 +40,13 @@ namespace Edocsys
             LabIssues = 12,                     // (12, 'Лабораторные исследования')
             LabIssuesWithSertefication = 13,    // (13, 'Лабораторные исследования с сертификацией')
         }
+
+        public enum UserTypes : int
+        {
+            Admin = 1, 
+            Expert = 2,
+            Director = 3,
+        }
+
     }
 }

@@ -30,10 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ExpertsForm));
-            this.edocbaseDataSet = new Edocsys.EdocbaseDataSet();
-            this.expertsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.expertsBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
+            this.expertsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.edocbaseDataSet = new Edocsys.EdocbaseDataSet();
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
@@ -45,31 +45,19 @@
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.expertsBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
-            this.expertsDataGridView = new System.Windows.Forms.DataGridView();
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.firstnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lastnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.middlenameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.usertypesidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fullnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FilterTextBox = new System.Windows.Forms.ToolStripTextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.edocbaseDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.expertsBindingSource)).BeginInit();
+            this.expertsDataGridView = new System.Windows.Forms.DataGridView();
+            this.lastnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.firstnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.middlenameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.expertsTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.expertsTableAdapter();
+            this.tableAdapterManager = new Edocsys.EdocbaseDataSetTableAdapters.TableAdapterManager();
             ((System.ComponentModel.ISupportInitialize)(this.expertsBindingNavigator)).BeginInit();
             this.expertsBindingNavigator.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.expertsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.edocbaseDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.expertsDataGridView)).BeginInit();
             this.SuspendLayout();
-            // 
-            // edocbaseDataSet
-            // 
-            this.edocbaseDataSet.CaseSensitive = true;
-            this.edocbaseDataSet.DataSetName = "EdocbaseDataSet";
-            this.edocbaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // expertsBindingSource
-            // 
-            this.expertsBindingSource.DataMember = "Experts";
-            this.expertsBindingSource.DataSource = this.edocbaseDataSet;
             // 
             // expertsBindingNavigator
             // 
@@ -98,7 +86,7 @@
             this.expertsBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.expertsBindingNavigator.Name = "expertsBindingNavigator";
             this.expertsBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.expertsBindingNavigator.Size = new System.Drawing.Size(720, 25);
+            this.expertsBindingNavigator.Size = new System.Drawing.Size(664, 25);
             this.expertsBindingNavigator.TabIndex = 0;
             this.expertsBindingNavigator.Text = "bindingNavigator1";
             // 
@@ -110,6 +98,18 @@
             this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorAddNewItem.Text = "Add new";
+            this.bindingNavigatorAddNewItem.Click += new System.EventHandler(this.bindingNavigatorAddNewItem_Click);
+            // 
+            // expertsBindingSource
+            // 
+            this.expertsBindingSource.DataMember = "Experts";
+            this.expertsBindingSource.DataSource = this.edocbaseDataSet;
+            // 
+            // edocbaseDataSet
+            // 
+            this.edocbaseDataSet.CaseSensitive = true;
+            this.edocbaseDataSet.DataSetName = "EdocbaseDataSet";
+            this.edocbaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // bindingNavigatorCountItem
             // 
@@ -196,82 +196,94 @@
             this.expertsBindingNavigatorSaveItem.Text = "Save Data";
             this.expertsBindingNavigatorSaveItem.Click += new System.EventHandler(this.expertsBindingNavigatorSaveItem_Click);
             // 
-            // expertsDataGridView
-            // 
-            this.expertsDataGridView.AutoGenerateColumns = false;
-            this.expertsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.expertsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idDataGridViewTextBoxColumn,
-            this.firstnameDataGridViewTextBoxColumn,
-            this.lastnameDataGridViewTextBoxColumn,
-            this.middlenameDataGridViewTextBoxColumn,
-            this.usertypesidDataGridViewTextBoxColumn,
-            this.fullnameDataGridViewTextBoxColumn});
-            this.expertsDataGridView.DataSource = this.expertsBindingSource;
-            this.expertsDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.expertsDataGridView.Location = new System.Drawing.Point(0, 25);
-            this.expertsDataGridView.MultiSelect = false;
-            this.expertsDataGridView.Name = "expertsDataGridView";
-            this.expertsDataGridView.Size = new System.Drawing.Size(720, 380);
-            this.expertsDataGridView.TabIndex = 1;
-            // 
-            // idDataGridViewTextBoxColumn
-            // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "id";
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            // 
-            // firstnameDataGridViewTextBoxColumn
-            // 
-            this.firstnameDataGridViewTextBoxColumn.DataPropertyName = "firstname";
-            this.firstnameDataGridViewTextBoxColumn.HeaderText = "firstname";
-            this.firstnameDataGridViewTextBoxColumn.Name = "firstnameDataGridViewTextBoxColumn";
-            // 
-            // lastnameDataGridViewTextBoxColumn
-            // 
-            this.lastnameDataGridViewTextBoxColumn.DataPropertyName = "lastname";
-            this.lastnameDataGridViewTextBoxColumn.HeaderText = "lastname";
-            this.lastnameDataGridViewTextBoxColumn.Name = "lastnameDataGridViewTextBoxColumn";
-            // 
-            // middlenameDataGridViewTextBoxColumn
-            // 
-            this.middlenameDataGridViewTextBoxColumn.DataPropertyName = "middlename";
-            this.middlenameDataGridViewTextBoxColumn.HeaderText = "middlename";
-            this.middlenameDataGridViewTextBoxColumn.Name = "middlenameDataGridViewTextBoxColumn";
-            // 
-            // usertypesidDataGridViewTextBoxColumn
-            // 
-            this.usertypesidDataGridViewTextBoxColumn.DataPropertyName = "user_types_id";
-            this.usertypesidDataGridViewTextBoxColumn.HeaderText = "user_types_id";
-            this.usertypesidDataGridViewTextBoxColumn.Name = "usertypesidDataGridViewTextBoxColumn";
-            // 
-            // fullnameDataGridViewTextBoxColumn
-            // 
-            this.fullnameDataGridViewTextBoxColumn.DataPropertyName = "fullname";
-            this.fullnameDataGridViewTextBoxColumn.HeaderText = "fullname";
-            this.fullnameDataGridViewTextBoxColumn.Name = "fullnameDataGridViewTextBoxColumn";
-            // 
             // FilterTextBox
             // 
             this.FilterTextBox.Name = "FilterTextBox";
             this.FilterTextBox.Size = new System.Drawing.Size(100, 25);
             // 
+            // expertsDataGridView
+            // 
+            this.expertsDataGridView.AllowUserToAddRows = false;
+            this.expertsDataGridView.AllowUserToDeleteRows = false;
+            this.expertsDataGridView.AutoGenerateColumns = false;
+            this.expertsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.expertsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.lastnameDataGridViewTextBoxColumn,
+            this.firstnameDataGridViewTextBoxColumn,
+            this.middlenameDataGridViewTextBoxColumn});
+            this.expertsDataGridView.DataSource = this.expertsBindingSource;
+            this.expertsDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.expertsDataGridView.Location = new System.Drawing.Point(0, 25);
+            this.expertsDataGridView.MultiSelect = false;
+            this.expertsDataGridView.Name = "expertsDataGridView";
+            this.expertsDataGridView.Size = new System.Drawing.Size(664, 380);
+            this.expertsDataGridView.TabIndex = 1;
+            // 
+            // lastnameDataGridViewTextBoxColumn
+            // 
+            this.lastnameDataGridViewTextBoxColumn.DataPropertyName = "lastname";
+            this.lastnameDataGridViewTextBoxColumn.HeaderText = "Фамилия";
+            this.lastnameDataGridViewTextBoxColumn.Name = "lastnameDataGridViewTextBoxColumn";
+            this.lastnameDataGridViewTextBoxColumn.Width = 200;
+            // 
+            // firstnameDataGridViewTextBoxColumn
+            // 
+            this.firstnameDataGridViewTextBoxColumn.DataPropertyName = "firstname";
+            this.firstnameDataGridViewTextBoxColumn.HeaderText = "Имя";
+            this.firstnameDataGridViewTextBoxColumn.Name = "firstnameDataGridViewTextBoxColumn";
+            this.firstnameDataGridViewTextBoxColumn.Width = 200;
+            // 
+            // middlenameDataGridViewTextBoxColumn
+            // 
+            this.middlenameDataGridViewTextBoxColumn.DataPropertyName = "middlename";
+            this.middlenameDataGridViewTextBoxColumn.HeaderText = "Отчество";
+            this.middlenameDataGridViewTextBoxColumn.Name = "middlenameDataGridViewTextBoxColumn";
+            this.middlenameDataGridViewTextBoxColumn.Width = 200;
+            // 
+            // expertsTableAdapter
+            // 
+            this.expertsTableAdapter.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.agent_typesTableAdapter = null;
+            this.tableAdapterManager.agents_contactsTableAdapter = null;
+            this.tableAdapterManager.agentsTableAdapter = null;
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.contract_statusTableAdapter = null;
+            this.tableAdapterManager.contract_types_for_workDataTablesTableAdapter = null;
+            this.tableAdapterManager.contract_typesTableAdapter = null;
+            this.tableAdapterManager.contractsTableAdapter = null;
+            this.tableAdapterManager.doc_templatesTableAdapter = null;
+            this.tableAdapterManager.documentsTableAdapter = null;
+            this.tableAdapterManager.emission_typesTableAdapter = null;
+            this.tableAdapterManager.expertsTableAdapter = this.expertsTableAdapter;
+            this.tableAdapterManager.log_journalTableAdapter = null;
+            this.tableAdapterManager.product_areasTableAdapter = null;
+            this.tableAdapterManager.product_gostsTableAdapter = null;
+            this.tableAdapterManager.productsTableAdapter = null;
+            this.tableAdapterManager.selected_gostsTableAdapter = null;
+            this.tableAdapterManager.source_typesTableAdapter = null;
+            this.tableAdapterManager.UpdateOrder = Edocsys.EdocbaseDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            this.tableAdapterManager.user_typesTableAdapter = null;
+            this.tableAdapterManager.usersTableAdapter = null;
+            // 
             // ExpertsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(720, 405);
+            this.ClientSize = new System.Drawing.Size(664, 405);
             this.Controls.Add(this.expertsDataGridView);
             this.Controls.Add(this.expertsBindingNavigator);
             this.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Edocsys.Properties.Settings.Default, "ExpertsFormText", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.Name = "ExpertsForm";
             this.Text = global::Edocsys.Properties.Settings.Default.ExpertsFormText;
             this.Load += new System.EventHandler(this.ExpertsForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.edocbaseDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.expertsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.expertsBindingNavigator)).EndInit();
             this.expertsBindingNavigator.ResumeLayout(false);
             this.expertsBindingNavigator.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.expertsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.edocbaseDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.expertsDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -296,20 +308,11 @@
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
         private System.Windows.Forms.ToolStripButton expertsBindingNavigatorSaveItem;
         private System.Windows.Forms.DataGridView expertsDataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.ToolStripTextBox FilterTextBox;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn firstnameDataGridViewTextBoxColumn;
+        private EdocbaseDataSetTableAdapters.expertsTableAdapter expertsTableAdapter;
+        private EdocbaseDataSetTableAdapters.TableAdapterManager tableAdapterManager;
         private System.Windows.Forms.DataGridViewTextBoxColumn lastnameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn firstnameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn middlenameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn usertypesidDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fullnameDataGridViewTextBoxColumn;
-
-        //private EdocbaseDataSetTableAdapters.ExpertsTableAdapter expertsTableAdapter;
-        //private EdocbaseDataSetTableAdapters.TableAdapterManager tableAdapterManager;
-
     }
 }

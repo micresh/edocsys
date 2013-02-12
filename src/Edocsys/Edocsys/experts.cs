@@ -23,13 +23,13 @@ namespace Edocsys
             try
             {
 
-                //this.Validate();
-                //this.expertsBindingSource.EndEdit();
-                //this.tableAdapterManager.UpdateAll(this.edocbaseDataSet);
+                this.Validate();
+                this.expertsBindingSource.EndEdit();
+                this.expertsTableAdapter.Update(this.edocbaseDataSet.experts);
 
-                //this.edocbaseDataSet.AcceptChanges();
-                //this.expertsTableAdapter.Fill(this.edocbaseDataSet.Experts);
-                //this.expertsDataGridView.Refresh();
+                this.edocbaseDataSet.AcceptChanges();
+                this.expertsTableAdapter.Fill(this.edocbaseDataSet.experts);
+                this.expertsDataGridView.Refresh();
             }
             catch (Exception ex)
             {
@@ -40,11 +40,17 @@ namespace Edocsys
         private void ExpertsForm_Load(object sender, EventArgs e)
         {
             filter = new FilterHelper(this.expertsDataGridView, FilterTextBox.TextBox);
-            //this.expertsTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
+            this.expertsTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
 
-            //// TODO: This line of code loads data into the 'edocbaseDataSet.Experts' table. You can move, or remove it, as needed.
-            //this.expertsTableAdapter.Fill(this.edocbaseDataSet.Experts);
+            
+            this.expertsTableAdapter.Fill(this.edocbaseDataSet.experts);
 
+        }
+
+        private void bindingNavigatorAddNewItem_Click(object sender, EventArgs e)
+        {
+            DataRowView row = ((DataRowView)this.expertsBindingSource.Current);
+            row["user_types_id"] = (int)Constants.UserTypes.Expert;
         }
     }
 }
