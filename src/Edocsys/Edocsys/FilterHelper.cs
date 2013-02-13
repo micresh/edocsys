@@ -20,16 +20,38 @@ namespace Edocsys
             this.DataGrid.ColumnHeaderMouseClick += DataGridView_OnColumnHeaderMouseClick;
             this.FilterBox.KeyDown += TextBox_OnKeyDown;
             this.FilterBox.TextChanged += TextBox_OnTextChanged;
+
             if (this.DataGrid.Columns.Count > 0)
+            {
                 this.FieldName = this.DataGrid.Columns[0].DataPropertyName;
+                this.type = this.DataGrid.Columns[0].ValueType;
+            }
         }
+        private Type type;
 
         public void ApplyFilter(string value)
         {
-            if (value != String.Empty && FieldName != String.Empty)
-                ((BindingSource)this.DataGrid.DataSource).Filter = FieldName + " LIKE '%" + value + "%'";
-            else
+            BindingSource source = ((BindingSource)this.DataGrid.DataSource);
+
+            if ((value == String.Empty) || (FieldName == String.Empty)
+                || (value == null) || (FieldName == null))
+            {
                 ResetFilter();
+                return;
+            }
+
+            if (type == typeof(string))
+            {
+                if (value != String.Empty && FieldName != String.Empty)
+                    source.Filter = FieldName + " LIKE '%" + value + "%'";
+                    
+            }
+            else
+            //if (type == typeof(int))
+            {
+                    source.Filter = FieldName + " = " + value + "";
+            }
+
         }
 
         public void ResetFilter()
@@ -47,10 +69,16 @@ namespace Edocsys
                 this.FilterBox.Clear();
             }
 
+            // Search key
+            if (e.KeyCode == Keys.F3)
+            {
+                FilterBox.Focus();
+            }
+
             // Nonfunctional keys
-            if ((e.KeyCode > Keys.A && e.KeyCode < Keys.Z)
-                 || (e.KeyCode > Keys.D0 && e.KeyCode < Keys.D9)
-                 || (e.KeyCode > Keys.NumPad0 && e.KeyCode < Keys.NumPad9)
+            if ((e.KeyCode >= Keys.A && e.KeyCode <= Keys.Z)
+                 || (e.KeyCode >= Keys.D0 && e.KeyCode <= Keys.D9)
+                 || (e.KeyCode >= Keys.NumPad0 && e.KeyCode <= Keys.NumPad9)
                 )
             {
                 FilterBox.AppendText(String.Format("{0}", (char)e.KeyValue));
@@ -60,10 +88,11 @@ namespace Edocsys
 
         private void DataGridView_OnColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            string field = this.DataGrid.Columns[e.ColumnIndex].DataPropertyName;
+            this.FieldName = this.DataGrid.Columns[e.ColumnIndex].DataPropertyName;
+            this.type = this.DataGrid.Columns[e.ColumnIndex].ValueType;
+
             string value = this.FilterBox.Text;
 
-            this.FieldName = field;
             this.ApplyFilter(value);
         }
 
