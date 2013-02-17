@@ -23,6 +23,7 @@ namespace Edocsys
             this.tableAdapterManager.UpdateAll(this.edocbaseDataSet);
 
         }
+        private FilterHelper assignedFilter, proposalsFilter;
 
         private void AssignExpertForm_Load(object sender, EventArgs e)
         {
@@ -35,6 +36,10 @@ namespace Edocsys
             this.expertAssignmentTAdapter.Fill(this.edocbaseDataSet.ExpertAssignment);
             this.expertsTableAdapter.Fill(this.edocbaseDataSet.experts);
             this.assignedContractsTAdapter.Fill(this.edocbaseDataSet.AssignedContracts);
+
+            //add filters
+            assignedFilter = new FilterHelper(assignedContractsDataGridView, filterAssignedToolStripTextBox.TextBox);
+            proposalsFilter = new FilterHelper(proposalsDataGridView, filterProposalsToolStripTextBox.TextBox);
         }
 
         private void assignButton_Click(object sender, EventArgs e)
@@ -69,7 +74,7 @@ namespace Edocsys
                     this.expertAssignmentTAdapter.Fill(this.edocbaseDataSet.ExpertAssignment);
                     this.assignedContractsTAdapter.Fill(this.edocbaseDataSet.AssignedContracts);
 
-                    this.contractsDataGridView.Refresh();
+                    this.proposalsDataGridView.Refresh();
                     this.assignedContractsDataGridView.Refresh();
                 }
                 catch (Exception ex)

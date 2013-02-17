@@ -44,10 +44,9 @@ namespace Edocsys
             {
                 if (value != String.Empty && FieldName != String.Empty)
                     source.Filter = FieldName + " LIKE '%" + value + "%'";
-                    
             }
             else
-            //if (type == typeof(int))
+            if (type == typeof(int))
             {
                     source.Filter = FieldName + " = " + value + "";
             }
