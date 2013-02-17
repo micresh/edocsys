@@ -27,6 +27,8 @@ namespace Edocsys
             RefreshData();
         }
 
+        private FilterHelper filter;
+
         private void SaveProposal()
         {
             try
@@ -55,17 +57,13 @@ namespace Edocsys
 
                 this.productsTableAdapter.Fill(this.edocbaseDataSet.products);
                 this.agentsTableAdapter.Fill(this.edocbaseDataSet.agents);
-
+                this.documentsTableAdapter.Fill(this.edocbaseDataSet.documents);
 
                 this.contractInfoTableAdapter.Fill(this.edocbaseDataSet.ContractInfoDataTable);
-                this.emission_typesTableAdapter.Fill(this.edocbaseDataSet.emission_types);
-
-                this.templatesDataTableTableAdapter.Fill(this.edocbaseDataSet.templatesDataTable);
-                this.documentsTableAdapter.Fill(this.edocbaseDataSet.documents);
 
                 contractInfoDataTableBindingSource.Position = pos;
 
-                this.contractsDataGridView.Refresh();
+                this.proposalsDataGridView.Refresh();
             }   
             catch (Exception ex)
             {
@@ -78,7 +76,6 @@ namespace Edocsys
 
             this.agentsTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
             this.productsTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
-            //this.contractsTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
             this.contract_typesTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
             this.templatesDataTableTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
             this.documentsTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
@@ -87,23 +84,19 @@ namespace Edocsys
             this.contractInfoTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
 
 
-            this.agentsTableAdapter.Fill(this.edocbaseDataSet.agents);
-            this.productsTableAdapter.Fill(this.edocbaseDataSet.products);
             this.contract_typesTableAdapter.FillContractDocs(this.edocbaseDataSet.contract_types);
-            //this.contractsTableAdapter.Fill(this.edocbaseDataSet.contracts);
             this.templatesDataTableTableAdapter.Fill(this.edocbaseDataSet.templatesDataTable);
-            this.documentsTableAdapter.Fill(this.edocbaseDataSet.documents);
             this.emission_typesTableAdapter.Fill(this.edocbaseDataSet.emission_types);
 
-
-            this.contractInfoTableAdapter.Fill(this.edocbaseDataSet.ContractInfoDataTable);
-
             RefreshData();
+
+            // Add filter
+            filter = new FilterHelper(proposalsDataGridView, filterToolStripTextBox.TextBox);
         }
 
         private void contractsDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == contractsDataGridView.Columns["SendProposalColumn"].Index)
+            if (e.ColumnIndex == proposalsDataGridView.Columns["SendProposalColumn"].Index)
             {
 
                 if ((contractInfoDataTableBindingSource.Position < 0) ||

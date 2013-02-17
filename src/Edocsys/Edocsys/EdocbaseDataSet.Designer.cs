@@ -4297,8 +4297,6 @@ namespace Edocsys {
             
             private global::System.Data.DataColumn columnid;
             
-            private global::System.Data.DataColumn columnnumber;
-            
             private global::System.Data.DataColumn columnproducts_id;
             
             private global::System.Data.DataColumn columnagents_id;
@@ -4387,14 +4385,6 @@ namespace Edocsys {
             public global::System.Data.DataColumn idColumn {
                 get {
                     return this.columnid;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn numberColumn {
-                get {
-                    return this.columnnumber;
                 }
             }
             
@@ -4636,7 +4626,6 @@ namespace Edocsys {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public ContractInfoDataTableRow AddContractInfoDataTableRow(
-                        string number, 
                         int products_id, 
                         int agents_id, 
                         int contract_types_id, 
@@ -4662,7 +4651,6 @@ namespace Edocsys {
                 ContractInfoDataTableRow rowContractInfoDataTableRow = ((ContractInfoDataTableRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
-                        number,
                         products_id,
                         agents_id,
                         contract_types_id,
@@ -4720,7 +4708,6 @@ namespace Edocsys {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             internal void InitVars() {
                 this.columnid = base.Columns["id"];
-                this.columnnumber = base.Columns["number"];
                 this.columnproducts_id = base.Columns["products_id"];
                 this.columnagents_id = base.Columns["agents_id"];
                 this.columncontract_types_id = base.Columns["contract_types_id"];
@@ -4753,8 +4740,6 @@ namespace Edocsys {
             private void InitClass() {
                 this.columnid = new global::System.Data.DataColumn("id", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnid);
-                this.columnnumber = new global::System.Data.DataColumn("number", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnnumber);
                 this.columnproducts_id = new global::System.Data.DataColumn("products_id", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnproducts_id);
                 this.columnagents_id = new global::System.Data.DataColumn("agents_id", typeof(int), null, global::System.Data.MappingType.Element);
@@ -4813,7 +4798,6 @@ namespace Edocsys {
                 this.columnid.AutoIncrementSeed = -1;
                 this.columnid.AutoIncrementStep = -1;
                 this.columnid.AllowDBNull = false;
-                this.columnnumber.MaxLength = 9;
                 this.columnproducts_id.AllowDBNull = false;
                 this.columnagents_id.AllowDBNull = false;
                 this.columncontract_types_id.AllowDBNull = false;
@@ -13041,22 +13025,6 @@ namespace Edocsys {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string number {
-                get {
-                    try {
-                        return ((string)(this[this.tableContractInfoDataTable.numberColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'number\' in table \'ContractInfoDataTable\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableContractInfoDataTable.numberColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public int products_id {
                 get {
                     return ((int)(this[this.tableContractInfoDataTable.products_idColumn]));
@@ -13431,18 +13399,6 @@ namespace Edocsys {
                 set {
                     this[this.tableContractInfoDataTable.products_nameColumn] = value;
                 }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsnumberNull() {
-                return this.IsNull(this.tableContractInfoDataTable.numberColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetnumberNull() {
-                this[this.tableContractInfoDataTable.numberColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -19789,7 +19745,6 @@ doc_templates ON contract_types.id = doc_templates.contract_types_id";
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "ContractInfoDataTable";
             tableMapping.ColumnMappings.Add("id", "id");
-            tableMapping.ColumnMappings.Add("number", "number");
             tableMapping.ColumnMappings.Add("products_id", "products_id");
             tableMapping.ColumnMappings.Add("agents_id", "agents_id");
             tableMapping.ColumnMappings.Add("contract_types_id", "contract_types_id");
@@ -19831,10 +19786,9 @@ doc_templates ON contract_types.id = doc_templates.contract_types_id";
             this._adapter.InsertCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = @"INSERT INTO contracts
-                         (products_id, agents_id, experts_id, contract_status_id, emission_types_id, contract_types_id, number, date_proposal, scheme_type, add_data_proposal, 
-                         source_types_id)
-VALUES        (@products_id, @agents_id, @experts_id, @contract_status_id, @emission_types_id, @contract_types_id, @number, @date_proposal, @scheme_type, 
-                         @add_data_proposal, @source_types_id)";
+                         (products_id, agents_id, experts_id, contract_status_id, emission_types_id, contract_types_id, date_proposal, scheme_type, add_data_proposal, source_types_id)
+VALUES        (@products_id, @agents_id, @experts_id, @contract_status_id, @emission_types_id, @contract_types_id, @date_proposal, @scheme_type, @add_data_proposal, 
+                         @source_types_id)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@products_id";
@@ -19879,14 +19833,6 @@ VALUES        (@products_id, @agents_id, @experts_id, @contract_status_id, @emis
             param.SourceColumn = "contract_types_id";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@number";
-            param.DbType = global::System.Data.DbType.String;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
-            param.Size = 9;
-            param.IsNullable = true;
-            param.SourceColumn = "number";
-            this._adapter.InsertCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@date_proposal";
             param.DbType = global::System.Data.DbType.DateTime;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Date;
@@ -19920,8 +19866,8 @@ VALUES        (@products_id, @agents_id, @experts_id, @contract_status_id, @emis
             this._adapter.UpdateCommand.Connection = this.Connection;
             this._adapter.UpdateCommand.CommandText = @"UPDATE       contracts
 SET                products_id = @products_id, agents_id = @agents_id, experts_id = @experts_id, contract_status_id = @contract_status_id, 
-                         emission_types_id = @emission_types_id, contract_types_id = @contract_types_id, number = @number, date_proposal = @date_proposal, 
-                         scheme_type = @scheme_type, add_data_proposal = @add_data_proposal, source_types_id = @source_types_id
+                         emission_types_id = @emission_types_id, contract_types_id = @contract_types_id, date_proposal = @date_proposal, scheme_type = @scheme_type, 
+                         add_data_proposal = @add_data_proposal, source_types_id = @source_types_id
 WHERE        (id = @Original_id)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
@@ -19965,14 +19911,6 @@ WHERE        (id = @Original_id)";
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
             param.SourceColumn = "contract_types_id";
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@number";
-            param.DbType = global::System.Data.DbType.String;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
-            param.Size = 9;
-            param.IsNullable = true;
-            param.SourceColumn = "number";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@date_proposal";
@@ -20027,28 +19965,28 @@ WHERE        (id = @Original_id)";
             this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[2];
             this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT        contracts.id, contracts.number, contracts.products_id, contracts.ag" +
-                "ents_id, contracts.contract_types_id, contracts.contract_status_id, contracts.ex" +
-                "perts_id, \r\n                         contracts.source_types_id, contracts.date_p" +
-                "roposal, contracts.scheme_type, contracts.add_data_proposal, products.name AS pr" +
-                "oducts_name, \r\n                         products.id AS products_id, agents.id AS" +
-                " agents_id, agents.name AS agents_name, agents.pers_lastname, agents.pers_firstn" +
-                "ame, agents.pers_middlename, \r\n                         agent_types.id AS agent_" +
-                "types_id, agent_types.name AS agent_types_name, CONCAT(agent_types.name, \' \', ag" +
-                "ents.name) AS agents_fullname, \r\n                         CONCAT(agents.pers_las" +
-                "tname, \' \', substr(agents.pers_firstname, 1, 1), \'. \', substr(agents.pers_middle" +
-                "name, 1, 1), \'.\') AS contact_pers_name_FIO, \r\n                         CONCAT(su" +
-                "bstr(agents.pers_firstname, 1, 1), \'. \', substr(agents.pers_middlename, 1, 1), \'" +
-                ". \', agents.pers_lastname) AS contact_pers_name_IOF, \r\n                         " +
-                "contract_types.id AS contract_types_id, contract_types.name AS contract_types_na" +
-                "me, emission_types.id AS emission_types_id, \r\n                         emission_" +
-                "types.name AS emission_types_name\r\nFROM            contracts LEFT OUTER JOIN\r\n  " +
-                "                       agents ON contracts.agents_id = agents.id LEFT OUTER JOIN" +
-                "\r\n                         products ON contracts.products_id = products.id LEFT " +
-                "OUTER JOIN\r\n                         agent_types ON agents.agent_types_id = agen" +
-                "t_types.id LEFT OUTER JOIN\r\n                         contract_types ON contracts" +
-                ".contract_types_id = contract_types.id LEFT OUTER JOIN\r\n                        " +
-                " emission_types ON contracts.emission_types_id = emission_types.id";
+            this._commandCollection[0].CommandText = "SELECT        contracts.id, contracts.products_id, contracts.agents_id, contracts" +
+                ".contract_types_id, contracts.contract_status_id, contracts.experts_id, contract" +
+                "s.source_types_id, \r\n                         contracts.date_proposal, contracts" +
+                ".scheme_type, contracts.add_data_proposal, products.name AS products_name, produ" +
+                "cts.id AS products_id, \r\n                         agents.id AS agents_id, agents" +
+                ".name AS agents_name, agents.pers_lastname, agents.pers_firstname, agents.pers_m" +
+                "iddlename, agent_types.id AS agent_types_id, \r\n                         agent_ty" +
+                "pes.name AS agent_types_name, CONCAT(agent_types.name, \' \', agents.name) AS agen" +
+                "ts_fullname, CONCAT(agents.pers_lastname, \' \', \r\n                         substr" +
+                "(agents.pers_firstname, 1, 1), \'. \', substr(agents.pers_middlename, 1, 1), \'.\') " +
+                "AS contact_pers_name_FIO, CONCAT(substr(agents.pers_firstname, 1, 1), \'. \', \r\n  " +
+                "                       substr(agents.pers_middlename, 1, 1), \'. \', agents.pers_l" +
+                "astname) AS contact_pers_name_IOF, contract_types.id AS contract_types_id, \r\n   " +
+                "                      contract_types.name AS contract_types_name, emission_types" +
+                ".id AS emission_types_id, emission_types.name AS emission_types_name\r\nFROM      " +
+                "      contracts LEFT OUTER JOIN\r\n                         agents ON contracts.ag" +
+                "ents_id = agents.id LEFT OUTER JOIN\r\n                         products ON contra" +
+                "cts.products_id = products.id LEFT OUTER JOIN\r\n                         agent_ty" +
+                "pes ON agents.agent_types_id = agent_types.id LEFT OUTER JOIN\r\n                 " +
+                "        contract_types ON contracts.contract_types_id = contract_types.id LEFT O" +
+                "UTER JOIN\r\n                         emission_types ON contracts.emission_types_i" +
+                "d = emission_types.id\r\nWHERE        (contracts.contract_status_id = 0)";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[1].Connection = this.Connection;
