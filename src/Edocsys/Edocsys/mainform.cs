@@ -166,13 +166,13 @@ namespace Edocsys
 
         private void loginToolStripButton_Click(object sender, EventArgs e)
         {
-            ConnectionManager.CurrentUser = usersToolStripComboBox.SelectedItem.ToString();
+            ConnectionManager.CurrentUser.Name = usersToolStripComboBox.SelectedItem.ToString();
             wmgr.ShowLoginForm();
         }
 
         private void MainForm_Activated(object sender, EventArgs e)
         {
-            cueerntUserToolStripStatusLabel.Text = "Пользователь: " + ConnectionManager.CurrentUser;
+            cueerntUserToolStripStatusLabel.Text = "Пользователь: " + ConnectionManager.CurrentUser.Name;
         }
 
         private void ContractToolStripMenuItem_Click(object sender, EventArgs e)

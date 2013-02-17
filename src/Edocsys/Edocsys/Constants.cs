@@ -11,7 +11,7 @@ namespace Edocsys
         public enum ContractStatuses : int
         {
             NewProposal = 0,                    // (0,'Создание заявки')
-            ExpertAssigment = 1,                // (1,'Закрепление эксперта')
+            ExpertAssignment = 1,               // (1,'Закрепление эксперта')
             ContractConfirm = 2,                // (2,'Заключение договора') - заключение договора/установка суммы
             PreparationsForTask = 3,            // (3,'Подготовка к работе') - получение образцов/акт списания образцов
             InWork = 4,                         // (4,'В работе')  - оплата/проверка дат

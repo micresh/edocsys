@@ -19,12 +19,20 @@ namespace Edocsys
             }
         }
 
+        public static User CurrentUser
+        {
+            get;
+            set;
+        }
+
         static ConnectionManager()
         {
             testConnectionString = global::Edocsys.Properties.Settings.Default.EdocbaseConnectionString;
 
             //set current user login
-            CurrentUser = "";
+            CurrentUser = new User();
+            CurrentUser.Name = "";
+            CurrentUser.UserID = 0;
 
             ResetToDefaults();
         }
@@ -35,10 +43,12 @@ namespace Edocsys
             Port = global::Edocsys.Properties.Settings.Default.ConnPort;
             Database = global::Edocsys.Properties.Settings.Default.ConnDatabase;
 
+            CurrentUser = new User();
             
             //DEBUG FEATURE
             #if DEBUG
                 Login = "admin";
+                CurrentUser.UserID = 1;
             #endif
 
             Password = "wepo23nri_)(*";
@@ -71,12 +81,6 @@ namespace Edocsys
         }
 
         public static string Database
-        {
-            get;
-            set;
-        }
-
-        public static string CurrentUser
         {
             get;
             set;

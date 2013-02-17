@@ -36,33 +36,13 @@
             System.Windows.Forms.Label label1;
             System.Windows.Forms.Label contract_typeLabel;
             System.Windows.Forms.Label contract_numberLabel;
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProposalForm));
             System.Windows.Forms.Label date_proposalLabel;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProposalForm));
             this.mainSplitContainer = new System.Windows.Forms.SplitContainer();
             this.contractsDataGridView = new System.Windows.Forms.DataGridView();
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.numberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.productsidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.agentsidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.contracttypesidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.contractstatusidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.productsid1DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.agentsid1DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.agentsnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.agenttypesidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.agenttypesnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.perslastnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.persfirstnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.persmiddlenameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.agentsfullnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.contactpersnameFIODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.contactpersnameIOFDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.contracttypesid1DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.contracttypesnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.emissiontypesidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.emissiontypesnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contractInfoDataTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.edocbaseDataSet = new Edocsys.EdocbaseDataSet();
+            this.date_proposalDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.emission_types_idComboBox = new System.Windows.Forms.ComboBox();
             this.emission_typesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.contract_numberTextBox = new System.Windows.Forms.TextBox();
@@ -103,8 +83,16 @@
             this.templatesDataTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.templatesDataTableTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.templatesDataTableTableAdapter();
             this.documentsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.contractInfoDataTableTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.ContractInfoDataTableTableAdapter();
-            this.date_proposalDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.contractInfoTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.ContractInfoTableAdapter();
+            this.agentsnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.agenttypesnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contracttypesnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.schemetypeFIODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.emissiontypesnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contactpersnameFIODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.agentsfullnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SendProposalColumn = new System.Windows.Forms.DataGridViewButtonColumn();
             proposalProductLabel = new System.Windows.Forms.Label();
             proposalEmissionLabel = new System.Windows.Forms.Label();
             proposalSchemeTypeLabel = new System.Windows.Forms.Label();
@@ -201,6 +189,15 @@
             contract_numberLabel.TabIndex = 25;
             contract_numberLabel.Text = global::Edocsys.Properties.Settings.Default.ContractNumberTitle;
             // 
+            // date_proposalLabel
+            // 
+            date_proposalLabel.AutoSize = true;
+            date_proposalLabel.Location = new System.Drawing.Point(388, 13);
+            date_proposalLabel.Name = "date_proposalLabel";
+            date_proposalLabel.Size = new System.Drawing.Size(110, 13);
+            date_proposalLabel.TabIndex = 27;
+            date_proposalLabel.Text = "Дата подачи заявки";
+            // 
             // mainSplitContainer
             // 
             this.mainSplitContainer.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -234,9 +231,9 @@
             this.mainSplitContainer.Panel2.Controls.Add(this.productComboBox);
             this.mainSplitContainer.Panel2.Controls.Add(proposalEmissionLabel);
             this.mainSplitContainer.Panel2.Controls.Add(proposalProductLabel);
-            this.mainSplitContainer.Panel2MinSize = 160;
-            this.mainSplitContainer.Size = new System.Drawing.Size(950, 555);
-            this.mainSplitContainer.SplitterDistance = 353;
+            this.mainSplitContainer.Panel2MinSize = 174;
+            this.mainSplitContainer.Size = new System.Drawing.Size(950, 574);
+            this.mainSplitContainer.SplitterDistance = 396;
             this.mainSplitContainer.TabIndex = 2;
             // 
             // contractsDataGridView
@@ -246,161 +243,25 @@
             this.contractsDataGridView.AutoGenerateColumns = false;
             this.contractsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.contractsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idDataGridViewTextBoxColumn,
-            this.numberDataGridViewTextBoxColumn,
-            this.productsidDataGridViewTextBoxColumn,
-            this.agentsidDataGridViewTextBoxColumn,
-            this.contracttypesidDataGridViewTextBoxColumn,
-            this.contractstatusidDataGridViewTextBoxColumn,
-            this.productsid1DataGridViewTextBoxColumn,
-            this.agentsid1DataGridViewTextBoxColumn,
             this.agentsnameDataGridViewTextBoxColumn,
-            this.agenttypesidDataGridViewTextBoxColumn,
+            this.productNameDataGridViewTextBoxColumn,
             this.agenttypesnameDataGridViewTextBoxColumn,
-            this.perslastnameDataGridViewTextBoxColumn,
-            this.persfirstnameDataGridViewTextBoxColumn,
-            this.persmiddlenameDataGridViewTextBoxColumn,
-            this.agentsfullnameDataGridViewTextBoxColumn,
-            this.contactpersnameFIODataGridViewTextBoxColumn,
-            this.contactpersnameIOFDataGridViewTextBoxColumn,
-            this.contracttypesid1DataGridViewTextBoxColumn,
             this.contracttypesnameDataGridViewTextBoxColumn,
-            this.emissiontypesidDataGridViewTextBoxColumn,
-            this.emissiontypesnameDataGridViewTextBoxColumn});
+            this.schemetypeFIODataGridViewTextBoxColumn,
+            this.emissiontypesnameDataGridViewTextBoxColumn,
+            this.contactpersnameFIODataGridViewTextBoxColumn,
+            this.agentsfullnameDataGridViewTextBoxColumn,
+            this.SendProposalColumn});
             this.contractsDataGridView.DataSource = this.contractInfoDataTableBindingSource;
             this.contractsDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.contractsDataGridView.Location = new System.Drawing.Point(0, 0);
+            this.contractsDataGridView.MultiSelect = false;
             this.contractsDataGridView.Name = "contractsDataGridView";
+            this.contractsDataGridView.ReadOnly = true;
             this.contractsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.contractsDataGridView.Size = new System.Drawing.Size(950, 353);
+            this.contractsDataGridView.Size = new System.Drawing.Size(950, 396);
             this.contractsDataGridView.TabIndex = 2;
             this.contractsDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.contractsDataGridView_CellClick);
-            // 
-            // idDataGridViewTextBoxColumn
-            // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "id";
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            // 
-            // numberDataGridViewTextBoxColumn
-            // 
-            this.numberDataGridViewTextBoxColumn.DataPropertyName = "number";
-            this.numberDataGridViewTextBoxColumn.HeaderText = "number";
-            this.numberDataGridViewTextBoxColumn.Name = "numberDataGridViewTextBoxColumn";
-            // 
-            // productsidDataGridViewTextBoxColumn
-            // 
-            this.productsidDataGridViewTextBoxColumn.DataPropertyName = "products_id";
-            this.productsidDataGridViewTextBoxColumn.HeaderText = "products_id";
-            this.productsidDataGridViewTextBoxColumn.Name = "productsidDataGridViewTextBoxColumn";
-            // 
-            // agentsidDataGridViewTextBoxColumn
-            // 
-            this.agentsidDataGridViewTextBoxColumn.DataPropertyName = "agents_id";
-            this.agentsidDataGridViewTextBoxColumn.HeaderText = "agents_id";
-            this.agentsidDataGridViewTextBoxColumn.Name = "agentsidDataGridViewTextBoxColumn";
-            // 
-            // contracttypesidDataGridViewTextBoxColumn
-            // 
-            this.contracttypesidDataGridViewTextBoxColumn.DataPropertyName = "contract_types_id";
-            this.contracttypesidDataGridViewTextBoxColumn.HeaderText = "contract_types_id";
-            this.contracttypesidDataGridViewTextBoxColumn.Name = "contracttypesidDataGridViewTextBoxColumn";
-            // 
-            // contractstatusidDataGridViewTextBoxColumn
-            // 
-            this.contractstatusidDataGridViewTextBoxColumn.DataPropertyName = "contract_status_id";
-            this.contractstatusidDataGridViewTextBoxColumn.HeaderText = "contract_status_id";
-            this.contractstatusidDataGridViewTextBoxColumn.Name = "contractstatusidDataGridViewTextBoxColumn";
-            // 
-            // productsid1DataGridViewTextBoxColumn
-            // 
-            this.productsid1DataGridViewTextBoxColumn.DataPropertyName = "products_id1";
-            this.productsid1DataGridViewTextBoxColumn.HeaderText = "products_id1";
-            this.productsid1DataGridViewTextBoxColumn.Name = "productsid1DataGridViewTextBoxColumn";
-            // 
-            // agentsid1DataGridViewTextBoxColumn
-            // 
-            this.agentsid1DataGridViewTextBoxColumn.DataPropertyName = "agents_id1";
-            this.agentsid1DataGridViewTextBoxColumn.HeaderText = "agents_id1";
-            this.agentsid1DataGridViewTextBoxColumn.Name = "agentsid1DataGridViewTextBoxColumn";
-            // 
-            // agentsnameDataGridViewTextBoxColumn
-            // 
-            this.agentsnameDataGridViewTextBoxColumn.DataPropertyName = "agents_name";
-            this.agentsnameDataGridViewTextBoxColumn.HeaderText = "agents_name";
-            this.agentsnameDataGridViewTextBoxColumn.Name = "agentsnameDataGridViewTextBoxColumn";
-            // 
-            // agenttypesidDataGridViewTextBoxColumn
-            // 
-            this.agenttypesidDataGridViewTextBoxColumn.DataPropertyName = "agent_types_id";
-            this.agenttypesidDataGridViewTextBoxColumn.HeaderText = "agent_types_id";
-            this.agenttypesidDataGridViewTextBoxColumn.Name = "agenttypesidDataGridViewTextBoxColumn";
-            // 
-            // agenttypesnameDataGridViewTextBoxColumn
-            // 
-            this.agenttypesnameDataGridViewTextBoxColumn.DataPropertyName = "agent_types_name";
-            this.agenttypesnameDataGridViewTextBoxColumn.HeaderText = "agent_types_name";
-            this.agenttypesnameDataGridViewTextBoxColumn.Name = "agenttypesnameDataGridViewTextBoxColumn";
-            // 
-            // perslastnameDataGridViewTextBoxColumn
-            // 
-            this.perslastnameDataGridViewTextBoxColumn.DataPropertyName = "pers_lastname";
-            this.perslastnameDataGridViewTextBoxColumn.HeaderText = "pers_lastname";
-            this.perslastnameDataGridViewTextBoxColumn.Name = "perslastnameDataGridViewTextBoxColumn";
-            // 
-            // persfirstnameDataGridViewTextBoxColumn
-            // 
-            this.persfirstnameDataGridViewTextBoxColumn.DataPropertyName = "pers_firstname";
-            this.persfirstnameDataGridViewTextBoxColumn.HeaderText = "pers_firstname";
-            this.persfirstnameDataGridViewTextBoxColumn.Name = "persfirstnameDataGridViewTextBoxColumn";
-            // 
-            // persmiddlenameDataGridViewTextBoxColumn
-            // 
-            this.persmiddlenameDataGridViewTextBoxColumn.DataPropertyName = "pers_middlename";
-            this.persmiddlenameDataGridViewTextBoxColumn.HeaderText = "pers_middlename";
-            this.persmiddlenameDataGridViewTextBoxColumn.Name = "persmiddlenameDataGridViewTextBoxColumn";
-            // 
-            // agentsfullnameDataGridViewTextBoxColumn
-            // 
-            this.agentsfullnameDataGridViewTextBoxColumn.DataPropertyName = "agents_fullname";
-            this.agentsfullnameDataGridViewTextBoxColumn.HeaderText = "agents_fullname";
-            this.agentsfullnameDataGridViewTextBoxColumn.Name = "agentsfullnameDataGridViewTextBoxColumn";
-            // 
-            // contactpersnameFIODataGridViewTextBoxColumn
-            // 
-            this.contactpersnameFIODataGridViewTextBoxColumn.DataPropertyName = "contact_pers_name_FIO";
-            this.contactpersnameFIODataGridViewTextBoxColumn.HeaderText = "contact_pers_name_FIO";
-            this.contactpersnameFIODataGridViewTextBoxColumn.Name = "contactpersnameFIODataGridViewTextBoxColumn";
-            // 
-            // contactpersnameIOFDataGridViewTextBoxColumn
-            // 
-            this.contactpersnameIOFDataGridViewTextBoxColumn.DataPropertyName = "contact_pers_name_IOF";
-            this.contactpersnameIOFDataGridViewTextBoxColumn.HeaderText = "contact_pers_name_IOF";
-            this.contactpersnameIOFDataGridViewTextBoxColumn.Name = "contactpersnameIOFDataGridViewTextBoxColumn";
-            // 
-            // contracttypesid1DataGridViewTextBoxColumn
-            // 
-            this.contracttypesid1DataGridViewTextBoxColumn.DataPropertyName = "contract_types_id1";
-            this.contracttypesid1DataGridViewTextBoxColumn.HeaderText = "contract_types_id1";
-            this.contracttypesid1DataGridViewTextBoxColumn.Name = "contracttypesid1DataGridViewTextBoxColumn";
-            // 
-            // contracttypesnameDataGridViewTextBoxColumn
-            // 
-            this.contracttypesnameDataGridViewTextBoxColumn.DataPropertyName = "contract_types_name";
-            this.contracttypesnameDataGridViewTextBoxColumn.HeaderText = "contract_types_name";
-            this.contracttypesnameDataGridViewTextBoxColumn.Name = "contracttypesnameDataGridViewTextBoxColumn";
-            // 
-            // emissiontypesidDataGridViewTextBoxColumn
-            // 
-            this.emissiontypesidDataGridViewTextBoxColumn.DataPropertyName = "emission_types_id";
-            this.emissiontypesidDataGridViewTextBoxColumn.HeaderText = "emission_types_id";
-            this.emissiontypesidDataGridViewTextBoxColumn.Name = "emissiontypesidDataGridViewTextBoxColumn";
-            // 
-            // emissiontypesnameDataGridViewTextBoxColumn
-            // 
-            this.emissiontypesnameDataGridViewTextBoxColumn.DataPropertyName = "emission_types_name";
-            this.emissiontypesnameDataGridViewTextBoxColumn.HeaderText = "emission_types_name";
-            this.emissiontypesnameDataGridViewTextBoxColumn.Name = "emissiontypesnameDataGridViewTextBoxColumn";
             // 
             // contractInfoDataTableBindingSource
             // 
@@ -412,6 +273,14 @@
             this.edocbaseDataSet.CaseSensitive = true;
             this.edocbaseDataSet.DataSetName = "EdocbaseDataSet";
             this.edocbaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // date_proposalDateTimePicker
+            // 
+            this.date_proposalDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.contractInfoDataTableBindingSource, "date_proposal", true));
+            this.date_proposalDateTimePicker.Location = new System.Drawing.Point(504, 10);
+            this.date_proposalDateTimePicker.Name = "date_proposalDateTimePicker";
+            this.date_proposalDateTimePicker.Size = new System.Drawing.Size(148, 20);
+            this.date_proposalDateTimePicker.TabIndex = 28;
             // 
             // emission_types_idComboBox
             // 
@@ -435,7 +304,7 @@
             this.contract_numberTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.contractInfoDataTableBindingSource, "number", true));
             this.contract_numberTextBox.Location = new System.Drawing.Point(167, 10);
             this.contract_numberTextBox.Name = "contract_numberTextBox";
-            this.contract_numberTextBox.Size = new System.Drawing.Size(485, 20);
+            this.contract_numberTextBox.Size = new System.Drawing.Size(200, 20);
             this.contract_numberTextBox.TabIndex = 26;
             // 
             // contract_typeComboBox
@@ -463,9 +332,9 @@
             this.porposalGenerationGroupBox.Controls.Add(this.buttonGenerateProposalDoc);
             this.porposalGenerationGroupBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Edocsys.Properties.Settings.Default, "ProposalOperationsGroupBox", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.porposalGenerationGroupBox.Dock = System.Windows.Forms.DockStyle.Right;
-            this.porposalGenerationGroupBox.Location = new System.Drawing.Point(663, 0);
+            this.porposalGenerationGroupBox.Location = new System.Drawing.Point(658, 0);
             this.porposalGenerationGroupBox.Name = "porposalGenerationGroupBox";
-            this.porposalGenerationGroupBox.Size = new System.Drawing.Size(287, 198);
+            this.porposalGenerationGroupBox.Size = new System.Drawing.Size(292, 174);
             this.porposalGenerationGroupBox.TabIndex = 24;
             this.porposalGenerationGroupBox.TabStop = false;
             this.porposalGenerationGroupBox.Text = global::Edocsys.Properties.Settings.Default.ProposalOperationsGroupBox;
@@ -473,7 +342,7 @@
             // buttonLoadProposal
             // 
             this.buttonLoadProposal.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Edocsys.Properties.Settings.Default, "LoadProposalButton", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.buttonLoadProposal.Location = new System.Drawing.Point(21, 166);
+            this.buttonLoadProposal.Location = new System.Drawing.Point(21, 116);
             this.buttonLoadProposal.Name = "buttonLoadProposal";
             this.buttonLoadProposal.Size = new System.Drawing.Size(246, 23);
             this.buttonLoadProposal.TabIndex = 20;
@@ -484,7 +353,7 @@
             // buttonSaveProposal
             // 
             this.buttonSaveProposal.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Edocsys.Properties.Settings.Default, "SaveProposalButton", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.buttonSaveProposal.Location = new System.Drawing.Point(21, 142);
+            this.buttonSaveProposal.Location = new System.Drawing.Point(21, 86);
             this.buttonSaveProposal.Name = "buttonSaveProposal";
             this.buttonSaveProposal.Size = new System.Drawing.Size(246, 23);
             this.buttonSaveProposal.TabIndex = 19;
@@ -495,7 +364,7 @@
             // buttonEditProposal
             // 
             this.buttonEditProposal.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Edocsys.Properties.Settings.Default, "EditProposalButton", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.buttonEditProposal.Location = new System.Drawing.Point(21, 116);
+            this.buttonEditProposal.Location = new System.Drawing.Point(21, 57);
             this.buttonEditProposal.Name = "buttonEditProposal";
             this.buttonEditProposal.Size = new System.Drawing.Size(246, 23);
             this.buttonEditProposal.TabIndex = 18;
@@ -506,7 +375,7 @@
             // buttonGenerateProposalDoc
             // 
             this.buttonGenerateProposalDoc.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Edocsys.Properties.Settings.Default, "GenerateProposalTitle", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.buttonGenerateProposalDoc.Location = new System.Drawing.Point(21, 74);
+            this.buttonGenerateProposalDoc.Location = new System.Drawing.Point(21, 19);
             this.buttonGenerateProposalDoc.Name = "buttonGenerateProposalDoc";
             this.buttonGenerateProposalDoc.Size = new System.Drawing.Size(246, 23);
             this.buttonGenerateProposalDoc.TabIndex = 17;
@@ -710,7 +579,7 @@
             this.tableAdapterManager.contract_statusTableAdapter = null;
             this.tableAdapterManager.contract_types_for_workDataTablesTableAdapter = null;
             this.tableAdapterManager.contract_typesTableAdapter = this.contract_typesTableAdapter;
-            this.tableAdapterManager.ContractInfoDataTableTableAdapter = null;
+            this.tableAdapterManager.ContractInfoTableAdapter = this.contractInfoTableAdapter;
             this.tableAdapterManager.contractsTableAdapter = null;
             this.tableAdapterManager.doc_templatesTableAdapter = null;
             this.tableAdapterManager.documentsTableAdapter = this.documentsTableAdapter;
@@ -756,32 +625,77 @@
             this.documentsBindingSource.DataMember = "documents";
             this.documentsBindingSource.DataSource = this.edocbaseDataSet;
             // 
-            // contractInfoDataTableTableAdapter
+            // contractInfoTableAdapter
             // 
-            this.contractInfoDataTableTableAdapter.ClearBeforeFill = true;
+            this.contractInfoTableAdapter.ClearBeforeFill = true;
             // 
-            // date_proposalLabel
+            // agentsnameDataGridViewTextBoxColumn
             // 
-            date_proposalLabel.AutoSize = true;
-            date_proposalLabel.Location = new System.Drawing.Point(12, 176);
-            date_proposalLabel.Name = "date_proposalLabel";
-            date_proposalLabel.Size = new System.Drawing.Size(110, 13);
-            date_proposalLabel.TabIndex = 27;
-            date_proposalLabel.Text = "Дата подачи заявки";
+            this.agentsnameDataGridViewTextBoxColumn.DataPropertyName = "agents_name";
+            this.agentsnameDataGridViewTextBoxColumn.HeaderText = "Контрагент";
+            this.agentsnameDataGridViewTextBoxColumn.Name = "agentsnameDataGridViewTextBoxColumn";
+            this.agentsnameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // date_proposalDateTimePicker
+            // productNameDataGridViewTextBoxColumn
             // 
-            this.date_proposalDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.contractInfoDataTableBindingSource, "date_proposal", true));
-            this.date_proposalDateTimePicker.Location = new System.Drawing.Point(167, 170);
-            this.date_proposalDateTimePicker.Name = "date_proposalDateTimePicker";
-            this.date_proposalDateTimePicker.Size = new System.Drawing.Size(200, 20);
-            this.date_proposalDateTimePicker.TabIndex = 28;
+            this.productNameDataGridViewTextBoxColumn.DataPropertyName = "products_name";
+            this.productNameDataGridViewTextBoxColumn.HeaderText = "Продукция";
+            this.productNameDataGridViewTextBoxColumn.Name = "productNameDataGridViewTextBoxColumn";
+            this.productNameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // agenttypesnameDataGridViewTextBoxColumn
+            // 
+            this.agenttypesnameDataGridViewTextBoxColumn.DataPropertyName = "agent_types_name";
+            this.agenttypesnameDataGridViewTextBoxColumn.HeaderText = "Форма";
+            this.agenttypesnameDataGridViewTextBoxColumn.Name = "agenttypesnameDataGridViewTextBoxColumn";
+            this.agenttypesnameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // contracttypesnameDataGridViewTextBoxColumn
+            // 
+            this.contracttypesnameDataGridViewTextBoxColumn.DataPropertyName = "contract_types_name";
+            this.contracttypesnameDataGridViewTextBoxColumn.HeaderText = "Тип сертификации";
+            this.contracttypesnameDataGridViewTextBoxColumn.Name = "contracttypesnameDataGridViewTextBoxColumn";
+            this.contracttypesnameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // schemetypeFIODataGridViewTextBoxColumn
+            // 
+            this.schemetypeFIODataGridViewTextBoxColumn.DataPropertyName = "scheme_type";
+            this.schemetypeFIODataGridViewTextBoxColumn.HeaderText = "Схема сертификации";
+            this.schemetypeFIODataGridViewTextBoxColumn.Name = "schemetypeFIODataGridViewTextBoxColumn";
+            this.schemetypeFIODataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // emissiontypesnameDataGridViewTextBoxColumn
+            // 
+            this.emissiontypesnameDataGridViewTextBoxColumn.DataPropertyName = "emission_types_name";
+            this.emissiontypesnameDataGridViewTextBoxColumn.HeaderText = "Тип выпуска";
+            this.emissiontypesnameDataGridViewTextBoxColumn.Name = "emissiontypesnameDataGridViewTextBoxColumn";
+            this.emissiontypesnameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // contactpersnameFIODataGridViewTextBoxColumn
+            // 
+            this.contactpersnameFIODataGridViewTextBoxColumn.DataPropertyName = "contact_pers_name_FIO";
+            this.contactpersnameFIODataGridViewTextBoxColumn.HeaderText = "Контактное лицо";
+            this.contactpersnameFIODataGridViewTextBoxColumn.Name = "contactpersnameFIODataGridViewTextBoxColumn";
+            this.contactpersnameFIODataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // agentsfullnameDataGridViewTextBoxColumn
+            // 
+            this.agentsfullnameDataGridViewTextBoxColumn.DataPropertyName = "agents_fullname";
+            this.agentsfullnameDataGridViewTextBoxColumn.HeaderText = "Контрагент";
+            this.agentsfullnameDataGridViewTextBoxColumn.Name = "agentsfullnameDataGridViewTextBoxColumn";
+            this.agentsfullnameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // SendProposalColumn
+            // 
+            this.SendProposalColumn.HeaderText = "Отправить заявку";
+            this.SendProposalColumn.Name = "SendProposalColumn";
+            this.SendProposalColumn.ReadOnly = true;
             // 
             // ProposalForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(950, 580);
+            this.ClientSize = new System.Drawing.Size(950, 599);
             this.Controls.Add(this.mainSplitContainer);
             this.Controls.Add(this.contractsBindingNavigator);
             this.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Edocsys.Properties.Settings.Default, "ProposalFormText", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
@@ -857,29 +771,17 @@
         private EdocbaseDataSetTableAdapters.emission_typesTableAdapter emission_typesTableAdapter;
         private System.Windows.Forms.BindingSource emission_typesBindingSource;
         private System.Windows.Forms.BindingSource contractInfoDataTableBindingSource;
-        private EdocbaseDataSetTableAdapters.ContractInfoDataTableTableAdapter contractInfoDataTableTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn numberDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn productsidDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn agentsidDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn contracttypesidDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn contractstatusidDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn productsid1DataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn agentsid1DataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn agentsnameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn agenttypesidDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn agenttypesnameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn perslastnameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn persfirstnameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn persmiddlenameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn agentsfullnameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn contactpersnameFIODataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn contactpersnameIOFDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn contracttypesid1DataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn contracttypesnameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn emissiontypesidDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn emissiontypesnameDataGridViewTextBoxColumn;
+        private EdocbaseDataSetTableAdapters.ContractInfoTableAdapter contractInfoTableAdapter;
         private System.Windows.Forms.DateTimePicker date_proposalDateTimePicker;
+        private System.Windows.Forms.DataGridViewTextBoxColumn agentsnameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn productNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn agenttypesnameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn contracttypesnameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn schemetypeFIODataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn emissiontypesnameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn contactpersnameFIODataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn agentsfullnameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewButtonColumn SendProposalColumn;
 
         //private EdocbaseDataSetTableAdapters.TemplatesDataTableTableAdapter templatesDataTableTableAdapter;
         //private EdocbaseDataSetTableAdapters.ProductsTableAdapter productsTableAdapter;

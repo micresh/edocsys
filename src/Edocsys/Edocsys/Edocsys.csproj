@@ -153,6 +153,7 @@
     <Compile Include="reportclient.Designer.cs">
       <DependentUpon>reportclient.cs</DependentUpon>
     </Compile>
+    <Compile Include="User.cs" />
     <Compile Include="useradm.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -199,8 +199,6 @@ UPDATE contracts SET
 WHERE
 (`idContract` = @Original_idContract)
 
--- TaskStart
-INSERT INTO `Exec_contracts` (idContract) VALUES (@idContract)
 
 --user_add
 INSERT INTO `users` (`login`, `password`, `type`, `log_database`) VALUES (@login, @password, @type, @log_database)

@@ -175,5 +175,17 @@ namespace Edocsys
             //}
         }
 
+        private void buttonGenerateContract_Click(object sender, EventArgs e)
+        {
+            //int docType = GetContractTypeID();
+            //GenerateDoc(docType);
+        }
+
+        private void buttonEditContract_Click(object sender, EventArgs e)
+        {
+            //int docType = GetContractTypeID();
+            //EditDoc(docType);
+        }
+
     }
 }

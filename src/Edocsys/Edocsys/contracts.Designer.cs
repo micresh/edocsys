@@ -29,12 +29,19 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ContractsForm));
             System.Windows.Forms.Label label2;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ContractsForm));
             this.edocbaseDataSet = new Edocsys.EdocbaseDataSet();
             this.tableAdapterManager = new Edocsys.EdocbaseDataSetTableAdapters.TableAdapterManager();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabPageExpertAssigned = new System.Windows.Forms.TabPage();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.groupBoxContract = new System.Windows.Forms.GroupBox();
+            this.contract_typeLabel2 = new System.Windows.Forms.Label();
+            this.buttonLoadContract = new System.Windows.Forms.Button();
+            this.buttonSaveContract = new System.Windows.Forms.Button();
+            this.buttonEditContract = new System.Windows.Forms.Button();
+            this.buttonGenerateContract = new System.Windows.Forms.Button();
             this.contractsToStartDataTableDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -91,17 +98,12 @@
             this.taskReadyDataTableTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.TaskReadyDataTableTableAdapter();
             this.taskFinishedDataTableTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.TaskFinishedDataTableTableAdapter();
             this.badJobsDataTableTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.BadJobsDataTableTableAdapter();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.groupBoxContract = new System.Windows.Forms.GroupBox();
-            this.contract_typeLabel2 = new System.Windows.Forms.Label();
-            this.buttonLoadContract = new System.Windows.Forms.Button();
-            this.buttonSaveContract = new System.Windows.Forms.Button();
-            this.buttonEditContract = new System.Windows.Forms.Button();
-            this.buttonGenerateContract = new System.Windows.Forms.Button();
             label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.edocbaseDataSet)).BeginInit();
             this.tabControl.SuspendLayout();
             this.tabPageExpertAssigned.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.groupBoxContract.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.contractsToStartDataTableDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.contractsToStartDataTableBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.contractsToStartBindingNavigator)).BeginInit();
@@ -118,9 +120,17 @@
             this.tabPageBadJob.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.badJobsDataTableDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.badJobsDataTableBindingSource)).BeginInit();
-            this.panel1.SuspendLayout();
-            this.groupBoxContract.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Edocsys.Properties.Settings.Default, "ContractTypeText", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            label2.Location = new System.Drawing.Point(87, 21);
+            label2.Name = "label2";
+            label2.Size = new System.Drawing.Size(124, 13);
+            label2.TabIndex = 22;
+            label2.Text = global::Edocsys.Properties.Settings.Default.ContractTypeText;
             // 
             // edocbaseDataSet
             // 
@@ -138,6 +148,7 @@
             this.tableAdapterManager.contract_statusTableAdapter = null;
             this.tableAdapterManager.contract_types_for_workDataTablesTableAdapter = null;
             this.tableAdapterManager.contract_typesTableAdapter = null;
+            this.tableAdapterManager.ContractInfoTableAdapter = null;
             this.tableAdapterManager.contractsTableAdapter = null;
             this.tableAdapterManager.doc_templatesTableAdapter = null;
             this.tableAdapterManager.documentsTableAdapter = null;
@@ -181,6 +192,82 @@
             this.tabPageExpertAssigned.TabIndex = 0;
             this.tabPageExpertAssigned.Text = global::Edocsys.Properties.Settings.Default.TabExpertAssigned;
             this.tabPageExpertAssigned.UseVisualStyleBackColor = true;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.groupBoxContract);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.Location = new System.Drawing.Point(3, 185);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(917, 204);
+            this.panel1.TabIndex = 25;
+            // 
+            // groupBoxContract
+            // 
+            this.groupBoxContract.Controls.Add(label2);
+            this.groupBoxContract.Controls.Add(this.contract_typeLabel2);
+            this.groupBoxContract.Controls.Add(this.buttonLoadContract);
+            this.groupBoxContract.Controls.Add(this.buttonSaveContract);
+            this.groupBoxContract.Controls.Add(this.buttonEditContract);
+            this.groupBoxContract.Controls.Add(this.buttonGenerateContract);
+            this.groupBoxContract.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Edocsys.Properties.Settings.Default, "ContractOperationGroupBox", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.groupBoxContract.Dock = System.Windows.Forms.DockStyle.Right;
+            this.groupBoxContract.Location = new System.Drawing.Point(630, 0);
+            this.groupBoxContract.Name = "groupBoxContract";
+            this.groupBoxContract.Size = new System.Drawing.Size(287, 204);
+            this.groupBoxContract.TabIndex = 25;
+            this.groupBoxContract.TabStop = false;
+            this.groupBoxContract.Text = global::Edocsys.Properties.Settings.Default.ContractOperationGroupBox;
+            // 
+            // contract_typeLabel2
+            // 
+            this.contract_typeLabel2.Location = new System.Drawing.Point(18, 35);
+            this.contract_typeLabel2.Name = "contract_typeLabel2";
+            this.contract_typeLabel2.Size = new System.Drawing.Size(249, 23);
+            this.contract_typeLabel2.TabIndex = 21;
+            this.contract_typeLabel2.Text = "TYPE";
+            this.contract_typeLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // buttonLoadContract
+            // 
+            this.buttonLoadContract.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Edocsys.Properties.Settings.Default, "LoadContractTitle", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.buttonLoadContract.Location = new System.Drawing.Point(21, 166);
+            this.buttonLoadContract.Name = "buttonLoadContract";
+            this.buttonLoadContract.Size = new System.Drawing.Size(246, 23);
+            this.buttonLoadContract.TabIndex = 20;
+            this.buttonLoadContract.Text = global::Edocsys.Properties.Settings.Default.LoadContractTitle;
+            this.buttonLoadContract.UseVisualStyleBackColor = true;
+            // 
+            // buttonSaveContract
+            // 
+            this.buttonSaveContract.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Edocsys.Properties.Settings.Default, "SaveContractTitle", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.buttonSaveContract.Location = new System.Drawing.Point(21, 142);
+            this.buttonSaveContract.Name = "buttonSaveContract";
+            this.buttonSaveContract.Size = new System.Drawing.Size(246, 23);
+            this.buttonSaveContract.TabIndex = 19;
+            this.buttonSaveContract.Text = global::Edocsys.Properties.Settings.Default.SaveContractTitle;
+            this.buttonSaveContract.UseVisualStyleBackColor = true;
+            // 
+            // buttonEditContract
+            // 
+            this.buttonEditContract.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Edocsys.Properties.Settings.Default, "EditContractTitle", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.buttonEditContract.Location = new System.Drawing.Point(21, 116);
+            this.buttonEditContract.Name = "buttonEditContract";
+            this.buttonEditContract.Size = new System.Drawing.Size(246, 23);
+            this.buttonEditContract.TabIndex = 18;
+            this.buttonEditContract.Text = global::Edocsys.Properties.Settings.Default.EditContractTitle;
+            this.buttonEditContract.UseVisualStyleBackColor = true;
+            // 
+            // buttonGenerateContract
+            // 
+            this.buttonGenerateContract.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Edocsys.Properties.Settings.Default, "GenerateContractTitle", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.buttonGenerateContract.Location = new System.Drawing.Point(21, 74);
+            this.buttonGenerateContract.Name = "buttonGenerateContract";
+            this.buttonGenerateContract.Size = new System.Drawing.Size(246, 23);
+            this.buttonGenerateContract.TabIndex = 17;
+            this.buttonGenerateContract.Text = global::Edocsys.Properties.Settings.Default.GenerateContractTitle;
+            this.buttonGenerateContract.UseVisualStyleBackColor = true;
+            this.buttonGenerateContract.Click += new System.EventHandler(this.buttonGenerateContract_Click);
             // 
             // contractsToStartDataTableDataGridView
             // 
@@ -663,91 +750,6 @@
             // 
             this.badJobsDataTableTableAdapter.ClearBeforeFill = true;
             // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.groupBoxContract);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(3, 185);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(917, 204);
-            this.panel1.TabIndex = 25;
-            // 
-            // groupBoxContract
-            // 
-            this.groupBoxContract.Controls.Add(label2);
-            this.groupBoxContract.Controls.Add(this.contract_typeLabel2);
-            this.groupBoxContract.Controls.Add(this.buttonLoadContract);
-            this.groupBoxContract.Controls.Add(this.buttonSaveContract);
-            this.groupBoxContract.Controls.Add(this.buttonEditContract);
-            this.groupBoxContract.Controls.Add(this.buttonGenerateContract);
-            this.groupBoxContract.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Edocsys.Properties.Settings.Default, "ContractOperationGroupBox", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.groupBoxContract.Dock = System.Windows.Forms.DockStyle.Right;
-            this.groupBoxContract.Location = new System.Drawing.Point(630, 0);
-            this.groupBoxContract.Name = "groupBoxContract";
-            this.groupBoxContract.Size = new System.Drawing.Size(287, 204);
-            this.groupBoxContract.TabIndex = 25;
-            this.groupBoxContract.TabStop = false;
-            this.groupBoxContract.Text = global::Edocsys.Properties.Settings.Default.ContractOperationGroupBox;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Edocsys.Properties.Settings.Default, "ContractTypeText", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            label2.Location = new System.Drawing.Point(87, 21);
-            label2.Name = "label2";
-            label2.Size = new System.Drawing.Size(124, 13);
-            label2.TabIndex = 22;
-            label2.Text = global::Edocsys.Properties.Settings.Default.ContractTypeText;
-            // 
-            // contract_typeLabel2
-            // 
-            this.contract_typeLabel2.Location = new System.Drawing.Point(18, 35);
-            this.contract_typeLabel2.Name = "contract_typeLabel2";
-            this.contract_typeLabel2.Size = new System.Drawing.Size(249, 23);
-            this.contract_typeLabel2.TabIndex = 21;
-            this.contract_typeLabel2.Text = "TYPE";
-            this.contract_typeLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // buttonLoadContract
-            // 
-            this.buttonLoadContract.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Edocsys.Properties.Settings.Default, "LoadContractTitle", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.buttonLoadContract.Location = new System.Drawing.Point(21, 166);
-            this.buttonLoadContract.Name = "buttonLoadContract";
-            this.buttonLoadContract.Size = new System.Drawing.Size(246, 23);
-            this.buttonLoadContract.TabIndex = 20;
-            this.buttonLoadContract.Text = global::Edocsys.Properties.Settings.Default.LoadContractTitle;
-            this.buttonLoadContract.UseVisualStyleBackColor = true;
-            // 
-            // buttonSaveContract
-            // 
-            this.buttonSaveContract.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Edocsys.Properties.Settings.Default, "SaveContractTitle", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.buttonSaveContract.Location = new System.Drawing.Point(21, 142);
-            this.buttonSaveContract.Name = "buttonSaveContract";
-            this.buttonSaveContract.Size = new System.Drawing.Size(246, 23);
-            this.buttonSaveContract.TabIndex = 19;
-            this.buttonSaveContract.Text = global::Edocsys.Properties.Settings.Default.SaveContractTitle;
-            this.buttonSaveContract.UseVisualStyleBackColor = true;
-            // 
-            // buttonEditContract
-            // 
-            this.buttonEditContract.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Edocsys.Properties.Settings.Default, "EditContractTitle", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.buttonEditContract.Location = new System.Drawing.Point(21, 116);
-            this.buttonEditContract.Name = "buttonEditContract";
-            this.buttonEditContract.Size = new System.Drawing.Size(246, 23);
-            this.buttonEditContract.TabIndex = 18;
-            this.buttonEditContract.Text = global::Edocsys.Properties.Settings.Default.EditContractTitle;
-            this.buttonEditContract.UseVisualStyleBackColor = true;
-            // 
-            // buttonGenerateContract
-            // 
-            this.buttonGenerateContract.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Edocsys.Properties.Settings.Default, "GenerateContractTitle", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.buttonGenerateContract.Location = new System.Drawing.Point(21, 74);
-            this.buttonGenerateContract.Name = "buttonGenerateContract";
-            this.buttonGenerateContract.Size = new System.Drawing.Size(246, 23);
-            this.buttonGenerateContract.TabIndex = 17;
-            this.buttonGenerateContract.Text = global::Edocsys.Properties.Settings.Default.GenerateContractTitle;
-            this.buttonGenerateContract.UseVisualStyleBackColor = true;
-            // 
             // ContractsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -762,6 +764,9 @@
             this.tabControl.ResumeLayout(false);
             this.tabPageExpertAssigned.ResumeLayout(false);
             this.tabPageExpertAssigned.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.groupBoxContract.ResumeLayout(false);
+            this.groupBoxContract.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.contractsToStartDataTableDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.contractsToStartDataTableBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.contractsToStartBindingNavigator)).EndInit();
@@ -779,9 +784,6 @@
             this.tabPageBadJob.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.badJobsDataTableDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.badJobsDataTableBindingSource)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.groupBoxContract.ResumeLayout(false);
-            this.groupBoxContract.PerformLayout();
             this.ResumeLayout(false);
 
         }
