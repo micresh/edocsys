@@ -26,16 +26,15 @@ namespace Edocsys
 
         private void AssignExpertForm_Load(object sender, EventArgs e)
         {
-            //this.expertsTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
-            //this.expertAssignmentDataTableTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
-            //this.assignedContractsDataTableTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
-            //this.contractsTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
 
 
-            //this.expertsTableAdapter.Fill(this.edocbaseDataSet.Experts);
-            //this.expertAssignmentDataTableTableAdapter.Fill(this.edocbaseDataSet.ExpertAssignmentDataTable);
-            //this.assignedContractsDataTableTableAdapter.Fill(this.edocbaseDataSet.AssignedContractsDataTable);
-            //this.contractsTableAdapter.Fill(this.edocbaseDataSet.Contracts);
+            this.expertsTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
+            this.expertAssignmentTAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
+            this.assignedContractsTAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
+
+            this.expertAssignmentTAdapter.Fill(this.edocbaseDataSet.ExpertAssignment);
+            this.expertsTableAdapter.Fill(this.edocbaseDataSet.experts);
+            this.assignedContractsTAdapter.Fill(this.edocbaseDataSet.AssignedContracts);
         }
 
         private void assignButton_Click(object sender, EventArgs e)
@@ -55,23 +54,23 @@ namespace Edocsys
             if (MessageBox.Show("Назначить эксперта для заявки?", "Подтвердить назначение эксперта", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
 
-                DataRow currentRow = edocbaseDataSet.Tables["ExpertAssignmentDataTable"].DefaultView[expertAssignmentBindingSource.Position].Row;
+                DataRow currentRow = edocbaseDataSet.ExpertAssignment.DefaultView[expertAssignmentBindingSource.Position].Row;
 
-                int idContract = Convert.ToInt32(currentRow["idContract"]);
-                int idExpert = Convert.ToInt32(expertsListBox.SelectedValue);
+                int idContract = Convert.ToInt32(currentRow["id"]);
+                int idExpert = Convert.ToInt32(((DataRowView)expertsListBox.SelectedValue)["id"]);
 
                 try
                 {
                     //assign expert
-                    //this.contractsTableAdapter.AssignExpert((int)Constants.ContractStatuses.ExpertAssigned, idExpert, idContract);
+                    this.expertAssignmentTAdapter.AssignExpert((int)Constants.ContractStatuses.ContractConfirm, idExpert, idContract);
 
-                    //refresh data
-                    //this.edocbaseDataSet.AcceptChanges();
-                    //this.expertAssignmentDataTableTableAdapter.Fill(this.edocbaseDataSet.ExpertAssignmentDataTable);
-                    //this.assignedContractsDataTableTableAdapter.Fill(this.edocbaseDataSet.AssignedContractsDataTable);
+                    ///refresh data
+                    this.edocbaseDataSet.AcceptChanges();
+                    this.expertAssignmentTAdapter.Fill(this.edocbaseDataSet.ExpertAssignment);
+                    this.assignedContractsTAdapter.Fill(this.edocbaseDataSet.AssignedContracts);
 
-                    //this.contractsDataGridView.Refresh();
-                    //this.assignedContractsDataGridView.Refresh();
+                    this.contractsDataGridView.Refresh();
+                    this.assignedContractsDataGridView.Refresh();
                 }
                 catch (Exception ex)
                 {

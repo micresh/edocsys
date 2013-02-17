@@ -66,13 +66,61 @@ WHERE
 (id = @Original_id)
 
 
+-- SendProposal
+UPDATE
+contracts
+SET
+contract_status_id = @contract_status_id
+WHERE
+(id = @original_id)
+
 -- !-----------------------------------------------------------
 
 
 
+-- ExpertAssignment
+
+SELECT
+contracts.id,
+contracts.products_id,
+contracts.agents_id,
+contracts.contract_types_id,
+contracts.contract_status_id,
+contracts.experts_id,
+contracts.source_types_id,
+contracts.date_proposal,
+contracts.experts_id,
+products.id AS products_id, 
+products.name AS products_name,
+agents.id AS agents_id,
+agents.name AS agents_name,
+agent_types.id AS agent_types_id,
+agent_types.name AS agent_types_name,
+CONCAT( agent_types.name, ' ', agents.name ) AS agents_fullname, 
+CONCAT('(', contracts.id, ') ', agents.name, '. ', products.name) AS contract_fullname,
+contract_types.id AS contract_types_id,
+contract_types.name AS contract_types_name
+FROM
+contracts
+LEFT OUTER JOIN agents ON contracts.agents_id = agents.id
+LEFT OUTER JOIN products ON contracts.products_id = products.id
+LEFT OUTER JOIN agent_types ON agents.agent_types_id = agent_types.id
+LEFT OUTER JOIN contract_types ON contracts.contract_types_id = contract_types.id
+WHERE
+    (contracts.contract_status_id = 1)
 
 
+-- AssignExpert
+UPDATE
+contracts
+SET
+contract_status_id = @contract_status_id,
+experts_id = @experts_id
+WHERE
+(id = @original_id)
 
+
+-- !-------------------------------------------------------------------
 
 SELECT
 id,

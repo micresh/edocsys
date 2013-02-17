@@ -7,81 +7,125 @@
           <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="EdocbaseConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="EdocbaseConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Edocsys.Properties.Settings.GlobalReference.Default.EdocbaseConnectionString" Provider="MySql.Data.MySqlClient" />
         </Connections>
         <Tables>
-          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="AssignedContractsDataTableTableAdapter" GeneratorDataComponentClassName="AssignedContractsDataTableTableAdapter" Name="AssignedContractsDataTable" UserDataComponentName="AssignedContractsDataTableTableAdapter">
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="AssignedContractsTAdapter" GeneratorDataComponentClassName="AssignedContractsTAdapter" Name="AssignedContracts" UserDataComponentName="AssignedContractsTAdapter">
             <MainSource>
               <DbSource ConnectionRef="EdocbaseConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT
-Contracts.idContract,
-Contracts.agent_id,
-Contracts.idProducts,
-Contracts.expert_id,
-Agents.Ag_fullname,
-Products.Product_name,
-CONCAT(Experts.Expert_Lastname, ' ', Experts.Expert_Firstname, ' ', Experts.Expert_Middlename) AS expert_fullname
-FROM
-Contracts
-INNER JOIN
-Products ON Contracts.idProducts = Products.idProducts
-INNER JOIN
-Agents ON Contracts.agent_id = Agents.idAgents
-INNER JOIN
-Experts ON Contracts.expert_id = Experts.idExperts
-WHERE
-(Contracts.Contract_status = 2)</CommandText>
+                    <CommandText>SELECT        contracts.id, contracts.products_id, contracts.agents_id, contracts.contract_types_id, contracts.contract_status_id, contracts.experts_id, contracts.source_types_id, 
+                         contracts.date_proposal, products.id AS products_id, products.name AS products_name, agents.id AS agents_id, agents.name AS agents_name, 
+                         agent_types.id AS agent_types_id, agent_types.name AS agent_types_name, CONCAT(agent_types.name, ' ', agents.name) AS agents_fullname, CONCAT('(', 
+                         contracts.id, ') ', agents.name, '. ', products.name) AS contract_fullname, contract_types.id AS contract_types_id, contract_types.name AS contract_types_name
+FROM            contracts LEFT OUTER JOIN
+                         agents ON contracts.agents_id = agents.id LEFT OUTER JOIN
+                         products ON contracts.products_id = products.id LEFT OUTER JOIN
+                         agent_types ON agents.agent_types_id = agent_types.id LEFT OUTER JOIN
+                         contract_types ON contracts.contract_types_id = contract_types.id
+WHERE        (contracts.contract_status_id = 2)</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
             </MainSource>
             <Mappings>
-              <Mapping SourceColumn="idContract" DataSetColumn="idContract" />
-              <Mapping SourceColumn="agent_id" DataSetColumn="agent_id" />
-              <Mapping SourceColumn="idProducts" DataSetColumn="idProducts" />
-              <Mapping SourceColumn="expert_id" DataSetColumn="expert_id" />
-              <Mapping SourceColumn="Product_name" DataSetColumn="Product_name" />
-              <Mapping SourceColumn="expert_fullname" DataSetColumn="expert_fullname" />
-              <Mapping SourceColumn="Ag_fullname" DataSetColumn="Ag_fullname" />
+              <Mapping SourceColumn="id" DataSetColumn="id" />
+              <Mapping SourceColumn="products_id" DataSetColumn="products_id" />
+              <Mapping SourceColumn="agents_id" DataSetColumn="agents_id" />
+              <Mapping SourceColumn="contract_types_id" DataSetColumn="contract_types_id" />
+              <Mapping SourceColumn="contract_status_id" DataSetColumn="contract_status_id" />
+              <Mapping SourceColumn="experts_id" DataSetColumn="experts_id" />
+              <Mapping SourceColumn="source_types_id" DataSetColumn="source_types_id" />
+              <Mapping SourceColumn="date_proposal" DataSetColumn="date_proposal" />
+              <Mapping SourceColumn="products_id1" DataSetColumn="products_id1" />
+              <Mapping SourceColumn="products_name" DataSetColumn="products_name" />
+              <Mapping SourceColumn="agents_id1" DataSetColumn="agents_id1" />
+              <Mapping SourceColumn="agents_name" DataSetColumn="agents_name" />
+              <Mapping SourceColumn="agent_types_id" DataSetColumn="agent_types_id" />
+              <Mapping SourceColumn="agent_types_name" DataSetColumn="agent_types_name" />
+              <Mapping SourceColumn="agents_fullname" DataSetColumn="agents_fullname" />
+              <Mapping SourceColumn="contract_fullname" DataSetColumn="contract_fullname" />
+              <Mapping SourceColumn="contract_types_id1" DataSetColumn="contract_types_id1" />
+              <Mapping SourceColumn="contract_types_name" DataSetColumn="contract_types_name" />
             </Mappings>
             <Sources />
           </TableAdapter>
-          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ExpertAssignmentDataTableTableAdapter" GeneratorDataComponentClassName="ExpertAssignmentDataTableTableAdapter" Name="ExpertAssignmentDataTable" UserDataComponentName="ExpertAssignmentDataTableTableAdapter">
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ExpertAssignmentTAdapter" GeneratorDataComponentClassName="ExpertAssignmentTAdapter" Name="ExpertAssignment" UserDataComponentName="ExpertAssignmentTAdapter">
             <MainSource>
               <DbSource ConnectionRef="EdocbaseConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT
-Contracts.idContract,
-Contracts.agent_id,
-Contracts.idProducts,
-Contracts.expert_id,
-Agents.Ag_fullname,
-Products.Product_name,
-CONCAT('(', Contracts.idContract, ') ', Agents.Ag_fullname, '. ', Products.Product_name) AS contract_fullname
+contracts.id,
+contracts.products_id,
+contracts.agents_id,
+contracts.contract_types_id,
+contracts.contract_status_id,
+contracts.experts_id,
+contracts.source_types_id,
+contracts.date_proposal,
+products.id AS products_id, 
+products.name AS products_name,
+agents.id AS agents_id,
+agents.name AS agents_name,
+agent_types.id AS agent_types_id,
+agent_types.name AS agent_types_name,
+CONCAT( agent_types.name, ' ', agents.name ) AS agents_fullname, 
+CONCAT('(', contracts.id, ') ', agents.name, '. ', products.name) AS contract_fullname,
+contract_types.id AS contract_types_id,
+contract_types.name AS contract_types_name
 FROM
-Contracts
-INNER JOIN
-Products ON Contracts.idProducts = Products.idProducts
-INNER JOIN
-Agents ON Contracts.agent_id = Agents.idAgents
+contracts
+LEFT OUTER JOIN agents ON contracts.agents_id = agents.id
+LEFT OUTER JOIN products ON contracts.products_id = products.id
+LEFT OUTER JOIN agent_types ON agents.agent_types_id = agent_types.id
+LEFT OUTER JOIN contract_types ON contracts.contract_types_id = contract_types.id
 WHERE
-(Contracts.Contract_status = 1)</CommandText>
+    (contracts.contract_status_id = 1)</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
             </MainSource>
             <Mappings>
-              <Mapping SourceColumn="idContract" DataSetColumn="idContract" />
-              <Mapping SourceColumn="agent_id" DataSetColumn="agent_id" />
-              <Mapping SourceColumn="idProducts" DataSetColumn="idProducts" />
-              <Mapping SourceColumn="expert_id" DataSetColumn="expert_id" />
-              <Mapping SourceColumn="Product_name" DataSetColumn="Product_name" />
               <Mapping SourceColumn="contract_fullname" DataSetColumn="contract_fullname" />
-              <Mapping SourceColumn="Ag_fullname" DataSetColumn="Ag_fullname" />
+              <Mapping SourceColumn="id" DataSetColumn="id" />
+              <Mapping SourceColumn="products_id" DataSetColumn="products_id" />
+              <Mapping SourceColumn="agents_id" DataSetColumn="agents_id" />
+              <Mapping SourceColumn="contract_types_id" DataSetColumn="contract_types_id" />
+              <Mapping SourceColumn="contract_status_id" DataSetColumn="contract_status_id" />
+              <Mapping SourceColumn="experts_id" DataSetColumn="experts_id" />
+              <Mapping SourceColumn="source_types_id" DataSetColumn="source_types_id" />
+              <Mapping SourceColumn="date_proposal" DataSetColumn="date_proposal" />
+              <Mapping SourceColumn="products_id1" DataSetColumn="products_id1" />
+              <Mapping SourceColumn="products_name" DataSetColumn="products_name" />
+              <Mapping SourceColumn="agents_id1" DataSetColumn="agents_id1" />
+              <Mapping SourceColumn="agents_name" DataSetColumn="agents_name" />
+              <Mapping SourceColumn="agent_types_id" DataSetColumn="agent_types_id" />
+              <Mapping SourceColumn="agent_types_name" DataSetColumn="agent_types_name" />
+              <Mapping SourceColumn="agents_fullname" DataSetColumn="agents_fullname" />
+              <Mapping SourceColumn="contract_types_id1" DataSetColumn="contract_types_id1" />
+              <Mapping SourceColumn="contract_types_name" DataSetColumn="contract_types_name" />
             </Mappings>
-            <Sources />
+            <Sources>
+              <DbSource ConnectionRef="EdocbaseConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="AssignExpert" Modifier="Public" Name="AssignExpert" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="AssignExpert">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>UPDATE
+contracts
+SET
+contract_status_id = @contract_status_id,
+experts_id = @experts_id
+WHERE
+(id = @original_id)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="contract_status_id" ColumnName="contract_status_id" DataSourceName="edocbase.contracts" DataTypeServer="int(11)" DbType="Int32" Direction="Input" ParameterName="@contract_status_id" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="contract_status_id" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="experts_id" ColumnName="experts_id" DataSourceName="edocbase.contracts" DataTypeServer="int(11)" DbType="Int32" Direction="Input" ParameterName="@experts_id" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="experts_id" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="original_id" ColumnName="id" DataSourceName="edocbase.contracts" DataTypeServer="int(11)" DbType="Int32" Direction="Input" ParameterName="@original_id" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </Sources>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ContractsToStartDataTableTableAdapter" GeneratorDataComponentClassName="ContractsToStartDataTableTableAdapter" Name="ContractsToStartDataTable" UserDataComponentName="ContractsToStartDataTableTableAdapter">
             <MainSource>
@@ -440,10 +484,10 @@ WHERE        (id = @Original_id)</CommandText>
                 <UpdateCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>UPDATE       contracts
-SET                contract_status = @contract_status
+SET                contract_status_id = @contract_status_id
 WHERE        (id = @original_id)</CommandText>
                     <Parameters>
-                      <Parameter AllowDbNull="false" AutogeneratedName="contract_status" ColumnName="contract_status" DataSourceName="" DataTypeServer="unknown" DbType="Object" Direction="Input" ParameterName="@contract_status" Precision="0" Scale="0" Size="1024" SourceColumn="contract_status" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="contract_status_id" ColumnName="contract_status_id" DataSourceName="edocbase.contracts" DataTypeServer="int(11)" DbType="Int32" Direction="Input" ParameterName="@contract_status_id" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="contract_status_id" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="false" AutogeneratedName="original_id" ColumnName="id" DataSourceName="edocbase.contracts" DataTypeServer="int(11)" DbType="Int32" Direction="Input" ParameterName="@original_id" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="id" SourceColumnNullMapping="false" SourceVersion="Original" />
                     </Parameters>
                   </DbCommand>
@@ -2010,48 +2054,45 @@ product_areas_id = 0</CommandText>
   <xs:element name="EdocbaseDataSet" msdata:IsDataSet="true" msdata:CaseSensitive="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="EdocbaseDataSet" msprop:Generator_UserDSName="EdocbaseDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="AssignedContractsDataTable" msprop:Generator_TableClassName="AssignedContractsDataTableDataTable" msprop:Generator_TableVarName="tableAssignedContractsDataTable" msprop:Generator_RowChangedName="AssignedContractsDataTableRowChanged" msprop:Generator_TablePropName="AssignedContractsDataTable" msprop:Generator_RowDeletingName="AssignedContractsDataTableRowDeleting" msprop:Generator_RowChangingName="AssignedContractsDataTableRowChanging" msprop:Generator_RowEvHandlerName="AssignedContractsDataTableRowChangeEventHandler" msprop:Generator_RowDeletedName="AssignedContractsDataTableRowDeleted" msprop:Generator_RowClassName="AssignedContractsDataTableRow" msprop:Generator_UserTableName="AssignedContractsDataTable" msprop:Generator_RowEvArgName="AssignedContractsDataTableRowChangeEvent">
+        <xs:element name="AssignedContracts" msprop:Generator_TableClassName="AssignedContractsDataTable" msprop:Generator_TableVarName="tableAssignedContracts" msprop:Generator_RowChangedName="AssignedContractsRowChanged" msprop:Generator_TablePropName="AssignedContracts" msprop:Generator_RowDeletingName="AssignedContractsRowDeleting" msprop:Generator_RowChangingName="AssignedContractsRowChanging" msprop:Generator_RowEvHandlerName="AssignedContractsRowChangeEventHandler" msprop:Generator_RowDeletedName="AssignedContractsRowDeleted" msprop:Generator_RowClassName="AssignedContractsRow" msprop:Generator_UserTableName="AssignedContracts" msprop:Generator_RowEvArgName="AssignedContractsRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="idContract" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnidContract" msprop:Generator_ColumnPropNameInRow="idContract" msprop:Generator_ColumnPropNameInTable="idContractColumn" msprop:Generator_UserColumnName="idContract" type="xs:int" />
-              <xs:element name="agent_id" msprop:Generator_ColumnVarNameInTable="columnagent_id" msprop:Generator_ColumnPropNameInRow="agent_id" msprop:Generator_ColumnPropNameInTable="agent_idColumn" msprop:Generator_UserColumnName="agent_id" type="xs:int" />
-              <xs:element name="idProducts" msprop:Generator_ColumnVarNameInTable="columnidProducts" msprop:Generator_ColumnPropNameInRow="idProducts" msprop:Generator_ColumnPropNameInTable="idProductsColumn" msprop:Generator_UserColumnName="idProducts" type="xs:int" minOccurs="0" />
-              <xs:element name="expert_id" msprop:Generator_ColumnVarNameInTable="columnexpert_id" msprop:Generator_ColumnPropNameInRow="expert_id" msprop:Generator_ColumnPropNameInTable="expert_idColumn" msprop:Generator_UserColumnName="expert_id" type="xs:int" minOccurs="0" />
-              <xs:element name="Product_name" msprop:Generator_ColumnVarNameInTable="columnProduct_name" msprop:Generator_ColumnPropNameInRow="Product_name" msprop:Generator_ColumnPropNameInTable="Product_nameColumn" msprop:Generator_UserColumnName="Product_name" minOccurs="0">
+              <xs:element name="id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />
+              <xs:element name="products_id" msprop:Generator_ColumnVarNameInTable="columnproducts_id" msprop:Generator_ColumnPropNameInRow="products_id" msprop:Generator_ColumnPropNameInTable="products_idColumn" msprop:Generator_UserColumnName="products_id" type="xs:int" />
+              <xs:element name="agents_id" msprop:Generator_ColumnVarNameInTable="columnagents_id" msprop:Generator_ColumnPropNameInRow="agents_id" msprop:Generator_ColumnPropNameInTable="agents_idColumn" msprop:Generator_UserColumnName="agents_id" type="xs:int" />
+              <xs:element name="contract_types_id" msprop:Generator_ColumnVarNameInTable="columncontract_types_id" msprop:Generator_ColumnPropNameInRow="contract_types_id" msprop:Generator_ColumnPropNameInTable="contract_types_idColumn" msprop:Generator_UserColumnName="contract_types_id" type="xs:int" />
+              <xs:element name="contract_status_id" msprop:Generator_ColumnVarNameInTable="columncontract_status_id" msprop:Generator_ColumnPropNameInRow="contract_status_id" msprop:Generator_ColumnPropNameInTable="contract_status_idColumn" msprop:Generator_UserColumnName="contract_status_id" type="xs:int" />
+              <xs:element name="experts_id" msprop:Generator_ColumnVarNameInTable="columnexperts_id" msprop:Generator_ColumnPropNameInRow="experts_id" msprop:Generator_ColumnPropNameInTable="experts_idColumn" msprop:Generator_UserColumnName="experts_id" type="xs:int" />
+              <xs:element name="source_types_id" msprop:Generator_ColumnVarNameInTable="columnsource_types_id" msprop:Generator_ColumnPropNameInRow="source_types_id" msprop:Generator_ColumnPropNameInTable="source_types_idColumn" msprop:Generator_UserColumnName="source_types_id" type="xs:int" minOccurs="0" />
+              <xs:element name="date_proposal" msprop:Generator_ColumnVarNameInTable="columndate_proposal" msprop:Generator_ColumnPropNameInRow="date_proposal" msprop:Generator_ColumnPropNameInTable="date_proposalColumn" msprop:Generator_UserColumnName="date_proposal" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="products_id1" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnproducts_id1" msprop:Generator_ColumnPropNameInRow="products_id1" msprop:Generator_ColumnPropNameInTable="products_id1Column" msprop:Generator_UserColumnName="products_id1" type="xs:int" minOccurs="0" />
+              <xs:element name="products_name" msprop:Generator_ColumnVarNameInTable="columnproducts_name" msprop:Generator_ColumnPropNameInRow="products_name" msprop:Generator_ColumnPropNameInTable="products_nameColumn" msprop:Generator_UserColumnName="products_name" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="45" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="expert_fullname" msprop:Generator_ColumnVarNameInTable="columnexpert_fullname" msprop:Generator_ColumnPropNameInRow="expert_fullname" msprop:Generator_ColumnPropNameInTable="expert_fullnameColumn" msprop:Generator_UserColumnName="expert_fullname" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="92" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="Ag_fullname" msprop:Generator_ColumnVarNameInTable="columnAg_fullname" msprop:Generator_ColumnPropNameInRow="Ag_fullname" msprop:Generator_ColumnPropNameInTable="Ag_fullnameColumn" msprop:Generator_UserColumnName="Ag_fullname" minOccurs="0">
+              <xs:element name="agents_id1" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnagents_id1" msprop:Generator_ColumnPropNameInRow="agents_id1" msprop:Generator_ColumnPropNameInTable="agents_id1Column" msprop:Generator_UserColumnName="agents_id1" type="xs:int" minOccurs="0" />
+              <xs:element name="agents_name" msprop:Generator_ColumnVarNameInTable="columnagents_name" msprop:Generator_ColumnPropNameInRow="agents_name" msprop:Generator_ColumnPropNameInTable="agents_nameColumn" msprop:Generator_UserColumnName="agents_name" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="63" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
-        <xs:element name="ExpertAssignmentDataTable" msprop:Generator_TableClassName="ExpertAssignmentDataTableDataTable" msprop:Generator_TableVarName="tableExpertAssignmentDataTable" msprop:Generator_RowChangedName="ExpertAssignmentDataTableRowChanged" msprop:Generator_TablePropName="ExpertAssignmentDataTable" msprop:Generator_RowDeletingName="ExpertAssignmentDataTableRowDeleting" msprop:Generator_RowChangingName="ExpertAssignmentDataTableRowChanging" msprop:Generator_RowEvHandlerName="ExpertAssignmentDataTableRowChangeEventHandler" msprop:Generator_RowDeletedName="ExpertAssignmentDataTableRowDeleted" msprop:Generator_RowClassName="ExpertAssignmentDataTableRow" msprop:Generator_UserTableName="ExpertAssignmentDataTable" msprop:Generator_RowEvArgName="ExpertAssignmentDataTableRowChangeEvent">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element name="idContract" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnidContract" msprop:Generator_ColumnPropNameInRow="idContract" msprop:Generator_ColumnPropNameInTable="idContractColumn" msprop:Generator_UserColumnName="idContract" type="xs:int" />
-              <xs:element name="agent_id" msprop:Generator_ColumnVarNameInTable="columnagent_id" msprop:Generator_ColumnPropNameInRow="agent_id" msprop:Generator_ColumnPropNameInTable="agent_idColumn" msprop:Generator_UserColumnName="agent_id" type="xs:int" />
-              <xs:element name="idProducts" msprop:Generator_ColumnVarNameInTable="columnidProducts" msprop:Generator_ColumnPropNameInRow="idProducts" msprop:Generator_ColumnPropNameInTable="idProductsColumn" msprop:Generator_UserColumnName="idProducts" type="xs:int" minOccurs="0" />
-              <xs:element name="expert_id" msprop:Generator_ColumnVarNameInTable="columnexpert_id" msprop:Generator_ColumnPropNameInRow="expert_id" msprop:Generator_ColumnPropNameInTable="expert_idColumn" msprop:Generator_UserColumnName="expert_id" type="xs:int" minOccurs="0" />
-              <xs:element name="Product_name" msprop:Generator_ColumnVarNameInTable="columnProduct_name" msprop:Generator_ColumnPropNameInRow="Product_name" msprop:Generator_ColumnPropNameInTable="Product_nameColumn" msprop:Generator_UserColumnName="Product_name" minOccurs="0">
+              <xs:element name="agent_types_id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnagent_types_id" msprop:Generator_ColumnPropNameInRow="agent_types_id" msprop:Generator_ColumnPropNameInTable="agent_types_idColumn" msprop:Generator_UserColumnName="agent_types_id" type="xs:int" minOccurs="0" />
+              <xs:element name="agent_types_name" msprop:Generator_ColumnVarNameInTable="columnagent_types_name" msprop:Generator_ColumnPropNameInRow="agent_types_name" msprop:Generator_ColumnPropNameInTable="agent_types_nameColumn" msprop:Generator_UserColumnName="agent_types_name" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
-                    <xs:maxLength value="45" />
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="agents_fullname" msprop:Generator_ColumnVarNameInTable="columnagents_fullname" msprop:Generator_ColumnPropNameInRow="agents_fullname" msprop:Generator_ColumnPropNameInTable="agents_fullnameColumn" msprop:Generator_UserColumnName="agents_fullname" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="72" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
@@ -2062,10 +2103,71 @@ product_areas_id = 0</CommandText>
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Ag_fullname" msprop:Generator_ColumnVarNameInTable="columnAg_fullname" msprop:Generator_ColumnPropNameInRow="Ag_fullname" msprop:Generator_ColumnPropNameInTable="Ag_fullnameColumn" msprop:Generator_UserColumnName="Ag_fullname" minOccurs="0">
+              <xs:element name="contract_types_id1" msprop:Generator_ColumnVarNameInTable="columncontract_types_id1" msprop:Generator_ColumnPropNameInRow="contract_types_id1" msprop:Generator_ColumnPropNameInTable="contract_types_id1Column" msprop:Generator_UserColumnName="contract_types_id1" type="xs:int" minOccurs="0" />
+              <xs:element name="contract_types_name" msprop:Generator_ColumnVarNameInTable="columncontract_types_name" msprop:Generator_ColumnPropNameInRow="contract_types_name" msprop:Generator_ColumnPropNameInTable="contract_types_nameColumn" msprop:Generator_UserColumnName="contract_types_name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="55" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="ExpertAssignment" msprop:Generator_TableClassName="ExpertAssignmentDataTable" msprop:Generator_TableVarName="tableExpertAssignment" msprop:Generator_RowChangedName="ExpertAssignmentRowChanged" msprop:Generator_TablePropName="ExpertAssignment" msprop:Generator_RowDeletingName="ExpertAssignmentRowDeleting" msprop:Generator_RowChangingName="ExpertAssignmentRowChanging" msprop:Generator_RowEvHandlerName="ExpertAssignmentRowChangeEventHandler" msprop:Generator_RowDeletedName="ExpertAssignmentRowDeleted" msprop:Generator_RowClassName="ExpertAssignmentRow" msprop:Generator_UserTableName="ExpertAssignment" msprop:Generator_RowEvArgName="ExpertAssignmentRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="contract_fullname" msprop:Generator_ColumnVarNameInTable="columncontract_fullname" msprop:Generator_ColumnPropNameInRow="contract_fullname" msprop:Generator_ColumnPropNameInTable="contract_fullnameColumn" msprop:Generator_UserColumnName="contract_fullname" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="124" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />
+              <xs:element name="products_id" msprop:Generator_ColumnVarNameInTable="columnproducts_id" msprop:Generator_ColumnPropNameInRow="products_id" msprop:Generator_ColumnPropNameInTable="products_idColumn" msprop:Generator_UserColumnName="products_id" type="xs:int" />
+              <xs:element name="agents_id" msprop:Generator_ColumnVarNameInTable="columnagents_id" msprop:Generator_ColumnPropNameInRow="agents_id" msprop:Generator_ColumnPropNameInTable="agents_idColumn" msprop:Generator_UserColumnName="agents_id" type="xs:int" />
+              <xs:element name="contract_types_id" msprop:Generator_ColumnVarNameInTable="columncontract_types_id" msprop:Generator_ColumnPropNameInRow="contract_types_id" msprop:Generator_ColumnPropNameInTable="contract_types_idColumn" msprop:Generator_UserColumnName="contract_types_id" type="xs:int" />
+              <xs:element name="contract_status_id" msprop:Generator_ColumnVarNameInTable="columncontract_status_id" msprop:Generator_ColumnPropNameInRow="contract_status_id" msprop:Generator_ColumnPropNameInTable="contract_status_idColumn" msprop:Generator_UserColumnName="contract_status_id" type="xs:int" />
+              <xs:element name="experts_id" msprop:Generator_ColumnVarNameInTable="columnexperts_id" msprop:Generator_ColumnPropNameInRow="experts_id" msprop:Generator_ColumnPropNameInTable="experts_idColumn" msprop:Generator_UserColumnName="experts_id" type="xs:int" />
+              <xs:element name="source_types_id" msprop:Generator_ColumnVarNameInTable="columnsource_types_id" msprop:Generator_ColumnPropNameInRow="source_types_id" msprop:Generator_ColumnPropNameInTable="source_types_idColumn" msprop:Generator_UserColumnName="source_types_id" type="xs:int" minOccurs="0" />
+              <xs:element name="date_proposal" msprop:Generator_ColumnVarNameInTable="columndate_proposal" msprop:Generator_ColumnPropNameInRow="date_proposal" msprop:Generator_ColumnPropNameInTable="date_proposalColumn" msprop:Generator_UserColumnName="date_proposal" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="products_id1" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnproducts_id1" msprop:Generator_ColumnPropNameInRow="products_id1" msprop:Generator_ColumnPropNameInTable="products_id1Column" msprop:Generator_UserColumnName="products_id1" type="xs:int" minOccurs="0" />
+              <xs:element name="products_name" msprop:Generator_ColumnVarNameInTable="columnproducts_name" msprop:Generator_ColumnPropNameInRow="products_name" msprop:Generator_ColumnPropNameInTable="products_nameColumn" msprop:Generator_UserColumnName="products_name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="45" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="agents_id1" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnagents_id1" msprop:Generator_ColumnPropNameInRow="agents_id1" msprop:Generator_ColumnPropNameInTable="agents_id1Column" msprop:Generator_UserColumnName="agents_id1" type="xs:int" minOccurs="0" />
+              <xs:element name="agents_name" msprop:Generator_ColumnVarNameInTable="columnagents_name" msprop:Generator_ColumnPropNameInRow="agents_name" msprop:Generator_ColumnPropNameInTable="agents_nameColumn" msprop:Generator_UserColumnName="agents_name" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="63" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="agent_types_id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnagent_types_id" msprop:Generator_ColumnPropNameInRow="agent_types_id" msprop:Generator_ColumnPropNameInTable="agent_types_idColumn" msprop:Generator_UserColumnName="agent_types_id" type="xs:int" minOccurs="0" />
+              <xs:element name="agent_types_name" msprop:Generator_ColumnVarNameInTable="columnagent_types_name" msprop:Generator_ColumnPropNameInRow="agent_types_name" msprop:Generator_ColumnPropNameInTable="agent_types_nameColumn" msprop:Generator_UserColumnName="agent_types_name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="agents_fullname" msprop:Generator_ColumnVarNameInTable="columnagents_fullname" msprop:Generator_ColumnPropNameInRow="agents_fullname" msprop:Generator_ColumnPropNameInTable="agents_fullnameColumn" msprop:Generator_UserColumnName="agents_fullname" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="72" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="contract_types_id1" msprop:Generator_ColumnVarNameInTable="columncontract_types_id1" msprop:Generator_ColumnPropNameInRow="contract_types_id1" msprop:Generator_ColumnPropNameInTable="contract_types_id1Column" msprop:Generator_UserColumnName="contract_types_id1" type="xs:int" minOccurs="0" />
+              <xs:element name="contract_types_name" msprop:Generator_ColumnVarNameInTable="columncontract_types_name" msprop:Generator_ColumnPropNameInRow="contract_types_name" msprop:Generator_ColumnPropNameInTable="contract_types_nameColumn" msprop:Generator_UserColumnName="contract_types_name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="55" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
@@ -2260,8 +2362,8 @@ product_areas_id = 0</CommandText>
               <xs:element name="agents_id" msprop:Generator_ColumnVarNameInTable="columnagents_id" msprop:Generator_ColumnPropNameInRow="agents_id" msprop:Generator_ColumnPropNameInTable="agents_idColumn" msprop:Generator_UserColumnName="agents_id" type="xs:int" />
               <xs:element name="contract_types_id" msprop:Generator_ColumnVarNameInTable="columncontract_types_id" msprop:Generator_ColumnPropNameInRow="contract_types_id" msprop:Generator_ColumnPropNameInTable="contract_types_idColumn" msprop:Generator_UserColumnName="contract_types_id" type="xs:int" />
               <xs:element name="contract_status_id" msprop:Generator_ColumnVarNameInTable="columncontract_status_id" msprop:Generator_ColumnPropNameInRow="contract_status_id" msprop:Generator_ColumnPropNameInTable="contract_status_idColumn" msprop:Generator_UserColumnName="contract_status_id" type="xs:int" />
-              <xs:element name="products_id1" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnproducts_id1" msprop:Generator_ColumnPropNameInRow="products_id1" msprop:Generator_ColumnPropNameInTable="products_id1Column" msprop:Generator_UserColumnName="products_id1" type="xs:int" minOccurs="0" />
-              <xs:element name="agents_id1" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnagents_id1" msprop:Generator_ColumnPropNameInRow="agents_id1" msprop:Generator_ColumnPropNameInTable="agents_id1Column" msprop:Generator_UserColumnName="agents_id1" type="xs:int" minOccurs="0" />
+              <xs:element name="products_id1" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnproducts_id1" msprop:Generator_ColumnPropNameInRow="products_id1" msprop:Generator_ColumnPropNameInTable="products_id1Column" msprop:Generator_UserColumnName="products_id1" type="xs:int" />
+              <xs:element name="agents_id1" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnagents_id1" msprop:Generator_ColumnPropNameInRow="agents_id1" msprop:Generator_ColumnPropNameInTable="agents_id1Column" msprop:Generator_UserColumnName="agents_id1" type="xs:int" />
               <xs:element name="agents_name" msprop:Generator_ColumnVarNameInTable="columnagents_name" msprop:Generator_ColumnPropNameInRow="agents_name" msprop:Generator_ColumnPropNameInTable="agents_nameColumn" msprop:Generator_UserColumnName="agents_name" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
@@ -2910,14 +3012,6 @@ product_areas_id = 0</CommandText>
       </xs:choice>
     </xs:complexType>
     <xs:unique name="Constraint1" msdata:PrimaryKey="true">
-      <xs:selector xpath=".//mstns:AssignedContractsDataTable" />
-      <xs:field xpath="mstns:idContract" />
-    </xs:unique>
-    <xs:unique name="ExpertAssignmentDataTable_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
-      <xs:selector xpath=".//mstns:ExpertAssignmentDataTable" />
-      <xs:field xpath="mstns:idContract" />
-    </xs:unique>
-    <xs:unique name="ContractsToStartDataTable_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:ContractsToStartDataTable" />
       <xs:field xpath="mstns:idContract" />
     </xs:unique>
