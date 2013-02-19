@@ -16,84 +16,73 @@ namespace Edocsys
             InitializeComponent();
         }
 
-        private void productsBindingNavigatorSaveItem_Click(object sender, EventArgs e)
-        {
-            this.Validate();
-            
-        }
-
         private void ProductionForm_Load(object sender, EventArgs e)
         {
             this.product_areasTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
             this.product_gostsTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
             this.productsTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
-            // TODO: This line of code loads data into the 'edocbaseDataSet.product_areas' table. You can move, or remove it, as needed.
+
+
             this.product_areasTableAdapter.Fill(this.edocbaseDataSet.product_areas);
-            // TODO: This line of code loads data into the 'edocbaseDataSet.product_gosts' table. You can move, or remove it, as needed.
-           // this.product_gostsTableAdapter.Fill(this.edocbaseDataSet.product_gosts);
-            // TODO: This line of code loads data into the 'edocbaseDataSet.products' table. You can move, or remove it, as needed.
-         //   this.productsTableAdapter.Fill(this.edocbaseDataSet.products);
-            //this.prodGostTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
-            //// TODO: This line of code loads data into the 'edocbaseDataSet.ProdGost' table. You can move, or remove it, as needed.
-            //this.prodGostTableAdapter.Fill(this.edocbaseDataSet.ProdGost);
-            //// TODO: This line of code loads data into the 'edocbaseDataSet.Products' table. You can move, or remove it, as needed.
-            //this.productsTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
-                        
-            //this.productsTableAdapter.Fill(this.edocbaseDataSet.Products);
+            this.product_gostsTableAdapter.Fill(this.edocbaseDataSet.product_gosts);
+            this.productsTableAdapter.Fill(this.edocbaseDataSet.products);
         }
 
-        private void productsBindingNavigatorSaveItem_Click_1(object sender, EventArgs e)
+
+        private void productsBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
-                            
+            this.Validate();
+            this.productsBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.edocbaseDataSet);
+            this.edocbaseDataSet.AcceptChanges();
         }
 
         private void bindingNavigatorAddNewItem_Click(object sender, EventArgs e)
         {
+            this.productsBindingSource.AddNew();
 
+            DataRowView currentProduct = (DataRowView)this.productsBindingSource.Current;
+
+            DataRow currentRow = edocbaseDataSet.product_areas.DefaultView[product_areasBindingSource.Position].Row;
+
+            int idArea = Convert.ToInt32(currentRow["id"]);
+
+            currentProduct["product_areas_id"] = idArea;
         }
 
-        private void toolStripButton7_Click(object sender, EventArgs e)
+        private void productsBindingSource_CurrentChanged(object sender, EventArgs e)
         {
-
-        }
-
-        private void productsBindingNavigatorSaveItem_Click_2(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void productsBindingNavigatorSaveItem_Click_3(object sender, EventArgs e)
-        {
-            this.Validate();
-            this.productsBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.edocbaseDataSet);
-
-        }
-
-        private void productsBindingNavigatorSaveItem_Click_4(object sender, EventArgs e)
-        {
-            this.Validate();
-            this.productsBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.edocbaseDataSet);
-
-        }
-
-        private void nameComboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            switch (nameComboBox.SelectedIndex)
+            if ((productsBindingSource.Position >= 0)
+                && (edocbaseDataSet.products.DefaultView.Count > productsBindingSource.Position))
             {
-                case 0:
-                    this.productsDataGridView.ClearSelection();
-                    this.productsTableAdapter.FillBySertification(this.edocbaseDataSet.products);
-                    this.product_gostsTableAdapter.Fill(this.edocbaseDataSet.product_gosts);
-                    break;
-                case 1:
-                    this.productsDataGridView.ClearSelection();
-                    this.productsTableAdapter.FillByLabIssl(this.edocbaseDataSet.products);
-                    this.product_gostsTableAdapter.Fill(this.edocbaseDataSet.product_gosts);
-                    break;
-            }
 
+                DataRowView currentRow = (DataRowView)productsBindingSource.Current;
+
+                string agent = String.Format("Контрагент: {0}", Convert.ToString(currentRow["name"]));
+
+                toolStripLabelProduct.Text = agent;
+            }
+        }
+
+        private void bindingNavigatorAddNewItem1_Click(object sender, EventArgs e)
+        {
+            this.product_gostsBindingSource.AddNew();
+
+            DataRowView currentGOST = (DataRowView)this.product_gostsBindingSource.Current;
+
+            DataRowView currentRow = (DataRowView)productsBindingSource.Current;
+
+            int idProduct = Convert.ToInt32(currentRow["id"]);
+
+            currentGOST["products_id"] = idProduct;
+        }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.productsBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.edocbaseDataSet);
+            this.edocbaseDataSet.AcceptChanges();
         }
     }
 }

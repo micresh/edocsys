@@ -120,6 +120,12 @@
       <DependentUpon>experts.cs</DependentUpon>
     </Compile>
     <Compile Include="FilterHelper.cs" />
+    <Compile Include="gostselection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gostselection.Designer.cs">
+      <DependentUpon>gostselection.cs</DependentUpon>
+    </Compile>
     <Compile Include="login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -178,6 +184,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="experts.resx">
       <DependentUpon>experts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gostselection.resx">
+      <DependentUpon>gostselection.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="login.resx">
       <DependentUpon>login.cs</DependentUpon>

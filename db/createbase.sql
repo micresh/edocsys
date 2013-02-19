@@ -119,7 +119,7 @@ CREATE TABLE IF NOT EXISTS `edocbase`.`products` (
 
 -- ГОСТы продукции
 CREATE TABLE IF NOT EXISTS `edocbase`.`product_gosts` (
-  `id`                  INT NOT NULL ,
+  `id`                  INT NOT NULL AUTO_INCREMENT,
   `products_id`         INT NULL ,
   `number`              VARCHAR(15) NULL ,
   `type`                VARCHAR(80) NULL ,

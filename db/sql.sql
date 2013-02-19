@@ -10,6 +10,9 @@ contracts.source_types_id,
 contracts.date_proposal,
 contracts.scheme_type,
 contracts.add_data_proposal,
+contracts.cost,
+contracts.total_cost,
+contracts.cash_income,
 products.name AS products_name,
 products.id AS products_id, 
 agents.id AS agents_id,
@@ -43,10 +46,10 @@ WHERE (id = @id)
 
 INSERT INTO contracts
 (products_id, agents_id, experts_id, contract_status_id, emission_types_id, contract_types_id,
-    date_proposal, scheme_type, add_data_proposal, source_types_id)
+    date_proposal, scheme_type, add_data_proposal, source_types_id, cost, total_cost, cash_income)
 VALUES
 (@products_id, @agents_id, @experts_id, @contract_status_id, @emission_types_id, @contract_types_id,
-@date_proposal, @scheme_type, @add_data_proposal, @source_types_id)
+@date_proposal, @scheme_type, @add_data_proposal, @source_types_id, cost, total_cost, false)
 
 
 
@@ -61,7 +64,10 @@ contract_types_id = @contract_types_id,
 date_proposal = @date_proposal,
 scheme_type = @scheme_type,
 add_data_proposal = @add_data_proposal,
-source_types_id = @source_types_id
+source_types_id = @source_types_id,
+cost = @cost,
+total_cost = @total_cost,
+cash_income = false
 WHERE
 (id = @Original_id)
 
@@ -77,6 +83,22 @@ WHERE
 -- !-----------------------------------------------------------
 
 
+-- GOSTSelection
+SELECT
+selected_gosts.id,
+selected_gosts.contracts_id,
+selected_gosts.product_gosts_id,
+product_gosts.number,
+product_gosts.products_id,
+product_gosts.id AS product_gosts_id1
+FROM
+selected_gosts
+LEFT OUTER JOIN
+product_gosts ON selected_gosts.product_gosts_id = product_gosts.id
+
+
+
+-- !-----------------------------------------------------------
 
 -- ExpertAssignment
 
@@ -90,7 +112,7 @@ contracts.experts_id,
 contracts.source_types_id,
 contracts.date_proposal,
 contracts.experts_id,
-products.id AS products_id, 
+products.id AS products_id,
 products.name AS products_name,
 agents.id AS agents_id,
 agents.name AS agents_name,

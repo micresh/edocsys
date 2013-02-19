@@ -1,6 +1,6 @@
 ﻿namespace Edocsys
 {
-    partial class UseradmForm
+    partial class gostselection
     {
         /// <summary>
         /// Required designer variable.
@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UseradmForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(gostselection));
             this.edocbaseDataSet = new Edocsys.EdocbaseDataSet();
-            this.usersBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.usersTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.usersTableAdapter();
+            this.selected_gostsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.selected_gostsTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.selected_gostsTableAdapter();
             this.tableAdapterManager = new Edocsys.EdocbaseDataSetTableAdapters.TableAdapterManager();
-            this.usersBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
+            this.selected_gostsBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
@@ -46,20 +46,16 @@
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
-            this.usersBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
-            this.usersDataGridView = new System.Windows.Forms.DataGridView();
+            this.selected_gostsBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
+            this.selected_gostsDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.edocbaseDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.usersBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.usersBindingNavigator)).BeginInit();
-            this.usersBindingNavigator.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.usersDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.selected_gostsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.selected_gostsBindingNavigator)).BeginInit();
+            this.selected_gostsBindingNavigator.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.selected_gostsDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // edocbaseDataSet
@@ -68,14 +64,14 @@
             this.edocbaseDataSet.DataSetName = "EdocbaseDataSet";
             this.edocbaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // usersBindingSource
+            // selected_gostsBindingSource
             // 
-            this.usersBindingSource.DataMember = "users";
-            this.usersBindingSource.DataSource = this.edocbaseDataSet;
+            this.selected_gostsBindingSource.DataMember = "selected_gosts";
+            this.selected_gostsBindingSource.DataSource = this.edocbaseDataSet;
             // 
-            // usersTableAdapter
+            // selected_gostsTableAdapter
             // 
-            this.usersTableAdapter.ClearBeforeFill = true;
+            this.selected_gostsTableAdapter.ClearBeforeFill = true;
             // 
             // tableAdapterManager
             // 
@@ -86,6 +82,7 @@
             this.tableAdapterManager.contract_statusTableAdapter = null;
             this.tableAdapterManager.contract_types_for_workTableAdapter = null;
             this.tableAdapterManager.contract_typesTableAdapter = null;
+            this.tableAdapterManager.ContractInfoTableAdapter = null;
             this.tableAdapterManager.contractsTableAdapter = null;
             this.tableAdapterManager.doc_templatesTableAdapter = null;
             this.tableAdapterManager.documentsTableAdapter = null;
@@ -95,19 +92,19 @@
             this.tableAdapterManager.product_areasTableAdapter = null;
             this.tableAdapterManager.product_gostsTableAdapter = null;
             this.tableAdapterManager.productsTableAdapter = null;
-            this.tableAdapterManager.selected_gostsTableAdapter = null;
+            this.tableAdapterManager.selected_gostsTableAdapter = this.selected_gostsTableAdapter;
             this.tableAdapterManager.source_typesTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = Edocsys.EdocbaseDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             this.tableAdapterManager.user_typesTableAdapter = null;
-            this.tableAdapterManager.usersTableAdapter = this.usersTableAdapter;
+            this.tableAdapterManager.usersTableAdapter = null;
             // 
-            // usersBindingNavigator
+            // selected_gostsBindingNavigator
             // 
-            this.usersBindingNavigator.AddNewItem = this.bindingNavigatorAddNewItem;
-            this.usersBindingNavigator.BindingSource = this.usersBindingSource;
-            this.usersBindingNavigator.CountItem = this.bindingNavigatorCountItem;
-            this.usersBindingNavigator.DeleteItem = this.bindingNavigatorDeleteItem;
-            this.usersBindingNavigator.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.selected_gostsBindingNavigator.AddNewItem = this.bindingNavigatorAddNewItem;
+            this.selected_gostsBindingNavigator.BindingSource = this.selected_gostsBindingSource;
+            this.selected_gostsBindingNavigator.CountItem = this.bindingNavigatorCountItem;
+            this.selected_gostsBindingNavigator.DeleteItem = this.bindingNavigatorDeleteItem;
+            this.selected_gostsBindingNavigator.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.bindingNavigatorMoveFirstItem,
             this.bindingNavigatorMovePreviousItem,
             this.bindingNavigatorSeparator,
@@ -119,17 +116,17 @@
             this.bindingNavigatorSeparator2,
             this.bindingNavigatorAddNewItem,
             this.bindingNavigatorDeleteItem,
-            this.usersBindingNavigatorSaveItem});
-            this.usersBindingNavigator.Location = new System.Drawing.Point(0, 0);
-            this.usersBindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
-            this.usersBindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastItem;
-            this.usersBindingNavigator.MoveNextItem = this.bindingNavigatorMoveNextItem;
-            this.usersBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
-            this.usersBindingNavigator.Name = "usersBindingNavigator";
-            this.usersBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.usersBindingNavigator.Size = new System.Drawing.Size(777, 25);
-            this.usersBindingNavigator.TabIndex = 0;
-            this.usersBindingNavigator.Text = "bindingNavigator1";
+            this.selected_gostsBindingNavigatorSaveItem});
+            this.selected_gostsBindingNavigator.Location = new System.Drawing.Point(0, 0);
+            this.selected_gostsBindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
+            this.selected_gostsBindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastItem;
+            this.selected_gostsBindingNavigator.MoveNextItem = this.bindingNavigatorMoveNextItem;
+            this.selected_gostsBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
+            this.selected_gostsBindingNavigator.Name = "selected_gostsBindingNavigator";
+            this.selected_gostsBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
+            this.selected_gostsBindingNavigator.Size = new System.Drawing.Size(442, 25);
+            this.selected_gostsBindingNavigator.TabIndex = 0;
+            this.selected_gostsBindingNavigator.Text = "bindingNavigator1";
             // 
             // bindingNavigatorMoveFirstItem
             // 
@@ -216,32 +213,28 @@
             this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 20);
             this.bindingNavigatorDeleteItem.Text = "Delete";
             // 
-            // usersBindingNavigatorSaveItem
+            // selected_gostsBindingNavigatorSaveItem
             // 
-            this.usersBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.usersBindingNavigatorSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("usersBindingNavigatorSaveItem.Image")));
-            this.usersBindingNavigatorSaveItem.Name = "usersBindingNavigatorSaveItem";
-            this.usersBindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 23);
-            this.usersBindingNavigatorSaveItem.Text = "Save Data";
-            this.usersBindingNavigatorSaveItem.Click += new System.EventHandler(this.usersBindingNavigatorSaveItem_Click_1);
+            this.selected_gostsBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.selected_gostsBindingNavigatorSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("selected_gostsBindingNavigatorSaveItem.Image")));
+            this.selected_gostsBindingNavigatorSaveItem.Name = "selected_gostsBindingNavigatorSaveItem";
+            this.selected_gostsBindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 23);
+            this.selected_gostsBindingNavigatorSaveItem.Text = "Save Data";
+            this.selected_gostsBindingNavigatorSaveItem.Click += new System.EventHandler(this.selected_gostsBindingNavigatorSaveItem_Click);
             // 
-            // usersDataGridView
+            // selected_gostsDataGridView
             // 
-            this.usersDataGridView.AutoGenerateColumns = false;
-            this.usersDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.usersDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.selected_gostsDataGridView.AutoGenerateColumns = false;
+            this.selected_gostsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.selected_gostsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn5,
-            this.dataGridViewTextBoxColumn6,
-            this.dataGridViewTextBoxColumn7,
-            this.dataGridViewTextBoxColumn8,
-            this.dataGridViewTextBoxColumn9});
-            this.usersDataGridView.DataSource = this.usersBindingSource;
-            this.usersDataGridView.Location = new System.Drawing.Point(12, 28);
-            this.usersDataGridView.Name = "usersDataGridView";
-            this.usersDataGridView.Size = new System.Drawing.Size(753, 220);
-            this.usersDataGridView.TabIndex = 1;
+            this.dataGridViewTextBoxColumn3});
+            this.selected_gostsDataGridView.DataSource = this.selected_gostsBindingSource;
+            this.selected_gostsDataGridView.Location = new System.Drawing.Point(12, 37);
+            this.selected_gostsDataGridView.Name = "selected_gostsDataGridView";
+            this.selected_gostsDataGridView.Size = new System.Drawing.Size(300, 220);
+            this.selected_gostsDataGridView.TabIndex = 1;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -251,56 +244,32 @@
             // 
             // dataGridViewTextBoxColumn2
             // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "login";
-            this.dataGridViewTextBoxColumn2.HeaderText = "login";
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "contracts_id";
+            this.dataGridViewTextBoxColumn2.HeaderText = "contracts_id";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             // 
-            // dataGridViewTextBoxColumn5
+            // dataGridViewTextBoxColumn3
             // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "password";
-            this.dataGridViewTextBoxColumn5.HeaderText = "password";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "product_gosts_id";
+            this.dataGridViewTextBoxColumn3.HeaderText = "product_gosts_id";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "lastname";
-            this.dataGridViewTextBoxColumn6.HeaderText = "lastname";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            this.dataGridViewTextBoxColumn7.DataPropertyName = "firstname";
-            this.dataGridViewTextBoxColumn7.HeaderText = "firstname";
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            // 
-            // dataGridViewTextBoxColumn8
-            // 
-            this.dataGridViewTextBoxColumn8.DataPropertyName = "middlename";
-            this.dataGridViewTextBoxColumn8.HeaderText = "middlename";
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            // 
-            // dataGridViewTextBoxColumn9
-            // 
-            this.dataGridViewTextBoxColumn9.DataPropertyName = "user_types_id";
-            this.dataGridViewTextBoxColumn9.HeaderText = "user_types_id";
-            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-            // 
-            // UseradmForm
+            // gostselection
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(777, 312);
-            this.Controls.Add(this.usersDataGridView);
-            this.Controls.Add(this.usersBindingNavigator);
-            this.Name = "UseradmForm";
-            this.Text = "Панель администрирования пользователей";
-            this.Load += new System.EventHandler(this.UseradmForm_Load);
+            this.ClientSize = new System.Drawing.Size(442, 345);
+            this.Controls.Add(this.selected_gostsDataGridView);
+            this.Controls.Add(this.selected_gostsBindingNavigator);
+            this.Name = "gostselection";
+            this.Text = "gostselection";
+            this.Load += new System.EventHandler(this.gostselection_Load);
             ((System.ComponentModel.ISupportInitialize)(this.edocbaseDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.usersBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.usersBindingNavigator)).EndInit();
-            this.usersBindingNavigator.ResumeLayout(false);
-            this.usersBindingNavigator.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.usersDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.selected_gostsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.selected_gostsBindingNavigator)).EndInit();
+            this.selected_gostsBindingNavigator.ResumeLayout(false);
+            this.selected_gostsBindingNavigator.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.selected_gostsDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -309,10 +278,10 @@
         #endregion
 
         private EdocbaseDataSet edocbaseDataSet;
-        private System.Windows.Forms.BindingSource usersBindingSource;
-        private EdocbaseDataSetTableAdapters.usersTableAdapter usersTableAdapter;
+        private System.Windows.Forms.BindingSource selected_gostsBindingSource;
+        private EdocbaseDataSetTableAdapters.selected_gostsTableAdapter selected_gostsTableAdapter;
         private EdocbaseDataSetTableAdapters.TableAdapterManager tableAdapterManager;
-        private System.Windows.Forms.BindingNavigator usersBindingNavigator;
+        private System.Windows.Forms.BindingNavigator selected_gostsBindingNavigator;
         private System.Windows.Forms.ToolStripButton bindingNavigatorAddNewItem;
         private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem;
         private System.Windows.Forms.ToolStripButton bindingNavigatorDeleteItem;
@@ -324,14 +293,10 @@
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveNextItem;
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
-        private System.Windows.Forms.ToolStripButton usersBindingNavigatorSaveItem;
-        private System.Windows.Forms.DataGridView usersDataGridView;
+        private System.Windows.Forms.ToolStripButton selected_gostsBindingNavigatorSaveItem;
+        private System.Windows.Forms.DataGridView selected_gostsDataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
     }
 }

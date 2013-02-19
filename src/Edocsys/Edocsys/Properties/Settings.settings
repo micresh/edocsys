@@ -307,5 +307,8 @@
     <Setting Name="LoadContractTitle" Type="System.String" Scope="User">
       <Value Profile="(Default)">Загрузить файл договора с диска</Value>
     </Setting>
+    <Setting Name="ProductAreasTitle" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Область аккредитации</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

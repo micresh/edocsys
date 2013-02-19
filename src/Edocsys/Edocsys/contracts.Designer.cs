@@ -49,7 +49,7 @@
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ProcessTaskColumn = new System.Windows.Forms.DataGridViewButtonColumn();
             this.contractsToStartDataTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.contractsToStartBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
+            this.contractConfirmBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
@@ -93,7 +93,7 @@
             this.dataGridViewTextBoxColumn24 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn25 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.badJobsDataTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.contractsToStartDataTableTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.ContractsToStartDataTableTableAdapter();
+            this.contractConfirmTAdapter = new Edocsys.EdocbaseDataSetTableAdapters.ContractConfirmTAdapter();
             this.taskProcessedDataTableTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.TaskProcessedDataTableTableAdapter();
             this.taskReadyDataTableTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.TaskReadyDataTableTableAdapter();
             this.taskFinishedDataTableTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.TaskFinishedDataTableTableAdapter();
@@ -106,8 +106,8 @@
             this.groupBoxContract.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.contractsToStartDataTableDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.contractsToStartDataTableBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.contractsToStartBindingNavigator)).BeginInit();
-            this.contractsToStartBindingNavigator.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.contractConfirmBindingNavigator)).BeginInit();
+            this.contractConfirmBindingNavigator.SuspendLayout();
             this.tabPageTaskProcessed.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.taskProcessedDataTableDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.taskProcessedDataTableBindingSource)).BeginInit();
@@ -146,7 +146,7 @@
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
             this.tableAdapterManager.Connection = null;
             this.tableAdapterManager.contract_statusTableAdapter = null;
-            this.tableAdapterManager.contract_types_for_workDataTablesTableAdapter = null;
+            this.tableAdapterManager.contract_types_for_workTableAdapter = null;
             this.tableAdapterManager.contract_typesTableAdapter = null;
             this.tableAdapterManager.ContractInfoTableAdapter = null;
             this.tableAdapterManager.contractsTableAdapter = null;
@@ -183,7 +183,7 @@
             this.tabPageExpertAssigned.AutoScroll = true;
             this.tabPageExpertAssigned.Controls.Add(this.panel1);
             this.tabPageExpertAssigned.Controls.Add(this.contractsToStartDataTableDataGridView);
-            this.tabPageExpertAssigned.Controls.Add(this.contractsToStartBindingNavigator);
+            this.tabPageExpertAssigned.Controls.Add(this.contractConfirmBindingNavigator);
             this.tabPageExpertAssigned.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Edocsys.Properties.Settings.Default, "TabExpertAssigned", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.tabPageExpertAssigned.Location = new System.Drawing.Point(4, 22);
             this.tabPageExpertAssigned.Name = "tabPageExpertAssigned";
@@ -325,15 +325,15 @@
             // 
             // contractsToStartDataTableBindingSource
             // 
-            this.contractsToStartDataTableBindingSource.DataMember = "ContractsToStartDataTable";
+            this.contractsToStartDataTableBindingSource.DataMember = "ContractConfirmed";
             this.contractsToStartDataTableBindingSource.DataSource = this.edocbaseDataSet;
             // 
-            // contractsToStartBindingNavigator
+            // contractConfirmBindingNavigator
             // 
-            this.contractsToStartBindingNavigator.AddNewItem = this.bindingNavigatorAddNewItem;
-            this.contractsToStartBindingNavigator.CountItem = this.bindingNavigatorCountItem;
-            this.contractsToStartBindingNavigator.DeleteItem = this.bindingNavigatorDeleteItem;
-            this.contractsToStartBindingNavigator.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.contractConfirmBindingNavigator.AddNewItem = this.bindingNavigatorAddNewItem;
+            this.contractConfirmBindingNavigator.CountItem = this.bindingNavigatorCountItem;
+            this.contractConfirmBindingNavigator.DeleteItem = this.bindingNavigatorDeleteItem;
+            this.contractConfirmBindingNavigator.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.bindingNavigatorMoveFirstItem,
             this.bindingNavigatorMovePreviousItem,
             this.bindingNavigatorSeparator,
@@ -346,16 +346,16 @@
             this.bindingNavigatorAddNewItem,
             this.bindingNavigatorDeleteItem,
             this.contractsBindingNavigatorSaveItem});
-            this.contractsToStartBindingNavigator.Location = new System.Drawing.Point(3, 3);
-            this.contractsToStartBindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
-            this.contractsToStartBindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastItem;
-            this.contractsToStartBindingNavigator.MoveNextItem = this.bindingNavigatorMoveNextItem;
-            this.contractsToStartBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
-            this.contractsToStartBindingNavigator.Name = "contractsToStartBindingNavigator";
-            this.contractsToStartBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.contractsToStartBindingNavigator.Size = new System.Drawing.Size(917, 25);
-            this.contractsToStartBindingNavigator.TabIndex = 3;
-            this.contractsToStartBindingNavigator.Text = "bindingNavigator1";
+            this.contractConfirmBindingNavigator.Location = new System.Drawing.Point(3, 3);
+            this.contractConfirmBindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
+            this.contractConfirmBindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastItem;
+            this.contractConfirmBindingNavigator.MoveNextItem = this.bindingNavigatorMoveNextItem;
+            this.contractConfirmBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
+            this.contractConfirmBindingNavigator.Name = "contractConfirmBindingNavigator";
+            this.contractConfirmBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
+            this.contractConfirmBindingNavigator.Size = new System.Drawing.Size(917, 25);
+            this.contractConfirmBindingNavigator.TabIndex = 3;
+            this.contractConfirmBindingNavigator.Text = "bindingNavigator1";
             // 
             // bindingNavigatorAddNewItem
             // 
@@ -730,9 +730,9 @@
             this.badJobsDataTableBindingSource.DataMember = "BadJobsDataTable";
             this.badJobsDataTableBindingSource.DataSource = this.edocbaseDataSet;
             // 
-            // contractsToStartDataTableTableAdapter
+            // contractConfirmTAdapter
             // 
-            this.contractsToStartDataTableTableAdapter.ClearBeforeFill = true;
+            this.contractConfirmTAdapter.ClearBeforeFill = true;
             // 
             // taskProcessedDataTableTableAdapter
             // 
@@ -769,9 +769,9 @@
             this.groupBoxContract.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.contractsToStartDataTableDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.contractsToStartDataTableBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.contractsToStartBindingNavigator)).EndInit();
-            this.contractsToStartBindingNavigator.ResumeLayout(false);
-            this.contractsToStartBindingNavigator.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.contractConfirmBindingNavigator)).EndInit();
+            this.contractConfirmBindingNavigator.ResumeLayout(false);
+            this.contractConfirmBindingNavigator.PerformLayout();
             this.tabPageTaskProcessed.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.taskProcessedDataTableDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.taskProcessedDataTableBindingSource)).EndInit();
@@ -794,7 +794,7 @@
         private EdocbaseDataSetTableAdapters.TableAdapterManager tableAdapterManager;
         private System.Windows.Forms.TabControl tabControl;
         private System.Windows.Forms.TabPage tabPageExpertAssigned;
-        private System.Windows.Forms.BindingNavigator contractsToStartBindingNavigator;
+        private System.Windows.Forms.BindingNavigator contractConfirmBindingNavigator;
         private System.Windows.Forms.ToolStripButton bindingNavigatorAddNewItem;
         private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem;
         private System.Windows.Forms.ToolStripButton bindingNavigatorDeleteItem;
@@ -812,7 +812,7 @@
         private System.Windows.Forms.TabPage tabPageTaskFinished;
         private System.Windows.Forms.TabPage tabPageBadJob;
         private System.Windows.Forms.BindingSource contractsToStartDataTableBindingSource;
-        private EdocbaseDataSetTableAdapters.ContractsToStartDataTableTableAdapter contractsToStartDataTableTableAdapter;
+        private EdocbaseDataSetTableAdapters.ContractConfirmTAdapter contractConfirmTAdapter;
         private System.Windows.Forms.DataGridView contractsToStartDataTableDataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
