@@ -1233,5 +1233,17 @@ namespace Edocsys.Properties {
                 this["ProductAreasTitle"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Выбор ГОСТов")]
+        public string GOSTSelectionTitle {
+            get {
+                return ((string)(this["GOSTSelectionTitle"]));
+            }
+            set {
+                this["GOSTSelectionTitle"] = value;
+            }
+        }
     }
 }

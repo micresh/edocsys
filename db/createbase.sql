@@ -200,6 +200,8 @@ CREATE TABLE IF NOT EXISTS `edocbase`.`contracts` (
   `scheme_type`         VARCHAR(45) NULL ,
   -- Дополнительная информация о заявке
   `add_data_proposal`   TEXT NULL,
+  -- Признак оплаты
+  `custom_gosts`        TINYINT(1) DEFAULT '0',
   -- Дополнительная информация о договоре
   `add_data_contract`   TEXT NULL,
   -- Стоимость первого этапа
@@ -207,7 +209,7 @@ CREATE TABLE IF NOT EXISTS `edocbase`.`contracts` (
   -- Общая стоимость
   `total_cost`          INT NULL ,
   -- Признак оплаты
-  `cash_income`         TINYINT(1) NULL ,
+  `cash_income`         TINYINT(1) DEFAULT '0',
   -- Дата начала поступления оплаты
   `date_cash_income`    DATE NULL ,
   -- Дата начала работ
@@ -280,6 +282,7 @@ CREATE TABLE IF NOT EXISTS `edocbase`.`selected_gosts` (
   `id`                  INT NOT NULL AUTO_INCREMENT,
   `contracts_id`        INT NOT NULL ,
   `product_gosts_id`    INT NOT NULL ,
+  `using_gost`         TINYINT(1) DEFAULT '1',
   PRIMARY KEY (`id`),
   INDEX `fk_selected_gosts_contracts` (`contracts_id` ASC) ,
   INDEX `fk_selected_gosts_product_gosts` (`product_gosts_id` ASC) ,

@@ -10,6 +10,7 @@ contracts.source_types_id,
 contracts.date_proposal,
 contracts.scheme_type,
 contracts.add_data_proposal,
+contracts.custom_gosts,
 contracts.cost,
 contracts.total_cost,
 contracts.cash_income,
@@ -46,10 +47,10 @@ WHERE (id = @id)
 
 INSERT INTO contracts
 (products_id, agents_id, experts_id, contract_status_id, emission_types_id, contract_types_id,
-    date_proposal, scheme_type, add_data_proposal, source_types_id, cost, total_cost, cash_income)
+    date_proposal, scheme_type, add_data_proposal, custom_gosts, source_types_id, cost, total_cost, cash_income)
 VALUES
 (@products_id, @agents_id, @experts_id, @contract_status_id, @emission_types_id, @contract_types_id,
-@date_proposal, @scheme_type, @add_data_proposal, @source_types_id, cost, total_cost, false)
+@date_proposal, @scheme_type, @add_data_proposal, @custom_gosts, @source_types_id, cost, total_cost, false)
 
 
 
@@ -88,14 +89,81 @@ SELECT
 selected_gosts.id,
 selected_gosts.contracts_id,
 selected_gosts.product_gosts_id,
+selected_gosts.using_gost,
+product_gosts.id AS product_gosts_id_real,
 product_gosts.number,
-product_gosts.products_id,
-product_gosts.id AS product_gosts_id1
+product_gosts.type,
+product_gosts.products_id
 FROM
 selected_gosts
-LEFT OUTER JOIN
+INNER JOIN
 product_gosts ON selected_gosts.product_gosts_id = product_gosts.id
+WHERE
+(product_gosts.products_id = @products_id)
+AND
+(selected_gosts.contracts_id = @contracts_id)
 
+
+UPDATE
+selected_gosts
+SET
+using_gost = @using_gost
+WHERE
+(contracts_id = @contracts_id)
+AND
+(product_gosts_id = @product_gosts_id)
+
+
+-- FillByConract
+SELECT
+selected_gosts.id,
+selected_gosts.contracts_id,
+selected_gosts.product_gosts_id,
+selected_gosts.using_gost,
+product_gosts.id AS product_gosts_id_real,
+product_gosts.number,
+product_gosts.type,
+product_gosts.products_id
+FROM
+selected_gosts
+INNER JOIN
+product_gosts ON selected_gosts.product_gosts_id = product_gosts.id
+WHERE
+selected_gosts.contracts_id = @contracts_id
+
+
+
+
+-- RemoveGOST
+UPDATE
+selected_gosts
+SET 
+using_gost = '0'
+WHERE
+(product_gosts_id = @product_gosts_id)
+AND
+(contracts_id = @contracts_id)
+
+
+-- AddGOST
+INSERT INTO
+selected_gosts
+(contracts_id, product_gosts_id)
+VALUES
+(@contracts_id, @product_gosts_id)
+
+
+-- ClearAll
+DELETE FROM
+selected_gosts
+WHERE
+(contracts_id = @contracts_id)
+
+-- FillAll
+INSERT INTO
+selected_gosts
+(contracts_id, using_gost, product_gosts_id)
+SELECT @contracts_id AS cid, '1', product_gosts.id FROM product_gosts WHERE (product_gosts.products_id = @product_gosts_id)
 
 
 -- !-----------------------------------------------------------

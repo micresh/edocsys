@@ -140,7 +140,11 @@ namespace Edocsys {
         
         private global::System.Data.DataRelation relationfk_contracts_agents1;
         
+        private global::System.Data.DataRelation relationfk_product_gosts_contracts1;
+        
         private global::System.Data.DataRelation relationfk_selected_gosts_product_gosts1;
+        
+        private global::System.Data.DataRelation relationfk_selected_gosts_product_gosts2;
         
         private global::System.Data.DataRelation relationfk_product_gosts_products1;
         
@@ -957,7 +961,9 @@ namespace Edocsys {
             this.relationfk_products_product_areas = this.Relations["fk_products_product_areas"];
             this.relationfk_agents_agents_contacts1 = this.Relations["fk_agents_agents_contacts1"];
             this.relationfk_contracts_agents1 = this.Relations["fk_contracts_agents1"];
+            this.relationfk_product_gosts_contracts1 = this.Relations["fk_product_gosts_contracts1"];
             this.relationfk_selected_gosts_product_gosts1 = this.Relations["fk_selected_gosts_product_gosts1"];
+            this.relationfk_selected_gosts_product_gosts2 = this.Relations["fk_selected_gosts_product_gosts2"];
             this.relationfk_product_gosts_products1 = this.Relations["fk_product_gosts_products1"];
         }
         
@@ -1144,10 +1150,18 @@ namespace Edocsys {
                         this.tableContractInfoDataTable.idColumn}, new global::System.Data.DataColumn[] {
                         this.tablecontracts.agents_idColumn}, false);
             this.Relations.Add(this.relationfk_contracts_agents1);
+            this.relationfk_product_gosts_contracts1 = new global::System.Data.DataRelation("fk_product_gosts_contracts1", new global::System.Data.DataColumn[] {
+                        this.tablecontracts.idColumn}, new global::System.Data.DataColumn[] {
+                        this.tableGOSTSelection.contracts_idColumn}, false);
+            this.Relations.Add(this.relationfk_product_gosts_contracts1);
             this.relationfk_selected_gosts_product_gosts1 = new global::System.Data.DataRelation("fk_selected_gosts_product_gosts1", new global::System.Data.DataColumn[] {
+                        this.tableproduct_gosts.idColumn}, new global::System.Data.DataColumn[] {
+                        this.tableGOSTSelection.product_gosts_idColumn}, false);
+            this.Relations.Add(this.relationfk_selected_gosts_product_gosts1);
+            this.relationfk_selected_gosts_product_gosts2 = new global::System.Data.DataRelation("fk_selected_gosts_product_gosts2", new global::System.Data.DataColumn[] {
                         this.tableGOSTSelection.idColumn}, new global::System.Data.DataColumn[] {
                         this.tableselected_gosts.product_gosts_idColumn}, false);
-            this.Relations.Add(this.relationfk_selected_gosts_product_gosts1);
+            this.Relations.Add(this.relationfk_selected_gosts_product_gosts2);
             this.relationfk_product_gosts_products1 = new global::System.Data.DataRelation("fk_product_gosts_products1", new global::System.Data.DataColumn[] {
                         this.tableproducts.idColumn}, new global::System.Data.DataColumn[] {
                         this.tableGOSTSelection.products_idColumn}, false);
@@ -4722,6 +4736,8 @@ namespace Edocsys {
             
             private global::System.Data.DataColumn columncash_income;
             
+            private global::System.Data.DataColumn columncustom_gosts;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public ContractInfoDataTableDataTable() {
@@ -4989,6 +5005,14 @@ namespace Edocsys {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn custom_gostsColumn {
+                get {
+                    return this.columncustom_gosts;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -5049,7 +5073,8 @@ namespace Edocsys {
                         string products_name, 
                         int cost, 
                         int total_cost, 
-                        bool cash_income) {
+                        bool cash_income, 
+                        bool custom_gosts) {
                 ContractInfoDataTableRow rowContractInfoDataTableRow = ((ContractInfoDataTableRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -5080,7 +5105,8 @@ namespace Edocsys {
                         products_name,
                         cost,
                         total_cost,
-                        cash_income};
+                        cash_income,
+                        custom_gosts};
                 rowContractInfoDataTableRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowContractInfoDataTableRow);
                 return rowContractInfoDataTableRow;
@@ -5141,6 +5167,7 @@ namespace Edocsys {
                 this.columncost = base.Columns["cost"];
                 this.columntotal_cost = base.Columns["total_cost"];
                 this.columncash_income = base.Columns["cash_income"];
+                this.columncustom_gosts = base.Columns["custom_gosts"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5204,6 +5231,8 @@ namespace Edocsys {
                 base.Columns.Add(this.columntotal_cost);
                 this.columncash_income = new global::System.Data.DataColumn("cash_income", typeof(bool), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncash_income);
+                this.columncustom_gosts = new global::System.Data.DataColumn("custom_gosts", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncustom_gosts);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnid,
                                 this.columnproducts_id1,
@@ -11813,11 +11842,15 @@ namespace Edocsys {
             
             private global::System.Data.DataColumn columnproduct_gosts_id;
             
+            private global::System.Data.DataColumn columnproduct_gosts_id_real;
+            
             private global::System.Data.DataColumn columnnumber;
+            
+            private global::System.Data.DataColumn columntype;
             
             private global::System.Data.DataColumn columnproducts_id;
             
-            private global::System.Data.DataColumn columnproduct_gosts_id1;
+            private global::System.Data.DataColumn columnusing_gost;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -11878,9 +11911,25 @@ namespace Edocsys {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn product_gosts_id_realColumn {
+                get {
+                    return this.columnproduct_gosts_id_real;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public global::System.Data.DataColumn numberColumn {
                 get {
                     return this.columnnumber;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn typeColumn {
+                get {
+                    return this.columntype;
                 }
             }
             
@@ -11894,9 +11943,9 @@ namespace Edocsys {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn product_gosts_id1Column {
+            public global::System.Data.DataColumn using_gostColumn {
                 get {
-                    return this.columnproduct_gosts_id1;
+                    return this.columnusing_gost;
                 }
             }
             
@@ -11937,21 +11986,37 @@ namespace Edocsys {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public GOSTSelectionRow AddGOSTSelectionRow(int contracts_id, int product_gosts_id, string number, productsRow parentproductsRowByfk_product_gosts_products1, int product_gosts_id1) {
+            public GOSTSelectionRow AddGOSTSelectionRow(contractsRow parentcontractsRowByfk_product_gosts_contracts1, product_gostsRow parentproduct_gostsRowByfk_selected_gosts_product_gosts1, string number, string type, productsRow parentproductsRowByfk_product_gosts_products1, bool using_gost) {
                 GOSTSelectionRow rowGOSTSelectionRow = ((GOSTSelectionRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
-                        contracts_id,
-                        product_gosts_id,
-                        number,
                         null,
-                        product_gosts_id1};
+                        null,
+                        null,
+                        number,
+                        type,
+                        null,
+                        using_gost};
+                if ((parentcontractsRowByfk_product_gosts_contracts1 != null)) {
+                    columnValuesArray[1] = parentcontractsRowByfk_product_gosts_contracts1[0];
+                }
+                if ((parentproduct_gostsRowByfk_selected_gosts_product_gosts1 != null)) {
+                    columnValuesArray[2] = parentproduct_gostsRowByfk_selected_gosts_product_gosts1[0];
+                }
                 if ((parentproductsRowByfk_product_gosts_products1 != null)) {
-                    columnValuesArray[4] = parentproductsRowByfk_product_gosts_products1[0];
+                    columnValuesArray[6] = parentproductsRowByfk_product_gosts_products1[0];
                 }
                 rowGOSTSelectionRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowGOSTSelectionRow);
                 return rowGOSTSelectionRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public GOSTSelectionRow FindByidproduct_gosts_id_real(int id, int product_gosts_id_real) {
+                return ((GOSTSelectionRow)(this.Rows.Find(new object[] {
+                            id,
+                            product_gosts_id_real})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -11974,9 +12039,11 @@ namespace Edocsys {
                 this.columnid = base.Columns["id"];
                 this.columncontracts_id = base.Columns["contracts_id"];
                 this.columnproduct_gosts_id = base.Columns["product_gosts_id"];
+                this.columnproduct_gosts_id_real = base.Columns["product_gosts_id_real"];
                 this.columnnumber = base.Columns["number"];
+                this.columntype = base.Columns["type"];
                 this.columnproducts_id = base.Columns["products_id"];
-                this.columnproduct_gosts_id1 = base.Columns["product_gosts_id1"];
+                this.columnusing_gost = base.Columns["using_gost"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -11988,19 +12055,31 @@ namespace Edocsys {
                 base.Columns.Add(this.columncontracts_id);
                 this.columnproduct_gosts_id = new global::System.Data.DataColumn("product_gosts_id", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnproduct_gosts_id);
+                this.columnproduct_gosts_id_real = new global::System.Data.DataColumn("product_gosts_id_real", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnproduct_gosts_id_real);
                 this.columnnumber = new global::System.Data.DataColumn("number", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnumber);
+                this.columntype = new global::System.Data.DataColumn("type", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columntype);
                 this.columnproducts_id = new global::System.Data.DataColumn("products_id", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnproducts_id);
-                this.columnproduct_gosts_id1 = new global::System.Data.DataColumn("product_gosts_id1", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnproduct_gosts_id1);
+                this.columnusing_gost = new global::System.Data.DataColumn("using_gost", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnusing_gost);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnid,
+                                this.columnproduct_gosts_id_real}, true));
                 this.columnid.AutoIncrement = true;
                 this.columnid.AutoIncrementSeed = -1;
                 this.columnid.AutoIncrementStep = -1;
                 this.columnid.AllowDBNull = false;
                 this.columncontracts_id.AllowDBNull = false;
                 this.columnproduct_gosts_id.AllowDBNull = false;
+                this.columnproduct_gosts_id_real.AutoIncrement = true;
+                this.columnproduct_gosts_id_real.AutoIncrementSeed = -1;
+                this.columnproduct_gosts_id_real.AutoIncrementStep = -1;
+                this.columnproduct_gosts_id_real.AllowDBNull = false;
                 this.columnnumber.MaxLength = 15;
+                this.columntype.MaxLength = 80;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -14664,6 +14743,22 @@ namespace Edocsys {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool custom_gosts {
+                get {
+                    try {
+                        return ((bool)(this[this.tableContractInfoDataTable.custom_gostsColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'custom_gosts\' in table \'ContractInfoDataTable\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableContractInfoDataTable.custom_gostsColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool Isagents_nameNull() {
                 return this.IsNull(this.tableContractInfoDataTable.agents_nameColumn);
             }
@@ -14912,6 +15007,18 @@ namespace Edocsys {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void Setcash_incomeNull() {
                 this[this.tableContractInfoDataTable.cash_incomeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Iscustom_gostsNull() {
+                return this.IsNull(this.tableContractInfoDataTable.custom_gostsColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setcustom_gostsNull() {
+                this[this.tableContractInfoDataTable.custom_gostsColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -16981,6 +17088,17 @@ namespace Edocsys {
                     return ((selected_gostsRow[])(base.GetChildRows(this.Table.ChildRelations["fk_product_gosts_contracts"])));
                 }
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public GOSTSelectionRow[] GetGOSTSelectionRows() {
+                if ((this.Table.ChildRelations["fk_product_gosts_contracts1"] == null)) {
+                    return new GOSTSelectionRow[0];
+                }
+                else {
+                    return ((GOSTSelectionRow[])(base.GetChildRows(this.Table.ChildRelations["fk_product_gosts_contracts1"])));
+                }
+            }
         }
         
         /// <summary>
@@ -17912,6 +18030,17 @@ namespace Edocsys {
                     return ((selected_gostsRow[])(base.GetChildRows(this.Table.ChildRelations["fk_selected_gosts_product_gosts"])));
                 }
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public GOSTSelectionRow[] GetGOSTSelectionRows() {
+                if ((this.Table.ChildRelations["fk_selected_gosts_product_gosts1"] == null)) {
+                    return new GOSTSelectionRow[0];
+                }
+                else {
+                    return ((GOSTSelectionRow[])(base.GetChildRows(this.Table.ChildRelations["fk_selected_gosts_product_gosts1"])));
+                }
+            }
         }
         
         /// <summary>
@@ -17987,10 +18116,10 @@ namespace Edocsys {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public GOSTSelectionRow GOSTSelectionRow {
                 get {
-                    return ((GOSTSelectionRow)(this.GetParentRow(this.Table.ParentRelations["fk_selected_gosts_product_gosts1"])));
+                    return ((GOSTSelectionRow)(this.GetParentRow(this.Table.ParentRelations["fk_selected_gosts_product_gosts2"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["fk_selected_gosts_product_gosts1"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["fk_selected_gosts_product_gosts2"]);
                 }
             }
         }
@@ -18501,6 +18630,17 @@ namespace Edocsys {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int product_gosts_id_real {
+                get {
+                    return ((int)(this[this.tableGOSTSelection.product_gosts_id_realColumn]));
+                }
+                set {
+                    this[this.tableGOSTSelection.product_gosts_id_realColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string number {
                 get {
                     try {
@@ -18512,6 +18652,22 @@ namespace Edocsys {
                 }
                 set {
                     this[this.tableGOSTSelection.numberColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string type {
+                get {
+                    try {
+                        return ((string)(this[this.tableGOSTSelection.typeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'type\' in table \'GOSTSelection\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableGOSTSelection.typeColumn] = value;
                 }
             }
             
@@ -18533,17 +18689,39 @@ namespace Edocsys {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int product_gosts_id1 {
+            public bool using_gost {
                 get {
                     try {
-                        return ((int)(this[this.tableGOSTSelection.product_gosts_id1Column]));
+                        return ((bool)(this[this.tableGOSTSelection.using_gostColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'product_gosts_id1\' in table \'GOSTSelection\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'using_gost\' in table \'GOSTSelection\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableGOSTSelection.product_gosts_id1Column] = value;
+                    this[this.tableGOSTSelection.using_gostColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public contractsRow contractsRow {
+                get {
+                    return ((contractsRow)(this.GetParentRow(this.Table.ParentRelations["fk_product_gosts_contracts1"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["fk_product_gosts_contracts1"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public product_gostsRow product_gostsRow {
+                get {
+                    return ((product_gostsRow)(this.GetParentRow(this.Table.ParentRelations["fk_selected_gosts_product_gosts1"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["fk_selected_gosts_product_gosts1"]);
                 }
             }
             
@@ -18572,6 +18750,18 @@ namespace Edocsys {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IstypeNull() {
+                return this.IsNull(this.tableGOSTSelection.typeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SettypeNull() {
+                this[this.tableGOSTSelection.typeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool Isproducts_idNull() {
                 return this.IsNull(this.tableGOSTSelection.products_idColumn);
             }
@@ -18584,24 +18774,24 @@ namespace Edocsys {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool Isproduct_gosts_id1Null() {
-                return this.IsNull(this.tableGOSTSelection.product_gosts_id1Column);
+            public bool Isusing_gostNull() {
+                return this.IsNull(this.tableGOSTSelection.using_gostColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void Setproduct_gosts_id1Null() {
-                this[this.tableGOSTSelection.product_gosts_id1Column] = global::System.Convert.DBNull;
+            public void Setusing_gostNull() {
+                this[this.tableGOSTSelection.using_gostColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public selected_gostsRow[] Getselected_gostsRows() {
-                if ((this.Table.ChildRelations["fk_selected_gosts_product_gosts1"] == null)) {
+                if ((this.Table.ChildRelations["fk_selected_gosts_product_gosts2"] == null)) {
                     return new selected_gostsRow[0];
                 }
                 else {
-                    return ((selected_gostsRow[])(base.GetChildRows(this.Table.ChildRelations["fk_selected_gosts_product_gosts1"])));
+                    return ((selected_gostsRow[])(base.GetChildRows(this.Table.ChildRelations["fk_selected_gosts_product_gosts2"])));
                 }
             }
         }
@@ -21357,6 +21547,7 @@ doc_templates ON contract_types.id = doc_templates.contract_types_id";
             tableMapping.ColumnMappings.Add("cost", "cost");
             tableMapping.ColumnMappings.Add("total_cost", "total_cost");
             tableMapping.ColumnMappings.Add("cash_income", "cash_income");
+            tableMapping.ColumnMappings.Add("custom_gosts", "custom_gosts");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
@@ -21373,10 +21564,10 @@ doc_templates ON contract_types.id = doc_templates.contract_types_id";
             this._adapter.InsertCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = @"INSERT INTO contracts
-                         (products_id, agents_id, experts_id, contract_status_id, emission_types_id, contract_types_id, date_proposal, scheme_type, add_data_proposal, source_types_id, 
-                         cost, total_cost, cash_income)
+                         (products_id, agents_id, experts_id, contract_status_id, emission_types_id, contract_types_id, date_proposal, scheme_type, add_data_proposal, custom_gosts, 
+                         source_types_id, cost, total_cost, cash_income)
 VALUES        (@products_id, @agents_id, @experts_id, @contract_status_id, @emission_types_id, @contract_types_id, @date_proposal, @scheme_type, @add_data_proposal, 
-                         @source_types_id, cost, total_cost, `false`)";
+                         custom_gosts, @source_types_id, cost, total_cost, 0)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@products_id";
@@ -21455,7 +21646,8 @@ VALUES        (@products_id, @agents_id, @experts_id, @contract_status_id, @emis
             this._adapter.UpdateCommand.CommandText = @"UPDATE       contracts
 SET                products_id = @products_id, agents_id = @agents_id, experts_id = @experts_id, contract_status_id = @contract_status_id, 
                          emission_types_id = @emission_types_id, contract_types_id = @contract_types_id, date_proposal = @date_proposal, scheme_type = @scheme_type, 
-                         add_data_proposal = @add_data_proposal, source_types_id = @source_types_id, cost = @cost, total_cost = @total_cost, cash_income = `false`
+                         add_data_proposal = @add_data_proposal, custom_gosts = @custom_gosts, source_types_id = @source_types_id, cost = @cost, total_cost = @total_cost, 
+                         cash_income = 0
 WHERE        (id = @Original_id)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
@@ -21524,6 +21716,14 @@ WHERE        (id = @Original_id)";
             param.SourceColumn = "add_data_proposal";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@custom_gosts";
+            param.DbType = global::System.Data.DbType.Object;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Byte;
+            param.Size = 1024;
+            param.IsNullable = true;
+            param.SourceColumn = "custom_gosts";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@source_types_id";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
@@ -21570,26 +21770,27 @@ WHERE        (id = @Original_id)";
             this._commandCollection[0].CommandText = "SELECT        contracts.id, contracts.products_id, contracts.agents_id, contracts" +
                 ".contract_types_id, contracts.contract_status_id, contracts.experts_id, contract" +
                 "s.source_types_id, \r\n                         contracts.date_proposal, contracts" +
-                ".scheme_type, contracts.add_data_proposal, contracts.cost, contracts.total_cost," +
-                " contracts.cash_income, \r\n                         products.name AS products_nam" +
-                "e, products.id AS products_id, agents.id AS agents_id, agents.name AS agents_nam" +
-                "e, agents.pers_lastname, \r\n                         agents.pers_firstname, agent" +
-                "s.pers_middlename, agent_types.id AS agent_types_id, agent_types.name AS agent_t" +
-                "ypes_name, CONCAT(agent_types.name, \' \', \r\n                         agents.name)" +
-                " AS agents_fullname, CONCAT(agents.pers_lastname, \' \', substr(agents.pers_firstn" +
-                "ame, 1, 1), \'. \', substr(agents.pers_middlename, 1, 1), \'.\') \r\n                 " +
-                "        AS contact_pers_name_FIO, CONCAT(substr(agents.pers_firstname, 1, 1), \'." +
-                " \', substr(agents.pers_middlename, 1, 1), \'. \', agents.pers_lastname) \r\n        " +
-                "                 AS contact_pers_name_IOF, contract_types.id AS contract_types_i" +
-                "d, contract_types.name AS contract_types_name, emission_types.id AS emission_typ" +
-                "es_id, \r\n                         emission_types.name AS emission_types_name\r\nFR" +
-                "OM            contracts LEFT OUTER JOIN\r\n                         agents ON cont" +
-                "racts.agents_id = agents.id LEFT OUTER JOIN\r\n                         products O" +
-                "N contracts.products_id = products.id LEFT OUTER JOIN\r\n                         " +
-                "agent_types ON agents.agent_types_id = agent_types.id LEFT OUTER JOIN\r\n         " +
-                "                contract_types ON contracts.contract_types_id = contract_types.i" +
-                "d LEFT OUTER JOIN\r\n                         emission_types ON contracts.emission" +
-                "_types_id = emission_types.id\r\nWHERE        (contracts.contract_status_id = 0)";
+                ".scheme_type, contracts.custom_gosts, contracts.add_data_proposal, contracts.cos" +
+                "t, contracts.total_cost, contracts.cash_income, \r\n                         produ" +
+                "cts.name AS products_name, products.id AS products_id, agents.id AS agents_id, a" +
+                "gents.name AS agents_name, agents.pers_lastname, \r\n                         agen" +
+                "ts.pers_firstname, agents.pers_middlename, agent_types.id AS agent_types_id, age" +
+                "nt_types.name AS agent_types_name, CONCAT(agent_types.name, \' \', \r\n             " +
+                "            agents.name) AS agents_fullname, CONCAT(agents.pers_lastname, \' \', s" +
+                "ubstr(agents.pers_firstname, 1, 1), \'. \', substr(agents.pers_middlename, 1, 1), " +
+                "\'.\') \r\n                         AS contact_pers_name_FIO, CONCAT(substr(agents.p" +
+                "ers_firstname, 1, 1), \'. \', substr(agents.pers_middlename, 1, 1), \'. \', agents.p" +
+                "ers_lastname) \r\n                         AS contact_pers_name_IOF, contract_type" +
+                "s.id AS contract_types_id, contract_types.name AS contract_types_name, emission_" +
+                "types.id AS emission_types_id, \r\n                         emission_types.name AS" +
+                " emission_types_name\r\nFROM            contracts LEFT OUTER JOIN\r\n               " +
+                "          agents ON contracts.agents_id = agents.id LEFT OUTER JOIN\r\n           " +
+                "              products ON contracts.products_id = products.id LEFT OUTER JOIN\r\n " +
+                "                        agent_types ON agents.agent_types_id = agent_types.id LE" +
+                "FT OUTER JOIN\r\n                         contract_types ON contracts.contract_typ" +
+                "es_id = contract_types.id LEFT OUTER JOIN\r\n                         emission_typ" +
+                "es ON contracts.emission_types_id = emission_types.id\r\nWHERE        (contracts.c" +
+                "ontract_status_id = 0)";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[1].Connection = this.Connection;
@@ -33995,10 +34196,41 @@ LEFT OUTER JOIN agent_types ON agents.agent_types_id = agent_types.id";
             tableMapping.ColumnMappings.Add("id", "id");
             tableMapping.ColumnMappings.Add("contracts_id", "contracts_id");
             tableMapping.ColumnMappings.Add("product_gosts_id", "product_gosts_id");
+            tableMapping.ColumnMappings.Add("product_gosts_id_real", "product_gosts_id_real");
             tableMapping.ColumnMappings.Add("number", "number");
+            tableMapping.ColumnMappings.Add("type", "type");
             tableMapping.ColumnMappings.Add("products_id", "products_id");
-            tableMapping.ColumnMappings.Add("product_gosts_id1", "product_gosts_id1");
+            tableMapping.ColumnMappings.Add("using_gost", "using_gost");
             this._adapter.TableMappings.Add(tableMapping);
+            this._adapter.UpdateCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
+            this._adapter.UpdateCommand.Connection = this.Connection;
+            this._adapter.UpdateCommand.CommandText = "UPDATE       selected_gosts\r\nSET                using_gost = @using_gost\r\nWHERE  " +
+                "      (contracts_id = @contracts_id) AND (product_gosts_id = @product_gosts_id)";
+            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
+            global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@using_gost";
+            param.DbType = global::System.Data.DbType.Object;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Byte;
+            param.Size = 1024;
+            param.IsNullable = true;
+            param.SourceColumn = "using_gost";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@contracts_id";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "contracts_id";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@product_gosts_id";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "product_gosts_id";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -34011,23 +34243,26 @@ LEFT OUTER JOIN agent_types ON agents.agent_types_id = agent_types.id";
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[1];
+            this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[4];
             this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"-- GOSTSelection
-SELECT
+            this._commandCollection[0].CommandText = @"SELECT
 selected_gosts.id,
 selected_gosts.contracts_id,
 selected_gosts.product_gosts_id,
+selected_gosts.using_gost,
+product_gosts.id AS product_gosts_id_real,
 product_gosts.number,
-product_gosts.products_id,
-product_gosts.id AS product_gosts_id1
+product_gosts.type,
+product_gosts.products_id
 FROM
 selected_gosts
-LEFT OUTER JOIN
+INNER JOIN
 product_gosts ON selected_gosts.product_gosts_id = product_gosts.id
 WHERE
-product_gosts.products_id = @products_id";
+(product_gosts.products_id = @products_id)
+AND
+(selected_gosts.contracts_id = @contracts_id)";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@products_id";
@@ -34036,13 +34271,68 @@ product_gosts.products_id = @products_id";
             param.IsNullable = true;
             param.SourceColumn = "products_id";
             this._commandCollection[0].Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@contracts_id";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "contracts_id";
+            this._commandCollection[0].Parameters.Add(param);
+            this._commandCollection[1] = new global::MySql.Data.MySqlClient.MySqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "DELETE FROM\r\nselected_gosts\r\nWHERE\r\n(contracts_id = @contracts_id)";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@contracts_id";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "contracts_id";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._commandCollection[1].Parameters.Add(param);
+            this._commandCollection[2] = new global::MySql.Data.MySqlClient.MySqlCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = "INSERT INTO selected_gosts\r\n                         (contracts_id, using_gost, p" +
+                "roduct_gosts_id)\r\nSELECT        @contracts_id AS cid, \'1\' AS Expr1, id\r\nFROM    " +
+                "        product_gosts\r\nWHERE        (products_id = @product_gosts_id)";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@contracts_id";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.Size = 1024;
+            param.IsNullable = true;
+            param.SourceColumn = "";
+            this._commandCollection[2].Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@product_gosts_id";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "products_id";
+            this._commandCollection[2].Parameters.Add(param);
+            this._commandCollection[3] = new global::MySql.Data.MySqlClient.MySqlCommand();
+            this._commandCollection[3].Connection = this.Connection;
+            this._commandCollection[3].CommandText = @"SELECT        selected_gosts.id, selected_gosts.contracts_id, selected_gosts.product_gosts_id, selected_gosts.using_gost, product_gosts.id AS product_gosts_id_real, 
+                         product_gosts.number, product_gosts.type, product_gosts.products_id
+FROM            selected_gosts INNER JOIN
+                         product_gosts ON selected_gosts.product_gosts_id = product_gosts.id
+WHERE        (selected_gosts.contracts_id = @contracts_id)";
+            this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@contracts_id";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "contracts_id";
+            this._commandCollection[3].Parameters.Add(param);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(EdocbaseDataSet.GOSTSelectionDataTable dataTable, global::System.Nullable<int> products_id) {
+        public virtual int Fill(EdocbaseDataSet.GOSTSelectionDataTable dataTable, global::System.Nullable<int> products_id, int contracts_id) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((products_id.HasValue == true)) {
                 this.Adapter.SelectCommand.Parameters[0].Value = ((int)(products_id.Value));
@@ -34050,6 +34340,7 @@ product_gosts.products_id = @products_id";
             else {
                 this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
+            this.Adapter.SelectCommand.Parameters[1].Value = ((int)(contracts_id));
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
             }
@@ -34061,7 +34352,7 @@ product_gosts.products_id = @products_id";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual EdocbaseDataSet.GOSTSelectionDataTable GetData(global::System.Nullable<int> products_id) {
+        public virtual EdocbaseDataSet.GOSTSelectionDataTable GetData(global::System.Nullable<int> products_id, int contracts_id) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((products_id.HasValue == true)) {
                 this.Adapter.SelectCommand.Parameters[0].Value = ((int)(products_id.Value));
@@ -34069,9 +34360,118 @@ product_gosts.products_id = @products_id";
             else {
                 this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
+            this.Adapter.SelectCommand.Parameters[1].Value = ((int)(contracts_id));
             EdocbaseDataSet.GOSTSelectionDataTable dataTable = new EdocbaseDataSet.GOSTSelectionDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByContract(EdocbaseDataSet.GOSTSelectionDataTable dataTable, int contracts_id) {
+            this.Adapter.SelectCommand = this.CommandCollection[3];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(contracts_id));
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual EdocbaseDataSet.GOSTSelectionDataTable GetDataByContract(int contracts_id) {
+            this.Adapter.SelectCommand = this.CommandCollection[3];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(contracts_id));
+            EdocbaseDataSet.GOSTSelectionDataTable dataTable = new EdocbaseDataSet.GOSTSelectionDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(EdocbaseDataSet.GOSTSelectionDataTable dataTable) {
+            return this.Adapter.Update(dataTable);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(EdocbaseDataSet dataSet) {
+            return this.Adapter.Update(dataSet, "GOSTSelection");
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow dataRow) {
+            return this.Adapter.Update(new global::System.Data.DataRow[] {
+                        dataRow});
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow[] dataRows) {
+            return this.Adapter.Update(dataRows);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, false)]
+        public virtual int ClearAll(int contracts_id) {
+            global::MySql.Data.MySqlClient.MySqlCommand command = this.CommandCollection[1];
+            command.Parameters[0].Value = ((int)(contracts_id));
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            int returnValue;
+            try {
+                returnValue = command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int FillAll(int contracts_id, global::System.Nullable<int> product_gosts_id) {
+            global::MySql.Data.MySqlClient.MySqlCommand command = this.CommandCollection[2];
+            command.Parameters[0].Value = ((int)(contracts_id));
+            if ((product_gosts_id.HasValue == true)) {
+                command.Parameters[1].Value = ((int)(product_gosts_id.Value));
+            }
+            else {
+                command.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            int returnValue;
+            try {
+                returnValue = command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            return returnValue;
         }
     }
     
@@ -34126,6 +34526,8 @@ product_gosts.products_id = @products_id";
         private expertsTableAdapter _expertsTableAdapter;
         
         private productsTableAdapter _productsTableAdapter;
+        
+        private GOSTSelectionTableAdapter _gOSTSelectionTableAdapter;
         
         private bool _backupDataSetBeforeUpdate;
         
@@ -34424,6 +34826,20 @@ product_gosts.products_id = @products_id";
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
+            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
+            "a", "System.Drawing.Design.UITypeEditor")]
+        public GOSTSelectionTableAdapter GOSTSelectionTableAdapter {
+            get {
+                return this._gOSTSelectionTableAdapter;
+            }
+            set {
+                this._gOSTSelectionTableAdapter = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public bool BackupDataSetBeforeUpdate {
             get {
                 return this._backupDataSetBeforeUpdate;
@@ -34521,6 +34937,10 @@ product_gosts.products_id = @products_id";
                             && (this._productsTableAdapter.Connection != null))) {
                     return this._productsTableAdapter.Connection;
                 }
+                if (((this._gOSTSelectionTableAdapter != null) 
+                            && (this._gOSTSelectionTableAdapter.Connection != null))) {
+                    return this._gOSTSelectionTableAdapter.Connection;
+                }
                 return null;
             }
             set {
@@ -34594,6 +35014,9 @@ product_gosts.products_id = @products_id";
                 if ((this._productsTableAdapter != null)) {
                     count = (count + 1);
                 }
+                if ((this._gOSTSelectionTableAdapter != null)) {
+                    count = (count + 1);
+                }
                 return count;
             }
         }
@@ -34614,15 +35037,6 @@ product_gosts.products_id = @products_id";
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._product_areasTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.product_areas.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._product_areasTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
             if ((this._user_typesTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.user_types.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
@@ -34632,21 +35046,21 @@ product_gosts.products_id = @products_id";
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._contract_types_for_workTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.contract_types_for_work.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._contract_types_for_workTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
             if ((this._contractInfoTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.ContractInfoDataTable.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._contractInfoTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._contract_types_for_workTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.contract_types_for_work.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._contract_types_for_workTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -34677,6 +35091,15 @@ product_gosts.products_id = @products_id";
                     allChangedRows.AddRange(updatedRows);
                 }
             }
+            if ((this._contract_typesTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.contract_types.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._contract_typesTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
             if ((this._source_typesTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.source_types.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
@@ -34704,21 +35127,21 @@ product_gosts.products_id = @products_id";
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._contract_typesTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.contract_types.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._contract_typesTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
             if ((this._usersTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.users.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._usersTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._product_areasTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.product_areas.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._product_areasTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -34737,6 +35160,15 @@ product_gosts.products_id = @products_id";
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._product_gostsTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._gOSTSelectionTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.GOSTSelection.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._gOSTSelectionTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -34803,14 +35235,6 @@ product_gosts.products_id = @products_id";
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._product_areasTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.product_areas.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._product_areasTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             if ((this._user_typesTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.user_types.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
@@ -34819,19 +35243,19 @@ product_gosts.products_id = @products_id";
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._contract_types_for_workTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.contract_types_for_work.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._contract_types_for_workTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             if ((this._contractInfoTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.ContractInfoDataTable.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._contractInfoTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._contract_types_for_workTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.contract_types_for_work.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._contract_types_for_workTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -34859,6 +35283,14 @@ product_gosts.products_id = @products_id";
                     allAddedRows.AddRange(addedRows);
                 }
             }
+            if ((this._contract_typesTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.contract_types.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._contract_typesTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
             if ((this._source_typesTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.source_types.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
@@ -34883,19 +35315,19 @@ product_gosts.products_id = @products_id";
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._contract_typesTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.contract_types.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._contract_typesTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             if ((this._usersTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.users.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._usersTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._product_areasTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.product_areas.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._product_areasTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -34912,6 +35344,14 @@ product_gosts.products_id = @products_id";
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._product_gostsTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._gOSTSelectionTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.GOSTSelection.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._gOSTSelectionTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -35005,6 +35445,14 @@ product_gosts.products_id = @products_id";
                     allChangedRows.AddRange(deletedRows);
                 }
             }
+            if ((this._gOSTSelectionTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.GOSTSelection.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._gOSTSelectionTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
             if ((this._product_gostsTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.product_gosts.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
@@ -35021,19 +35469,19 @@ product_gosts.products_id = @products_id";
                     allChangedRows.AddRange(deletedRows);
                 }
             }
+            if ((this._product_areasTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.product_areas.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._product_areasTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
             if ((this._usersTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.users.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._usersTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._contract_typesTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.contract_types.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._contract_typesTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -35061,6 +35509,14 @@ product_gosts.products_id = @products_id";
                     allChangedRows.AddRange(deletedRows);
                 }
             }
+            if ((this._contract_typesTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.contract_types.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._contract_typesTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
             if ((this._agentsTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.agents.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
@@ -35085,14 +35541,6 @@ product_gosts.products_id = @products_id";
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._contractInfoTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.ContractInfoDataTable.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._contractInfoTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
             if ((this._contract_types_for_workTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.contract_types_for_work.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
@@ -35101,19 +35549,19 @@ product_gosts.products_id = @products_id";
                     allChangedRows.AddRange(deletedRows);
                 }
             }
+            if ((this._contractInfoTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.ContractInfoDataTable.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._contractInfoTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
             if ((this._user_typesTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.user_types.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._user_typesTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._product_areasTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.product_areas.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._product_areasTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -35261,6 +35709,11 @@ product_gosts.products_id = @products_id";
             }
             if (((this._productsTableAdapter != null) 
                         && (this.MatchTableAdapterConnection(this._productsTableAdapter.Connection) == false))) {
+                throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
+                        "tring.");
+            }
+            if (((this._gOSTSelectionTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._gOSTSelectionTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
@@ -35476,6 +35929,15 @@ product_gosts.products_id = @products_id";
                         adaptersWithAcceptChangesDuringUpdate.Add(this._productsTableAdapter.Adapter);
                     }
                 }
+                if ((this._gOSTSelectionTableAdapter != null)) {
+                    revertConnections.Add(this._gOSTSelectionTableAdapter, this._gOSTSelectionTableAdapter.Connection);
+                    this._gOSTSelectionTableAdapter.Connection = ((global::MySql.Data.MySqlClient.MySqlConnection)(workConnection));
+                    this._gOSTSelectionTableAdapter.Transaction = ((global::MySql.Data.MySqlClient.MySqlTransaction)(workTransaction));
+                    if (this._gOSTSelectionTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._gOSTSelectionTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._gOSTSelectionTableAdapter.Adapter);
+                    }
+                }
                 // 
                 //---- Perform updates -----------
                 //
@@ -35613,6 +36075,10 @@ product_gosts.products_id = @products_id";
                 if ((this._productsTableAdapter != null)) {
                     this._productsTableAdapter.Connection = ((global::MySql.Data.MySqlClient.MySqlConnection)(revertConnections[this._productsTableAdapter]));
                     this._productsTableAdapter.Transaction = null;
+                }
+                if ((this._gOSTSelectionTableAdapter != null)) {
+                    this._gOSTSelectionTableAdapter.Connection = ((global::MySql.Data.MySqlClient.MySqlConnection)(revertConnections[this._gOSTSelectionTableAdapter]));
+                    this._gOSTSelectionTableAdapter.Transaction = null;
                 }
                 if ((0 < adaptersWithAcceptChangesDuringUpdate.Count)) {
                     global::System.Data.Common.DataAdapter[] adapters = new System.Data.Common.DataAdapter[adaptersWithAcceptChangesDuringUpdate.Count];

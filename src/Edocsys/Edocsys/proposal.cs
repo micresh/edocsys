@@ -28,6 +28,8 @@ namespace Edocsys
         }
 
         private FilterHelper filter;
+        public int currentContractID;
+        public int currentProductID;
 
         private void SaveProposal()
         {
@@ -467,7 +469,160 @@ namespace Edocsys
             currentDoc["contract_types_id"] = (int)Constants.ContractTypes.Sertefication;
             currentDoc["source_types_id"] = (int)Constants.SourceTypes.Personal;
             currentDoc["date_proposal"] = DateTime.Now;
-            
+
+            //reset gost controls
+            checkBoxCustomGOSTS.Checked = false;
+            GOSTsTextBox.Text = "";
+
+            FillGOSTsList();
+        }
+
+        private void buttonGOSTSelection_Click(object sender, EventArgs e)
+        {
+            //SaveProposal();
+            int pos = contractInfoDataTableBindingSource.Position;
+
+
+            DataRowView currentRow = (DataRowView)this.contractInfoDataTableBindingSource.Current;
+
+            if ((int)(currentRow["id"]) < 0)
+            {
+                SaveProposal();
+                RefreshData();
+                contractInfoDataTableBindingSource.Position = pos;
+            }
+
+            currentRow = (DataRowView)this.contractInfoDataTableBindingSource.Current;
+
+            this.currentProductID = Convert.ToInt32(currentRow["products_id"]);
+            this.currentContractID = Convert.ToInt32(currentRow["id"]);
+
+            GOSTSelectionForm gsf = new GOSTSelectionForm(this);
+
+            gsf.ShowDialog();
+
+            RefreshData();
+
+            contractInfoDataTableBindingSource.Position = pos;
+
+            FillGOSTsList();
+        }
+
+        private void checkBoxCustomGOSTS_CheckedChanged(object sender, EventArgs e)
+        {
+            if (contractInfoDataTableBindingSource.Position < 0)
+                return;
+
+            bool selected = ((CheckBox)sender).Checked;
+
+
+            GOSTsTextBox.Enabled = selected;
+            buttonGOSTSelection.Enabled = selected;
+            buttonFillGosts.Enabled = !selected;
+
+            DataRowView currentRow = (DataRowView)this.contractInfoDataTableBindingSource.Current;
+
+            int pos = contractInfoDataTableBindingSource.Position;
+
+            if ((int)(currentRow["id"]) < 0)
+            {
+                SaveProposal();
+                RefreshData();
+                //return;
+                contractInfoDataTableBindingSource.Position = pos;
+            }
+
+            currentRow = (DataRowView)this.contractInfoDataTableBindingSource.Current;
+
+            this.currentProductID = Convert.ToInt32(currentRow["products_id"]);
+            this.currentContractID = Convert.ToInt32(currentRow["id"]);
+
+            if (selected)
+            {
+                // use custom gosts
+                currentRow["custom_gosts"] = true;
+            }
+            else
+            {
+                // remove custom => clear all and refill again
+                currentRow["custom_gosts"] = false;
+
+                gOSTSelectionTableAdapter.ClearAll(currentContractID);
+                gOSTSelectionTableAdapter.FillAll(currentContractID, currentProductID);
+            }
+
+            FillGOSTsList();
+        }
+
+        private void buttonFillGosts_Click(object sender, EventArgs e)
+        {
+            // remove custom => clear all and refill again
+            DataRowView currentRow = (DataRowView)this.contractInfoDataTableBindingSource.Current;
+
+            int pos = contractInfoDataTableBindingSource.Position;
+
+            if ((int)(currentRow["id"]) < 0)
+            {
+                SaveProposal();
+                RefreshData();
+                //return;
+                contractInfoDataTableBindingSource.Position = pos;
+            }
+
+            currentRow = (DataRowView)this.contractInfoDataTableBindingSource.Current;
+
+            if (currentRow["products_id"] == null)
+            {
+                return;
+            }
+
+            this.currentProductID = Convert.ToInt32(currentRow["products_id"]);
+            this.currentContractID = Convert.ToInt32(currentRow["id"]);
+
+            gOSTSelectionTableAdapter.ClearAll(currentContractID);
+            gOSTSelectionTableAdapter.FillAll(currentContractID, currentProductID);
+
+
+            FillGOSTsList();
+        }
+
+        private void FillGOSTsList()
+        {
+            if ((contractInfoDataTableBindingSource.Position < 0) ||
+            (contractInfoDataTableBindingSource.Position >= contractInfoDataTableBindingSource.Count))
+            {
+                return;
+            }
+
+            DataRowView currentRow = (DataRowView)this.contractInfoDataTableBindingSource.Current;
+
+            int currentContractID = Convert.ToInt32(currentRow["id"]);
+            if (currentContractID < 0)
+                return;
+
+            string res = GetGOSTsList(currentContractID);
+            GOSTsTextBox.Text = res;
+        }
+
+        private string GetGOSTsList(int contractID)
+        {
+
+            this.gOSTSelectionTableAdapter.FillByContract(this.edocbaseDataSet.GOSTSelection, contractID);
+
+            string list = "";
+            foreach (DataRowView x in this.gOSTSelectionBindingSource)
+            {
+                if (x["using_gost"] != DBNull.Value)
+                    if ((bool)x["using_gost"])
+                        list += x["number"] + "; ";
+            }
+
+            return list;
+        }
+
+        private void contractInfoDataTableBindingSource_CurrentChanged(object sender, EventArgs e)
+        {
+            FillGOSTsList();
         }
     }
 }

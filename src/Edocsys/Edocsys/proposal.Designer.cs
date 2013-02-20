@@ -41,19 +41,13 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProposalForm));
             this.mainSplitContainer = new System.Windows.Forms.SplitContainer();
             this.proposalsDataGridView = new System.Windows.Forms.DataGridView();
-            this.agentsnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.productNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.agenttypesnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.contracttypesnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.schemetypeFIODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.emissiontypesnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.contactpersnameFIODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.agentsfullnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SendProposalColumn = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.cost = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.total_cost = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contractInfoDataTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.edocbaseDataSet = new Edocsys.EdocbaseDataSet();
+            this.buttonFillGosts = new System.Windows.Forms.Button();
+            this.buttonGOSTSelection = new System.Windows.Forms.Button();
+            this.GOSTsTextBox = new System.Windows.Forms.TextBox();
+            this.checkBoxCustomGOSTS = new System.Windows.Forms.CheckBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.total_costTextBox = new System.Windows.Forms.TextBox();
             this.costTextBox = new System.Windows.Forms.TextBox();
             this.emission_types_idComboBox = new System.Windows.Forms.ComboBox();
@@ -100,10 +94,19 @@
             this.templatesDataTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.templatesDataTableTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.templatesDataTableTableAdapter();
             this.documentsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.label2 = new System.Windows.Forms.Label();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.buttonGOSTSelection = new System.Windows.Forms.Button();
+            this.gOSTSelectionBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.gOSTSelectionTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.GOSTSelectionTableAdapter();
+            this.agentsnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.agenttypesnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contracttypesnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contactpersnameFIODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cost = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.total_cost = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.schemetypeFIODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.emissiontypesnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.agentsfullnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SendProposalColumn = new System.Windows.Forms.DataGridViewButtonColumn();
             proposalProductLabel = new System.Windows.Forms.Label();
             proposalEmissionLabel = new System.Windows.Forms.Label();
             proposalSchemeTypeLabel = new System.Windows.Forms.Label();
@@ -129,6 +132,7 @@
             this.contractsBindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.templatesDataTableBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.documentsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gOSTSelectionBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // proposalProductLabel
@@ -194,7 +198,7 @@
             // date_proposalLabel
             // 
             date_proposalLabel.AutoSize = true;
-            date_proposalLabel.Location = new System.Drawing.Point(12, 172);
+            date_proposalLabel.Location = new System.Drawing.Point(12, 53);
             date_proposalLabel.Name = "date_proposalLabel";
             date_proposalLabel.Size = new System.Drawing.Size(110, 13);
             date_proposalLabel.TabIndex = 27;
@@ -203,7 +207,7 @@
             // costLabel
             // 
             costLabel.AutoSize = true;
-            costLabel.Location = new System.Drawing.Point(321, 172);
+            costLabel.Location = new System.Drawing.Point(321, 53);
             costLabel.Name = "costLabel";
             costLabel.Size = new System.Drawing.Size(41, 13);
             costLabel.TabIndex = 28;
@@ -212,7 +216,7 @@
             // total_costLabel
             // 
             total_costLabel.AutoSize = true;
-            total_costLabel.Location = new System.Drawing.Point(468, 172);
+            total_costLabel.Location = new System.Drawing.Point(468, 53);
             total_costLabel.Name = "total_costLabel";
             total_costLabel.Size = new System.Drawing.Size(78, 13);
             total_costLabel.TabIndex = 29;
@@ -234,9 +238,10 @@
             // mainSplitContainer.Panel2
             // 
             this.mainSplitContainer.Panel2.AutoScroll = true;
+            this.mainSplitContainer.Panel2.Controls.Add(this.buttonFillGosts);
             this.mainSplitContainer.Panel2.Controls.Add(this.buttonGOSTSelection);
-            this.mainSplitContainer.Panel2.Controls.Add(this.textBox1);
-            this.mainSplitContainer.Panel2.Controls.Add(this.checkBox1);
+            this.mainSplitContainer.Panel2.Controls.Add(this.GOSTsTextBox);
+            this.mainSplitContainer.Panel2.Controls.Add(this.checkBoxCustomGOSTS);
             this.mainSplitContainer.Panel2.Controls.Add(this.label2);
             this.mainSplitContainer.Panel2.Controls.Add(total_costLabel);
             this.mainSplitContainer.Panel2.Controls.Add(this.total_costTextBox);
@@ -258,7 +263,7 @@
             this.mainSplitContainer.Panel2.Controls.Add(proposalEmissionLabel);
             this.mainSplitContainer.Panel2.Controls.Add(proposalProductLabel);
             this.mainSplitContainer.Panel2MinSize = 200;
-            this.mainSplitContainer.Size = new System.Drawing.Size(950, 574);
+            this.mainSplitContainer.Size = new System.Drawing.Size(1154, 574);
             this.mainSplitContainer.SplitterDistance = 370;
             this.mainSplitContainer.TabIndex = 2;
             // 
@@ -273,13 +278,13 @@
             this.productNameDataGridViewTextBoxColumn,
             this.agenttypesnameDataGridViewTextBoxColumn,
             this.contracttypesnameDataGridViewTextBoxColumn,
+            this.contactpersnameFIODataGridViewTextBoxColumn,
+            this.cost,
+            this.total_cost,
             this.schemetypeFIODataGridViewTextBoxColumn,
             this.emissiontypesnameDataGridViewTextBoxColumn,
-            this.contactpersnameFIODataGridViewTextBoxColumn,
             this.agentsfullnameDataGridViewTextBoxColumn,
-            this.SendProposalColumn,
-            this.cost,
-            this.total_cost});
+            this.SendProposalColumn});
             this.proposalsDataGridView.DataSource = this.contractInfoDataTableBindingSource;
             this.proposalsDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.proposalsDataGridView.Location = new System.Drawing.Point(0, 0);
@@ -287,100 +292,77 @@
             this.proposalsDataGridView.Name = "proposalsDataGridView";
             this.proposalsDataGridView.ReadOnly = true;
             this.proposalsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.proposalsDataGridView.Size = new System.Drawing.Size(950, 370);
+            this.proposalsDataGridView.Size = new System.Drawing.Size(1154, 370);
             this.proposalsDataGridView.TabIndex = 2;
             this.proposalsDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.contractsDataGridView_CellClick);
-            // 
-            // agentsnameDataGridViewTextBoxColumn
-            // 
-            this.agentsnameDataGridViewTextBoxColumn.DataPropertyName = "agents_name";
-            this.agentsnameDataGridViewTextBoxColumn.HeaderText = "Контрагент";
-            this.agentsnameDataGridViewTextBoxColumn.Name = "agentsnameDataGridViewTextBoxColumn";
-            this.agentsnameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // productNameDataGridViewTextBoxColumn
-            // 
-            this.productNameDataGridViewTextBoxColumn.DataPropertyName = "products_name";
-            this.productNameDataGridViewTextBoxColumn.HeaderText = "Продукция";
-            this.productNameDataGridViewTextBoxColumn.Name = "productNameDataGridViewTextBoxColumn";
-            this.productNameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // agenttypesnameDataGridViewTextBoxColumn
-            // 
-            this.agenttypesnameDataGridViewTextBoxColumn.DataPropertyName = "agent_types_name";
-            this.agenttypesnameDataGridViewTextBoxColumn.HeaderText = "Форма";
-            this.agenttypesnameDataGridViewTextBoxColumn.Name = "agenttypesnameDataGridViewTextBoxColumn";
-            this.agenttypesnameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // contracttypesnameDataGridViewTextBoxColumn
-            // 
-            this.contracttypesnameDataGridViewTextBoxColumn.DataPropertyName = "contract_types_name";
-            this.contracttypesnameDataGridViewTextBoxColumn.HeaderText = "Тип сертификации";
-            this.contracttypesnameDataGridViewTextBoxColumn.Name = "contracttypesnameDataGridViewTextBoxColumn";
-            this.contracttypesnameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // schemetypeFIODataGridViewTextBoxColumn
-            // 
-            this.schemetypeFIODataGridViewTextBoxColumn.DataPropertyName = "scheme_type";
-            this.schemetypeFIODataGridViewTextBoxColumn.HeaderText = "Схема сертификации";
-            this.schemetypeFIODataGridViewTextBoxColumn.Name = "schemetypeFIODataGridViewTextBoxColumn";
-            this.schemetypeFIODataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // emissiontypesnameDataGridViewTextBoxColumn
-            // 
-            this.emissiontypesnameDataGridViewTextBoxColumn.DataPropertyName = "emission_types_name";
-            this.emissiontypesnameDataGridViewTextBoxColumn.HeaderText = "Тип выпуска";
-            this.emissiontypesnameDataGridViewTextBoxColumn.Name = "emissiontypesnameDataGridViewTextBoxColumn";
-            this.emissiontypesnameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // contactpersnameFIODataGridViewTextBoxColumn
-            // 
-            this.contactpersnameFIODataGridViewTextBoxColumn.DataPropertyName = "contact_pers_name_FIO";
-            this.contactpersnameFIODataGridViewTextBoxColumn.HeaderText = "Контактное лицо";
-            this.contactpersnameFIODataGridViewTextBoxColumn.Name = "contactpersnameFIODataGridViewTextBoxColumn";
-            this.contactpersnameFIODataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // agentsfullnameDataGridViewTextBoxColumn
-            // 
-            this.agentsfullnameDataGridViewTextBoxColumn.DataPropertyName = "agents_fullname";
-            this.agentsfullnameDataGridViewTextBoxColumn.HeaderText = "Контрагент";
-            this.agentsfullnameDataGridViewTextBoxColumn.Name = "agentsfullnameDataGridViewTextBoxColumn";
-            this.agentsfullnameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // SendProposalColumn
-            // 
-            this.SendProposalColumn.HeaderText = "Отправить заявку";
-            this.SendProposalColumn.Name = "SendProposalColumn";
-            this.SendProposalColumn.ReadOnly = true;
-            // 
-            // cost
-            // 
-            this.cost.DataPropertyName = "cost";
-            this.cost.HeaderText = "Сумма";
-            this.cost.Name = "cost";
-            this.cost.ReadOnly = true;
-            // 
-            // total_cost
-            // 
-            this.total_cost.DataPropertyName = "total_cost";
-            this.total_cost.HeaderText = "Общая сумма";
-            this.total_cost.Name = "total_cost";
-            this.total_cost.ReadOnly = true;
             // 
             // contractInfoDataTableBindingSource
             // 
             this.contractInfoDataTableBindingSource.DataMember = "ContractInfoDataTable";
             this.contractInfoDataTableBindingSource.DataSource = this.edocbaseDataSet;
+            this.contractInfoDataTableBindingSource.CurrentChanged += new System.EventHandler(this.contractInfoDataTableBindingSource_CurrentChanged);
             // 
             // edocbaseDataSet
             // 
             this.edocbaseDataSet.CaseSensitive = true;
+            this.edocbaseDataSet.DataSetName = "EdocbaseDataSet";
             this.edocbaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // buttonFillGosts
+            // 
+            this.buttonFillGosts.Location = new System.Drawing.Point(117, 166);
+            this.buttonFillGosts.Name = "buttonFillGosts";
+            this.buttonFillGosts.Size = new System.Drawing.Size(117, 23);
+            this.buttonFillGosts.TabIndex = 40;
+            this.buttonFillGosts.Text = "Заполнить список";
+            this.buttonFillGosts.UseVisualStyleBackColor = true;
+            this.buttonFillGosts.Click += new System.EventHandler(this.buttonFillGosts_Click);
+            // 
+            // buttonGOSTSelection
+            // 
+            this.buttonGOSTSelection.Enabled = false;
+            this.buttonGOSTSelection.Location = new System.Drawing.Point(622, 168);
+            this.buttonGOSTSelection.Name = "buttonGOSTSelection";
+            this.buttonGOSTSelection.Size = new System.Drawing.Size(30, 23);
+            this.buttonGOSTSelection.TabIndex = 39;
+            this.buttonGOSTSelection.Text = "...";
+            this.buttonGOSTSelection.UseVisualStyleBackColor = true;
+            this.buttonGOSTSelection.Click += new System.EventHandler(this.buttonGOSTSelection_Click);
+            // 
+            // GOSTsTextBox
+            // 
+            this.GOSTsTextBox.Enabled = false;
+            this.GOSTsTextBox.Location = new System.Drawing.Point(368, 168);
+            this.GOSTsTextBox.Name = "GOSTsTextBox";
+            this.GOSTsTextBox.ReadOnly = true;
+            this.GOSTsTextBox.Size = new System.Drawing.Size(253, 20);
+            this.GOSTsTextBox.TabIndex = 38;
+            // 
+            // checkBoxCustomGOSTS
+            // 
+            this.checkBoxCustomGOSTS.AutoSize = true;
+            this.checkBoxCustomGOSTS.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.contractInfoDataTableBindingSource, "custom_gosts", true));
+            this.checkBoxCustomGOSTS.Location = new System.Drawing.Point(240, 169);
+            this.checkBoxCustomGOSTS.Name = "checkBoxCustomGOSTS";
+            this.checkBoxCustomGOSTS.Size = new System.Drawing.Size(129, 17);
+            this.checkBoxCustomGOSTS.TabIndex = 37;
+            this.checkBoxCustomGOSTS.Text = "Выборочные ГОСТы";
+            this.checkBoxCustomGOSTS.UseVisualStyleBackColor = true;
+            this.checkBoxCustomGOSTS.CheckedChanged += new System.EventHandler(this.checkBoxCustomGOSTS_CheckedChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(12, 173);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(99, 13);
+            this.label2.TabIndex = 36;
+            this.label2.Text = "Выбраные ГОСТы";
             // 
             // total_costTextBox
             // 
             this.total_costTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.contractInfoDataTableBindingSource, "total_cost", true));
-            this.total_costTextBox.Location = new System.Drawing.Point(552, 167);
+            this.total_costTextBox.Location = new System.Drawing.Point(552, 50);
             this.total_costTextBox.Name = "total_costTextBox";
             this.total_costTextBox.Size = new System.Drawing.Size(100, 20);
             this.total_costTextBox.TabIndex = 30;
@@ -388,7 +370,7 @@
             // costTextBox
             // 
             this.costTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.contractInfoDataTableBindingSource, "cost", true));
-            this.costTextBox.Location = new System.Drawing.Point(368, 166);
+            this.costTextBox.Location = new System.Drawing.Point(368, 49);
             this.costTextBox.Name = "costTextBox";
             this.costTextBox.Size = new System.Drawing.Size(94, 20);
             this.costTextBox.TabIndex = 29;
@@ -430,7 +412,7 @@
             // date_proposalDateTimePicker
             // 
             this.date_proposalDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.contractInfoDataTableBindingSource, "date_proposal", true));
-            this.date_proposalDateTimePicker.Location = new System.Drawing.Point(167, 166);
+            this.date_proposalDateTimePicker.Location = new System.Drawing.Point(167, 49);
             this.date_proposalDateTimePicker.Name = "date_proposalDateTimePicker";
             this.date_proposalDateTimePicker.Size = new System.Drawing.Size(148, 20);
             this.date_proposalDateTimePicker.TabIndex = 28;
@@ -443,7 +425,7 @@
             this.porposalGenerationGroupBox.Controls.Add(this.buttonGenerateProposalDoc);
             this.porposalGenerationGroupBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Edocsys.Properties.Settings.Default, "ProposalOperationsGroupBox", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.porposalGenerationGroupBox.Dock = System.Windows.Forms.DockStyle.Right;
-            this.porposalGenerationGroupBox.Location = new System.Drawing.Point(658, 0);
+            this.porposalGenerationGroupBox.Location = new System.Drawing.Point(862, 0);
             this.porposalGenerationGroupBox.Name = "porposalGenerationGroupBox";
             this.porposalGenerationGroupBox.Size = new System.Drawing.Size(292, 200);
             this.porposalGenerationGroupBox.TabIndex = 24;
@@ -676,7 +658,7 @@
             this.contractsBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.contractsBindingNavigator.Name = "contractsBindingNavigator";
             this.contractsBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.contractsBindingNavigator.Size = new System.Drawing.Size(950, 25);
+            this.contractsBindingNavigator.Size = new System.Drawing.Size(1154, 25);
             this.contractsBindingNavigator.TabIndex = 0;
             this.contractsBindingNavigator.Text = "bindingNavigator1";
             // 
@@ -715,6 +697,7 @@
             this.tableAdapterManager.documentsTableAdapter = this.documentsTableAdapter;
             this.tableAdapterManager.emission_typesTableAdapter = this.emission_typesTableAdapter;
             this.tableAdapterManager.expertsTableAdapter = null;
+            this.tableAdapterManager.GOSTSelectionTableAdapter = null;
             this.tableAdapterManager.log_journalTableAdapter = null;
             this.tableAdapterManager.product_areasTableAdapter = null;
             this.tableAdapterManager.product_gostsTableAdapter = null;
@@ -759,46 +742,96 @@
             this.documentsBindingSource.DataMember = "documents";
             this.documentsBindingSource.DataSource = this.edocbaseDataSet;
             // 
-            // label2
+            // gOSTSelectionBindingSource
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 54);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(99, 13);
-            this.label2.TabIndex = 31;
-            this.label2.Text = "Выбраные ГОСТы";
+            this.gOSTSelectionBindingSource.DataMember = "GOSTSelection";
+            this.gOSTSelectionBindingSource.DataSource = this.edocbaseDataSet;
             // 
-            // checkBox1
+            // gOSTSelectionTableAdapter
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(167, 50);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(44, 17);
-            this.checkBox1.TabIndex = 32;
-            this.checkBox1.Text = "все";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.gOSTSelectionTableAdapter.ClearBeforeFill = true;
             // 
-            // textBox1
+            // agentsnameDataGridViewTextBoxColumn
             // 
-            this.textBox1.Location = new System.Drawing.Point(217, 49);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(404, 20);
-            this.textBox1.TabIndex = 33;
+            this.agentsnameDataGridViewTextBoxColumn.DataPropertyName = "agents_name";
+            this.agentsnameDataGridViewTextBoxColumn.HeaderText = "Контрагент";
+            this.agentsnameDataGridViewTextBoxColumn.Name = "agentsnameDataGridViewTextBoxColumn";
+            this.agentsnameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // buttonGOSTSelection
+            // productNameDataGridViewTextBoxColumn
             // 
-            this.buttonGOSTSelection.Location = new System.Drawing.Point(622, 49);
-            this.buttonGOSTSelection.Name = "buttonGOSTSelection";
-            this.buttonGOSTSelection.Size = new System.Drawing.Size(30, 23);
-            this.buttonGOSTSelection.TabIndex = 34;
-            this.buttonGOSTSelection.Text = "...";
-            this.buttonGOSTSelection.UseVisualStyleBackColor = true;
+            this.productNameDataGridViewTextBoxColumn.DataPropertyName = "products_name";
+            this.productNameDataGridViewTextBoxColumn.HeaderText = "Продукция";
+            this.productNameDataGridViewTextBoxColumn.Name = "productNameDataGridViewTextBoxColumn";
+            this.productNameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // agenttypesnameDataGridViewTextBoxColumn
+            // 
+            this.agenttypesnameDataGridViewTextBoxColumn.DataPropertyName = "agent_types_name";
+            this.agenttypesnameDataGridViewTextBoxColumn.HeaderText = "Форма";
+            this.agenttypesnameDataGridViewTextBoxColumn.Name = "agenttypesnameDataGridViewTextBoxColumn";
+            this.agenttypesnameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // contracttypesnameDataGridViewTextBoxColumn
+            // 
+            this.contracttypesnameDataGridViewTextBoxColumn.DataPropertyName = "contract_types_name";
+            this.contracttypesnameDataGridViewTextBoxColumn.HeaderText = "Тип сертификации";
+            this.contracttypesnameDataGridViewTextBoxColumn.Name = "contracttypesnameDataGridViewTextBoxColumn";
+            this.contracttypesnameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // contactpersnameFIODataGridViewTextBoxColumn
+            // 
+            this.contactpersnameFIODataGridViewTextBoxColumn.DataPropertyName = "contact_pers_name_FIO";
+            this.contactpersnameFIODataGridViewTextBoxColumn.HeaderText = "Контактное лицо";
+            this.contactpersnameFIODataGridViewTextBoxColumn.Name = "contactpersnameFIODataGridViewTextBoxColumn";
+            this.contactpersnameFIODataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // cost
+            // 
+            this.cost.DataPropertyName = "cost";
+            this.cost.HeaderText = "Сумма";
+            this.cost.Name = "cost";
+            this.cost.ReadOnly = true;
+            // 
+            // total_cost
+            // 
+            this.total_cost.DataPropertyName = "total_cost";
+            this.total_cost.HeaderText = "Общая сумма";
+            this.total_cost.Name = "total_cost";
+            this.total_cost.ReadOnly = true;
+            // 
+            // schemetypeFIODataGridViewTextBoxColumn
+            // 
+            this.schemetypeFIODataGridViewTextBoxColumn.DataPropertyName = "scheme_type";
+            this.schemetypeFIODataGridViewTextBoxColumn.HeaderText = "Схема сертификации";
+            this.schemetypeFIODataGridViewTextBoxColumn.Name = "schemetypeFIODataGridViewTextBoxColumn";
+            this.schemetypeFIODataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // emissiontypesnameDataGridViewTextBoxColumn
+            // 
+            this.emissiontypesnameDataGridViewTextBoxColumn.DataPropertyName = "emission_types_name";
+            this.emissiontypesnameDataGridViewTextBoxColumn.HeaderText = "Тип выпуска";
+            this.emissiontypesnameDataGridViewTextBoxColumn.Name = "emissiontypesnameDataGridViewTextBoxColumn";
+            this.emissiontypesnameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // agentsfullnameDataGridViewTextBoxColumn
+            // 
+            this.agentsfullnameDataGridViewTextBoxColumn.DataPropertyName = "agents_fullname";
+            this.agentsfullnameDataGridViewTextBoxColumn.HeaderText = "Контрагент";
+            this.agentsfullnameDataGridViewTextBoxColumn.Name = "agentsfullnameDataGridViewTextBoxColumn";
+            this.agentsfullnameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // SendProposalColumn
+            // 
+            this.SendProposalColumn.HeaderText = "Отправить заявку";
+            this.SendProposalColumn.Name = "SendProposalColumn";
+            this.SendProposalColumn.ReadOnly = true;
             // 
             // ProposalForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(950, 599);
+            this.ClientSize = new System.Drawing.Size(1154, 599);
             this.Controls.Add(this.mainSplitContainer);
             this.Controls.Add(this.contractsBindingNavigator);
             this.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Edocsys.Properties.Settings.Default, "ProposalFormText", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
@@ -823,6 +856,7 @@
             this.contractsBindingNavigator.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.templatesDataTableBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.documentsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gOSTSelectionBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -878,23 +912,26 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripLabel toolStripLabel1;
         private System.Windows.Forms.ToolStripTextBox filterToolStripTextBox;
+        private System.Windows.Forms.TextBox total_costTextBox;
+        private System.Windows.Forms.TextBox costTextBox;
+        private System.Windows.Forms.BindingSource gOSTSelectionBindingSource;
+        private EdocbaseDataSetTableAdapters.GOSTSelectionTableAdapter gOSTSelectionTableAdapter;
+        private System.Windows.Forms.Button buttonFillGosts;
+        private System.Windows.Forms.Button buttonGOSTSelection;
+        private System.Windows.Forms.TextBox GOSTsTextBox;
+        private System.Windows.Forms.CheckBox checkBoxCustomGOSTS;
+        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridViewTextBoxColumn agentsnameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn productNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn agenttypesnameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn contracttypesnameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn schemetypeFIODataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn emissiontypesnameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn contactpersnameFIODataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn agentsfullnameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewButtonColumn SendProposalColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn cost;
         private System.Windows.Forms.DataGridViewTextBoxColumn total_cost;
-        private System.Windows.Forms.TextBox total_costTextBox;
-        private System.Windows.Forms.TextBox costTextBox;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button buttonGOSTSelection;
+        private System.Windows.Forms.DataGridViewTextBoxColumn schemetypeFIODataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn emissiontypesnameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn agentsfullnameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewButtonColumn SendProposalColumn;
 
         //private EdocbaseDataSetTableAdapters.TemplatesDataTableTableAdapter templatesDataTableTableAdapter;
         //private EdocbaseDataSetTableAdapters.ProductsTableAdapter productsTableAdapter;

@@ -310,5 +310,8 @@
     <Setting Name="ProductAreasTitle" Type="System.String" Scope="User">
       <Value Profile="(Default)">Область аккредитации</Value>
     </Setting>
+    <Setting Name="GOSTSelectionTitle" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Выбор ГОСТов</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

@@ -9,26 +9,51 @@ using System.Windows.Forms;
 
 namespace Edocsys
 {
-    public partial class gostselection : Form
+    public partial class GOSTSelectionForm : Form
     {
-        public gostselection()
+        public GOSTSelectionForm()
         {
             InitializeComponent();
         }
 
-        private void selected_gostsBindingNavigatorSaveItem_Click(object sender, EventArgs e)
-        {
-            this.Validate();
-            this.selected_gostsBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.edocbaseDataSet);
+        private ProposalForm mainForm = null;
 
+        public GOSTSelectionForm(Form callingForm)
+        {
+            mainForm = callingForm as ProposalForm;
+            InitializeComponent();
         }
 
         private void gostselection_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'edocbaseDataSet.selected_gosts' table. You can move, or remove it, as needed.
-            this.selected_gostsTableAdapter.Fill(this.edocbaseDataSet.selected_gosts);
+            this.gOSTSelectionTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
 
+            this.gOSTSelectionTableAdapter.Fill(this.edocbaseDataSet.GOSTSelection, mainForm.currentProductID, mainForm.currentContractID);
+        }
+
+        private void buttonAccept_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.Validate();
+                this.gOSTSelectionBindingSource.EndEdit();
+                this.tableAdapterManager.UpdateAll(this.edocbaseDataSet);
+
+                this.edocbaseDataSet.AcceptChanges();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Save Error");
+            }
+
+            this.gOSTSelectionTableAdapter.Fill(this.edocbaseDataSet.GOSTSelection, mainForm.currentProductID, mainForm.currentContractID);
+            this.gOSTSelectionDataGridView.Refresh();
+        }
+
+        private void buttonCancel_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.OK;
+            //this.DialogResult = DialogResult.Cancel;
         }
     }
 }
