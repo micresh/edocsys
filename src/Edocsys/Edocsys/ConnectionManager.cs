@@ -48,7 +48,9 @@ namespace Edocsys
             //DEBUG FEATURE
             #if DEBUG
                 Login = "admin";
+                CurrentUser.Name = "adm";
                 CurrentUser.UserID = 1;
+                CurrentUser.UserType = 1;
             #endif
 
             Password = "wepo23nri_)(*";

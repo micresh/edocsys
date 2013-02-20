@@ -46,6 +46,7 @@
             this.ExpertsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
             this.docTemplatesFormToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ProductionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.WindowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.HelpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
@@ -64,12 +65,11 @@
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.fillUsersToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.cueerntUserToolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.curentUserToolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.usersTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.usersTableAdapter();
             this.edocbaseDataSet = new Edocsys.EdocbaseDataSet();
             this.usersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tableAdapterManager = new Edocsys.EdocbaseDataSetTableAdapters.TableAdapterManager();
-            this.ProductionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -205,6 +205,13 @@
             this.docTemplatesFormToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
             this.docTemplatesFormToolStripMenuItem.Text = global::Edocsys.Properties.Settings.Default.DocTemplatesTitle;
             this.docTemplatesFormToolStripMenuItem.Click += new System.EventHandler(this.docTemplatesFormToolStripMenuItem_Click);
+            // 
+            // ProductionToolStripMenuItem
+            // 
+            this.ProductionToolStripMenuItem.Name = "ProductionToolStripMenuItem";
+            this.ProductionToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
+            this.ProductionToolStripMenuItem.Text = "Область аккредитации";
+            this.ProductionToolStripMenuItem.Click += new System.EventHandler(this.ProductionToolStripMenuItem_Click_1);
             // 
             // WindowToolStripMenuItem
             // 
@@ -356,18 +363,18 @@
             // statusStrip1
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.cueerntUserToolStripStatusLabel});
+            this.curentUserToolStripStatusLabel});
             this.statusStrip1.Location = new System.Drawing.Point(0, 362);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(559, 22);
             this.statusStrip1.TabIndex = 3;
             this.statusStrip1.Text = "statusStrip1";
             // 
-            // cueerntUserToolStripStatusLabel
+            // curentUserToolStripStatusLabel
             // 
-            this.cueerntUserToolStripStatusLabel.Name = "cueerntUserToolStripStatusLabel";
-            this.cueerntUserToolStripStatusLabel.Size = new System.Drawing.Size(112, 17);
-            this.cueerntUserToolStripStatusLabel.Text = "Пользователь: НЕТ";
+            this.curentUserToolStripStatusLabel.Name = "curentUserToolStripStatusLabel";
+            this.curentUserToolStripStatusLabel.Size = new System.Drawing.Size(112, 17);
+            this.curentUserToolStripStatusLabel.Text = "Пользователь: НЕТ";
             // 
             // usersTableAdapter
             // 
@@ -393,11 +400,13 @@
             this.tableAdapterManager.contract_statusTableAdapter = null;
             this.tableAdapterManager.contract_types_for_workTableAdapter = null;
             this.tableAdapterManager.contract_typesTableAdapter = null;
+            this.tableAdapterManager.ContractInfoTableAdapter = null;
             this.tableAdapterManager.contractsTableAdapter = null;
             this.tableAdapterManager.doc_templatesTableAdapter = null;
             this.tableAdapterManager.documentsTableAdapter = null;
             this.tableAdapterManager.emission_typesTableAdapter = null;
             this.tableAdapterManager.expertsTableAdapter = null;
+            this.tableAdapterManager.GOSTSelectionTableAdapter = null;
             this.tableAdapterManager.log_journalTableAdapter = null;
             this.tableAdapterManager.product_areasTableAdapter = null;
             this.tableAdapterManager.product_gostsTableAdapter = null;
@@ -407,13 +416,6 @@
             this.tableAdapterManager.UpdateOrder = Edocsys.EdocbaseDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             this.tableAdapterManager.user_typesTableAdapter = null;
             this.tableAdapterManager.usersTableAdapter = this.usersTableAdapter;
-            // 
-            // ProductionToolStripMenuItem
-            // 
-            this.ProductionToolStripMenuItem.Name = "ProductionToolStripMenuItem";
-            this.ProductionToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
-            this.ProductionToolStripMenuItem.Text = "Область аккредитации";
-            this.ProductionToolStripMenuItem.Click += new System.EventHandler(this.ProductionToolStripMenuItem_Click_1);
             // 
             // MainForm
             // 
@@ -482,7 +484,7 @@
         private EdocbaseDataSetTableAdapters.TableAdapterManager tableAdapterManager;
         private System.Windows.Forms.ToolStripButton fillUsersToolStripButton;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
-        private System.Windows.Forms.ToolStripStatusLabel cueerntUserToolStripStatusLabel;
+        private System.Windows.Forms.ToolStripStatusLabel curentUserToolStripStatusLabel;
         private System.Windows.Forms.ToolStripMenuItem docTemplatesFormToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ExpertAssignToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem AgentsToolStripMenuItem;

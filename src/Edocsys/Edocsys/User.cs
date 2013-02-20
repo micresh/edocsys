@@ -17,5 +17,10 @@ namespace Edocsys
             get;
             set;
         }
+        public int UserType
+        {
+            get;
+            set;
+        }
     }
 }

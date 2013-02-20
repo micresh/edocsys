@@ -21,26 +21,24 @@ namespace Edocsys
             InitializeComponent();
         }
 
+        public string selectedLogin;
+
         private void LoginForm_Load(object sender, EventArgs e)
         {
             this.usersTableAdapter.Connection.ConnectionString = ConnectionManager.TestConnectionString;
+
+            if (selectedLogin == null)
+                selectedLogin = "";
 
             try
             {
                 this.usersTableAdapter.Fill(this.edocbaseDataSet.users);
 
                 //select active user
-                for (int i = 0; i < this.edocbaseDataSet.Tables["users"].DefaultView.Count; i++)
-                {
-                    string login = this.edocbaseDataSet.Tables["users"].DefaultView[i].Row["login"].ToString();
-                    if (login == ConnectionManager.CurrentUser.Name)
-                    {
-                        usersComboBox.SelectedIndex = i;
-                        break;
-                    }
-                }
+                int idx = usersComboBox.FindString(selectedLogin);
+                usersComboBox.SelectedIndex = idx;
 
-                ConnectionManager.CurrentUser.Name = "";
+                selectedLogin = "";
             }
             catch (Exception)
             {
@@ -57,7 +55,7 @@ namespace Edocsys
                 return;
             }
 
-            DataRow currentRow = edocbaseDataSet.users.DefaultView[usersBindingSource.Position].Row;
+            DataRowView currentRow = (DataRowView)usersBindingSource.Current;
 
             string login = Convert.ToString(currentRow["login"]);
 
@@ -65,6 +63,7 @@ namespace Edocsys
             int id = Convert.ToInt32(currentRow["id"]);
             string name = Convert.ToString(currentRow["lastname"]) + " " + Convert.ToString(currentRow["firstname"])[0] + ". " + 
                             Convert.ToString(currentRow["middlename"])[0] + ".";
+            int type = Convert.ToInt32(currentRow["user_types_id"]);
 
             if (psmgr.VerifyHash(passtxbox.Text, pass))
             {
@@ -72,6 +71,7 @@ namespace Edocsys
                 ConnectionManager.Password = pass;
                 ConnectionManager.CurrentUser.UserID = id;
                 ConnectionManager.CurrentUser.Name = name;
+                ConnectionManager.CurrentUser.UserType = type;
 
                 //verify database connection with new users
                 try
@@ -88,7 +88,6 @@ namespace Edocsys
 #endif
 
 
-                ConnectionManager.CurrentUser.Name = login;
                 //close form after successful login
                 this.Close();
             }
@@ -101,7 +100,7 @@ namespace Edocsys
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            ConnectionManager.CurrentUser.Name = "";
+            selectedLogin = "";
             this.Close();
         }
     }

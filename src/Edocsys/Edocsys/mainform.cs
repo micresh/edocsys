@@ -22,14 +22,14 @@ namespace Edocsys
             InitializeComponent();
             wmgr.SetMDIParent(this);
 
-            //set trace information logger 
+            //set trace information logger
             Debug.Listeners.Add(new TextWriterTraceListener(global::Edocsys.Properties.Settings.Default.LogFilename));
             Trace.Listeners.Add(new TextWriterTraceListener(global::Edocsys.Properties.Settings.Default.LogFilename));
         }
 
         private void LoginToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-           wmgr.ShowLoginForm();
+           wmgr.ShowLoginForm("");
         }
 
         private void ExitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -87,9 +87,10 @@ namespace Edocsys
         {
             this.usersTableAdapter.Fill(this.edocbaseDataSet.users);
 
-            for (int i = 0; i < this.edocbaseDataSet.Tables["users"].DefaultView.Count; i++)
+            //select active user
+            foreach (DataRowView x in this.usersBindingSource)
             {
-                string login = this.edocbaseDataSet.Tables["users"].DefaultView[i].Row["login"].ToString();
+                string login = (x["login"]).ToString();
                 usersToolStripComboBox.Items.Add(login);
             }
 
@@ -166,13 +167,13 @@ namespace Edocsys
 
         private void loginToolStripButton_Click(object sender, EventArgs e)
         {
-            ConnectionManager.CurrentUser.Name = usersToolStripComboBox.SelectedItem.ToString();
-            wmgr.ShowLoginForm();
+            wmgr.ShowLoginForm(usersToolStripComboBox.Text);
+            this.Activate();
         }
 
         private void MainForm_Activated(object sender, EventArgs e)
         {
-            cueerntUserToolStripStatusLabel.Text = "Пользователь: " + ConnectionManager.CurrentUser.Name;
+            curentUserToolStripStatusLabel.Text = "Пользователь: " + ConnectionManager.CurrentUser.Name;
         }
 
         private void ContractToolStripMenuItem_Click(object sender, EventArgs e)
