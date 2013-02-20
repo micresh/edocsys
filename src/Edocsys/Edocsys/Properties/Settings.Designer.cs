@@ -1317,5 +1317,17 @@ namespace Edocsys.Properties {
                 this["PreparationsForTaskTitle"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Дата окончания работ")]
+        public string ContractDateEndTitle {
+            get {
+                return ((string)(this["ContractDateEndTitle"]));
+            }
+            set {
+                this["ContractDateEndTitle"] = value;
+            }
+        }
     }
 }

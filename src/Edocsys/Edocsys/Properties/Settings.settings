@@ -331,5 +331,8 @@
     <Setting Name="PreparationsForTaskTitle" Type="System.String" Scope="User">
       <Value Profile="(Default)">Ожидание и подготовка к работе</Value>
     </Setting>
+    <Setting Name="ContractDateEndTitle" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Дата окончания работ</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

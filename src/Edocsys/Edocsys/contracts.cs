@@ -16,7 +16,7 @@ namespace Edocsys
             InitializeComponent();
         }
 
-        private FilterHelper filterContractSigning;
+        private FilterHelper filterContractSigning, filterPrepareForWork;
         private DocGeneratorHelper contractGenerator;
 
 
@@ -24,65 +24,33 @@ namespace Edocsys
         {
 
             this.contractSigningTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
+            this.contractPrepareForWorkTAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
 
-            this.contractSigningTableAdapter.Fill(this.edocbaseDataSet.ContractSigning);
 
+
+            RefreshDatabase();
 
             //add filters
-            filterContractSigning = new FilterHelper(contractsSigningDataTableDataGridView, filterContractSigningText.TextBox);
+            filterContractSigning = new FilterHelper(contractsSigningDataGridView, filterContractSigningText.TextBox);
+            filterPrepareForWork = new FilterHelper(contractPrepareForWorkDataGridView, filterPrepareForWorkTextBox.TextBox);
 
 
             //doc helper
             contractGenerator = new DocGeneratorHelper(edocbaseDataSet.documents, edocbaseDataSet.doc_templates, edocbaseDataSet.ContractDocData);
 
-
-            //this.exec_contractsTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
-            //this.contractsTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
-
-            //this.contractsToStartDataTableTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
-            //this.taskFinishedDataTableTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
-            //this.taskReadyDataTableTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
-            //this.taskProcessedDataTableTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
-            //this.badJobsDataTableTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
-
-
-            //this.exec_contractsTableAdapter.Fill(this.edocbaseDataSet.Exec_contracts);
-            //this.contractsTableAdapter.Fill(this.edocbaseDataSet.Contracts);
-            
-            //this.contractsToStartDataTableTableAdapter.Fill(this.edocbaseDataSet.ContractsToStartDataTable);
-            //this.badJobsDataTableTableAdapter.Fill(this.edocbaseDataSet.BadJobsDataTable);
-            //this.taskFinishedDataTableTableAdapter.Fill(this.edocbaseDataSet.TaskFinishedDataTable);
-            //this.taskReadyDataTableTableAdapter.Fill(this.edocbaseDataSet.TaskReadyDataTable);
-            //this.taskProcessedDataTableTableAdapter.Fill(this.edocbaseDataSet.TaskProcessedDataTable);
         }
 
 
-        private void UpdateDatabaseAndRefresh()
+        private void UpdateDatabase()
         {
             try
             {
-                //this.Validate();
+                this.Validate();
 
-                //this.tableAdapterManager.UpdateAll(this.edocbaseDataSet);
+                this.tableAdapterManager.UpdateAll(this.edocbaseDataSet);
 
-                //this.edocbaseDataSet.AcceptChanges();
+                this.edocbaseDataSet.AcceptChanges();
 
-
-                //this.exec_contractsTableAdapter.Fill(this.edocbaseDataSet.Exec_contracts);
-                //this.contractsTableAdapter.Fill(this.edocbaseDataSet.Contracts);
-
-                //this.contractsToStartDataTableTableAdapter.Fill(this.edocbaseDataSet.ContractsToStartDataTable);
-                //this.badJobsDataTableTableAdapter.Fill(this.edocbaseDataSet.BadJobsDataTable);
-                //this.taskFinishedDataTableTableAdapter.Fill(this.edocbaseDataSet.TaskFinishedDataTable);
-                //this.taskReadyDataTableTableAdapter.Fill(this.edocbaseDataSet.TaskReadyDataTable);
-                //this.taskProcessedDataTableTableAdapter.Fill(this.edocbaseDataSet.TaskProcessedDataTable);
-
-
-                //this.contractsToStartDataTableDataGridView.Refresh();
-                //this.badJobsDataTableDataGridView.Refresh();
-                //this.taskFinishedDataTableDataGridView.Refresh();
-                //this.taskReadyDataTableDataGridView.Refresh();
-                //this.taskProcessedDataTableDataGridView.Refresh();
             }
             catch (Exception ex)
             {
@@ -90,39 +58,24 @@ namespace Edocsys
             }
             /**/
         }
-        private void contractsToStartDataTableDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+
+        private void RefreshDatabase()
         {
-            //if (e.ColumnIndex == contractsWaitingDataTableDataGridView.Columns["ProcessTaskColumn"].Index)
-            //{
-            //    if (contractsToStartDataTableBindingSource.Position >= 0)
-            //    {
-            //        DataRow currentRow = edocbaseDataSet.Tables["ContractsToStartDataTable"].DefaultView[contractsToStartDataTableBindingSource.Position].Row;
-            //        int idContract = Convert.ToInt32(currentRow["idContract"]);
+            try
+            {
 
-            //        if (MessageBox.Show("Начать работы по договору #" + idContract, "Подтвердить начало работ", MessageBoxButtons.YesNo) == DialogResult.Yes)
-            //        {
-            //            try
-            //            {
-            //                ////set task processed
-            //                //this.contractsTableAdapter.ProcessTask((int)Constants.ContractStatuses.TaskProcessed, idContract);
+                this.contractSigningTableAdapter.Fill(this.edocbaseDataSet.ContractSigning);
+                this.contractPrepareForWorkTAdapter.Fill(this.edocbaseDataSet.ContractPrepareForWork);
 
-            //                ////add executed contract
-            //                //DateTime now = DateTime.Now;
-            //                //DateTime nxt = now; ;
-            //                //nxt = nxt.AddMonths(9);
-            //                //this.exec_contractsTableAdapter.TaskProcessed(now, nxt, idContract);
+                this.contractPrepareForWorkDataGridView.Refresh();
 
-            //                ////refresh data
-            //                //UpdateDatabaseAndRefresh();
-
-            //             }
-            //            catch (Exception ex)
-            //            {
-            //                MessageBox.Show(ex.Message, "Save Error");
-            //            }
-            //        }
-            //    }
-            //}
+                this.contractsSigningDataGridView.Refresh();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Refresh Error");
+            }
+            /**/
         }
 
         private void taskProcessedDataTableDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -212,7 +165,7 @@ namespace Edocsys
                 (contractSigningBindingSource.Position >= contractSigningBindingSource.Count))
             {
                 //contract not selected
-                MessageBox.Show("Не выбрана заявка", "Ошибка");
+                MessageBox.Show("Не выбран договор", "Ошибка");
                 return;
             }
 
@@ -235,6 +188,8 @@ namespace Edocsys
             {
                 MessageBox.Show(ex.Message, "GenerateDoc Error");
             }
+
+            RefreshDatabase();
         }
 
         private void usersBindingNavigatorSaveItem_Click(object sender, EventArgs e)
@@ -244,6 +199,8 @@ namespace Edocsys
             this.contractSigningTableAdapter.Update(this.edocbaseDataSet.ContractSigning);
 
             this.edocbaseDataSet.AcceptChanges();
+
+            RefreshDatabase();
         }
 
         private void buttonEditContract_Click(object sender, EventArgs e)
@@ -252,7 +209,7 @@ namespace Edocsys
                 (contractSigningBindingSource.Position >= contractSigningBindingSource.Count))
             {
                 //contract not selected
-                MessageBox.Show("Не выбрана заявка", "Ошибка");
+                MessageBox.Show("Не выбран договор", "Ошибка");
                 return;
             }
 
@@ -276,6 +233,7 @@ namespace Edocsys
                 MessageBox.Show(ex.Message, "EditDoc ERROR");
             }
 
+            RefreshDatabase();
         }
 
         private void buttonSaveContract_Click(object sender, EventArgs e)
@@ -284,7 +242,7 @@ namespace Edocsys
                 (contractSigningBindingSource.Position >= contractSigningBindingSource.Count))
             {
                 //contract not selected
-                MessageBox.Show("Не выбрана заявка", "Ошибка");
+                MessageBox.Show("Не выбран договор", "Ошибка");
                 return;
             }
 
@@ -308,6 +266,8 @@ namespace Edocsys
             {
                 MessageBox.Show(ex.Message, "SaveDoc ERROR");
             }
+
+            RefreshDatabase();
         }
 
         private void buttonLoadContract_Click(object sender, EventArgs e)
@@ -316,7 +276,7 @@ namespace Edocsys
                 (contractSigningBindingSource.Position >= contractSigningBindingSource.Count))
             {
                 //contract not selected
-                MessageBox.Show("Не выбрана заявка", "Ошибка");
+                MessageBox.Show("Не выбран договор", "Ошибка");
                 return;
             }
 
@@ -340,11 +300,13 @@ namespace Edocsys
             {
                 MessageBox.Show(ex.Message, "LoadDoc ERROR");
             }
+
+            RefreshDatabase();
         }
 
         private void contractsSigningDataTableDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == contractsSigningDataTableDataGridView.Columns["SignContractColumn"].Index)
+            if (e.ColumnIndex == contractsSigningDataGridView.Columns["SignContractColumn"].Index)
             {
                 if (contractSigningBindingSource.Position >= 0)
                 {
@@ -359,7 +321,8 @@ namespace Edocsys
                             this.contractSigningTableAdapter.ConfirmSigning((int)Constants.ContractStatuses.PrepareForWork, idContract);
 
                             //refresh data
-                            UpdateDatabaseAndRefresh();
+                            UpdateDatabase();
+                            RefreshDatabase();
                         }
                         catch (Exception ex)
                         {
@@ -367,6 +330,61 @@ namespace Edocsys
                         }
                     }
                 }
+            }
+
+            RefreshDatabase();
+        }
+
+        private void toolStripButton12_Click(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.contractPrepareForWorkBindingSource.EndEdit();
+            this.contractPrepareForWorkTAdapter.Update(this.edocbaseDataSet.ContractPrepareForWork);
+
+            this.edocbaseDataSet.AcceptChanges();
+
+            RefreshDatabase();
+        }
+
+        private void contractPrepareForWorkDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == contractPrepareForWorkDataGridView.Columns["StartWorkColumn"].Index)
+            {
+                if ((contractPrepareForWorkBindingSource.Position < 0) ||
+                    (contractPrepareForWorkBindingSource.Position >= contractPrepareForWorkBindingSource.Count))
+                {
+                    //contract not selected
+                    MessageBox.Show("Не выбран договор", "Ошибка");
+                    return;
+                }
+
+                DataRow currentRow = edocbaseDataSet.ContractPrepareForWork.DefaultView[contractPrepareForWorkBindingSource.Position].Row;
+                int idContract = Convert.ToInt32(currentRow["id"]);
+
+                if (MessageBox.Show("Начать работы по договору #" + idContract, "Подтвердить начало работ", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    try
+                    {
+                        //set task processed
+                        this.contractPrepareForWorkTAdapter.StartWork((int)Constants.ContractStatuses.InWork, idContract);
+
+                        ////add executed contract
+                        //DateTime now = DateTime.Now;
+                        //DateTime nxt = now; ;
+                        //nxt = nxt.AddMonths(9);
+
+
+                        //refresh data
+                        UpdateDatabase();
+                        RefreshDatabase();
+
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, "Save Error");
+                    }
+                }
+                
             }
         }
     }
