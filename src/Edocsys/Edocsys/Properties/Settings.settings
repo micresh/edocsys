@@ -245,10 +245,10 @@
       <Value Profile="(Default)">Договора</Value>
     </Setting>
     <Setting Name="TabExpertAssigned" Type="System.String" Scope="User">
-      <Value Profile="(Default)">К заявке прикреплен эксперт</Value>
+      <Value Profile="(Default)">На подписании договора</Value>
     </Setting>
     <Setting Name="TabTaskProcessed" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Начата работа по заявке</Value>
+      <Value Profile="(Default)">Договора в работе</Value>
     </Setting>
     <Setting Name="TabTaskReady" Type="System.String" Scope="User">
       <Value Profile="(Default)">Оформлен акт выполненных работ</Value>
@@ -290,7 +290,7 @@
       <Value Profile="(Default)">Тип проводимых работ</Value>
     </Setting>
     <Setting Name="ContractOperationGroupBox" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Операции с документом контракта</Value>
+      <Value Profile="(Default)">Операции с договором</Value>
     </Setting>
     <Setting Name="GenerateContractTitle" Type="System.String" Scope="User">
       <Value Profile="(Default)">Сгенерировать договор</Value>
@@ -312,6 +312,24 @@
     </Setting>
     <Setting Name="GOSTSelectionTitle" Type="System.String" Scope="User">
       <Value Profile="(Default)">Выбор ГОСТов</Value>
+    </Setting>
+    <Setting Name="ContractsNumberTitle" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Номер договора</Value>
+    </Setting>
+    <Setting Name="ContractDateCTitle" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Дата заключения договора</Value>
+    </Setting>
+    <Setting Name="ContractsDateStartTitle" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Дата начала работ</Value>
+    </Setting>
+    <Setting Name="ContractsDateSampleIncomeTitle" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Дата поступления образца</Value>
+    </Setting>
+    <Setting Name="ContractsDateProtocolIncomeTitle" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Дата поступления протокола</Value>
+    </Setting>
+    <Setting Name="PreparationsForTaskTitle" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Ожидание и подготовка к работе</Value>
     </Setting>
   </Settings>
 </SettingsFile>

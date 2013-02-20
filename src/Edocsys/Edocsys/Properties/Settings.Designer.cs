@@ -972,7 +972,7 @@ namespace Edocsys.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("К заявке прикреплен эксперт")]
+        [global::System.Configuration.DefaultSettingValueAttribute("На подписании договора")]
         public string TabExpertAssigned {
             get {
                 return ((string)(this["TabExpertAssigned"]));
@@ -984,7 +984,7 @@ namespace Edocsys.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Начата работа по заявке")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Договора в работе")]
         public string TabTaskProcessed {
             get {
                 return ((string)(this["TabTaskProcessed"]));
@@ -1152,7 +1152,7 @@ namespace Edocsys.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Операции с документом контракта")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Операции с договором")]
         public string ContractOperationGroupBox {
             get {
                 return ((string)(this["ContractOperationGroupBox"]));
@@ -1243,6 +1243,78 @@ namespace Edocsys.Properties {
             }
             set {
                 this["GOSTSelectionTitle"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Номер договора")]
+        public string ContractsNumberTitle {
+            get {
+                return ((string)(this["ContractsNumberTitle"]));
+            }
+            set {
+                this["ContractsNumberTitle"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Дата заключения договора")]
+        public string ContractDateCTitle {
+            get {
+                return ((string)(this["ContractDateCTitle"]));
+            }
+            set {
+                this["ContractDateCTitle"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Дата начала работ")]
+        public string ContractsDateStartTitle {
+            get {
+                return ((string)(this["ContractsDateStartTitle"]));
+            }
+            set {
+                this["ContractsDateStartTitle"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Дата поступления образца")]
+        public string ContractsDateSampleIncomeTitle {
+            get {
+                return ((string)(this["ContractsDateSampleIncomeTitle"]));
+            }
+            set {
+                this["ContractsDateSampleIncomeTitle"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Дата поступления протокола")]
+        public string ContractsDateProtocolIncomeTitle {
+            get {
+                return ((string)(this["ContractsDateProtocolIncomeTitle"]));
+            }
+            set {
+                this["ContractsDateProtocolIncomeTitle"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Ожидание и подготовка к работе")]
+        public string PreparationsForTaskTitle {
+            get {
+                return ((string)(this["PreparationsForTaskTitle"]));
+            }
+            set {
+                this["PreparationsForTaskTitle"] = value;
             }
         }
     }

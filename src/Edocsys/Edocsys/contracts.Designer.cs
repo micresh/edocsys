@@ -36,14 +36,28 @@
             System.Windows.Forms.Label label3;
             System.Windows.Forms.Label label4;
             System.Windows.Forms.Label label5;
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ContractsForm));
             System.Windows.Forms.Label date_protocol_incomeLabel;
             System.Windows.Forms.Label date_sample_incomeLabel;
             System.Windows.Forms.Label date_startLabel;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ContractsForm));
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabContractSigning = new System.Windows.Forms.TabPage();
             this.contractsSigningDataTableDataGridView = new System.Windows.Forms.DataGridView();
+            this.productsnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contracttypesnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.agentsnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.agenttypesnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.costDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.totalcostDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateproposalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.agentsfullnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.expertFIODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProcessTaskColumn = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.contractSigningBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.edocbaseDataSet = new Edocsys.EdocbaseDataSet();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.date_contractDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.numberTextBox = new System.Windows.Forms.TextBox();
             this.groupBoxContract = new System.Windows.Forms.GroupBox();
             this.buttonLoadContract = new System.Windows.Forms.Button();
             this.buttonSaveContract = new System.Windows.Forms.Button();
@@ -65,6 +79,29 @@
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.filterContractSigningText = new System.Windows.Forms.ToolStripTextBox();
             this.tabPagePreparationsForTask = new System.Windows.Forms.TabPage();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewButtonColumn1 = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.bindingNavigator1 = new System.Windows.Forms.BindingNavigator(this.components);
+            this.toolStripLabel4 = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripButton7 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton8 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton9 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripTextBox3 = new System.Windows.Forms.ToolStripTextBox();
+            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripButton10 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton11 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripButton12 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripLabel5 = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripTextBox4 = new System.Windows.Forms.ToolStripTextBox();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
+            this.button8 = new System.Windows.Forms.Button();
             this.tabInWork = new System.Windows.Forms.TabPage();
             this.taskProcessedDataTableDataGridView = new System.Windows.Forms.DataGridView();
             this.TaskReadyColumn = new System.Windows.Forms.DataGridViewButtonColumn();
@@ -101,45 +138,10 @@
             this.taskFinishedDataTableDataGridView = new System.Windows.Forms.DataGridView();
             this.tabPageBadJob = new System.Windows.Forms.TabPage();
             this.badJobsDataTableDataGridView = new System.Windows.Forms.DataGridView();
-            this.numberTextBox = new System.Windows.Forms.TextBox();
-            this.date_contractDateTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.dataGridViewButtonColumn1 = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.bindingNavigator1 = new System.Windows.Forms.BindingNavigator(this.components);
-            this.toolStripLabel4 = new System.Windows.Forms.ToolStripLabel();
-            this.toolStripButton7 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton8 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton9 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripTextBox3 = new System.Windows.Forms.ToolStripTextBox();
-            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripButton10 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton11 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripButton12 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripLabel5 = new System.Windows.Forms.ToolStripLabel();
-            this.toolStripTextBox4 = new System.Windows.Forms.ToolStripTextBox();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.contractSigningBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.edocbaseDataSet = new Edocsys.EdocbaseDataSet();
             this.tableAdapterManager = new Edocsys.EdocbaseDataSetTableAdapters.TableAdapterManager();
             this.contractSigningTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.ContractSigningTableAdapter();
-            this.productsnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.contracttypesnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.agentsnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.agenttypesnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.costDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.totalcostDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dateproposalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.agentsfullnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.expertFIODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ProcessTaskColumn = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.contractDocDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.contractDocDataTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.ContractDocDataTableAdapter();
             date_contractLabel = new System.Windows.Forms.Label();
             numberLabel = new System.Windows.Forms.Label();
             label1 = new System.Windows.Forms.Label();
@@ -153,11 +155,18 @@
             this.tabControl.SuspendLayout();
             this.tabContractSigning.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.contractsSigningDataTableDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.contractSigningBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.edocbaseDataSet)).BeginInit();
             this.panel1.SuspendLayout();
             this.groupBoxContract.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigatorContractSigning)).BeginInit();
             this.bindingNavigatorContractSigning.SuspendLayout();
             this.tabPagePreparationsForTask.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
+            this.bindingNavigator1.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.tabInWork.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.taskProcessedDataTableDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator)).BeginInit();
@@ -170,13 +179,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.taskFinishedDataTableDataGridView)).BeginInit();
             this.tabPageBadJob.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.badJobsDataTableDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
-            this.bindingNavigator1.SuspendLayout();
-            this.panel3.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.contractSigningBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.edocbaseDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.contractDocDataBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // date_contractLabel
@@ -249,6 +252,36 @@
             label5.TabIndex = 25;
             label5.Text = global::Edocsys.Properties.Settings.Default.ContractDateCTitle;
             // 
+            // date_protocol_incomeLabel
+            // 
+            date_protocol_incomeLabel.AutoSize = true;
+            date_protocol_incomeLabel.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Edocsys.Properties.Settings.Default, "ContractsDateProtocolIncomeTitle", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            date_protocol_incomeLabel.Location = new System.Drawing.Point(361, 115);
+            date_protocol_incomeLabel.Name = "date_protocol_incomeLabel";
+            date_protocol_incomeLabel.Size = new System.Drawing.Size(156, 13);
+            date_protocol_incomeLabel.TabIndex = 31;
+            date_protocol_incomeLabel.Text = global::Edocsys.Properties.Settings.Default.ContractsDateProtocolIncomeTitle;
+            // 
+            // date_sample_incomeLabel
+            // 
+            date_sample_incomeLabel.AutoSize = true;
+            date_sample_incomeLabel.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Edocsys.Properties.Settings.Default, "ContractsDateSampleIncomeTitle", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            date_sample_incomeLabel.Location = new System.Drawing.Point(41, 115);
+            date_sample_incomeLabel.Name = "date_sample_incomeLabel";
+            date_sample_incomeLabel.Size = new System.Drawing.Size(145, 13);
+            date_sample_incomeLabel.TabIndex = 30;
+            date_sample_incomeLabel.Text = global::Edocsys.Properties.Settings.Default.ContractsDateSampleIncomeTitle;
+            // 
+            // date_startLabel
+            // 
+            date_startLabel.AutoSize = true;
+            date_startLabel.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Edocsys.Properties.Settings.Default, "ContractsDateStartTitle", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            date_startLabel.Location = new System.Drawing.Point(37, 79);
+            date_startLabel.Name = "date_startLabel";
+            date_startLabel.Size = new System.Drawing.Size(103, 13);
+            date_startLabel.TabIndex = 29;
+            date_startLabel.Text = global::Edocsys.Properties.Settings.Default.ContractsDateStartTitle;
+            // 
             // tabControl
             // 
             this.tabControl.Controls.Add(this.tabContractSigning);
@@ -303,6 +336,76 @@
             this.contractsSigningDataTableDataGridView.Size = new System.Drawing.Size(1100, 243);
             this.contractsSigningDataTableDataGridView.TabIndex = 27;
             // 
+            // productsnameDataGridViewTextBoxColumn
+            // 
+            this.productsnameDataGridViewTextBoxColumn.DataPropertyName = "products_name";
+            this.productsnameDataGridViewTextBoxColumn.HeaderText = "Продукция";
+            this.productsnameDataGridViewTextBoxColumn.Name = "productsnameDataGridViewTextBoxColumn";
+            // 
+            // contracttypesnameDataGridViewTextBoxColumn
+            // 
+            this.contracttypesnameDataGridViewTextBoxColumn.DataPropertyName = "contract_types_name";
+            this.contracttypesnameDataGridViewTextBoxColumn.HeaderText = "Тип работ";
+            this.contracttypesnameDataGridViewTextBoxColumn.Name = "contracttypesnameDataGridViewTextBoxColumn";
+            // 
+            // agentsnameDataGridViewTextBoxColumn
+            // 
+            this.agentsnameDataGridViewTextBoxColumn.DataPropertyName = "agents_name";
+            this.agentsnameDataGridViewTextBoxColumn.HeaderText = "Контрагент";
+            this.agentsnameDataGridViewTextBoxColumn.Name = "agentsnameDataGridViewTextBoxColumn";
+            // 
+            // agenttypesnameDataGridViewTextBoxColumn
+            // 
+            this.agenttypesnameDataGridViewTextBoxColumn.DataPropertyName = "agent_types_name";
+            this.agenttypesnameDataGridViewTextBoxColumn.HeaderText = "Форма";
+            this.agenttypesnameDataGridViewTextBoxColumn.Name = "agenttypesnameDataGridViewTextBoxColumn";
+            // 
+            // costDataGridViewTextBoxColumn
+            // 
+            this.costDataGridViewTextBoxColumn.DataPropertyName = "cost";
+            this.costDataGridViewTextBoxColumn.HeaderText = "Сумма";
+            this.costDataGridViewTextBoxColumn.Name = "costDataGridViewTextBoxColumn";
+            // 
+            // totalcostDataGridViewTextBoxColumn
+            // 
+            this.totalcostDataGridViewTextBoxColumn.DataPropertyName = "total_cost";
+            this.totalcostDataGridViewTextBoxColumn.HeaderText = "Общая сумма";
+            this.totalcostDataGridViewTextBoxColumn.Name = "totalcostDataGridViewTextBoxColumn";
+            // 
+            // dateproposalDataGridViewTextBoxColumn
+            // 
+            this.dateproposalDataGridViewTextBoxColumn.DataPropertyName = "date_proposal";
+            this.dateproposalDataGridViewTextBoxColumn.HeaderText = "Дата поступления заявки";
+            this.dateproposalDataGridViewTextBoxColumn.Name = "dateproposalDataGridViewTextBoxColumn";
+            // 
+            // agentsfullnameDataGridViewTextBoxColumn
+            // 
+            this.agentsfullnameDataGridViewTextBoxColumn.DataPropertyName = "agents_fullname";
+            this.agentsfullnameDataGridViewTextBoxColumn.HeaderText = "Контрагент";
+            this.agentsfullnameDataGridViewTextBoxColumn.Name = "agentsfullnameDataGridViewTextBoxColumn";
+            // 
+            // expertFIODataGridViewTextBoxColumn
+            // 
+            this.expertFIODataGridViewTextBoxColumn.DataPropertyName = "expert_FIO";
+            this.expertFIODataGridViewTextBoxColumn.HeaderText = "Эксперт";
+            this.expertFIODataGridViewTextBoxColumn.Name = "expertFIODataGridViewTextBoxColumn";
+            // 
+            // ProcessTaskColumn
+            // 
+            this.ProcessTaskColumn.HeaderText = "Начать работы";
+            this.ProcessTaskColumn.Name = "ProcessTaskColumn";
+            // 
+            // contractSigningBindingSource
+            // 
+            this.contractSigningBindingSource.DataMember = "ContractSigning";
+            this.contractSigningBindingSource.DataSource = this.edocbaseDataSet;
+            // 
+            // edocbaseDataSet
+            // 
+            this.edocbaseDataSet.CaseSensitive = true;
+            this.edocbaseDataSet.DataSetName = "EdocbaseDataSet";
+            this.edocbaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // panel1
             // 
             this.panel1.Controls.Add(this.date_contractDateTimePicker);
@@ -315,6 +418,22 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1100, 170);
             this.panel1.TabIndex = 25;
+            // 
+            // date_contractDateTimePicker
+            // 
+            this.date_contractDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.contractSigningBindingSource, "date_contract", true));
+            this.date_contractDateTimePicker.Location = new System.Drawing.Point(184, 38);
+            this.date_contractDateTimePicker.Name = "date_contractDateTimePicker";
+            this.date_contractDateTimePicker.Size = new System.Drawing.Size(142, 20);
+            this.date_contractDateTimePicker.TabIndex = 31;
+            // 
+            // numberTextBox
+            // 
+            this.numberTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.contractSigningBindingSource, "number", true));
+            this.numberTextBox.Location = new System.Drawing.Point(184, 12);
+            this.numberTextBox.Name = "numberTextBox";
+            this.numberTextBox.Size = new System.Drawing.Size(100, 20);
+            this.numberTextBox.TabIndex = 30;
             // 
             // groupBoxContract
             // 
@@ -518,6 +637,220 @@
             this.tabPagePreparationsForTask.TabIndex = 5;
             this.tabPagePreparationsForTask.Text = global::Edocsys.Properties.Settings.Default.PreparationsForTaskTitle;
             this.tabPagePreparationsForTask.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewButtonColumn1});
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView1.Location = new System.Drawing.Point(3, 28);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(1100, 243);
+            this.dataGridView1.TabIndex = 32;
+            // 
+            // dataGridViewButtonColumn1
+            // 
+            this.dataGridViewButtonColumn1.HeaderText = "Оформить акт";
+            this.dataGridViewButtonColumn1.Name = "dataGridViewButtonColumn1";
+            // 
+            // bindingNavigator1
+            // 
+            this.bindingNavigator1.AddNewItem = null;
+            this.bindingNavigator1.CountItem = this.toolStripLabel4;
+            this.bindingNavigator1.DeleteItem = this.toolStripButton7;
+            this.bindingNavigator1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripButton8,
+            this.toolStripButton9,
+            this.toolStripSeparator6,
+            this.toolStripTextBox3,
+            this.toolStripLabel4,
+            this.toolStripSeparator7,
+            this.toolStripButton10,
+            this.toolStripButton11,
+            this.toolStripSeparator8,
+            this.toolStripButton7,
+            this.toolStripButton12,
+            this.toolStripSeparator9,
+            this.toolStripLabel5,
+            this.toolStripTextBox4});
+            this.bindingNavigator1.Location = new System.Drawing.Point(3, 3);
+            this.bindingNavigator1.MoveFirstItem = this.toolStripButton8;
+            this.bindingNavigator1.MoveLastItem = this.toolStripButton11;
+            this.bindingNavigator1.MoveNextItem = this.toolStripButton10;
+            this.bindingNavigator1.MovePreviousItem = this.toolStripButton9;
+            this.bindingNavigator1.Name = "bindingNavigator1";
+            this.bindingNavigator1.PositionItem = this.toolStripTextBox3;
+            this.bindingNavigator1.Size = new System.Drawing.Size(1100, 25);
+            this.bindingNavigator1.TabIndex = 31;
+            this.bindingNavigator1.Text = "bindingNavigator2";
+            // 
+            // toolStripLabel4
+            // 
+            this.toolStripLabel4.Name = "toolStripLabel4";
+            this.toolStripLabel4.Size = new System.Drawing.Size(35, 22);
+            this.toolStripLabel4.Text = "of {0}";
+            this.toolStripLabel4.ToolTipText = "Total number of items";
+            // 
+            // toolStripButton7
+            // 
+            this.toolStripButton7.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton7.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton7.Image")));
+            this.toolStripButton7.Name = "toolStripButton7";
+            this.toolStripButton7.RightToLeftAutoMirrorImage = true;
+            this.toolStripButton7.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton7.Text = "Delete";
+            // 
+            // toolStripButton8
+            // 
+            this.toolStripButton8.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton8.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton8.Image")));
+            this.toolStripButton8.Name = "toolStripButton8";
+            this.toolStripButton8.RightToLeftAutoMirrorImage = true;
+            this.toolStripButton8.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton8.Text = "Move first";
+            // 
+            // toolStripButton9
+            // 
+            this.toolStripButton9.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton9.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton9.Image")));
+            this.toolStripButton9.Name = "toolStripButton9";
+            this.toolStripButton9.RightToLeftAutoMirrorImage = true;
+            this.toolStripButton9.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton9.Text = "Move previous";
+            // 
+            // toolStripSeparator6
+            // 
+            this.toolStripSeparator6.Name = "toolStripSeparator6";
+            this.toolStripSeparator6.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripTextBox3
+            // 
+            this.toolStripTextBox3.AccessibleName = "Position";
+            this.toolStripTextBox3.AutoSize = false;
+            this.toolStripTextBox3.Name = "toolStripTextBox3";
+            this.toolStripTextBox3.Size = new System.Drawing.Size(50, 23);
+            this.toolStripTextBox3.Text = "0";
+            this.toolStripTextBox3.ToolTipText = "Current position";
+            // 
+            // toolStripSeparator7
+            // 
+            this.toolStripSeparator7.Name = "toolStripSeparator7";
+            this.toolStripSeparator7.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripButton10
+            // 
+            this.toolStripButton10.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton10.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton10.Image")));
+            this.toolStripButton10.Name = "toolStripButton10";
+            this.toolStripButton10.RightToLeftAutoMirrorImage = true;
+            this.toolStripButton10.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton10.Text = "Move next";
+            // 
+            // toolStripButton11
+            // 
+            this.toolStripButton11.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton11.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton11.Image")));
+            this.toolStripButton11.Name = "toolStripButton11";
+            this.toolStripButton11.RightToLeftAutoMirrorImage = true;
+            this.toolStripButton11.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton11.Text = "Move last";
+            // 
+            // toolStripSeparator8
+            // 
+            this.toolStripSeparator8.Name = "toolStripSeparator8";
+            this.toolStripSeparator8.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripButton12
+            // 
+            this.toolStripButton12.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton12.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton12.Image")));
+            this.toolStripButton12.Name = "toolStripButton12";
+            this.toolStripButton12.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton12.Text = "Save Data";
+            // 
+            // toolStripSeparator9
+            // 
+            this.toolStripSeparator9.Name = "toolStripSeparator9";
+            this.toolStripSeparator9.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripLabel5
+            // 
+            this.toolStripLabel5.Name = "toolStripLabel5";
+            this.toolStripLabel5.Size = new System.Drawing.Size(42, 22);
+            this.toolStripLabel5.Text = "Поиск";
+            // 
+            // toolStripTextBox4
+            // 
+            this.toolStripTextBox4.Name = "toolStripTextBox4";
+            this.toolStripTextBox4.Size = new System.Drawing.Size(200, 25);
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(date_protocol_incomeLabel);
+            this.panel3.Controls.Add(date_sample_incomeLabel);
+            this.panel3.Controls.Add(date_startLabel);
+            this.panel3.Controls.Add(this.groupBox2);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel3.Location = new System.Drawing.Point(3, 271);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(1100, 170);
+            this.panel3.TabIndex = 30;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.button5);
+            this.groupBox2.Controls.Add(this.button6);
+            this.groupBox2.Controls.Add(this.button7);
+            this.groupBox2.Controls.Add(this.button8);
+            this.groupBox2.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Edocsys.Properties.Settings.Default, "ContractOperationGroupBox", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Right;
+            this.groupBox2.Location = new System.Drawing.Point(813, 0);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(287, 170);
+            this.groupBox2.TabIndex = 25;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = global::Edocsys.Properties.Settings.Default.ContractOperationGroupBox;
+            // 
+            // button5
+            // 
+            this.button5.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Edocsys.Properties.Settings.Default, "LoadContractTitle", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.button5.Location = new System.Drawing.Point(21, 139);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(246, 23);
+            this.button5.TabIndex = 20;
+            this.button5.Text = global::Edocsys.Properties.Settings.Default.LoadContractTitle;
+            this.button5.UseVisualStyleBackColor = true;
+            // 
+            // button6
+            // 
+            this.button6.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Edocsys.Properties.Settings.Default, "SaveContractTitle", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.button6.Location = new System.Drawing.Point(21, 110);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(246, 23);
+            this.button6.TabIndex = 19;
+            this.button6.Text = global::Edocsys.Properties.Settings.Default.SaveContractTitle;
+            this.button6.UseVisualStyleBackColor = true;
+            // 
+            // button7
+            // 
+            this.button7.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Edocsys.Properties.Settings.Default, "EditContractTitle", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.button7.Location = new System.Drawing.Point(21, 81);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(246, 23);
+            this.button7.TabIndex = 18;
+            this.button7.Text = global::Edocsys.Properties.Settings.Default.EditContractTitle;
+            this.button7.UseVisualStyleBackColor = true;
+            // 
+            // button8
+            // 
+            this.button8.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Edocsys.Properties.Settings.Default, "GenerateContractTitle", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.button8.Location = new System.Drawing.Point(21, 32);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(246, 23);
+            this.button8.TabIndex = 17;
+            this.button8.Text = global::Edocsys.Properties.Settings.Default.GenerateContractTitle;
+            this.button8.UseVisualStyleBackColor = true;
             // 
             // tabInWork
             // 
@@ -865,277 +1198,6 @@
             this.badJobsDataTableDataGridView.Size = new System.Drawing.Size(1100, 438);
             this.badJobsDataTableDataGridView.TabIndex = 0;
             // 
-            // numberTextBox
-            // 
-            this.numberTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.contractSigningBindingSource, "number", true));
-            this.numberTextBox.Location = new System.Drawing.Point(184, 12);
-            this.numberTextBox.Name = "numberTextBox";
-            this.numberTextBox.Size = new System.Drawing.Size(100, 20);
-            this.numberTextBox.TabIndex = 30;
-            // 
-            // date_contractDateTimePicker
-            // 
-            this.date_contractDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.contractSigningBindingSource, "date_contract", true));
-            this.date_contractDateTimePicker.Location = new System.Drawing.Point(184, 38);
-            this.date_contractDateTimePicker.Name = "date_contractDateTimePicker";
-            this.date_contractDateTimePicker.Size = new System.Drawing.Size(142, 20);
-            this.date_contractDateTimePicker.TabIndex = 31;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewButtonColumn1});
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 28);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(1100, 243);
-            this.dataGridView1.TabIndex = 32;
-            // 
-            // dataGridViewButtonColumn1
-            // 
-            this.dataGridViewButtonColumn1.HeaderText = "Оформить акт";
-            this.dataGridViewButtonColumn1.Name = "dataGridViewButtonColumn1";
-            // 
-            // bindingNavigator1
-            // 
-            this.bindingNavigator1.AddNewItem = null;
-            this.bindingNavigator1.CountItem = this.toolStripLabel4;
-            this.bindingNavigator1.DeleteItem = this.toolStripButton7;
-            this.bindingNavigator1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton8,
-            this.toolStripButton9,
-            this.toolStripSeparator6,
-            this.toolStripTextBox3,
-            this.toolStripLabel4,
-            this.toolStripSeparator7,
-            this.toolStripButton10,
-            this.toolStripButton11,
-            this.toolStripSeparator8,
-            this.toolStripButton7,
-            this.toolStripButton12,
-            this.toolStripSeparator9,
-            this.toolStripLabel5,
-            this.toolStripTextBox4});
-            this.bindingNavigator1.Location = new System.Drawing.Point(3, 3);
-            this.bindingNavigator1.MoveFirstItem = this.toolStripButton8;
-            this.bindingNavigator1.MoveLastItem = this.toolStripButton11;
-            this.bindingNavigator1.MoveNextItem = this.toolStripButton10;
-            this.bindingNavigator1.MovePreviousItem = this.toolStripButton9;
-            this.bindingNavigator1.Name = "bindingNavigator1";
-            this.bindingNavigator1.PositionItem = this.toolStripTextBox3;
-            this.bindingNavigator1.Size = new System.Drawing.Size(1100, 25);
-            this.bindingNavigator1.TabIndex = 31;
-            this.bindingNavigator1.Text = "bindingNavigator2";
-            // 
-            // toolStripLabel4
-            // 
-            this.toolStripLabel4.Name = "toolStripLabel4";
-            this.toolStripLabel4.Size = new System.Drawing.Size(35, 22);
-            this.toolStripLabel4.Text = "of {0}";
-            this.toolStripLabel4.ToolTipText = "Total number of items";
-            // 
-            // toolStripButton7
-            // 
-            this.toolStripButton7.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton7.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton7.Image")));
-            this.toolStripButton7.Name = "toolStripButton7";
-            this.toolStripButton7.RightToLeftAutoMirrorImage = true;
-            this.toolStripButton7.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton7.Text = "Delete";
-            // 
-            // toolStripButton8
-            // 
-            this.toolStripButton8.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton8.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton8.Image")));
-            this.toolStripButton8.Name = "toolStripButton8";
-            this.toolStripButton8.RightToLeftAutoMirrorImage = true;
-            this.toolStripButton8.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton8.Text = "Move first";
-            // 
-            // toolStripButton9
-            // 
-            this.toolStripButton9.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton9.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton9.Image")));
-            this.toolStripButton9.Name = "toolStripButton9";
-            this.toolStripButton9.RightToLeftAutoMirrorImage = true;
-            this.toolStripButton9.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton9.Text = "Move previous";
-            // 
-            // toolStripSeparator6
-            // 
-            this.toolStripSeparator6.Name = "toolStripSeparator6";
-            this.toolStripSeparator6.Size = new System.Drawing.Size(6, 25);
-            // 
-            // toolStripTextBox3
-            // 
-            this.toolStripTextBox3.AccessibleName = "Position";
-            this.toolStripTextBox3.AutoSize = false;
-            this.toolStripTextBox3.Name = "toolStripTextBox3";
-            this.toolStripTextBox3.Size = new System.Drawing.Size(50, 23);
-            this.toolStripTextBox3.Text = "0";
-            this.toolStripTextBox3.ToolTipText = "Current position";
-            // 
-            // toolStripSeparator7
-            // 
-            this.toolStripSeparator7.Name = "toolStripSeparator7";
-            this.toolStripSeparator7.Size = new System.Drawing.Size(6, 25);
-            // 
-            // toolStripButton10
-            // 
-            this.toolStripButton10.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton10.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton10.Image")));
-            this.toolStripButton10.Name = "toolStripButton10";
-            this.toolStripButton10.RightToLeftAutoMirrorImage = true;
-            this.toolStripButton10.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton10.Text = "Move next";
-            // 
-            // toolStripButton11
-            // 
-            this.toolStripButton11.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton11.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton11.Image")));
-            this.toolStripButton11.Name = "toolStripButton11";
-            this.toolStripButton11.RightToLeftAutoMirrorImage = true;
-            this.toolStripButton11.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton11.Text = "Move last";
-            // 
-            // toolStripSeparator8
-            // 
-            this.toolStripSeparator8.Name = "toolStripSeparator8";
-            this.toolStripSeparator8.Size = new System.Drawing.Size(6, 25);
-            // 
-            // toolStripButton12
-            // 
-            this.toolStripButton12.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton12.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton12.Image")));
-            this.toolStripButton12.Name = "toolStripButton12";
-            this.toolStripButton12.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton12.Text = "Save Data";
-            // 
-            // toolStripSeparator9
-            // 
-            this.toolStripSeparator9.Name = "toolStripSeparator9";
-            this.toolStripSeparator9.Size = new System.Drawing.Size(6, 25);
-            // 
-            // toolStripLabel5
-            // 
-            this.toolStripLabel5.Name = "toolStripLabel5";
-            this.toolStripLabel5.Size = new System.Drawing.Size(42, 22);
-            this.toolStripLabel5.Text = "Поиск";
-            // 
-            // toolStripTextBox4
-            // 
-            this.toolStripTextBox4.Name = "toolStripTextBox4";
-            this.toolStripTextBox4.Size = new System.Drawing.Size(200, 25);
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(date_protocol_incomeLabel);
-            this.panel3.Controls.Add(date_sample_incomeLabel);
-            this.panel3.Controls.Add(date_startLabel);
-            this.panel3.Controls.Add(this.groupBox2);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(3, 271);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1100, 170);
-            this.panel3.TabIndex = 30;
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.button5);
-            this.groupBox2.Controls.Add(this.button6);
-            this.groupBox2.Controls.Add(this.button7);
-            this.groupBox2.Controls.Add(this.button8);
-            this.groupBox2.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Edocsys.Properties.Settings.Default, "ContractOperationGroupBox", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.groupBox2.Location = new System.Drawing.Point(813, 0);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(287, 170);
-            this.groupBox2.TabIndex = 25;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = global::Edocsys.Properties.Settings.Default.ContractOperationGroupBox;
-            // 
-            // button5
-            // 
-            this.button5.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Edocsys.Properties.Settings.Default, "LoadContractTitle", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.button5.Location = new System.Drawing.Point(21, 139);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(246, 23);
-            this.button5.TabIndex = 20;
-            this.button5.Text = global::Edocsys.Properties.Settings.Default.LoadContractTitle;
-            this.button5.UseVisualStyleBackColor = true;
-            // 
-            // button6
-            // 
-            this.button6.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Edocsys.Properties.Settings.Default, "SaveContractTitle", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.button6.Location = new System.Drawing.Point(21, 110);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(246, 23);
-            this.button6.TabIndex = 19;
-            this.button6.Text = global::Edocsys.Properties.Settings.Default.SaveContractTitle;
-            this.button6.UseVisualStyleBackColor = true;
-            // 
-            // button7
-            // 
-            this.button7.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Edocsys.Properties.Settings.Default, "EditContractTitle", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.button7.Location = new System.Drawing.Point(21, 81);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(246, 23);
-            this.button7.TabIndex = 18;
-            this.button7.Text = global::Edocsys.Properties.Settings.Default.EditContractTitle;
-            this.button7.UseVisualStyleBackColor = true;
-            // 
-            // button8
-            // 
-            this.button8.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Edocsys.Properties.Settings.Default, "GenerateContractTitle", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.button8.Location = new System.Drawing.Point(21, 32);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(246, 23);
-            this.button8.TabIndex = 17;
-            this.button8.Text = global::Edocsys.Properties.Settings.Default.GenerateContractTitle;
-            this.button8.UseVisualStyleBackColor = true;
-            // 
-            // date_protocol_incomeLabel
-            // 
-            date_protocol_incomeLabel.AutoSize = true;
-            date_protocol_incomeLabel.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Edocsys.Properties.Settings.Default, "ContractsDateProtocolIncomeTitle", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            date_protocol_incomeLabel.Location = new System.Drawing.Point(361, 115);
-            date_protocol_incomeLabel.Name = "date_protocol_incomeLabel";
-            date_protocol_incomeLabel.Size = new System.Drawing.Size(156, 13);
-            date_protocol_incomeLabel.TabIndex = 31;
-            date_protocol_incomeLabel.Text = global::Edocsys.Properties.Settings.Default.ContractsDateProtocolIncomeTitle;
-            // 
-            // date_sample_incomeLabel
-            // 
-            date_sample_incomeLabel.AutoSize = true;
-            date_sample_incomeLabel.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Edocsys.Properties.Settings.Default, "ContractsDateSampleIncomeTitle", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            date_sample_incomeLabel.Location = new System.Drawing.Point(41, 115);
-            date_sample_incomeLabel.Name = "date_sample_incomeLabel";
-            date_sample_incomeLabel.Size = new System.Drawing.Size(145, 13);
-            date_sample_incomeLabel.TabIndex = 30;
-            date_sample_incomeLabel.Text = global::Edocsys.Properties.Settings.Default.ContractsDateSampleIncomeTitle;
-            // 
-            // date_startLabel
-            // 
-            date_startLabel.AutoSize = true;
-            date_startLabel.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Edocsys.Properties.Settings.Default, "ContractsDateStartTitle", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            date_startLabel.Location = new System.Drawing.Point(37, 79);
-            date_startLabel.Name = "date_startLabel";
-            date_startLabel.Size = new System.Drawing.Size(103, 13);
-            date_startLabel.TabIndex = 29;
-            date_startLabel.Text = global::Edocsys.Properties.Settings.Default.ContractsDateStartTitle;
-            // 
-            // contractSigningBindingSource
-            // 
-            this.contractSigningBindingSource.DataMember = "ContractSigning";
-            this.contractSigningBindingSource.DataSource = this.edocbaseDataSet;
-            // 
-            // edocbaseDataSet
-            // 
-            this.edocbaseDataSet.CaseSensitive = true;
-            this.edocbaseDataSet.DataSetName = "EdocbaseDataSet";
-            this.edocbaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // tableAdapterManager
             // 
             this.tableAdapterManager.agent_typesTableAdapter = null;
@@ -1168,64 +1230,14 @@
             // 
             this.contractSigningTableAdapter.ClearBeforeFill = true;
             // 
-            // productsnameDataGridViewTextBoxColumn
+            // contractDocDataBindingSource
             // 
-            this.productsnameDataGridViewTextBoxColumn.DataPropertyName = "products_name";
-            this.productsnameDataGridViewTextBoxColumn.HeaderText = "Продукция";
-            this.productsnameDataGridViewTextBoxColumn.Name = "productsnameDataGridViewTextBoxColumn";
+            this.contractDocDataBindingSource.DataMember = "ContractDocData";
+            this.contractDocDataBindingSource.DataSource = this.edocbaseDataSet;
             // 
-            // contracttypesnameDataGridViewTextBoxColumn
+            // contractDocDataTableAdapter
             // 
-            this.contracttypesnameDataGridViewTextBoxColumn.DataPropertyName = "contract_types_name";
-            this.contracttypesnameDataGridViewTextBoxColumn.HeaderText = "Тип работ";
-            this.contracttypesnameDataGridViewTextBoxColumn.Name = "contracttypesnameDataGridViewTextBoxColumn";
-            // 
-            // agentsnameDataGridViewTextBoxColumn
-            // 
-            this.agentsnameDataGridViewTextBoxColumn.DataPropertyName = "agents_name";
-            this.agentsnameDataGridViewTextBoxColumn.HeaderText = "Контрагент";
-            this.agentsnameDataGridViewTextBoxColumn.Name = "agentsnameDataGridViewTextBoxColumn";
-            // 
-            // agenttypesnameDataGridViewTextBoxColumn
-            // 
-            this.agenttypesnameDataGridViewTextBoxColumn.DataPropertyName = "agent_types_name";
-            this.agenttypesnameDataGridViewTextBoxColumn.HeaderText = "Форма";
-            this.agenttypesnameDataGridViewTextBoxColumn.Name = "agenttypesnameDataGridViewTextBoxColumn";
-            // 
-            // costDataGridViewTextBoxColumn
-            // 
-            this.costDataGridViewTextBoxColumn.DataPropertyName = "cost";
-            this.costDataGridViewTextBoxColumn.HeaderText = "Сумма";
-            this.costDataGridViewTextBoxColumn.Name = "costDataGridViewTextBoxColumn";
-            // 
-            // totalcostDataGridViewTextBoxColumn
-            // 
-            this.totalcostDataGridViewTextBoxColumn.DataPropertyName = "total_cost";
-            this.totalcostDataGridViewTextBoxColumn.HeaderText = "Общая сумма";
-            this.totalcostDataGridViewTextBoxColumn.Name = "totalcostDataGridViewTextBoxColumn";
-            // 
-            // dateproposalDataGridViewTextBoxColumn
-            // 
-            this.dateproposalDataGridViewTextBoxColumn.DataPropertyName = "date_proposal";
-            this.dateproposalDataGridViewTextBoxColumn.HeaderText = "Дата поступления заявки";
-            this.dateproposalDataGridViewTextBoxColumn.Name = "dateproposalDataGridViewTextBoxColumn";
-            // 
-            // agentsfullnameDataGridViewTextBoxColumn
-            // 
-            this.agentsfullnameDataGridViewTextBoxColumn.DataPropertyName = "agents_fullname";
-            this.agentsfullnameDataGridViewTextBoxColumn.HeaderText = "Контрагент";
-            this.agentsfullnameDataGridViewTextBoxColumn.Name = "agentsfullnameDataGridViewTextBoxColumn";
-            // 
-            // expertFIODataGridViewTextBoxColumn
-            // 
-            this.expertFIODataGridViewTextBoxColumn.DataPropertyName = "expert_FIO";
-            this.expertFIODataGridViewTextBoxColumn.HeaderText = "Эксперт";
-            this.expertFIODataGridViewTextBoxColumn.Name = "expertFIODataGridViewTextBoxColumn";
-            // 
-            // ProcessTaskColumn
-            // 
-            this.ProcessTaskColumn.HeaderText = "Начать работы";
-            this.ProcessTaskColumn.Name = "ProcessTaskColumn";
+            this.contractDocDataTableAdapter.ClearBeforeFill = true;
             // 
             // ContractsForm
             // 
@@ -1241,6 +1253,8 @@
             this.tabContractSigning.ResumeLayout(false);
             this.tabContractSigning.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.contractsSigningDataTableDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.contractSigningBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.edocbaseDataSet)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.groupBoxContract.ResumeLayout(false);
@@ -1249,6 +1263,13 @@
             this.bindingNavigatorContractSigning.PerformLayout();
             this.tabPagePreparationsForTask.ResumeLayout(false);
             this.tabPagePreparationsForTask.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).EndInit();
+            this.bindingNavigator1.ResumeLayout(false);
+            this.bindingNavigator1.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
             this.tabInWork.ResumeLayout(false);
             this.tabInWork.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.taskProcessedDataTableDataGridView)).EndInit();
@@ -1264,15 +1285,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.taskFinishedDataTableDataGridView)).EndInit();
             this.tabPageBadJob.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.badJobsDataTableDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).EndInit();
-            this.bindingNavigator1.ResumeLayout(false);
-            this.bindingNavigator1.PerformLayout();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.contractSigningBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.edocbaseDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.contractDocDataBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1379,6 +1392,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn agentsfullnameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn expertFIODataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewButtonColumn ProcessTaskColumn;
+        private System.Windows.Forms.BindingSource contractDocDataBindingSource;
+        private EdocbaseDataSetTableAdapters.ContractDocDataTableAdapter contractDocDataTableAdapter;
 
         //private EdocbaseDataSetTableAdapters.Exec_contractsTableAdapter exec_contractsTableAdapter;
     }

@@ -343,21 +343,59 @@ WHERE
 -- !-----------------------------------------------------------
 
 
+-- ContractDocData
 
+SELECT
+contracts.id,
+contracts.products_id,
+contracts.agents_id,
+contracts.contract_types_id,
+contracts.contract_status_id,
+contracts.experts_id,
+contracts.source_types_id,
+contracts.date_proposal,
+contracts.scheme_type,
+contracts.add_data_proposal,
+contracts.cost,
+contracts.total_cost,
+contracts.number,
+contracts.date_contract,
+contracts.date_start,
+contracts.date_end,
+products.id AS pkproducts_id,
+products.name AS products_name,
+agents.id AS pkagents_id,
+agents.name AS agents_name,
+agents.pers_lastname,
+agents.pers_firstname,
+agents.pers_middlename,
+agent_types.id AS pkagent_types_id,
+agent_types.name AS agent_types_name,
+CONCAT( agent_types.name, ' ', agents.name ) AS agents_fullname, 
+CONCAT( agents.pers_lastname, ' ', substr(agents.pers_firstname, 1, 1), '. ', substr(agents.pers_middlename, 1, 1), '.' ) AS contact_pers_name_FIO,
+CONCAT( substr(agents.pers_firstname, 1, 1), '. ', substr(agents.pers_middlename, 1, 1), '. ', agents.pers_lastname ) AS contact_pers_name_IOF,
+contract_types.id AS pkcontract_types_id,
+contract_types.name AS contract_types_name,
+emission_types.id AS pkemission_types_id,
+emission_types.name AS emission_types_name,
+CONCAT( users.lastname, ' ', substr(users.firstname, 1, 1), '. ', substr(users.middlename, 1, 1), '.' ) AS expert_FIO,
 
+(SELECT GROUP_CONCAT(product_gosts.number SEPARATOR ', ') FROM selected_gosts
+INNER JOIN product_gosts ON selected_gosts.product_gosts_id = product_gosts.id
+WHERE (selected_gosts.using_gost = true) AND
+(selected_gosts.contracts_id = @contracts_id)
+) AS GOSTsList
 
-
-
-
-
-
-
-
-
-
-
-
-
+FROM
+contracts
+LEFT OUTER JOIN agents ON contracts.agents_id = agents.id
+LEFT OUTER JOIN products ON contracts.products_id = products.id
+LEFT OUTER JOIN agent_types ON agents.agent_types_id = agent_types.id
+LEFT OUTER JOIN contract_types ON contracts.contract_types_id = contract_types.id
+LEFT OUTER JOIN emission_types ON contracts.emission_types_id = emission_types.id
+LEFT OUTER JOIN users ON contracts.experts_id = users.id
+WHERE
+    (contracts.id = @contracts_id)
 
 
 -- !-----------------------------------------------------------

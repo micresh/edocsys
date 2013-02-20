@@ -8,8 +8,6 @@ using System.Text;
 using System.Windows.Forms;
 using System.IO;
 
-using System.Diagnostics;
-
 
 
 namespace Edocsys
@@ -28,6 +26,7 @@ namespace Edocsys
         }
 
         private FilterHelper filter;
+        private DocGeneratorHelper proposalGenerator;
         public int currentContractID;
         public int currentProductID;
 
@@ -94,6 +93,8 @@ namespace Edocsys
 
             // Add filter
             filter = new FilterHelper(proposalsDataGridView, filterToolStripTextBox.TextBox);
+
+            proposalGenerator = new DocGeneratorHelper(edocbaseDataSet.documents, edocbaseDataSet.doc_templates, edocbaseDataSet.ContractDocData);
         }
 
         private void contractsDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -119,10 +120,8 @@ namespace Edocsys
                         //send proposal to Expert Assignment
                         this.contractInfoTableAdapter.SendProposal((int)Constants.ContractStatuses.ExpertAssignment, id);
 
-                        //refresh data
                         SaveProposal();
                         RefreshData();
-
                     }
                     catch (Exception ex)
                     {
@@ -130,23 +129,6 @@ namespace Edocsys
                     }
                 }
             }
-        }
-
-        private DataRow GetTemplateDataRow(int type)
-        {
-            edocbaseDataSet.templatesDataTable.DefaultView.Sort = "contract_types_id";
-
-            int currentTemplate = edocbaseDataSet.templatesDataTable.DefaultView.Find(type);
-
-            DataRow row = null;
-
-            if (currentTemplate >= 0)
-            {
-                //get template for proposal
-                row = edocbaseDataSet.templatesDataTable.DefaultView[currentTemplate].Row;
-            }
-
-            return row;
         }
 
         private int GetContractID()
@@ -160,71 +142,22 @@ namespace Edocsys
             return id;
         }
 
-        private int GetContractTypeID()
-        {
-            int id = -1;
 
-            DataRow currentRow = edocbaseDataSet.ContractInfoDataTable.DefaultView[contractInfoDataTableBindingSource.Position].Row;
+        //private int GetContractTypeID()
+        //{
+        //    int id = -1;
 
-            id = Convert.ToInt32(currentRow["contract_types_id"]);
+        //    DataRow currentRow = edocbaseDataSet.ContractInfoDataTable.DefaultView[contractInfoDataTableBindingSource.Position].Row;
 
-            return id;
-        }
+        //    id = Convert.ToInt32(currentRow["contract_types_id"]);
+
+        //    return id;
+        //}
         
-        private DataRow GetContractInfoDataRow(int idContract)
-        {
-            string tmp = edocbaseDataSet.ContractInfoDataTable.DefaultView.Sort;
 
-            edocbaseDataSet.ContractInfoDataTable.DefaultView.Sort = "id";
-
-            DataRow row = null;
-
-            int currentContractId = edocbaseDataSet.ContractInfoDataTable.DefaultView.Find(idContract);
-            if (currentContractId >= 0)
-            {
-                row = edocbaseDataSet.ContractInfoDataTable.DefaultView[currentContractId].Row;
-            }
-
-            edocbaseDataSet.ContractInfoDataTable.DefaultView.Sort = tmp;
-
-            return row;
-        }
-
-        private DataRowView GetDocumentsDataRow(int idContract, int type)
-        {
-            edocbaseDataSet.documents.DefaultView.Sort = "contracts_id";
-
-            DataRowView[] currentDocs = edocbaseDataSet.documents.DefaultView.FindRows(idContract);
-
-            DataRowView row = null;
-
-            if (currentDocs.Length > 0)
-            {
-                //found docs -> check for our type
-
-                int i = 0;
-                while (i < currentDocs.Length)
-                {
-                    if (Convert.ToInt32(currentDocs[i]["contract_types_id"]) == type)
-                    {
-                        //found doc -> return it
-                        return currentDocs[i];
-                    }
-                    i++;
-                }
-            }
-
-            return row;
-        }
 
         private void buttonGenerateProposalDoc_Click(object sender, EventArgs e)
         {
-            GenerateDoc((int)Constants.ContractTypes.Proposal);
-        }
-
-        private void GenerateDoc(int docType)
-        {
-
             if ((contractInfoDataTableBindingSource.Position < 0) ||
                 (contractInfoDataTableBindingSource.Position >= contractInfoDataTableBindingSource.Count))
             {
@@ -233,76 +166,30 @@ namespace Edocsys
                 return;
             }
 
-
             int idContract = GetContractID();
-
-            DataRow currentContact = GetContractInfoDataRow(idContract);
-
-            if (currentContact == null)
-            {
-                //contract can't be received
-                MessageBox.Show("Ошибка получения данных для заполнения", "Ошибка");
-                return;
-            }
-
-            Dictionary<string, string> subs = DocXGenerator.GetReplacementKeyValues(currentContact);
-
-            //get template row for proposal
-            DataRow row = GetTemplateDataRow(docType);
-
-            if (row == null)
-            {
-                MessageBox.Show("Шаблон отсутствует в БД", "Отсутствие шаблона");
-                return;
-            }
-
-            byte[] data = (byte[])row["template"];
-            string filename = BlobLoader.SaveToTemporaryFile(data);
-
-
-            //replace placeholders in doc
-            DocXGenerator.RepalceKeyValuesInDocX(filename, subs);
-
-
-
-            //load generated contract to DB
-            data = BlobLoader.LoadFormFile(filename);
-
-            DataRowView currentDoc = GetDocumentsDataRow(idContract, docType);
-
-
-            if (currentDoc == null)
-            {
-                //proper doc not found in db -> add new
-                currentDoc = edocbaseDataSet.documents.DefaultView.AddNew();
-            }
-            else
-            {
-                //found doc -> update?
-                if (MessageBox.Show("Обновить документ для заявки #" + idContract, "Подтвердить обновление документа", MessageBoxButtons.YesNo) == DialogResult.No)
-                {
-                    return;
-                }
-            }
 
             try
             {
-                currentDoc["document"] = data;
-                currentDoc["contract_types_id"] = docType;
-                currentDoc["contracts_id"] = idContract;
-                currentDoc["users_id"] = idContract;
-
-                currentDoc.EndEdit();
-
-                UpdateDocuments();
-
-                RefreshData();
+                proposalGenerator.GenerateDoc(idContract, (int)Constants.ContractTypes.Proposal, (id) =>
+                    {
+                        //found doc -> update?
+                        return MessageBox.Show("Обновить документ для заявки #" + id, "Подтвердить обновление документа", MessageBoxButtons.YesNo) == DialogResult.Yes;
+                    });
+            }
+            catch (NullReferenceException ex)
+            {
+                MessageBox.Show("Ошибка получения данных для заполнения" + ex.Message, "Ошибка");
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Save Error");
+                MessageBox.Show(ex.Message, "GenerateDoc Error");
             }
+
+            UpdateDocuments();
+
+            RefreshData();
         }
+
 
         private void UpdateDocuments()
         {
@@ -313,12 +200,6 @@ namespace Edocsys
 
         private void buttonEditProposal_Click(object sender, EventArgs e)
         {
-            int docType = (int)Constants.ContractTypes.Proposal;
-            EditDoc(docType);
-        }
-
-        private void EditDoc(int docType)
-        {
             if ((contractInfoDataTableBindingSource.Position < 0) ||
                 (contractInfoDataTableBindingSource.Position >= contractInfoDataTableBindingSource.Count))
             {
@@ -327,55 +208,31 @@ namespace Edocsys
                 return;
             }
 
+            int docType = (int)Constants.ContractTypes.Proposal;
             int idContract = GetContractID();
-
-            DataRowView currentDoc = GetDocumentsDataRow(idContract, docType);
-
-            if (currentDoc == null)
-            {
-                //doc not found -> error
-                MessageBox.Show("Файл заявки отсутствует в БД", "Отсутствие заявки");
-                return;
-            }
-
-            byte[] data = (byte[])currentDoc["document"];
-
-            string filename = BlobLoader.SaveToTemporaryFile(data);
-
-            //run word
-            Process process = Process.Start(filename);
-
-            process.WaitForExit();
-
-
-
-            //file changed -> update?
-            if (MessageBox.Show("Обновить документ для заявки #" + idContract, "Подтвердить обновление документа", MessageBoxButtons.YesNo) != DialogResult.Yes)
-            {
-                return;
-            }
-
-
             try
             {
-                data = BlobLoader.LoadFormFile(filename);
-
-                currentDoc["document"] = data;
-                currentDoc.EndEdit();
-
-                UpdateDocuments();
-
-                RefreshData();
+                proposalGenerator.EditDoc(idContract, docType, (id) =>
+                {
+                    //file changed -> update?
+                    return MessageBox.Show("Обновить документ для заявки #" + id, "Подтвердить обновление документа", MessageBoxButtons.YesNo) == DialogResult.Yes;
+                });
+            }
+            catch (NullReferenceException ex)
+            {
+                MessageBox.Show("Файл заявки отсутствует в БД" + ex.Message, "Отсутствие заявки");
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Save Error");
+                MessageBox.Show(ex.Message, "EditDoc ERROR");
             }
 
+            UpdateDocuments();
 
-            // Clean up temporary file
-            System.IO.File.Delete(filename);
+            RefreshData();
         }
+
+
 
         private void buttonSaveProposal_Click(object sender, EventArgs e)
         {
@@ -393,26 +250,20 @@ namespace Edocsys
             }
 
             int docType = (int)Constants.ContractTypes.Proposal;
-            SaveDoc(docType);
-        }
-
-        private void SaveDoc(int docType)
-        {
-
             int idContract = GetContractID();
 
-            DataRowView currentDoc = GetDocumentsDataRow(idContract, docType);
-
-            if (currentDoc == null)
+            try
             {
-                //doc not found -> error
-                MessageBox.Show("Файл заявки отсутствует в БД", "Отсутствие заявки");
-                return;
+                proposalGenerator.SaveDoc(idContract, docType, saveFileDialog.FileName);
             }
-
-            byte[] data = (byte[])currentDoc["document"];
-
-            BlobLoader.SaveToFile(saveFileDialog.FileName, data);
+            catch (NullReferenceException ex)
+            {
+                MessageBox.Show("Файл заявки отсутствует в БД: " + ex.Message, "Отсутствие заявки");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "SaveDoc ERROR");
+            }
         }
 
         private void buttonLoadProposal_Click(object sender, EventArgs e)
@@ -432,30 +283,24 @@ namespace Edocsys
 
             int docType = (int)Constants.ContractTypes.Proposal;
 
-            LoadDoc(docType);
-        }
-
-        private void LoadDoc(int docType)
-        {
             int idContract = GetContractID();
-
-            DataRowView currentDoc = GetDocumentsDataRow(idContract, docType);
 
             try
             {
-                byte[] data = BlobLoader.LoadFormFile(openFileDialog.FileName);
-
-                currentDoc["document"] = data;
-                currentDoc.EndEdit();
-
-                UpdateDocuments();
-
-                RefreshData();
+                proposalGenerator.LoadDoc(idContract, docType, openFileDialog.FileName);
+            }
+            catch (NullReferenceException ex)
+            {
+                MessageBox.Show("Ошибка загрузки документа: " + ex.Message, "Ошибка");
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Save Error");
+                MessageBox.Show(ex.Message, "LoadDoc ERROR");
             }
+            
+            UpdateDocuments();
+            
+            RefreshData();
         }
 
         private void bindingNavigatorAddNewItem_Click(object sender, EventArgs e)
@@ -465,7 +310,7 @@ namespace Edocsys
             currentDoc["contract_status_id"] = (int)Constants.ContractStatuses.NewProposal;
             currentDoc["products_id"] = 0;
             currentDoc["agents_id"] = 0;
-            currentDoc["experts_id"] = 1; //assign all to admin
+            currentDoc["experts_id"] = 1; //assign all to admin?????
             currentDoc["contract_types_id"] = (int)Constants.ContractTypes.Sertefication;
             currentDoc["source_types_id"] = (int)Constants.SourceTypes.Personal;
             currentDoc["date_proposal"] = DateTime.Now;

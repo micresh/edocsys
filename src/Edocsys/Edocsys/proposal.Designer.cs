@@ -41,6 +41,17 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProposalForm));
             this.mainSplitContainer = new System.Windows.Forms.SplitContainer();
             this.proposalsDataGridView = new System.Windows.Forms.DataGridView();
+            this.agentsnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.agenttypesnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contracttypesnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contactpersnameFIODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cost = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.total_cost = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.schemetypeFIODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.emissiontypesnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.agentsfullnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SendProposalColumn = new System.Windows.Forms.DataGridViewButtonColumn();
             this.contractInfoDataTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.edocbaseDataSet = new Edocsys.EdocbaseDataSet();
             this.buttonFillGosts = new System.Windows.Forms.Button();
@@ -96,17 +107,8 @@
             this.documentsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gOSTSelectionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gOSTSelectionTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.GOSTSelectionTableAdapter();
-            this.agentsnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.productNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.agenttypesnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.contracttypesnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.contactpersnameFIODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cost = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.total_cost = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.schemetypeFIODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.emissiontypesnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.agentsfullnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SendProposalColumn = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.contractDocDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.contractDocDataTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.ContractDocDataTableAdapter();
             proposalProductLabel = new System.Windows.Forms.Label();
             proposalEmissionLabel = new System.Windows.Forms.Label();
             proposalSchemeTypeLabel = new System.Windows.Forms.Label();
@@ -133,6 +135,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.templatesDataTableBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.documentsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gOSTSelectionBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.contractDocDataBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // proposalProductLabel
@@ -295,6 +298,82 @@
             this.proposalsDataGridView.Size = new System.Drawing.Size(1154, 370);
             this.proposalsDataGridView.TabIndex = 2;
             this.proposalsDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.contractsDataGridView_CellClick);
+            // 
+            // agentsnameDataGridViewTextBoxColumn
+            // 
+            this.agentsnameDataGridViewTextBoxColumn.DataPropertyName = "agents_name";
+            this.agentsnameDataGridViewTextBoxColumn.HeaderText = "Контрагент";
+            this.agentsnameDataGridViewTextBoxColumn.Name = "agentsnameDataGridViewTextBoxColumn";
+            this.agentsnameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // productNameDataGridViewTextBoxColumn
+            // 
+            this.productNameDataGridViewTextBoxColumn.DataPropertyName = "products_name";
+            this.productNameDataGridViewTextBoxColumn.HeaderText = "Продукция";
+            this.productNameDataGridViewTextBoxColumn.Name = "productNameDataGridViewTextBoxColumn";
+            this.productNameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // agenttypesnameDataGridViewTextBoxColumn
+            // 
+            this.agenttypesnameDataGridViewTextBoxColumn.DataPropertyName = "agent_types_name";
+            this.agenttypesnameDataGridViewTextBoxColumn.HeaderText = "Форма";
+            this.agenttypesnameDataGridViewTextBoxColumn.Name = "agenttypesnameDataGridViewTextBoxColumn";
+            this.agenttypesnameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // contracttypesnameDataGridViewTextBoxColumn
+            // 
+            this.contracttypesnameDataGridViewTextBoxColumn.DataPropertyName = "contract_types_name";
+            this.contracttypesnameDataGridViewTextBoxColumn.HeaderText = "Тип сертификации";
+            this.contracttypesnameDataGridViewTextBoxColumn.Name = "contracttypesnameDataGridViewTextBoxColumn";
+            this.contracttypesnameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // contactpersnameFIODataGridViewTextBoxColumn
+            // 
+            this.contactpersnameFIODataGridViewTextBoxColumn.DataPropertyName = "contact_pers_name_FIO";
+            this.contactpersnameFIODataGridViewTextBoxColumn.HeaderText = "Контактное лицо";
+            this.contactpersnameFIODataGridViewTextBoxColumn.Name = "contactpersnameFIODataGridViewTextBoxColumn";
+            this.contactpersnameFIODataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // cost
+            // 
+            this.cost.DataPropertyName = "cost";
+            this.cost.HeaderText = "Сумма";
+            this.cost.Name = "cost";
+            this.cost.ReadOnly = true;
+            // 
+            // total_cost
+            // 
+            this.total_cost.DataPropertyName = "total_cost";
+            this.total_cost.HeaderText = "Общая сумма";
+            this.total_cost.Name = "total_cost";
+            this.total_cost.ReadOnly = true;
+            // 
+            // schemetypeFIODataGridViewTextBoxColumn
+            // 
+            this.schemetypeFIODataGridViewTextBoxColumn.DataPropertyName = "scheme_type";
+            this.schemetypeFIODataGridViewTextBoxColumn.HeaderText = "Схема сертификации";
+            this.schemetypeFIODataGridViewTextBoxColumn.Name = "schemetypeFIODataGridViewTextBoxColumn";
+            this.schemetypeFIODataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // emissiontypesnameDataGridViewTextBoxColumn
+            // 
+            this.emissiontypesnameDataGridViewTextBoxColumn.DataPropertyName = "emission_types_name";
+            this.emissiontypesnameDataGridViewTextBoxColumn.HeaderText = "Тип выпуска";
+            this.emissiontypesnameDataGridViewTextBoxColumn.Name = "emissiontypesnameDataGridViewTextBoxColumn";
+            this.emissiontypesnameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // agentsfullnameDataGridViewTextBoxColumn
+            // 
+            this.agentsfullnameDataGridViewTextBoxColumn.DataPropertyName = "agents_fullname";
+            this.agentsfullnameDataGridViewTextBoxColumn.HeaderText = "Контрагент";
+            this.agentsfullnameDataGridViewTextBoxColumn.Name = "agentsfullnameDataGridViewTextBoxColumn";
+            this.agentsfullnameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // SendProposalColumn
+            // 
+            this.SendProposalColumn.HeaderText = "Отправить заявку";
+            this.SendProposalColumn.Name = "SendProposalColumn";
+            this.SendProposalColumn.ReadOnly = true;
             // 
             // contractInfoDataTableBindingSource
             // 
@@ -692,6 +771,7 @@
             this.tableAdapterManager.contract_types_for_workTableAdapter = null;
             this.tableAdapterManager.contract_typesTableAdapter = this.contract_typesTableAdapter;
             this.tableAdapterManager.ContractInfoTableAdapter = this.contractInfoTableAdapter;
+            this.tableAdapterManager.ContractSigningTableAdapter = null;
             this.tableAdapterManager.contractsTableAdapter = null;
             this.tableAdapterManager.doc_templatesTableAdapter = null;
             this.tableAdapterManager.documentsTableAdapter = this.documentsTableAdapter;
@@ -751,81 +831,14 @@
             // 
             this.gOSTSelectionTableAdapter.ClearBeforeFill = true;
             // 
-            // agentsnameDataGridViewTextBoxColumn
+            // contractDocDataBindingSource
             // 
-            this.agentsnameDataGridViewTextBoxColumn.DataPropertyName = "agents_name";
-            this.agentsnameDataGridViewTextBoxColumn.HeaderText = "Контрагент";
-            this.agentsnameDataGridViewTextBoxColumn.Name = "agentsnameDataGridViewTextBoxColumn";
-            this.agentsnameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.contractDocDataBindingSource.DataMember = "ContractDocData";
+            this.contractDocDataBindingSource.DataSource = this.edocbaseDataSet;
             // 
-            // productNameDataGridViewTextBoxColumn
+            // contractDocDataTableAdapter
             // 
-            this.productNameDataGridViewTextBoxColumn.DataPropertyName = "products_name";
-            this.productNameDataGridViewTextBoxColumn.HeaderText = "Продукция";
-            this.productNameDataGridViewTextBoxColumn.Name = "productNameDataGridViewTextBoxColumn";
-            this.productNameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // agenttypesnameDataGridViewTextBoxColumn
-            // 
-            this.agenttypesnameDataGridViewTextBoxColumn.DataPropertyName = "agent_types_name";
-            this.agenttypesnameDataGridViewTextBoxColumn.HeaderText = "Форма";
-            this.agenttypesnameDataGridViewTextBoxColumn.Name = "agenttypesnameDataGridViewTextBoxColumn";
-            this.agenttypesnameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // contracttypesnameDataGridViewTextBoxColumn
-            // 
-            this.contracttypesnameDataGridViewTextBoxColumn.DataPropertyName = "contract_types_name";
-            this.contracttypesnameDataGridViewTextBoxColumn.HeaderText = "Тип сертификации";
-            this.contracttypesnameDataGridViewTextBoxColumn.Name = "contracttypesnameDataGridViewTextBoxColumn";
-            this.contracttypesnameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // contactpersnameFIODataGridViewTextBoxColumn
-            // 
-            this.contactpersnameFIODataGridViewTextBoxColumn.DataPropertyName = "contact_pers_name_FIO";
-            this.contactpersnameFIODataGridViewTextBoxColumn.HeaderText = "Контактное лицо";
-            this.contactpersnameFIODataGridViewTextBoxColumn.Name = "contactpersnameFIODataGridViewTextBoxColumn";
-            this.contactpersnameFIODataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // cost
-            // 
-            this.cost.DataPropertyName = "cost";
-            this.cost.HeaderText = "Сумма";
-            this.cost.Name = "cost";
-            this.cost.ReadOnly = true;
-            // 
-            // total_cost
-            // 
-            this.total_cost.DataPropertyName = "total_cost";
-            this.total_cost.HeaderText = "Общая сумма";
-            this.total_cost.Name = "total_cost";
-            this.total_cost.ReadOnly = true;
-            // 
-            // schemetypeFIODataGridViewTextBoxColumn
-            // 
-            this.schemetypeFIODataGridViewTextBoxColumn.DataPropertyName = "scheme_type";
-            this.schemetypeFIODataGridViewTextBoxColumn.HeaderText = "Схема сертификации";
-            this.schemetypeFIODataGridViewTextBoxColumn.Name = "schemetypeFIODataGridViewTextBoxColumn";
-            this.schemetypeFIODataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // emissiontypesnameDataGridViewTextBoxColumn
-            // 
-            this.emissiontypesnameDataGridViewTextBoxColumn.DataPropertyName = "emission_types_name";
-            this.emissiontypesnameDataGridViewTextBoxColumn.HeaderText = "Тип выпуска";
-            this.emissiontypesnameDataGridViewTextBoxColumn.Name = "emissiontypesnameDataGridViewTextBoxColumn";
-            this.emissiontypesnameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // agentsfullnameDataGridViewTextBoxColumn
-            // 
-            this.agentsfullnameDataGridViewTextBoxColumn.DataPropertyName = "agents_fullname";
-            this.agentsfullnameDataGridViewTextBoxColumn.HeaderText = "Контрагент";
-            this.agentsfullnameDataGridViewTextBoxColumn.Name = "agentsfullnameDataGridViewTextBoxColumn";
-            this.agentsfullnameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // SendProposalColumn
-            // 
-            this.SendProposalColumn.HeaderText = "Отправить заявку";
-            this.SendProposalColumn.Name = "SendProposalColumn";
-            this.SendProposalColumn.ReadOnly = true;
+            this.contractDocDataTableAdapter.ClearBeforeFill = true;
             // 
             // ProposalForm
             // 
@@ -857,6 +870,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.templatesDataTableBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.documentsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gOSTSelectionBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.contractDocDataBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -932,6 +946,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn emissiontypesnameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn agentsfullnameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewButtonColumn SendProposalColumn;
+        private System.Windows.Forms.BindingSource contractDocDataBindingSource;
+        private EdocbaseDataSetTableAdapters.ContractDocDataTableAdapter contractDocDataTableAdapter;
 
         //private EdocbaseDataSetTableAdapters.TemplatesDataTableTableAdapter templatesDataTableTableAdapter;
         //private EdocbaseDataSetTableAdapters.ProductsTableAdapter productsTableAdapter;
