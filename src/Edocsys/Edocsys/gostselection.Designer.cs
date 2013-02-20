@@ -80,7 +80,7 @@
             // 
             // buttonAccept
             // 
-            this.buttonAccept.Location = new System.Drawing.Point(104, 237);
+            this.buttonAccept.Location = new System.Drawing.Point(97, 237);
             this.buttonAccept.Name = "buttonAccept";
             this.buttonAccept.Size = new System.Drawing.Size(75, 23);
             this.buttonAccept.TabIndex = 8;
@@ -90,7 +90,7 @@
             // 
             // buttonCancel
             // 
-            this.buttonCancel.Location = new System.Drawing.Point(269, 237);
+            this.buttonCancel.Location = new System.Drawing.Point(283, 237);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(75, 23);
             this.buttonCancel.TabIndex = 9;

@@ -50,7 +50,7 @@ INSERT INTO contracts
     date_proposal, scheme_type, add_data_proposal, custom_gosts, source_types_id, cost, total_cost, cash_income)
 VALUES
 (@products_id, @agents_id, @experts_id, @contract_status_id, @emission_types_id, @contract_types_id,
-@date_proposal, @scheme_type, @add_data_proposal, @custom_gosts, @source_types_id, cost, total_cost, false)
+@date_proposal, @scheme_type, @add_data_proposal, @custom_gosts, @source_types_id, @cost, @total_cost, 0)
 
 
 
@@ -68,7 +68,7 @@ add_data_proposal = @add_data_proposal,
 source_types_id = @source_types_id,
 cost = @cost,
 total_cost = @total_cost,
-cash_income = false
+cash_income = 0
 WHERE
 (id = @Original_id)
 
@@ -132,25 +132,6 @@ WHERE
 selected_gosts.contracts_id = @contracts_id
 
 
-
-
--- RemoveGOST
-UPDATE
-selected_gosts
-SET 
-using_gost = '0'
-WHERE
-(product_gosts_id = @product_gosts_id)
-AND
-(contracts_id = @contracts_id)
-
-
--- AddGOST
-INSERT INTO
-selected_gosts
-(contracts_id, product_gosts_id)
-VALUES
-(@contracts_id, @product_gosts_id)
 
 
 -- ClearAll

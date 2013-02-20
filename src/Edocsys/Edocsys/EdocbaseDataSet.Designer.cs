@@ -21567,7 +21567,7 @@ doc_templates ON contract_types.id = doc_templates.contract_types_id";
                          (products_id, agents_id, experts_id, contract_status_id, emission_types_id, contract_types_id, date_proposal, scheme_type, add_data_proposal, custom_gosts, 
                          source_types_id, cost, total_cost, cash_income)
 VALUES        (@products_id, @agents_id, @experts_id, @contract_status_id, @emission_types_id, @contract_types_id, @date_proposal, @scheme_type, @add_data_proposal, 
-                         custom_gosts, @source_types_id, cost, total_cost, 0)";
+                         custom_gosts, @source_types_id, @cost, @total_cost, 0)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@products_id";
@@ -21640,6 +21640,20 @@ VALUES        (@products_id, @agents_id, @experts_id, @contract_status_id, @emis
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
             param.SourceColumn = "source_types_id";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@cost";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "cost";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@total_cost";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "total_cost";
             this._adapter.InsertCommand.Parameters.Add(param);
             this._adapter.UpdateCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
