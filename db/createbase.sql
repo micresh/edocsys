@@ -214,7 +214,9 @@ CREATE TABLE IF NOT EXISTS `edocbase`.`contracts` (
   `date_cash_income`    DATE NULL ,
   -- Дата начала работ
   `date_start`          DATE NULL ,
-  -- Поступление образца
+  -- Дата окночания работ (примерная/рекальная по завершению)
+  `date_end`          DATE NULL ,
+  -- Дата поступления образца
   `date_sample_income`  DATE NULL ,
   -- Дата поступления протокола
   `date_protocol_income`  DATE NULL ,
