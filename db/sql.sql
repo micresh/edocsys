@@ -235,7 +235,7 @@ WHERE
 
 -- !-----------------------------------------------------------
 
--- ContractWaiting
+-- ContractSigning
 SELECT
 contracts.id,
 contracts.products_id,
@@ -283,7 +283,19 @@ WHERE
 (id = @original_id)
 
 
+-- ConfirmSigning
+UPDATE
+contracts
+SET
+contract_status_id = @contract_status_id
+WHERE
+(id = @original_id)
+
+
+
 -- !-----------------------------------------------------------
+
+
 
 -- ContractWaiting
 SELECT
@@ -339,6 +351,8 @@ date_sample_income = @date_sample_income,
 date_protocol_income = @date_protocol_income
 WHERE
 (id = @original_id)
+
+
 
 -- !-----------------------------------------------------------
 

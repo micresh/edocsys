@@ -142,20 +142,6 @@ namespace Edocsys
             return id;
         }
 
-
-        //private int GetContractTypeID()
-        //{
-        //    int id = -1;
-
-        //    DataRow currentRow = edocbaseDataSet.ContractInfoDataTable.DefaultView[contractInfoDataTableBindingSource.Position].Row;
-
-        //    id = Convert.ToInt32(currentRow["contract_types_id"]);
-
-        //    return id;
-        //}
-        
-
-
         private void buttonGenerateProposalDoc_Click(object sender, EventArgs e)
         {
             if ((contractInfoDataTableBindingSource.Position < 0) ||
@@ -231,7 +217,6 @@ namespace Edocsys
 
             RefreshData();
         }
-
 
 
         private void buttonSaveProposal_Click(object sender, EventArgs e)

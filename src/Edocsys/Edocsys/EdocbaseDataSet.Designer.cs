@@ -28,7 +28,7 @@ namespace Edocsys {
         
         private ExpertAssignmentDataTable tableExpertAssignment;
         
-        private ContractConfirmedDataTable tableContractConfirmed;
+        private ContractPrepareTaskDataTable tableContractPrepareTask;
         
         private TaskProcessedDataTableDataTable tableTaskProcessedDataTable;
         
@@ -258,8 +258,8 @@ namespace Edocsys {
                 if ((ds.Tables["ExpertAssignment"] != null)) {
                     base.Tables.Add(new ExpertAssignmentDataTable(ds.Tables["ExpertAssignment"]));
                 }
-                if ((ds.Tables["ContractConfirmed"] != null)) {
-                    base.Tables.Add(new ContractConfirmedDataTable(ds.Tables["ContractConfirmed"]));
+                if ((ds.Tables["ContractPrepareTask"] != null)) {
+                    base.Tables.Add(new ContractPrepareTaskDataTable(ds.Tables["ContractPrepareTask"]));
                 }
                 if ((ds.Tables["TaskProcessedDataTable"] != null)) {
                     base.Tables.Add(new TaskProcessedDataTableDataTable(ds.Tables["TaskProcessedDataTable"]));
@@ -384,9 +384,9 @@ namespace Edocsys {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public ContractConfirmedDataTable ContractConfirmed {
+        public ContractPrepareTaskDataTable ContractPrepareTask {
             get {
-                return this.tableContractConfirmed;
+                return this.tableContractPrepareTask;
             }
         }
         
@@ -733,8 +733,8 @@ namespace Edocsys {
                 if ((ds.Tables["ExpertAssignment"] != null)) {
                     base.Tables.Add(new ExpertAssignmentDataTable(ds.Tables["ExpertAssignment"]));
                 }
-                if ((ds.Tables["ContractConfirmed"] != null)) {
-                    base.Tables.Add(new ContractConfirmedDataTable(ds.Tables["ContractConfirmed"]));
+                if ((ds.Tables["ContractPrepareTask"] != null)) {
+                    base.Tables.Add(new ContractPrepareTaskDataTable(ds.Tables["ContractPrepareTask"]));
                 }
                 if ((ds.Tables["TaskProcessedDataTable"] != null)) {
                     base.Tables.Add(new TaskProcessedDataTableDataTable(ds.Tables["TaskProcessedDataTable"]));
@@ -862,10 +862,10 @@ namespace Edocsys {
                     this.tableExpertAssignment.InitVars();
                 }
             }
-            this.tableContractConfirmed = ((ContractConfirmedDataTable)(base.Tables["ContractConfirmed"]));
+            this.tableContractPrepareTask = ((ContractPrepareTaskDataTable)(base.Tables["ContractPrepareTask"]));
             if ((initTable == true)) {
-                if ((this.tableContractConfirmed != null)) {
-                    this.tableContractConfirmed.InitVars();
+                if ((this.tableContractPrepareTask != null)) {
+                    this.tableContractPrepareTask.InitVars();
                 }
             }
             this.tableTaskProcessedDataTable = ((TaskProcessedDataTableDataTable)(base.Tables["TaskProcessedDataTable"]));
@@ -1115,8 +1115,8 @@ namespace Edocsys {
             base.Tables.Add(this.tableAssignedContracts);
             this.tableExpertAssignment = new ExpertAssignmentDataTable();
             base.Tables.Add(this.tableExpertAssignment);
-            this.tableContractConfirmed = new ContractConfirmedDataTable();
-            base.Tables.Add(this.tableContractConfirmed);
+            this.tableContractPrepareTask = new ContractPrepareTaskDataTable();
+            base.Tables.Add(this.tableContractPrepareTask);
             this.tableTaskProcessedDataTable = new TaskProcessedDataTableDataTable();
             base.Tables.Add(this.tableTaskProcessedDataTable);
             this.tableContractSigning = new ContractSigningDataTable();
@@ -1467,7 +1467,7 @@ namespace Edocsys {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private bool ShouldSerializeContractConfirmed() {
+        private bool ShouldSerializeContractPrepareTask() {
             return false;
         }
         
@@ -1695,7 +1695,7 @@ namespace Edocsys {
         public delegate void ExpertAssignmentRowChangeEventHandler(object sender, ExpertAssignmentRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public delegate void ContractConfirmedRowChangeEventHandler(object sender, ContractConfirmedRowChangeEvent e);
+        public delegate void ContractPrepareTaskRowChangeEventHandler(object sender, ContractPrepareTaskRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public delegate void TaskProcessedDataTableRowChangeEventHandler(object sender, TaskProcessedDataTableRowChangeEvent e);
@@ -2982,7 +2982,7 @@ namespace Edocsys {
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class ContractConfirmedDataTable : global::System.Data.TypedTableBase<ContractConfirmedRow> {
+        public partial class ContractPrepareTaskDataTable : global::System.Data.TypedTableBase<ContractPrepareTaskRow> {
             
             private global::System.Data.DataColumn columnidContract;
             
@@ -3002,8 +3002,8 @@ namespace Edocsys {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ContractConfirmedDataTable() {
-                this.TableName = "ContractConfirmed";
+            public ContractPrepareTaskDataTable() {
+                this.TableName = "ContractPrepareTask";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -3011,7 +3011,7 @@ namespace Edocsys {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal ContractConfirmedDataTable(global::System.Data.DataTable table) {
+            internal ContractPrepareTaskDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -3028,7 +3028,7 @@ namespace Edocsys {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected ContractConfirmedDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected ContractPrepareTaskDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
@@ -3108,34 +3108,34 @@ namespace Edocsys {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ContractConfirmedRow this[int index] {
+            public ContractPrepareTaskRow this[int index] {
                 get {
-                    return ((ContractConfirmedRow)(this.Rows[index]));
+                    return ((ContractPrepareTaskRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event ContractConfirmedRowChangeEventHandler ContractConfirmedRowChanging;
+            public event ContractPrepareTaskRowChangeEventHandler ContractPrepareTaskRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event ContractConfirmedRowChangeEventHandler ContractConfirmedRowChanged;
+            public event ContractPrepareTaskRowChangeEventHandler ContractPrepareTaskRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event ContractConfirmedRowChangeEventHandler ContractConfirmedRowDeleting;
+            public event ContractPrepareTaskRowChangeEventHandler ContractPrepareTaskRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event ContractConfirmedRowChangeEventHandler ContractConfirmedRowDeleted;
+            public event ContractPrepareTaskRowChangeEventHandler ContractPrepareTaskRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void AddContractConfirmedRow(ContractConfirmedRow row) {
+            public void AddContractPrepareTaskRow(ContractPrepareTaskRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ContractConfirmedRow AddContractConfirmedRow(int Contract_number, int agent_id, int idProducts, int expert_id, string Ag_fullname, string Product_name, string expert_fullname) {
-                ContractConfirmedRow rowContractConfirmedRow = ((ContractConfirmedRow)(this.NewRow()));
+            public ContractPrepareTaskRow AddContractPrepareTaskRow(int Contract_number, int agent_id, int idProducts, int expert_id, string Ag_fullname, string Product_name, string expert_fullname) {
+                ContractPrepareTaskRow rowContractPrepareTaskRow = ((ContractPrepareTaskRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         Contract_number,
@@ -3145,22 +3145,22 @@ namespace Edocsys {
                         Ag_fullname,
                         Product_name,
                         expert_fullname};
-                rowContractConfirmedRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowContractConfirmedRow);
-                return rowContractConfirmedRow;
+                rowContractPrepareTaskRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowContractPrepareTaskRow);
+                return rowContractPrepareTaskRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ContractConfirmedRow FindByidContract(int idContract) {
-                return ((ContractConfirmedRow)(this.Rows.Find(new object[] {
+            public ContractPrepareTaskRow FindByidContract(int idContract) {
+                return ((ContractPrepareTaskRow)(this.Rows.Find(new object[] {
                             idContract})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                ContractConfirmedDataTable cln = ((ContractConfirmedDataTable)(base.Clone()));
+                ContractPrepareTaskDataTable cln = ((ContractPrepareTaskDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -3168,7 +3168,7 @@ namespace Edocsys {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new ContractConfirmedDataTable();
+                return new ContractPrepareTaskDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3218,28 +3218,28 @@ namespace Edocsys {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ContractConfirmedRow NewContractConfirmedRow() {
-                return ((ContractConfirmedRow)(this.NewRow()));
+            public ContractPrepareTaskRow NewContractPrepareTaskRow() {
+                return ((ContractPrepareTaskRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new ContractConfirmedRow(builder);
+                return new ContractPrepareTaskRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(ContractConfirmedRow);
+                return typeof(ContractPrepareTaskRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.ContractConfirmedRowChanged != null)) {
-                    this.ContractConfirmedRowChanged(this, new ContractConfirmedRowChangeEvent(((ContractConfirmedRow)(e.Row)), e.Action));
+                if ((this.ContractPrepareTaskRowChanged != null)) {
+                    this.ContractPrepareTaskRowChanged(this, new ContractPrepareTaskRowChangeEvent(((ContractPrepareTaskRow)(e.Row)), e.Action));
                 }
             }
             
@@ -3247,8 +3247,8 @@ namespace Edocsys {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.ContractConfirmedRowChanging != null)) {
-                    this.ContractConfirmedRowChanging(this, new ContractConfirmedRowChangeEvent(((ContractConfirmedRow)(e.Row)), e.Action));
+                if ((this.ContractPrepareTaskRowChanging != null)) {
+                    this.ContractPrepareTaskRowChanging(this, new ContractPrepareTaskRowChangeEvent(((ContractPrepareTaskRow)(e.Row)), e.Action));
                 }
             }
             
@@ -3256,8 +3256,8 @@ namespace Edocsys {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.ContractConfirmedRowDeleted != null)) {
-                    this.ContractConfirmedRowDeleted(this, new ContractConfirmedRowChangeEvent(((ContractConfirmedRow)(e.Row)), e.Action));
+                if ((this.ContractPrepareTaskRowDeleted != null)) {
+                    this.ContractPrepareTaskRowDeleted(this, new ContractPrepareTaskRowChangeEvent(((ContractPrepareTaskRow)(e.Row)), e.Action));
                 }
             }
             
@@ -3265,14 +3265,14 @@ namespace Edocsys {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.ContractConfirmedRowDeleting != null)) {
-                    this.ContractConfirmedRowDeleting(this, new ContractConfirmedRowChangeEvent(((ContractConfirmedRow)(e.Row)), e.Action));
+                if ((this.ContractPrepareTaskRowDeleting != null)) {
+                    this.ContractPrepareTaskRowDeleting(this, new ContractPrepareTaskRowChangeEvent(((ContractPrepareTaskRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void RemoveContractConfirmedRow(ContractConfirmedRow row) {
+            public void RemoveContractPrepareTaskRow(ContractPrepareTaskRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -3299,7 +3299,7 @@ namespace Edocsys {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "ContractConfirmedDataTable";
+                attribute2.FixedValue = "ContractPrepareTaskDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -14985,25 +14985,25 @@ namespace Edocsys {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class ContractConfirmedRow : global::System.Data.DataRow {
+        public partial class ContractPrepareTaskRow : global::System.Data.DataRow {
             
-            private ContractConfirmedDataTable tableContractConfirmed;
+            private ContractPrepareTaskDataTable tableContractPrepareTask;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal ContractConfirmedRow(global::System.Data.DataRowBuilder rb) : 
+            internal ContractPrepareTaskRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tableContractConfirmed = ((ContractConfirmedDataTable)(this.Table));
+                this.tableContractPrepareTask = ((ContractPrepareTaskDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public int idContract {
                 get {
-                    return ((int)(this[this.tableContractConfirmed.idContractColumn]));
+                    return ((int)(this[this.tableContractPrepareTask.idContractColumn]));
                 }
                 set {
-                    this[this.tableContractConfirmed.idContractColumn] = value;
+                    this[this.tableContractPrepareTask.idContractColumn] = value;
                 }
             }
             
@@ -15012,14 +15012,14 @@ namespace Edocsys {
             public int Contract_number {
                 get {
                     try {
-                        return ((int)(this[this.tableContractConfirmed.Contract_numberColumn]));
+                        return ((int)(this[this.tableContractPrepareTask.Contract_numberColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Contract_number\' in table \'ContractConfirmed\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Contract_number\' in table \'ContractPrepareTask\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableContractConfirmed.Contract_numberColumn] = value;
+                    this[this.tableContractPrepareTask.Contract_numberColumn] = value;
                 }
             }
             
@@ -15027,10 +15027,10 @@ namespace Edocsys {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public int agent_id {
                 get {
-                    return ((int)(this[this.tableContractConfirmed.agent_idColumn]));
+                    return ((int)(this[this.tableContractPrepareTask.agent_idColumn]));
                 }
                 set {
-                    this[this.tableContractConfirmed.agent_idColumn] = value;
+                    this[this.tableContractPrepareTask.agent_idColumn] = value;
                 }
             }
             
@@ -15039,14 +15039,14 @@ namespace Edocsys {
             public int idProducts {
                 get {
                     try {
-                        return ((int)(this[this.tableContractConfirmed.idProductsColumn]));
+                        return ((int)(this[this.tableContractPrepareTask.idProductsColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'idProducts\' in table \'ContractConfirmed\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'idProducts\' in table \'ContractPrepareTask\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableContractConfirmed.idProductsColumn] = value;
+                    this[this.tableContractPrepareTask.idProductsColumn] = value;
                 }
             }
             
@@ -15055,14 +15055,14 @@ namespace Edocsys {
             public int expert_id {
                 get {
                     try {
-                        return ((int)(this[this.tableContractConfirmed.expert_idColumn]));
+                        return ((int)(this[this.tableContractPrepareTask.expert_idColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'expert_id\' in table \'ContractConfirmed\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'expert_id\' in table \'ContractPrepareTask\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableContractConfirmed.expert_idColumn] = value;
+                    this[this.tableContractPrepareTask.expert_idColumn] = value;
                 }
             }
             
@@ -15071,14 +15071,14 @@ namespace Edocsys {
             public string Ag_fullname {
                 get {
                     try {
-                        return ((string)(this[this.tableContractConfirmed.Ag_fullnameColumn]));
+                        return ((string)(this[this.tableContractPrepareTask.Ag_fullnameColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Ag_fullname\' in table \'ContractConfirmed\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Ag_fullname\' in table \'ContractPrepareTask\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableContractConfirmed.Ag_fullnameColumn] = value;
+                    this[this.tableContractPrepareTask.Ag_fullnameColumn] = value;
                 }
             }
             
@@ -15087,14 +15087,14 @@ namespace Edocsys {
             public string Product_name {
                 get {
                     try {
-                        return ((string)(this[this.tableContractConfirmed.Product_nameColumn]));
+                        return ((string)(this[this.tableContractPrepareTask.Product_nameColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Product_name\' in table \'ContractConfirmed\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Product_name\' in table \'ContractPrepareTask\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableContractConfirmed.Product_nameColumn] = value;
+                    this[this.tableContractPrepareTask.Product_nameColumn] = value;
                 }
             }
             
@@ -15103,87 +15103,87 @@ namespace Edocsys {
             public string expert_fullname {
                 get {
                     try {
-                        return ((string)(this[this.tableContractConfirmed.expert_fullnameColumn]));
+                        return ((string)(this[this.tableContractPrepareTask.expert_fullnameColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'expert_fullname\' in table \'ContractConfirmed\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'expert_fullname\' in table \'ContractPrepareTask\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableContractConfirmed.expert_fullnameColumn] = value;
+                    this[this.tableContractPrepareTask.expert_fullnameColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsContract_numberNull() {
-                return this.IsNull(this.tableContractConfirmed.Contract_numberColumn);
+                return this.IsNull(this.tableContractPrepareTask.Contract_numberColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetContract_numberNull() {
-                this[this.tableContractConfirmed.Contract_numberColumn] = global::System.Convert.DBNull;
+                this[this.tableContractPrepareTask.Contract_numberColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsidProductsNull() {
-                return this.IsNull(this.tableContractConfirmed.idProductsColumn);
+                return this.IsNull(this.tableContractPrepareTask.idProductsColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetidProductsNull() {
-                this[this.tableContractConfirmed.idProductsColumn] = global::System.Convert.DBNull;
+                this[this.tableContractPrepareTask.idProductsColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool Isexpert_idNull() {
-                return this.IsNull(this.tableContractConfirmed.expert_idColumn);
+                return this.IsNull(this.tableContractPrepareTask.expert_idColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void Setexpert_idNull() {
-                this[this.tableContractConfirmed.expert_idColumn] = global::System.Convert.DBNull;
+                this[this.tableContractPrepareTask.expert_idColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsAg_fullnameNull() {
-                return this.IsNull(this.tableContractConfirmed.Ag_fullnameColumn);
+                return this.IsNull(this.tableContractPrepareTask.Ag_fullnameColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetAg_fullnameNull() {
-                this[this.tableContractConfirmed.Ag_fullnameColumn] = global::System.Convert.DBNull;
+                this[this.tableContractPrepareTask.Ag_fullnameColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsProduct_nameNull() {
-                return this.IsNull(this.tableContractConfirmed.Product_nameColumn);
+                return this.IsNull(this.tableContractPrepareTask.Product_nameColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetProduct_nameNull() {
-                this[this.tableContractConfirmed.Product_nameColumn] = global::System.Convert.DBNull;
+                this[this.tableContractPrepareTask.Product_nameColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool Isexpert_fullnameNull() {
-                return this.IsNull(this.tableContractConfirmed.expert_fullnameColumn);
+                return this.IsNull(this.tableContractPrepareTask.expert_fullnameColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void Setexpert_fullnameNull() {
-                this[this.tableContractConfirmed.expert_fullnameColumn] = global::System.Convert.DBNull;
+                this[this.tableContractPrepareTask.expert_fullnameColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -22683,22 +22683,22 @@ namespace Edocsys {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public class ContractConfirmedRowChangeEvent : global::System.EventArgs {
+        public class ContractPrepareTaskRowChangeEvent : global::System.EventArgs {
             
-            private ContractConfirmedRow eventRow;
+            private ContractPrepareTaskRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ContractConfirmedRowChangeEvent(ContractConfirmedRow row, global::System.Data.DataRowAction action) {
+            public ContractPrepareTaskRowChangeEvent(ContractPrepareTaskRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ContractConfirmedRow Row {
+            public ContractPrepareTaskRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -24135,7 +24135,7 @@ WHERE
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class ContractConfirmTAdapter : global::System.ComponentModel.Component {
+    public partial class ContractPrepareTaskTAdapter : global::System.ComponentModel.Component {
         
         private global::MySql.Data.MySqlClient.MySqlDataAdapter _adapter;
         
@@ -24149,7 +24149,7 @@ WHERE
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public ContractConfirmTAdapter() {
+        public ContractPrepareTaskTAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -24246,7 +24246,7 @@ WHERE
             this._adapter = new global::MySql.Data.MySqlClient.MySqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "ContractConfirmed";
+            tableMapping.DataSetTable = "ContractPrepareTask";
             tableMapping.ColumnMappings.Add("idContract", "idContract");
             tableMapping.ColumnMappings.Add("Contract_number", "Contract_number");
             tableMapping.ColumnMappings.Add("agent_id", "agent_id");
@@ -24297,7 +24297,7 @@ WHERE
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(EdocbaseDataSet.ContractConfirmedDataTable dataTable) {
+        public virtual int Fill(EdocbaseDataSet.ContractPrepareTaskDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -24310,9 +24310,9 @@ WHERE
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual EdocbaseDataSet.ContractConfirmedDataTable GetData() {
+        public virtual EdocbaseDataSet.ContractPrepareTaskDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            EdocbaseDataSet.ContractConfirmedDataTable dataTable = new EdocbaseDataSet.ContractConfirmedDataTable();
+            EdocbaseDataSet.ContractPrepareTaskDataTable dataTable = new EdocbaseDataSet.ContractPrepareTaskDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -24703,7 +24703,7 @@ WHERE
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[1];
+            this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[2];
             this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = @"SELECT
@@ -24743,6 +24743,26 @@ LEFT OUTER JOIN users ON contracts.experts_id = users.id
 WHERE
 (contracts.contract_status_id = 2)";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::MySql.Data.MySqlClient.MySqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "UPDATE\r\ncontracts\r\nSET\r\ncontract_status_id = @contract_status_id\r\nWHERE\r\n(id = @o" +
+                "riginal_id)";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@contract_status_id";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "contract_status_id";
+            this._commandCollection[1].Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@original_id";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "id";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._commandCollection[1].Parameters.Add(param);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -24796,6 +24816,31 @@ WHERE
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         public virtual int Update(global::System.Data.DataRow[] dataRows) {
             return this.Adapter.Update(dataRows);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
+        public virtual int ConfirmSigning(int contract_status_id, int original_id) {
+            global::MySql.Data.MySqlClient.MySqlCommand command = this.CommandCollection[1];
+            command.Parameters[0].Value = ((int)(contract_status_id));
+            command.Parameters[1].Value = ((int)(original_id));
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            int returnValue;
+            try {
+                returnValue = command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            return returnValue;
         }
     }
     

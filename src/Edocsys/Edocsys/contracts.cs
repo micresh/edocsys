@@ -17,6 +17,7 @@ namespace Edocsys
         }
 
         private FilterHelper filterContractSigning;
+        private DocGeneratorHelper contractGenerator;
 
 
         private void ContractsForm_Load(object sender, EventArgs e)
@@ -30,6 +31,9 @@ namespace Edocsys
             //add filters
             filterContractSigning = new FilterHelper(contractsSigningDataTableDataGridView, filterContractSigningText.TextBox);
 
+
+            //doc helper
+            contractGenerator = new DocGeneratorHelper(edocbaseDataSet.documents, edocbaseDataSet.doc_templates, edocbaseDataSet.ContractDocData);
 
 
             //this.exec_contractsTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
@@ -180,16 +184,57 @@ namespace Edocsys
             //}
         }
 
-        private void buttonGenerateContract_Click(object sender, EventArgs e)
+        private int GetContractTypeID()
         {
-            //int docType = GetContractTypeID();
-            //GenerateDoc(docType);
+            int id = -1;
+
+            DataRow currentRow = edocbaseDataSet.ContractSigning.DefaultView[contractSigningBindingSource.Position].Row;
+
+            id = Convert.ToInt32(currentRow["contract_types_id"]);
+
+            return id;
         }
 
-        private void buttonEditContract_Click(object sender, EventArgs e)
+        private int GetContractID()
         {
-            //int docType = GetContractTypeID();
-            //EditDoc(docType);
+            int id = -1;
+
+            DataRow currentRow = edocbaseDataSet.ContractSigning.DefaultView[contractSigningBindingSource.Position].Row;
+
+            id = Convert.ToInt32(currentRow["id"]);
+
+            return id;
+        }
+
+        private void buttonGenerateContract_Click(object sender, EventArgs e)
+        {
+            if ((contractSigningBindingSource.Position < 0) ||
+                (contractSigningBindingSource.Position >= contractSigningBindingSource.Count))
+            {
+                //contract not selected
+                MessageBox.Show("Не выбрана заявка", "Ошибка");
+                return;
+            }
+
+            int docType = GetContractTypeID();
+            int contract_id = GetContractID();
+
+            try
+            {
+                contractGenerator.GenerateDoc(contract_id, docType, (id) =>
+                    {
+                        //found doc -> update?
+                        return MessageBox.Show("Обновить документ для контракта #" + id, "Подтвердить обновление документа", MessageBoxButtons.YesNo) == DialogResult.Yes;
+                    });
+            }
+            catch (NullReferenceException ex)
+            {
+                MessageBox.Show("Ошибка получения данных для заполнения: " + ex.Message, "Ошибка");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "GenerateDoc Error");
+            }
         }
 
         private void usersBindingNavigatorSaveItem_Click(object sender, EventArgs e)
@@ -199,6 +244,130 @@ namespace Edocsys
             this.contractSigningTableAdapter.Update(this.edocbaseDataSet.ContractSigning);
 
             this.edocbaseDataSet.AcceptChanges();
+        }
+
+        private void buttonEditContract_Click(object sender, EventArgs e)
+        {
+            if ((contractSigningBindingSource.Position < 0) ||
+                (contractSigningBindingSource.Position >= contractSigningBindingSource.Count))
+            {
+                //contract not selected
+                MessageBox.Show("Не выбрана заявка", "Ошибка");
+                return;
+            }
+
+            int docType = GetContractTypeID();
+            int contract_id = GetContractID();
+
+            try
+            {
+                contractGenerator.EditDoc(contract_id, docType, (id) =>
+                {
+                    //file changed -> update?
+                    return MessageBox.Show("Обновить документ для заявки #" + id, "Подтвердить обновление документа", MessageBoxButtons.YesNo) == DialogResult.Yes;
+                });
+            }
+            catch (NullReferenceException ex)
+            {
+                MessageBox.Show("Файл заявки отсутствует в БД: " + ex.Message, "Отсутствие заявки");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "EditDoc ERROR");
+            }
+
+        }
+
+        private void buttonSaveContract_Click(object sender, EventArgs e)
+        {
+            if ((contractSigningBindingSource.Position < 0) ||
+                (contractSigningBindingSource.Position >= contractSigningBindingSource.Count))
+            {
+                //contract not selected
+                MessageBox.Show("Не выбрана заявка", "Ошибка");
+                return;
+            }
+
+            if (saveFileDialog.ShowDialog() != DialogResult.OK)
+            {
+                return;
+            }
+
+            int docType = GetContractTypeID();
+            int contract_id = GetContractID();
+
+            try
+            {
+                contractGenerator.SaveDoc(contract_id, docType, saveFileDialog.FileName);
+            }
+            catch (NullReferenceException ex)
+            {
+                MessageBox.Show("Файл договора отсутствует в БД: " + ex.Message, "Отсутствие договора");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "SaveDoc ERROR");
+            }
+        }
+
+        private void buttonLoadContract_Click(object sender, EventArgs e)
+        {
+            if ((contractSigningBindingSource.Position < 0) ||
+                (contractSigningBindingSource.Position >= contractSigningBindingSource.Count))
+            {
+                //contract not selected
+                MessageBox.Show("Не выбрана заявка", "Ошибка");
+                return;
+            }
+
+            if (openFileDialog.ShowDialog() != DialogResult.OK)
+            {
+                return;
+            }
+
+            int docType = GetContractTypeID();
+            int contract_id = GetContractID();
+
+            try
+            {
+                contractGenerator.SaveDoc(contract_id, docType, openFileDialog.FileName);
+            }
+            catch (NullReferenceException ex)
+            {
+                MessageBox.Show("Ошибка загрузки документа: " + ex.Message, "Ошибка");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "LoadDoc ERROR");
+            }
+        }
+
+        private void contractsSigningDataTableDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == contractsSigningDataTableDataGridView.Columns["SignContractColumn"].Index)
+            {
+                if (contractSigningBindingSource.Position >= 0)
+                {
+                    DataRow currentRow = edocbaseDataSet.ContractSigning.DefaultView[contractSigningBindingSource.Position].Row;
+                    int idContract = Convert.ToInt32(currentRow["id"]);
+
+                    if (MessageBox.Show("Подтвердить подписание договора #" + idContract, "Подписание договора", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    {
+                        try
+                        {
+                            //set task finished
+                            this.contractSigningTableAdapter.ConfirmSigning((int)Constants.ContractStatuses.PrepareForWork, idContract);
+
+                            //refresh data
+                            UpdateDatabaseAndRefresh();
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.Message, "Save Error");
+                        }
+                    }
+                }
+            }
         }
     }
 }
