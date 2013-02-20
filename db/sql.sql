@@ -150,7 +150,6 @@ SELECT @contracts_id AS cid, '1', product_gosts.id FROM product_gosts WHERE (pro
 -- !-----------------------------------------------------------
 
 -- ExpertAssignment
-
 SELECT
 contracts.id,
 contracts.products_id,
@@ -161,6 +160,8 @@ contracts.experts_id,
 contracts.source_types_id,
 contracts.date_proposal,
 contracts.experts_id,
+contracts.cost,
+contracts.total_cost,
 products.id AS products_id,
 products.name AS products_name,
 agents.id AS agents_id,
@@ -189,6 +190,48 @@ contract_status_id = @contract_status_id,
 experts_id = @experts_id
 WHERE
 (id = @original_id)
+
+
+
+
+-- !-----------------------------------------------------------
+
+-- AssignedContracts
+SELECT
+contracts.id,
+contracts.products_id,
+contracts.agents_id,
+contracts.contract_types_id,
+contracts.contract_status_id,
+contracts.experts_id,
+contracts.source_types_id,
+contracts.date_proposal,
+contracts.experts_id,
+contracts.cost,
+contracts.total_cost,
+products.id AS pkproducts_id,
+products.name AS products_name,
+agents.id AS pkagents_id,
+agents.name AS agents_name,
+agent_types.id AS pkagent_types_id,
+agent_types.name AS agent_types_name,
+CONCAT( agent_types.name, ' ', agents.name ) AS agents_fullname,
+contract_types.id AS pkcontract_types_id,
+contract_types.name AS contract_types_name,
+contract_status.id AS pkcontract_status_id,
+contract_status.name AS contract_status_name,
+CONCAT( users.lastname, ' ', substr(users.firstname, 1, 1), '. ', substr(users.middlename, 1, 1), '.' ) AS expert_FIO
+FROM
+contracts
+LEFT OUTER JOIN agents ON contracts.agents_id = agents.id
+LEFT OUTER JOIN products ON contracts.products_id = products.id
+LEFT OUTER JOIN agent_types ON agents.agent_types_id = agent_types.id
+LEFT OUTER JOIN contract_types ON contracts.contract_types_id = contract_types.id
+LEFT OUTER JOIN contract_status ON contracts.contract_status_id = contract_status.id
+LEFT OUTER JOIN users ON contracts.experts_id = users.id
+WHERE
+    (contracts.contract_status_id >= 2)
+
 
 
 -- !-------------------------------------------------------------------
