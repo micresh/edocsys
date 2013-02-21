@@ -83,14 +83,6 @@
     <Setting Name="ProposalContractTypeLabelText" Type="System.String" Scope="User">
       <Value Profile="(Default)">Тип договора</Value>
     </Setting>
-    <Setting Name="EdocbaseConnectionString" Type="(Connection string)" Scope="Application">
-      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
-&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;ConnectionString&gt;server=192.168.137.85;User Id=root;password=po12jein45bf;Persist Security Info=True;database=edocbase&lt;/ConnectionString&gt;
-  &lt;ProviderName&gt;MySql.Data.MySqlClient&lt;/ProviderName&gt;
-&lt;/SerializableConnectionString&gt;</DesignTimeValue>
-      <Value Profile="(Default)">server=192.168.137.85;User Id=root;password=po12jein45bf;Persist Security Info=True;database=edocbase</Value>
-    </Setting>
     <Setting Name="ProductionToolStripMenuItemText" Type="System.String" Scope="User">
       <Value Profile="(Default)">Область аккредитации</Value>
     </Setting>
@@ -251,10 +243,10 @@
       <Value Profile="(Default)">Договора в работе</Value>
     </Setting>
     <Setting Name="TabTaskReady" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Оформлен акт выполненных работ</Value>
+      <Value Profile="(Default)">Пдтверждение выполнения договора</Value>
     </Setting>
     <Setting Name="TabTaskFinished" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Акт утвержден руководителем</Value>
+      <Value Profile="(Default)">Выдача акта и подтверждение клиентом</Value>
     </Setting>
     <Setting Name="TabBadJob" Type="System.String" Scope="User">
       <Value Profile="(Default)">Невыполненные задания</Value>
@@ -333,6 +325,23 @@
     </Setting>
     <Setting Name="ContractDateEndTitle" Type="System.String" Scope="User">
       <Value Profile="(Default)">Дата окончания работ</Value>
+    </Setting>
+    <Setting Name="EdocbaseConnectionString" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;server=192.168.137.85;User Id=root;password=po12jein45bf;Persist Security Info=True;database=edocbase&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;MySql.Data.MySqlClient&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">server=192.168.137.85;User Id=root;password=po12jein45bf;Persist Security Info=True;database=edocbase</Value>
+    </Setting>
+    <Setting Name="ReattestationSignTitle" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Заключение договора ресертификации</Value>
+    </Setting>
+    <Setting Name="InspectionControlTitle" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Договора на инспекционном контроле</Value>
+    </Setting>
+    <Setting Name="FinishedTasksTitle" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Завершенные договора</Value>
     </Setting>
   </Settings>
 </SettingsFile>

@@ -22,6 +22,8 @@ namespace Edocsys
 
         private void ContractsForm_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'edocbaseDataSet.ContractComplitionMgrCfm' table. You can move, or remove it, as needed.
+            this.contractComplitionMgrCfmTableAdapter.Fill(this.edocbaseDataSet.ContractComplitionMgrCfm);
             // TODO: This line of code loads data into the 'edocbaseDataSet.ContractInWork' table. You can move, or remove it, as needed.
             this.contractInWorkTableAdapter.Fill(this.edocbaseDataSet.ContractInWork);
 
@@ -79,37 +81,6 @@ namespace Edocsys
                 MessageBox.Show(ex.Message, "Refresh Error");
             }
             /**/
-        }
-
-        private void taskProcessedDataTableDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            //if (e.ColumnIndex == taskProcessedDataTableDataGridView.Columns["TaskReadyColumn"].Index)
-            //{
-            //    if (taskProcessedDataTableBindingSource.Position >= 0)
-            //    {
-            //        DataRow currentRow = edocbaseDataSet.Tables["TaskProcessedDataTable"].DefaultView[taskProcessedDataTableBindingSource.Position].Row;
-            //        int idContract = Convert.ToInt32(currentRow["idContract"]);
-
-            //        if (MessageBox.Show("Оформить акт договора #" + idContract, "Подтвердить оформление акта", MessageBoxButtons.YesNo) == DialogResult.Yes)
-            //        {
-            //            try
-            //            {
-            //                ////set task ready
-            //                //this.contractsTableAdapter.TaskReady((int)Constants.ContractStatuses.TaskReady, idContract);
-
-
-            //                ////refresh data
-            //                //UpdateDatabaseAndRefresh();
-
-            //            }
-            //            catch (Exception ex)
-            //            {
-            //                MessageBox.Show(ex.Message, "Save Error");
-            //            }
-            //        }
-            //    }
-            //}
-
         }
 
         private int GetContractTypeID()
@@ -389,7 +360,6 @@ namespace Edocsys
                 DataRow currentRow = edocbaseDataSet.ContractInWork.DefaultView[contractInWorkBindingSource.Position].Row;
                 int idContract = Convert.ToInt32(currentRow["id"]);
 
-                //if (MessageBox.Show("Подтвердить выполнение договора #" + idContract, "Подтвердить выполнение работ", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 if (MessageBox.Show("Подтвердить завершение работ по договору #" + idContract, "Подтвердить завершение работ", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
                     try
@@ -406,8 +376,69 @@ namespace Edocsys
                         MessageBox.Show(ex.Message, "Save Error");
                     }
                 }
-                
             }
         }
+
+        private void contractComplitionManagerConfrimDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+            if (e.ColumnIndex == contractComplitionManagerConfrimDataGridView.Columns["ConfirmTaskFinishedColumn"].Index)
+            {
+                if ((contractComplitionMgrCfmBindingSource.Position < 0) ||
+                    (contractComplitionMgrCfmBindingSource.Position >= contractComplitionMgrCfmBindingSource.Count))
+                {
+                    //contract not selected
+                    MessageBox.Show("Не выбран договор", "Ошибка");
+                    return;
+                }
+
+                DataRow currentRow = edocbaseDataSet.ContractComplitionMgrCfm.DefaultView[contractComplitionMgrCfmBindingSource.Position].Row;
+                int idContract = Convert.ToInt32(currentRow["id"]);
+
+                if (MessageBox.Show("Подтвердить выполнение договора #" + idContract, "Подтвердить выполнение работ", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    try
+                    {
+                        //set task finished
+                        this.contractComplitionMgrCfmTableAdapter.ConfirmFinished((int)Constants.ContractStatuses.ComplitionAgentConfrim, idContract);
+
+                        //refresh data
+                        UpdateDatabase();
+                        RefreshDatabase();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, "Save Error");
+                    }
+                }
+            }
+        }
+
+        //if (e.ColumnIndex == taskProcessedDataTableDataGridView.Columns["TaskReadyColumn"].Index)
+        //{
+        //    if (taskProcessedDataTableBindingSource.Position >= 0)
+        //    {
+        //        DataRow currentRow = edocbaseDataSet.Tables["TaskProcessedDataTable"].DefaultView[taskProcessedDataTableBindingSource.Position].Row;
+        //        int idContract = Convert.ToInt32(currentRow["idContract"]);
+
+        //        if (MessageBox.Show("Оформить акт договора #" + idContract, "Подтвердить оформление акта", MessageBoxButtons.YesNo) == DialogResult.Yes)
+        //        {
+        //            try
+        //            {
+        //                ////set task ready
+        //                //this.contractsTableAdapter.TaskReady((int)Constants.ContractStatuses.TaskReady, idContract);
+
+
+        //                ////refresh data
+        //                //UpdateDatabaseAndRefresh();
+
+        //            }
+        //            catch (Exception ex)
+        //            {
+        //                MessageBox.Show(ex.Message, "Save Error");
+        //            }
+        //        }
+        //    }
+        //}
     }
 }

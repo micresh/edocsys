@@ -347,17 +347,6 @@ namespace Edocsys.Properties {
             }
         }
         
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("server=192.168.137.85;User Id=root;password=po12jein45bf;Persist Security Info=Tr" +
-            "ue;database=edocbase")]
-        public string EdocbaseConnectionString {
-            get {
-                return ((string)(this["EdocbaseConnectionString"]));
-            }
-        }
-        
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Область аккредитации")]
@@ -996,7 +985,7 @@ namespace Edocsys.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Оформлен акт выполненных работ")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Пдтверждение выполнения договора")]
         public string TabTaskReady {
             get {
                 return ((string)(this["TabTaskReady"]));
@@ -1008,7 +997,7 @@ namespace Edocsys.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Акт утвержден руководителем")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Выдача акта и подтверждение клиентом")]
         public string TabTaskFinished {
             get {
                 return ((string)(this["TabTaskFinished"]));
@@ -1327,6 +1316,53 @@ namespace Edocsys.Properties {
             }
             set {
                 this["ContractDateEndTitle"] = value;
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("server=192.168.137.85;User Id=root;password=po12jein45bf;Persist Security Info=Tr" +
+            "ue;database=edocbase")]
+        public string EdocbaseConnectionString {
+            get {
+                return ((string)(this["EdocbaseConnectionString"]));
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Заключение договора ресертификации")]
+        public string ReattestationSignTitle {
+            get {
+                return ((string)(this["ReattestationSignTitle"]));
+            }
+            set {
+                this["ReattestationSignTitle"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Договора на инспекционном контроле")]
+        public string InspectionControlTitle {
+            get {
+                return ((string)(this["InspectionControlTitle"]));
+            }
+            set {
+                this["InspectionControlTitle"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Завершенные договора")]
+        public string FinishedTasksTitle {
+            get {
+                return ((string)(this["FinishedTasksTitle"]));
+            }
+            set {
+                this["FinishedTasksTitle"] = value;
             }
         }
     }
