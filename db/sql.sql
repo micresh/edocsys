@@ -29,7 +29,8 @@ CONCAT( substr(agents.pers_firstname, 1, 1), '. ', substr(agents.pers_middlename
 contract_types.id AS contract_types_id,
 contract_types.name AS contract_types_name,
 emission_types.id AS emission_types_id,
-emission_types.name AS emission_types_name
+emission_types.name AS emission_types_name,
+(documents.contracts_id IS NOT NULL) AS has_proposal_document
 FROM
 contracts
 LEFT OUTER JOIN agents ON contracts.agents_id = agents.id
@@ -37,8 +38,13 @@ LEFT OUTER JOIN products ON contracts.products_id = products.id
 LEFT OUTER JOIN agent_types ON agents.agent_types_id = agent_types.id
 LEFT OUTER JOIN contract_types ON contracts.contract_types_id = contract_types.id
 LEFT OUTER JOIN emission_types ON contracts.emission_types_id = emission_types.id
+LEFT OUTER JOIN documents ON contracts.id = documents.contracts_id
 WHERE
     (contracts.contract_status_id = 0)
+
+
+
+
 
 
 DELETE FROM contracts

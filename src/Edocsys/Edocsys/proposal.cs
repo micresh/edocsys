@@ -112,6 +112,10 @@ namespace Edocsys
 
                 DataRow currentRow = edocbaseDataSet.ContractInfoDataTable.DefaultView[contractInfoDataTableBindingSource.Position].Row;
                 int id = Convert.ToInt32(currentRow["id"]);
+                bool hasDocument = Convert.ToBoolean(currentRow["has_proposal_document"]);
+
+                if (MessageBox.Show("Внимание! Документ заявки #" + id + " не сгенерирован! Продолжить обработку?", "Подтвердить отправку заявки", MessageBoxButtons.YesNo) != DialogResult.Yes)
+                    return;
 
                 if (MessageBox.Show("Отправить заявку #" + id, "Подтвердить отправку заявки", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {

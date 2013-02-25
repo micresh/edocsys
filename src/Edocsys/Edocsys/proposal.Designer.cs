@@ -525,6 +525,7 @@
             // buttonSaveProposal
             // 
             this.buttonSaveProposal.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Edocsys.Properties.Settings.Default, "SaveProposalButton", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.buttonSaveProposal.DataBindings.Add(new System.Windows.Forms.Binding("Enabled", this.contractInfoDataTableBindingSource, "has_proposal_document", true));
             this.buttonSaveProposal.Location = new System.Drawing.Point(21, 86);
             this.buttonSaveProposal.Name = "buttonSaveProposal";
             this.buttonSaveProposal.Size = new System.Drawing.Size(246, 23);
@@ -536,6 +537,7 @@
             // buttonEditProposal
             // 
             this.buttonEditProposal.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Edocsys.Properties.Settings.Default, "EditProposalButton", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.buttonEditProposal.DataBindings.Add(new System.Windows.Forms.Binding("Enabled", this.contractInfoDataTableBindingSource, "has_proposal_document", true));
             this.buttonEditProposal.Location = new System.Drawing.Point(21, 57);
             this.buttonEditProposal.Name = "buttonEditProposal";
             this.buttonEditProposal.Size = new System.Drawing.Size(246, 23);
@@ -771,6 +773,7 @@
             this.tableAdapterManager.contract_types_for_workTableAdapter = null;
             this.tableAdapterManager.contract_typesTableAdapter = this.contract_typesTableAdapter;
             this.tableAdapterManager.ContractInfoTableAdapter = this.contractInfoTableAdapter;
+            this.tableAdapterManager.ContractPrepareForWorkTAdapter = null;
             this.tableAdapterManager.ContractSigningTableAdapter = null;
             this.tableAdapterManager.contractsTableAdapter = null;
             this.tableAdapterManager.doc_templatesTableAdapter = null;
