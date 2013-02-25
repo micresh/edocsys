@@ -17,22 +17,20 @@ namespace Edocsys
         }
 
         private DocGeneratorHelper contractGenerator;
+        private FilterHelper filterInspection, filterOnInspection;
 
 
         private void ContractsForm_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'edocbaseDataSet.ContractComplitionMgrCfm' table. You can move, or remove it, as needed.
-            this.contractComplitionMgrCfmTableAdapter.Fill(this.edocbaseDataSet.ContractComplitionMgrCfm);
-            // TODO: This line of code loads data into the 'edocbaseDataSet.ContractInWork' table. You can move, or remove it, as needed.
-            this.contractInWorkTableAdapter.Fill(this.edocbaseDataSet.ContractInWork);
 
-            this.contractSigningTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
-            this.contractPrepareForWorkTAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
-
-
+            this.contractsOnInspectionTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
+            this.inspectionContractsTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
 
             RefreshDatabase();
 
+            //
+            filterInspection = new FilterHelper(inspectionContractsDataGridView, filterInspectionContractsTextBox.TextBox);
+            filterOnInspection = new FilterHelper(contractsOnInspectionDataGridView, filterInspectionContractsTextBox.TextBox);
 
             //doc helper
             contractGenerator = new DocGeneratorHelper(edocbaseDataSet.documents, edocbaseDataSet.doc_templates, edocbaseDataSet.ContractDocData);
@@ -62,10 +60,8 @@ namespace Edocsys
         {
             try
             {
-
-                this.contractSigningTableAdapter.Fill(this.edocbaseDataSet.ContractSigning);
-                this.contractPrepareForWorkTAdapter.Fill(this.edocbaseDataSet.ContractPrepareForWork);
-
+                this.contractsOnInspectionTableAdapter.Fill(this.edocbaseDataSet.ContractsOnInspection);
+                this.inspectionContractsTableAdapter.Fill(this.edocbaseDataSet.InspectionContracts);
             }
             catch (Exception ex)
             {
@@ -78,7 +74,7 @@ namespace Edocsys
         {
             int id = -1;
 
-            DataRow currentRow = edocbaseDataSet.ContractSigning.DefaultView[contractSigningBindingSource.Position].Row;
+            DataRow currentRow = edocbaseDataSet.InspectionContracts.DefaultView[inspectionContractsBindingSource.Position].Row;
 
             id = Convert.ToInt32(currentRow["contract_types_id"]);
 
@@ -89,154 +85,20 @@ namespace Edocsys
         {
             int id = -1;
 
-            DataRow currentRow = edocbaseDataSet.ContractSigning.DefaultView[contractSigningBindingSource.Position].Row;
+            DataRow currentRow = edocbaseDataSet.ContractSigning.DefaultView[inspectionContractsBindingSource.Position].Row;
 
             id = Convert.ToInt32(currentRow["id"]);
 
             return id;
         }
 
-        private void buttonGenerateContract_Click(object sender, EventArgs e)
-        {
-            if ((contractSigningBindingSource.Position < 0) ||
-                (contractSigningBindingSource.Position >= contractSigningBindingSource.Count))
-            {
-                //contract not selected
-                MessageBox.Show("Не выбран договор", "Ошибка");
-                return;
-            }
-
-            int docType = GetContractTypeID();
-            int contract_id = GetContractID();
-
-            try
-            {
-                contractGenerator.GenerateDoc(contract_id, docType, (id) =>
-                    {
-                        //found doc -> update?
-                        return MessageBox.Show("Обновить документ для контракта #" + id, "Подтвердить обновление документа", MessageBoxButtons.YesNo) == DialogResult.Yes;
-                    });
-            }
-            catch (NullReferenceException ex)
-            {
-                MessageBox.Show("Ошибка получения данных для заполнения: " + ex.Message, "Ошибка");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "GenerateDoc Error");
-            }
-
-            RefreshDatabase();
-        }
-
         private void usersBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
             this.Validate();
-            this.contractSigningBindingSource.EndEdit();
-            this.contractSigningTableAdapter.Update(this.edocbaseDataSet.ContractSigning);
+            this.inspectionContractsBindingSource.EndEdit();
+            //this.contractSigningTableAdapter.Update(this.edocbaseDataSet.ContractSigning);
 
             this.edocbaseDataSet.AcceptChanges();
-
-            RefreshDatabase();
-        }
-
-        private void buttonEditContract_Click(object sender, EventArgs e)
-        {
-            if ((contractSigningBindingSource.Position < 0) ||
-                (contractSigningBindingSource.Position >= contractSigningBindingSource.Count))
-            {
-                //contract not selected
-                MessageBox.Show("Не выбран договор", "Ошибка");
-                return;
-            }
-
-            int docType = GetContractTypeID();
-            int contract_id = GetContractID();
-
-            try
-            {
-                contractGenerator.EditDoc(contract_id, docType, (id) =>
-                {
-                    //file changed -> update?
-                    return MessageBox.Show("Обновить документ для заявки #" + id, "Подтвердить обновление документа", MessageBoxButtons.YesNo) == DialogResult.Yes;
-                });
-            }
-            catch (NullReferenceException ex)
-            {
-                MessageBox.Show("Файл заявки отсутствует в БД: " + ex.Message, "Отсутствие заявки");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "EditDoc ERROR");
-            }
-
-            RefreshDatabase();
-        }
-
-        private void buttonSaveContract_Click(object sender, EventArgs e)
-        {
-            if ((contractSigningBindingSource.Position < 0) ||
-                (contractSigningBindingSource.Position >= contractSigningBindingSource.Count))
-            {
-                //contract not selected
-                MessageBox.Show("Не выбран договор", "Ошибка");
-                return;
-            }
-
-            if (saveFileDialog.ShowDialog() != DialogResult.OK)
-            {
-                return;
-            }
-
-            int docType = GetContractTypeID();
-            int contract_id = GetContractID();
-
-            try
-            {
-                contractGenerator.SaveDoc(contract_id, docType, saveFileDialog.FileName);
-            }
-            catch (NullReferenceException ex)
-            {
-                MessageBox.Show("Файл договора отсутствует в БД: " + ex.Message, "Отсутствие договора");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "SaveDoc ERROR");
-            }
-
-            RefreshDatabase();
-        }
-
-        private void buttonLoadContract_Click(object sender, EventArgs e)
-        {
-            if ((contractSigningBindingSource.Position < 0) ||
-                (contractSigningBindingSource.Position >= contractSigningBindingSource.Count))
-            {
-                //contract not selected
-                MessageBox.Show("Не выбран договор", "Ошибка");
-                return;
-            }
-
-            if (openFileDialog.ShowDialog() != DialogResult.OK)
-            {
-                return;
-            }
-
-            int docType = GetContractTypeID();
-            int contract_id = GetContractID();
-
-            try
-            {
-                contractGenerator.SaveDoc(contract_id, docType, openFileDialog.FileName);
-            }
-            catch (NullReferenceException ex)
-            {
-                MessageBox.Show("Ошибка загрузки документа: " + ex.Message, "Ошибка");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "LoadDoc ERROR");
-            }
 
             RefreshDatabase();
         }
@@ -245,8 +107,8 @@ namespace Edocsys
         private void toolStripButton12_Click(object sender, EventArgs e)
         {
             this.Validate();
-            this.contractPrepareForWorkBindingSource.EndEdit();
-            this.contractPrepareForWorkTAdapter.Update(this.edocbaseDataSet.ContractPrepareForWork);
+            //this.contractPrepareForWorkBindingSource.EndEdit();
+            //this.contractPrepareForWorkTAdapter.Update(this.edocbaseDataSet.ContractPrepareForWork);
 
             this.edocbaseDataSet.AcceptChanges();
 
@@ -257,7 +119,7 @@ namespace Edocsys
         private void toolStripButton6_Click(object sender, EventArgs e)
         {
             this.Validate();
-            this.contractInWorkBindingSource.EndEdit();
+            //this.contractInWorkBindingSource.EndEdit();
             //this.contractInWorkTableAdapter.Update(this.edocbaseDataSet.ContractInWork);
 
             this.edocbaseDataSet.AcceptChanges();
@@ -265,33 +127,49 @@ namespace Edocsys
             RefreshDatabase();
         }
 
+        private void date_real_reatt_1Label_Click(object sender, EventArgs e)
+        {
 
+        }
 
-        //if (e.ColumnIndex == taskProcessedDataTableDataGridView.Columns["TaskReadyColumn"].Index)
-        //{
-        //    if (taskProcessedDataTableBindingSource.Position >= 0)
-        //    {
-        //        DataRow currentRow = edocbaseDataSet.Tables["TaskProcessedDataTable"].DefaultView[taskProcessedDataTableBindingSource.Position].Row;
-        //        int idContract = Convert.ToInt32(currentRow["idContract"]);
+        private void date_real_reatt_1DateTimePicker_ValueChanged(object sender, EventArgs e)
+        {
 
-        //        if (MessageBox.Show("Оформить акт договора #" + idContract, "Подтвердить оформление акта", MessageBoxButtons.YesNo) == DialogResult.Yes)
-        //        {
-        //            try
-        //            {
-        //                ////set task ready
-        //                //this.contractsTableAdapter.TaskReady((int)Constants.ContractStatuses.TaskReady, idContract);
+        }
 
+        private void date_real_reatt_2Label_Click(object sender, EventArgs e)
+        {
 
-        //                ////refresh data
-        //                //UpdateDatabaseAndRefresh();
+        }
 
-        //            }
-        //            catch (Exception ex)
-        //            {
-        //                MessageBox.Show(ex.Message, "Save Error");
-        //            }
-        //        }
-        //    }
-        //}
+        private void date_real_reatt_2DateTimePicker_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void date_real_resertLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void date_real_resertDateTimePicker_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonResert_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonReatt2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonReatt1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
