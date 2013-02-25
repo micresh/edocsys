@@ -2794,6 +2794,98 @@ WHERE
               </DbSource>
             </Sources>
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ContractDoneTableAdapter" GeneratorDataComponentClassName="ContractDoneTableAdapter" Name="ContractDone" UserDataComponentName="ContractDoneTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="EdocbaseConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT        contracts.id, contracts.products_id, contracts.agents_id, contracts.contract_types_id, contracts.contract_status_id, contracts.experts_id, contracts.source_types_id, 
+                         contracts.date_proposal, contracts.experts_id AS Expr1, contracts.number, contracts.date_contract, contracts.date_start, contracts.date_end, 
+                         contracts.date_sample_income, contracts.date_protocol_income, contracts.cost, contracts.total_cost, contracts.cash_income, products.id AS pkproducts_id, 
+                         products.name AS products_name, agents.id AS pkagents_id, agents.name AS agents_name, agent_types.id AS pkagent_types_id, 
+                         agent_types.name AS agent_types_name, CONCAT(agent_types.name, ' ', agents.name) AS agents_fullname, contract_types.id AS pkcontract_types_id, 
+                         contract_types.name AS contract_types_name, contract_status.id AS pkcontract_status_id, contract_status.name AS contract_status_name, CONCAT(users.lastname, 
+                         ' ', substr(users.firstname, 1, 1), '. ', substr(users.middlename, 1, 1), '.') AS expert_FIO
+FROM            contracts LEFT OUTER JOIN
+                         agents ON contracts.agents_id = agents.id LEFT OUTER JOIN
+                         products ON contracts.products_id = products.id LEFT OUTER JOIN
+                         agent_types ON agents.agent_types_id = agent_types.id LEFT OUTER JOIN
+                         contract_types ON contracts.contract_types_id = contract_types.id LEFT OUTER JOIN
+                         contract_status ON contracts.contract_status_id = contract_status.id LEFT OUTER JOIN
+                         users ON contracts.experts_id = users.id
+WHERE        (contracts.contract_status_id = 6)</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="id" DataSetColumn="id" />
+              <Mapping SourceColumn="products_id" DataSetColumn="products_id" />
+              <Mapping SourceColumn="agents_id" DataSetColumn="agents_id" />
+              <Mapping SourceColumn="contract_types_id" DataSetColumn="contract_types_id" />
+              <Mapping SourceColumn="contract_status_id" DataSetColumn="contract_status_id" />
+              <Mapping SourceColumn="experts_id" DataSetColumn="experts_id" />
+              <Mapping SourceColumn="source_types_id" DataSetColumn="source_types_id" />
+              <Mapping SourceColumn="date_proposal" DataSetColumn="date_proposal" />
+              <Mapping SourceColumn="number" DataSetColumn="number" />
+              <Mapping SourceColumn="date_contract" DataSetColumn="date_contract" />
+              <Mapping SourceColumn="date_start" DataSetColumn="date_start" />
+              <Mapping SourceColumn="date_end" DataSetColumn="date_end" />
+              <Mapping SourceColumn="date_sample_income" DataSetColumn="date_sample_income" />
+              <Mapping SourceColumn="date_protocol_income" DataSetColumn="date_protocol_income" />
+              <Mapping SourceColumn="cost" DataSetColumn="cost" />
+              <Mapping SourceColumn="total_cost" DataSetColumn="total_cost" />
+              <Mapping SourceColumn="pkproducts_id" DataSetColumn="pkproducts_id" />
+              <Mapping SourceColumn="products_name" DataSetColumn="products_name" />
+              <Mapping SourceColumn="pkagents_id" DataSetColumn="pkagents_id" />
+              <Mapping SourceColumn="agents_name" DataSetColumn="agents_name" />
+              <Mapping SourceColumn="pkagent_types_id" DataSetColumn="pkagent_types_id" />
+              <Mapping SourceColumn="agent_types_name" DataSetColumn="agent_types_name" />
+              <Mapping SourceColumn="agents_fullname" DataSetColumn="agents_fullname" />
+              <Mapping SourceColumn="pkcontract_types_id" DataSetColumn="pkcontract_types_id" />
+              <Mapping SourceColumn="contract_types_name" DataSetColumn="contract_types_name" />
+              <Mapping SourceColumn="pkcontract_status_id" DataSetColumn="pkcontract_status_id" />
+              <Mapping SourceColumn="contract_status_name" DataSetColumn="contract_status_name" />
+              <Mapping SourceColumn="expert_FIO" DataSetColumn="expert_FIO" />
+              <Mapping SourceColumn="Expr1" DataSetColumn="Expr1" />
+              <Mapping SourceColumn="cash_income" DataSetColumn="cash_income" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="EdocbaseConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="ConfirmContractDone" Modifier="Public" Name="ConfirmContractDone" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="ConfirmContractDone">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>UPDATE
+contracts
+SET
+contract_status_id = @contract_status_id
+WHERE
+(id = @original_id)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="contract_status_id" ColumnName="contract_status_id" DataSourceName="edocbase.contracts" DataTypeServer="int(11)" DbType="Int32" Direction="Input" ParameterName="@contract_status_id" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="contract_status_id" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="original_id" ColumnName="id" DataSourceName="edocbase.contracts" DataTypeServer="int(11)" DbType="Int32" Direction="Input" ParameterName="@original_id" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+              <DbSource ConnectionRef="EdocbaseConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="SendContractToInspectionControl" Modifier="Public" Name="SendContractToInspectionControl" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="SendContractToInspectionControl">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>UPDATE
+contracts
+SET
+contract_status_id = @contract_status_id
+WHERE
+(id = @original_id)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="contract_status_id" ColumnName="contract_status_id" DataSourceName="edocbase.contracts" DataTypeServer="int(11)" DbType="Int32" Direction="Input" ParameterName="@contract_status_id" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="contract_status_id" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="original_id" ColumnName="id" DataSourceName="edocbase.contracts" DataTypeServer="int(11)" DbType="Int32" Direction="Input" ParameterName="@original_id" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
         </Tables>
         <Sources />
       </DataSource>
@@ -4314,6 +4406,90 @@ WHERE
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="ContractDone" msprop:Generator_TableClassName="ContractDoneDataTable" msprop:Generator_TableVarName="tableContractDone" msprop:Generator_RowChangedName="ContractDoneRowChanged" msprop:Generator_TablePropName="ContractDone" msprop:Generator_RowDeletingName="ContractDoneRowDeleting" msprop:Generator_RowChangingName="ContractDoneRowChanging" msprop:Generator_RowEvHandlerName="ContractDoneRowChangeEventHandler" msprop:Generator_RowDeletedName="ContractDoneRowDeleted" msprop:Generator_RowClassName="ContractDoneRow" msprop:Generator_UserTableName="ContractDone" msprop:Generator_RowEvArgName="ContractDoneRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />
+              <xs:element name="products_id" msprop:Generator_ColumnVarNameInTable="columnproducts_id" msprop:Generator_ColumnPropNameInRow="products_id" msprop:Generator_ColumnPropNameInTable="products_idColumn" msprop:Generator_UserColumnName="products_id" type="xs:int" />
+              <xs:element name="agents_id" msprop:Generator_ColumnVarNameInTable="columnagents_id" msprop:Generator_ColumnPropNameInRow="agents_id" msprop:Generator_ColumnPropNameInTable="agents_idColumn" msprop:Generator_UserColumnName="agents_id" type="xs:int" />
+              <xs:element name="contract_types_id" msprop:Generator_ColumnVarNameInTable="columncontract_types_id" msprop:Generator_ColumnPropNameInRow="contract_types_id" msprop:Generator_ColumnPropNameInTable="contract_types_idColumn" msprop:Generator_UserColumnName="contract_types_id" type="xs:int" />
+              <xs:element name="contract_status_id" msprop:Generator_ColumnVarNameInTable="columncontract_status_id" msprop:Generator_ColumnPropNameInRow="contract_status_id" msprop:Generator_ColumnPropNameInTable="contract_status_idColumn" msprop:Generator_UserColumnName="contract_status_id" type="xs:int" />
+              <xs:element name="experts_id" msprop:Generator_ColumnVarNameInTable="columnexperts_id" msprop:Generator_ColumnPropNameInRow="experts_id" msprop:Generator_ColumnPropNameInTable="experts_idColumn" msprop:Generator_UserColumnName="experts_id" type="xs:int" />
+              <xs:element name="source_types_id" msprop:Generator_ColumnVarNameInTable="columnsource_types_id" msprop:Generator_ColumnPropNameInRow="source_types_id" msprop:Generator_ColumnPropNameInTable="source_types_idColumn" msprop:Generator_UserColumnName="source_types_id" type="xs:int" minOccurs="0" />
+              <xs:element name="date_proposal" msprop:Generator_ColumnVarNameInTable="columndate_proposal" msprop:Generator_ColumnPropNameInRow="date_proposal" msprop:Generator_ColumnPropNameInTable="date_proposalColumn" msprop:Generator_UserColumnName="date_proposal" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="number" msprop:Generator_ColumnVarNameInTable="columnnumber" msprop:Generator_ColumnPropNameInRow="number" msprop:Generator_ColumnPropNameInTable="numberColumn" msprop:Generator_UserColumnName="number" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="9" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="date_contract" msprop:Generator_ColumnVarNameInTable="columndate_contract" msprop:Generator_ColumnPropNameInRow="date_contract" msprop:Generator_ColumnPropNameInTable="date_contractColumn" msprop:Generator_UserColumnName="date_contract" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="date_start" msprop:Generator_ColumnVarNameInTable="columndate_start" msprop:Generator_ColumnPropNameInRow="date_start" msprop:Generator_ColumnPropNameInTable="date_startColumn" msprop:Generator_UserColumnName="date_start" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="date_end" msprop:Generator_ColumnVarNameInTable="columndate_end" msprop:Generator_ColumnPropNameInRow="date_end" msprop:Generator_ColumnPropNameInTable="date_endColumn" msprop:Generator_UserColumnName="date_end" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="date_sample_income" msprop:Generator_ColumnVarNameInTable="columndate_sample_income" msprop:Generator_ColumnPropNameInRow="date_sample_income" msprop:Generator_ColumnPropNameInTable="date_sample_incomeColumn" msprop:Generator_UserColumnName="date_sample_income" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="date_protocol_income" msprop:Generator_ColumnVarNameInTable="columndate_protocol_income" msprop:Generator_ColumnPropNameInRow="date_protocol_income" msprop:Generator_ColumnPropNameInTable="date_protocol_incomeColumn" msprop:Generator_UserColumnName="date_protocol_income" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="cost" msprop:Generator_ColumnVarNameInTable="columncost" msprop:Generator_ColumnPropNameInRow="cost" msprop:Generator_ColumnPropNameInTable="costColumn" msprop:Generator_UserColumnName="cost" type="xs:int" minOccurs="0" />
+              <xs:element name="total_cost" msprop:Generator_ColumnVarNameInTable="columntotal_cost" msprop:Generator_ColumnPropNameInRow="total_cost" msprop:Generator_ColumnPropNameInTable="total_costColumn" msprop:Generator_UserColumnName="total_cost" type="xs:int" minOccurs="0" />
+              <xs:element name="pkproducts_id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnpkproducts_id" msprop:Generator_ColumnPropNameInRow="pkproducts_id" msprop:Generator_ColumnPropNameInTable="pkproducts_idColumn" msprop:Generator_UserColumnName="pkproducts_id" type="xs:int" minOccurs="0" />
+              <xs:element name="products_name" msprop:Generator_ColumnVarNameInTable="columnproducts_name" msprop:Generator_ColumnPropNameInRow="products_name" msprop:Generator_ColumnPropNameInTable="products_nameColumn" msprop:Generator_UserColumnName="products_name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="45" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="pkagents_id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnpkagents_id" msprop:Generator_ColumnPropNameInRow="pkagents_id" msprop:Generator_ColumnPropNameInTable="pkagents_idColumn" msprop:Generator_UserColumnName="pkagents_id" type="xs:int" minOccurs="0" />
+              <xs:element name="agents_name" msprop:Generator_ColumnVarNameInTable="columnagents_name" msprop:Generator_ColumnPropNameInRow="agents_name" msprop:Generator_ColumnPropNameInTable="agents_nameColumn" msprop:Generator_UserColumnName="agents_name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="63" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="pkagent_types_id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnpkagent_types_id" msprop:Generator_ColumnPropNameInRow="pkagent_types_id" msprop:Generator_ColumnPropNameInTable="pkagent_types_idColumn" msprop:Generator_UserColumnName="pkagent_types_id" type="xs:int" minOccurs="0" />
+              <xs:element name="agent_types_name" msprop:Generator_ColumnVarNameInTable="columnagent_types_name" msprop:Generator_ColumnPropNameInRow="agent_types_name" msprop:Generator_ColumnPropNameInTable="agent_types_nameColumn" msprop:Generator_UserColumnName="agent_types_name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="agents_fullname" msprop:Generator_ColumnVarNameInTable="columnagents_fullname" msprop:Generator_ColumnPropNameInRow="agents_fullname" msprop:Generator_ColumnPropNameInTable="agents_fullnameColumn" msprop:Generator_UserColumnName="agents_fullname" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="72" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="pkcontract_types_id" msprop:Generator_ColumnVarNameInTable="columnpkcontract_types_id" msprop:Generator_ColumnPropNameInRow="pkcontract_types_id" msprop:Generator_ColumnPropNameInTable="pkcontract_types_idColumn" msprop:Generator_UserColumnName="pkcontract_types_id" type="xs:int" minOccurs="0" />
+              <xs:element name="contract_types_name" msprop:Generator_ColumnVarNameInTable="columncontract_types_name" msprop:Generator_ColumnPropNameInRow="contract_types_name" msprop:Generator_ColumnPropNameInTable="contract_types_nameColumn" msprop:Generator_UserColumnName="contract_types_name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="55" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="pkcontract_status_id" msprop:Generator_ColumnVarNameInTable="columnpkcontract_status_id" msprop:Generator_ColumnPropNameInRow="pkcontract_status_id" msprop:Generator_ColumnPropNameInTable="pkcontract_status_idColumn" msprop:Generator_UserColumnName="pkcontract_status_id" type="xs:int" minOccurs="0" />
+              <xs:element name="contract_status_name" msprop:Generator_ColumnVarNameInTable="columncontract_status_name" msprop:Generator_ColumnPropNameInRow="contract_status_name" msprop:Generator_ColumnPropNameInTable="contract_status_nameColumn" msprop:Generator_UserColumnName="contract_status_name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="45" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="expert_FIO" msprop:Generator_ColumnVarNameInTable="columnexpert_FIO" msprop:Generator_ColumnPropNameInRow="expert_FIO" msprop:Generator_ColumnPropNameInTable="expert_FIOColumn" msprop:Generator_UserColumnName="expert_FIO" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="38" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Expr1" msprop:Generator_ColumnVarNameInTable="columnExpr1" msprop:Generator_ColumnPropNameInRow="Expr1" msprop:Generator_ColumnPropNameInTable="Expr1Column" msprop:Generator_UserColumnName="Expr1" type="xs:int" />
+              <xs:element name="cash_income" msprop:Generator_ColumnVarNameInTable="columncash_income" msprop:Generator_ColumnPropNameInRow="cash_income" msprop:Generator_ColumnPropNameInTable="cash_incomeColumn" msprop:Generator_UserColumnName="cash_income" type="xs:boolean" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
     <xs:unique name="Constraint1" msdata:PrimaryKey="true">
@@ -4525,6 +4701,15 @@ WHERE
       <msdata:Relationship name="fk_contracts_source_types9" msdata:parent="source_types" msdata:child="PayedContracts" msdata:parentkey="id" msdata:childkey="source_types_id" msprop:Generator_UserChildTable="PayedContracts" msprop:Generator_ChildPropName="GetPayedContractsRows" msprop:Generator_UserRelationName="fk_contracts_source_types9" msprop:Generator_ParentPropName="source_typesRow" msprop:Generator_RelationVarName="relationfk_contracts_source_types9" msprop:Generator_UserParentTable="source_types" />
       <msdata:Relationship name="fk_contracts_users18" msdata:parent="users" msdata:child="PayedContracts" msdata:parentkey="id" msdata:childkey="experts_id" msprop:Generator_UserChildTable="PayedContracts" msprop:Generator_ChildPropName="GetPayedContractsRows" msprop:Generator_UserRelationName="fk_contracts_users18" msprop:Generator_ParentPropName="usersRow" msprop:Generator_RelationVarName="relationfk_contracts_users18" msprop:Generator_UserParentTable="users" />
       <msdata:Relationship name="fk_contracts_users19" msdata:parent="experts" msdata:child="PayedContracts" msdata:parentkey="id" msdata:childkey="experts_id" msprop:Generator_UserChildTable="PayedContracts" msprop:Generator_ChildPropName="GetPayedContractsRows" msprop:Generator_UserRelationName="fk_contracts_users19" msprop:Generator_ParentPropName="expertsRow" msprop:Generator_RelationVarName="relationfk_contracts_users19" msprop:Generator_UserParentTable="experts" />
+      <msdata:Relationship name="fk_documents_contracts10" msdata:parent="ContractDone" msdata:child="documents" msdata:parentkey="id" msdata:childkey="contracts_id" msprop:Generator_UserChildTable="documents" msprop:Generator_ChildPropName="GetdocumentsRows" msprop:Generator_UserRelationName="fk_documents_contracts10" msprop:Generator_ParentPropName="ContractDoneRow" msprop:Generator_RelationVarName="relationfk_documents_contracts10" msprop:Generator_UserParentTable="ContractDone" />
+      <msdata:Relationship name="fk_product_gosts_contracts11" msdata:parent="ContractDone" msdata:child="selected_gosts" msdata:parentkey="id" msdata:childkey="contracts_id" msprop:Generator_UserChildTable="selected_gosts" msprop:Generator_ChildPropName="Getselected_gostsRows" msprop:Generator_UserRelationName="fk_product_gosts_contracts11" msprop:Generator_ParentPropName="ContractDoneRow" msprop:Generator_RelationVarName="relationfk_product_gosts_contracts11" msprop:Generator_UserParentTable="ContractDone" />
+      <msdata:Relationship name="fk_contracts_contract_status10" msdata:parent="contract_status" msdata:child="ContractDone" msdata:parentkey="id" msdata:childkey="contract_status_id" msprop:Generator_UserChildTable="ContractDone" msprop:Generator_ChildPropName="GetContractDoneRows" msprop:Generator_UserRelationName="fk_contracts_contract_status10" msprop:Generator_RelationVarName="relationfk_contracts_contract_status10" msprop:Generator_UserParentTable="contract_status" msprop:Generator_ParentPropName="contract_statusRow" />
+      <msdata:Relationship name="fk_contracts_contract_types20" msdata:parent="contract_types_for_work" msdata:child="ContractDone" msdata:parentkey="id" msdata:childkey="contract_types_id" msprop:Generator_UserChildTable="ContractDone" msprop:Generator_ChildPropName="GetContractDoneRows" msprop:Generator_UserRelationName="fk_contracts_contract_types20" msprop:Generator_RelationVarName="relationfk_contracts_contract_types20" msprop:Generator_UserParentTable="contract_types_for_work" msprop:Generator_ParentPropName="contract_types_for_workRow" />
+      <msdata:Relationship name="fk_contracts_contract_types21" msdata:parent="contract_types" msdata:child="ContractDone" msdata:parentkey="id" msdata:childkey="contract_types_id" msprop:Generator_UserChildTable="ContractDone" msprop:Generator_ChildPropName="GetContractDoneRows" msprop:Generator_UserRelationName="fk_contracts_contract_types21" msprop:Generator_RelationVarName="relationfk_contracts_contract_types21" msprop:Generator_UserParentTable="contract_types" msprop:Generator_ParentPropName="contract_typesRow" />
+      <msdata:Relationship name="fk_contracts_products10" msdata:parent="products" msdata:child="ContractDone" msdata:parentkey="id" msdata:childkey="products_id" msprop:Generator_UserChildTable="ContractDone" msprop:Generator_ChildPropName="GetContractDoneRows" msprop:Generator_UserRelationName="fk_contracts_products10" msprop:Generator_RelationVarName="relationfk_contracts_products10" msprop:Generator_UserParentTable="products" msprop:Generator_ParentPropName="productsRow" />
+      <msdata:Relationship name="fk_contracts_source_types10" msdata:parent="source_types" msdata:child="ContractDone" msdata:parentkey="id" msdata:childkey="source_types_id" msprop:Generator_UserChildTable="ContractDone" msprop:Generator_ChildPropName="GetContractDoneRows" msprop:Generator_UserRelationName="fk_contracts_source_types10" msprop:Generator_RelationVarName="relationfk_contracts_source_types10" msprop:Generator_UserParentTable="source_types" msprop:Generator_ParentPropName="source_typesRow" />
+      <msdata:Relationship name="fk_contracts_users20" msdata:parent="users" msdata:child="ContractDone" msdata:parentkey="id" msdata:childkey="experts_id" msprop:Generator_UserChildTable="ContractDone" msprop:Generator_ChildPropName="GetContractDoneRows" msprop:Generator_UserRelationName="fk_contracts_users20" msprop:Generator_RelationVarName="relationfk_contracts_users20" msprop:Generator_UserParentTable="users" msprop:Generator_ParentPropName="usersRow" />
+      <msdata:Relationship name="fk_contracts_users21" msdata:parent="experts" msdata:child="ContractDone" msdata:parentkey="id" msdata:childkey="experts_id" msprop:Generator_UserChildTable="ContractDone" msprop:Generator_ChildPropName="GetContractDoneRows" msprop:Generator_UserRelationName="fk_contracts_users21" msprop:Generator_RelationVarName="relationfk_contracts_users21" msprop:Generator_UserParentTable="experts" msprop:Generator_ParentPropName="expertsRow" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>

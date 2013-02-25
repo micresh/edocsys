@@ -1437,5 +1437,53 @@ namespace Edocsys.Properties {
                 this["PayedContractsTitle"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Сгенерировать акт выполнения работ")]
+        public string GenerateActTitle {
+            get {
+                return ((string)(this["GenerateActTitle"]));
+            }
+            set {
+                this["GenerateActTitle"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Редактировать файл акта")]
+        public string ActEditTitle {
+            get {
+                return ((string)(this["ActEditTitle"]));
+            }
+            set {
+                this["ActEditTitle"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Сохранить файл акта на диск")]
+        public string ActSaveTitle {
+            get {
+                return ((string)(this["ActSaveTitle"]));
+            }
+            set {
+                this["ActSaveTitle"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Загрузить файл акта с диска")]
+        public string ActLoadTitle {
+            get {
+                return ((string)(this["ActLoadTitle"]));
+            }
+            set {
+                this["ActLoadTitle"] = value;
+            }
+        }
     }
 }

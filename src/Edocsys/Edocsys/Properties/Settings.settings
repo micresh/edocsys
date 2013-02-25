@@ -361,5 +361,17 @@
     <Setting Name="PayedContractsTitle" Type="System.String" Scope="User">
       <Value Profile="(Default)">Оплаченые договора</Value>
     </Setting>
+    <Setting Name="GenerateActTitle" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Сгенерировать акт выполнения работ</Value>
+    </Setting>
+    <Setting Name="ActEditTitle" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Редактировать файл акта</Value>
+    </Setting>
+    <Setting Name="ActSaveTitle" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Сохранить файл акта на диск</Value>
+    </Setting>
+    <Setting Name="ActLoadTitle" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Загрузить файл акта с диска</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
