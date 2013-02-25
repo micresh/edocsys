@@ -355,5 +355,11 @@
     <Setting Name="ContractStatsTitle" Type="System.String" Scope="User">
       <Value Profile="(Default)">Статистика договоров</Value>
     </Setting>
+    <Setting Name="ContractActTitle" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Операции с актами</Value>
+    </Setting>
+    <Setting Name="PayedContractsTitle" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Оплаченые договора</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

@@ -32,25 +32,26 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ContractPaymentsForm));
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabInWork = new System.Windows.Forms.TabPage();
-            this.contractInWorkDataGridView = new System.Windows.Forms.DataGridView();
+            this.contractPaymentsDataGridView = new System.Windows.Forms.DataGridView();
             this.numberDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.productsnameDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.agentsnameDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.agenttypesnameDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contracttypesnameDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contract_status_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.costDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.totalcostDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ConfirmPaymentColumn = new System.Windows.Forms.DataGridViewButtonColumn();
             this.datestartDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dateendDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.daystodeadlineDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.costDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.totalcostDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.agentsfullnameDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.datesampleincomeDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dateprotocolincomeDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.expertFIODataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.WorkDoneColumn = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.contractInWorkBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.contractPaymentsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.edocbaseDataSet = new Edocsys.EdocbaseDataSet();
-            this.bindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
+            this.bindingNavigatorContractPayments = new System.Windows.Forms.BindingNavigator(this.components);
             this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
@@ -64,47 +65,78 @@
             this.toolStripButton6 = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripLabel3 = new System.Windows.Forms.ToolStripLabel();
-            this.filterInWorkTextBox = new System.Windows.Forms.ToolStripTextBox();
-            this.contractSigningBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.contractPrepareForWorkBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.contractComplitionMgrCfmBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
-            this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
+            this.filterContractPaymentsTextBox = new System.Windows.Forms.ToolStripTextBox();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.payedContractsdataGridView = new System.Windows.Forms.DataGridView();
+            this.payedContractsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.bindingNavigatorContractPayed = new System.Windows.Forms.BindingNavigator(this.components);
+            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripButton7 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton8 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripTextBox2 = new System.Windows.Forms.ToolStripTextBox();
+            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripButton9 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton10 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripButton11 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton12 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripLabel4 = new System.Windows.Forms.ToolStripLabel();
+            this.filterPayedContractsTextBox = new System.Windows.Forms.ToolStripTextBox();
             this.tableAdapterManager = new Edocsys.EdocbaseDataSetTableAdapters.TableAdapterManager();
-            this.contractSigningTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.ContractSigningTableAdapter();
-            this.contractDocDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.contractDocDataTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.ContractDocDataTableAdapter();
-            this.contractPrepareForWorkTAdapter = new Edocsys.EdocbaseDataSetTableAdapters.ContractPrepareForWorkTAdapter();
-            this.contractInWorkTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.ContractInWorkTableAdapter();
-            this.contractComplitionMgrCfmTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.ContractComplitionMgrCfmTableAdapter();
+            this.contractPaymentsTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.ContractPaymentsTableAdapter();
+            this.payedContractsTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.PayedContractsTableAdapter();
+            this.numberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productsnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.agentsnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.datecontractDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contracttypesnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cashincomeDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.datecashincomeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CancelPaymentColumn = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.datestartDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateendDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.daystodeadlineDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.datesampleincomeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateprotocolincomeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.costDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.totalcostDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.agenttypesnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.expertFIODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.agentsfullnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl.SuspendLayout();
             this.tabInWork.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.contractInWorkDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.contractInWorkBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.contractPaymentsDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.contractPaymentsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.edocbaseDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator)).BeginInit();
-            this.bindingNavigator.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.contractSigningBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.contractPrepareForWorkBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.contractComplitionMgrCfmBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.contractDocDataBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingNavigatorContractPayments)).BeginInit();
+            this.bindingNavigatorContractPayments.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.payedContractsdataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.payedContractsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingNavigatorContractPayed)).BeginInit();
+            this.bindingNavigatorContractPayed.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl
             // 
             this.tabControl.Controls.Add(this.tabInWork);
+            this.tabControl.Controls.Add(this.tabPage1);
             this.tabControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl.Location = new System.Drawing.Point(0, 0);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
             this.tabControl.Size = new System.Drawing.Size(1114, 470);
             this.tabControl.TabIndex = 2;
+            this.tabControl.Text = "Оплаченые договора";
             // 
             // tabInWork
             // 
             this.tabInWork.AutoScroll = true;
-            this.tabInWork.Controls.Add(this.contractInWorkDataGridView);
-            this.tabInWork.Controls.Add(this.bindingNavigator);
+            this.tabInWork.Controls.Add(this.contractPaymentsDataGridView);
+            this.tabInWork.Controls.Add(this.bindingNavigatorContractPayments);
             this.tabInWork.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Edocsys.Properties.Settings.Default, "ContractPaymentsTitle", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.tabInWork.Location = new System.Drawing.Point(4, 22);
             this.tabInWork.Name = "tabInWork";
@@ -114,67 +146,100 @@
             this.tabInWork.Text = global::Edocsys.Properties.Settings.Default.ContractPaymentsTitle;
             this.tabInWork.UseVisualStyleBackColor = true;
             // 
-            // contractInWorkDataGridView
+            // contractPaymentsDataGridView
             // 
-            this.contractInWorkDataGridView.AutoGenerateColumns = false;
-            this.contractInWorkDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.contractInWorkDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.contractPaymentsDataGridView.AllowUserToAddRows = false;
+            this.contractPaymentsDataGridView.AllowUserToDeleteRows = false;
+            this.contractPaymentsDataGridView.AutoGenerateColumns = false;
+            this.contractPaymentsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.contractPaymentsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.numberDataGridViewTextBoxColumn1,
             this.productsnameDataGridViewTextBoxColumn2,
             this.agentsnameDataGridViewTextBoxColumn2,
             this.agenttypesnameDataGridViewTextBoxColumn2,
             this.contracttypesnameDataGridViewTextBoxColumn2,
+            this.contract_status_name,
+            this.costDataGridViewTextBoxColumn2,
+            this.totalcostDataGridViewTextBoxColumn2,
+            this.ConfirmPaymentColumn,
             this.datestartDataGridViewTextBoxColumn1,
             this.dateendDataGridViewTextBoxColumn1,
             this.daystodeadlineDataGridViewTextBoxColumn,
-            this.costDataGridViewTextBoxColumn2,
-            this.totalcostDataGridViewTextBoxColumn2,
             this.agentsfullnameDataGridViewTextBoxColumn2,
             this.datesampleincomeDataGridViewTextBoxColumn1,
             this.dateprotocolincomeDataGridViewTextBoxColumn1,
-            this.expertFIODataGridViewTextBoxColumn2,
-            this.WorkDoneColumn});
-            this.contractInWorkDataGridView.DataSource = this.contractInWorkBindingSource;
-            this.contractInWorkDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.contractInWorkDataGridView.Location = new System.Drawing.Point(3, 28);
-            this.contractInWorkDataGridView.Name = "contractInWorkDataGridView";
-            this.contractInWorkDataGridView.Size = new System.Drawing.Size(1100, 413);
-            this.contractInWorkDataGridView.TabIndex = 29;
-            this.contractInWorkDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.contractInWorkDataGridView_CellContentClick);
+            this.expertFIODataGridViewTextBoxColumn2});
+            this.contractPaymentsDataGridView.DataSource = this.contractPaymentsBindingSource;
+            this.contractPaymentsDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.contractPaymentsDataGridView.Location = new System.Drawing.Point(3, 28);
+            this.contractPaymentsDataGridView.Name = "contractPaymentsDataGridView";
+            this.contractPaymentsDataGridView.Size = new System.Drawing.Size(1100, 413);
+            this.contractPaymentsDataGridView.TabIndex = 29;
+            this.contractPaymentsDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.contractInWorkDataGridView_CellContentClick);
             // 
             // numberDataGridViewTextBoxColumn1
             // 
+            this.numberDataGridViewTextBoxColumn1.DataPropertyName = "number";
             this.numberDataGridViewTextBoxColumn1.HeaderText = "Номер договора";
             this.numberDataGridViewTextBoxColumn1.Name = "numberDataGridViewTextBoxColumn1";
             // 
             // productsnameDataGridViewTextBoxColumn2
             // 
+            this.productsnameDataGridViewTextBoxColumn2.DataPropertyName = "products_name";
             this.productsnameDataGridViewTextBoxColumn2.HeaderText = "Продукция";
             this.productsnameDataGridViewTextBoxColumn2.Name = "productsnameDataGridViewTextBoxColumn2";
             // 
             // agentsnameDataGridViewTextBoxColumn2
             // 
+            this.agentsnameDataGridViewTextBoxColumn2.DataPropertyName = "agents_name";
             this.agentsnameDataGridViewTextBoxColumn2.HeaderText = "Контрагент";
             this.agentsnameDataGridViewTextBoxColumn2.Name = "agentsnameDataGridViewTextBoxColumn2";
             // 
             // agenttypesnameDataGridViewTextBoxColumn2
             // 
+            this.agenttypesnameDataGridViewTextBoxColumn2.DataPropertyName = "agent_types_name";
             this.agenttypesnameDataGridViewTextBoxColumn2.HeaderText = "Форма";
             this.agenttypesnameDataGridViewTextBoxColumn2.Name = "agenttypesnameDataGridViewTextBoxColumn2";
             this.agenttypesnameDataGridViewTextBoxColumn2.Width = 50;
             // 
             // contracttypesnameDataGridViewTextBoxColumn2
             // 
+            this.contracttypesnameDataGridViewTextBoxColumn2.DataPropertyName = "contract_types_name";
             this.contracttypesnameDataGridViewTextBoxColumn2.HeaderText = "Тип работ";
             this.contracttypesnameDataGridViewTextBoxColumn2.Name = "contracttypesnameDataGridViewTextBoxColumn2";
             // 
+            // contract_status_name
+            // 
+            this.contract_status_name.DataPropertyName = "contract_status_name";
+            this.contract_status_name.HeaderText = "Состояние договора";
+            this.contract_status_name.Name = "contract_status_name";
+            // 
+            // costDataGridViewTextBoxColumn2
+            // 
+            this.costDataGridViewTextBoxColumn2.DataPropertyName = "cost";
+            this.costDataGridViewTextBoxColumn2.HeaderText = "Сумма";
+            this.costDataGridViewTextBoxColumn2.Name = "costDataGridViewTextBoxColumn2";
+            // 
+            // totalcostDataGridViewTextBoxColumn2
+            // 
+            this.totalcostDataGridViewTextBoxColumn2.DataPropertyName = "total_cost";
+            this.totalcostDataGridViewTextBoxColumn2.HeaderText = "Общая сумма";
+            this.totalcostDataGridViewTextBoxColumn2.Name = "totalcostDataGridViewTextBoxColumn2";
+            // 
+            // ConfirmPaymentColumn
+            // 
+            this.ConfirmPaymentColumn.HeaderText = "Подтвердить оплату";
+            this.ConfirmPaymentColumn.Name = "ConfirmPaymentColumn";
+            // 
             // datestartDataGridViewTextBoxColumn1
             // 
+            this.datestartDataGridViewTextBoxColumn1.DataPropertyName = "date_start";
             this.datestartDataGridViewTextBoxColumn1.HeaderText = "Дата начала работ";
             this.datestartDataGridViewTextBoxColumn1.Name = "datestartDataGridViewTextBoxColumn1";
             // 
             // dateendDataGridViewTextBoxColumn1
             // 
+            this.dateendDataGridViewTextBoxColumn1.DataPropertyName = "date_end";
             this.dateendDataGridViewTextBoxColumn1.HeaderText = "Дата окончания работ";
             this.dateendDataGridViewTextBoxColumn1.Name = "dateendDataGridViewTextBoxColumn1";
             // 
@@ -184,45 +249,34 @@
             this.daystodeadlineDataGridViewTextBoxColumn.HeaderText = "Дней до окончания";
             this.daystodeadlineDataGridViewTextBoxColumn.Name = "daystodeadlineDataGridViewTextBoxColumn";
             // 
-            // costDataGridViewTextBoxColumn2
-            // 
-            this.costDataGridViewTextBoxColumn2.HeaderText = "Сумма";
-            this.costDataGridViewTextBoxColumn2.Name = "costDataGridViewTextBoxColumn2";
-            // 
-            // totalcostDataGridViewTextBoxColumn2
-            // 
-            this.totalcostDataGridViewTextBoxColumn2.HeaderText = "Общая сумма";
-            this.totalcostDataGridViewTextBoxColumn2.Name = "totalcostDataGridViewTextBoxColumn2";
-            // 
             // agentsfullnameDataGridViewTextBoxColumn2
             // 
+            this.agentsfullnameDataGridViewTextBoxColumn2.DataPropertyName = "agents_fullname";
             this.agentsfullnameDataGridViewTextBoxColumn2.HeaderText = "Контрагент";
             this.agentsfullnameDataGridViewTextBoxColumn2.Name = "agentsfullnameDataGridViewTextBoxColumn2";
             // 
             // datesampleincomeDataGridViewTextBoxColumn1
             // 
+            this.datesampleincomeDataGridViewTextBoxColumn1.DataPropertyName = "date_sample_income";
             this.datesampleincomeDataGridViewTextBoxColumn1.HeaderText = "Дата предоставления образцов";
             this.datesampleincomeDataGridViewTextBoxColumn1.Name = "datesampleincomeDataGridViewTextBoxColumn1";
             // 
             // dateprotocolincomeDataGridViewTextBoxColumn1
             // 
+            this.dateprotocolincomeDataGridViewTextBoxColumn1.DataPropertyName = "date_protocol_income";
             this.dateprotocolincomeDataGridViewTextBoxColumn1.HeaderText = "Дата предоставления протокола";
             this.dateprotocolincomeDataGridViewTextBoxColumn1.Name = "dateprotocolincomeDataGridViewTextBoxColumn1";
             // 
             // expertFIODataGridViewTextBoxColumn2
             // 
+            this.expertFIODataGridViewTextBoxColumn2.DataPropertyName = "expert_FIO";
             this.expertFIODataGridViewTextBoxColumn2.HeaderText = "Эксперт";
             this.expertFIODataGridViewTextBoxColumn2.Name = "expertFIODataGridViewTextBoxColumn2";
             // 
-            // WorkDoneColumn
+            // contractPaymentsBindingSource
             // 
-            this.WorkDoneColumn.HeaderText = "Работа завершена";
-            this.WorkDoneColumn.Name = "WorkDoneColumn";
-            // 
-            // contractInWorkBindingSource
-            // 
-            this.contractInWorkBindingSource.DataMember = "ContractInWork";
-            this.contractInWorkBindingSource.DataSource = this.edocbaseDataSet;
+            this.contractPaymentsBindingSource.DataMember = "ContractPayments";
+            this.contractPaymentsBindingSource.DataSource = this.edocbaseDataSet;
             // 
             // edocbaseDataSet
             // 
@@ -230,13 +284,13 @@
             this.edocbaseDataSet.DataSetName = "EdocbaseDataSet";
             this.edocbaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // bindingNavigator
+            // bindingNavigatorContractPayments
             // 
-            this.bindingNavigator.AddNewItem = null;
-            this.bindingNavigator.BindingSource = this.contractInWorkBindingSource;
-            this.bindingNavigator.CountItem = this.toolStripLabel2;
-            this.bindingNavigator.DeleteItem = null;
-            this.bindingNavigator.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.bindingNavigatorContractPayments.AddNewItem = null;
+            this.bindingNavigatorContractPayments.BindingSource = this.contractPaymentsBindingSource;
+            this.bindingNavigatorContractPayments.CountItem = this.toolStripLabel2;
+            this.bindingNavigatorContractPayments.DeleteItem = null;
+            this.bindingNavigatorContractPayments.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButton2,
             this.toolStripButton3,
             this.toolStripSeparator2,
@@ -250,17 +304,17 @@
             this.toolStripButton6,
             this.toolStripSeparator5,
             this.toolStripLabel3,
-            this.filterInWorkTextBox});
-            this.bindingNavigator.Location = new System.Drawing.Point(3, 3);
-            this.bindingNavigator.MoveFirstItem = this.toolStripButton2;
-            this.bindingNavigator.MoveLastItem = this.toolStripButton5;
-            this.bindingNavigator.MoveNextItem = this.toolStripButton4;
-            this.bindingNavigator.MovePreviousItem = this.toolStripButton3;
-            this.bindingNavigator.Name = "bindingNavigator";
-            this.bindingNavigator.PositionItem = this.toolStripTextBox1;
-            this.bindingNavigator.Size = new System.Drawing.Size(1100, 25);
-            this.bindingNavigator.TabIndex = 28;
-            this.bindingNavigator.Text = "bindingNavigator2";
+            this.filterContractPaymentsTextBox});
+            this.bindingNavigatorContractPayments.Location = new System.Drawing.Point(3, 3);
+            this.bindingNavigatorContractPayments.MoveFirstItem = this.toolStripButton2;
+            this.bindingNavigatorContractPayments.MoveLastItem = this.toolStripButton5;
+            this.bindingNavigatorContractPayments.MoveNextItem = this.toolStripButton4;
+            this.bindingNavigatorContractPayments.MovePreviousItem = this.toolStripButton3;
+            this.bindingNavigatorContractPayments.Name = "bindingNavigatorContractPayments";
+            this.bindingNavigatorContractPayments.PositionItem = this.toolStripTextBox1;
+            this.bindingNavigatorContractPayments.Size = new System.Drawing.Size(1100, 25);
+            this.bindingNavigatorContractPayments.TabIndex = 28;
+            this.bindingNavigatorContractPayments.Text = "bindingNavigator2";
             // 
             // toolStripLabel2
             // 
@@ -358,33 +412,194 @@
             this.toolStripLabel3.Size = new System.Drawing.Size(42, 22);
             this.toolStripLabel3.Text = "Поиск";
             // 
-            // filterInWorkTextBox
+            // filterContractPaymentsTextBox
             // 
-            this.filterInWorkTextBox.Name = "filterInWorkTextBox";
-            this.filterInWorkTextBox.Size = new System.Drawing.Size(200, 25);
+            this.filterContractPaymentsTextBox.Name = "filterContractPaymentsTextBox";
+            this.filterContractPaymentsTextBox.Size = new System.Drawing.Size(200, 25);
             // 
-            // contractSigningBindingSource
+            // tabPage1
             // 
-            this.contractSigningBindingSource.DataMember = "ContractSigning";
-            this.contractSigningBindingSource.DataSource = this.edocbaseDataSet;
+            this.tabPage1.Controls.Add(this.payedContractsdataGridView);
+            this.tabPage1.Controls.Add(this.bindingNavigatorContractPayed);
+            this.tabPage1.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Edocsys.Properties.Settings.Default, "PayedContractsTitle", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(1106, 444);
+            this.tabPage1.TabIndex = 2;
+            this.tabPage1.Text = global::Edocsys.Properties.Settings.Default.PayedContractsTitle;
+            this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // contractPrepareForWorkBindingSource
+            // payedContractsdataGridView
             // 
-            this.contractPrepareForWorkBindingSource.DataMember = "ContractPrepareForWork";
-            this.contractPrepareForWorkBindingSource.DataSource = this.edocbaseDataSet;
+            this.payedContractsdataGridView.AllowUserToAddRows = false;
+            this.payedContractsdataGridView.AllowUserToDeleteRows = false;
+            this.payedContractsdataGridView.AutoGenerateColumns = false;
+            this.payedContractsdataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.payedContractsdataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.numberDataGridViewTextBoxColumn,
+            this.productsnameDataGridViewTextBoxColumn,
+            this.agentsnameDataGridViewTextBoxColumn,
+            this.dataGridViewTextBoxColumn6,
+            this.datecontractDataGridViewTextBoxColumn,
+            this.contracttypesnameDataGridViewTextBoxColumn,
+            this.cashincomeDataGridViewCheckBoxColumn,
+            this.datecashincomeDataGridViewTextBoxColumn,
+            this.CancelPaymentColumn,
+            this.datestartDataGridViewTextBoxColumn,
+            this.dateendDataGridViewTextBoxColumn,
+            this.daystodeadlineDataGridViewTextBoxColumn1,
+            this.datesampleincomeDataGridViewTextBoxColumn,
+            this.dateprotocolincomeDataGridViewTextBoxColumn,
+            this.costDataGridViewTextBoxColumn,
+            this.totalcostDataGridViewTextBoxColumn,
+            this.agenttypesnameDataGridViewTextBoxColumn,
+            this.expertFIODataGridViewTextBoxColumn,
+            this.agentsfullnameDataGridViewTextBoxColumn});
+            this.payedContractsdataGridView.DataSource = this.payedContractsBindingSource;
+            this.payedContractsdataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.payedContractsdataGridView.Location = new System.Drawing.Point(3, 28);
+            this.payedContractsdataGridView.Name = "payedContractsdataGridView";
+            this.payedContractsdataGridView.Size = new System.Drawing.Size(1100, 413);
+            this.payedContractsdataGridView.TabIndex = 32;
+            this.payedContractsdataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.payedContractsdataGridView_CellContentClick);
             // 
-            // contractComplitionMgrCfmBindingSource
+            // payedContractsBindingSource
             // 
-            this.contractComplitionMgrCfmBindingSource.DataMember = "ContractComplitionMgrCfm";
-            this.contractComplitionMgrCfmBindingSource.DataSource = this.edocbaseDataSet;
+            this.payedContractsBindingSource.DataMember = "PayedContracts";
+            this.payedContractsBindingSource.DataSource = this.edocbaseDataSet;
             // 
-            // openFileDialog
+            // bindingNavigatorContractPayed
             // 
-            this.openFileDialog.Filter = "Файлы Word 2007-2010| *.docx|Все файлы|*.*";
+            this.bindingNavigatorContractPayed.AddNewItem = null;
+            this.bindingNavigatorContractPayed.BindingSource = this.payedContractsBindingSource;
+            this.bindingNavigatorContractPayed.CountItem = this.toolStripLabel1;
+            this.bindingNavigatorContractPayed.DeleteItem = null;
+            this.bindingNavigatorContractPayed.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripButton7,
+            this.toolStripButton8,
+            this.toolStripSeparator1,
+            this.toolStripTextBox2,
+            this.toolStripLabel1,
+            this.toolStripSeparator6,
+            this.toolStripButton9,
+            this.toolStripButton10,
+            this.toolStripSeparator7,
+            this.toolStripButton11,
+            this.toolStripButton12,
+            this.toolStripSeparator8,
+            this.toolStripLabel4,
+            this.filterPayedContractsTextBox});
+            this.bindingNavigatorContractPayed.Location = new System.Drawing.Point(3, 3);
+            this.bindingNavigatorContractPayed.MoveFirstItem = this.toolStripButton7;
+            this.bindingNavigatorContractPayed.MoveLastItem = this.toolStripButton10;
+            this.bindingNavigatorContractPayed.MoveNextItem = this.toolStripButton9;
+            this.bindingNavigatorContractPayed.MovePreviousItem = this.toolStripButton8;
+            this.bindingNavigatorContractPayed.Name = "bindingNavigatorContractPayed";
+            this.bindingNavigatorContractPayed.PositionItem = this.toolStripTextBox2;
+            this.bindingNavigatorContractPayed.Size = new System.Drawing.Size(1100, 25);
+            this.bindingNavigatorContractPayed.TabIndex = 31;
+            this.bindingNavigatorContractPayed.Text = "bindingNavigator2";
             // 
-            // saveFileDialog
+            // toolStripLabel1
             // 
-            this.saveFileDialog.Filter = "Файлы Word 2007-2010| *.docx|Все файлы|*.*";
+            this.toolStripLabel1.Name = "toolStripLabel1";
+            this.toolStripLabel1.Size = new System.Drawing.Size(35, 22);
+            this.toolStripLabel1.Text = "of {0}";
+            this.toolStripLabel1.ToolTipText = "Total number of items";
+            // 
+            // toolStripButton7
+            // 
+            this.toolStripButton7.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton7.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton7.Image")));
+            this.toolStripButton7.Name = "toolStripButton7";
+            this.toolStripButton7.RightToLeftAutoMirrorImage = true;
+            this.toolStripButton7.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton7.Text = "Move first";
+            // 
+            // toolStripButton8
+            // 
+            this.toolStripButton8.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton8.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton8.Image")));
+            this.toolStripButton8.Name = "toolStripButton8";
+            this.toolStripButton8.RightToLeftAutoMirrorImage = true;
+            this.toolStripButton8.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton8.Text = "Move previous";
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripTextBox2
+            // 
+            this.toolStripTextBox2.AccessibleName = "Position";
+            this.toolStripTextBox2.AutoSize = false;
+            this.toolStripTextBox2.Name = "toolStripTextBox2";
+            this.toolStripTextBox2.Size = new System.Drawing.Size(50, 23);
+            this.toolStripTextBox2.Text = "0";
+            this.toolStripTextBox2.ToolTipText = "Current position";
+            // 
+            // toolStripSeparator6
+            // 
+            this.toolStripSeparator6.Name = "toolStripSeparator6";
+            this.toolStripSeparator6.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripButton9
+            // 
+            this.toolStripButton9.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton9.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton9.Image")));
+            this.toolStripButton9.Name = "toolStripButton9";
+            this.toolStripButton9.RightToLeftAutoMirrorImage = true;
+            this.toolStripButton9.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton9.Text = "Move next";
+            // 
+            // toolStripButton10
+            // 
+            this.toolStripButton10.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton10.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton10.Image")));
+            this.toolStripButton10.Name = "toolStripButton10";
+            this.toolStripButton10.RightToLeftAutoMirrorImage = true;
+            this.toolStripButton10.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton10.Text = "Move last";
+            // 
+            // toolStripSeparator7
+            // 
+            this.toolStripSeparator7.Name = "toolStripSeparator7";
+            this.toolStripSeparator7.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripButton11
+            // 
+            this.toolStripButton11.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton11.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton11.Image")));
+            this.toolStripButton11.Name = "toolStripButton11";
+            this.toolStripButton11.RightToLeftAutoMirrorImage = true;
+            this.toolStripButton11.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton11.Text = "Delete";
+            // 
+            // toolStripButton12
+            // 
+            this.toolStripButton12.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton12.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton12.Image")));
+            this.toolStripButton12.Name = "toolStripButton12";
+            this.toolStripButton12.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton12.Text = "Save Data";
+            // 
+            // toolStripSeparator8
+            // 
+            this.toolStripSeparator8.Name = "toolStripSeparator8";
+            this.toolStripSeparator8.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripLabel4
+            // 
+            this.toolStripLabel4.Name = "toolStripLabel4";
+            this.toolStripLabel4.Size = new System.Drawing.Size(42, 22);
+            this.toolStripLabel4.Text = "Поиск";
+            // 
+            // filterPayedContractsTextBox
+            // 
+            this.filterPayedContractsTextBox.Name = "filterPayedContractsTextBox";
+            this.filterPayedContractsTextBox.Size = new System.Drawing.Size(200, 25);
             // 
             // tableAdapterManager
             // 
@@ -415,30 +630,126 @@
             this.tableAdapterManager.user_typesTableAdapter = null;
             this.tableAdapterManager.usersTableAdapter = null;
             // 
-            // contractSigningTableAdapter
+            // contractPaymentsTableAdapter
             // 
-            this.contractSigningTableAdapter.ClearBeforeFill = true;
+            this.contractPaymentsTableAdapter.ClearBeforeFill = true;
             // 
-            // contractDocDataBindingSource
+            // payedContractsTableAdapter
             // 
-            this.contractDocDataBindingSource.DataMember = "ContractDocData";
-            this.contractDocDataBindingSource.DataSource = this.edocbaseDataSet;
+            this.payedContractsTableAdapter.ClearBeforeFill = true;
             // 
-            // contractDocDataTableAdapter
+            // numberDataGridViewTextBoxColumn
             // 
-            this.contractDocDataTableAdapter.ClearBeforeFill = true;
+            this.numberDataGridViewTextBoxColumn.DataPropertyName = "number";
+            this.numberDataGridViewTextBoxColumn.HeaderText = "Номер договора";
+            this.numberDataGridViewTextBoxColumn.Name = "numberDataGridViewTextBoxColumn";
             // 
-            // contractPrepareForWorkTAdapter
+            // productsnameDataGridViewTextBoxColumn
             // 
-            this.contractPrepareForWorkTAdapter.ClearBeforeFill = true;
+            this.productsnameDataGridViewTextBoxColumn.DataPropertyName = "products_name";
+            this.productsnameDataGridViewTextBoxColumn.HeaderText = "Продукция";
+            this.productsnameDataGridViewTextBoxColumn.Name = "productsnameDataGridViewTextBoxColumn";
             // 
-            // contractInWorkTableAdapter
+            // agentsnameDataGridViewTextBoxColumn
             // 
-            this.contractInWorkTableAdapter.ClearBeforeFill = true;
+            this.agentsnameDataGridViewTextBoxColumn.DataPropertyName = "agents_name";
+            this.agentsnameDataGridViewTextBoxColumn.HeaderText = "Контрагент";
+            this.agentsnameDataGridViewTextBoxColumn.Name = "agentsnameDataGridViewTextBoxColumn";
             // 
-            // contractComplitionMgrCfmTableAdapter
+            // dataGridViewTextBoxColumn6
             // 
-            this.contractComplitionMgrCfmTableAdapter.ClearBeforeFill = true;
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "contract_status_name";
+            this.dataGridViewTextBoxColumn6.HeaderText = "Состояние договора";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            // 
+            // datecontractDataGridViewTextBoxColumn
+            // 
+            this.datecontractDataGridViewTextBoxColumn.DataPropertyName = "date_contract";
+            this.datecontractDataGridViewTextBoxColumn.HeaderText = "Дата заключения контракта";
+            this.datecontractDataGridViewTextBoxColumn.Name = "datecontractDataGridViewTextBoxColumn";
+            // 
+            // contracttypesnameDataGridViewTextBoxColumn
+            // 
+            this.contracttypesnameDataGridViewTextBoxColumn.DataPropertyName = "contract_types_name";
+            this.contracttypesnameDataGridViewTextBoxColumn.HeaderText = "Тип работ";
+            this.contracttypesnameDataGridViewTextBoxColumn.Name = "contracttypesnameDataGridViewTextBoxColumn";
+            // 
+            // cashincomeDataGridViewCheckBoxColumn
+            // 
+            this.cashincomeDataGridViewCheckBoxColumn.DataPropertyName = "cash_income";
+            this.cashincomeDataGridViewCheckBoxColumn.HeaderText = "Наличие оплаты";
+            this.cashincomeDataGridViewCheckBoxColumn.Name = "cashincomeDataGridViewCheckBoxColumn";
+            // 
+            // datecashincomeDataGridViewTextBoxColumn
+            // 
+            this.datecashincomeDataGridViewTextBoxColumn.DataPropertyName = "date_cash_income";
+            this.datecashincomeDataGridViewTextBoxColumn.HeaderText = "Дата поступления оплаты";
+            this.datecashincomeDataGridViewTextBoxColumn.Name = "datecashincomeDataGridViewTextBoxColumn";
+            // 
+            // CancelPaymentColumn
+            // 
+            this.CancelPaymentColumn.HeaderText = "Отмена оплаты";
+            this.CancelPaymentColumn.Name = "CancelPaymentColumn";
+            // 
+            // datestartDataGridViewTextBoxColumn
+            // 
+            this.datestartDataGridViewTextBoxColumn.DataPropertyName = "date_start";
+            this.datestartDataGridViewTextBoxColumn.HeaderText = "Дата начала работ";
+            this.datestartDataGridViewTextBoxColumn.Name = "datestartDataGridViewTextBoxColumn";
+            // 
+            // dateendDataGridViewTextBoxColumn
+            // 
+            this.dateendDataGridViewTextBoxColumn.DataPropertyName = "date_end";
+            this.dateendDataGridViewTextBoxColumn.HeaderText = "Дата окончания работ";
+            this.dateendDataGridViewTextBoxColumn.Name = "dateendDataGridViewTextBoxColumn";
+            // 
+            // daystodeadlineDataGridViewTextBoxColumn1
+            // 
+            this.daystodeadlineDataGridViewTextBoxColumn1.DataPropertyName = "days_to_deadline";
+            this.daystodeadlineDataGridViewTextBoxColumn1.HeaderText = "Дней до окончания";
+            this.daystodeadlineDataGridViewTextBoxColumn1.Name = "daystodeadlineDataGridViewTextBoxColumn1";
+            // 
+            // datesampleincomeDataGridViewTextBoxColumn
+            // 
+            this.datesampleincomeDataGridViewTextBoxColumn.DataPropertyName = "date_sample_income";
+            this.datesampleincomeDataGridViewTextBoxColumn.HeaderText = "Дата посупления образца";
+            this.datesampleincomeDataGridViewTextBoxColumn.Name = "datesampleincomeDataGridViewTextBoxColumn";
+            // 
+            // dateprotocolincomeDataGridViewTextBoxColumn
+            // 
+            this.dateprotocolincomeDataGridViewTextBoxColumn.DataPropertyName = "date_protocol_income";
+            this.dateprotocolincomeDataGridViewTextBoxColumn.HeaderText = "Дата поступления протокола";
+            this.dateprotocolincomeDataGridViewTextBoxColumn.Name = "dateprotocolincomeDataGridViewTextBoxColumn";
+            // 
+            // costDataGridViewTextBoxColumn
+            // 
+            this.costDataGridViewTextBoxColumn.DataPropertyName = "cost";
+            this.costDataGridViewTextBoxColumn.HeaderText = "Сумма";
+            this.costDataGridViewTextBoxColumn.Name = "costDataGridViewTextBoxColumn";
+            // 
+            // totalcostDataGridViewTextBoxColumn
+            // 
+            this.totalcostDataGridViewTextBoxColumn.DataPropertyName = "total_cost";
+            this.totalcostDataGridViewTextBoxColumn.HeaderText = "Общая сумма";
+            this.totalcostDataGridViewTextBoxColumn.Name = "totalcostDataGridViewTextBoxColumn";
+            // 
+            // agenttypesnameDataGridViewTextBoxColumn
+            // 
+            this.agenttypesnameDataGridViewTextBoxColumn.DataPropertyName = "agent_types_name";
+            this.agenttypesnameDataGridViewTextBoxColumn.HeaderText = "Форма";
+            this.agenttypesnameDataGridViewTextBoxColumn.Name = "agenttypesnameDataGridViewTextBoxColumn";
+            // 
+            // expertFIODataGridViewTextBoxColumn
+            // 
+            this.expertFIODataGridViewTextBoxColumn.DataPropertyName = "expert_FIO";
+            this.expertFIODataGridViewTextBoxColumn.HeaderText = "Эксперт";
+            this.expertFIODataGridViewTextBoxColumn.Name = "expertFIODataGridViewTextBoxColumn";
+            // 
+            // agentsfullnameDataGridViewTextBoxColumn
+            // 
+            this.agentsfullnameDataGridViewTextBoxColumn.DataPropertyName = "agents_fullname";
+            this.agentsfullnameDataGridViewTextBoxColumn.HeaderText = "Контрагент";
+            this.agentsfullnameDataGridViewTextBoxColumn.Name = "agentsfullnameDataGridViewTextBoxColumn";
             // 
             // ContractPaymentsForm
             // 
@@ -453,16 +764,19 @@
             this.tabControl.ResumeLayout(false);
             this.tabInWork.ResumeLayout(false);
             this.tabInWork.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.contractInWorkDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.contractInWorkBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.contractPaymentsDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.contractPaymentsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.edocbaseDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator)).EndInit();
-            this.bindingNavigator.ResumeLayout(false);
-            this.bindingNavigator.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.contractSigningBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.contractPrepareForWorkBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.contractComplitionMgrCfmBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.contractDocDataBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingNavigatorContractPayments)).EndInit();
+            this.bindingNavigatorContractPayments.ResumeLayout(false);
+            this.bindingNavigatorContractPayments.PerformLayout();
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.payedContractsdataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.payedContractsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingNavigatorContractPayed)).EndInit();
+            this.bindingNavigatorContractPayed.ResumeLayout(false);
+            this.bindingNavigatorContractPayed.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -473,8 +787,8 @@
         private EdocbaseDataSetTableAdapters.TableAdapterManager tableAdapterManager;
         private System.Windows.Forms.TabControl tabControl;
         private System.Windows.Forms.TabPage tabInWork;
-        private System.Windows.Forms.DataGridView contractInWorkDataGridView;
-        private System.Windows.Forms.BindingNavigator bindingNavigator;
+        private System.Windows.Forms.DataGridView contractPaymentsDataGridView;
+        private System.Windows.Forms.BindingNavigator bindingNavigatorContractPayments;
         private System.Windows.Forms.ToolStripLabel toolStripLabel2;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
         private System.Windows.Forms.ToolStripButton toolStripButton2;
@@ -488,34 +802,63 @@
         private System.Windows.Forms.ToolStripButton toolStripButton6;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
         private System.Windows.Forms.ToolStripLabel toolStripLabel3;
-        private System.Windows.Forms.ToolStripTextBox filterInWorkTextBox;
-        private System.Windows.Forms.BindingSource contractSigningBindingSource;
-        private EdocbaseDataSetTableAdapters.ContractSigningTableAdapter contractSigningTableAdapter;
-        private System.Windows.Forms.BindingSource contractDocDataBindingSource;
-        private EdocbaseDataSetTableAdapters.ContractDocDataTableAdapter contractDocDataTableAdapter;
-        private System.Windows.Forms.OpenFileDialog openFileDialog;
-        private System.Windows.Forms.SaveFileDialog saveFileDialog;
-        private System.Windows.Forms.BindingSource contractPrepareForWorkBindingSource;
-        private EdocbaseDataSetTableAdapters.ContractPrepareForWorkTAdapter contractPrepareForWorkTAdapter;
-        private System.Windows.Forms.BindingSource contractInWorkBindingSource;
-        private EdocbaseDataSetTableAdapters.ContractInWorkTableAdapter contractInWorkTableAdapter;
+        private System.Windows.Forms.ToolStripTextBox filterContractPaymentsTextBox;
+        private System.Windows.Forms.BindingSource contractPaymentsBindingSource;
+        private EdocbaseDataSetTableAdapters.ContractPaymentsTableAdapter contractPaymentsTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn numberDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn productsnameDataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn agentsnameDataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn agenttypesnameDataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn contracttypesnameDataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn contract_status_name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn costDataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn totalcostDataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewButtonColumn ConfirmPaymentColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn datestartDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dateendDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn daystodeadlineDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn costDataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn totalcostDataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn agentsfullnameDataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn datesampleincomeDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dateprotocolincomeDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn expertFIODataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewButtonColumn WorkDoneColumn;
-        private System.Windows.Forms.BindingSource contractComplitionMgrCfmBindingSource;
-        private EdocbaseDataSetTableAdapters.ContractComplitionMgrCfmTableAdapter contractComplitionMgrCfmTableAdapter;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.DataGridView payedContractsdataGridView;
+        private System.Windows.Forms.BindingNavigator bindingNavigatorContractPayed;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel1;
+        private System.Windows.Forms.ToolStripButton toolStripButton7;
+        private System.Windows.Forms.ToolStripButton toolStripButton8;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripTextBox toolStripTextBox2;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
+        private System.Windows.Forms.ToolStripButton toolStripButton9;
+        private System.Windows.Forms.ToolStripButton toolStripButton10;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
+        private System.Windows.Forms.ToolStripButton toolStripButton11;
+        private System.Windows.Forms.ToolStripButton toolStripButton12;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator8;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel4;
+        private System.Windows.Forms.ToolStripTextBox filterPayedContractsTextBox;
+        private System.Windows.Forms.BindingSource payedContractsBindingSource;
+        private EdocbaseDataSetTableAdapters.PayedContractsTableAdapter payedContractsTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn numberDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn productsnameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn agentsnameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn datecontractDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn contracttypesnameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn cashincomeDataGridViewCheckBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn datecashincomeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewButtonColumn CancelPaymentColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn datestartDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dateendDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn daystodeadlineDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn datesampleincomeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dateprotocolincomeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn costDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn totalcostDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn agenttypesnameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn expertFIODataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn agentsfullnameDataGridViewTextBoxColumn;
 
         //private EdocbaseDataSetTableAdapters.Exec_contractsTableAdapter exec_contractsTableAdapter;
     }

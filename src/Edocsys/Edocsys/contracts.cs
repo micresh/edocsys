@@ -302,7 +302,6 @@ namespace Edocsys
 
         private void contractComplitionManagerConfrimDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
             if (e.ColumnIndex == contractComplitionManagerConfrimDataGridView.Columns["ConfirmTaskFinishedColumn"].Index)
             {
                 if ((contractComplitionMgrCfmBindingSource.Position < 0) ||

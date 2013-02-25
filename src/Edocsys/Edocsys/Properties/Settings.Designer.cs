@@ -1413,5 +1413,29 @@ namespace Edocsys.Properties {
                 this["ContractStatsTitle"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Операции с актами")]
+        public string ContractActTitle {
+            get {
+                return ((string)(this["ContractActTitle"]));
+            }
+            set {
+                this["ContractActTitle"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Оплаченые договора")]
+        public string PayedContractsTitle {
+            get {
+                return ((string)(this["PayedContractsTitle"]));
+            }
+            set {
+                this["PayedContractsTitle"] = value;
+            }
+        }
     }
 }
