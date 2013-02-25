@@ -130,5 +130,21 @@ namespace Edocsys
         {
             ShowForm<ConfigForm>();
         }
+        public static void ShowWorksForContractForm()
+        {
+            ShowForm<WorkForContractsForm>();
+        }
+        public static void ShowInspectionControlForm()
+        {
+            ShowForm<InspectionControlForm>();
+        }
+        public static void ShowContractStatsForm()
+        {
+            ShowForm<ContractStatsForm>();
+        }
+        public static void ShowContractPaymentsForm()
+        {
+            ShowForm<ContractPaymentsForm>();
+        }
     }
 }

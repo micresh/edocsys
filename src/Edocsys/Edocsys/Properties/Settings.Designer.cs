@@ -169,7 +169,7 @@ namespace Edocsys.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Договора")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Ведение договоров")]
         public string ContractToolStripMenuItemText {
             get {
                 return ((string)(this["ContractToolStripMenuItemText"]));
@@ -1319,17 +1319,6 @@ namespace Edocsys.Properties {
             }
         }
         
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("server=192.168.137.85;User Id=root;password=po12jein45bf;Persist Security Info=Tr" +
-            "ue;database=edocbase")]
-        public string EdocbaseConnectionString {
-            get {
-                return ((string)(this["EdocbaseConnectionString"]));
-            }
-        }
-        
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Заключение договора ресертификации")]
@@ -1363,6 +1352,65 @@ namespace Edocsys.Properties {
             }
             set {
                 this["FinishedTasksTitle"] = value;
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("server=192.168.137.85;User Id=root;password=po12jein45bf;Persist Security Info=Tr" +
+            "ue;database=edocbase")]
+        public string EdocbaseConnectionString {
+            get {
+                return ((string)(this["EdocbaseConnectionString"]));
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Работы по договору")]
+        public string WorksForContractTitle {
+            get {
+                return ((string)(this["WorksForContractTitle"]));
+            }
+            set {
+                this["WorksForContractTitle"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Оплата договоров")]
+        public string ContractPaymentsTitle {
+            get {
+                return ((string)(this["ContractPaymentsTitle"]));
+            }
+            set {
+                this["ContractPaymentsTitle"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Инспекционный контроль")]
+        public string InspectionControlMenuTitle {
+            get {
+                return ((string)(this["InspectionControlMenuTitle"]));
+            }
+            set {
+                this["InspectionControlMenuTitle"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Статистика договоров")]
+        public string ContractStatsTitle {
+            get {
+                return ((string)(this["ContractStatsTitle"]));
+            }
+            set {
+                this["ContractStatsTitle"] = value;
             }
         }
     }

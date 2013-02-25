@@ -39,7 +39,7 @@
       <Value Profile="(Default)">Заявки</Value>
     </Setting>
     <Setting Name="ContractToolStripMenuItemText" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Договора</Value>
+      <Value Profile="(Default)">Ведение договоров</Value>
     </Setting>
     <Setting Name="HelpToolStripMenuItemText" Type="System.String" Scope="User">
       <Value Profile="(Default)">&amp;Помощь</Value>
@@ -326,14 +326,6 @@
     <Setting Name="ContractDateEndTitle" Type="System.String" Scope="User">
       <Value Profile="(Default)">Дата окончания работ</Value>
     </Setting>
-    <Setting Name="EdocbaseConnectionString" Type="(Connection string)" Scope="Application">
-      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
-&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;ConnectionString&gt;server=192.168.137.85;User Id=root;password=po12jein45bf;Persist Security Info=True;database=edocbase&lt;/ConnectionString&gt;
-  &lt;ProviderName&gt;MySql.Data.MySqlClient&lt;/ProviderName&gt;
-&lt;/SerializableConnectionString&gt;</DesignTimeValue>
-      <Value Profile="(Default)">server=192.168.137.85;User Id=root;password=po12jein45bf;Persist Security Info=True;database=edocbase</Value>
-    </Setting>
     <Setting Name="ReattestationSignTitle" Type="System.String" Scope="User">
       <Value Profile="(Default)">Заключение договора ресертификации</Value>
     </Setting>
@@ -342,6 +334,26 @@
     </Setting>
     <Setting Name="FinishedTasksTitle" Type="System.String" Scope="User">
       <Value Profile="(Default)">Завершенные договора</Value>
+    </Setting>
+    <Setting Name="EdocbaseConnectionString" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;server=192.168.137.85;User Id=root;password=po12jein45bf;Persist Security Info=True;database=edocbase&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;MySql.Data.MySqlClient&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">server=192.168.137.85;User Id=root;password=po12jein45bf;Persist Security Info=True;database=edocbase</Value>
+    </Setting>
+    <Setting Name="WorksForContractTitle" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Работы по договору</Value>
+    </Setting>
+    <Setting Name="ContractPaymentsTitle" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Оплата договоров</Value>
+    </Setting>
+    <Setting Name="InspectionControlMenuTitle" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Инспекционный контроль</Value>
+    </Setting>
+    <Setting Name="ContractStatsTitle" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Статистика договоров</Value>
     </Setting>
   </Settings>
 </SettingsFile>

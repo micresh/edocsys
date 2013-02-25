@@ -9,14 +9,13 @@ using System.Windows.Forms;
 
 namespace Edocsys
 {
-    public partial class ContractsForm : Form
+    public partial class ContractPaymentsForm : Form
     {
-        public ContractsForm()
+        public ContractPaymentsForm()
         {
             InitializeComponent();
         }
 
-        private FilterHelper filterContractSigning;
         private DocGeneratorHelper contractGenerator;
 
 
@@ -33,10 +32,6 @@ namespace Edocsys
 
 
             RefreshDatabase();
-
-            //add filters
-            filterContractSigning = new FilterHelper(contractsSigningDataGridView, filterContractSigningText.TextBox);
-
 
             //doc helper
             contractGenerator = new DocGeneratorHelper(edocbaseDataSet.documents, edocbaseDataSet.doc_templates, edocbaseDataSet.ContractDocData);
@@ -69,8 +64,6 @@ namespace Edocsys
 
                 this.contractSigningTableAdapter.Fill(this.edocbaseDataSet.ContractSigning);
                 this.contractPrepareForWorkTAdapter.Fill(this.edocbaseDataSet.ContractPrepareForWork);
-
-                this.contractsSigningDataGridView.Refresh();
             }
             catch (Exception ex)
             {
@@ -246,37 +239,6 @@ namespace Edocsys
             RefreshDatabase();
         }
 
-        private void contractsSigningDataTableDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.ColumnIndex == contractsSigningDataGridView.Columns["SignContractColumn"].Index)
-            {
-                if (contractSigningBindingSource.Position >= 0)
-                {
-                    DataRow currentRow = edocbaseDataSet.ContractSigning.DefaultView[contractSigningBindingSource.Position].Row;
-                    int idContract = Convert.ToInt32(currentRow["id"]);
-
-                    if (MessageBox.Show("Подтвердить подписание договора #" + idContract, "Подписание договора", MessageBoxButtons.YesNo) == DialogResult.Yes)
-                    {
-                        try
-                        {
-                            //set task finished
-                            this.contractSigningTableAdapter.ConfirmSigning((int)Constants.ContractStatuses.PrepareForWork, idContract);
-
-                            //refresh data
-                            UpdateDatabase();
-                            RefreshDatabase();
-                        }
-                        catch (Exception ex)
-                        {
-                            MessageBox.Show(ex.Message, "Save Error");
-                        }
-                    }
-                }
-            }
-
-            RefreshDatabase();
-        }
-
         private void toolStripButton12_Click(object sender, EventArgs e)
         {
             this.Validate();
@@ -300,28 +262,27 @@ namespace Edocsys
             RefreshDatabase();
         }
 
-        private void contractComplitionManagerConfrimDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void contractInWorkDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
-            if (e.ColumnIndex == contractComplitionManagerConfrimDataGridView.Columns["ConfirmTaskFinishedColumn"].Index)
+            if (e.ColumnIndex == contractInWorkDataGridView.Columns["WorkDoneColumn"].Index)
             {
-                if ((contractComplitionMgrCfmBindingSource.Position < 0) ||
-                    (contractComplitionMgrCfmBindingSource.Position >= contractComplitionMgrCfmBindingSource.Count))
+                if ((contractInWorkBindingSource.Position < 0) ||
+                    (contractInWorkBindingSource.Position >= contractInWorkBindingSource.Count))
                 {
                     //contract not selected
                     MessageBox.Show("Не выбран договор", "Ошибка");
                     return;
                 }
 
-                DataRow currentRow = edocbaseDataSet.ContractComplitionMgrCfm.DefaultView[contractComplitionMgrCfmBindingSource.Position].Row;
+                DataRow currentRow = edocbaseDataSet.ContractInWork.DefaultView[contractInWorkBindingSource.Position].Row;
                 int idContract = Convert.ToInt32(currentRow["id"]);
 
-                if (MessageBox.Show("Подтвердить выполнение договора #" + idContract, "Подтвердить выполнение работ", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                if (MessageBox.Show("Подтвердить завершение работ по договору #" + idContract, "Подтвердить завершение работ", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
                     try
                     {
                         //set task finished
-                        this.contractComplitionMgrCfmTableAdapter.ConfirmFinished((int)Constants.ContractStatuses.ComplitionAgentConfrim, idContract);
+                        this.contractInWorkTableAdapter.WorkDone((int)Constants.ContractStatuses.ComplitionManagerConfrim, idContract);
 
                         //refresh data
                         UpdateDatabase();
@@ -335,31 +296,5 @@ namespace Edocsys
             }
         }
 
-        //if (e.ColumnIndex == taskProcessedDataTableDataGridView.Columns["TaskReadyColumn"].Index)
-        //{
-        //    if (taskProcessedDataTableBindingSource.Position >= 0)
-        //    {
-        //        DataRow currentRow = edocbaseDataSet.Tables["TaskProcessedDataTable"].DefaultView[taskProcessedDataTableBindingSource.Position].Row;
-        //        int idContract = Convert.ToInt32(currentRow["idContract"]);
-
-        //        if (MessageBox.Show("Оформить акт договора #" + idContract, "Подтвердить оформление акта", MessageBoxButtons.YesNo) == DialogResult.Yes)
-        //        {
-        //            try
-        //            {
-        //                ////set task ready
-        //                //this.contractsTableAdapter.TaskReady((int)Constants.ContractStatuses.TaskReady, idContract);
-
-
-        //                ////refresh data
-        //                //UpdateDatabaseAndRefresh();
-
-        //            }
-        //            catch (Exception ex)
-        //            {
-        //                MessageBox.Show(ex.Message, "Save Error");
-        //            }
-        //        }
-        //    }
-        //}
     }
 }

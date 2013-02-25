@@ -91,11 +91,35 @@
     </Compile>
     <Compile Include="ConnectionManager.cs" />
     <Compile Include="Constants.cs" />
+    <Compile Include="ContractPayments.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ContractPayments.designer.cs">
+      <DependentUpon>ContractPayments.cs</DependentUpon>
+    </Compile>
     <Compile Include="contracts.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="contracts.Designer.cs">
+    <Compile Include="contracts.designer.cs">
       <DependentUpon>contracts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ContractStats.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ContractStats.designer.cs">
+      <DependentUpon>ContractStats.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InspectionControl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InspectionControl.designer.cs">
+      <DependentUpon>InspectionControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WorkForContracts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WorkForContracts.Designer.cs">
+      <DependentUpon>WorkForContracts.cs</DependentUpon>
     </Compile>
     <Compile Include="DocGeneratorHelper.cs" />
     <Compile Include="doctemplates.cs">
@@ -177,8 +201,20 @@
     <EmbeddedResource Include="config.resx">
       <DependentUpon>config.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ContractPayments.resx">
+      <DependentUpon>ContractPayments.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="contracts.resx">
       <DependentUpon>contracts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ContractStats.resx">
+      <DependentUpon>ContractStats.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InspectionControl.resx">
+      <DependentUpon>InspectionControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WorkForContracts.resx">
+      <DependentUpon>WorkForContracts.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="doctemplates.resx">
       <DependentUpon>doctemplates.cs</DependentUpon>

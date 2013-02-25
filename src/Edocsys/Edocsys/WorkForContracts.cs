@@ -9,14 +9,14 @@ using System.Windows.Forms;
 
 namespace Edocsys
 {
-    public partial class ContractsForm : Form
+    public partial class WorkForContractsForm : Form
     {
-        public ContractsForm()
+        public WorkForContractsForm()
         {
             InitializeComponent();
         }
 
-        private FilterHelper filterContractSigning;
+        private FilterHelper filterPrepareForWork, filterInWork;
         private DocGeneratorHelper contractGenerator;
 
 
@@ -35,7 +35,8 @@ namespace Edocsys
             RefreshDatabase();
 
             //add filters
-            filterContractSigning = new FilterHelper(contractsSigningDataGridView, filterContractSigningText.TextBox);
+            filterPrepareForWork = new FilterHelper(contractPrepareForWorkDataGridView, filterPrepareForWorkTextBox.TextBox);
+            filterInWork = new FilterHelper(contractInWorkDataGridView, filterInWorkTextBox.TextBox);
 
 
             //doc helper
@@ -66,11 +67,10 @@ namespace Edocsys
         {
             try
             {
-
                 this.contractSigningTableAdapter.Fill(this.edocbaseDataSet.ContractSigning);
                 this.contractPrepareForWorkTAdapter.Fill(this.edocbaseDataSet.ContractPrepareForWork);
 
-                this.contractsSigningDataGridView.Refresh();
+                this.contractPrepareForWorkDataGridView.Refresh();
             }
             catch (Exception ex)
             {
@@ -246,37 +246,6 @@ namespace Edocsys
             RefreshDatabase();
         }
 
-        private void contractsSigningDataTableDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.ColumnIndex == contractsSigningDataGridView.Columns["SignContractColumn"].Index)
-            {
-                if (contractSigningBindingSource.Position >= 0)
-                {
-                    DataRow currentRow = edocbaseDataSet.ContractSigning.DefaultView[contractSigningBindingSource.Position].Row;
-                    int idContract = Convert.ToInt32(currentRow["id"]);
-
-                    if (MessageBox.Show("Подтвердить подписание договора #" + idContract, "Подписание договора", MessageBoxButtons.YesNo) == DialogResult.Yes)
-                    {
-                        try
-                        {
-                            //set task finished
-                            this.contractSigningTableAdapter.ConfirmSigning((int)Constants.ContractStatuses.PrepareForWork, idContract);
-
-                            //refresh data
-                            UpdateDatabase();
-                            RefreshDatabase();
-                        }
-                        catch (Exception ex)
-                        {
-                            MessageBox.Show(ex.Message, "Save Error");
-                        }
-                    }
-                }
-            }
-
-            RefreshDatabase();
-        }
-
         private void toolStripButton12_Click(object sender, EventArgs e)
         {
             this.Validate();
@@ -288,6 +257,47 @@ namespace Edocsys
             RefreshDatabase();
         }
 
+        private void contractPrepareForWorkDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == contractPrepareForWorkDataGridView.Columns["StartWorkColumn"].Index)
+            {
+                if ((contractPrepareForWorkBindingSource.Position < 0) ||
+                    (contractPrepareForWorkBindingSource.Position >= contractPrepareForWorkBindingSource.Count))
+                {
+                    //contract not selected
+                    MessageBox.Show("Не выбран договор", "Ошибка");
+                    return;
+                }
+
+                DataRow currentRow = edocbaseDataSet.ContractPrepareForWork.DefaultView[contractPrepareForWorkBindingSource.Position].Row;
+                int idContract = Convert.ToInt32(currentRow["id"]);
+
+                if (MessageBox.Show("Начать работы по договору #" + idContract, "Подтвердить начало работ", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    try
+                    {
+                        //set task processed
+                        this.contractPrepareForWorkTAdapter.StartWork((int)Constants.ContractStatuses.InWork, idContract);
+
+                        ////add executed contract
+                        //DateTime now = DateTime.Now;
+                        //DateTime nxt = now; ;
+                        //nxt = nxt.AddMonths(9);
+
+
+                        //refresh data
+                        UpdateDatabase();
+                        RefreshDatabase();
+
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, "Save Error");
+                    }
+                }
+                
+            }
+        }
 
         private void toolStripButton6_Click(object sender, EventArgs e)
         {
@@ -300,28 +310,27 @@ namespace Edocsys
             RefreshDatabase();
         }
 
-        private void contractComplitionManagerConfrimDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void contractInWorkDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
-            if (e.ColumnIndex == contractComplitionManagerConfrimDataGridView.Columns["ConfirmTaskFinishedColumn"].Index)
+            if (e.ColumnIndex == contractInWorkDataGridView.Columns["WorkDoneColumn"].Index)
             {
-                if ((contractComplitionMgrCfmBindingSource.Position < 0) ||
-                    (contractComplitionMgrCfmBindingSource.Position >= contractComplitionMgrCfmBindingSource.Count))
+                if ((contractInWorkBindingSource.Position < 0) ||
+                    (contractInWorkBindingSource.Position >= contractInWorkBindingSource.Count))
                 {
                     //contract not selected
                     MessageBox.Show("Не выбран договор", "Ошибка");
                     return;
                 }
 
-                DataRow currentRow = edocbaseDataSet.ContractComplitionMgrCfm.DefaultView[contractComplitionMgrCfmBindingSource.Position].Row;
+                DataRow currentRow = edocbaseDataSet.ContractInWork.DefaultView[contractInWorkBindingSource.Position].Row;
                 int idContract = Convert.ToInt32(currentRow["id"]);
 
-                if (MessageBox.Show("Подтвердить выполнение договора #" + idContract, "Подтвердить выполнение работ", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                if (MessageBox.Show("Подтвердить завершение работ по договору #" + idContract, "Подтвердить завершение работ", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
                     try
                     {
                         //set task finished
-                        this.contractComplitionMgrCfmTableAdapter.ConfirmFinished((int)Constants.ContractStatuses.ComplitionAgentConfrim, idContract);
+                        this.contractInWorkTableAdapter.WorkDone((int)Constants.ContractStatuses.ComplitionManagerConfrim, idContract);
 
                         //refresh data
                         UpdateDatabase();
@@ -334,6 +343,7 @@ namespace Edocsys
                 }
             }
         }
+
 
         //if (e.ColumnIndex == taskProcessedDataTableDataGridView.Columns["TaskReadyColumn"].Index)
         //{

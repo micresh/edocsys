@@ -200,5 +200,25 @@ namespace Edocsys
         {
             wmgr.ShowProductionForm();
         }
+
+        private void WorksToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            wmgr.ShowWorksForContractForm();
+        }
+
+        private void ContractPaymentsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            wmgr.ShowContractPaymentsForm();
+        }
+
+        private void InspectionControlToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            wmgr.ShowInspectionControlForm();
+        }
+
+        private void ContractStatsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            wmgr.ShowContractStatsForm();
+        }
     }
 }

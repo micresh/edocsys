@@ -37,10 +37,14 @@
             this.LoginToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ExitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.DocToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ProposalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ContractToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ExpertAssignToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.AgentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ProposalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ExpertAssignToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ContractToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.WorksToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ContractPaymentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.InspectionControlToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ContractStatsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.AdmToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.AdmpanelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ExpertsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -88,7 +92,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.MdiWindowListItem = this.WindowToolStripMenuItem;
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(559, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(825, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -132,41 +136,73 @@
             // DocToolStripMenuItem
             // 
             this.DocToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.AgentsToolStripMenuItem,
             this.ProposalToolStripMenuItem,
-            this.ContractToolStripMenuItem,
             this.ExpertAssignToolStripMenuItem,
-            this.AgentsToolStripMenuItem});
+            this.ContractToolStripMenuItem,
+            this.WorksToolStripMenuItem,
+            this.ContractPaymentsToolStripMenuItem,
+            this.InspectionControlToolStripMenuItem,
+            this.ContractStatsToolStripMenuItem});
             this.DocToolStripMenuItem.Name = "DocToolStripMenuItem";
             this.DocToolStripMenuItem.Size = new System.Drawing.Size(97, 20);
             this.DocToolStripMenuItem.Text = global::Edocsys.Properties.Settings.Default.DocToolStripMenuItemText;
             // 
+            // AgentsToolStripMenuItem
+            // 
+            this.AgentsToolStripMenuItem.Name = "AgentsToolStripMenuItem";
+            this.AgentsToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
+            this.AgentsToolStripMenuItem.Text = global::Edocsys.Properties.Settings.Default.ClientsFormText;
+            this.AgentsToolStripMenuItem.Click += new System.EventHandler(this.AgentsToolStripMenuItem_Click);
+            // 
             // ProposalToolStripMenuItem
             // 
             this.ProposalToolStripMenuItem.Name = "ProposalToolStripMenuItem";
-            this.ProposalToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
+            this.ProposalToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
             this.ProposalToolStripMenuItem.Text = global::Edocsys.Properties.Settings.Default.ProposalToolStripMenuItemText;
             this.ProposalToolStripMenuItem.Click += new System.EventHandler(this.proposalToolStripMenuItem_Click);
-            // 
-            // ContractToolStripMenuItem
-            // 
-            this.ContractToolStripMenuItem.Name = "ContractToolStripMenuItem";
-            this.ContractToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
-            this.ContractToolStripMenuItem.Text = global::Edocsys.Properties.Settings.Default.ContractToolStripMenuItemText;
-            this.ContractToolStripMenuItem.Click += new System.EventHandler(this.ContractToolStripMenuItem_Click);
             // 
             // ExpertAssignToolStripMenuItem
             // 
             this.ExpertAssignToolStripMenuItem.Name = "ExpertAssignToolStripMenuItem";
-            this.ExpertAssignToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
-            this.ExpertAssignToolStripMenuItem.Text = "Назначение эксперта";
+            this.ExpertAssignToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
+            this.ExpertAssignToolStripMenuItem.Text = global::Edocsys.Properties.Settings.Default.AssignexpertToolStripMenuItemText;
             this.ExpertAssignToolStripMenuItem.Click += new System.EventHandler(this.ExpertAssignToolStripMenuItem_Click);
             // 
-            // AgentsToolStripMenuItem
+            // ContractToolStripMenuItem
             // 
-            this.AgentsToolStripMenuItem.Name = "AgentsToolStripMenuItem";
-            this.AgentsToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
-            this.AgentsToolStripMenuItem.Text = "Контрагенты";
-            this.AgentsToolStripMenuItem.Click += new System.EventHandler(this.AgentsToolStripMenuItem_Click);
+            this.ContractToolStripMenuItem.Name = "ContractToolStripMenuItem";
+            this.ContractToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
+            this.ContractToolStripMenuItem.Text = global::Edocsys.Properties.Settings.Default.ContractToolStripMenuItemText;
+            this.ContractToolStripMenuItem.Click += new System.EventHandler(this.ContractToolStripMenuItem_Click);
+            // 
+            // WorksToolStripMenuItem
+            // 
+            this.WorksToolStripMenuItem.Name = "WorksToolStripMenuItem";
+            this.WorksToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
+            this.WorksToolStripMenuItem.Text = global::Edocsys.Properties.Settings.Default.WorksForContractTitle;
+            this.WorksToolStripMenuItem.Click += new System.EventHandler(this.WorksToolStripMenuItem_Click);
+            // 
+            // ContractPaymentsToolStripMenuItem
+            // 
+            this.ContractPaymentsToolStripMenuItem.Name = "ContractPaymentsToolStripMenuItem";
+            this.ContractPaymentsToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
+            this.ContractPaymentsToolStripMenuItem.Text = global::Edocsys.Properties.Settings.Default.ContractPaymentsTitle;
+            this.ContractPaymentsToolStripMenuItem.Click += new System.EventHandler(this.ContractPaymentsToolStripMenuItem_Click);
+            // 
+            // InspectionControlToolStripMenuItem
+            // 
+            this.InspectionControlToolStripMenuItem.Name = "InspectionControlToolStripMenuItem";
+            this.InspectionControlToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
+            this.InspectionControlToolStripMenuItem.Text = global::Edocsys.Properties.Settings.Default.InspectionControlMenuTitle;
+            this.InspectionControlToolStripMenuItem.Click += new System.EventHandler(this.InspectionControlToolStripMenuItem_Click);
+            // 
+            // ContractStatsToolStripMenuItem
+            // 
+            this.ContractStatsToolStripMenuItem.Name = "ContractStatsToolStripMenuItem";
+            this.ContractStatsToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
+            this.ContractStatsToolStripMenuItem.Text = global::Edocsys.Properties.Settings.Default.ContractStatsTitle;
+            this.ContractStatsToolStripMenuItem.Click += new System.EventHandler(this.ContractStatsToolStripMenuItem_Click);
             // 
             // AdmToolStripMenuItem
             // 
@@ -244,7 +280,7 @@
             this.fillUsersToolStripButton});
             this.toolStrip1.Location = new System.Drawing.Point(0, 24);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(559, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(825, 25);
             this.toolStrip1.TabIndex = 2;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -364,9 +400,9 @@
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.curentUserToolStripStatusLabel});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 362);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 475);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(559, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(825, 22);
             this.statusStrip1.TabIndex = 3;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -401,6 +437,8 @@
             this.tableAdapterManager.contract_types_for_workTableAdapter = null;
             this.tableAdapterManager.contract_typesTableAdapter = null;
             this.tableAdapterManager.ContractInfoTableAdapter = null;
+            this.tableAdapterManager.ContractPrepareForWorkTAdapter = null;
+            this.tableAdapterManager.ContractSigningTableAdapter = null;
             this.tableAdapterManager.contractsTableAdapter = null;
             this.tableAdapterManager.doc_templatesTableAdapter = null;
             this.tableAdapterManager.documentsTableAdapter = null;
@@ -421,7 +459,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(559, 384);
+            this.ClientSize = new System.Drawing.Size(825, 497);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.menuStrip1);
@@ -489,6 +527,10 @@
         private System.Windows.Forms.ToolStripMenuItem ExpertAssignToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem AgentsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ProductionToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem WorksToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem InspectionControlToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ContractPaymentsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ContractStatsToolStripMenuItem;
     }
 }
 
