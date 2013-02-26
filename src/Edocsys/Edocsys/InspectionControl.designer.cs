@@ -29,17 +29,35 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InspectionControlForm));
             System.Windows.Forms.Label date_planed_reatt_1Label;
             System.Windows.Forms.Label date_planed_reatt_2Label;
             System.Windows.Forms.Label date_planed_resertLabel;
             System.Windows.Forms.Label date_real_reatt_1Label;
             System.Windows.Forms.Label date_real_reatt_2Label;
             System.Windows.Forms.Label date_real_resertLabel;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InspectionControlForm));
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabReattestationSign = new System.Windows.Forms.TabPage();
             this.inspectionContractsDataGridView = new System.Windows.Forms.DataGridView();
+            this.productsnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contracttypesnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.agentsnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.agenttypesnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.date_planed_reatt_1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.date_planed_reatt_2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.date_planed_resert = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.costDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.totalcostDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateproposalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.agentsfullnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.expertFIODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SignContractColumn = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.inspectionContractsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.edocbaseDataSet = new Edocsys.EdocbaseDataSet();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.date_planed_resertDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.date_planed_reatt_2DateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.date_planed_reatt_1DateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.groupBoxContract = new System.Windows.Forms.GroupBox();
             this.buttonLoadContract = new System.Windows.Forms.Button();
             this.buttonSaveContract = new System.Windows.Forms.Button();
@@ -62,7 +80,24 @@
             this.filterInspectionContractsTextBox = new System.Windows.Forms.ToolStripTextBox();
             this.tabInspectionControl = new System.Windows.Forms.TabPage();
             this.contractsOnInspectionDataGridView = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewButtonColumn1 = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.contractsOnInspectionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel2 = new System.Windows.Forms.Panel();
+            this.buttonResert = new System.Windows.Forms.Button();
+            this.buttonReatt2 = new System.Windows.Forms.Button();
+            this.buttonReatt1 = new System.Windows.Forms.Button();
+            this.date_real_resertDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.date_real_reatt_2DateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.date_real_reatt_1DateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -85,46 +120,11 @@
             this.filterContractsOnInspectionTextBox = new System.Windows.Forms.ToolStripTextBox();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
-            this.date_planed_reatt_1DateTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.date_planed_reatt_2DateTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.date_planed_resertDateTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.inspectionContractsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.edocbaseDataSet = new Edocsys.EdocbaseDataSet();
             this.tableAdapterManager = new Edocsys.EdocbaseDataSetTableAdapters.TableAdapterManager();
             this.contractDocDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.contractDocDataTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.ContractDocDataTableAdapter();
             this.inspectionContractsTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.InspectionContractsTableAdapter();
-            this.contractsOnInspectionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.contractsOnInspectionTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.ContractsOnInspectionTableAdapter();
-            this.date_real_reatt_1DateTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.date_real_reatt_2DateTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.date_real_resertDateTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewButtonColumn1 = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.productsnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.contracttypesnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.agentsnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.agenttypesnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.date_planed_reatt_1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.date_planed_reatt_2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.date_planed_resert = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.costDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.totalcostDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dateproposalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.agentsfullnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.expertFIODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SignContractColumn = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.buttonReatt1 = new System.Windows.Forms.Button();
-            this.buttonReatt2 = new System.Windows.Forms.Button();
-            this.buttonResert = new System.Windows.Forms.Button();
             date_planed_reatt_1Label = new System.Windows.Forms.Label();
             date_planed_reatt_2Label = new System.Windows.Forms.Label();
             date_planed_resertLabel = new System.Windows.Forms.Label();
@@ -134,21 +134,75 @@
             this.tabControl.SuspendLayout();
             this.tabReattestationSign.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionContractsDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inspectionContractsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.edocbaseDataSet)).BeginInit();
             this.panel1.SuspendLayout();
             this.groupBoxContract.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigatorInspectionContracts)).BeginInit();
             this.bindingNavigatorInspectionContracts.SuspendLayout();
             this.tabInspectionControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.contractsOnInspectionDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.contractsOnInspectionBindingSource)).BeginInit();
             this.panel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.contractsOnInspectionBindingNavigator)).BeginInit();
             this.contractsOnInspectionBindingNavigator.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.inspectionContractsBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.edocbaseDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.contractDocDataBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.contractsOnInspectionBindingSource)).BeginInit();
             this.SuspendLayout();
+            // 
+            // date_planed_reatt_1Label
+            // 
+            date_planed_reatt_1Label.AutoSize = true;
+            date_planed_reatt_1Label.Location = new System.Drawing.Point(19, 21);
+            date_planed_reatt_1Label.Name = "date_planed_reatt_1Label";
+            date_planed_reatt_1Label.Size = new System.Drawing.Size(219, 13);
+            date_planed_reatt_1Label.TabIndex = 25;
+            date_planed_reatt_1Label.Text = "Ориентировочная дата 1-ой реаттестации";
+            // 
+            // date_planed_reatt_2Label
+            // 
+            date_planed_reatt_2Label.AutoSize = true;
+            date_planed_reatt_2Label.Location = new System.Drawing.Point(19, 64);
+            date_planed_reatt_2Label.Name = "date_planed_reatt_2Label";
+            date_planed_reatt_2Label.Size = new System.Drawing.Size(219, 13);
+            date_planed_reatt_2Label.TabIndex = 26;
+            date_planed_reatt_2Label.Text = "Ориентировочная дата 2-ой реаттестации";
+            // 
+            // date_planed_resertLabel
+            // 
+            date_planed_resertLabel.AutoSize = true;
+            date_planed_resertLabel.Location = new System.Drawing.Point(23, 106);
+            date_planed_resertLabel.Name = "date_planed_resertLabel";
+            date_planed_resertLabel.Size = new System.Drawing.Size(121, 13);
+            date_planed_resertLabel.TabIndex = 27;
+            date_planed_resertLabel.Text = "Дата ресертификации";
+            // 
+            // date_real_reatt_1Label
+            // 
+            date_real_reatt_1Label.AutoSize = true;
+            date_real_reatt_1Label.Location = new System.Drawing.Point(15, 13);
+            date_real_reatt_1Label.Name = "date_real_reatt_1Label";
+            date_real_reatt_1Label.Size = new System.Drawing.Size(178, 13);
+            date_real_reatt_1Label.TabIndex = 26;
+            date_real_reatt_1Label.Text = "Реальная дата 1-ой реаттестации";
+            // 
+            // date_real_reatt_2Label
+            // 
+            date_real_reatt_2Label.AutoSize = true;
+            date_real_reatt_2Label.Location = new System.Drawing.Point(15, 54);
+            date_real_reatt_2Label.Name = "date_real_reatt_2Label";
+            date_real_reatt_2Label.Size = new System.Drawing.Size(178, 13);
+            date_real_reatt_2Label.TabIndex = 28;
+            date_real_reatt_2Label.Text = "Реальная дата 2-ой реаттестации";
+            // 
+            // date_real_resertLabel
+            // 
+            date_real_resertLabel.AutoSize = true;
+            date_real_resertLabel.Location = new System.Drawing.Point(19, 99);
+            date_real_resertLabel.Name = "date_real_resertLabel";
+            date_real_resertLabel.Size = new System.Drawing.Size(170, 13);
+            date_real_resertLabel.TabIndex = 30;
+            date_real_resertLabel.Text = "Реальная дата ресертификации";
             // 
             // tabControl
             // 
@@ -204,6 +258,94 @@
             this.inspectionContractsDataGridView.Size = new System.Drawing.Size(1100, 253);
             this.inspectionContractsDataGridView.TabIndex = 30;
             // 
+            // productsnameDataGridViewTextBoxColumn
+            // 
+            this.productsnameDataGridViewTextBoxColumn.DataPropertyName = "products_name";
+            this.productsnameDataGridViewTextBoxColumn.HeaderText = "Продукция";
+            this.productsnameDataGridViewTextBoxColumn.Name = "productsnameDataGridViewTextBoxColumn";
+            // 
+            // contracttypesnameDataGridViewTextBoxColumn
+            // 
+            this.contracttypesnameDataGridViewTextBoxColumn.DataPropertyName = "contract_types_name";
+            this.contracttypesnameDataGridViewTextBoxColumn.HeaderText = "Тип работ";
+            this.contracttypesnameDataGridViewTextBoxColumn.Name = "contracttypesnameDataGridViewTextBoxColumn";
+            // 
+            // agentsnameDataGridViewTextBoxColumn
+            // 
+            this.agentsnameDataGridViewTextBoxColumn.DataPropertyName = "agents_name";
+            this.agentsnameDataGridViewTextBoxColumn.HeaderText = "Контрагент";
+            this.agentsnameDataGridViewTextBoxColumn.Name = "agentsnameDataGridViewTextBoxColumn";
+            // 
+            // agenttypesnameDataGridViewTextBoxColumn
+            // 
+            this.agenttypesnameDataGridViewTextBoxColumn.DataPropertyName = "agent_types_name";
+            this.agenttypesnameDataGridViewTextBoxColumn.HeaderText = "Форма";
+            this.agenttypesnameDataGridViewTextBoxColumn.Name = "agenttypesnameDataGridViewTextBoxColumn";
+            // 
+            // date_planed_reatt_1
+            // 
+            this.date_planed_reatt_1.DataPropertyName = "date_planed_reatt_1";
+            this.date_planed_reatt_1.HeaderText = "Дата 1-ой реаттестации";
+            this.date_planed_reatt_1.Name = "date_planed_reatt_1";
+            // 
+            // date_planed_reatt_2
+            // 
+            this.date_planed_reatt_2.DataPropertyName = "date_planed_reatt_2";
+            this.date_planed_reatt_2.HeaderText = "Дата 2-ой реаттестации";
+            this.date_planed_reatt_2.Name = "date_planed_reatt_2";
+            // 
+            // date_planed_resert
+            // 
+            this.date_planed_resert.DataPropertyName = "date_planed_resert";
+            this.date_planed_resert.HeaderText = "Дата ресертификации";
+            this.date_planed_resert.Name = "date_planed_resert";
+            // 
+            // costDataGridViewTextBoxColumn
+            // 
+            this.costDataGridViewTextBoxColumn.DataPropertyName = "cost";
+            this.costDataGridViewTextBoxColumn.HeaderText = "Сумма";
+            this.costDataGridViewTextBoxColumn.Name = "costDataGridViewTextBoxColumn";
+            // 
+            // totalcostDataGridViewTextBoxColumn
+            // 
+            this.totalcostDataGridViewTextBoxColumn.DataPropertyName = "total_cost";
+            this.totalcostDataGridViewTextBoxColumn.HeaderText = "Общая сумма";
+            this.totalcostDataGridViewTextBoxColumn.Name = "totalcostDataGridViewTextBoxColumn";
+            // 
+            // dateproposalDataGridViewTextBoxColumn
+            // 
+            this.dateproposalDataGridViewTextBoxColumn.DataPropertyName = "date_proposal";
+            this.dateproposalDataGridViewTextBoxColumn.HeaderText = "Дата поступления заявки";
+            this.dateproposalDataGridViewTextBoxColumn.Name = "dateproposalDataGridViewTextBoxColumn";
+            // 
+            // agentsfullnameDataGridViewTextBoxColumn
+            // 
+            this.agentsfullnameDataGridViewTextBoxColumn.DataPropertyName = "agents_fullname";
+            this.agentsfullnameDataGridViewTextBoxColumn.HeaderText = "Контрагент";
+            this.agentsfullnameDataGridViewTextBoxColumn.Name = "agentsfullnameDataGridViewTextBoxColumn";
+            // 
+            // expertFIODataGridViewTextBoxColumn
+            // 
+            this.expertFIODataGridViewTextBoxColumn.DataPropertyName = "expert_FIO";
+            this.expertFIODataGridViewTextBoxColumn.HeaderText = "Эксперт";
+            this.expertFIODataGridViewTextBoxColumn.Name = "expertFIODataGridViewTextBoxColumn";
+            // 
+            // SignContractColumn
+            // 
+            this.SignContractColumn.HeaderText = "Начать инспекционный контроль";
+            this.SignContractColumn.Name = "SignContractColumn";
+            // 
+            // inspectionContractsBindingSource
+            // 
+            this.inspectionContractsBindingSource.DataMember = "InspectionContracts";
+            this.inspectionContractsBindingSource.DataSource = this.edocbaseDataSet;
+            // 
+            // edocbaseDataSet
+            // 
+            this.edocbaseDataSet.CaseSensitive = true;
+            this.edocbaseDataSet.DataSetName = "EdocbaseDataSet";
+            this.edocbaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // panel1
             // 
             this.panel1.Controls.Add(date_planed_resertLabel);
@@ -219,20 +361,44 @@
             this.panel1.Size = new System.Drawing.Size(1100, 160);
             this.panel1.TabIndex = 28;
             // 
+            // date_planed_resertDateTimePicker
+            // 
+            this.date_planed_resertDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.inspectionContractsBindingSource, "date_planed_resert", true));
+            this.date_planed_resertDateTimePicker.Location = new System.Drawing.Point(244, 106);
+            this.date_planed_resertDateTimePicker.Name = "date_planed_resertDateTimePicker";
+            this.date_planed_resertDateTimePicker.Size = new System.Drawing.Size(127, 20);
+            this.date_planed_resertDateTimePicker.TabIndex = 28;
+            // 
+            // date_planed_reatt_2DateTimePicker
+            // 
+            this.date_planed_reatt_2DateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.inspectionContractsBindingSource, "date_planed_reatt_2", true));
+            this.date_planed_reatt_2DateTimePicker.Location = new System.Drawing.Point(244, 64);
+            this.date_planed_reatt_2DateTimePicker.Name = "date_planed_reatt_2DateTimePicker";
+            this.date_planed_reatt_2DateTimePicker.Size = new System.Drawing.Size(127, 20);
+            this.date_planed_reatt_2DateTimePicker.TabIndex = 27;
+            // 
+            // date_planed_reatt_1DateTimePicker
+            // 
+            this.date_planed_reatt_1DateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.inspectionContractsBindingSource, "date_planed_reatt_1", true));
+            this.date_planed_reatt_1DateTimePicker.Location = new System.Drawing.Point(244, 15);
+            this.date_planed_reatt_1DateTimePicker.Name = "date_planed_reatt_1DateTimePicker";
+            this.date_planed_reatt_1DateTimePicker.Size = new System.Drawing.Size(127, 20);
+            this.date_planed_reatt_1DateTimePicker.TabIndex = 26;
+            // 
             // groupBoxContract
             // 
             this.groupBoxContract.Controls.Add(this.buttonLoadContract);
             this.groupBoxContract.Controls.Add(this.buttonSaveContract);
             this.groupBoxContract.Controls.Add(this.buttonEditContract);
             this.groupBoxContract.Controls.Add(this.buttonGenerateContract);
-            this.groupBoxContract.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Edocsys.Properties.Settings.Default, "ContractOperationGroupBox", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.groupBoxContract.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Edocsys.Properties.Settings.Default, "ReattContractTitle", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.groupBoxContract.Dock = System.Windows.Forms.DockStyle.Right;
             this.groupBoxContract.Location = new System.Drawing.Point(813, 0);
             this.groupBoxContract.Name = "groupBoxContract";
             this.groupBoxContract.Size = new System.Drawing.Size(287, 160);
             this.groupBoxContract.TabIndex = 25;
             this.groupBoxContract.TabStop = false;
-            this.groupBoxContract.Text = global::Edocsys.Properties.Settings.Default.ContractOperationGroupBox;
+            this.groupBoxContract.Text = global::Edocsys.Properties.Settings.Default.ReattContractTitle;
             // 
             // buttonLoadContract
             // 
@@ -243,6 +409,7 @@
             this.buttonLoadContract.TabIndex = 20;
             this.buttonLoadContract.Text = global::Edocsys.Properties.Settings.Default.LoadContractTitle;
             this.buttonLoadContract.UseVisualStyleBackColor = true;
+            this.buttonLoadContract.Click += new System.EventHandler(this.buttonLoadContract_Click);
             // 
             // buttonSaveContract
             // 
@@ -253,6 +420,7 @@
             this.buttonSaveContract.TabIndex = 19;
             this.buttonSaveContract.Text = global::Edocsys.Properties.Settings.Default.SaveContractTitle;
             this.buttonSaveContract.UseVisualStyleBackColor = true;
+            this.buttonSaveContract.Click += new System.EventHandler(this.buttonSaveContract_Click);
             // 
             // buttonEditContract
             // 
@@ -263,6 +431,7 @@
             this.buttonEditContract.TabIndex = 18;
             this.buttonEditContract.Text = global::Edocsys.Properties.Settings.Default.EditContractTitle;
             this.buttonEditContract.UseVisualStyleBackColor = true;
+            this.buttonEditContract.Click += new System.EventHandler(this.buttonEditContract_Click);
             // 
             // buttonGenerateContract
             // 
@@ -273,6 +442,7 @@
             this.buttonGenerateContract.TabIndex = 17;
             this.buttonGenerateContract.Text = global::Edocsys.Properties.Settings.Default.GenerateContractTitle;
             this.buttonGenerateContract.UseVisualStyleBackColor = true;
+            this.buttonGenerateContract.Click += new System.EventHandler(this.buttonGenerateContract_Click);
             // 
             // bindingNavigatorInspectionContracts
             // 
@@ -389,6 +559,7 @@
             this.usersBindingNavigatorSaveItem.Name = "usersBindingNavigatorSaveItem";
             this.usersBindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 22);
             this.usersBindingNavigatorSaveItem.Text = "Save Data";
+            this.usersBindingNavigatorSaveItem.Click += new System.EventHandler(this.usersBindingNavigatorSaveItem_Click_1);
             // 
             // toolStripSeparator1
             // 
@@ -446,6 +617,70 @@
             this.contractsOnInspectionDataGridView.Size = new System.Drawing.Size(1100, 246);
             this.contractsOnInspectionDataGridView.TabIndex = 30;
             // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "products_name";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Продукция";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "contract_types_name";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Тип работ";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "agents_name";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Контрагент";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "agent_types_name";
+            this.dataGridViewTextBoxColumn4.HeaderText = "Форма";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "cost";
+            this.dataGridViewTextBoxColumn5.HeaderText = "Сумма";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "total_cost";
+            this.dataGridViewTextBoxColumn6.HeaderText = "Общая сумма";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.DataPropertyName = "date_proposal";
+            this.dataGridViewTextBoxColumn7.HeaderText = "Дата поступления заявки";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            this.dataGridViewTextBoxColumn8.DataPropertyName = "agents_fullname";
+            this.dataGridViewTextBoxColumn8.HeaderText = "Контрагент";
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            this.dataGridViewTextBoxColumn9.DataPropertyName = "expert_FIO";
+            this.dataGridViewTextBoxColumn9.HeaderText = "Эксперт";
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            // 
+            // dataGridViewButtonColumn1
+            // 
+            this.dataGridViewButtonColumn1.HeaderText = "Завершить обслуживание";
+            this.dataGridViewButtonColumn1.Name = "dataGridViewButtonColumn1";
+            // 
+            // contractsOnInspectionBindingSource
+            // 
+            this.contractsOnInspectionBindingSource.DataMember = "ContractsOnInspection";
+            this.contractsOnInspectionBindingSource.DataSource = this.edocbaseDataSet;
+            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.buttonResert);
@@ -463,6 +698,60 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1100, 167);
             this.panel2.TabIndex = 28;
+            // 
+            // buttonResert
+            // 
+            this.buttonResert.Location = new System.Drawing.Point(355, 94);
+            this.buttonResert.Name = "buttonResert";
+            this.buttonResert.Size = new System.Drawing.Size(221, 23);
+            this.buttonResert.TabIndex = 34;
+            this.buttonResert.Text = "Провести ресертификацию";
+            this.buttonResert.UseVisualStyleBackColor = true;
+            this.buttonResert.Click += new System.EventHandler(this.buttonResert_Click);
+            // 
+            // buttonReatt2
+            // 
+            this.buttonReatt2.Location = new System.Drawing.Point(355, 44);
+            this.buttonReatt2.Name = "buttonReatt2";
+            this.buttonReatt2.Size = new System.Drawing.Size(221, 23);
+            this.buttonReatt2.TabIndex = 33;
+            this.buttonReatt2.Text = "Провести 2-ю реаттестация";
+            this.buttonReatt2.UseVisualStyleBackColor = true;
+            this.buttonReatt2.Click += new System.EventHandler(this.buttonReatt2_Click);
+            // 
+            // buttonReatt1
+            // 
+            this.buttonReatt1.Location = new System.Drawing.Point(355, 9);
+            this.buttonReatt1.Name = "buttonReatt1";
+            this.buttonReatt1.Size = new System.Drawing.Size(221, 23);
+            this.buttonReatt1.TabIndex = 32;
+            this.buttonReatt1.Text = "Провести 1-ю реаттестацию";
+            this.buttonReatt1.UseVisualStyleBackColor = true;
+            this.buttonReatt1.Click += new System.EventHandler(this.buttonReatt1_Click);
+            // 
+            // date_real_resertDateTimePicker
+            // 
+            this.date_real_resertDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.contractsOnInspectionBindingSource, "date_real_resert", true));
+            this.date_real_resertDateTimePicker.Location = new System.Drawing.Point(205, 94);
+            this.date_real_resertDateTimePicker.Name = "date_real_resertDateTimePicker";
+            this.date_real_resertDateTimePicker.Size = new System.Drawing.Size(144, 20);
+            this.date_real_resertDateTimePicker.TabIndex = 31;
+            // 
+            // date_real_reatt_2DateTimePicker
+            // 
+            this.date_real_reatt_2DateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.contractsOnInspectionBindingSource, "date_real_reatt_2", true));
+            this.date_real_reatt_2DateTimePicker.Location = new System.Drawing.Point(205, 47);
+            this.date_real_reatt_2DateTimePicker.Name = "date_real_reatt_2DateTimePicker";
+            this.date_real_reatt_2DateTimePicker.Size = new System.Drawing.Size(144, 20);
+            this.date_real_reatt_2DateTimePicker.TabIndex = 29;
+            // 
+            // date_real_reatt_1DateTimePicker
+            // 
+            this.date_real_reatt_1DateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.contractsOnInspectionBindingSource, "date_real_reatt_1", true));
+            this.date_real_reatt_1DateTimePicker.Location = new System.Drawing.Point(205, 9);
+            this.date_real_reatt_1DateTimePicker.Name = "date_real_reatt_1DateTimePicker";
+            this.date_real_reatt_1DateTimePicker.Size = new System.Drawing.Size(144, 20);
+            this.date_real_reatt_1DateTimePicker.TabIndex = 27;
             // 
             // groupBox1
             // 
@@ -634,6 +923,7 @@
             this.toolStripButton6.Name = "toolStripButton6";
             this.toolStripButton6.Size = new System.Drawing.Size(23, 22);
             this.toolStripButton6.Text = "Save Data";
+            this.toolStripButton6.Click += new System.EventHandler(this.toolStripButton6_Click_1);
             // 
             // toolStripSeparator5
             // 
@@ -658,68 +948,6 @@
             // saveFileDialog
             // 
             this.saveFileDialog.Filter = "Файлы Word 2007-2010| *.docx|Все файлы|*.*";
-            // 
-            // date_planed_reatt_1Label
-            // 
-            date_planed_reatt_1Label.AutoSize = true;
-            date_planed_reatt_1Label.Location = new System.Drawing.Point(19, 21);
-            date_planed_reatt_1Label.Name = "date_planed_reatt_1Label";
-            date_planed_reatt_1Label.Size = new System.Drawing.Size(99, 13);
-            date_planed_reatt_1Label.TabIndex = 25;
-            date_planed_reatt_1Label.Text = "date planed reatt 1:";
-            // 
-            // date_planed_reatt_1DateTimePicker
-            // 
-            this.date_planed_reatt_1DateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.inspectionContractsBindingSource, "date_planed_reatt_1", true));
-            this.date_planed_reatt_1DateTimePicker.Location = new System.Drawing.Point(124, 17);
-            this.date_planed_reatt_1DateTimePicker.Name = "date_planed_reatt_1DateTimePicker";
-            this.date_planed_reatt_1DateTimePicker.Size = new System.Drawing.Size(200, 20);
-            this.date_planed_reatt_1DateTimePicker.TabIndex = 26;
-            // 
-            // date_planed_reatt_2Label
-            // 
-            date_planed_reatt_2Label.AutoSize = true;
-            date_planed_reatt_2Label.Location = new System.Drawing.Point(19, 64);
-            date_planed_reatt_2Label.Name = "date_planed_reatt_2Label";
-            date_planed_reatt_2Label.Size = new System.Drawing.Size(99, 13);
-            date_planed_reatt_2Label.TabIndex = 26;
-            date_planed_reatt_2Label.Text = "date planed reatt 2:";
-            // 
-            // date_planed_reatt_2DateTimePicker
-            // 
-            this.date_planed_reatt_2DateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.inspectionContractsBindingSource, "date_planed_reatt_2", true));
-            this.date_planed_reatt_2DateTimePicker.Location = new System.Drawing.Point(124, 60);
-            this.date_planed_reatt_2DateTimePicker.Name = "date_planed_reatt_2DateTimePicker";
-            this.date_planed_reatt_2DateTimePicker.Size = new System.Drawing.Size(200, 20);
-            this.date_planed_reatt_2DateTimePicker.TabIndex = 27;
-            // 
-            // date_planed_resertLabel
-            // 
-            date_planed_resertLabel.AutoSize = true;
-            date_planed_resertLabel.Location = new System.Drawing.Point(23, 106);
-            date_planed_resertLabel.Name = "date_planed_resertLabel";
-            date_planed_resertLabel.Size = new System.Drawing.Size(95, 13);
-            date_planed_resertLabel.TabIndex = 27;
-            date_planed_resertLabel.Text = "date planed resert:";
-            // 
-            // date_planed_resertDateTimePicker
-            // 
-            this.date_planed_resertDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.inspectionContractsBindingSource, "date_planed_resert", true));
-            this.date_planed_resertDateTimePicker.Location = new System.Drawing.Point(124, 102);
-            this.date_planed_resertDateTimePicker.Name = "date_planed_resertDateTimePicker";
-            this.date_planed_resertDateTimePicker.Size = new System.Drawing.Size(200, 20);
-            this.date_planed_resertDateTimePicker.TabIndex = 28;
-            // 
-            // inspectionContractsBindingSource
-            // 
-            this.inspectionContractsBindingSource.DataMember = "InspectionContracts";
-            this.inspectionContractsBindingSource.DataSource = this.edocbaseDataSet;
-            // 
-            // edocbaseDataSet
-            // 
-            this.edocbaseDataSet.CaseSensitive = true;
-            this.edocbaseDataSet.DataSetName = "EdocbaseDataSet";
-            this.edocbaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // tableAdapterManager
             // 
@@ -765,237 +993,9 @@
             // 
             this.inspectionContractsTableAdapter.ClearBeforeFill = true;
             // 
-            // contractsOnInspectionBindingSource
-            // 
-            this.contractsOnInspectionBindingSource.DataMember = "ContractsOnInspection";
-            this.contractsOnInspectionBindingSource.DataSource = this.edocbaseDataSet;
-            // 
             // contractsOnInspectionTableAdapter
             // 
             this.contractsOnInspectionTableAdapter.ClearBeforeFill = true;
-            // 
-            // date_real_reatt_1Label
-            // 
-            date_real_reatt_1Label.AutoSize = true;
-            date_real_reatt_1Label.Location = new System.Drawing.Point(15, 13);
-            date_real_reatt_1Label.Name = "date_real_reatt_1Label";
-            date_real_reatt_1Label.Size = new System.Drawing.Size(84, 13);
-            date_real_reatt_1Label.TabIndex = 26;
-            date_real_reatt_1Label.Text = "date real reatt 1:";
-            date_real_reatt_1Label.Click += new System.EventHandler(this.date_real_reatt_1Label_Click);
-            // 
-            // date_real_reatt_1DateTimePicker
-            // 
-            this.date_real_reatt_1DateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.contractsOnInspectionBindingSource, "date_real_reatt_1", true));
-            this.date_real_reatt_1DateTimePicker.Location = new System.Drawing.Point(105, 9);
-            this.date_real_reatt_1DateTimePicker.Name = "date_real_reatt_1DateTimePicker";
-            this.date_real_reatt_1DateTimePicker.Size = new System.Drawing.Size(144, 20);
-            this.date_real_reatt_1DateTimePicker.TabIndex = 27;
-            this.date_real_reatt_1DateTimePicker.ValueChanged += new System.EventHandler(this.date_real_reatt_1DateTimePicker_ValueChanged);
-            // 
-            // date_real_reatt_2Label
-            // 
-            date_real_reatt_2Label.AutoSize = true;
-            date_real_reatt_2Label.Location = new System.Drawing.Point(15, 54);
-            date_real_reatt_2Label.Name = "date_real_reatt_2Label";
-            date_real_reatt_2Label.Size = new System.Drawing.Size(84, 13);
-            date_real_reatt_2Label.TabIndex = 28;
-            date_real_reatt_2Label.Text = "date real reatt 2:";
-            date_real_reatt_2Label.Click += new System.EventHandler(this.date_real_reatt_2Label_Click);
-            // 
-            // date_real_reatt_2DateTimePicker
-            // 
-            this.date_real_reatt_2DateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.contractsOnInspectionBindingSource, "date_real_reatt_2", true));
-            this.date_real_reatt_2DateTimePicker.Location = new System.Drawing.Point(105, 50);
-            this.date_real_reatt_2DateTimePicker.Name = "date_real_reatt_2DateTimePicker";
-            this.date_real_reatt_2DateTimePicker.Size = new System.Drawing.Size(144, 20);
-            this.date_real_reatt_2DateTimePicker.TabIndex = 29;
-            this.date_real_reatt_2DateTimePicker.ValueChanged += new System.EventHandler(this.date_real_reatt_2DateTimePicker_ValueChanged);
-            // 
-            // date_real_resertLabel
-            // 
-            date_real_resertLabel.AutoSize = true;
-            date_real_resertLabel.Location = new System.Drawing.Point(19, 99);
-            date_real_resertLabel.Name = "date_real_resertLabel";
-            date_real_resertLabel.Size = new System.Drawing.Size(80, 13);
-            date_real_resertLabel.TabIndex = 30;
-            date_real_resertLabel.Text = "date real resert:";
-            date_real_resertLabel.Click += new System.EventHandler(this.date_real_resertLabel_Click);
-            // 
-            // date_real_resertDateTimePicker
-            // 
-            this.date_real_resertDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.contractsOnInspectionBindingSource, "date_real_resert", true));
-            this.date_real_resertDateTimePicker.Location = new System.Drawing.Point(105, 95);
-            this.date_real_resertDateTimePicker.Name = "date_real_resertDateTimePicker";
-            this.date_real_resertDateTimePicker.Size = new System.Drawing.Size(144, 20);
-            this.date_real_resertDateTimePicker.TabIndex = 31;
-            this.date_real_resertDateTimePicker.ValueChanged += new System.EventHandler(this.date_real_resertDateTimePicker_ValueChanged);
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "products_name";
-            this.dataGridViewTextBoxColumn1.HeaderText = "Продукция";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "contract_types_name";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Тип работ";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "agents_name";
-            this.dataGridViewTextBoxColumn3.HeaderText = "Контрагент";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "agent_types_name";
-            this.dataGridViewTextBoxColumn4.HeaderText = "Форма";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "cost";
-            this.dataGridViewTextBoxColumn5.HeaderText = "Сумма";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "total_cost";
-            this.dataGridViewTextBoxColumn6.HeaderText = "Общая сумма";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            this.dataGridViewTextBoxColumn7.DataPropertyName = "date_proposal";
-            this.dataGridViewTextBoxColumn7.HeaderText = "Дата поступления заявки";
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            // 
-            // dataGridViewTextBoxColumn8
-            // 
-            this.dataGridViewTextBoxColumn8.DataPropertyName = "agents_fullname";
-            this.dataGridViewTextBoxColumn8.HeaderText = "Контрагент";
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            // 
-            // dataGridViewTextBoxColumn9
-            // 
-            this.dataGridViewTextBoxColumn9.DataPropertyName = "expert_FIO";
-            this.dataGridViewTextBoxColumn9.HeaderText = "Эксперт";
-            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-            // 
-            // dataGridViewButtonColumn1
-            // 
-            this.dataGridViewButtonColumn1.HeaderText = "Завершить обслуживание";
-            this.dataGridViewButtonColumn1.Name = "dataGridViewButtonColumn1";
-            // 
-            // productsnameDataGridViewTextBoxColumn
-            // 
-            this.productsnameDataGridViewTextBoxColumn.DataPropertyName = "products_name";
-            this.productsnameDataGridViewTextBoxColumn.HeaderText = "Продукция";
-            this.productsnameDataGridViewTextBoxColumn.Name = "productsnameDataGridViewTextBoxColumn";
-            // 
-            // contracttypesnameDataGridViewTextBoxColumn
-            // 
-            this.contracttypesnameDataGridViewTextBoxColumn.DataPropertyName = "contract_types_name";
-            this.contracttypesnameDataGridViewTextBoxColumn.HeaderText = "Тип работ";
-            this.contracttypesnameDataGridViewTextBoxColumn.Name = "contracttypesnameDataGridViewTextBoxColumn";
-            // 
-            // agentsnameDataGridViewTextBoxColumn
-            // 
-            this.agentsnameDataGridViewTextBoxColumn.DataPropertyName = "agents_name";
-            this.agentsnameDataGridViewTextBoxColumn.HeaderText = "Контрагент";
-            this.agentsnameDataGridViewTextBoxColumn.Name = "agentsnameDataGridViewTextBoxColumn";
-            // 
-            // agenttypesnameDataGridViewTextBoxColumn
-            // 
-            this.agenttypesnameDataGridViewTextBoxColumn.DataPropertyName = "agent_types_name";
-            this.agenttypesnameDataGridViewTextBoxColumn.HeaderText = "Форма";
-            this.agenttypesnameDataGridViewTextBoxColumn.Name = "agenttypesnameDataGridViewTextBoxColumn";
-            // 
-            // date_planed_reatt_1
-            // 
-            this.date_planed_reatt_1.DataPropertyName = "date_planed_reatt_1";
-            this.date_planed_reatt_1.HeaderText = "Дата 1-ой реаттестации";
-            this.date_planed_reatt_1.Name = "date_planed_reatt_1";
-            // 
-            // date_planed_reatt_2
-            // 
-            this.date_planed_reatt_2.DataPropertyName = "date_planed_reatt_2";
-            this.date_planed_reatt_2.HeaderText = "Дата 2-ой реаттестации";
-            this.date_planed_reatt_2.Name = "date_planed_reatt_2";
-            // 
-            // date_planed_resert
-            // 
-            this.date_planed_resert.DataPropertyName = "date_planed_resert";
-            this.date_planed_resert.HeaderText = "Дата ресертификации";
-            this.date_planed_resert.Name = "date_planed_resert";
-            // 
-            // costDataGridViewTextBoxColumn
-            // 
-            this.costDataGridViewTextBoxColumn.DataPropertyName = "cost";
-            this.costDataGridViewTextBoxColumn.HeaderText = "Сумма";
-            this.costDataGridViewTextBoxColumn.Name = "costDataGridViewTextBoxColumn";
-            // 
-            // totalcostDataGridViewTextBoxColumn
-            // 
-            this.totalcostDataGridViewTextBoxColumn.DataPropertyName = "total_cost";
-            this.totalcostDataGridViewTextBoxColumn.HeaderText = "Общая сумма";
-            this.totalcostDataGridViewTextBoxColumn.Name = "totalcostDataGridViewTextBoxColumn";
-            // 
-            // dateproposalDataGridViewTextBoxColumn
-            // 
-            this.dateproposalDataGridViewTextBoxColumn.DataPropertyName = "date_proposal";
-            this.dateproposalDataGridViewTextBoxColumn.HeaderText = "Дата поступления заявки";
-            this.dateproposalDataGridViewTextBoxColumn.Name = "dateproposalDataGridViewTextBoxColumn";
-            // 
-            // agentsfullnameDataGridViewTextBoxColumn
-            // 
-            this.agentsfullnameDataGridViewTextBoxColumn.DataPropertyName = "agents_fullname";
-            this.agentsfullnameDataGridViewTextBoxColumn.HeaderText = "Контрагент";
-            this.agentsfullnameDataGridViewTextBoxColumn.Name = "agentsfullnameDataGridViewTextBoxColumn";
-            // 
-            // expertFIODataGridViewTextBoxColumn
-            // 
-            this.expertFIODataGridViewTextBoxColumn.DataPropertyName = "expert_FIO";
-            this.expertFIODataGridViewTextBoxColumn.HeaderText = "Эксперт";
-            this.expertFIODataGridViewTextBoxColumn.Name = "expertFIODataGridViewTextBoxColumn";
-            // 
-            // SignContractColumn
-            // 
-            this.SignContractColumn.HeaderText = "Начать инспекционный контроль";
-            this.SignContractColumn.Name = "SignContractColumn";
-            // 
-            // buttonReatt1
-            // 
-            this.buttonReatt1.Location = new System.Drawing.Point(285, 6);
-            this.buttonReatt1.Name = "buttonReatt1";
-            this.buttonReatt1.Size = new System.Drawing.Size(221, 23);
-            this.buttonReatt1.TabIndex = 32;
-            this.buttonReatt1.Text = "Провести 1-ю реаттестацию";
-            this.buttonReatt1.UseVisualStyleBackColor = true;
-            this.buttonReatt1.Click += new System.EventHandler(this.buttonReatt1_Click);
-            // 
-            // buttonReatt2
-            // 
-            this.buttonReatt2.Location = new System.Drawing.Point(285, 44);
-            this.buttonReatt2.Name = "buttonReatt2";
-            this.buttonReatt2.Size = new System.Drawing.Size(221, 23);
-            this.buttonReatt2.TabIndex = 33;
-            this.buttonReatt2.Text = "Провести 2-ю реаттестация";
-            this.buttonReatt2.UseVisualStyleBackColor = true;
-            this.buttonReatt2.Click += new System.EventHandler(this.buttonReatt2_Click);
-            // 
-            // buttonResert
-            // 
-            this.buttonResert.Location = new System.Drawing.Point(285, 94);
-            this.buttonResert.Name = "buttonResert";
-            this.buttonResert.Size = new System.Drawing.Size(221, 23);
-            this.buttonResert.TabIndex = 34;
-            this.buttonResert.Text = "Провести ресертификацию";
-            this.buttonResert.UseVisualStyleBackColor = true;
-            this.buttonResert.Click += new System.EventHandler(this.buttonResert_Click);
             // 
             // InspectionControlForm
             // 
@@ -1011,6 +1011,8 @@
             this.tabReattestationSign.ResumeLayout(false);
             this.tabReattestationSign.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.inspectionContractsDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inspectionContractsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.edocbaseDataSet)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.groupBoxContract.ResumeLayout(false);
@@ -1020,16 +1022,14 @@
             this.tabInspectionControl.ResumeLayout(false);
             this.tabInspectionControl.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.contractsOnInspectionDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.contractsOnInspectionBindingSource)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.contractsOnInspectionBindingNavigator)).EndInit();
             this.contractsOnInspectionBindingNavigator.ResumeLayout(false);
             this.contractsOnInspectionBindingNavigator.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.inspectionContractsBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.edocbaseDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.contractDocDataBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.contractsOnInspectionBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
