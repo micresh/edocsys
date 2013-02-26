@@ -327,7 +327,7 @@
       <Value Profile="(Default)">Дата окончания работ</Value>
     </Setting>
     <Setting Name="ReattestationSignTitle" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Заключение договора ресертификации</Value>
+      <Value Profile="(Default)">Заключение договора инспекционного контроля</Value>
     </Setting>
     <Setting Name="InspectionControlTitle" Type="System.String" Scope="User">
       <Value Profile="(Default)">Договора на инспекционном контроле</Value>
@@ -372,6 +372,9 @@
     </Setting>
     <Setting Name="ActLoadTitle" Type="System.String" Scope="User">
       <Value Profile="(Default)">Загрузить файл акта с диска</Value>
+    </Setting>
+    <Setting Name="ReattContractTitle" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Операции с договором инспекционного контроля</Value>
     </Setting>
   </Settings>
 </SettingsFile>

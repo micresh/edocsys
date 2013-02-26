@@ -117,7 +117,7 @@ namespace Edocsys
                 contractGenerator.GenerateDoc(contract_id, docType, (id) =>
                     {
                         //found doc -> update?
-                        return MessageBox.Show("Обновить документ для контракта #" + id, "Подтвердить обновление документа", MessageBoxButtons.YesNo) == DialogResult.Yes;
+                        return MessageBox.Show("Обновить документ для договора #" + id, "Подтвердить обновление документа", MessageBoxButtons.YesNo) == DialogResult.Yes;
                     });
             }
             catch (NullReferenceException ex)
@@ -161,7 +161,7 @@ namespace Edocsys
                 contractGenerator.EditDoc(contract_id, docType, (id) =>
                 {
                     //file changed -> update?
-                    return MessageBox.Show("Обновить документ для заявки #" + id, "Подтвердить обновление документа", MessageBoxButtons.YesNo) == DialogResult.Yes;
+                    return MessageBox.Show("Обновить документ договора #" + id, "Подтвердить обновление документа", MessageBoxButtons.YesNo) == DialogResult.Yes;
                 });
             }
             catch (NullReferenceException ex)
