@@ -13,8 +13,9 @@ INSERT INTO `edocbase`.`users` (`login`, `password`, `lastname`, `firstname`, `m
 -- insert contract_types into contract_types table
 INSERT INTO `edocbase`.`contract_types` (`id`, `name`) VALUES (0,'Заявка');
 INSERT INTO `edocbase`.`contract_types` (`id`, `name`) VALUES (1,'Акт выполненных работ');
-INSERT INTO `edocbase`.`contract_types` (`id`, `name`) VALUES (2,'Документ о первом инспекционном контроле/реаттестации');
-INSERT INTO `edocbase`.`contract_types` (`id`, `name`) VALUES (3,'Документ о втором инспекционном контроле/реаттестации');
+INSERT INTO `edocbase`.`contract_types` (`id`, `name`) VALUES (2,'Дооговор об инспекционном контроле');
+-- INSERT INTO `edocbase`.`contract_types` (`id`, `name`) VALUES (2,'Документ о первом инспекционном контроле/реаттестации');
+-- INSERT INTO `edocbase`.`contract_types` (`id`, `name`) VALUES (3,'Документ о втором инспекционном контроле/реаттестации');
 
 INSERT INTO `edocbase`.`contract_types` (`id`, `name`) VALUES (10,'Сертификация');
 INSERT INTO `edocbase`.`contract_types` (`id`, `name`) VALUES (11,'Сертификация с декларацией');
