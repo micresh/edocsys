@@ -61,6 +61,8 @@
             this.product_areasTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.product_areasTableAdapter();
             this.panel1 = new System.Windows.Forms.Panel();
             this.product_gostsDataGridView = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bindingNavigatorGOSTS = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorCountItem1 = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorDeleteItem1 = new System.Windows.Forms.ToolStripButton();
@@ -75,8 +77,9 @@
             this.bindingNavigatorAddNewItem1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripLabelProduct = new System.Windows.Forms.ToolStripLabel();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
+            this.filterProductsTextBox = new System.Windows.Forms.ToolStripTextBox();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             nameLabel1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.edocbaseDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.product_gostsBindingSource)).BeginInit();
@@ -119,11 +122,16 @@
             this.tableAdapterManager.contract_types_for_workTableAdapter = null;
             this.tableAdapterManager.contract_typesTableAdapter = null;
             this.tableAdapterManager.ContractInfoTableAdapter = null;
+            this.tableAdapterManager.ContractPrepareForWorkTAdapter = null;
+            this.tableAdapterManager.ContractSigningTableAdapter = null;
+            this.tableAdapterManager.ContractsOnInspectionTableAdapter = null;
             this.tableAdapterManager.contractsTableAdapter = null;
             this.tableAdapterManager.doc_templatesTableAdapter = null;
             this.tableAdapterManager.documentsTableAdapter = null;
             this.tableAdapterManager.emission_typesTableAdapter = null;
             this.tableAdapterManager.expertsTableAdapter = null;
+            this.tableAdapterManager.GOSTSelectionTableAdapter = null;
+            this.tableAdapterManager.InspectionContractsTableAdapter = null;
             this.tableAdapterManager.log_journalTableAdapter = null;
             this.tableAdapterManager.product_areasTableAdapter = null;
             this.tableAdapterManager.product_gostsTableAdapter = this.product_gostsTableAdapter;
@@ -191,6 +199,7 @@
             // 
             // productsDataGridView
             // 
+            this.productsDataGridView.AllowUserToAddRows = false;
             this.productsDataGridView.AutoGenerateColumns = false;
             this.productsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.productsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -337,7 +346,10 @@
             this.bindingNavigatorSeparator2,
             this.bindingNavigatorAddNewItem,
             this.bindingNavigatorDeleteItem,
-            this.productsBindingNavigatorSaveItem});
+            this.productsBindingNavigatorSaveItem,
+            this.toolStripSeparator1,
+            this.toolStripLabel1,
+            this.filterProductsTextBox});
             this.productsBindingNavigator.Location = new System.Drawing.Point(0, 0);
             this.productsBindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
             this.productsBindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastItem;
@@ -365,6 +377,7 @@
             // 
             // product_gostsDataGridView
             // 
+            this.product_gostsDataGridView.AllowUserToAddRows = false;
             this.product_gostsDataGridView.AutoGenerateColumns = false;
             this.product_gostsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.product_gostsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -376,6 +389,19 @@
             this.product_gostsDataGridView.Name = "product_gostsDataGridView";
             this.product_gostsDataGridView.Size = new System.Drawing.Size(632, 194);
             this.product_gostsDataGridView.TabIndex = 4;
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            this.dataGridViewTextBoxColumn8.DataPropertyName = "number";
+            this.dataGridViewTextBoxColumn8.HeaderText = "Номер";
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            this.dataGridViewTextBoxColumn9.DataPropertyName = "type";
+            this.dataGridViewTextBoxColumn9.HeaderText = "Тип";
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            this.dataGridViewTextBoxColumn9.Width = 300;
             // 
             // bindingNavigatorGOSTS
             // 
@@ -510,18 +536,21 @@
             this.toolStripButton1.Text = "Save Data";
             this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
-            // dataGridViewTextBoxColumn8
+            // toolStripLabel1
             // 
-            this.dataGridViewTextBoxColumn8.DataPropertyName = "number";
-            this.dataGridViewTextBoxColumn8.HeaderText = "Номер";
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            this.toolStripLabel1.Name = "toolStripLabel1";
+            this.toolStripLabel1.Size = new System.Drawing.Size(42, 22);
+            this.toolStripLabel1.Text = "Поиск";
             // 
-            // dataGridViewTextBoxColumn9
+            // filterProductsTextBox
             // 
-            this.dataGridViewTextBoxColumn9.DataPropertyName = "type";
-            this.dataGridViewTextBoxColumn9.HeaderText = "Тип";
-            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-            this.dataGridViewTextBoxColumn9.Width = 300;
+            this.filterProductsTextBox.Name = "filterProductsTextBox";
+            this.filterProductsTextBox.Size = new System.Drawing.Size(200, 25);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
             // 
             // ProductionForm
             // 
@@ -605,5 +634,8 @@
         private System.Windows.Forms.ToolStripButton toolStripButton1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel1;
+        private System.Windows.Forms.ToolStripTextBox filterProductsTextBox;
     }
 }

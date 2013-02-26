@@ -16,6 +16,8 @@ namespace Edocsys
             InitializeComponent();
         }
 
+        private FilterHelper filterProduct;
+
         private void ProductionForm_Load(object sender, EventArgs e)
         {
             this.product_areasTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
@@ -23,6 +25,14 @@ namespace Edocsys
             this.productsTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
 
 
+            RefreshDatabase();
+
+
+            filterProduct = new FilterHelper(productsDataGridView, filterProductsTextBox.TextBox);
+        }
+
+        private void RefreshDatabase()
+        {
             this.product_areasTableAdapter.Fill(this.edocbaseDataSet.product_areas);
             this.product_gostsTableAdapter.Fill(this.edocbaseDataSet.product_gosts);
             this.productsTableAdapter.Fill(this.edocbaseDataSet.products);
@@ -31,10 +41,9 @@ namespace Edocsys
 
         private void productsBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
-            this.Validate();
-            this.productsBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.edocbaseDataSet);
-            this.edocbaseDataSet.AcceptChanges();
+            SaveProducts();
+
+            RefreshDatabase();
         }
 
         private void bindingNavigatorAddNewItem_Click(object sender, EventArgs e)
@@ -66,6 +75,10 @@ namespace Edocsys
 
         private void bindingNavigatorAddNewItem1_Click(object sender, EventArgs e)
         {
+            int pos = productsBindingSource.Position;
+            SaveProducts(); ;
+            productsBindingSource.Position = pos;
+
             this.product_gostsBindingSource.AddNew();
 
             DataRowView currentGOST = (DataRowView)this.product_gostsBindingSource.Current;
@@ -75,12 +88,22 @@ namespace Edocsys
             int idProduct = Convert.ToInt32(currentRow["id"]);
 
             currentGOST["products_id"] = idProduct;
+
+            product_gostsDataGridView.Focus();
         }
 
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
+            SaveProducts();
+
+            RefreshDatabase();
+        }
+
+        private void SaveProducts()
+        {
             this.Validate();
             this.productsBindingSource.EndEdit();
+            this.product_gostsBindingSource.EndEdit();
             this.tableAdapterManager.UpdateAll(this.edocbaseDataSet);
             this.edocbaseDataSet.AcceptChanges();
         }
