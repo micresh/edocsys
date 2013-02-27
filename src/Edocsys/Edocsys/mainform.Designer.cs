@@ -247,7 +247,7 @@
             this.ProductionToolStripMenuItem.Name = "ProductionToolStripMenuItem";
             this.ProductionToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
             this.ProductionToolStripMenuItem.Text = "Область аккредитации";
-            this.ProductionToolStripMenuItem.Click += new System.EventHandler(this.ProductionToolStripMenuItem_Click_1);
+            this.ProductionToolStripMenuItem.Click += new System.EventHandler(this.ProductionToolStripMenuItem_Click);
             // 
             // WindowToolStripMenuItem
             // 
@@ -277,8 +277,8 @@
             this.toolStripSeparator4,
             this.loginToolStripButton,
             this.usersToolStripComboBox,
-            this.toolStripSeparator3,
-            this.fillUsersToolStripButton});
+            this.fillUsersToolStripButton,
+            this.toolStripSeparator3});
             this.toolStrip1.Location = new System.Drawing.Point(0, 24);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(825, 57);
@@ -293,6 +293,7 @@
             this.toolStripButton1.Name = "toolStripButton1";
             this.toolStripButton1.Size = new System.Drawing.Size(54, 54);
             this.toolStripButton1.Text = "Контрагенты";
+            this.toolStripButton1.Click += new System.EventHandler(this.ContractToolStripMenuItem_Click);
             // 
             // toolStripButton2
             // 
@@ -302,6 +303,7 @@
             this.toolStripButton2.Name = "toolStripButton2";
             this.toolStripButton2.Size = new System.Drawing.Size(54, 54);
             this.toolStripButton2.Text = "Заявки";
+            this.toolStripButton2.Click += new System.EventHandler(this.proposalToolStripMenuItem_Click);
             // 
             // toolStripButton3
             // 
@@ -311,6 +313,7 @@
             this.toolStripButton3.Name = "toolStripButton3";
             this.toolStripButton3.Size = new System.Drawing.Size(54, 54);
             this.toolStripButton3.Text = "Ведение договоров";
+            this.toolStripButton3.Click += new System.EventHandler(this.ContractToolStripMenuItem_Click);
             // 
             // toolStripButton4
             // 
@@ -320,6 +323,7 @@
             this.toolStripButton4.Name = "toolStripButton4";
             this.toolStripButton4.Size = new System.Drawing.Size(54, 54);
             this.toolStripButton4.Text = "Работы по договору";
+            this.toolStripButton4.Click += new System.EventHandler(this.AssignexpertToolStripMenuItem_Click);
             // 
             // toolStripButton5
             // 
@@ -328,7 +332,8 @@
             this.toolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton5.Name = "toolStripButton5";
             this.toolStripButton5.Size = new System.Drawing.Size(54, 54);
-            this.toolStripButton5.Text = "инспекционный контроль";
+            this.toolStripButton5.Text = "Инспекционный контроль";
+            this.toolStripButton5.Click += new System.EventHandler(this.InspectionControlToolStripMenuItem_Click);
             // 
             // toolStripButton6
             // 
@@ -338,11 +343,12 @@
             this.toolStripButton6.Name = "toolStripButton6";
             this.toolStripButton6.Size = new System.Drawing.Size(54, 54);
             this.toolStripButton6.Text = "Статистика договоров";
+            this.toolStripButton6.Click += new System.EventHandler(this.ContractStatsToolStripMenuItem_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 57);
             // 
             // toolStripButton8
             // 
@@ -352,17 +358,18 @@
             this.toolStripButton8.Name = "toolStripButton8";
             this.toolStripButton8.Size = new System.Drawing.Size(54, 54);
             this.toolStripButton8.Text = "Оплата догворов";
+            this.toolStripButton8.Click += new System.EventHandler(this.ContractPaymentsToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 57);
             // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 25);
+            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 57);
             // 
             // loginToolStripButton
             // 
@@ -379,12 +386,12 @@
             // 
             this.usersToolStripComboBox.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.usersToolStripComboBox.Name = "usersToolStripComboBox";
-            this.usersToolStripComboBox.Size = new System.Drawing.Size(200, 25);
+            this.usersToolStripComboBox.Size = new System.Drawing.Size(200, 57);
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 57);
             // 
             // fillUsersToolStripButton
             // 

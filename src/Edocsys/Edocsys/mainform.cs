@@ -196,11 +196,6 @@ namespace Edocsys
             wmgr.ShowClientsForm();
         }
 
-        private void ProductionToolStripMenuItem_Click_1(object sender, EventArgs e)
-        {
-            wmgr.ShowProductionForm();
-        }
-
         private void WorksToolStripMenuItem_Click(object sender, EventArgs e)
         {
             wmgr.ShowWorksForContractForm();
