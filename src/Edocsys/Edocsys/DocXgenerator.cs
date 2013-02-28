@@ -22,13 +22,18 @@ namespace Edocsys
 
                 foreach (KeyValuePair<string, string> item in substitutions)
                 {
-                    string val = item.Value;
-                    if (item.Key == "{_TOTAL_COST_}")
+                    
+                    if ((item.Key == "{_TOTAL_COST_}") | (item.Key == "{_COST_}"))
                     {
+                        string key = item.Key;
+                        string val = item.Value;
                         double summ = Convert.ToDouble(item.Value);
                         val = RuDateAndMoneyConverter.CurrencyToTxtFull_SBR(summ, true);
+                        key = key.Substring(0, key.Length - 1) + "_STR_}";
+                        doc.ReplaceText(item.Key, val);
                     }
-                    doc.ReplaceText(item.Key,val);
+
+                    doc.ReplaceText(item.Key, item.Value);
                     
                 }
 
