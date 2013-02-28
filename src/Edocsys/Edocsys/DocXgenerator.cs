@@ -22,7 +22,14 @@ namespace Edocsys
 
                 foreach (KeyValuePair<string, string> item in substitutions)
                 {
-                    doc.ReplaceText(item.Key, item.Value);
+                    string val = item.Value;
+                    if (item.Key == "{_TOTAL_COST_}")
+                    {
+                        double summ = Convert.ToDouble(item.Value);
+                        val = RuDateAndMoneyConverter.CurrencyToTxtFull_SBR(summ, true);
+                    }
+                    doc.ReplaceText(item.Key,val);
+                    
                 }
 
                 doc.Save();

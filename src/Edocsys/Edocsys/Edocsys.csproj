@@ -115,6 +115,7 @@
     <Compile Include="InspectionControl.designer.cs">
       <DependentUpon>InspectionControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="RuDateAndMoneyConverter.cs" />
     <Compile Include="WorkForContracts.cs">
       <SubType>Form</SubType>
     </Compile>
