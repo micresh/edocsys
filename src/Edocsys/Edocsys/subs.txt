@@ -47,7 +47,7 @@
 {_PERS_FIRSTNAME_}         pers_firstname
 {_PERS_MIDDLENAME_}        pers_middlename
 {_AGENT_TYPES_NAME_}       agent_types_name
-{_AGENTS_FULLNAME_}        {_agents_fullname_} 
+{_AGENTS_FULLNAME_}        _agents_fullname_
 {_CONTACT_PERS_NAME_FIO_}  contact_pers_name_FIO
 {_CONTACT_PERS_NAME_IOF_}  contact_pers_name_IOF
 {_PKCONTRACT_TYPES_ID_}    pkcontract_types_id
