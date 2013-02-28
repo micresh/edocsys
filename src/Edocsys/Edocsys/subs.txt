@@ -1,45 +1,58 @@
-{_ID_}                      idContract              идентификационный номер заявки
-{_PRODUCTS_}                idProducts              идентификационный номер продукта
-{_EMISSION_TYPE_}           emission_type           тип выпуска продукта
-{_CLIENT_DOCS_}             Client_docs             Учредительные документы
-{_SCHEM_TYPE_}              Schem_type              тип схемы сертификации
-{_ADD_DATA_}                Add_data                дополнительные сведения
-{_CONTRACT_TYPE_}           Contract_type           тип договора
-{_CONTRACT_VALUE_1_}        Contract_value_1        промежуточная сумма договора
-{_CONTRACT_NUMBER_}         Contract_number         Номер контракта
-{_CONTRACT_VALUE_FULL_}     Contract_value_full     итоговая сумма догвора
-{_AGENT_ID_}                agent_id                идентификационный номер контрагента
-{_BID_TYPE_}                Bid_type                вид поступления договора
-{_CASH_INCOME_}             Cash_income             наличие оплаты
-{_CONTRACT_START_}          Contract_start          дата начала действия договора
-{_CONTRACT_1_REATT_}        Contract_1_reatt        дата 1-ой реаттестации
-{_CONTRACT_2_REATT_}        Contract_2_reatt        дата 2-ой реаттестации
-{_CONTRACT_RESUME_}         Contract_resume         дата итоговой реаттестации
-{_EXEC_1_REATT_}            exec_1_reatt            дата исполнения 1-ой реаттестации
-{_EXEC_2_REATT_}            exec_2_reatt            дата исполнения 2-ой реаттестации
-{_EXEC_RESUME_}             exec_resume             дата исполнения итоговой реаттестации
-{_SAMPLE_INCOME_}           sample_income           дата поступления образцов
-{_PROTOCOL_INCOME_}         protocol_income         дата поступления протокола
-{_AGENT_FNAME_}             Ag_name                 полное название организации
-{_AGENT_NAME_}              Ag_fullname             название организации
-{_AGENT_INN_}               Ag_INN                  ИНН
-{_AGENT_ADDR_}              Ag_addr                 адрес контрагента
-{_AGENT_OGRN_}              Ag_OGRN                 ОГРН
-{_AGENT_KPP_}               Ag_KPP                  КПП
-{_AGENT_OKPO_}              Ag_OKPO                 ОКПО
-{_AGENT_RS_}                Ag_Rcou                 расчетный счет
-{_AGENT_KS_}                Ag_Kcou                 корреспондирующий счет
-{_AGENT_BIK_}               Ag_BIK                  БИК 
-{_AGENT_BANK_}              Ag_bank                 Название банка
-{_AGENT_DOC_}               Ag_doc                  документы агента
-{_AGENT_TEL_}               Ag_tel                  
-{_AGENT_FAX_}               Ag_fax                  
-{_AGENT_STATUS_}            Ag_pers_status          должность ответственного за подписание договора лица
-{_AGENT_P_FIO_}             Ag_FIO                  Фамилия И.О.
-{_AGENT_P_IOF_}             Ag_IOF                  И.О. Фамилия
-{_AGENT_P_LNAME_}           Ag_pers_lastname        Фамилия
-{_AGENT_P_FNAME_}           Ag_pers_firstname       Имя
-{_AGENT_P_MNAME_}           Ag_pers_middlename      Отчество
-{_PRODUCT_NAME_}            Product_name            Название продукции
-{_PRODUCT_OKP_}             Product_OKP             код ОКП
-{_PRODUCT_TNVED_}           Product_TNVED           код ТН ВЭД
+{_ID_}                     id,
+{_PRODUCTS_ID_}            products_id,
+{_AGENTS_ID_}              agents_id,
+{_CONTRACT_TYPES_ID_}      contract_types_id,
+{_CONTRACT_STATUS_ID_}     contract_status_id,
+{_EXPERTS_ID_}             experts_id,
+{_SOURCE_TYPES_ID_}        source_types_id,
+{_DATE_PROPOSAL_}          date_proposal,
+{_SCHEME_TYPE_}            scheme_type,
+{_ADD_DATA_PROPOSAL_}      add_data_proposal,
+{_COST_}                   cost,
+{_TOTAL_COST_}             total_cost,
+{_CASH_INCOME_}            cash_income,
+{_DATE_CASH_INCOME_}       date_cash_income,
+{_NUMBER_}                 number,
+{_DATE_CONTRACT_}          date_contract,
+{_DATE_START_}             date_start,
+{_DATE_END_}               date_end,
+{_DATE_SAMPLE_INCOME_}     date_sample_income,
+{_DATE_PROTOCOL_INCOME_}   date_protocol_income,
+{_EMISSION_TYPES_ID_}      emission_types_id,
+{_DATE_PLANED_REATT_1_}    date_planed_reatt_1,
+{_DATE_REAL_REATT_1_}      date_real_reatt_1,
+{_DATE_PLANED_REATT_2_}    date_planed_reatt_2,
+{_DATE_REAL_REATT_2_}      date_real_reatt_2,
+{_DATE_PLANED_RESERT_}     date_planed_resert,
+{_DATE_REAL_RESERT_}       date_real_resert,
+{_PRODUCTS_NAME_}          products_name,
+{_PKAGENTS_ID_}            pkagents_id,
+{_AGENTS_NAME_}            agents_name,
+{_PKAGENT_TYPES_ID_}       pkagent_types_id,
+{_INN_}                    inn,
+{_PHONE_}                  phone,
+{_FAX_}                    fax,
+{_EMAIL_}                  email,
+{_ADDRESS_}                address,
+{_OGRN_}                   ogrn,
+{_KPP_}                    kpp,
+{_OKPO_}                   okpo,
+{_KS_}                     ks,
+{_RS_}                     rs,
+{_BANK_}                   bank,
+{_BIK_}                    bik,
+{_SIGNING_AUTHORITY_DOC_}  signing_authority_doc,
+{_PERS_STATUS_}            pers_status,
+{_PERS_LASTNAME_}          pers_lastname,
+{_PERS_FIRSTNAME_}         pers_firstname,
+{_PERS_MIDDLENAME_}        pers_middlename,
+{_AGENT_TYPES_NAME_}       agent_types_name,
+{_AGENTS_FULLNAME_}        {_agents_fullname_} 
+{_CONTACT_PERS_NAME_FIO_}  contact_pers_name_FIO,
+{_CONTACT_PERS_NAME_IOF_}  contact_pers_name_IOF,
+{_PKCONTRACT_TYPES_ID_}    pkcontract_types_id,
+{_CONTRACT_TYPES_NAME_}    contract_types_name,
+{_PKEMISSION_TYPES_ID_}    pkemission_types_id,
+{_EMISSION_TYPES_NAME_}    emission_types_name,
+{_EXPERT_FIO_}             expert_FIO,
+{_GOSTSLIST_}              GOSTsList

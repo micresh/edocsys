@@ -925,19 +925,46 @@ contracts.scheme_type,
 contracts.add_data_proposal,
 contracts.cost,
 contracts.total_cost,
+contracts.cash_income,
+contracts.date_cash_income,
 contracts.number,
 contracts.date_contract,
 contracts.date_start,
 contracts.date_end,
+contracts.date_sample_income,
+contracts.date_protocol_income,
+contracts.emission_types_id,
+contracts.date_planed_reatt_1,
+contracts.date_real_reatt_1,
+contracts.date_planed_reatt_2,
+contracts.date_real_reatt_2,
+contracts.date_planed_resert,
+contracts.date_real_resert,
 products.id AS pkproducts_id,
 products.name AS products_name,
 agents.id AS pkagents_id,
 agents.name AS agents_name,
+agents.agent_types_id AS pkagent_types_id,
+agents.inn,
+agents.phone,
+agents.fax,
+agents.email,
+agents.address,
+agents.ogrn,
+agents.kpp,
+agents.okpo,
+agents.ks,
+agents.rs,
+agents.bank,
+agents.bik,
+agents.signing_authority_doc,
+agents.pers_status,
 agents.pers_lastname,
 agents.pers_firstname,
 agents.pers_middlename,
 agent_types.id AS pkagent_types_id,
 agent_types.name AS agent_types_name,
+
 CONCAT( agent_types.name, ' ', agents.name ) AS agents_fullname, 
 CONCAT( agents.pers_lastname, ' ', substr(agents.pers_firstname, 1, 1), '. ', substr(agents.pers_middlename, 1, 1), '.' ) AS contact_pers_name_FIO,
 CONCAT( substr(agents.pers_firstname, 1, 1), '. ', substr(agents.pers_middlename, 1, 1), '. ', agents.pers_lastname ) AS contact_pers_name_IOF,
@@ -963,16 +990,6 @@ LEFT OUTER JOIN emission_types ON contracts.emission_types_id = emission_types.i
 LEFT OUTER JOIN users ON contracts.experts_id = users.id
 WHERE
     (contracts.id = @contracts_id)
-
-
--- !-----------------------------------------------------------
-
-
-
-
-
-
-
 
 
 -- !-------------------------------------------------------------------
@@ -1181,72 +1198,3 @@ WHERE
 
 --user_add
 INSERT INTO `users` (`login`, `password`, `type`, `log_database`) VALUES (@login, @password, @type, @log_database)
-
-
-
-
-
-
---- --contracts_info_old
-SELECT 
-Contracts.idContract,
-Contracts.emission_type,
-Contracts.Client_docs,
-Contracts.Schem_type,
-Contracts.Add_data,
-Contracts.Contract_value_1,
-Contracts.Contract_value_full,
-Contracts.Contract_number,
-Contracts.Contract_status,
-Contracts.Bid_type,
-Contracts.Cash_income,
-ContractTypes.name,
-Exec_contracts.Contract_start,
-Exec_contracts.Contract_1_reatt,
-Exec_contracts.Contract_2_reatt,
-Exec_contracts.Contract_resume,
-Exec_contracts.exec_1_reatt,
-Exec_contracts.exec_2_reatt,
-Exec_contracts.exec_resume,
-Exec_contracts.sample_income,
-Exec_contracts.protocol_income,
-Agents.Ag_type_id, 
-Agents_types.Agent_type,
-Agents.Ag_fullname,
-Agents.Ag_INN,
-Agents.Ag_tel,
-Agents.Ag_fax,
-Agents.Ag_addr,
-Agents.Ag_mail,
-Agents.Ag_OGRN,
-Agents.Ag_KPP,
-Agents.Ag_OKPO,
-Agents.Ag_Rcou,
-Agents.Ag_Kcou,
-Agents.Ag_BIK,
-Agents.Ag_bank,
-Agents.Ag_doc,
-Agents.Ag_pers_status,
-Agents.Ag_pers_lastname,
-Agents.Ag_pers_firstname,
-Agents.Ag_pers_middlename,
-CONCAT (Agents_types.Agent_type, ' ', Agents.Ag_fullname) AS Ag_name, 
-CONCAT (Agents.Ag_pers_lastname, ' ', SUBSTR(Agents.Ag_pers_firstname, 1, 1), '. ', SUBSTR(Agents.Ag_pers_middlename, 1, 1), '.') AS Ag_FIO,
-CONCAT (SUBSTR(Agents.Ag_pers_firstname, 1, 1), '. ', SUBSTR(Agents.Ag_pers_middlename, 1, 1), '. ', Agents.Ag_pers_lastname) AS Ag_IOF,
-Products.Product_name,
-Products.Product_OKP,
-Products.Product_TNVED,
-ProductAreas.name AS ProductAreaName,
-Products.ProductArea,
-Experts.Expert_Firstname,
-Experts.Expert_Lastname,
-Experts.Expert_Middlename
-FROM
-Contracts 
-LEFT OUTER JOIN ContractTypes ON Contracts.Contract_type = ContractTypes.id
-LEFT OUTER JOIN Exec_contracts ON Contracts.idContract = Exec_contracts.idContract
-LEFT OUTER JOIN Products ON Contracts.idProducts = Products.idProducts
-LEFT OUTER JOIN Experts ON Contracts.expert_id = Experts.idExperts
-LEFT OUTER JOIN Agents ON Contracts.agent_id = Agents.idAgents
-LEFT OUTER JOIN Agents_types ON Agents.Ag_type_id = Agents_types.idAgents_types
-LEFT OUTER JOIN ProductAreas ON Products.ProductArea = ProductAreas.id
