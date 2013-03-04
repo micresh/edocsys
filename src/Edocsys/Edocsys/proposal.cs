@@ -135,17 +135,6 @@ namespace Edocsys
             }
         }
 
-        private int GetContractID()
-        {
-            int id = -1;
-
-            DataRow currentRow = edocbaseDataSet.ContractInfoDataTable.DefaultView[contractInfoDataTableBindingSource.Position].Row;
-
-            id = Convert.ToInt32(currentRow["id"]);
-
-            return id;
-        }
-
         private void buttonGenerateProposalDoc_Click(object sender, EventArgs e)
         {
             if ((contractInfoDataTableBindingSource.Position < 0) ||
@@ -156,7 +145,7 @@ namespace Edocsys
                 return;
             }
 
-            int idContract = GetContractID();
+            int idContract = proposalGenerator.GetContractID(contractInfoDataTableBindingSource);
 
             try
             {
@@ -199,7 +188,7 @@ namespace Edocsys
             }
 
             int docType = (int)Constants.ContractTypes.Proposal;
-            int idContract = GetContractID();
+            int idContract = proposalGenerator.GetContractID(contractInfoDataTableBindingSource);
             try
             {
                 proposalGenerator.EditDoc(idContract, docType, (id) =>
@@ -239,7 +228,7 @@ namespace Edocsys
             }
 
             int docType = (int)Constants.ContractTypes.Proposal;
-            int idContract = GetContractID();
+            int idContract = proposalGenerator.GetContractID(contractInfoDataTableBindingSource);
 
             try
             {
@@ -271,8 +260,7 @@ namespace Edocsys
             }
 
             int docType = (int)Constants.ContractTypes.Proposal;
-
-            int idContract = GetContractID();
+            int idContract = proposalGenerator.GetContractID(contractInfoDataTableBindingSource);
 
             try
             {

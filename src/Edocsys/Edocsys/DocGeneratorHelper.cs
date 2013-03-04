@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Data;
 using System.Text;
 
+using System.Windows.Forms;
+
 using System.Diagnostics;
 
 namespace Edocsys
@@ -37,8 +39,29 @@ namespace Edocsys
         private EdocbaseDataSetTableAdapters.ContractDocDataTableAdapter contractDataTA;
 
 
-
         public delegate bool UpdateDocInDatabase(int id);
+
+
+        public int GetContractID(BindingSource bs)
+        {
+            int id = -1;
+            DataRowView currentRow = (DataRowView)bs.Current;
+
+            id = Convert.ToInt32(currentRow["id"]);
+
+            return id;
+        }
+
+        public int GetContractTypeID(BindingSource bs)
+        {
+            int id = -1;
+
+            DataRowView currentRow = (DataRowView)bs.Current;
+
+            id = Convert.ToInt32(currentRow["contract_types_id"]);
+
+            return id;
+        }
 
         private DataRowView GetDocumentsDataRow(int contract_id, int type)
         {
@@ -185,8 +208,6 @@ namespace Edocsys
             byte[] data = (byte[])row["template"];
             string filename = BlobLoader.SaveToTemporaryFile(data);
 
-
-
             DataRow currentContact = GetContractInfoDataRow(contract_id);
 
             if (currentContact == null)
@@ -201,13 +222,10 @@ namespace Edocsys
             //replace placeholders in doc
             DocXGenerator.RepalceKeyValuesInDocX(filename, subs);
 
-
-
             //load generated contract to DB
             data = BlobLoader.LoadFormFile(filename);
 
             DataRowView currentDoc = GetDocumentsDataRow(contract_id, docType);
-
 
             if (currentDoc == null)
             {
@@ -223,9 +241,6 @@ namespace Edocsys
 
                 currentDoc.EndEdit();
             }
-
-
-
         }
     }
 }

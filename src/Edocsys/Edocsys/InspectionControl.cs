@@ -70,28 +70,6 @@ namespace Edocsys
             /**/
         }
 
-        private int GetContractTypeID()
-        {
-            int id = -1;
-
-            DataRow currentRow = edocbaseDataSet.InspectionContracts.DefaultView[inspectionContractsBindingSource.Position].Row;
-
-            id = Convert.ToInt32(currentRow["contract_types_id"]);
-
-            return id;
-        }
-
-        private int GetContractID()
-        {
-            int id = -1;
-
-            DataRow currentRow = edocbaseDataSet.InspectionContracts.DefaultView[inspectionContractsBindingSource.Position].Row;
-
-            id = Convert.ToInt32(currentRow["id"]);
-
-            return id;
-        }
-
         private void usersBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
             this.Validate();
@@ -138,7 +116,7 @@ namespace Edocsys
             }
 
             int docType = (int)Constants.ContractTypes.Reattestation;
-            int contract_id = GetContractID();
+            int contract_id = contractGenerator.GetContractID(inspectionContractsBindingSource);
 
             try
             {
@@ -171,7 +149,7 @@ namespace Edocsys
             }
 
             int docType = (int)Constants.ContractTypes.Reattestation;
-            int contract_id = GetContractID();
+            int contract_id = contractGenerator.GetContractID(inspectionContractsBindingSource);
 
             try
             {
@@ -209,7 +187,7 @@ namespace Edocsys
             }
 
             int docType = (int)Constants.ContractTypes.Reattestation;
-            int contract_id = GetContractID();
+            int contract_id = contractGenerator.GetContractID(inspectionContractsBindingSource);
 
             try
             {
@@ -243,7 +221,7 @@ namespace Edocsys
             }
 
             int docType = (int)Constants.ContractTypes.Reattestation;
-            int contract_id = GetContractID();
+            int contract_id = contractGenerator.GetContractID(inspectionContractsBindingSource);
 
             try
             {

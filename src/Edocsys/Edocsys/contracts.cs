@@ -63,7 +63,6 @@ namespace Edocsys
         {
             try
             {
-
                 this.contractSigningTableAdapter.Fill(this.edocbaseDataSet.ContractSigning);
                 this.contractComplitionMgrCfmTableAdapter.Fill(this.edocbaseDataSet.ContractComplitionMgrCfm);
                 this.contractDoneTableAdapter.Fill(this.edocbaseDataSet.ContractDone);
@@ -77,28 +76,6 @@ namespace Edocsys
             /**/
         }
 
-        private int GetContractTypeID()
-        {
-            int id = -1;
-
-            DataRow currentRow = edocbaseDataSet.ContractSigning.DefaultView[contractSigningBindingSource.Position].Row;
-
-            id = Convert.ToInt32(currentRow["contract_types_id"]);
-
-            return id;
-        }
-
-        private int GetContractID()
-        {
-            int id = -1;
-
-            DataRow currentRow = edocbaseDataSet.ContractSigning.DefaultView[contractSigningBindingSource.Position].Row;
-
-            id = Convert.ToInt32(currentRow["id"]);
-
-            return id;
-        }
-
         private void buttonGenerateContract_Click(object sender, EventArgs e)
         {
             if ((contractSigningBindingSource.Position < 0) ||
@@ -109,8 +86,8 @@ namespace Edocsys
                 return;
             }
 
-            int docType = GetContractTypeID();
-            int contract_id = GetContractID();
+            int docType = contractGenerator.GetContractTypeID(contractSigningBindingSource);
+            int contract_id = contractGenerator.GetContractID(contractSigningBindingSource);
 
             try
             {
@@ -153,8 +130,8 @@ namespace Edocsys
                 return;
             }
 
-            int docType = GetContractTypeID();
-            int contract_id = GetContractID();
+            int docType = contractGenerator.GetContractTypeID(contractSigningBindingSource);
+            int contract_id = contractGenerator.GetContractID(contractSigningBindingSource);
 
             try
             {
@@ -191,8 +168,8 @@ namespace Edocsys
                 return;
             }
 
-            int docType = GetContractTypeID();
-            int contract_id = GetContractID();
+            int docType = contractGenerator.GetContractTypeID(contractSigningBindingSource);
+            int contract_id = contractGenerator.GetContractID(contractSigningBindingSource);
 
             try
             {
@@ -225,8 +202,8 @@ namespace Edocsys
                 return;
             }
 
-            int docType = GetContractTypeID();
-            int contract_id = GetContractID();
+            int docType = contractGenerator.GetContractTypeID(contractSigningBindingSource);
+            int contract_id = contractGenerator.GetContractID(contractSigningBindingSource);
 
             try
             {

@@ -68,32 +68,10 @@ namespace Edocsys
             /**/
         }
 
-        private int GetContractTypeID()
-        {
-            int id = -1;
-
-            DataRow currentRow = edocbaseDataSet.FinishedContracts.DefaultView[finishedContractsBindingSource.Position].Row;
-
-            id = Convert.ToInt32(currentRow["contract_types_id"]);
-
-            return id;
-        }
-
-        private int GetContractID()
-        {
-            int id = -1;
-
-            DataRow currentRow = edocbaseDataSet.FinishedContracts.DefaultView[finishedContractsBindingSource.Position].Row;
-
-            id = Convert.ToInt32(currentRow["id"]);
-
-            return id;
-        }
-
-
         private void buttonEditContract_Click(object sender, EventArgs e)
         {
-            OpenDoc(GetContractTypeID());
+            int docType = contractGenerator.GetContractTypeID(finishedContractsBindingSource);
+            OpenDoc(docType);
         }
 
         private void OpenDoc(int docType)
@@ -106,8 +84,7 @@ namespace Edocsys
                 return;
             }
 
-            
-            int contract_id = GetContractID();
+            int contract_id = contractGenerator.GetContractID(finishedContractsBindingSource);
 
             try
             {
@@ -145,8 +122,7 @@ namespace Edocsys
                 return;
             }
 
-            
-            int contract_id = GetContractID();
+            int contract_id = contractGenerator.GetContractID(finishedContractsBindingSource);
 
             try
             {
@@ -166,7 +142,8 @@ namespace Edocsys
 
         private void toolStripButtonSaveContract_Click(object sender, EventArgs e)
         {
-            SaveDoc(GetContractTypeID());
+            int docType = contractGenerator.GetContractTypeID(finishedContractsBindingSource);
+            SaveDoc(docType);
         }
 
         private void toolStripButtonSaveAct_Click(object sender, EventArgs e)
