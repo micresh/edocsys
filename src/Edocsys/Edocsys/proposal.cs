@@ -58,13 +58,12 @@ namespace Edocsys
 
                 this.productsTableAdapter.Fill(this.edocbaseDataSet.products);
                 this.agentsTableAdapter.Fill(this.edocbaseDataSet.agents);
-                this.documentsTableAdapter.Fill(this.edocbaseDataSet.documents);
 
                 this.contractInfoTableAdapter.Fill(this.edocbaseDataSet.ContractInfoDataTable);
 
-                contractInfoDataTableBindingSource.Position = pos;
-
                 this.proposalsDataGridView.Refresh();
+
+                contractInfoDataTableBindingSource.Position = pos;
             }   
             catch (Exception ex)
             {
@@ -78,15 +77,12 @@ namespace Edocsys
             this.agentsTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
             this.productsTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
             this.contract_typesTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
-            this.templatesDataTableTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
-            this.documentsTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
             this.emission_typesTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
 
             this.contractInfoTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
 
-
             this.contract_typesTableAdapter.FillContractDocs(this.edocbaseDataSet.contract_types);
-            this.templatesDataTableTableAdapter.Fill(this.edocbaseDataSet.templatesDataTable);
+
             this.emission_typesTableAdapter.Fill(this.edocbaseDataSet.emission_types);
 
             RefreshData();
@@ -114,8 +110,12 @@ namespace Edocsys
                 int id = Convert.ToInt32(currentRow["id"]);
                 bool hasDocument = Convert.ToBoolean(currentRow["has_proposal_document"]);
 
-                if (MessageBox.Show("Внимание! Документ заявки #" + id + " не сгенерирован! Продолжить обработку?", "Подтвердить отправку заявки", MessageBoxButtons.YesNo) != DialogResult.Yes)
+                if (!hasDocument)
+                {
+                    if (MessageBox.Show("Внимание! Документ заявки #" + id + " не сгенерирован! Продолжить обработку?", "Подтвердить отправку заявки", MessageBoxButtons.YesNo) != DialogResult.Yes)
                     return;
+                }
+
 
                 if (MessageBox.Show("Отправить заявку #" + id, "Подтвердить отправку заявки", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
@@ -164,17 +164,7 @@ namespace Edocsys
                 MessageBox.Show(ex.Message, "GenerateDoc Error");
             }
 
-            UpdateDocuments();
-
             RefreshData();
-        }
-
-
-        private void UpdateDocuments()
-        {
-            this.documentsTableAdapter.Update(this.edocbaseDataSet.documents);
-
-            this.edocbaseDataSet.AcceptChanges();
         }
 
         private void buttonEditProposal_Click(object sender, EventArgs e)
@@ -205,8 +195,6 @@ namespace Edocsys
             {
                 MessageBox.Show(ex.Message, "EditDoc ERROR");
             }
-
-            UpdateDocuments();
 
             RefreshData();
         }
@@ -275,8 +263,6 @@ namespace Edocsys
                 MessageBox.Show(ex.Message, "LoadDoc ERROR");
             }
             
-            UpdateDocuments();
-            
             RefreshData();
         }
 
@@ -285,9 +271,9 @@ namespace Edocsys
             this.contractInfoDataTableBindingSource.AddNew();
             DataRowView currentDoc = (DataRowView)this.contractInfoDataTableBindingSource.Current;
             currentDoc["contract_status_id"] = (int)Constants.ContractStatuses.NewProposal;
-            currentDoc["products_id"] = 0;
-            currentDoc["agents_id"] = 0;
-            currentDoc["experts_id"] = 1; //assign all to admin?????
+            currentDoc["products_id"] = 1;    //MUST BEE CORRECT! WTHF?????
+            currentDoc["agents_id"] = 1;      //MUST BEE CORRECT! WTHF?????
+            currentDoc["experts_id"] = 1;     //assign all to admin?????
             currentDoc["contract_types_id"] = (int)Constants.ContractTypes.Sertefication;
             currentDoc["source_types_id"] = (int)Constants.SourceTypes.Personal;
             currentDoc["date_proposal"] = DateTime.Now;

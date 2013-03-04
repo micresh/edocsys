@@ -29,6 +29,11 @@ namespace Edocsys
             this.contractDataTA.Connection.ConnectionString = ConnectionManager.ConnectionString;
 
         }
+        private void Refresh()
+        {
+            this.documentsTA.Fill(this.documents);
+            this.templatesTA.Fill(this.templates);
+        }
 
         private EdocbaseDataSet.documentsDataTable documents;
         private EdocbaseDataSet.doc_templatesDataTable templates;
@@ -106,20 +111,21 @@ namespace Edocsys
             BlobLoader.SaveToFile(filename, data);
         }
 
-        public void LoadDoc(int contractID, int docType, string filename)
+        public void LoadDoc(int contract_id, int docType, string filename)
         {
-            DataRowView currentDoc = GetDocumentsDataRow(contractID, docType);
+            DataRowView currentDoc = GetDocumentsDataRow(contract_id, docType);
 
             if (currentDoc == null)
             {
-                //doc not found -> error
-                throw new NullReferenceException("document not found");
+                //doc not found -> add new
+                currentDoc = documents.DefaultView.AddNew();
             }
 
             byte[] data = BlobLoader.LoadFormFile(filename);
 
-            currentDoc["document"] = data;
-            currentDoc.EndEdit();
+            FillDocData(contract_id, docType, data, currentDoc);
+
+            AcceptDocUpdate();
         }
 
 
@@ -147,8 +153,9 @@ namespace Edocsys
             {
                 data = BlobLoader.LoadFormFile(filename);
 
-                currentDoc["document"] = data;
-                currentDoc.EndEdit();
+                FillDocData(contract_id, docType, data, currentDoc);
+
+                AcceptDocUpdate();
             }
 
             // Clean up temporary file
@@ -234,13 +241,29 @@ namespace Edocsys
             }
 
             if (checker(contract_id)){
-                currentDoc["document"] = data;
-                currentDoc["contract_types_id"] = docType;
-                currentDoc["contracts_id"] = contract_id;
-                currentDoc["users_id"] = ConnectionManager.CurrentUser.UserID;
-
-                currentDoc.EndEdit();
+                FillDocData(contract_id, docType, data, currentDoc);
             }
+        }
+
+        private void FillDocData(int contract_id, int docType, byte[] data, DataRowView currentDoc)
+        {
+            if (!currentDoc.IsEdit)
+                currentDoc.BeginEdit();
+            currentDoc["document"] = data;
+            currentDoc["contract_types_id"] = docType;
+            currentDoc["contracts_id"] = contract_id;
+            currentDoc["date_modify"] = DateTime.Now;
+            currentDoc["users_id"] = ConnectionManager.CurrentUser.UserID;
+
+            currentDoc.EndEdit();
+
+            AcceptDocUpdate();
+        }
+
+        private void AcceptDocUpdate()
+        {
+            documentsTA.Update(documents);
+            documents.AcceptChanges();
         }
     }
 }

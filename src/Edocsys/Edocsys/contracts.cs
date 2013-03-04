@@ -26,8 +26,6 @@ namespace Edocsys
             this.contractComplitionMgrCfmTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
             this.contractDoneTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
 
-
-
             RefreshDatabase();
 
             //add filters
@@ -38,6 +36,8 @@ namespace Edocsys
             //doc helper
             contractGenerator = new DocGeneratorHelper(edocbaseDataSet.documents, edocbaseDataSet.doc_templates, edocbaseDataSet.ContractDocData);
             actGenerator = new DocGeneratorHelper(edocbaseDataSet.documents, edocbaseDataSet.doc_templates, edocbaseDataSet.ContractDocData);
+
+
         }
 
 
@@ -63,11 +63,16 @@ namespace Edocsys
         {
             try
             {
+                int pos = contractSigningBindingSource.Position;
+
                 this.contractSigningTableAdapter.Fill(this.edocbaseDataSet.ContractSigning);
                 this.contractComplitionMgrCfmTableAdapter.Fill(this.edocbaseDataSet.ContractComplitionMgrCfm);
                 this.contractDoneTableAdapter.Fill(this.edocbaseDataSet.ContractDone);
 
                 this.contractsSigningDataGridView.Refresh();
+
+                contractSigningBindingSource.Position = pos;
+
             }
             catch (Exception ex)
             {
@@ -96,6 +101,9 @@ namespace Edocsys
                         //found doc -> update?
                         return MessageBox.Show("Обновить документ для договора #" + id, "Подтвердить обновление документа", MessageBoxButtons.YesNo) == DialogResult.Yes;
                     });
+
+                this.tableAdapterManager.UpdateAll(this.edocbaseDataSet);
+                this.edocbaseDataSet.AcceptChanges();
             }
             catch (NullReferenceException ex)
             {
@@ -112,8 +120,8 @@ namespace Edocsys
         private void usersBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
             this.Validate();
-            //this.contractSigningBindingSource.EndEdit();
-            //this.contractSigningTableAdapter.Update(this.edocbaseDataSet.ContractSigning);
+            this.contractSigningBindingSource.EndEdit();
+            this.contractSigningTableAdapter.Update(this.edocbaseDataSet.ContractSigning);
 
             this.edocbaseDataSet.AcceptChanges();
 
@@ -207,7 +215,7 @@ namespace Edocsys
 
             try
             {
-                contractGenerator.SaveDoc(contract_id, docType, openFileDialog.FileName);
+                contractGenerator.LoadDoc(contract_id, docType, openFileDialog.FileName);
             }
             catch (NullReferenceException ex)
             {

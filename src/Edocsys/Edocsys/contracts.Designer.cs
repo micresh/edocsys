@@ -44,7 +44,9 @@
             this.dateproposalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.agentsfullnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.expertFIODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.has_contract_document = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.SignContractColumn = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.number = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contractSigningBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.edocbaseDataSet = new Edocsys.EdocbaseDataSet();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -204,7 +206,7 @@
             this.tabControl.Location = new System.Drawing.Point(0, 0);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(1114, 470);
+            this.tabControl.Size = new System.Drawing.Size(1153, 470);
             this.tabControl.TabIndex = 2;
             // 
             // tabContractSigning
@@ -217,7 +219,7 @@
             this.tabContractSigning.Location = new System.Drawing.Point(4, 22);
             this.tabContractSigning.Name = "tabContractSigning";
             this.tabContractSigning.Padding = new System.Windows.Forms.Padding(3);
-            this.tabContractSigning.Size = new System.Drawing.Size(1106, 444);
+            this.tabContractSigning.Size = new System.Drawing.Size(1145, 444);
             this.tabContractSigning.TabIndex = 0;
             this.tabContractSigning.Text = global::Edocsys.Properties.Settings.Default.TabExpertAssigned;
             this.tabContractSigning.UseVisualStyleBackColor = true;
@@ -238,13 +240,15 @@
             this.dateproposalDataGridViewTextBoxColumn,
             this.agentsfullnameDataGridViewTextBoxColumn,
             this.expertFIODataGridViewTextBoxColumn,
-            this.SignContractColumn});
+            this.has_contract_document,
+            this.SignContractColumn,
+            this.number});
             this.contractsSigningDataGridView.DataSource = this.contractSigningBindingSource;
             this.contractsSigningDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.contractsSigningDataGridView.Location = new System.Drawing.Point(3, 28);
             this.contractsSigningDataGridView.Name = "contractsSigningDataGridView";
             this.contractsSigningDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.contractsSigningDataGridView.Size = new System.Drawing.Size(1100, 261);
+            this.contractsSigningDataGridView.Size = new System.Drawing.Size(1139, 260);
             this.contractsSigningDataGridView.TabIndex = 27;
             this.contractsSigningDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.contractsSigningDataTableDataGridView_CellContentClick);
             // 
@@ -302,10 +306,24 @@
             this.expertFIODataGridViewTextBoxColumn.HeaderText = "Эксперт";
             this.expertFIODataGridViewTextBoxColumn.Name = "expertFIODataGridViewTextBoxColumn";
             // 
+            // has_contract_document
+            // 
+            this.has_contract_document.DataPropertyName = "has_contract_document";
+            this.has_contract_document.HeaderText = "Документ";
+            this.has_contract_document.Name = "has_contract_document";
+            this.has_contract_document.ReadOnly = true;
+            this.has_contract_document.Width = 70;
+            // 
             // SignContractColumn
             // 
             this.SignContractColumn.HeaderText = "Контракт подписан";
             this.SignContractColumn.Name = "SignContractColumn";
+            // 
+            // number
+            // 
+            this.number.DataPropertyName = "number";
+            this.number.HeaderText = "number";
+            this.number.Name = "number";
             // 
             // contractSigningBindingSource
             // 
@@ -326,9 +344,9 @@
             this.panel1.Controls.Add(date_contractLabel);
             this.panel1.Controls.Add(this.groupBoxContract);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(3, 289);
+            this.panel1.Location = new System.Drawing.Point(3, 288);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1100, 152);
+            this.panel1.Size = new System.Drawing.Size(1139, 153);
             this.panel1.TabIndex = 25;
             // 
             // date_contractDateTimePicker
@@ -355,9 +373,9 @@
             this.groupBoxContract.Controls.Add(this.buttonGenerateContract);
             this.groupBoxContract.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Edocsys.Properties.Settings.Default, "ContractOperationGroupBox", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.groupBoxContract.Dock = System.Windows.Forms.DockStyle.Right;
-            this.groupBoxContract.Location = new System.Drawing.Point(813, 0);
+            this.groupBoxContract.Location = new System.Drawing.Point(852, 0);
             this.groupBoxContract.Name = "groupBoxContract";
-            this.groupBoxContract.Size = new System.Drawing.Size(287, 152);
+            this.groupBoxContract.Size = new System.Drawing.Size(287, 153);
             this.groupBoxContract.TabIndex = 25;
             this.groupBoxContract.TabStop = false;
             this.groupBoxContract.Text = global::Edocsys.Properties.Settings.Default.ContractOperationGroupBox;
@@ -376,7 +394,7 @@
             // buttonSaveContract
             // 
             this.buttonSaveContract.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Edocsys.Properties.Settings.Default, "SaveContractTitle", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.buttonSaveContract.DataBindings.Add(new System.Windows.Forms.Binding("Enabled", this.contractSigningBindingSource, "has_proposal_document", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.buttonSaveContract.DataBindings.Add(new System.Windows.Forms.Binding("Enabled", this.contractSigningBindingSource, "has_contract_document", true));
             this.buttonSaveContract.Location = new System.Drawing.Point(21, 90);
             this.buttonSaveContract.Name = "buttonSaveContract";
             this.buttonSaveContract.Size = new System.Drawing.Size(246, 23);
@@ -388,7 +406,7 @@
             // buttonEditContract
             // 
             this.buttonEditContract.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Edocsys.Properties.Settings.Default, "EditContractTitle", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.buttonEditContract.DataBindings.Add(new System.Windows.Forms.Binding("Enabled", this.contractSigningBindingSource, "has_proposal_document", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.buttonEditContract.DataBindings.Add(new System.Windows.Forms.Binding("Enabled", this.contractSigningBindingSource, "has_contract_document", true));
             this.buttonEditContract.Location = new System.Drawing.Point(21, 61);
             this.buttonEditContract.Name = "buttonEditContract";
             this.buttonEditContract.Size = new System.Drawing.Size(246, 23);
@@ -436,7 +454,7 @@
             this.bindingNavigatorContractSigning.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.bindingNavigatorContractSigning.Name = "bindingNavigatorContractSigning";
             this.bindingNavigatorContractSigning.PositionItem = this.bindingNavigatorPositionItem;
-            this.bindingNavigatorContractSigning.Size = new System.Drawing.Size(1100, 25);
+            this.bindingNavigatorContractSigning.Size = new System.Drawing.Size(1139, 25);
             this.bindingNavigatorContractSigning.TabIndex = 26;
             this.bindingNavigatorContractSigning.Text = "bindingNavigator1";
             // 
@@ -550,7 +568,7 @@
             this.tabComplitionManagerConfrim.Location = new System.Drawing.Point(4, 22);
             this.tabComplitionManagerConfrim.Name = "tabComplitionManagerConfrim";
             this.tabComplitionManagerConfrim.Padding = new System.Windows.Forms.Padding(3);
-            this.tabComplitionManagerConfrim.Size = new System.Drawing.Size(1106, 444);
+            this.tabComplitionManagerConfrim.Size = new System.Drawing.Size(1145, 444);
             this.tabComplitionManagerConfrim.TabIndex = 2;
             this.tabComplitionManagerConfrim.Text = global::Edocsys.Properties.Settings.Default.TabTaskReady;
             this.tabComplitionManagerConfrim.UseVisualStyleBackColor = true;
@@ -580,7 +598,7 @@
             this.contractComplitionManagerConfrimDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.contractComplitionManagerConfrimDataGridView.Location = new System.Drawing.Point(3, 28);
             this.contractComplitionManagerConfrimDataGridView.Name = "contractComplitionManagerConfrimDataGridView";
-            this.contractComplitionManagerConfrimDataGridView.Size = new System.Drawing.Size(1100, 413);
+            this.contractComplitionManagerConfrimDataGridView.Size = new System.Drawing.Size(1139, 413);
             this.contractComplitionManagerConfrimDataGridView.TabIndex = 30;
             this.contractComplitionManagerConfrimDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.contractComplitionManagerConfrimDataGridView_CellContentClick);
             // 
@@ -703,7 +721,7 @@
             this.bindingNavigatorComplitionMgrCnf.MovePreviousItem = this.toolStripButton14;
             this.bindingNavigatorComplitionMgrCnf.Name = "bindingNavigatorComplitionMgrCnf";
             this.bindingNavigatorComplitionMgrCnf.PositionItem = this.toolStripTextBox2;
-            this.bindingNavigatorComplitionMgrCnf.Size = new System.Drawing.Size(1100, 25);
+            this.bindingNavigatorComplitionMgrCnf.Size = new System.Drawing.Size(1139, 25);
             this.bindingNavigatorComplitionMgrCnf.TabIndex = 29;
             this.bindingNavigatorComplitionMgrCnf.Text = "bindingNavigator2";
             // 
@@ -817,7 +835,7 @@
             this.tabComplitionAgentConfrim.Location = new System.Drawing.Point(4, 22);
             this.tabComplitionAgentConfrim.Name = "tabComplitionAgentConfrim";
             this.tabComplitionAgentConfrim.Padding = new System.Windows.Forms.Padding(3);
-            this.tabComplitionAgentConfrim.Size = new System.Drawing.Size(1106, 444);
+            this.tabComplitionAgentConfrim.Size = new System.Drawing.Size(1145, 444);
             this.tabComplitionAgentConfrim.TabIndex = 3;
             this.tabComplitionAgentConfrim.Text = global::Edocsys.Properties.Settings.Default.TabTaskFinished;
             this.tabComplitionAgentConfrim.UseVisualStyleBackColor = true;
@@ -846,7 +864,7 @@
             this.contractDoneDataTableDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.contractDoneDataTableDataGridView.Location = new System.Drawing.Point(3, 28);
             this.contractDoneDataTableDataGridView.Name = "contractDoneDataTableDataGridView";
-            this.contractDoneDataTableDataGridView.Size = new System.Drawing.Size(1100, 243);
+            this.contractDoneDataTableDataGridView.Size = new System.Drawing.Size(1139, 243);
             this.contractDoneDataTableDataGridView.TabIndex = 31;
             this.contractDoneDataTableDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.contractDoneDataTableDataGridView_CellContentClick);
             // 
@@ -971,7 +989,7 @@
             this.bindingNavigator.MovePreviousItem = this.toolStripButton2;
             this.bindingNavigator.Name = "bindingNavigator";
             this.bindingNavigator.PositionItem = this.toolStripTextBox1;
-            this.bindingNavigator.Size = new System.Drawing.Size(1100, 25);
+            this.bindingNavigator.Size = new System.Drawing.Size(1139, 25);
             this.bindingNavigator.TabIndex = 30;
             this.bindingNavigator.Text = "bindingNavigator2";
             // 
@@ -1081,7 +1099,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel2.Location = new System.Drawing.Point(3, 271);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1100, 170);
+            this.panel2.Size = new System.Drawing.Size(1139, 170);
             this.panel2.TabIndex = 28;
             // 
             // groupBox1
@@ -1092,7 +1110,7 @@
             this.groupBox1.Controls.Add(this.buttonGenerateAct);
             this.groupBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Edocsys.Properties.Settings.Default, "ContractActTitle", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.groupBox1.Location = new System.Drawing.Point(813, 0);
+            this.groupBox1.Location = new System.Drawing.Point(852, 0);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(287, 170);
             this.groupBox1.TabIndex = 25;
@@ -1157,19 +1175,19 @@
             this.tableAdapterManager.agents_contactsTableAdapter = null;
             this.tableAdapterManager.agentsTableAdapter = null;
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.Connection = null;
             this.tableAdapterManager.contract_statusTableAdapter = null;
             this.tableAdapterManager.contract_types_for_workTableAdapter = null;
             this.tableAdapterManager.contract_typesTableAdapter = null;
             this.tableAdapterManager.ContractInfoTableAdapter = null;
             this.tableAdapterManager.ContractPrepareForWorkTAdapter = null;
-            this.tableAdapterManager.ContractSigningTableAdapter = null;
+            this.tableAdapterManager.ContractSigningTableAdapter = this.contractSigningTableAdapter;
+            this.tableAdapterManager.ContractsOnInspectionTableAdapter = null;
             this.tableAdapterManager.contractsTableAdapter = null;
             this.tableAdapterManager.doc_templatesTableAdapter = null;
-            this.tableAdapterManager.documentsTableAdapter = null;
             this.tableAdapterManager.emission_typesTableAdapter = null;
             this.tableAdapterManager.expertsTableAdapter = null;
             this.tableAdapterManager.GOSTSelectionTableAdapter = null;
+            this.tableAdapterManager.InspectionContractsTableAdapter = null;
             this.tableAdapterManager.log_journalTableAdapter = null;
             this.tableAdapterManager.product_areasTableAdapter = null;
             this.tableAdapterManager.product_gostsTableAdapter = null;
@@ -1205,7 +1223,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1114, 470);
+            this.ClientSize = new System.Drawing.Size(1153, 470);
             this.Controls.Add(this.tabControl);
             this.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Edocsys.Properties.Settings.Default, "ContractsFormTitle", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.Name = "ContractsForm";
@@ -1282,16 +1300,6 @@
         private EdocbaseDataSetTableAdapters.ContractDocDataTableAdapter contractDocDataTableAdapter;
         private System.Windows.Forms.OpenFileDialog openFileDialog;
         private System.Windows.Forms.SaveFileDialog saveFileDialog;
-        private System.Windows.Forms.DataGridViewTextBoxColumn productsnameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn contracttypesnameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn agentsnameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn agenttypesnameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn costDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn totalcostDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dateproposalDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn agentsfullnameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn expertFIODataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewButtonColumn SignContractColumn;
         private System.Windows.Forms.DataGridView contractComplitionManagerConfrimDataGridView;
         private System.Windows.Forms.BindingNavigator bindingNavigatorComplitionMgrCnf;
         private System.Windows.Forms.ToolStripLabel toolStripLabel6;
@@ -1363,6 +1371,18 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn totalcostDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn agentsfullnameDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn expertFIODataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn productsnameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn contracttypesnameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn agentsnameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn agenttypesnameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn costDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn totalcostDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dateproposalDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn agentsfullnameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn expertFIODataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn has_contract_document;
+        private System.Windows.Forms.DataGridViewButtonColumn SignContractColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn number;
 
         //private EdocbaseDataSetTableAdapters.Exec_contractsTableAdapter exec_contractsTableAdapter;
     }
