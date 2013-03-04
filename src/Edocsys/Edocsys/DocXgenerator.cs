@@ -27,7 +27,9 @@ namespace Edocsys
                     {
                         string key = item.Key;
                         string val = item.Value;
-                        double summ = Convert.ToDouble(item.Value);
+                        double summ = 0.0;
+                        if (val != "")
+                            summ = Convert.ToDouble(item.Value);
                         val = RuDateAndMoneyConverter.CurrencyToTxtFull_SBR(summ, true);
                         key = key.Substring(0, key.Length - 1) + "_STR_}";
                         doc.ReplaceText(item.Key, val);
