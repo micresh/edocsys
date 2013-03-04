@@ -69,9 +69,6 @@ namespace Edocsys
             {
                 ConnectionManager.Login = login;
                 ConnectionManager.Password = pass;
-                ConnectionManager.CurrentUser.UserID = id;
-                ConnectionManager.CurrentUser.Name = name;
-                ConnectionManager.CurrentUser.UserType = type;
 
                 //verify database connection with new users
                 try
@@ -82,6 +79,10 @@ namespace Edocsys
                 {
                     MessageBox.Show("Не удалось выполнить подключение к базе данных");
                 }
+
+                ConnectionManager.CurrentUser.UserID = id;
+                ConnectionManager.CurrentUser.Name = name;
+                ConnectionManager.CurrentUser.UserType = type;
 
 #if DEBUG
                 MessageBox.Show("Вы успешно авторизованы");

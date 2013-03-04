@@ -29,11 +29,6 @@ namespace Edocsys
         {
             testConnectionString = global::Edocsys.Properties.Settings.Default.EdocbaseConnectionString;
 
-            //set current user login
-            CurrentUser = new User();
-            CurrentUser.Name = "";
-            CurrentUser.UserID = 0;
-
             ResetToDefaults();
         }
 
@@ -43,15 +38,19 @@ namespace Edocsys
             Port = global::Edocsys.Properties.Settings.Default.ConnPort;
             Database = global::Edocsys.Properties.Settings.Default.ConnDatabase;
 
+            //set current user login
             CurrentUser = new User();
+
+            CurrentUser.Name = "";
+            CurrentUser.UserID = 0;
             
-            //DEBUG FEATURE
-            #if DEBUG
-                Login = "admin";
-                CurrentUser.Name = "adm";
-                CurrentUser.UserID = 1;
-                CurrentUser.UserType = 1;
-            #endif
+            ////DEBUG FEATURE
+            //#if DEBUG
+            //    Login = "admin";
+            //    CurrentUser.Name = "adm";
+            //    CurrentUser.UserID = 1;
+            //    CurrentUser.UserType = 1;
+            //#endif
 
             Password = "wepo23nri_)(*";
         }

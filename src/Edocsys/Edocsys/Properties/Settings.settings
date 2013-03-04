@@ -12,7 +12,7 @@
       <Value Profile="(Default)">&amp;Файл</Value>
     </Setting>
     <Setting Name="LoginToolStripMenuItemText" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Вход</Value>
+      <Value Profile="(Default)">Начать сеанс</Value>
     </Setting>
     <Setting Name="ExitToolStripMenuItemText" Type="System.String" Scope="User">
       <Value Profile="(Default)">Выход</Value>

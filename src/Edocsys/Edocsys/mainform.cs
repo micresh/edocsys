@@ -29,7 +29,47 @@ namespace Edocsys
 
         private void LoginToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-           wmgr.ShowLoginForm("");
+            wmgr.ShowLoginForm("");
+            UpdateLoginControls();
+        }
+
+        private void UpdateLoginControls()
+        {
+            if (ConnectionManager.CurrentUser.UserID > 0)
+            {
+                HideLoginButtons();
+
+                EnableActionButtons(true);
+            }
+            else
+            {
+                ShowLoginButtons();
+                EnableActionButtons(false);
+            }
+        }
+
+        private void EnableActionButtons(bool isEnabled)
+        {
+            //menus
+            this.DocToolStripMenuItem.Enabled = isEnabled;
+            this.AdmToolStripMenuItem.Enabled = isEnabled;
+
+            //toolstrip
+            for (int i = 0; i < mainToolStrip.Items.Count; ++i)
+            {
+                if ((mainToolStrip.Items[i].Name != "fillUsersToolStripButton")
+                    &&
+                    (mainToolStrip.Items[i].Name != "usersToolStripComboBox")
+                    &&
+                    (mainToolStrip.Items[i].Name != "loginToolStripButton"))
+                {
+                    mainToolStrip.Items[i].Enabled = isEnabled;
+                }
+                else
+                {
+                    mainToolStrip.Items[i].Enabled = !isEnabled;
+                }
+            }
         }
 
         private void ExitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -78,6 +118,7 @@ namespace Edocsys
             //success users get
             fillUsersToolStripButton.Visible = false;
             ShowLoginButtons();
+            EnableActionButtons(false);
         }
 
         /// <summary>
@@ -168,6 +209,7 @@ namespace Edocsys
         private void loginToolStripButton_Click(object sender, EventArgs e)
         {
             wmgr.ShowLoginForm(usersToolStripComboBox.Text);
+            UpdateLoginControls();
             this.Activate();
         }
 
@@ -214,6 +256,14 @@ namespace Edocsys
         private void ContractStatsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             wmgr.ShowContractStatsForm();
+        }
+
+        private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ConnectionManager.ResetToDefaults();
+
+            EnableActionButtons(false);
+            ShowLoginButtons();
         }
     }
 }
