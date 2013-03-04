@@ -66,8 +66,8 @@
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.loginToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.usersToolStripComboBox = new System.Windows.Forms.ToolStripComboBox();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.fillUsersToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.curentUserToolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.usersTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.usersTableAdapter();
@@ -323,7 +323,7 @@
             this.toolStripButton4.Name = "toolStripButton4";
             this.toolStripButton4.Size = new System.Drawing.Size(54, 54);
             this.toolStripButton4.Text = "Работы по договору";
-            this.toolStripButton4.Click += new System.EventHandler(this.AssignexpertToolStripMenuItem_Click);
+            this.toolStripButton4.Click += new System.EventHandler(this.WorksToolStripMenuItem_Click);
             // 
             // toolStripButton5
             // 
@@ -388,11 +388,6 @@
             this.usersToolStripComboBox.Name = "usersToolStripComboBox";
             this.usersToolStripComboBox.Size = new System.Drawing.Size(200, 57);
             // 
-            // toolStripSeparator3
-            // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 57);
-            // 
             // fillUsersToolStripButton
             // 
             this.fillUsersToolStripButton.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
@@ -403,6 +398,11 @@
             this.fillUsersToolStripButton.Size = new System.Drawing.Size(54, 54);
             this.fillUsersToolStripButton.Text = "Обновить список пользователей";
             this.fillUsersToolStripButton.Click += new System.EventHandler(this.fillUsersToolStripButton_Click);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 57);
             // 
             // statusStrip1
             // 
