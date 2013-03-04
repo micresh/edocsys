@@ -18060,9 +18060,13 @@ namespace Edocsys {
             
             private global::System.Data.DataColumn columnexpert_FIO;
             
-            private global::System.Data.DataColumn columnExpr1;
-            
             private global::System.Data.DataColumn columncash_income;
+            
+            private global::System.Data.DataColumn columnexperts_id1;
+            
+            private global::System.Data.DataColumn columnhas_act_document2;
+            
+            private global::System.Data.DataColumn columnhas_act_document;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -18323,17 +18327,33 @@ namespace Edocsys {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Expr1Column {
+            public global::System.Data.DataColumn cash_incomeColumn {
                 get {
-                    return this.columnExpr1;
+                    return this.columncash_income;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn cash_incomeColumn {
+            public global::System.Data.DataColumn experts_id1Column {
                 get {
-                    return this.columncash_income;
+                    return this.columnexperts_id1;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn has_act_document2Column {
+                get {
+                    return this.columnhas_act_document2;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn has_act_documentColumn {
+                get {
+                    return this.columnhas_act_document;
                 }
             }
             
@@ -18399,8 +18419,10 @@ namespace Edocsys {
                         int pkcontract_status_id, 
                         string contract_status_name, 
                         string expert_FIO, 
-                        int Expr1, 
-                        bool cash_income) {
+                        bool cash_income, 
+                        int experts_id1, 
+                        bool has_act_document2, 
+                        bool has_act_document) {
                 ContractDoneRow rowContractDoneRow = ((ContractDoneRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -18431,8 +18453,10 @@ namespace Edocsys {
                         pkcontract_status_id,
                         contract_status_name,
                         expert_FIO,
-                        Expr1,
-                        cash_income};
+                        cash_income,
+                        experts_id1,
+                        has_act_document2,
+                        has_act_document};
                 if ((parentproductsRowByfk_contracts_products10 != null)) {
                     columnValuesArray[1] = parentproductsRowByfk_contracts_products10[0];
                 }
@@ -18498,8 +18522,10 @@ namespace Edocsys {
                 this.columnpkcontract_status_id = base.Columns["pkcontract_status_id"];
                 this.columncontract_status_name = base.Columns["contract_status_name"];
                 this.columnexpert_FIO = base.Columns["expert_FIO"];
-                this.columnExpr1 = base.Columns["Expr1"];
                 this.columncash_income = base.Columns["cash_income"];
+                this.columnexperts_id1 = base.Columns["experts_id1"];
+                this.columnhas_act_document2 = base.Columns["has_act_document2"];
+                this.columnhas_act_document = base.Columns["has_act_document"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -18561,10 +18587,14 @@ namespace Edocsys {
                 base.Columns.Add(this.columncontract_status_name);
                 this.columnexpert_FIO = new global::System.Data.DataColumn("expert_FIO", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnexpert_FIO);
-                this.columnExpr1 = new global::System.Data.DataColumn("Expr1", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnExpr1);
                 this.columncash_income = new global::System.Data.DataColumn("cash_income", typeof(bool), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncash_income);
+                this.columnexperts_id1 = new global::System.Data.DataColumn("experts_id1", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnexperts_id1);
+                this.columnhas_act_document2 = new global::System.Data.DataColumn("has_act_document2", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnhas_act_document2);
+                this.columnhas_act_document = new global::System.Data.DataColumn("has_act_document", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnhas_act_document);
                 this.columnid.AutoIncrement = true;
                 this.columnid.AutoIncrementSeed = -1;
                 this.columnid.AutoIncrementStep = -1;
@@ -18591,7 +18621,8 @@ namespace Edocsys {
                 this.columncontract_types_name.MaxLength = 55;
                 this.columncontract_status_name.MaxLength = 45;
                 this.columnexpert_FIO.MaxLength = 38;
-                this.columnExpr1.AllowDBNull = false;
+                this.columnexperts_id1.AllowDBNull = false;
+                this.columnhas_act_document2.Caption = "has_act_document";
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -36567,17 +36598,6 @@ namespace Edocsys {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int Expr1 {
-                get {
-                    return ((int)(this[this.tableContractDone.Expr1Column]));
-                }
-                set {
-                    this[this.tableContractDone.Expr1Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool cash_income {
                 get {
                     try {
@@ -36589,6 +36609,49 @@ namespace Edocsys {
                 }
                 set {
                     this[this.tableContractDone.cash_incomeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int experts_id1 {
+                get {
+                    return ((int)(this[this.tableContractDone.experts_id1Column]));
+                }
+                set {
+                    this[this.tableContractDone.experts_id1Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool has_act_document2 {
+                get {
+                    try {
+                        return ((bool)(this[this.tableContractDone.has_act_document2Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'has_act_document2\' in table \'ContractDone\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableContractDone.has_act_document2Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool has_act_document {
+                get {
+                    try {
+                        return ((bool)(this[this.tableContractDone.has_act_documentColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'has_act_document\' in table \'ContractDone\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableContractDone.has_act_documentColumn] = value;
                 }
             }
             
@@ -36943,6 +37006,30 @@ namespace Edocsys {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void Setcash_incomeNull() {
                 this[this.tableContractDone.cash_incomeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Ishas_act_document2Null() {
+                return this.IsNull(this.tableContractDone.has_act_document2Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Sethas_act_document2Null() {
+                this[this.tableContractDone.has_act_document2Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Ishas_act_documentNull() {
+                return this.IsNull(this.tableContractDone.has_act_documentColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Sethas_act_documentNull() {
+                this[this.tableContractDone.has_act_documentColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -57344,8 +57431,9 @@ WHERE        (selected_gosts.contracts_id = @contracts_id)";
             tableMapping.ColumnMappings.Add("pkcontract_status_id", "pkcontract_status_id");
             tableMapping.ColumnMappings.Add("contract_status_name", "contract_status_name");
             tableMapping.ColumnMappings.Add("expert_FIO", "expert_FIO");
-            tableMapping.ColumnMappings.Add("Expr1", "Expr1");
             tableMapping.ColumnMappings.Add("cash_income", "cash_income");
+            tableMapping.ColumnMappings.Add("experts_id1", "experts_id1");
+            tableMapping.ColumnMappings.Add("has_act_document", "has_act_document");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -57362,29 +57450,27 @@ WHERE        (selected_gosts.contracts_id = @contracts_id)";
             this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[3];
             this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT        contracts.id, contracts.products_id, contracts.agents_id, contracts" +
-                ".contract_types_id, contracts.contract_status_id, contracts.experts_id, contract" +
-                "s.source_types_id, \r\n                         contracts.date_proposal, contracts" +
-                ".experts_id AS Expr1, contracts.number, contracts.date_contract, contracts.date_" +
-                "start, contracts.date_end, \r\n                         contracts.date_sample_inco" +
-                "me, contracts.date_protocol_income, contracts.cost, contracts.total_cost, contra" +
-                "cts.cash_income, products.id AS pkproducts_id, \r\n                         produc" +
-                "ts.name AS products_name, agents.id AS pkagents_id, agents.name AS agents_name, " +
-                "agent_types.id AS pkagent_types_id, \r\n                         agent_types.name " +
-                "AS agent_types_name, CONCAT(agent_types.name, \' \', agents.name) AS agents_fullna" +
-                "me, contract_types.id AS pkcontract_types_id, \r\n                         contrac" +
-                "t_types.name AS contract_types_name, contract_status.id AS pkcontract_status_id," +
-                " contract_status.name AS contract_status_name, CONCAT(users.lastname, \r\n        " +
-                "                 \' \', substr(users.firstname, 1, 1), \'. \', substr(users.middlena" +
-                "me, 1, 1), \'.\') AS expert_FIO\r\nFROM            contracts LEFT OUTER JOIN\r\n      " +
-                "                   agents ON contracts.agents_id = agents.id LEFT OUTER JOIN\r\n  " +
-                "                       products ON contracts.products_id = products.id LEFT OUTE" +
-                "R JOIN\r\n                         agent_types ON agents.agent_types_id = agent_ty" +
-                "pes.id LEFT OUTER JOIN\r\n                         contract_types ON contracts.con" +
-                "tract_types_id = contract_types.id LEFT OUTER JOIN\r\n                         con" +
-                "tract_status ON contracts.contract_status_id = contract_status.id LEFT OUTER JOI" +
-                "N\r\n                         users ON contracts.experts_id = users.id\r\nWHERE     " +
-                "   (contracts.contract_status_id = 6)";
+            this._commandCollection[0].CommandText = "SELECT\r\ncontracts.id,\r\ncontracts.products_id,\r\ncontracts.agents_id,\r\ncontracts.co" +
+                "ntract_types_id,\r\ncontracts.contract_status_id,\r\ncontracts.experts_id,\r\ncontract" +
+                "s.source_types_id,\r\ncontracts.date_proposal,\r\ncontracts.experts_id,\r\ncontracts.n" +
+                "umber,\r\ncontracts.date_contract,\r\ncontracts.date_start,\r\ncontracts.date_end,\r\nco" +
+                "ntracts.date_sample_income,\r\ncontracts.date_protocol_income,\r\ncontracts.cost,\r\nc" +
+                "ontracts.total_cost,\r\ncontracts.cash_income,\r\nproducts.id AS pkproducts_id,\r\npro" +
+                "ducts.name AS products_name,\r\nagents.id AS pkagents_id,\r\nagents.name AS agents_n" +
+                "ame,\r\nagent_types.id AS pkagent_types_id,\r\nagent_types.name AS agent_types_name," +
+                "\r\nCONCAT( agent_types.name, \' \', agents.name ) AS agents_fullname,\r\ncontract_typ" +
+                "es.id AS pkcontract_types_id,\r\ncontract_types.name AS contract_types_name,\r\ncont" +
+                "ract_status.id AS pkcontract_status_id,\r\ncontract_status.name AS contract_status" +
+                "_name,\r\nCONCAT( users.lastname, \' \', substr(users.firstname, 1, 1), \'. \', substr" +
+                "(users.middlename, 1, 1), \'.\' ) AS expert_FIO,\r\n(SELECT IFNULL((SELECT (document" +
+                "s.contract_types_id = 1) FROM documents WHERE (documents.contract_types_id = 1) " +
+                "AND (documents.contracts_id=contracts.id)), false)) AS has_act_document\r\nFROM\r\nc" +
+                "ontracts\r\nLEFT OUTER JOIN agents ON contracts.agents_id = agents.id\r\nLEFT OUTER " +
+                "JOIN products ON contracts.products_id = products.id\r\nLEFT OUTER JOIN agent_type" +
+                "s ON agents.agent_types_id = agent_types.id\r\nLEFT OUTER JOIN contract_types ON c" +
+                "ontracts.contract_types_id = contract_types.id\r\nLEFT OUTER JOIN contract_status " +
+                "ON contracts.contract_status_id = contract_status.id\r\nLEFT OUTER JOIN users ON c" +
+                "ontracts.experts_id = users.id\r\nWHERE\r\n(contracts.contract_status_id = 6)";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[1].Connection = this.Connection;

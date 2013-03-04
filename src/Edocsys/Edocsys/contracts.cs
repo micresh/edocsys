@@ -36,8 +36,6 @@ namespace Edocsys
             //doc helper
             contractGenerator = new DocGeneratorHelper(edocbaseDataSet.documents, edocbaseDataSet.doc_templates, edocbaseDataSet.ContractDocData);
             actGenerator = new DocGeneratorHelper(edocbaseDataSet.documents, edocbaseDataSet.doc_templates, edocbaseDataSet.ContractDocData);
-
-
         }
 
 
@@ -307,7 +305,7 @@ namespace Edocsys
             DataRow currentRow = edocbaseDataSet.ContractDone.DefaultView[contractDoneBindingSource.Position].Row;
             int idContract = Convert.ToInt32(currentRow["id"]);
 
-            if (e.ColumnIndex == contractComplitionManagerConfrimDataGridView.Columns["FinishContractColumn"].Index)
+            if (e.ColumnIndex == contractDoneDataTableDataGridView.Columns["FinishContractColumn"].Index)
             {
 
                 if (MessageBox.Show("Подтвердить оформление акта и завершение договора #" + idContract, "Подтвердить завершение работ по договору", MessageBoxButtons.YesNo) == DialogResult.Yes)
@@ -327,7 +325,7 @@ namespace Edocsys
                 }
             }
 
-            if (e.ColumnIndex == contractComplitionManagerConfrimDataGridView.Columns["ReattSignColumn"].Index)
+            if (e.ColumnIndex == contractDoneDataTableDataGridView.Columns["ReattSignColumn"].Index)
             {
                 if (MessageBox.Show("Подтвердить направление договора #" + idContract + " на инспекционный контроль", "Подтвердить инспекционный контроль по договору", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {

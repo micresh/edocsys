@@ -30,7 +30,7 @@ contract_types.id AS contract_types_id,
 contract_types.name AS contract_types_name,
 emission_types.id AS emission_types_id,
 emission_types.name AS emission_types_name,
-(SELECT IFNULL((SELECT (documents.contract_types_id=0) FROM documents WHERE documents.contracts_id=contracts.id), FALSE)) AS has_proposal_document
+(SELECT IFNULL((SELECT (documents.contract_types_id = 0) FROM documents WHERE (documents.contract_types_id = 0) AND (documents.contracts_id=contracts.id)), false)) AS has_proposal_document
 FROM
 contracts
 LEFT OUTER JOIN agents ON contracts.agents_id = agents.id
@@ -268,7 +268,7 @@ contract_types.name AS contract_types_name,
 contract_status.id AS pkcontract_status_id,
 contract_status.name AS contract_status_name,
 CONCAT( users.lastname, ' ', substr(users.firstname, 1, 1), '. ', substr(users.middlename, 1, 1), '.' ) AS expert_FIO,
-(SELECT IFNULL((SELECT (documents.contract_types_id > 9) FROM documents WHERE documents.contracts_id=contracts.id), FALSE)) AS has_contract_document,
+(SELECT IFNULL((SELECT (documents.contract_types_id > 9) FROM documents WHERE (documents.contract_types_id > 9) AND (documents.contracts_id=contracts.id)), false)) AS has_contract_document,
 documents.contract_types_id AS documents_contract_types_id
 FROM
 contracts
@@ -520,7 +520,8 @@ contract_types.id AS pkcontract_types_id,
 contract_types.name AS contract_types_name,
 contract_status.id AS pkcontract_status_id,
 contract_status.name AS contract_status_name,
-CONCAT( users.lastname, ' ', substr(users.firstname, 1, 1), '. ', substr(users.middlename, 1, 1), '.' ) AS expert_FIO
+CONCAT( users.lastname, ' ', substr(users.firstname, 1, 1), '. ', substr(users.middlename, 1, 1), '.' ) AS expert_FIO,
+(SELECT IFNULL((SELECT (documents.contract_types_id = 1) FROM documents WHERE (documents.contract_types_id = 1) AND (documents.contracts_id=contracts.id)), false)) AS has_act_document
 FROM
 contracts
 LEFT OUTER JOIN agents ON contracts.agents_id = agents.id
