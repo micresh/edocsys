@@ -704,7 +704,8 @@ contract_types.id AS pkcontract_types_id,
 contract_types.name AS contract_types_name,
 contract_status.id AS pkcontract_status_id,
 contract_status.name AS contract_status_name,
-CONCAT( users.lastname, ' ', substr(users.firstname, 1, 1), '. ', substr(users.middlename, 1, 1), '.' ) AS expert_FIO
+CONCAT( users.lastname, ' ', substr(users.firstname, 1, 1), '. ', substr(users.middlename, 1, 1), '.' ) AS expert_FIO,
+(SELECT IFNULL((SELECT (documents.contract_types_id = 2) FROM documents WHERE (documents.contract_types_id = 2) AND (documents.contracts_id=contracts.id)), false)) AS has_inspection_document
 FROM
 contracts
 LEFT OUTER JOIN agents ON contracts.agents_id = agents.id

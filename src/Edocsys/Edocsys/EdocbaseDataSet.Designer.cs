@@ -19566,6 +19566,8 @@ namespace Edocsys {
             
             private global::System.Data.DataColumn columndate_real_resert;
             
+            private global::System.Data.DataColumn columnhas_inspection_document;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public InspectionContractsDataTable() {
@@ -19897,6 +19899,14 @@ namespace Edocsys {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn has_inspection_documentColumn {
+                get {
+                    return this.columnhas_inspection_document;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -19965,7 +19975,8 @@ namespace Edocsys {
                         System.DateTime date_planed_reatt_2, 
                         System.DateTime date_real_reatt_2, 
                         System.DateTime date_planed_resert, 
-                        System.DateTime date_real_resert) {
+                        System.DateTime date_real_resert, 
+                        bool has_inspection_document) {
                 InspectionContractsRow rowInspectionContractsRow = ((InspectionContractsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -20004,7 +20015,8 @@ namespace Edocsys {
                         date_planed_reatt_2,
                         date_real_reatt_2,
                         date_planed_resert,
-                        date_real_resert};
+                        date_real_resert,
+                        has_inspection_document};
                 if ((parentproductsRowByfk_contracts_products13 != null)) {
                     columnValuesArray[1] = parentproductsRowByfk_contracts_products13[0];
                 }
@@ -20079,6 +20091,7 @@ namespace Edocsys {
                 this.columndate_real_reatt_2 = base.Columns["date_real_reatt_2"];
                 this.columndate_planed_resert = base.Columns["date_planed_resert"];
                 this.columndate_real_resert = base.Columns["date_real_resert"];
+                this.columnhas_inspection_document = base.Columns["has_inspection_document"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -20158,6 +20171,8 @@ namespace Edocsys {
                 base.Columns.Add(this.columndate_planed_resert);
                 this.columndate_real_resert = new global::System.Data.DataColumn("date_real_resert", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndate_real_resert);
+                this.columnhas_inspection_document = new global::System.Data.DataColumn("has_inspection_document", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnhas_inspection_document);
                 this.columnid.AutoIncrement = true;
                 this.columnid.AutoIncrementSeed = -1;
                 this.columnid.AutoIncrementStep = -1;
@@ -38512,6 +38527,23 @@ namespace Edocsys {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool has_inspection_document {
+                get {
+                    try {
+                        return ((bool)(this[this.tableInspectionContracts.has_inspection_documentColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'has_inspection_document\' in table \'InspectionContracts\' is " +
+                                "DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableInspectionContracts.has_inspection_documentColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public contract_statusRow contract_statusRow {
                 get {
                     return ((contract_statusRow)(this.GetParentRow(this.Table.ParentRelations["fk_contracts_contract_status13"])));
@@ -38945,6 +38977,18 @@ namespace Edocsys {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void Setdate_real_resertNull() {
                 this[this.tableInspectionContracts.date_real_resertColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Ishas_inspection_documentNull() {
+                return this.IsNull(this.tableInspectionContracts.has_inspection_documentColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Sethas_inspection_documentNull() {
+                this[this.tableInspectionContracts.has_inspection_documentColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -57962,6 +58006,7 @@ WHERE        (selected_gosts.contracts_id = @contracts_id)";
             tableMapping.ColumnMappings.Add("date_real_reatt_2", "date_real_reatt_2");
             tableMapping.ColumnMappings.Add("date_planed_resert", "date_planed_resert");
             tableMapping.ColumnMappings.Add("date_real_resert", "date_real_resert");
+            tableMapping.ColumnMappings.Add("has_inspection_document", "has_inspection_document");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.UpdateCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
@@ -58050,13 +58095,15 @@ WHERE        (id = @original_id)";
                 "d,\r\ncontract_types.name AS contract_types_name,\r\ncontract_status.id AS pkcontrac" +
                 "t_status_id,\r\ncontract_status.name AS contract_status_name,\r\nCONCAT( users.lastn" +
                 "ame, \' \', substr(users.firstname, 1, 1), \'. \', substr(users.middlename, 1, 1), \'" +
-                ".\' ) AS expert_FIO\r\nFROM\r\ncontracts\r\nLEFT OUTER JOIN agents ON contracts.agents_" +
-                "id = agents.id\r\nLEFT OUTER JOIN products ON contracts.products_id = products.id\r" +
-                "\nLEFT OUTER JOIN agent_types ON agents.agent_types_id = agent_types.id\r\nLEFT OUT" +
-                "ER JOIN contract_types ON contracts.contract_types_id = contract_types.id\r\nLEFT " +
-                "OUTER JOIN contract_status ON contracts.contract_status_id = contract_status.id\r" +
-                "\nLEFT OUTER JOIN users ON contracts.experts_id = users.id\r\nWHERE\r\n(contracts.con" +
-                "tract_status_id = 7)";
+                ".\' ) AS expert_FIO,\r\n(SELECT IFNULL((SELECT (documents.contract_types_id = 2) FR" +
+                "OM documents WHERE (documents.contract_types_id = 2) AND (documents.contracts_id" +
+                "=contracts.id)), false)) AS has_inspection_document\r\nFROM\r\ncontracts\r\nLEFT OUTER" +
+                " JOIN agents ON contracts.agents_id = agents.id\r\nLEFT OUTER JOIN products ON con" +
+                "tracts.products_id = products.id\r\nLEFT OUTER JOIN agent_types ON agents.agent_ty" +
+                "pes_id = agent_types.id\r\nLEFT OUTER JOIN contract_types ON contracts.contract_ty" +
+                "pes_id = contract_types.id\r\nLEFT OUTER JOIN contract_status ON contracts.contrac" +
+                "t_status_id = contract_status.id\r\nLEFT OUTER JOIN users ON contracts.experts_id " +
+                "= users.id\r\nWHERE\r\n(contracts.contract_status_id = 7)";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
