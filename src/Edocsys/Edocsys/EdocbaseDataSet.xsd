@@ -2510,7 +2510,8 @@ WHERE        (selected_gosts.contracts_id = @contracts_id)</CommandText>
               <DbSource ConnectionRef="EdocbaseConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT
+                    <CommandText>
+SELECT
 contracts.id,
 contracts.products_id,
 contracts.agents_id,
@@ -2578,7 +2579,14 @@ CONCAT( users.lastname, ' ', substr(users.firstname, 1, 1), '. ', substr(users.m
 INNER JOIN product_gosts ON selected_gosts.product_gosts_id = product_gosts.id
 WHERE (selected_gosts.using_gost = true) AND
 (selected_gosts.contracts_id = @contracts_id)
-) AS GOSTsList
+) AS GOSTsList,
+
+
+(SELECT person
+ FROM agents_contacts
+WHERE (agents_contacts.agents_id = agents.id)
+LIMIT 0,1
+) AS Bukh_FIO
 
 FROM
 contracts
@@ -2660,6 +2668,7 @@ WHERE
               <Mapping SourceColumn="date_planed_reatt_1" DataSetColumn="date_planed_reatt_1" />
               <Mapping SourceColumn="date_planed_reatt_2" DataSetColumn="date_planed_reatt_2" />
               <Mapping SourceColumn="date_planed_resert" DataSetColumn="date_planed_resert" />
+              <Mapping SourceColumn="Bukh_FIO" DataSetColumn="Bukh_FIO" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -4924,6 +4933,7 @@ WHERE        (id = @original_id)</CommandText>
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+              <xs:element name="Bukh_FIO" msprop:Generator_ColumnVarNameInTable="columnBukh_FIO" msprop:Generator_ColumnPropNameInRow="Bukh_FIO" msprop:Generator_ColumnPropNameInTable="Bukh_FIOColumn" msprop:Generator_UserColumnName="Bukh_FIO" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

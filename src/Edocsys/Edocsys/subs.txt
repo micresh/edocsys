@@ -52,6 +52,7 @@
 {_AGENTS_FULLNAME_}        agents_fullname
 {_CONTACT_PERS_NAME_FIO_}  contact_pers_name_FIO
 {_CONTACT_PERS_NAME_IOF_}  contact_pers_name_IOF
+{_BUKH_FIO_}               Bukh_FIO
 {_PKCONTRACT_TYPES_ID_}    pkcontract_types_id
 {_CONTRACT_TYPES_NAME_}    contract_types_name
 {_PKEMISSION_TYPES_ID_}    pkemission_types_id

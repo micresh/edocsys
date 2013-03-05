@@ -982,7 +982,14 @@ CONCAT( users.lastname, ' ', substr(users.firstname, 1, 1), '. ', substr(users.m
 INNER JOIN product_gosts ON selected_gosts.product_gosts_id = product_gosts.id
 WHERE (selected_gosts.using_gost = true) AND
 (selected_gosts.contracts_id = @contracts_id)
-) AS GOSTsList
+) AS GOSTsList,
+
+
+(SELECT person
+ FROM agents_contacts
+WHERE (agents_contacts.agents_id = agents.id)
+LIMIT 0,1
+) AS Bukh_FIO
 
 FROM
 contracts
