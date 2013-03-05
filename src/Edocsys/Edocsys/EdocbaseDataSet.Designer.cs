@@ -15479,6 +15479,8 @@ namespace Edocsys {
             
             private global::System.Data.DataColumn columnBukh_FIO;
             
+            private global::System.Data.DataColumn columnprepayment;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public ContractDocDataDataTable() {
@@ -16018,6 +16020,14 @@ namespace Edocsys {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn prepaymentColumn {
+                get {
+                    return this.columnprepayment;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -16112,7 +16122,8 @@ namespace Edocsys {
                         string date_planed_reatt_1, 
                         string date_planed_reatt_2, 
                         string date_planed_resert, 
-                        string Bukh_FIO) {
+                        string Bukh_FIO, 
+                        int prepayment) {
                 ContractDocDataRow rowContractDocDataRow = ((ContractDocDataRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -16177,7 +16188,8 @@ namespace Edocsys {
                         date_planed_reatt_1,
                         date_planed_reatt_2,
                         date_planed_resert,
-                        Bukh_FIO};
+                        Bukh_FIO,
+                        prepayment};
                 if ((parentproductsRowByfk_contracts_products4 != null)) {
                     columnValuesArray[1] = parentproductsRowByfk_contracts_products4[0];
                 }
@@ -16281,6 +16293,7 @@ namespace Edocsys {
                 this.columndate_planed_reatt_2 = base.Columns["date_planed_reatt_2"];
                 this.columndate_planed_resert = base.Columns["date_planed_resert"];
                 this.columnBukh_FIO = base.Columns["Bukh_FIO"];
+                this.columnprepayment = base.Columns["prepayment"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -16412,6 +16425,8 @@ namespace Edocsys {
                 base.Columns.Add(this.columndate_planed_resert);
                 this.columnBukh_FIO = new global::System.Data.DataColumn("Bukh_FIO", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnBukh_FIO);
+                this.columnprepayment = new global::System.Data.DataColumn("prepayment", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnprepayment);
                 this.columnid.AutoIncrement = true;
                 this.columnid.AutoIncrementSeed = -1;
                 this.columnid.AutoIncrementStep = -1;
@@ -33902,6 +33917,22 @@ namespace Edocsys {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int prepayment {
+                get {
+                    try {
+                        return ((int)(this[this.tableContractDocData.prepaymentColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'prepayment\' in table \'ContractDocData\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableContractDocData.prepaymentColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public contract_statusRow contract_statusRow {
                 get {
                     return ((contract_statusRow)(this.GetParentRow(this.Table.ParentRelations["fk_contracts_contract_status4"])));
@@ -34670,6 +34701,18 @@ namespace Edocsys {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetBukh_FIONull() {
                 this[this.tableContractDocData.Bukh_FIOColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsprepaymentNull() {
+                return this.IsNull(this.tableContractDocData.prepaymentColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetprepaymentNull() {
+                this[this.tableContractDocData.prepaymentColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -57088,6 +57131,7 @@ WHERE        (selected_gosts.contracts_id = @contracts_id)";
             tableMapping.ColumnMappings.Add("date_planed_reatt_2", "date_planed_reatt_2");
             tableMapping.ColumnMappings.Add("date_planed_resert", "date_planed_resert");
             tableMapping.ColumnMappings.Add("Bukh_FIO", "Bukh_FIO");
+            tableMapping.ColumnMappings.Add("prepayment", "prepayment");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -57104,48 +57148,48 @@ WHERE        (selected_gosts.contracts_id = @contracts_id)";
             this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[1];
             this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "\r\nSELECT\r\ncontracts.id,\r\ncontracts.products_id,\r\ncontracts.agents_id,\r\ncontracts." +
-                "contract_types_id,\r\ncontracts.contract_status_id,\r\ncontracts.experts_id,\r\ncontra" +
-                "cts.source_types_id,\r\nDATE_FORMAT(contracts.date_proposal, \'%d.%m.%Y\') AS date_p" +
-                "roposal,\r\ncontracts.scheme_type,\r\ncontracts.add_data_proposal,\r\ncontracts.add_da" +
-                "ta_contract,\r\ncontracts.production_documents,\r\ncontracts.cost,\r\ncontracts.total_" +
-                "cost,\r\ncontracts.cash_income,\r\nDATE_FORMAT(contracts.date_cash_income, \'%d.%m.%Y" +
-                "\') AS date_cash_income,\r\ncontracts.number,\r\nDATE_FORMAT(contracts.date_contract," +
-                " \'%d.%m.%Y\') AS date_contract,\r\nDATE_FORMAT(contracts.date_start, \'%d.%m.%Y\') AS" +
-                " date_start,\r\nDATE_FORMAT(contracts.date_end, \'%d.%m.%Y\') AS date_end,\r\nDATE_FOR" +
-                "MAT(contracts.date_sample_income, \'%d.%m.%Y\') AS date_sample_income,\r\nDATE_FORMA" +
-                "T(contracts.date_protocol_income, \'%d.%m.%Y\') AS date_protocol_income,\r\ncontract" +
-                "s.emission_types_id,\r\nDATE_FORMAT(contracts.date_planed_reatt_1, \'%d.%m.%Y\') AS " +
-                "date_planed_reatt_1,\r\ncontracts.date_real_reatt_1,\r\nDATE_FORMAT(contracts.date_p" +
-                "laned_reatt_2, \'%d.%m.%Y\') AS date_planed_reatt_2,\r\ncontracts.date_real_reatt_2," +
-                "\r\nDATE_FORMAT(contracts.date_planed_resert, \'%d.%m.%Y\') AS date_planed_resert,\r\n" +
-                "contracts.date_real_resert,\r\nproducts.id AS pkproducts_id,\r\nproducts.name AS pro" +
-                "ducts_name,\r\nagents.id AS pkagents_id,\r\nagents.name AS agents_name,\r\nagents.agen" +
-                "t_types_id AS pkagent_types_id,\r\nagents.inn,\r\nagents.phone,\r\nagents.fax,\r\nagents" +
-                ".email,\r\nagents.address,\r\nagents.ogrn,\r\nagents.kpp,\r\nagents.okpo,\r\nagents.ks,\r\na" +
-                "gents.rs,\r\nagents.bank,\r\nagents.bik,\r\nagents.signing_authority_doc,\r\nagents.pers" +
-                "_status,\r\nagents.pers_lastname,\r\nagents.pers_firstname,\r\nagents.pers_middlename," +
-                "\r\nagent_types.id AS pkagent_types_id,\r\nagent_types.name AS agent_types_name,\r\n\r\n" +
-                "CONCAT( agent_types.name, \' \', agents.name ) AS agents_fullname, \r\nCONCAT( agent" +
-                "s.pers_lastname, \' \', substr(agents.pers_firstname, 1, 1), \'. \', substr(agents.p" +
-                "ers_middlename, 1, 1), \'.\' ) AS contact_pers_name_FIO,\r\nCONCAT( substr(agents.pe" +
-                "rs_firstname, 1, 1), \'. \', substr(agents.pers_middlename, 1, 1), \'. \', agents.pe" +
-                "rs_lastname ) AS contact_pers_name_IOF,\r\ncontract_types.id AS pkcontract_types_i" +
-                "d,\r\ncontract_types.name AS contract_types_name,\r\nemission_types.id AS pkemission" +
-                "_types_id,\r\nemission_types.name AS emission_types_name,\r\nCONCAT( users.lastname," +
-                " \' \', substr(users.firstname, 1, 1), \'. \', substr(users.middlename, 1, 1), \'.\' )" +
-                " AS expert_FIO,\r\n\r\n(SELECT GROUP_CONCAT(product_gosts.number SEPARATOR \', \') FRO" +
-                "M selected_gosts\r\nINNER JOIN product_gosts ON selected_gosts.product_gosts_id = " +
-                "product_gosts.id\r\nWHERE (selected_gosts.using_gost = true) AND\r\n(selected_gosts." +
-                "contracts_id = @contracts_id)\r\n) AS GOSTsList,\r\n\r\n\r\n(SELECT person\r\n FROM agents" +
-                "_contacts\r\nWHERE (agents_contacts.agents_id = agents.id)\r\nLIMIT 0,1\r\n) AS Bukh_F" +
-                "IO\r\n\r\nFROM\r\ncontracts\r\nLEFT OUTER JOIN agents ON contracts.agents_id = agents.id" +
-                "\r\nLEFT OUTER JOIN products ON contracts.products_id = products.id\r\nLEFT OUTER JO" +
-                "IN agent_types ON agents.agent_types_id = agent_types.id\r\nLEFT OUTER JOIN contra" +
-                "ct_types ON contracts.contract_types_id = contract_types.id\r\nLEFT OUTER JOIN emi" +
-                "ssion_types ON contracts.emission_types_id = emission_types.id\r\nLEFT OUTER JOIN " +
-                "users ON contracts.experts_id = users.id\r\nWHERE\r\n    (contracts.id = @contracts_" +
-                "id)";
+            this._commandCollection[0].CommandText = "SELECT\r\ncontracts.id,\r\ncontracts.products_id,\r\ncontracts.agents_id,\r\ncontracts.co" +
+                "ntract_types_id,\r\ncontracts.contract_status_id,\r\ncontracts.experts_id,\r\ncontract" +
+                "s.source_types_id,\r\nDATE_FORMAT(contracts.date_proposal, \'%d.%m.%Y\') AS date_pro" +
+                "posal,\r\ncontracts.scheme_type,\r\ncontracts.add_data_proposal,\r\ncontracts.add_data" +
+                "_contract,\r\ncontracts.production_documents,\r\ncontracts.prepayment,\r\ncontracts.co" +
+                "st,\r\ncontracts.total_cost,\r\ncontracts.cash_income,\r\nDATE_FORMAT(contracts.date_c" +
+                "ash_income, \'%d.%m.%Y\') AS date_cash_income,\r\ncontracts.number,\r\nDATE_FORMAT(con" +
+                "tracts.date_contract, \'%d.%m.%Y\') AS date_contract,\r\nDATE_FORMAT(contracts.date_" +
+                "start, \'%d.%m.%Y\') AS date_start,\r\nDATE_FORMAT(contracts.date_end, \'%d.%m.%Y\') A" +
+                "S date_end,\r\nDATE_FORMAT(contracts.date_sample_income, \'%d.%m.%Y\') AS date_sampl" +
+                "e_income,\r\nDATE_FORMAT(contracts.date_protocol_income, \'%d.%m.%Y\') AS date_proto" +
+                "col_income,\r\ncontracts.emission_types_id,\r\nDATE_FORMAT(contracts.date_planed_rea" +
+                "tt_1, \'%d.%m.%Y\') AS date_planed_reatt_1,\r\ncontracts.date_real_reatt_1,\r\nDATE_FO" +
+                "RMAT(contracts.date_planed_reatt_2, \'%d.%m.%Y\') AS date_planed_reatt_2,\r\ncontrac" +
+                "ts.date_real_reatt_2,\r\nDATE_FORMAT(contracts.date_planed_resert, \'%d.%m.%Y\') AS " +
+                "date_planed_resert,\r\ncontracts.date_real_resert,\r\nproducts.id AS pkproducts_id,\r" +
+                "\nproducts.name AS products_name,\r\nagents.id AS pkagents_id,\r\nagents.name AS agen" +
+                "ts_name,\r\nagents.agent_types_id AS pkagent_types_id,\r\nagents.inn,\r\nagents.phone," +
+                "\r\nagents.fax,\r\nagents.email,\r\nagents.address,\r\nagents.ogrn,\r\nagents.kpp,\r\nagents" +
+                ".okpo,\r\nagents.ks,\r\nagents.rs,\r\nagents.bank,\r\nagents.bik,\r\nagents.signing_author" +
+                "ity_doc,\r\nagents.pers_status,\r\nagents.pers_lastname,\r\nagents.pers_firstname,\r\nag" +
+                "ents.pers_middlename,\r\nagent_types.id AS pkagent_types_id,\r\nagent_types.name AS " +
+                "agent_types_name,\r\n\r\nCONCAT( agent_types.name, \' \', agents.name ) AS agents_full" +
+                "name, \r\nCONCAT( agents.pers_lastname, \' \', substr(agents.pers_firstname, 1, 1), " +
+                "\'. \', substr(agents.pers_middlename, 1, 1), \'.\' ) AS contact_pers_name_FIO,\r\nCON" +
+                "CAT( substr(agents.pers_firstname, 1, 1), \'. \', substr(agents.pers_middlename, 1" +
+                ", 1), \'. \', agents.pers_lastname ) AS contact_pers_name_IOF,\r\ncontract_types.id " +
+                "AS pkcontract_types_id,\r\ncontract_types.name AS contract_types_name,\r\nemission_t" +
+                "ypes.id AS pkemission_types_id,\r\nemission_types.name AS emission_types_name,\r\nCO" +
+                "NCAT( users.lastname, \' \', substr(users.firstname, 1, 1), \'. \', substr(users.mid" +
+                "dlename, 1, 1), \'.\' ) AS expert_FIO,\r\n\r\n(SELECT GROUP_CONCAT(product_gosts.numbe" +
+                "r SEPARATOR \', \') FROM selected_gosts\r\nINNER JOIN product_gosts ON selected_gost" +
+                "s.product_gosts_id = product_gosts.id\r\nWHERE (selected_gosts.using_gost = true) " +
+                "AND\r\n(selected_gosts.contracts_id = @contracts_id)\r\n) AS GOSTsList,\r\n\r\n\r\n(SELECT" +
+                " person\r\n FROM agents_contacts\r\nWHERE (agents_contacts.agents_id = agents.id)\r\nL" +
+                "IMIT 0,1\r\n) AS Bukh_FIO\r\n\r\nFROM\r\ncontracts\r\nLEFT OUTER JOIN agents ON contracts." +
+                "agents_id = agents.id\r\nLEFT OUTER JOIN products ON contracts.products_id = produ" +
+                "cts.id\r\nLEFT OUTER JOIN agent_types ON agents.agent_types_id = agent_types.id\r\nL" +
+                "EFT OUTER JOIN contract_types ON contracts.contract_types_id = contract_types.id" +
+                "\r\nLEFT OUTER JOIN emission_types ON contracts.emission_types_id = emission_types" +
+                ".id\r\nLEFT OUTER JOIN users ON contracts.experts_id = users.id\r\nWHERE\r\n    (contr" +
+                "acts.id = @contracts_id)";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@contracts_id";
