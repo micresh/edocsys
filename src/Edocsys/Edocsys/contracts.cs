@@ -100,7 +100,6 @@ namespace Edocsys
                         return MessageBox.Show("Обновить документ для договора #" + id, "Подтвердить обновление документа", MessageBoxButtons.YesNo) == DialogResult.Yes;
                     });
 
-                this.tableAdapterManager.UpdateAll(this.edocbaseDataSet);
                 this.edocbaseDataSet.AcceptChanges();
             }
             catch (NullReferenceException ex)
