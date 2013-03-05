@@ -165,5 +165,33 @@ namespace Edocsys
                 }
             }
         }
+
+        private void toolStripButton7_Click(object sender, EventArgs e)
+        {
+            if ((contractPrepareForWorkBindingSource.Position < 0) ||
+                (contractPrepareForWorkBindingSource.Position >= contractPrepareForWorkBindingSource.Count))
+            {
+                //contract not selected
+                MessageBox.Show("Не выбран договор", "Ошибка");
+                return;
+            }
+
+            int contract_id = DocGeneratorHelper.GetContractID(contractPrepareForWorkBindingSource);
+            wmgr.ShowDeleteContractForm(contract_id);
+        }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            if ((contractInWorkBindingSource.Position < 0) ||
+                (contractInWorkBindingSource.Position >= contractInWorkBindingSource.Count))
+            {
+                //contract not selected
+                MessageBox.Show("Не выбран договор", "Ошибка");
+                return;
+            }
+
+            int contract_id = DocGeneratorHelper.GetContractID(contractInWorkBindingSource);
+            wmgr.ShowDeleteContractForm(contract_id);
+        }
     }
 }

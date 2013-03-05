@@ -90,6 +90,15 @@ namespace Edocsys
             l.ShowDialog();
         }
 
+        public static void ShowDeleteContractForm(int contract_id)
+        {
+            DeleteContractForm l = new DeleteContractForm();
+
+            l.contract_id = contract_id;
+
+            l.ShowDialog();
+        }
+
         public static void ShowClientsForm()
         {
             ShowForm<ClientsForm>();

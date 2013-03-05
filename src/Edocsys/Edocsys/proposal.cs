@@ -145,7 +145,7 @@ namespace Edocsys
                 return;
             }
 
-            int idContract = proposalGenerator.GetContractID(contractInfoDataTableBindingSource);
+            int idContract = DocGeneratorHelper.GetContractID(contractInfoDataTableBindingSource);
 
             try
             {
@@ -178,7 +178,7 @@ namespace Edocsys
             }
 
             int docType = (int)Constants.ContractTypes.Proposal;
-            int idContract = proposalGenerator.GetContractID(contractInfoDataTableBindingSource);
+            int idContract = DocGeneratorHelper.GetContractID(contractInfoDataTableBindingSource);
             try
             {
                 proposalGenerator.EditDoc(idContract, docType, (id) =>
@@ -216,7 +216,7 @@ namespace Edocsys
             }
 
             int docType = (int)Constants.ContractTypes.Proposal;
-            int idContract = proposalGenerator.GetContractID(contractInfoDataTableBindingSource);
+            int idContract = DocGeneratorHelper.GetContractID(contractInfoDataTableBindingSource);
 
             try
             {
@@ -248,7 +248,7 @@ namespace Edocsys
             }
 
             int docType = (int)Constants.ContractTypes.Proposal;
-            int idContract = proposalGenerator.GetContractID(contractInfoDataTableBindingSource);
+            int idContract = DocGeneratorHelper.GetContractID(contractInfoDataTableBindingSource);
 
             try
             {

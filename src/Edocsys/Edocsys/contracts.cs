@@ -89,8 +89,8 @@ namespace Edocsys
                 return;
             }
 
-            int docType = contractGenerator.GetContractTypeID(contractSigningBindingSource);
-            int contract_id = contractGenerator.GetContractID(contractSigningBindingSource);
+            int docType = DocGeneratorHelper.GetContractTypeID(contractSigningBindingSource);
+            int contract_id = DocGeneratorHelper.GetContractID(contractSigningBindingSource);
 
             try
             {
@@ -136,8 +136,8 @@ namespace Edocsys
                 return;
             }
 
-            int docType = contractGenerator.GetContractTypeID(contractSigningBindingSource);
-            int contract_id = contractGenerator.GetContractID(contractSigningBindingSource);
+            int docType = DocGeneratorHelper.GetContractTypeID(contractSigningBindingSource);
+            int contract_id = DocGeneratorHelper.GetContractID(contractSigningBindingSource);
 
             try
             {
@@ -174,8 +174,8 @@ namespace Edocsys
                 return;
             }
 
-            int docType = contractGenerator.GetContractTypeID(contractSigningBindingSource);
-            int contract_id = contractGenerator.GetContractID(contractSigningBindingSource);
+            int docType = DocGeneratorHelper.GetContractTypeID(contractSigningBindingSource);
+            int contract_id = DocGeneratorHelper.GetContractID(contractSigningBindingSource);
 
             try
             {
@@ -208,8 +208,8 @@ namespace Edocsys
                 return;
             }
 
-            int docType = contractGenerator.GetContractTypeID(contractSigningBindingSource);
-            int contract_id = contractGenerator.GetContractID(contractSigningBindingSource);
+            int docType = DocGeneratorHelper.GetContractTypeID(contractSigningBindingSource);
+            int contract_id = DocGeneratorHelper.GetContractID(contractSigningBindingSource);
 
             try
             {
@@ -486,6 +486,20 @@ namespace Edocsys
             }
 
             RefreshDatabase();
+        }
+
+        private void bindingNavigatorDeleteItem_Click(object sender, EventArgs e)
+        {
+            if ((contractSigningBindingSource.Position < 0) ||
+                (contractSigningBindingSource.Position >= contractSigningBindingSource.Count))
+            {
+                //contract not selected
+                MessageBox.Show("Не выбран договор", "Ошибка");
+                return;
+            }
+
+            int contract_id = DocGeneratorHelper.GetContractID(contractSigningBindingSource);
+            wmgr.ShowDeleteContractForm(contract_id);
         }
     }
 }

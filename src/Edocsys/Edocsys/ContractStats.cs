@@ -70,7 +70,7 @@ namespace Edocsys
 
         private void buttonEditContract_Click(object sender, EventArgs e)
         {
-            int docType = contractGenerator.GetContractTypeID(finishedContractsBindingSource);
+            int docType = DocGeneratorHelper.GetContractTypeID(finishedContractsBindingSource);
             OpenDoc(docType);
         }
 
@@ -84,7 +84,7 @@ namespace Edocsys
                 return;
             }
 
-            int contract_id = contractGenerator.GetContractID(finishedContractsBindingSource);
+            int contract_id = DocGeneratorHelper.GetContractID(finishedContractsBindingSource);
 
             try
             {
@@ -122,7 +122,7 @@ namespace Edocsys
                 return;
             }
 
-            int contract_id = contractGenerator.GetContractID(finishedContractsBindingSource);
+            int contract_id = DocGeneratorHelper.GetContractID(finishedContractsBindingSource);
 
             try
             {
@@ -142,7 +142,7 @@ namespace Edocsys
 
         private void toolStripButtonSaveContract_Click(object sender, EventArgs e)
         {
-            int docType = contractGenerator.GetContractTypeID(finishedContractsBindingSource);
+            int docType = DocGeneratorHelper.GetContractTypeID(finishedContractsBindingSource);
             SaveDoc(docType);
         }
 
