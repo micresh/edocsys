@@ -289,7 +289,7 @@ UPDATE
 contracts
 SET
 number = @number,
-prepayment = prepayment,
+prepayment = @prepayment,
 cost = @cost,
 total_cost = @total_cost,
 date_contract = @date_contract

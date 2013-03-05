@@ -42935,9 +42935,9 @@ WHERE
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.UpdateCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = "UPDATE       contracts\r\nSET                number = @number, prepayment = prepaym" +
-                "ent, cost = @cost, total_cost = @total_cost, date_contract = @date_contract\r\nWHE" +
-                "RE        (id = @original_id)";
+            this._adapter.UpdateCommand.CommandText = "UPDATE       contracts\r\nSET                number = @number, prepayment = @prepay" +
+                "ment, cost = @cost, total_cost = @total_cost, date_contract = @date_contract\r\nWH" +
+                "ERE        (id = @original_id)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@number";
@@ -42946,6 +42946,13 @@ WHERE
             param.Size = 9;
             param.IsNullable = true;
             param.SourceColumn = "number";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@prepayment";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "prepayment";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@cost";
