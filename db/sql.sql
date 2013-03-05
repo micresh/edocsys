@@ -1,4 +1,4 @@
---contracts_info
+-- ContractsInfo
 SELECT
 contracts.id,
 contracts.products_id,
@@ -8,6 +8,7 @@ contracts.contract_status_id,
 contracts.experts_id,
 contracts.source_types_id,
 contracts.date_proposal,
+contracts.production_documents,
 contracts.scheme_type,
 contracts.add_data_proposal,
 contracts.custom_gosts,
@@ -45,18 +46,16 @@ WHERE
 
 
 
-
-
 DELETE FROM contracts
 WHERE (id = @id)
 
 
 INSERT INTO contracts
 (products_id, agents_id, experts_id, contract_status_id, emission_types_id, contract_types_id,
-    date_proposal, scheme_type, add_data_proposal, custom_gosts, source_types_id, cost, total_cost, cash_income)
+    date_proposal, scheme_type, add_data_proposal, production_documents, custom_gosts, source_types_id, cost, total_cost, cash_income)
 VALUES
 (@products_id, @agents_id, @experts_id, @contract_status_id, @emission_types_id, @contract_types_id,
-@date_proposal, @scheme_type, @add_data_proposal, @custom_gosts, @source_types_id, @cost, @total_cost, 0)
+@date_proposal, @scheme_type, @add_data_proposal, @production_documents, @custom_gosts, @source_types_id, @cost, @total_cost, 0)
 
 
 
@@ -71,6 +70,7 @@ contract_types_id = @contract_types_id,
 date_proposal = @date_proposal,
 scheme_type = @scheme_type,
 add_data_proposal = @add_data_proposal,
+production_documents = @production_documents,
 source_types_id = @source_types_id,
 cost = @cost,
 total_cost = @total_cost,
@@ -922,25 +922,27 @@ contracts.contract_types_id,
 contracts.contract_status_id,
 contracts.experts_id,
 contracts.source_types_id,
-contracts.date_proposal,
+DATE_FORMAT(contracts.date_proposal, '%d.%m.%Y') AS date_proposal,
 contracts.scheme_type,
 contracts.add_data_proposal,
+contracts.add_data_contract,
+contracts.production_documents,
 contracts.cost,
 contracts.total_cost,
 contracts.cash_income,
-contracts.date_cash_income,
+DATE_FORMAT(contracts.date_cash_income, '%d.%m.%Y') AS date_cash_income,
 contracts.number,
-contracts.date_contract,
-contracts.date_start,
-contracts.date_end,
-contracts.date_sample_income,
-contracts.date_protocol_income,
+DATE_FORMAT(contracts.date_contract, '%d.%m.%Y') AS date_contract,
+DATE_FORMAT(contracts.date_start, '%d.%m.%Y') AS date_start,
+DATE_FORMAT(contracts.date_end, '%d.%m.%Y') AS date_end,
+DATE_FORMAT(contracts.date_sample_income, '%d.%m.%Y') AS date_sample_income,
+DATE_FORMAT(contracts.date_protocol_income, '%d.%m.%Y') AS date_protocol_income,
 contracts.emission_types_id,
-contracts.date_planed_reatt_1,
+DATE_FORMAT(contracts.date_planed_reatt_1, '%d.%m.%Y') AS date_planed_reatt_1,
 contracts.date_real_reatt_1,
-contracts.date_planed_reatt_2,
+DATE_FORMAT(contracts.date_planed_reatt_2, '%d.%m.%Y') AS date_planed_reatt_2,
 contracts.date_real_reatt_2,
-contracts.date_planed_resert,
+DATE_FORMAT(contracts.date_planed_resert, '%d.%m.%Y') AS date_planed_resert,
 contracts.date_real_resert,
 products.id AS pkproducts_id,
 products.name AS products_name,
