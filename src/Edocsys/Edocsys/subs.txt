@@ -10,6 +10,7 @@
 {_ADD_DATA_PROPOSAL_}      add_data_proposal
 {_PRODUCTION_DOCUMENTS_}   production_documents
 {_ADD_DATA_CONTRACT_}      add_data_contract
+{_PREPAYMENT_}             prepayment
 {_COST_}                   cost
 {_TOTAL_COST_}             total_cost
 {_CASH_INCOME_}            cash_income
