@@ -5303,9 +5303,9 @@ namespace Edocsys {
             
             private global::System.Data.DataColumn columnprepayment;
             
-            private global::System.Data.DataColumn columnhas_contract_document;
-            
             private global::System.Data.DataColumn columnhas_contract_document1;
+            
+            private global::System.Data.DataColumn columnhas_contract_document;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -5550,17 +5550,17 @@ namespace Edocsys {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn has_contract_documentColumn {
+            public global::System.Data.DataColumn has_contract_document1Column {
                 get {
-                    return this.columnhas_contract_document;
+                    return this.columnhas_contract_document1;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn has_contract_document1Column {
+            public global::System.Data.DataColumn has_contract_documentColumn {
                 get {
-                    return this.columnhas_contract_document1;
+                    return this.columnhas_contract_document;
                 }
             }
             
@@ -5624,8 +5624,8 @@ namespace Edocsys {
                         string number, 
                         System.DateTime date_contract, 
                         int prepayment, 
-                        bool has_contract_document, 
-                        long has_contract_document1) {
+                        bool has_contract_document1, 
+                        bool has_contract_document) {
                 ContractSigningRow rowContractSigningRow = ((ContractSigningRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -5654,8 +5654,8 @@ namespace Edocsys {
                         number,
                         date_contract,
                         prepayment,
-                        has_contract_document,
-                        has_contract_document1};
+                        has_contract_document1,
+                        has_contract_document};
                 if ((parentproductsRowByfk_contracts_products3 != null)) {
                     columnValuesArray[1] = parentproductsRowByfk_contracts_products3[0];
                 }
@@ -5719,8 +5719,8 @@ namespace Edocsys {
                 this.columnnumber = base.Columns["number"];
                 this.columndate_contract = base.Columns["date_contract"];
                 this.columnprepayment = base.Columns["prepayment"];
-                this.columnhas_contract_document = base.Columns["has_contract_document"];
                 this.columnhas_contract_document1 = base.Columns["has_contract_document1"];
+                this.columnhas_contract_document = base.Columns["has_contract_document"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5778,10 +5778,10 @@ namespace Edocsys {
                 base.Columns.Add(this.columndate_contract);
                 this.columnprepayment = new global::System.Data.DataColumn("prepayment", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnprepayment);
+                this.columnhas_contract_document1 = new global::System.Data.DataColumn("has_contract_document1", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnhas_contract_document1);
                 this.columnhas_contract_document = new global::System.Data.DataColumn("has_contract_document", typeof(bool), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnhas_contract_document);
-                this.columnhas_contract_document1 = new global::System.Data.DataColumn("has_contract_document1", typeof(long), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnhas_contract_document1);
                 this.columnid.AutoIncrement = true;
                 this.columnid.AutoIncrementSeed = -1;
                 this.columnid.AutoIncrementStep = -1;
@@ -5809,8 +5809,6 @@ namespace Edocsys {
                 this.columncontract_status_name.MaxLength = 45;
                 this.columnexpert_FIO.MaxLength = 38;
                 this.columnnumber.MaxLength = 9;
-                this.columnhas_contract_document1.AllowDBNull = false;
-                this.columnhas_contract_document1.Caption = "has_contract_document";
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -24584,6 +24582,23 @@ namespace Edocsys {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool has_contract_document1 {
+                get {
+                    try {
+                        return ((bool)(this[this.tableContractSigning.has_contract_document1Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'has_contract_document1\' in table \'ContractSigning\' is DBNul" +
+                                "l.", e);
+                    }
+                }
+                set {
+                    this[this.tableContractSigning.has_contract_document1Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool has_contract_document {
                 get {
                     try {
@@ -24596,17 +24611,6 @@ namespace Edocsys {
                 }
                 set {
                     this[this.tableContractSigning.has_contract_documentColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public long has_contract_document1 {
-                get {
-                    return ((long)(this[this.tableContractSigning.has_contract_document1Column]));
-                }
-                set {
-                    this[this.tableContractSigning.has_contract_document1Column] = value;
                 }
             }
             
@@ -24913,6 +24917,18 @@ namespace Edocsys {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetprepaymentNull() {
                 this[this.tableContractSigning.prepaymentColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Ishas_contract_document1Null() {
+                return this.IsNull(this.tableContractSigning.has_contract_document1Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Sethas_contract_document1Null() {
+                this[this.tableContractSigning.has_contract_document1Column] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -42915,7 +42931,7 @@ WHERE
             tableMapping.ColumnMappings.Add("number", "number");
             tableMapping.ColumnMappings.Add("date_contract", "date_contract");
             tableMapping.ColumnMappings.Add("prepayment", "prepayment");
-            tableMapping.ColumnMappings.Add("has_contract_document", "has_contract_document1");
+            tableMapping.ColumnMappings.Add("has_contract_document", "has_contract_document");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.UpdateCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;

@@ -470,7 +470,7 @@ WHERE        (id = @original_id)</CommandText>
               <Mapping SourceColumn="number" DataSetColumn="number" />
               <Mapping SourceColumn="date_contract" DataSetColumn="date_contract" />
               <Mapping SourceColumn="prepayment" DataSetColumn="prepayment" />
-              <Mapping SourceColumn="has_contract_document" DataSetColumn="has_contract_document1" />
+              <Mapping SourceColumn="has_contract_document" DataSetColumn="has_contract_document" />
             </Mappings>
             <Sources>
               <DbSource ConnectionRef="EdocbaseConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="ConfirmSigning" Modifier="Public" Name="ConfirmSigning" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="ConfirmSigning">
@@ -5490,8 +5490,8 @@ WHERE        (id = @original_id)</CommandText>
               </xs:element>
               <xs:element name="date_contract" msprop:Generator_ColumnVarNameInTable="columndate_contract" msprop:Generator_ColumnPropNameInRow="date_contract" msprop:Generator_ColumnPropNameInTable="date_contractColumn" msprop:Generator_UserColumnName="date_contract" type="xs:dateTime" minOccurs="0" />
               <xs:element name="prepayment" msprop:Generator_ColumnVarNameInTable="columnprepayment" msprop:Generator_ColumnPropNameInRow="prepayment" msprop:Generator_ColumnPropNameInTable="prepaymentColumn" msprop:Generator_UserColumnName="prepayment" type="xs:int" minOccurs="0" />
+              <xs:element name="has_contract_document1" msprop:Generator_ColumnVarNameInTable="columnhas_contract_document1" msprop:Generator_ColumnPropNameInRow="has_contract_document1" msprop:Generator_ColumnPropNameInTable="has_contract_document1Column" msprop:Generator_UserColumnName="has_contract_document1" type="xs:boolean" minOccurs="0" />
               <xs:element name="has_contract_document" msprop:Generator_ColumnVarNameInTable="columnhas_contract_document" msprop:Generator_ColumnPropNameInRow="has_contract_document" msprop:Generator_ColumnPropNameInTable="has_contract_documentColumn" msprop:Generator_UserColumnName="has_contract_document" type="xs:boolean" minOccurs="0" />
-              <xs:element name="has_contract_document1" msdata:Caption="has_contract_document" msprop:Generator_ColumnVarNameInTable="columnhas_contract_document1" msprop:Generator_ColumnPropNameInRow="has_contract_document1" msprop:Generator_ColumnPropNameInTable="has_contract_document1Column" msprop:Generator_UserColumnName="has_contract_document1" type="xs:long" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
