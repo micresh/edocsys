@@ -12,6 +12,7 @@ contracts.production_documents,
 contracts.scheme_type,
 contracts.add_data_proposal,
 contracts.custom_gosts,
+contracts.prepayment,
 contracts.cost,
 contracts.total_cost,
 contracts.cash_income,
@@ -52,10 +53,10 @@ WHERE (id = @id)
 
 INSERT INTO contracts
 (products_id, agents_id, experts_id, contract_status_id, emission_types_id, contract_types_id,
-    date_proposal, scheme_type, add_data_proposal, production_documents, custom_gosts, source_types_id, cost, total_cost, cash_income)
+    date_proposal, scheme_type, add_data_proposal, production_documents, custom_gosts, source_types_id, prepayment, cost, total_cost, cash_income)
 VALUES
 (@products_id, @agents_id, @experts_id, @contract_status_id, @emission_types_id, @contract_types_id,
-@date_proposal, @scheme_type, @add_data_proposal, @production_documents, @custom_gosts, @source_types_id, @cost, @total_cost, 0)
+@date_proposal, @scheme_type, @add_data_proposal, @production_documents, @custom_gosts, @source_types_id, @prepayment, @cost, @total_cost, 0)
 
 
 
@@ -72,6 +73,7 @@ scheme_type = @scheme_type,
 add_data_proposal = @add_data_proposal,
 production_documents = @production_documents,
 source_types_id = @source_types_id,
+prepayment = @prepayment,
 cost = @cost,
 total_cost = @total_cost,
 cash_income = 0
@@ -254,6 +256,7 @@ contracts.date_proposal,
 contracts.experts_id,
 contracts.number,
 contracts.date_contract,
+contracts.prepayment,
 contracts.cost,
 contracts.total_cost,
 products.id AS pkproducts_id,
@@ -289,6 +292,9 @@ UPDATE
 contracts
 SET
 number = @number,
+prepayment = prepayment,
+cost = @cost,
+total_cost = @total_cost,
 date_contract = @date_contract
 WHERE
 (id = @original_id)

@@ -206,6 +206,8 @@ CREATE TABLE IF NOT EXISTS `edocbase`.`contracts` (
   `add_data_contract`   TEXT NULL,
   -- Производственная документация
   `production_documents` VARCHAR(50) NULL,
+  -- Аванс
+  `prepayment`          INT NULL ,
   -- Стоимость первого этапа
   `cost`                INT NULL ,
   -- Общая стоимость

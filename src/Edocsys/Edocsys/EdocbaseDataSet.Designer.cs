@@ -5303,6 +5303,10 @@ namespace Edocsys {
             
             private global::System.Data.DataColumn columndocuments_contract_types_id;
             
+            private global::System.Data.DataColumn _columnhas_contract_document__;
+            
+            private global::System.Data.DataColumn columnprepayment;
+            
             private global::System.Data.DataColumn columnhas_contract_document;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5548,6 +5552,22 @@ namespace Edocsys {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn _has_contract_document__Column {
+                get {
+                    return this._columnhas_contract_document__;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn prepaymentColumn {
+                get {
+                    return this.columnprepayment;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public global::System.Data.DataColumn has_contract_documentColumn {
                 get {
                     return this.columnhas_contract_document;
@@ -5614,6 +5634,8 @@ namespace Edocsys {
                         string number, 
                         System.DateTime date_contract, 
                         int documents_contract_types_id, 
+                        bool _has_contract_document__, 
+                        int prepayment, 
                         bool has_contract_document) {
                 ContractSigningRow rowContractSigningRow = ((ContractSigningRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
@@ -5643,6 +5665,8 @@ namespace Edocsys {
                         number,
                         date_contract,
                         documents_contract_types_id,
+                        _has_contract_document__,
+                        prepayment,
                         has_contract_document};
                 if ((parentproductsRowByfk_contracts_products3 != null)) {
                     columnValuesArray[1] = parentproductsRowByfk_contracts_products3[0];
@@ -5707,6 +5731,8 @@ namespace Edocsys {
                 this.columnnumber = base.Columns["number"];
                 this.columndate_contract = base.Columns["date_contract"];
                 this.columndocuments_contract_types_id = base.Columns["documents_contract_types_id"];
+                this._columnhas_contract_document__ = base.Columns["has_contract_document_+"];
+                this.columnprepayment = base.Columns["prepayment"];
                 this.columnhas_contract_document = base.Columns["has_contract_document"];
             }
             
@@ -5765,6 +5791,12 @@ namespace Edocsys {
                 base.Columns.Add(this.columndate_contract);
                 this.columndocuments_contract_types_id = new global::System.Data.DataColumn("documents_contract_types_id", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndocuments_contract_types_id);
+                this._columnhas_contract_document__ = new global::System.Data.DataColumn("has_contract_document_+", typeof(bool), null, global::System.Data.MappingType.Element);
+                this._columnhas_contract_document__.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "_columnhas_contract_document__");
+                this._columnhas_contract_document__.ExtendedProperties.Add("Generator_UserColumnName", "has_contract_document_+");
+                base.Columns.Add(this._columnhas_contract_document__);
+                this.columnprepayment = new global::System.Data.DataColumn("prepayment", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnprepayment);
                 this.columnhas_contract_document = new global::System.Data.DataColumn("has_contract_document", typeof(bool), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnhas_contract_document);
                 this.columnid.AutoIncrement = true;
@@ -7774,6 +7806,10 @@ namespace Edocsys {
             
             private global::System.Data.DataColumn columnproduction_documents;
             
+            private global::System.Data.DataColumn columnhas_proposal_document3;
+            
+            private global::System.Data.DataColumn columnprepayment;
+            
             private global::System.Data.DataColumn columnhas_proposal_document;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -8067,6 +8103,22 @@ namespace Edocsys {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn has_proposal_document3Column {
+                get {
+                    return this.columnhas_proposal_document3;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn prepaymentColumn {
+                get {
+                    return this.columnprepayment;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public global::System.Data.DataColumn has_proposal_documentColumn {
                 get {
                     return this.columnhas_proposal_document;
@@ -8139,6 +8191,8 @@ namespace Edocsys {
                         bool custom_gosts, 
                         bool has_proposal_document2, 
                         string production_documents, 
+                        bool has_proposal_document3, 
+                        int prepayment, 
                         bool has_proposal_document) {
                 ContractInfoDataTableRow rowContractInfoDataTableRow = ((ContractInfoDataTableRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
@@ -8174,6 +8228,8 @@ namespace Edocsys {
                         custom_gosts,
                         has_proposal_document2,
                         production_documents,
+                        has_proposal_document3,
+                        prepayment,
                         has_proposal_document};
                 rowContractInfoDataTableRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowContractInfoDataTableRow);
@@ -8238,6 +8294,8 @@ namespace Edocsys {
                 this.columncustom_gosts = base.Columns["custom_gosts"];
                 this.columnhas_proposal_document2 = base.Columns["has_proposal_document2"];
                 this.columnproduction_documents = base.Columns["production_documents"];
+                this.columnhas_proposal_document3 = base.Columns["has_proposal_document3"];
+                this.columnprepayment = base.Columns["prepayment"];
                 this.columnhas_proposal_document = base.Columns["has_proposal_document"];
             }
             
@@ -8308,6 +8366,10 @@ namespace Edocsys {
                 base.Columns.Add(this.columnhas_proposal_document2);
                 this.columnproduction_documents = new global::System.Data.DataColumn("production_documents", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnproduction_documents);
+                this.columnhas_proposal_document3 = new global::System.Data.DataColumn("has_proposal_document3", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnhas_proposal_document3);
+                this.columnprepayment = new global::System.Data.DataColumn("prepayment", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnprepayment);
                 this.columnhas_proposal_document = new global::System.Data.DataColumn("has_proposal_document", typeof(bool), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnhas_proposal_document);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
@@ -24493,6 +24555,39 @@ namespace Edocsys {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool _has_contract_document__ {
+                get {
+                    try {
+                        return ((bool)(this[this.tableContractSigning._has_contract_document__Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'has_contract_document_+\' in table \'ContractSigning\' is DBNu" +
+                                "ll.", e);
+                    }
+                }
+                set {
+                    this[this.tableContractSigning._has_contract_document__Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int prepayment {
+                get {
+                    try {
+                        return ((int)(this[this.tableContractSigning.prepaymentColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'prepayment\' in table \'ContractSigning\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableContractSigning.prepaymentColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool has_contract_document {
                 get {
                     try {
@@ -24811,6 +24906,30 @@ namespace Edocsys {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void Setdocuments_contract_types_idNull() {
                 this[this.tableContractSigning.documents_contract_types_idColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Is_has_contract_document__Null() {
+                return this.IsNull(this.tableContractSigning._has_contract_document__Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Set_has_contract_document__Null() {
+                this[this.tableContractSigning._has_contract_document__Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsprepaymentNull() {
+                return this.IsNull(this.tableContractSigning.prepaymentColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetprepaymentNull() {
+                this[this.tableContractSigning.prepaymentColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -27210,6 +27329,39 @@ namespace Edocsys {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool has_proposal_document3 {
+                get {
+                    try {
+                        return ((bool)(this[this.tableContractInfoDataTable.has_proposal_document3Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'has_proposal_document3\' in table \'ContractInfoDataTable\' is" +
+                                " DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableContractInfoDataTable.has_proposal_document3Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int prepayment {
+                get {
+                    try {
+                        return ((int)(this[this.tableContractInfoDataTable.prepaymentColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'prepayment\' in table \'ContractInfoDataTable\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableContractInfoDataTable.prepaymentColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool has_proposal_document {
                 get {
                     try {
@@ -27511,6 +27663,30 @@ namespace Edocsys {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void Setproduction_documentsNull() {
                 this[this.tableContractInfoDataTable.production_documentsColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Ishas_proposal_document3Null() {
+                return this.IsNull(this.tableContractInfoDataTable.has_proposal_document3Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Sethas_proposal_document3Null() {
+                this[this.tableContractInfoDataTable.has_proposal_document3Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsprepaymentNull() {
+                return this.IsNull(this.tableContractInfoDataTable.prepaymentColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetprepaymentNull() {
+                this[this.tableContractInfoDataTable.prepaymentColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -42672,12 +42848,14 @@ WHERE
             tableMapping.ColumnMappings.Add("number", "number");
             tableMapping.ColumnMappings.Add("date_contract", "date_contract");
             tableMapping.ColumnMappings.Add("documents_contract_types_id", "documents_contract_types_id");
+            tableMapping.ColumnMappings.Add("prepayment", "prepayment");
             tableMapping.ColumnMappings.Add("has_contract_document", "has_contract_document");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.UpdateCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = "UPDATE       contracts\r\nSET                number = @number, date_contract = @dat" +
-                "e_contract\r\nWHERE        (id = @original_id)";
+            this._adapter.UpdateCommand.CommandText = "UPDATE       contracts\r\nSET                number = @number, prepayment = prepaym" +
+                "ent, cost = @cost, total_cost = @total_cost, date_contract = @date_contract\r\nWHE" +
+                "RE        (id = @original_id)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@number";
@@ -42686,6 +42864,20 @@ WHERE
             param.Size = 9;
             param.IsNullable = true;
             param.SourceColumn = "number";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@cost";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "cost";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@total_cost";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "total_cost";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@date_contract";
@@ -42720,24 +42912,25 @@ WHERE
             this._commandCollection[0].CommandText = "SELECT\r\ncontracts.id,\r\ncontracts.products_id,\r\ncontracts.agents_id,\r\ncontracts.co" +
                 "ntract_types_id,\r\ncontracts.contract_status_id,\r\ncontracts.experts_id,\r\ncontract" +
                 "s.source_types_id,\r\ncontracts.date_proposal,\r\ncontracts.experts_id,\r\ncontracts.n" +
-                "umber,\r\ncontracts.date_contract,\r\ncontracts.cost,\r\ncontracts.total_cost,\r\nproduc" +
-                "ts.id AS pkproducts_id,\r\nproducts.name AS products_name,\r\nagents.id AS pkagents_" +
-                "id,\r\nagents.name AS agents_name,\r\nagent_types.id AS pkagent_types_id,\r\nagent_typ" +
-                "es.name AS agent_types_name,\r\nCONCAT( agent_types.name, \' \', agents.name ) AS ag" +
-                "ents_fullname,\r\ncontract_types.id AS pkcontract_types_id,\r\ncontract_types.name A" +
-                "S contract_types_name,\r\ncontract_status.id AS pkcontract_status_id,\r\ncontract_st" +
-                "atus.name AS contract_status_name,\r\nCONCAT( users.lastname, \' \', substr(users.fi" +
-                "rstname, 1, 1), \'. \', substr(users.middlename, 1, 1), \'.\' ) AS expert_FIO,\r\n(SEL" +
-                "ECT IFNULL((SELECT (documents.contract_types_id > 9) FROM documents WHERE docume" +
-                "nts.contracts_id=contracts.id), FALSE)) AS has_contract_document,\r\ndocuments.con" +
-                "tract_types_id AS documents_contract_types_id\r\nFROM\r\ncontracts\r\nLEFT OUTER JOIN " +
-                "agents ON contracts.agents_id = agents.id\r\nLEFT OUTER JOIN products ON contracts" +
-                ".products_id = products.id\r\nLEFT OUTER JOIN agent_types ON agents.agent_types_id" +
-                " = agent_types.id\r\nLEFT OUTER JOIN contract_types ON contracts.contract_types_id" +
-                " = contract_types.id\r\nLEFT OUTER JOIN contract_status ON contracts.contract_stat" +
-                "us_id = contract_status.id\r\nLEFT OUTER JOIN users ON contracts.experts_id = user" +
-                "s.id\r\nLEFT OUTER JOIN documents ON contracts.id = documents.contracts_id\r\nWHERE\r" +
-                "\n(contracts.contract_status_id = 2)";
+                "umber,\r\ncontracts.date_contract,\r\ncontracts.prepayment,\r\ncontracts.cost,\r\ncontra" +
+                "cts.total_cost,\r\nproducts.id AS pkproducts_id,\r\nproducts.name AS products_name,\r" +
+                "\nagents.id AS pkagents_id,\r\nagents.name AS agents_name,\r\nagent_types.id AS pkage" +
+                "nt_types_id,\r\nagent_types.name AS agent_types_name,\r\nCONCAT( agent_types.name, \'" +
+                " \', agents.name ) AS agents_fullname,\r\ncontract_types.id AS pkcontract_types_id," +
+                "\r\ncontract_types.name AS contract_types_name,\r\ncontract_status.id AS pkcontract_" +
+                "status_id,\r\ncontract_status.name AS contract_status_name,\r\nCONCAT( users.lastnam" +
+                "e, \' \', substr(users.firstname, 1, 1), \'. \', substr(users.middlename, 1, 1), \'.\'" +
+                " ) AS expert_FIO,\r\n(SELECT IFNULL((SELECT (documents.contract_types_id > 9) FROM" +
+                " documents WHERE (documents.contract_types_id > 9) AND (documents.contracts_id=c" +
+                "ontracts.id)), false)) AS has_contract_document,\r\ndocuments.contract_types_id AS" +
+                " documents_contract_types_id\r\nFROM\r\ncontracts\r\nLEFT OUTER JOIN agents ON contrac" +
+                "ts.agents_id = agents.id\r\nLEFT OUTER JOIN products ON contracts.products_id = pr" +
+                "oducts.id\r\nLEFT OUTER JOIN agent_types ON agents.agent_types_id = agent_types.id" +
+                "\r\nLEFT OUTER JOIN contract_types ON contracts.contract_types_id = contract_types" +
+                ".id\r\nLEFT OUTER JOIN contract_status ON contracts.contract_status_id = contract_" +
+                "status.id\r\nLEFT OUTER JOIN users ON contracts.experts_id = users.id\r\nLEFT OUTER " +
+                "JOIN documents ON contracts.id = documents.contracts_id\r\nWHERE\r\n(contracts.contr" +
+                "act_status_id = 2)";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[1].Connection = this.Connection;
@@ -43652,6 +43845,7 @@ doc_templates ON contract_types.id = doc_templates.contract_types_id";
             tableMapping.ColumnMappings.Add("cash_income", "cash_income");
             tableMapping.ColumnMappings.Add("custom_gosts", "custom_gosts");
             tableMapping.ColumnMappings.Add("production_documents", "production_documents");
+            tableMapping.ColumnMappings.Add("prepayment", "prepayment");
             tableMapping.ColumnMappings.Add("has_proposal_document", "has_proposal_document");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
@@ -43670,9 +43864,9 @@ doc_templates ON contract_types.id = doc_templates.contract_types_id";
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = @"INSERT INTO contracts
                          (products_id, agents_id, experts_id, contract_status_id, emission_types_id, contract_types_id, date_proposal, scheme_type, add_data_proposal, 
-                         production_documents, custom_gosts, source_types_id, cost, total_cost, cash_income)
+                         production_documents, custom_gosts, source_types_id, prepayment, cost, total_cost, cash_income)
 VALUES        (@products_id, @agents_id, @experts_id, @contract_status_id, @emission_types_id, @contract_types_id, @date_proposal, @scheme_type, @add_data_proposal, 
-                         @production_documents, @custom_gosts, @source_types_id, @cost, @total_cost, 0)";
+                         @production_documents, @custom_gosts, @source_types_id, @prepayment, @cost, @total_cost, 0)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@products_id";
@@ -43763,6 +43957,13 @@ VALUES        (@products_id, @agents_id, @experts_id, @contract_status_id, @emis
             param.SourceColumn = "source_types_id";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@prepayment";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "prepayment";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@cost";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
@@ -43781,8 +43982,8 @@ VALUES        (@products_id, @agents_id, @experts_id, @contract_status_id, @emis
             this._adapter.UpdateCommand.CommandText = @"UPDATE       contracts
 SET                products_id = @products_id, agents_id = @agents_id, experts_id = @experts_id, contract_status_id = @contract_status_id, 
                          emission_types_id = @emission_types_id, contract_types_id = @contract_types_id, date_proposal = @date_proposal, scheme_type = @scheme_type, 
-                         add_data_proposal = @add_data_proposal, production_documents = @production_documents, source_types_id = @source_types_id, cost = @cost, 
-                         total_cost = @total_cost, cash_income = 0
+                         add_data_proposal = @add_data_proposal, production_documents = @production_documents, source_types_id = @source_types_id, prepayment = @prepayment, 
+                         cost = @cost, total_cost = @total_cost, cash_income = 0
 WHERE        (id = @original_id)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
@@ -43866,6 +44067,13 @@ WHERE        (id = @original_id)";
             param.SourceColumn = "source_types_id";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@prepayment";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "prepayment";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@cost";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
@@ -43906,26 +44114,26 @@ WHERE        (id = @original_id)";
                 "ntract_types_id,\r\ncontracts.contract_status_id,\r\ncontracts.experts_id,\r\ncontract" +
                 "s.source_types_id,\r\ncontracts.date_proposal,\r\ncontracts.production_documents,\r\nc" +
                 "ontracts.scheme_type,\r\ncontracts.add_data_proposal,\r\ncontracts.custom_gosts,\r\nco" +
-                "ntracts.cost,\r\ncontracts.total_cost,\r\ncontracts.cash_income,\r\nproducts.name AS p" +
-                "roducts_name,\r\nproducts.id AS products_id, \r\nagents.id AS agents_id,\r\nagents.nam" +
-                "e AS agents_name,\r\nagents.pers_lastname,\r\nagents.pers_firstname,\r\nagents.pers_mi" +
-                "ddlename,\r\nagent_types.id AS agent_types_id,\r\nagent_types.name AS agent_types_na" +
-                "me,\r\nCONCAT( agent_types.name, \' \', agents.name ) AS agents_fullname, \r\nCONCAT( " +
-                "agents.pers_lastname, \' \', substr(agents.pers_firstname, 1, 1), \'. \', substr(age" +
-                "nts.pers_middlename, 1, 1), \'.\' ) AS contact_pers_name_FIO,\r\nCONCAT( substr(agen" +
-                "ts.pers_firstname, 1, 1), \'. \', substr(agents.pers_middlename, 1, 1), \'. \', agen" +
-                "ts.pers_lastname ) AS contact_pers_name_IOF,\r\ncontract_types.id AS contract_type" +
-                "s_id,\r\ncontract_types.name AS contract_types_name,\r\nemission_types.id AS emissio" +
-                "n_types_id,\r\nemission_types.name AS emission_types_name,\r\n(SELECT IFNULL((SELECT" +
-                " (documents.contract_types_id = 0) FROM documents WHERE (documents.contract_type" +
-                "s_id = 0) AND (documents.contracts_id=contracts.id)), false)) AS has_proposal_do" +
-                "cument\r\nFROM\r\ncontracts\r\nLEFT OUTER JOIN agents ON contracts.agents_id = agents." +
-                "id\r\nLEFT OUTER JOIN products ON contracts.products_id = products.id\r\nLEFT OUTER " +
-                "JOIN agent_types ON agents.agent_types_id = agent_types.id\r\nLEFT OUTER JOIN cont" +
-                "ract_types ON contracts.contract_types_id = contract_types.id\r\nLEFT OUTER JOIN e" +
-                "mission_types ON contracts.emission_types_id = emission_types.id\r\nLEFT OUTER JOI" +
-                "N documents ON contracts.id = documents.contracts_id\r\nWHERE\r\n    (contracts.cont" +
-                "ract_status_id = 0)";
+                "ntracts.prepayment,\r\ncontracts.cost,\r\ncontracts.total_cost,\r\ncontracts.cash_inco" +
+                "me,\r\nproducts.name AS products_name,\r\nproducts.id AS products_id, \r\nagents.id AS" +
+                " agents_id,\r\nagents.name AS agents_name,\r\nagents.pers_lastname,\r\nagents.pers_fir" +
+                "stname,\r\nagents.pers_middlename,\r\nagent_types.id AS agent_types_id,\r\nagent_types" +
+                ".name AS agent_types_name,\r\nCONCAT( agent_types.name, \' \', agents.name ) AS agen" +
+                "ts_fullname, \r\nCONCAT( agents.pers_lastname, \' \', substr(agents.pers_firstname, " +
+                "1, 1), \'. \', substr(agents.pers_middlename, 1, 1), \'.\' ) AS contact_pers_name_FI" +
+                "O,\r\nCONCAT( substr(agents.pers_firstname, 1, 1), \'. \', substr(agents.pers_middle" +
+                "name, 1, 1), \'. \', agents.pers_lastname ) AS contact_pers_name_IOF,\r\ncontract_ty" +
+                "pes.id AS contract_types_id,\r\ncontract_types.name AS contract_types_name,\r\nemiss" +
+                "ion_types.id AS emission_types_id,\r\nemission_types.name AS emission_types_name,\r" +
+                "\n(SELECT IFNULL((SELECT (documents.contract_types_id = 0) FROM documents WHERE (" +
+                "documents.contract_types_id = 0) AND (documents.contracts_id=contracts.id)), fal" +
+                "se)) AS has_proposal_document\r\nFROM\r\ncontracts\r\nLEFT OUTER JOIN agents ON contra" +
+                "cts.agents_id = agents.id\r\nLEFT OUTER JOIN products ON contracts.products_id = p" +
+                "roducts.id\r\nLEFT OUTER JOIN agent_types ON agents.agent_types_id = agent_types.i" +
+                "d\r\nLEFT OUTER JOIN contract_types ON contracts.contract_types_id = contract_type" +
+                "s.id\r\nLEFT OUTER JOIN emission_types ON contracts.emission_types_id = emission_t" +
+                "ypes.id\r\nLEFT OUTER JOIN documents ON contracts.id = documents.contracts_id\r\nWHE" +
+                "RE\r\n    (contracts.contract_status_id = 0)";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[1].Connection = this.Connection;
