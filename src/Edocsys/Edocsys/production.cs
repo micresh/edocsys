@@ -67,7 +67,7 @@ namespace Edocsys
 
                 DataRowView currentRow = (DataRowView)productsBindingSource.Current;
 
-                string agent = String.Format("Контрагент: {0}", Convert.ToString(currentRow["name"]));
+                string agent = String.Format("Продукция: {0}", Convert.ToString(currentRow["name"]));
 
                 toolStripLabelProduct.Text = agent;
             }
