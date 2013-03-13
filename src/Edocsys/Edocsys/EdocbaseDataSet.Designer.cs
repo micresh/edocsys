@@ -43291,25 +43291,25 @@ WHERE
                 ".contract_types_id, contracts.contract_status_id, contracts.experts_id, contract" +
                 "s.source_types_id, \r\n                         contracts.date_proposal, contracts" +
                 ".experts_id AS Expr1, contracts.number, contracts.date_contract, contracts.date_" +
-                "start, contracts.date_end, \r\n                         contracts.date_end - NOW()" +
-                " AS days_to_deadline, contracts.date_sample_income, contracts.date_protocol_inco" +
-                "me, contracts.cost, contracts.total_cost, \r\n                         products.id" +
-                " AS pkproducts_id, products.name AS products_name, agents.id AS pkagents_id, age" +
-                "nts.name AS agents_name, agent_types.id AS pkagent_types_id, \r\n                 " +
-                "        agent_types.name AS agent_types_name, CONCAT(agent_types.name, \' \', agen" +
-                "ts.name) AS agents_fullname, contract_types.id AS pkcontract_types_id, \r\n       " +
-                "                  contract_types.name AS contract_types_name, contract_status.id" +
-                " AS pkcontract_status_id, contract_status.name AS contract_status_name, CONCAT(u" +
-                "sers.lastname, \r\n                         \' \', substr(users.firstname, 1, 1), \'." +
-                " \', substr(users.middlename, 1, 1), \'.\') AS expert_FIO\r\nFROM            contract" +
-                "s LEFT OUTER JOIN\r\n                         agents ON contracts.agents_id = agen" +
-                "ts.id LEFT OUTER JOIN\r\n                         products ON contracts.products_i" +
-                "d = products.id LEFT OUTER JOIN\r\n                         agent_types ON agents." +
-                "agent_types_id = agent_types.id LEFT OUTER JOIN\r\n                         contra" +
-                "ct_types ON contracts.contract_types_id = contract_types.id LEFT OUTER JOIN\r\n   " +
-                "                      contract_status ON contracts.contract_status_id = contract" +
-                "_status.id LEFT OUTER JOIN\r\n                         users ON contracts.experts_" +
-                "id = users.id\r\nWHERE        (contracts.contract_status_id = 4)";
+                "start, contracts.date_end, \r\n                         contracts.date_end - CURDA" +
+                "TE() AS days_to_deadline, contracts.date_sample_income, contracts.date_protocol_" +
+                "income, contracts.cost, contracts.total_cost, \r\n                         product" +
+                "s.id AS pkproducts_id, products.name AS products_name, agents.id AS pkagents_id," +
+                " agents.name AS agents_name, agent_types.id AS pkagent_types_id, \r\n             " +
+                "            agent_types.name AS agent_types_name, CONCAT(agent_types.name, \' \', " +
+                "agents.name) AS agents_fullname, contract_types.id AS pkcontract_types_id, \r\n   " +
+                "                      contract_types.name AS contract_types_name, contract_statu" +
+                "s.id AS pkcontract_status_id, contract_status.name AS contract_status_name, CONC" +
+                "AT(users.lastname, \r\n                         \' \', substr(users.firstname, 1, 1)" +
+                ", \'. \', substr(users.middlename, 1, 1), \'.\') AS expert_FIO\r\nFROM            cont" +
+                "racts LEFT OUTER JOIN\r\n                         agents ON contracts.agents_id = " +
+                "agents.id LEFT OUTER JOIN\r\n                         products ON contracts.produc" +
+                "ts_id = products.id LEFT OUTER JOIN\r\n                         agent_types ON age" +
+                "nts.agent_types_id = agent_types.id LEFT OUTER JOIN\r\n                         co" +
+                "ntract_types ON contracts.contract_types_id = contract_types.id LEFT OUTER JOIN\r" +
+                "\n                         contract_status ON contracts.contract_status_id = cont" +
+                "ract_status.id LEFT OUTER JOIN\r\n                         users ON contracts.expe" +
+                "rts_id = users.id\r\nWHERE        (contracts.contract_status_id = 4)";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[1].Connection = this.Connection;
@@ -57404,23 +57404,23 @@ WHERE        (selected_gosts.contracts_id = @contracts_id)";
                 "ntract_types_id,\r\ncontracts.contract_status_id,\r\ncontracts.experts_id,\r\ncontract" +
                 "s.source_types_id,\r\ncontracts.date_proposal,\r\ncontracts.experts_id,\r\ncontracts.n" +
                 "umber,\r\ncontracts.date_contract,\r\ncontracts.date_start,\r\ncontracts.date_end,\r\n(c" +
-                "ontracts.date_end - NOW()) as days_to_deadline,\r\ncontracts.date_sample_income,\r\n" +
-                "contracts.date_protocol_income,\r\ncontracts.cash_income,\r\ncontracts.date_cash_inc" +
-                "ome,\r\ncontracts.prepayment,\r\ncontracts.cost,\r\ncontracts.total_cost,\r\nproducts.id" +
-                " AS pkproducts_id,\r\nproducts.name AS products_name,\r\nagents.id AS pkagents_id,\r\n" +
-                "agents.name AS agents_name,\r\nagent_types.id AS pkagent_types_id,\r\nagent_types.na" +
-                "me AS agent_types_name,\r\nCONCAT( agent_types.name, \' \', agents.name ) AS agents_" +
-                "fullname,\r\ncontract_types.id AS pkcontract_types_id,\r\ncontract_types.name AS con" +
-                "tract_types_name,\r\ncontract_status.id AS pkcontract_status_id,\r\ncontract_status." +
-                "name AS contract_status_name,\r\nCONCAT( users.lastname, \' \', substr(users.firstna" +
-                "me, 1, 1), \'. \', substr(users.middlename, 1, 1), \'.\' ) AS expert_FIO\r\nFROM\r\ncont" +
-                "racts\r\nLEFT OUTER JOIN agents ON contracts.agents_id = agents.id\r\nLEFT OUTER JOI" +
-                "N products ON contracts.products_id = products.id\r\nLEFT OUTER JOIN agent_types O" +
-                "N agents.agent_types_id = agent_types.id\r\nLEFT OUTER JOIN contract_types ON cont" +
-                "racts.contract_types_id = contract_types.id\r\nLEFT OUTER JOIN contract_status ON " +
-                "contracts.contract_status_id = contract_status.id\r\nLEFT OUTER JOIN users ON cont" +
-                "racts.experts_id = users.id\r\nWHERE\r\n(contracts.contract_status_id > 0)\r\nAND \r\n(c" +
-                "ontracts.contract_status_id < 9)\r\nAND\r\n(not contracts.cash_income)";
+                "ontracts.date_end - CURDATE()) as days_to_deadline,\r\ncontracts.date_sample_incom" +
+                "e,\r\ncontracts.date_protocol_income,\r\ncontracts.cash_income,\r\ncontracts.date_cash" +
+                "_income,\r\ncontracts.prepayment,\r\ncontracts.cost,\r\ncontracts.total_cost,\r\nproduct" +
+                "s.id AS pkproducts_id,\r\nproducts.name AS products_name,\r\nagents.id AS pkagents_i" +
+                "d,\r\nagents.name AS agents_name,\r\nagent_types.id AS pkagent_types_id,\r\nagent_type" +
+                "s.name AS agent_types_name,\r\nCONCAT( agent_types.name, \' \', agents.name ) AS age" +
+                "nts_fullname,\r\ncontract_types.id AS pkcontract_types_id,\r\ncontract_types.name AS" +
+                " contract_types_name,\r\ncontract_status.id AS pkcontract_status_id,\r\ncontract_sta" +
+                "tus.name AS contract_status_name,\r\nCONCAT( users.lastname, \' \', substr(users.fir" +
+                "stname, 1, 1), \'. \', substr(users.middlename, 1, 1), \'.\' ) AS expert_FIO\r\nFROM\r\n" +
+                "contracts\r\nLEFT OUTER JOIN agents ON contracts.agents_id = agents.id\r\nLEFT OUTER" +
+                " JOIN products ON contracts.products_id = products.id\r\nLEFT OUTER JOIN agent_typ" +
+                "es ON agents.agent_types_id = agent_types.id\r\nLEFT OUTER JOIN contract_types ON " +
+                "contracts.contract_types_id = contract_types.id\r\nLEFT OUTER JOIN contract_status" +
+                " ON contracts.contract_status_id = contract_status.id\r\nLEFT OUTER JOIN users ON " +
+                "contracts.experts_id = users.id\r\nWHERE\r\n(contracts.contract_status_id > 0)\r\nAND " +
+                "\r\n(contracts.contract_status_id < 9)\r\nAND\r\n(not contracts.cash_income)";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[1].Connection = this.Connection;
@@ -57686,23 +57686,23 @@ WHERE        (selected_gosts.contracts_id = @contracts_id)";
                 "ntract_types_id,\r\ncontracts.contract_status_id,\r\ncontracts.experts_id,\r\ncontract" +
                 "s.source_types_id,\r\ncontracts.date_proposal,\r\ncontracts.experts_id,\r\ncontracts.n" +
                 "umber,\r\ncontracts.date_contract,\r\ncontracts.date_start,\r\ncontracts.date_end,\r\n(c" +
-                "ontracts.date_end - NOW()) as days_to_deadline,\r\ncontracts.date_sample_income,\r\n" +
-                "contracts.date_protocol_income,\r\ncontracts.cash_income,\r\ncontracts.date_cash_inc" +
-                "ome,\r\ncontracts.prepayment,\r\ncontracts.cost,\r\ncontracts.total_cost,\r\nproducts.id" +
-                " AS pkproducts_id,\r\nproducts.name AS products_name,\r\nagents.id AS pkagents_id,\r\n" +
-                "agents.name AS agents_name,\r\nagent_types.id AS pkagent_types_id,\r\nagent_types.na" +
-                "me AS agent_types_name,\r\nCONCAT( agent_types.name, \' \', agents.name ) AS agents_" +
-                "fullname,\r\ncontract_types.id AS pkcontract_types_id,\r\ncontract_types.name AS con" +
-                "tract_types_name,\r\ncontract_status.id AS pkcontract_status_id,\r\ncontract_status." +
-                "name AS contract_status_name,\r\nCONCAT( users.lastname, \' \', substr(users.firstna" +
-                "me, 1, 1), \'. \', substr(users.middlename, 1, 1), \'.\' ) AS expert_FIO\r\nFROM\r\ncont" +
-                "racts\r\nLEFT OUTER JOIN agents ON contracts.agents_id = agents.id\r\nLEFT OUTER JOI" +
-                "N products ON contracts.products_id = products.id\r\nLEFT OUTER JOIN agent_types O" +
-                "N agents.agent_types_id = agent_types.id\r\nLEFT OUTER JOIN contract_types ON cont" +
-                "racts.contract_types_id = contract_types.id\r\nLEFT OUTER JOIN contract_status ON " +
-                "contracts.contract_status_id = contract_status.id\r\nLEFT OUTER JOIN users ON cont" +
-                "racts.experts_id = users.id\r\nWHERE\r\n(contracts.contract_status_id > 0)\r\nAND \r\n(c" +
-                "ontracts.contract_status_id < 9)\r\nAND\r\n(contracts.cash_income)";
+                "ontracts.date_end - CURDATE()) as days_to_deadline,\r\ncontracts.date_sample_incom" +
+                "e,\r\ncontracts.date_protocol_income,\r\ncontracts.cash_income,\r\ncontracts.date_cash" +
+                "_income,\r\ncontracts.prepayment,\r\ncontracts.cost,\r\ncontracts.total_cost,\r\nproduct" +
+                "s.id AS pkproducts_id,\r\nproducts.name AS products_name,\r\nagents.id AS pkagents_i" +
+                "d,\r\nagents.name AS agents_name,\r\nagent_types.id AS pkagent_types_id,\r\nagent_type" +
+                "s.name AS agent_types_name,\r\nCONCAT( agent_types.name, \' \', agents.name ) AS age" +
+                "nts_fullname,\r\ncontract_types.id AS pkcontract_types_id,\r\ncontract_types.name AS" +
+                " contract_types_name,\r\ncontract_status.id AS pkcontract_status_id,\r\ncontract_sta" +
+                "tus.name AS contract_status_name,\r\nCONCAT( users.lastname, \' \', substr(users.fir" +
+                "stname, 1, 1), \'. \', substr(users.middlename, 1, 1), \'.\' ) AS expert_FIO\r\nFROM\r\n" +
+                "contracts\r\nLEFT OUTER JOIN agents ON contracts.agents_id = agents.id\r\nLEFT OUTER" +
+                " JOIN products ON contracts.products_id = products.id\r\nLEFT OUTER JOIN agent_typ" +
+                "es ON agents.agent_types_id = agent_types.id\r\nLEFT OUTER JOIN contract_types ON " +
+                "contracts.contract_types_id = contract_types.id\r\nLEFT OUTER JOIN contract_status" +
+                " ON contracts.contract_status_id = contract_status.id\r\nLEFT OUTER JOIN users ON " +
+                "contracts.experts_id = users.id\r\nWHERE\r\n(contracts.contract_status_id > 0)\r\nAND " +
+                "\r\n(contracts.contract_status_id < 9)\r\nAND\r\n(contracts.cash_income)";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[1].Connection = this.Connection;
