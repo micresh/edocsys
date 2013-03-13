@@ -63,6 +63,8 @@
             this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripButton7 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
             this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.usersBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -108,6 +110,8 @@
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripButton8 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator10 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton6 = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
@@ -119,10 +123,6 @@
             this.contractDocDataTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.ContractDocDataTableAdapter();
             this.finishedContractsTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.FinishedContractsTableAdapter();
             this.badContractsTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.BadContractsTableAdapter();
-            this.toolStripButton7 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripButton8 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator10 = new System.Windows.Forms.ToolStripSeparator();
             this.tabControl.SuspendLayout();
             this.tabFinishedTasks.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.finishedContractsDataGridView)).BeginInit();
@@ -424,6 +424,21 @@
             this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
             this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
             // 
+            // toolStripButton7
+            // 
+            this.toolStripButton7.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton7.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton7.Image")));
+            this.toolStripButton7.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton7.Name = "toolStripButton7";
+            this.toolStripButton7.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton7.Text = "toolStripButton1";
+            this.toolStripButton7.Click += new System.EventHandler(this.toolStripButton7_Click);
+            // 
+            // toolStripSeparator9
+            // 
+            this.toolStripSeparator9.Name = "toolStripSeparator9";
+            this.toolStripSeparator9.Size = new System.Drawing.Size(6, 25);
+            // 
             // bindingNavigatorDeleteItem
             // 
             this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -470,6 +485,7 @@
             this.toolStripButtonSaveProposal.Name = "toolStripButtonSaveProposal";
             this.toolStripButtonSaveProposal.Size = new System.Drawing.Size(23, 22);
             this.toolStripButtonSaveProposal.Text = "toolStripButton7";
+            this.toolStripButtonSaveProposal.Visible = false;
             this.toolStripButtonSaveProposal.Click += new System.EventHandler(this.toolStripButtonSaveProposal_Click);
             // 
             // toolStripButtonOpenProposal
@@ -480,6 +496,7 @@
             this.toolStripButtonOpenProposal.Name = "toolStripButtonOpenProposal";
             this.toolStripButtonOpenProposal.Size = new System.Drawing.Size(23, 22);
             this.toolStripButtonOpenProposal.Text = "toolStripButton8";
+            this.toolStripButtonOpenProposal.Visible = false;
             this.toolStripButtonOpenProposal.Click += new System.EventHandler(this.toolStripButtonOpenProposal_Click);
             // 
             // toolStripSeparator7
@@ -495,6 +512,7 @@
             this.toolStripButtonSaveContract.Name = "toolStripButtonSaveContract";
             this.toolStripButtonSaveContract.Size = new System.Drawing.Size(23, 22);
             this.toolStripButtonSaveContract.Text = "toolStripButton9";
+            this.toolStripButtonSaveContract.Visible = false;
             this.toolStripButtonSaveContract.Click += new System.EventHandler(this.toolStripButtonSaveContract_Click);
             // 
             // toolStripButtonOpenContract
@@ -505,6 +523,8 @@
             this.toolStripButtonOpenContract.Name = "toolStripButtonOpenContract";
             this.toolStripButtonOpenContract.Size = new System.Drawing.Size(23, 22);
             this.toolStripButtonOpenContract.Text = "toolStripButton7";
+            this.toolStripButtonOpenContract.Visible = false;
+            this.toolStripButtonOpenContract.Click += new System.EventHandler(this.toolStripButtonOpenContract_Click);
             // 
             // toolStripSeparator8
             // 
@@ -519,6 +539,7 @@
             this.toolStripButtonSaveAct.Name = "toolStripButtonSaveAct";
             this.toolStripButtonSaveAct.Size = new System.Drawing.Size(23, 22);
             this.toolStripButtonSaveAct.Text = "toolStripButton7";
+            this.toolStripButtonSaveAct.Visible = false;
             this.toolStripButtonSaveAct.Click += new System.EventHandler(this.toolStripButtonSaveAct_Click);
             // 
             // toolStripButtonOpenAct
@@ -529,6 +550,7 @@
             this.toolStripButtonOpenAct.Name = "toolStripButtonOpenAct";
             this.toolStripButtonOpenAct.Size = new System.Drawing.Size(23, 22);
             this.toolStripButtonOpenAct.Text = "toolStripButton7";
+            this.toolStripButtonOpenAct.Visible = false;
             this.toolStripButtonOpenAct.Click += new System.EventHandler(this.toolStripButtonOpenAct_Click);
             // 
             // tabPageBadJob
@@ -790,6 +812,21 @@
             this.toolStripSeparator4.Name = "toolStripSeparator4";
             this.toolStripSeparator4.Size = new System.Drawing.Size(6, 25);
             // 
+            // toolStripButton8
+            // 
+            this.toolStripButton8.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton8.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton8.Image")));
+            this.toolStripButton8.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton8.Name = "toolStripButton8";
+            this.toolStripButton8.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton8.Text = "toolStripButton1";
+            this.toolStripButton8.Click += new System.EventHandler(this.toolStripButton8_Click);
+            // 
+            // toolStripSeparator10
+            // 
+            this.toolStripSeparator10.Name = "toolStripSeparator10";
+            this.toolStripSeparator10.Size = new System.Drawing.Size(6, 25);
+            // 
             // toolStripButton5
             // 
             this.toolStripButton5.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -874,36 +911,6 @@
             // badContractsTableAdapter
             // 
             this.badContractsTableAdapter.ClearBeforeFill = true;
-            // 
-            // toolStripButton7
-            // 
-            this.toolStripButton7.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton7.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton7.Image")));
-            this.toolStripButton7.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton7.Name = "toolStripButton7";
-            this.toolStripButton7.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton7.Text = "toolStripButton1";
-            this.toolStripButton7.Click += new System.EventHandler(this.toolStripButton7_Click);
-            // 
-            // toolStripSeparator9
-            // 
-            this.toolStripSeparator9.Name = "toolStripSeparator9";
-            this.toolStripSeparator9.Size = new System.Drawing.Size(6, 25);
-            // 
-            // toolStripButton8
-            // 
-            this.toolStripButton8.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton8.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton8.Image")));
-            this.toolStripButton8.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton8.Name = "toolStripButton8";
-            this.toolStripButton8.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton8.Text = "toolStripButton1";
-            this.toolStripButton8.Click += new System.EventHandler(this.toolStripButton8_Click);
-            // 
-            // toolStripSeparator10
-            // 
-            this.toolStripSeparator10.Name = "toolStripSeparator10";
-            this.toolStripSeparator10.Size = new System.Drawing.Size(6, 25);
             // 
             // ContractStatsForm
             // 

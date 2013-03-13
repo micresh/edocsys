@@ -142,8 +142,15 @@ namespace Edocsys
 
         private void toolStripButtonSaveContract_Click(object sender, EventArgs e)
         {
-            int docType = DocGeneratorHelper.GetContractTypeID(finishedContractsBindingSource);
-            SaveDoc(docType);
+            try
+            {
+                int docType = DocGeneratorHelper.GetContractTypeID(finishedContractsBindingSource);
+                SaveDoc(docType);
+            }
+            catch
+            {
+                MessageBox.Show("Ошибка выбора контракта");
+            }
         }
 
         private void toolStripButtonSaveAct_Click(object sender, EventArgs e)
@@ -174,6 +181,11 @@ namespace Edocsys
         private void toolStripButton8_Click(object sender, EventArgs e)
         {
             RefreshDatabase();
+        }
+
+        private void toolStripButtonOpenContract_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
