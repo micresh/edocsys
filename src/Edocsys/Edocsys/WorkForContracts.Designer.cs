@@ -552,9 +552,11 @@
             this.contractInWorkDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.contractInWorkDataGridView.Location = new System.Drawing.Point(3, 28);
             this.contractInWorkDataGridView.Name = "contractInWorkDataGridView";
+            this.contractInWorkDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.contractInWorkDataGridView.Size = new System.Drawing.Size(1100, 413);
             this.contractInWorkDataGridView.TabIndex = 29;
             this.contractInWorkDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.contractInWorkDataGridView_CellContentClick);
+            this.contractInWorkDataGridView.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.contractInWorkDataGridView_CellPainting);
             this.contractInWorkDataGridView.RowPrePaint += new System.Windows.Forms.DataGridViewRowPrePaintEventHandler(this.contractInWorkDataGridView_RowPrePaint);
             // 
             // numberDataGridViewTextBoxColumn1

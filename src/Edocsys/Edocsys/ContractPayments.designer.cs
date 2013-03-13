@@ -89,14 +89,12 @@
             this.expertFIODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.agentsfullnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.payedContractsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.tableAdapterManager = new Edocsys.EdocbaseDataSetTableAdapters.TableAdapterManager();
-            this.contractPaymentsTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.ContractPaymentsTableAdapter();
-            this.payedContractsTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.PayedContractsTableAdapter();
+            this.bindingNavigatorContractPayed = new System.Windows.Forms.BindingNavigator(this.components);
+            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripButton7 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton8 = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripTextBox2 = new System.Windows.Forms.ToolStripTextBox();
-            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButton9 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton10 = new System.Windows.Forms.ToolStripButton();
@@ -105,7 +103,9 @@
             this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripLabel4 = new System.Windows.Forms.ToolStripLabel();
             this.filterPayedContractsTextBox = new System.Windows.Forms.ToolStripTextBox();
-            this.bindingNavigatorContractPayed = new System.Windows.Forms.BindingNavigator(this.components);
+            this.tableAdapterManager = new Edocsys.EdocbaseDataSetTableAdapters.TableAdapterManager();
+            this.contractPaymentsTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.ContractPaymentsTableAdapter();
+            this.payedContractsTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.PayedContractsTableAdapter();
             this.tabControl.SuspendLayout();
             this.tabInWork.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.contractPaymentsDataGridView)).BeginInit();
@@ -174,9 +174,11 @@
             this.contractPaymentsDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.contractPaymentsDataGridView.Location = new System.Drawing.Point(3, 28);
             this.contractPaymentsDataGridView.Name = "contractPaymentsDataGridView";
+            this.contractPaymentsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.contractPaymentsDataGridView.Size = new System.Drawing.Size(1100, 413);
             this.contractPaymentsDataGridView.TabIndex = 29;
             this.contractPaymentsDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.contractInWorkDataGridView_CellContentClick);
+            this.contractPaymentsDataGridView.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.contractPaymentsDataGridView_CellPainting);
             // 
             // numberDataGridViewTextBoxColumn1
             // 
@@ -458,9 +460,11 @@
             this.payedContractsdataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.payedContractsdataGridView.Location = new System.Drawing.Point(3, 28);
             this.payedContractsdataGridView.Name = "payedContractsdataGridView";
+            this.payedContractsdataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.payedContractsdataGridView.Size = new System.Drawing.Size(1100, 413);
             this.payedContractsdataGridView.TabIndex = 32;
             this.payedContractsdataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.payedContractsdataGridView_CellContentClick);
+            this.payedContractsdataGridView.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.payedContractsdataGridView_CellPainting);
             // 
             // numberDataGridViewTextBoxColumn
             // 
@@ -586,44 +590,43 @@
             this.payedContractsBindingSource.DataMember = "PayedContracts";
             this.payedContractsBindingSource.DataSource = this.edocbaseDataSet;
             // 
-            // tableAdapterManager
+            // bindingNavigatorContractPayed
             // 
-            this.tableAdapterManager.agent_typesTableAdapter = null;
-            this.tableAdapterManager.agents_contactsTableAdapter = null;
-            this.tableAdapterManager.agentsTableAdapter = null;
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.Connection = null;
-            this.tableAdapterManager.contract_statusTableAdapter = null;
-            this.tableAdapterManager.contract_types_for_workTableAdapter = null;
-            this.tableAdapterManager.contract_typesTableAdapter = null;
-            this.tableAdapterManager.ContractInfoTableAdapter = null;
-            this.tableAdapterManager.ContractPrepareForWorkTAdapter = null;
-            this.tableAdapterManager.ContractSigningTableAdapter = null;
-            this.tableAdapterManager.ContractsOnInspectionTableAdapter = null;
-            this.tableAdapterManager.contractsTableAdapter = null;
-            this.tableAdapterManager.doc_templatesTableAdapter = null;
-            this.tableAdapterManager.documentsTableAdapter = null;
-            this.tableAdapterManager.emission_typesTableAdapter = null;
-            this.tableAdapterManager.expertsTableAdapter = null;
-            this.tableAdapterManager.GOSTSelectionTableAdapter = null;
-            this.tableAdapterManager.InspectionContractsTableAdapter = null;
-            this.tableAdapterManager.log_journalTableAdapter = null;
-            this.tableAdapterManager.product_areasTableAdapter = null;
-            this.tableAdapterManager.product_gostsTableAdapter = null;
-            this.tableAdapterManager.productsTableAdapter = null;
-            this.tableAdapterManager.selected_gostsTableAdapter = null;
-            this.tableAdapterManager.source_typesTableAdapter = null;
-            this.tableAdapterManager.UpdateOrder = Edocsys.EdocbaseDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            this.tableAdapterManager.user_typesTableAdapter = null;
-            this.tableAdapterManager.usersTableAdapter = null;
+            this.bindingNavigatorContractPayed.AddNewItem = null;
+            this.bindingNavigatorContractPayed.BindingSource = this.payedContractsBindingSource;
+            this.bindingNavigatorContractPayed.CountItem = this.toolStripLabel1;
+            this.bindingNavigatorContractPayed.DeleteItem = null;
+            this.bindingNavigatorContractPayed.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripButton7,
+            this.toolStripButton8,
+            this.toolStripSeparator1,
+            this.toolStripTextBox2,
+            this.toolStripLabel1,
+            this.toolStripSeparator6,
+            this.toolStripButton9,
+            this.toolStripButton10,
+            this.toolStripSeparator7,
+            this.toolStripButton12,
+            this.toolStripSeparator8,
+            this.toolStripLabel4,
+            this.filterPayedContractsTextBox});
+            this.bindingNavigatorContractPayed.Location = new System.Drawing.Point(3, 3);
+            this.bindingNavigatorContractPayed.MoveFirstItem = this.toolStripButton7;
+            this.bindingNavigatorContractPayed.MoveLastItem = this.toolStripButton10;
+            this.bindingNavigatorContractPayed.MoveNextItem = this.toolStripButton9;
+            this.bindingNavigatorContractPayed.MovePreviousItem = this.toolStripButton8;
+            this.bindingNavigatorContractPayed.Name = "bindingNavigatorContractPayed";
+            this.bindingNavigatorContractPayed.PositionItem = this.toolStripTextBox2;
+            this.bindingNavigatorContractPayed.Size = new System.Drawing.Size(1100, 25);
+            this.bindingNavigatorContractPayed.TabIndex = 31;
+            this.bindingNavigatorContractPayed.Text = "bindingNavigator2";
             // 
-            // contractPaymentsTableAdapter
+            // toolStripLabel1
             // 
-            this.contractPaymentsTableAdapter.ClearBeforeFill = true;
-            // 
-            // payedContractsTableAdapter
-            // 
-            this.payedContractsTableAdapter.ClearBeforeFill = true;
+            this.toolStripLabel1.Name = "toolStripLabel1";
+            this.toolStripLabel1.Size = new System.Drawing.Size(35, 22);
+            this.toolStripLabel1.Text = "of {0}";
+            this.toolStripLabel1.ToolTipText = "Total number of items";
             // 
             // toolStripButton7
             // 
@@ -656,13 +659,6 @@
             this.toolStripTextBox2.Size = new System.Drawing.Size(50, 23);
             this.toolStripTextBox2.Text = "0";
             this.toolStripTextBox2.ToolTipText = "Current position";
-            // 
-            // toolStripLabel1
-            // 
-            this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(35, 22);
-            this.toolStripLabel1.Text = "of {0}";
-            this.toolStripLabel1.ToolTipText = "Total number of items";
             // 
             // toolStripSeparator6
             // 
@@ -716,36 +712,44 @@
             this.filterPayedContractsTextBox.Name = "filterPayedContractsTextBox";
             this.filterPayedContractsTextBox.Size = new System.Drawing.Size(200, 25);
             // 
-            // bindingNavigatorContractPayed
+            // tableAdapterManager
             // 
-            this.bindingNavigatorContractPayed.AddNewItem = null;
-            this.bindingNavigatorContractPayed.BindingSource = this.payedContractsBindingSource;
-            this.bindingNavigatorContractPayed.CountItem = this.toolStripLabel1;
-            this.bindingNavigatorContractPayed.DeleteItem = null;
-            this.bindingNavigatorContractPayed.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton7,
-            this.toolStripButton8,
-            this.toolStripSeparator1,
-            this.toolStripTextBox2,
-            this.toolStripLabel1,
-            this.toolStripSeparator6,
-            this.toolStripButton9,
-            this.toolStripButton10,
-            this.toolStripSeparator7,
-            this.toolStripButton12,
-            this.toolStripSeparator8,
-            this.toolStripLabel4,
-            this.filterPayedContractsTextBox});
-            this.bindingNavigatorContractPayed.Location = new System.Drawing.Point(3, 3);
-            this.bindingNavigatorContractPayed.MoveFirstItem = this.toolStripButton7;
-            this.bindingNavigatorContractPayed.MoveLastItem = this.toolStripButton10;
-            this.bindingNavigatorContractPayed.MoveNextItem = this.toolStripButton9;
-            this.bindingNavigatorContractPayed.MovePreviousItem = this.toolStripButton8;
-            this.bindingNavigatorContractPayed.Name = "bindingNavigatorContractPayed";
-            this.bindingNavigatorContractPayed.PositionItem = this.toolStripTextBox2;
-            this.bindingNavigatorContractPayed.Size = new System.Drawing.Size(1100, 25);
-            this.bindingNavigatorContractPayed.TabIndex = 31;
-            this.bindingNavigatorContractPayed.Text = "bindingNavigator2";
+            this.tableAdapterManager.agent_typesTableAdapter = null;
+            this.tableAdapterManager.agents_contactsTableAdapter = null;
+            this.tableAdapterManager.agentsTableAdapter = null;
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.Connection = null;
+            this.tableAdapterManager.contract_statusTableAdapter = null;
+            this.tableAdapterManager.contract_types_for_workTableAdapter = null;
+            this.tableAdapterManager.contract_typesTableAdapter = null;
+            this.tableAdapterManager.ContractInfoTableAdapter = null;
+            this.tableAdapterManager.ContractPrepareForWorkTAdapter = null;
+            this.tableAdapterManager.ContractSigningTableAdapter = null;
+            this.tableAdapterManager.ContractsOnInspectionTableAdapter = null;
+            this.tableAdapterManager.contractsTableAdapter = null;
+            this.tableAdapterManager.doc_templatesTableAdapter = null;
+            this.tableAdapterManager.documentsTableAdapter = null;
+            this.tableAdapterManager.emission_typesTableAdapter = null;
+            this.tableAdapterManager.expertsTableAdapter = null;
+            this.tableAdapterManager.GOSTSelectionTableAdapter = null;
+            this.tableAdapterManager.InspectionContractsTableAdapter = null;
+            this.tableAdapterManager.log_journalTableAdapter = null;
+            this.tableAdapterManager.product_areasTableAdapter = null;
+            this.tableAdapterManager.product_gostsTableAdapter = null;
+            this.tableAdapterManager.productsTableAdapter = null;
+            this.tableAdapterManager.selected_gostsTableAdapter = null;
+            this.tableAdapterManager.source_typesTableAdapter = null;
+            this.tableAdapterManager.UpdateOrder = Edocsys.EdocbaseDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            this.tableAdapterManager.user_typesTableAdapter = null;
+            this.tableAdapterManager.usersTableAdapter = null;
+            // 
+            // contractPaymentsTableAdapter
+            // 
+            this.contractPaymentsTableAdapter.ClearBeforeFill = true;
+            // 
+            // payedContractsTableAdapter
+            // 
+            this.payedContractsTableAdapter.ClearBeforeFill = true;
             // 
             // ContractPaymentsForm
             // 

@@ -196,9 +196,10 @@ namespace Edocsys
 
         private void contractInWorkDataGridView_RowPrePaint(object sender, DataGridViewRowPrePaintEventArgs e)
         {
+            /*
             DataGridView s = sender as DataGridView;
 
-            /*
+            
             int days_left = Convert.ToInt32(s.Rows[e.RowIndex].Cells["daystodeadlineDataGridViewTextBoxColumn"].Value);
 
             if (days_left < (int)Constants.DeadlineAlerts.Week)
@@ -206,9 +207,35 @@ namespace Edocsys
                 e.InheritedRowStyle.BackColor = Color.FromArgb(255, 0, 0);
                 e.InheritedRowStyle.SelectionBackColor = Color.Pink;// .FromArgb(255, 0, 0);
             }
-             /**/
+            /**/
 
 
+        }
+
+        private void contractInWorkDataGridView_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+        {
+            DataGridView s = sender as DataGridView;
+
+            if (e.RowIndex < 0)
+                return;
+
+            int days_left = Convert.ToInt32(s.Rows[e.RowIndex].Cells["daystodeadlineDataGridViewTextBoxColumn"].Value);
+
+            if (days_left < (int)Constants.DeadlineAlerts.Fortnight)
+            {
+                e.CellStyle.BackColor = Color.FromArgb(0xFF, 0xCB, 0xDB);
+                e.CellStyle.SelectionBackColor = Color.FromArgb(255, 0, 0);
+            }
+            if (days_left < (int)Constants.DeadlineAlerts.Week)
+            {
+                e.CellStyle.BackColor = Color.FromArgb(0xFA, 0xDA, 0xDD);
+                e.CellStyle.SelectionBackColor = Color.FromArgb(255, 0, 0);
+            }
+            if (days_left < (int)Constants.DeadlineAlerts.Overdue)
+            {
+                e.CellStyle.BackColor = Color.FromArgb(0xFD, 0xD7, 0xE4);
+                e.CellStyle.SelectionBackColor = Color.FromArgb(255, 0, 0);
+            }
         }
     }
 }
