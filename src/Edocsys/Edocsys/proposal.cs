@@ -271,8 +271,6 @@ namespace Edocsys
             this.contractInfoDataTableBindingSource.AddNew();
             DataRowView currentDoc = (DataRowView)this.contractInfoDataTableBindingSource.Current;
             currentDoc["contract_status_id"] = (int)Constants.ContractStatuses.NewProposal;
-            currentDoc["products_id"] = 1;    //MUST BEE CORRECT! WTHF?????
-            currentDoc["agents_id"] = 1;      //MUST BEE CORRECT! WTHF?????
             currentDoc["experts_id"] = 1;     //assign all to admin?????
             currentDoc["contract_types_id"] = (int)Constants.ContractTypes.Sertefication;
             currentDoc["source_types_id"] = (int)Constants.SourceTypes.Personal;
