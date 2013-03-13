@@ -183,6 +183,7 @@ namespace Edocsys
             if (!exists)
             {
                 MessageBox.Show("Шаблон отсутствует в БД", "Отсутствие шаблона");
+                return;
             }
 
             DataRowView row = GetTemplateDataRow(type);
@@ -190,6 +191,7 @@ namespace Edocsys
             if (row == null)
             {
                 MessageBox.Show("Шаблон отсутствует в БД", "Отсутствие шаблона");
+                return;
             }
 
             byte[] data = (byte[])row["template"];
