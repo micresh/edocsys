@@ -99,6 +99,14 @@ namespace Edocsys
             l.ShowDialog();
         }
 
+
+        public static void ShowHelpForm()
+        {
+            HelpForm l = new HelpForm();
+
+            l.ShowDialog();
+        }
+
         public static void ShowClientsForm()
         {
             ShowForm<ClientsForm>();
