@@ -103,7 +103,7 @@ CREATE TABLE IF NOT EXISTS `edocbase`.`product_areas` (
 -- Продукция
 CREATE TABLE IF NOT EXISTS `edocbase`.`products` (
   `id`                  INT NOT NULL AUTO_INCREMENT,
-  `name`                VARCHAR(45) NULL,
+  `name`                VARCHAR(150) NULL,
   `okp`                 VARCHAR(31) NULL,
   `tnved`               VARCHAR(31) NULL,
   `product_areas_id`    INT NULL,

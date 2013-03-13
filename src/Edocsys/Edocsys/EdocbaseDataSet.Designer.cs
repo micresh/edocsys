@@ -3090,7 +3090,7 @@ namespace Edocsys {
                 this.columncontract_types_id.AllowDBNull = false;
                 this.columncontract_status_id.AllowDBNull = false;
                 this.columnexperts_id.AllowDBNull = false;
-                this.columnproducts_name.MaxLength = 45;
+                this.columnproducts_name.MaxLength = 150;
                 this.columnagents_name.MaxLength = 63;
                 this.columnagent_types_name.MaxLength = 8;
                 this.columnagents_fullname.MaxLength = 72;
@@ -3679,7 +3679,7 @@ namespace Edocsys {
                 this.columnproducts_id1.AutoIncrement = true;
                 this.columnproducts_id1.AutoIncrementSeed = -1;
                 this.columnproducts_id1.AutoIncrementStep = -1;
-                this.columnproducts_name.MaxLength = 45;
+                this.columnproducts_name.MaxLength = 150;
                 this.columnagents_id1.AutoIncrement = true;
                 this.columnagents_id1.AutoIncrementSeed = -1;
                 this.columnagents_id1.AutoIncrementStep = -1;
@@ -4384,7 +4384,7 @@ namespace Edocsys {
                 this.columnpkproducts_id.AutoIncrement = true;
                 this.columnpkproducts_id.AutoIncrementSeed = -1;
                 this.columnpkproducts_id.AutoIncrementStep = -1;
-                this.columnproducts_name.MaxLength = 45;
+                this.columnproducts_name.MaxLength = 150;
                 this.columnpkagents_id.AutoIncrement = true;
                 this.columnpkagents_id.AutoIncrementSeed = -1;
                 this.columnpkagents_id.AutoIncrementStep = -1;
@@ -5105,7 +5105,7 @@ namespace Edocsys {
                 this.columnpkproducts_id.AutoIncrement = true;
                 this.columnpkproducts_id.AutoIncrementSeed = -1;
                 this.columnpkproducts_id.AutoIncrementStep = -1;
-                this.columnproducts_name.MaxLength = 45;
+                this.columnproducts_name.MaxLength = 150;
                 this.columnpkagents_id.AutoIncrement = true;
                 this.columnpkagents_id.AutoIncrementSeed = -1;
                 this.columnpkagents_id.AutoIncrementStep = -1;
@@ -5795,7 +5795,7 @@ namespace Edocsys {
                 this.columnpkproducts_id.AutoIncrement = true;
                 this.columnpkproducts_id.AutoIncrementSeed = -1;
                 this.columnpkproducts_id.AutoIncrementStep = -1;
-                this.columnproducts_name.MaxLength = 45;
+                this.columnproducts_name.MaxLength = 150;
                 this.columnpkagents_id.AutoIncrement = true;
                 this.columnpkagents_id.AutoIncrementSeed = -1;
                 this.columnpkagents_id.AutoIncrementStep = -1;
@@ -6516,7 +6516,7 @@ namespace Edocsys {
                 this.columnpkproducts_id.AutoIncrement = true;
                 this.columnpkproducts_id.AutoIncrementSeed = -1;
                 this.columnpkproducts_id.AutoIncrementStep = -1;
-                this.columnproducts_name.MaxLength = 45;
+                this.columnproducts_name.MaxLength = 150;
                 this.columnpkagents_id.AutoIncrement = true;
                 this.columnpkagents_id.AutoIncrementSeed = -1;
                 this.columnpkagents_id.AutoIncrementStep = -1;
@@ -7253,7 +7253,7 @@ namespace Edocsys {
                 this.columnpkproducts_id.AutoIncrement = true;
                 this.columnpkproducts_id.AutoIncrementSeed = -1;
                 this.columnpkproducts_id.AutoIncrementStep = -1;
-                this.columnproducts_name.MaxLength = 45;
+                this.columnproducts_name.MaxLength = 150;
                 this.columnpkagents_id.AutoIncrement = true;
                 this.columnpkagents_id.AutoIncrementSeed = -1;
                 this.columnpkagents_id.AutoIncrementStep = -1;
@@ -8391,7 +8391,7 @@ namespace Edocsys {
                 this.columnexperts_id.AllowDBNull = false;
                 this.columnscheme_type.MaxLength = 45;
                 this.columnadd_data_proposal.MaxLength = 21845;
-                this.columnproducts_name.MaxLength = 45;
+                this.columnproducts_name.MaxLength = 150;
                 this.columnproduction_documents.MaxLength = 50;
             }
             
@@ -14824,7 +14824,7 @@ namespace Edocsys {
                 this.columnid.AllowDBNull = false;
                 this.columnid.Unique = true;
                 this.columntnved.MaxLength = 31;
-                this.columnname.MaxLength = 45;
+                this.columnname.MaxLength = 150;
                 this.columnokp.MaxLength = 31;
             }
             
@@ -16422,7 +16422,7 @@ namespace Edocsys {
                 this.columnscheme_type.MaxLength = 45;
                 this.columnadd_data_proposal.MaxLength = 21845;
                 this.columnnumber.MaxLength = 9;
-                this.columnproducts_name.MaxLength = 45;
+                this.columnproducts_name.MaxLength = 150;
                 this.columnagents_name.MaxLength = 63;
                 this.columnpers_lastname.MaxLength = 30;
                 this.columnpers_firstname.MaxLength = 30;
@@ -17223,7 +17223,7 @@ namespace Edocsys {
                 this.columnpkproducts_id.AutoIncrement = true;
                 this.columnpkproducts_id.AutoIncrementSeed = -1;
                 this.columnpkproducts_id.AutoIncrementStep = -1;
-                this.columnproducts_name.MaxLength = 45;
+                this.columnproducts_name.MaxLength = 150;
                 this.columnpkagents_id.AutoIncrement = true;
                 this.columnpkagents_id.AutoIncrementSeed = -1;
                 this.columnpkagents_id.AutoIncrementStep = -1;
@@ -17989,7 +17989,7 @@ namespace Edocsys {
                 this.columnpkproducts_id.AutoIncrement = true;
                 this.columnpkproducts_id.AutoIncrementSeed = -1;
                 this.columnpkproducts_id.AutoIncrementStep = -1;
-                this.columnproducts_name.MaxLength = 45;
+                this.columnproducts_name.MaxLength = 150;
                 this.columnpkagents_id.AutoIncrement = true;
                 this.columnpkagents_id.AutoIncrementSeed = -1;
                 this.columnpkagents_id.AutoIncrementStep = -1;
@@ -18739,7 +18739,7 @@ namespace Edocsys {
                 this.columnpkproducts_id.AutoIncrement = true;
                 this.columnpkproducts_id.AutoIncrementSeed = -1;
                 this.columnpkproducts_id.AutoIncrementStep = -1;
-                this.columnproducts_name.MaxLength = 45;
+                this.columnproducts_name.MaxLength = 150;
                 this.columnpkagents_id.AutoIncrement = true;
                 this.columnpkagents_id.AutoIncrementSeed = -1;
                 this.columnpkagents_id.AutoIncrementStep = -1;
@@ -19477,7 +19477,7 @@ namespace Edocsys {
                 this.columnpkproducts_id.AutoIncrement = true;
                 this.columnpkproducts_id.AutoIncrementSeed = -1;
                 this.columnpkproducts_id.AutoIncrementStep = -1;
-                this.columnproducts_name.MaxLength = 45;
+                this.columnproducts_name.MaxLength = 150;
                 this.columnpkagents_id.AutoIncrement = true;
                 this.columnpkagents_id.AutoIncrementSeed = -1;
                 this.columnpkagents_id.AutoIncrementStep = -1;
@@ -20318,7 +20318,7 @@ namespace Edocsys {
                 this.columnpkproducts_id.AutoIncrement = true;
                 this.columnpkproducts_id.AutoIncrementSeed = -1;
                 this.columnpkproducts_id.AutoIncrementStep = -1;
-                this.columnproducts_name.MaxLength = 45;
+                this.columnproducts_name.MaxLength = 150;
                 this.columnpkagents_id.AutoIncrement = true;
                 this.columnpkagents_id.AutoIncrementSeed = -1;
                 this.columnpkagents_id.AutoIncrementStep = -1;
@@ -21144,7 +21144,7 @@ namespace Edocsys {
                 this.columnpkproducts_id.AutoIncrement = true;
                 this.columnpkproducts_id.AutoIncrementSeed = -1;
                 this.columnpkproducts_id.AutoIncrementStep = -1;
-                this.columnproducts_name.MaxLength = 45;
+                this.columnproducts_name.MaxLength = 150;
                 this.columnpkagents_id.AutoIncrement = true;
                 this.columnpkagents_id.AutoIncrementSeed = -1;
                 this.columnpkagents_id.AutoIncrementStep = -1;
