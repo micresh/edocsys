@@ -165,5 +165,15 @@ namespace Edocsys
         {
             OpenDoc((int)Constants.ContractTypes.Act);
         }
+
+        private void toolStripButton7_Click(object sender, EventArgs e)
+        {
+            RefreshDatabase();
+        }
+
+        private void toolStripButton8_Click(object sender, EventArgs e)
+        {
+            RefreshDatabase();
+        }
     }
 }

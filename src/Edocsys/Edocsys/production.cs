@@ -76,7 +76,7 @@ namespace Edocsys
         private void bindingNavigatorAddNewItem1_Click(object sender, EventArgs e)
         {
             int pos = productsBindingSource.Position;
-            SaveProducts(); ;
+            SaveProducts();
             productsBindingSource.Position = pos;
 
             this.product_gostsBindingSource.AddNew();
@@ -106,6 +106,11 @@ namespace Edocsys
             this.product_gostsBindingSource.EndEdit();
             this.tableAdapterManager.UpdateAll(this.edocbaseDataSet);
             this.edocbaseDataSet.AcceptChanges();
+        }
+
+        private void toolStripButton2_Click(object sender, EventArgs e)
+        {
+            RefreshDatabase();
         }
     }
 }

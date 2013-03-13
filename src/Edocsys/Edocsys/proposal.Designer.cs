@@ -39,8 +39,8 @@
             System.Windows.Forms.Label costLabel;
             System.Windows.Forms.Label total_costLabel;
             System.Windows.Forms.Label production_documentsLabel;
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProposalForm));
             System.Windows.Forms.Label prepaymentLabel;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProposalForm));
             this.mainSplitContainer = new System.Windows.Forms.SplitContainer();
             this.proposalsDataGridView = new System.Windows.Forms.DataGridView();
             this.agentsnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -57,6 +57,7 @@
             this.SendProposalColumn = new System.Windows.Forms.DataGridViewButtonColumn();
             this.contractInfoDataTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.edocbaseDataSet = new Edocsys.EdocbaseDataSet();
+            this.prepaymentTextBox = new System.Windows.Forms.TextBox();
             this.production_documentsTextBox = new System.Windows.Forms.TextBox();
             this.buttonFillGosts = new System.Windows.Forms.Button();
             this.buttonGOSTSelection = new System.Windows.Forms.Button();
@@ -109,7 +110,8 @@
             this.gOSTSelectionTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.GOSTSelectionTableAdapter();
             this.contractDocDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.contractDocDataTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.ContractDocDataTableAdapter();
-            this.prepaymentTextBox = new System.Windows.Forms.TextBox();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             proposalProductLabel = new System.Windows.Forms.Label();
             proposalEmissionLabel = new System.Windows.Forms.Label();
             proposalSchemeTypeLabel = new System.Windows.Forms.Label();
@@ -234,6 +236,15 @@
             production_documentsLabel.Size = new System.Drawing.Size(154, 13);
             production_documentsLabel.TabIndex = 40;
             production_documentsLabel.Text = "Документация изготовителя";
+            // 
+            // prepaymentLabel
+            // 
+            prepaymentLabel.AutoSize = true;
+            prepaymentLabel.Location = new System.Drawing.Point(324, 53);
+            prepaymentLabel.Name = "prepaymentLabel";
+            prepaymentLabel.Size = new System.Drawing.Size(38, 13);
+            prepaymentLabel.TabIndex = 41;
+            prepaymentLabel.Text = "Аванс";
             // 
             // mainSplitContainer
             // 
@@ -409,6 +420,14 @@
             this.edocbaseDataSet.CaseSensitive = true;
             this.edocbaseDataSet.DataSetName = "EdocbaseDataSet";
             this.edocbaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // prepaymentTextBox
+            // 
+            this.prepaymentTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.contractInfoDataTableBindingSource, "prepayment", true));
+            this.prepaymentTextBox.Location = new System.Drawing.Point(368, 50);
+            this.prepaymentTextBox.Name = "prepaymentTextBox";
+            this.prepaymentTextBox.Size = new System.Drawing.Size(100, 20);
+            this.prepaymentTextBox.TabIndex = 42;
             // 
             // production_documentsTextBox
             // 
@@ -757,6 +776,8 @@
             this.bindingNavigatorMoveNextItem,
             this.bindingNavigatorMoveLastItem,
             this.bindingNavigatorSeparator2,
+            this.toolStripButton1,
+            this.toolStripSeparator2,
             this.bindingNavigatorAddNewItem,
             this.bindingNavigatorDeleteItem,
             this.contractsBindingNavigatorSaveItem,
@@ -858,22 +879,20 @@
             // 
             this.contractDocDataTableAdapter.ClearBeforeFill = true;
             // 
-            // prepaymentLabel
+            // toolStripButton1
             // 
-            prepaymentLabel.AutoSize = true;
-            prepaymentLabel.Location = new System.Drawing.Point(324, 53);
-            prepaymentLabel.Name = "prepaymentLabel";
-            prepaymentLabel.Size = new System.Drawing.Size(38, 13);
-            prepaymentLabel.TabIndex = 41;
-            prepaymentLabel.Text = "Аванс";
+            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton1.Text = "toolStripButton1";
+            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
-            // prepaymentTextBox
+            // toolStripSeparator2
             // 
-            this.prepaymentTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.contractInfoDataTableBindingSource, "prepayment", true));
-            this.prepaymentTextBox.Location = new System.Drawing.Point(368, 50);
-            this.prepaymentTextBox.Name = "prepaymentTextBox";
-            this.prepaymentTextBox.Size = new System.Drawing.Size(100, 20);
-            this.prepaymentTextBox.TabIndex = 42;
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
             // 
             // ProposalForm
             // 
@@ -980,6 +999,8 @@
         private System.Windows.Forms.DataGridViewButtonColumn SendProposalColumn;
         private System.Windows.Forms.TextBox production_documentsTextBox;
         private System.Windows.Forms.TextBox prepaymentTextBox;
+        private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
 
         //private EdocbaseDataSetTableAdapters.TemplatesDataTableTableAdapter templatesDataTableTableAdapter;
         //private EdocbaseDataSetTableAdapters.ProductsTableAdapter productsTableAdapter;

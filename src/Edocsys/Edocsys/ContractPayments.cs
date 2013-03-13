@@ -203,5 +203,15 @@ namespace Edocsys
             catch { };
         }
 
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            RefreshDatabase();
+        }
+
+        private void toolStripButton11_Click(object sender, EventArgs e)
+        {
+            RefreshDatabase();
+        }
+
     }
 }

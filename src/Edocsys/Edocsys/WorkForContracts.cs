@@ -237,5 +237,15 @@ namespace Edocsys
                 e.CellStyle.SelectionBackColor = Color.FromArgb(255, 0, 0);
             }
         }
+
+        private void toolStripButton13_Click(object sender, EventArgs e)
+        {
+            RefreshDatabase();
+        }
+
+        private void toolStripButton14_Click(object sender, EventArgs e)
+        {
+            RefreshDatabase();
+        }
     }
 }
