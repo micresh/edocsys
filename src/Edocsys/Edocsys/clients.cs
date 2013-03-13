@@ -20,6 +20,11 @@ namespace Edocsys
 
         private void agentsBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
+            SaveAgents();
+        }
+
+        private void SaveAgents()
+        {
             try
             {
                 int pos = agentsBindingSource.Position;
@@ -87,6 +92,10 @@ namespace Edocsys
 
         private void bindingNavigatorAddNewItem1_Click(object sender, EventArgs e)
         {
+            int pos = agentsBindingSource.Position;
+            SaveAgents();
+            agentsBindingSource.Position = pos;
+
             DataRowView row = edocbaseDataSet.agents_contacts.DefaultView.AddNew();
 
             DataRow currentRow = edocbaseDataSet.agents.DefaultView[agentsBindingSource.Position].Row;
