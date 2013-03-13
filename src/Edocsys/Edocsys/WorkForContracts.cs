@@ -193,5 +193,22 @@ namespace Edocsys
             int contract_id = DocGeneratorHelper.GetContractID(contractInWorkBindingSource);
             wmgr.ShowDeleteContractForm(contract_id);
         }
+
+        private void contractInWorkDataGridView_RowPrePaint(object sender, DataGridViewRowPrePaintEventArgs e)
+        {
+            DataGridView s = sender as DataGridView;
+
+            /*
+            int days_left = Convert.ToInt32(s.Rows[e.RowIndex].Cells["daystodeadlineDataGridViewTextBoxColumn"].Value);
+
+            if (days_left < (int)Constants.DeadlineAlerts.Week)
+            {
+                e.InheritedRowStyle.BackColor = Color.FromArgb(255, 0, 0);
+                e.InheritedRowStyle.SelectionBackColor = Color.Pink;// .FromArgb(255, 0, 0);
+            }
+             /**/
+
+
+        }
     }
 }
