@@ -31,6 +31,9 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.Label date_contractLabel;
             System.Windows.Forms.Label numberLabel;
+            System.Windows.Forms.Label costLabel;
+            System.Windows.Forms.Label total_costLabel;
+            System.Windows.Forms.Label prepaymentLabel;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ContractsForm));
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabContractSigning = new System.Windows.Forms.TabPage();
@@ -40,6 +43,7 @@
             this.contracttypesnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.agentsnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.agenttypesnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.prepayment = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.costDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.totalcostDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dateproposalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -50,6 +54,9 @@
             this.contractSigningBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.edocbaseDataSet = new Edocsys.EdocbaseDataSet();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.prepaymentTextBox = new System.Windows.Forms.TextBox();
+            this.total_costTextBox = new System.Windows.Forms.TextBox();
+            this.costTextBox = new System.Windows.Forms.TextBox();
             this.date_contractDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.numberTextBox = new System.Windows.Forms.TextBox();
             this.groupBoxContract = new System.Windows.Forms.GroupBox();
@@ -99,7 +106,6 @@
             this.toolStripButton15 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton16 = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator12 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripButton17 = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator13 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripLabel7 = new System.Windows.Forms.ToolStripLabel();
             this.filterComplitionTextBox = new System.Windows.Forms.ToolStripTextBox();
@@ -132,7 +138,6 @@
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripLabel3 = new System.Windows.Forms.ToolStripLabel();
             this.filterContractDoneTextBox = new System.Windows.Forms.ToolStripTextBox();
@@ -150,8 +155,15 @@
             this.contractDocDataTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.ContractDocDataTableAdapter();
             this.contractComplitionMgrCfmTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.ContractComplitionMgrCfmTableAdapter();
             this.contractDoneTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.ContractDoneTableAdapter();
+            this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripButton6 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton7 = new System.Windows.Forms.ToolStripButton();
             date_contractLabel = new System.Windows.Forms.Label();
             numberLabel = new System.Windows.Forms.Label();
+            costLabel = new System.Windows.Forms.Label();
+            total_costLabel = new System.Windows.Forms.Label();
+            prepaymentLabel = new System.Windows.Forms.Label();
             this.tabControl.SuspendLayout();
             this.tabContractSigning.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.contractsSigningDataGridView)).BeginInit();
@@ -196,6 +208,33 @@
             numberLabel.TabIndex = 29;
             numberLabel.Text = global::Edocsys.Properties.Settings.Default.ContractsNumberTitle;
             // 
+            // costLabel
+            // 
+            costLabel.AutoSize = true;
+            costLabel.Location = new System.Drawing.Point(14, 100);
+            costLabel.Name = "costLabel";
+            costLabel.Size = new System.Drawing.Size(41, 13);
+            costLabel.TabIndex = 31;
+            costLabel.Text = "Сумма";
+            // 
+            // total_costLabel
+            // 
+            total_costLabel.AutoSize = true;
+            total_costLabel.Location = new System.Drawing.Point(14, 125);
+            total_costLabel.Name = "total_costLabel";
+            total_costLabel.Size = new System.Drawing.Size(78, 13);
+            total_costLabel.TabIndex = 32;
+            total_costLabel.Text = "Общая сумма";
+            // 
+            // prepaymentLabel
+            // 
+            prepaymentLabel.AutoSize = true;
+            prepaymentLabel.Location = new System.Drawing.Point(14, 73);
+            prepaymentLabel.Name = "prepaymentLabel";
+            prepaymentLabel.Size = new System.Drawing.Size(38, 13);
+            prepaymentLabel.TabIndex = 33;
+            prepaymentLabel.Text = "Аванс";
+            // 
             // tabControl
             // 
             this.tabControl.Controls.Add(this.tabContractSigning);
@@ -205,7 +244,7 @@
             this.tabControl.Location = new System.Drawing.Point(0, 0);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(1251, 470);
+            this.tabControl.Size = new System.Drawing.Size(748, 470);
             this.tabControl.TabIndex = 2;
             // 
             // tabContractSigning
@@ -218,7 +257,7 @@
             this.tabContractSigning.Location = new System.Drawing.Point(4, 22);
             this.tabContractSigning.Name = "tabContractSigning";
             this.tabContractSigning.Padding = new System.Windows.Forms.Padding(3);
-            this.tabContractSigning.Size = new System.Drawing.Size(1243, 444);
+            this.tabContractSigning.Size = new System.Drawing.Size(740, 444);
             this.tabContractSigning.TabIndex = 0;
             this.tabContractSigning.Text = global::Edocsys.Properties.Settings.Default.TabExpertAssigned;
             this.tabContractSigning.UseVisualStyleBackColor = true;
@@ -235,6 +274,7 @@
             this.contracttypesnameDataGridViewTextBoxColumn,
             this.agentsnameDataGridViewTextBoxColumn,
             this.agenttypesnameDataGridViewTextBoxColumn,
+            this.prepayment,
             this.costDataGridViewTextBoxColumn,
             this.totalcostDataGridViewTextBoxColumn,
             this.dateproposalDataGridViewTextBoxColumn,
@@ -247,7 +287,7 @@
             this.contractsSigningDataGridView.Location = new System.Drawing.Point(3, 28);
             this.contractsSigningDataGridView.Name = "contractsSigningDataGridView";
             this.contractsSigningDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.contractsSigningDataGridView.Size = new System.Drawing.Size(1237, 260);
+            this.contractsSigningDataGridView.Size = new System.Drawing.Size(734, 260);
             this.contractsSigningDataGridView.TabIndex = 27;
             this.contractsSigningDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.contractsSigningDataTableDataGridView_CellContentClick);
             // 
@@ -280,6 +320,12 @@
             this.agenttypesnameDataGridViewTextBoxColumn.DataPropertyName = "agent_types_name";
             this.agenttypesnameDataGridViewTextBoxColumn.HeaderText = "Форма";
             this.agenttypesnameDataGridViewTextBoxColumn.Name = "agenttypesnameDataGridViewTextBoxColumn";
+            // 
+            // prepayment
+            // 
+            this.prepayment.DataPropertyName = "prepayment";
+            this.prepayment.HeaderText = "Аванс";
+            this.prepayment.Name = "prepayment";
             // 
             // costDataGridViewTextBoxColumn
             // 
@@ -337,6 +383,12 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(prepaymentLabel);
+            this.panel1.Controls.Add(this.prepaymentTextBox);
+            this.panel1.Controls.Add(total_costLabel);
+            this.panel1.Controls.Add(this.total_costTextBox);
+            this.panel1.Controls.Add(costLabel);
+            this.panel1.Controls.Add(this.costTextBox);
             this.panel1.Controls.Add(this.date_contractDateTimePicker);
             this.panel1.Controls.Add(this.numberTextBox);
             this.panel1.Controls.Add(numberLabel);
@@ -345,8 +397,32 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(3, 288);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1237, 153);
+            this.panel1.Size = new System.Drawing.Size(734, 153);
             this.panel1.TabIndex = 25;
+            // 
+            // prepaymentTextBox
+            // 
+            this.prepaymentTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.contractSigningBindingSource, "prepayment", true));
+            this.prepaymentTextBox.Location = new System.Drawing.Point(184, 70);
+            this.prepaymentTextBox.Name = "prepaymentTextBox";
+            this.prepaymentTextBox.Size = new System.Drawing.Size(100, 20);
+            this.prepaymentTextBox.TabIndex = 34;
+            // 
+            // total_costTextBox
+            // 
+            this.total_costTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.contractSigningBindingSource, "total_cost", true));
+            this.total_costTextBox.Location = new System.Drawing.Point(184, 122);
+            this.total_costTextBox.Name = "total_costTextBox";
+            this.total_costTextBox.Size = new System.Drawing.Size(100, 20);
+            this.total_costTextBox.TabIndex = 33;
+            // 
+            // costTextBox
+            // 
+            this.costTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.contractSigningBindingSource, "cost", true));
+            this.costTextBox.Location = new System.Drawing.Point(184, 96);
+            this.costTextBox.Name = "costTextBox";
+            this.costTextBox.Size = new System.Drawing.Size(100, 20);
+            this.costTextBox.TabIndex = 32;
             // 
             // date_contractDateTimePicker
             // 
@@ -372,7 +448,7 @@
             this.groupBoxContract.Controls.Add(this.buttonGenerateContract);
             this.groupBoxContract.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Edocsys.Properties.Settings.Default, "ContractOperationGroupBox", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.groupBoxContract.Dock = System.Windows.Forms.DockStyle.Right;
-            this.groupBoxContract.Location = new System.Drawing.Point(950, 0);
+            this.groupBoxContract.Location = new System.Drawing.Point(447, 0);
             this.groupBoxContract.Name = "groupBoxContract";
             this.groupBoxContract.Size = new System.Drawing.Size(287, 153);
             this.groupBoxContract.TabIndex = 25;
@@ -441,6 +517,8 @@
             this.bindingNavigatorMoveNextItem,
             this.bindingNavigatorMoveLastItem,
             this.bindingNavigatorSeparator2,
+            this.toolStripButton5,
+            this.toolStripSeparator6,
             this.bindingNavigatorDeleteItem,
             this.usersBindingNavigatorSaveItem,
             this.toolStripSeparator1,
@@ -453,7 +531,7 @@
             this.bindingNavigatorContractSigning.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.bindingNavigatorContractSigning.Name = "bindingNavigatorContractSigning";
             this.bindingNavigatorContractSigning.PositionItem = this.bindingNavigatorPositionItem;
-            this.bindingNavigatorContractSigning.Size = new System.Drawing.Size(1237, 25);
+            this.bindingNavigatorContractSigning.Size = new System.Drawing.Size(734, 25);
             this.bindingNavigatorContractSigning.TabIndex = 26;
             this.bindingNavigatorContractSigning.Text = "bindingNavigator1";
             // 
@@ -532,6 +610,7 @@
             this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorDeleteItem.Text = "Delete";
+            this.bindingNavigatorDeleteItem.Click += new System.EventHandler(this.bindingNavigatorDeleteItem_Click);
             // 
             // usersBindingNavigatorSaveItem
             // 
@@ -567,7 +646,7 @@
             this.tabComplitionManagerConfrim.Location = new System.Drawing.Point(4, 22);
             this.tabComplitionManagerConfrim.Name = "tabComplitionManagerConfrim";
             this.tabComplitionManagerConfrim.Padding = new System.Windows.Forms.Padding(3);
-            this.tabComplitionManagerConfrim.Size = new System.Drawing.Size(1243, 444);
+            this.tabComplitionManagerConfrim.Size = new System.Drawing.Size(740, 444);
             this.tabComplitionManagerConfrim.TabIndex = 2;
             this.tabComplitionManagerConfrim.Text = global::Edocsys.Properties.Settings.Default.TabTaskReady;
             this.tabComplitionManagerConfrim.UseVisualStyleBackColor = true;
@@ -597,7 +676,7 @@
             this.contractComplitionManagerConfrimDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.contractComplitionManagerConfrimDataGridView.Location = new System.Drawing.Point(3, 28);
             this.contractComplitionManagerConfrimDataGridView.Name = "contractComplitionManagerConfrimDataGridView";
-            this.contractComplitionManagerConfrimDataGridView.Size = new System.Drawing.Size(1237, 413);
+            this.contractComplitionManagerConfrimDataGridView.Size = new System.Drawing.Size(734, 413);
             this.contractComplitionManagerConfrimDataGridView.TabIndex = 30;
             this.contractComplitionManagerConfrimDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.contractComplitionManagerConfrimDataGridView_CellContentClick);
             // 
@@ -708,7 +787,7 @@
             this.toolStripButton15,
             this.toolStripButton16,
             this.toolStripSeparator12,
-            this.toolStripButton17,
+            this.toolStripButton6,
             this.toolStripSeparator13,
             this.toolStripLabel7,
             this.filterComplitionTextBox});
@@ -719,7 +798,7 @@
             this.bindingNavigatorComplitionMgrCnf.MovePreviousItem = this.toolStripButton14;
             this.bindingNavigatorComplitionMgrCnf.Name = "bindingNavigatorComplitionMgrCnf";
             this.bindingNavigatorComplitionMgrCnf.PositionItem = this.toolStripTextBox2;
-            this.bindingNavigatorComplitionMgrCnf.Size = new System.Drawing.Size(1237, 25);
+            this.bindingNavigatorComplitionMgrCnf.Size = new System.Drawing.Size(734, 25);
             this.bindingNavigatorComplitionMgrCnf.TabIndex = 29;
             this.bindingNavigatorComplitionMgrCnf.Text = "bindingNavigator2";
             // 
@@ -790,15 +869,6 @@
             this.toolStripSeparator12.Name = "toolStripSeparator12";
             this.toolStripSeparator12.Size = new System.Drawing.Size(6, 25);
             // 
-            // toolStripButton17
-            // 
-            this.toolStripButton17.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton17.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton17.Image")));
-            this.toolStripButton17.Name = "toolStripButton17";
-            this.toolStripButton17.RightToLeftAutoMirrorImage = true;
-            this.toolStripButton17.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton17.Text = "Delete";
-            // 
             // toolStripSeparator13
             // 
             this.toolStripSeparator13.Name = "toolStripSeparator13";
@@ -825,7 +895,7 @@
             this.tabComplitionAgentConfrim.Location = new System.Drawing.Point(4, 22);
             this.tabComplitionAgentConfrim.Name = "tabComplitionAgentConfrim";
             this.tabComplitionAgentConfrim.Padding = new System.Windows.Forms.Padding(3);
-            this.tabComplitionAgentConfrim.Size = new System.Drawing.Size(1243, 444);
+            this.tabComplitionAgentConfrim.Size = new System.Drawing.Size(740, 444);
             this.tabComplitionAgentConfrim.TabIndex = 3;
             this.tabComplitionAgentConfrim.Text = global::Edocsys.Properties.Settings.Default.TabTaskFinished;
             this.tabComplitionAgentConfrim.UseVisualStyleBackColor = true;
@@ -857,7 +927,7 @@
             this.contractDoneDataTableDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.contractDoneDataTableDataGridView.Location = new System.Drawing.Point(3, 28);
             this.contractDoneDataTableDataGridView.Name = "contractDoneDataTableDataGridView";
-            this.contractDoneDataTableDataGridView.Size = new System.Drawing.Size(1237, 243);
+            this.contractDoneDataTableDataGridView.Size = new System.Drawing.Size(734, 243);
             this.contractDoneDataTableDataGridView.TabIndex = 31;
             this.contractDoneDataTableDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.contractDoneDataTableDataGridView_CellContentClick);
             // 
@@ -978,7 +1048,7 @@
             this.toolStripButton3,
             this.toolStripButton4,
             this.toolStripSeparator4,
-            this.toolStripButton5,
+            this.toolStripButton7,
             this.toolStripSeparator5,
             this.toolStripLabel3,
             this.filterContractDoneTextBox});
@@ -989,7 +1059,7 @@
             this.bindingNavigator.MovePreviousItem = this.toolStripButton2;
             this.bindingNavigator.Name = "bindingNavigator";
             this.bindingNavigator.PositionItem = this.toolStripTextBox1;
-            this.bindingNavigator.Size = new System.Drawing.Size(1237, 25);
+            this.bindingNavigator.Size = new System.Drawing.Size(734, 25);
             this.bindingNavigator.TabIndex = 30;
             this.bindingNavigator.Text = "bindingNavigator2";
             // 
@@ -1060,15 +1130,6 @@
             this.toolStripSeparator4.Name = "toolStripSeparator4";
             this.toolStripSeparator4.Size = new System.Drawing.Size(6, 25);
             // 
-            // toolStripButton5
-            // 
-            this.toolStripButton5.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton5.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton5.Image")));
-            this.toolStripButton5.Name = "toolStripButton5";
-            this.toolStripButton5.RightToLeftAutoMirrorImage = true;
-            this.toolStripButton5.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton5.Text = "Delete";
-            // 
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
@@ -1091,7 +1152,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel2.Location = new System.Drawing.Point(3, 271);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1237, 170);
+            this.panel2.Size = new System.Drawing.Size(734, 170);
             this.panel2.TabIndex = 28;
             // 
             // groupBox1
@@ -1102,7 +1163,7 @@
             this.groupBox1.Controls.Add(this.buttonGenerateAct);
             this.groupBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Edocsys.Properties.Settings.Default, "ContractActTitle", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.groupBox1.Location = new System.Drawing.Point(950, 0);
+            this.groupBox1.Location = new System.Drawing.Point(447, 0);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(287, 170);
             this.groupBox1.TabIndex = 25;
@@ -1214,11 +1275,46 @@
             // 
             this.contractDoneTableAdapter.ClearBeforeFill = true;
             // 
+            // toolStripButton5
+            // 
+            this.toolStripButton5.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton5.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton5.Image")));
+            this.toolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton5.Name = "toolStripButton5";
+            this.toolStripButton5.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton5.Text = "toolStripButton1";
+            this.toolStripButton5.Click += new System.EventHandler(this.toolStripButton5_Click);
+            // 
+            // toolStripSeparator6
+            // 
+            this.toolStripSeparator6.Name = "toolStripSeparator6";
+            this.toolStripSeparator6.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripButton6
+            // 
+            this.toolStripButton6.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton6.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton6.Image")));
+            this.toolStripButton6.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton6.Name = "toolStripButton6";
+            this.toolStripButton6.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton6.Text = "toolStripButton1";
+            this.toolStripButton6.Click += new System.EventHandler(this.toolStripButton6_Click);
+            // 
+            // toolStripButton7
+            // 
+            this.toolStripButton7.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton7.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton7.Image")));
+            this.toolStripButton7.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton7.Name = "toolStripButton7";
+            this.toolStripButton7.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton7.Text = "toolStripButton1";
+            this.toolStripButton7.Click += new System.EventHandler(this.toolStripButton7_Click);
+            // 
             // ContractsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1251, 470);
+            this.ClientSize = new System.Drawing.Size(748, 470);
             this.Controls.Add(this.tabControl);
             this.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Edocsys.Properties.Settings.Default, "ContractsFormTitle", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.Name = "ContractsForm";
@@ -1306,7 +1402,6 @@
         private System.Windows.Forms.ToolStripButton toolStripButton15;
         private System.Windows.Forms.ToolStripButton toolStripButton16;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator12;
-        private System.Windows.Forms.ToolStripButton toolStripButton17;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator13;
         private System.Windows.Forms.ToolStripLabel toolStripLabel7;
         private System.Windows.Forms.ToolStripTextBox filterComplitionTextBox;
@@ -1343,24 +1438,11 @@
         private System.Windows.Forms.ToolStripButton toolStripButton3;
         private System.Windows.Forms.ToolStripButton toolStripButton4;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
-        private System.Windows.Forms.ToolStripButton toolStripButton5;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
         private System.Windows.Forms.ToolStripLabel toolStripLabel3;
         private System.Windows.Forms.ToolStripTextBox filterContractDoneTextBox;
         private System.Windows.Forms.BindingSource contractDoneBindingSource;
         private EdocbaseDataSetTableAdapters.ContractDoneTableAdapter contractDoneTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn number;
-        private System.Windows.Forms.DataGridViewTextBoxColumn productsnameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn contracttypesnameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn agentsnameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn agenttypesnameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn costDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn totalcostDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dateproposalDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn agentsfullnameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn expertFIODataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn has_contract_document;
-        private System.Windows.Forms.DataGridViewButtonColumn SignContractColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn numberDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn productsnameDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn agentsnameDataGridViewTextBoxColumn1;
@@ -1377,6 +1459,26 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn totalcostDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn agentsfullnameDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn expertFIODataGridViewTextBoxColumn1;
+        private System.Windows.Forms.TextBox total_costTextBox;
+        private System.Windows.Forms.TextBox costTextBox;
+        private System.Windows.Forms.TextBox prepaymentTextBox;
+        private System.Windows.Forms.DataGridViewTextBoxColumn number;
+        private System.Windows.Forms.DataGridViewTextBoxColumn productsnameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn contracttypesnameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn agentsnameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn agenttypesnameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn prepayment;
+        private System.Windows.Forms.DataGridViewTextBoxColumn costDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn totalcostDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dateproposalDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn agentsfullnameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn expertFIODataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn has_contract_document;
+        private System.Windows.Forms.DataGridViewButtonColumn SignContractColumn;
+        private System.Windows.Forms.ToolStripButton toolStripButton5;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
+        private System.Windows.Forms.ToolStripButton toolStripButton6;
+        private System.Windows.Forms.ToolStripButton toolStripButton7;
 
         //private EdocbaseDataSetTableAdapters.Exec_contractsTableAdapter exec_contractsTableAdapter;
     }

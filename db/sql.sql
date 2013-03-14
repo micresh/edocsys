@@ -1,4 +1,4 @@
---contracts_info
+-- ContractsInfo
 SELECT
 contracts.id,
 contracts.products_id,
@@ -8,9 +8,11 @@ contracts.contract_status_id,
 contracts.experts_id,
 contracts.source_types_id,
 contracts.date_proposal,
+contracts.production_documents,
 contracts.scheme_type,
 contracts.add_data_proposal,
 contracts.custom_gosts,
+contracts.prepayment,
 contracts.cost,
 contracts.total_cost,
 contracts.cash_income,
@@ -38,11 +40,8 @@ LEFT OUTER JOIN products ON contracts.products_id = products.id
 LEFT OUTER JOIN agent_types ON agents.agent_types_id = agent_types.id
 LEFT OUTER JOIN contract_types ON contracts.contract_types_id = contract_types.id
 LEFT OUTER JOIN emission_types ON contracts.emission_types_id = emission_types.id
-LEFT OUTER JOIN documents ON contracts.id = documents.contracts_id
 WHERE
     (contracts.contract_status_id = 0)
-
-
 
 
 
@@ -53,10 +52,10 @@ WHERE (id = @id)
 
 INSERT INTO contracts
 (products_id, agents_id, experts_id, contract_status_id, emission_types_id, contract_types_id,
-    date_proposal, scheme_type, add_data_proposal, custom_gosts, source_types_id, cost, total_cost, cash_income)
+    date_proposal, scheme_type, add_data_proposal, production_documents, custom_gosts, source_types_id, prepayment, cost, total_cost, cash_income)
 VALUES
 (@products_id, @agents_id, @experts_id, @contract_status_id, @emission_types_id, @contract_types_id,
-@date_proposal, @scheme_type, @add_data_proposal, @custom_gosts, @source_types_id, @cost, @total_cost, 0)
+@date_proposal, @scheme_type, @add_data_proposal, @production_documents, @custom_gosts, @source_types_id, @prepayment, @cost, @total_cost, 0)
 
 
 
@@ -71,7 +70,9 @@ contract_types_id = @contract_types_id,
 date_proposal = @date_proposal,
 scheme_type = @scheme_type,
 add_data_proposal = @add_data_proposal,
+production_documents = @production_documents,
 source_types_id = @source_types_id,
+prepayment = @prepayment,
 cost = @cost,
 total_cost = @total_cost,
 cash_income = 0
@@ -254,6 +255,7 @@ contracts.date_proposal,
 contracts.experts_id,
 contracts.number,
 contracts.date_contract,
+contracts.prepayment,
 contracts.cost,
 contracts.total_cost,
 products.id AS pkproducts_id,
@@ -268,8 +270,7 @@ contract_types.name AS contract_types_name,
 contract_status.id AS pkcontract_status_id,
 contract_status.name AS contract_status_name,
 CONCAT( users.lastname, ' ', substr(users.firstname, 1, 1), '. ', substr(users.middlename, 1, 1), '.' ) AS expert_FIO,
-(SELECT IFNULL((SELECT (documents.contract_types_id > 9) FROM documents WHERE (documents.contract_types_id > 9) AND (documents.contracts_id=contracts.id)), false)) AS has_contract_document,
-documents.contract_types_id AS documents_contract_types_id
+(SELECT IFNULL((SELECT (documents.contract_types_id > 9) FROM documents WHERE (documents.contract_types_id > 9) AND (documents.contracts_id=contracts.id)), false)) AS has_contract_document
 FROM
 contracts
 LEFT OUTER JOIN agents ON contracts.agents_id = agents.id
@@ -278,7 +279,6 @@ LEFT OUTER JOIN agent_types ON agents.agent_types_id = agent_types.id
 LEFT OUTER JOIN contract_types ON contracts.contract_types_id = contract_types.id
 LEFT OUTER JOIN contract_status ON contracts.contract_status_id = contract_status.id
 LEFT OUTER JOIN users ON contracts.experts_id = users.id
-LEFT OUTER JOIN documents ON contracts.id = documents.contracts_id
 WHERE
 (contracts.contract_status_id = 2)
 
@@ -289,6 +289,9 @@ UPDATE
 contracts
 SET
 number = @number,
+prepayment = @prepayment,
+cost = @cost,
+total_cost = @total_cost,
 date_contract = @date_contract
 WHERE
 (id = @original_id)
@@ -390,7 +393,7 @@ contracts.number,
 contracts.date_contract,
 contracts.date_start,
 contracts.date_end,
-(contracts.date_end - NOW()) as days_to_deadline,
+(contracts.date_end - CURDATE()) as days_to_deadline,
 contracts.date_sample_income,
 contracts.date_protocol_income,
 contracts.cost,
@@ -568,11 +571,12 @@ contracts.number,
 contracts.date_contract,
 contracts.date_start,
 contracts.date_end,
-(contracts.date_end - NOW()) as days_to_deadline,
+(contracts.date_end - CURDATE()) as days_to_deadline,
 contracts.date_sample_income,
 contracts.date_protocol_income,
 contracts.cash_income,
 contracts.date_cash_income,
+contracts.prepayment,
 contracts.cost,
 contracts.total_cost,
 products.id AS pkproducts_id,
@@ -865,11 +869,12 @@ contracts.number,
 contracts.date_contract,
 contracts.date_start,
 contracts.date_end,
-(contracts.date_end - NOW()) as days_to_deadline,
+(contracts.date_end - CURDATE()) as days_to_deadline,
 contracts.date_sample_income,
 contracts.date_protocol_income,
 contracts.cash_income,
 contracts.date_cash_income,
+contracts.prepayment,
 contracts.cost,
 contracts.total_cost,
 products.id AS pkproducts_id,
@@ -922,25 +927,28 @@ contracts.contract_types_id,
 contracts.contract_status_id,
 contracts.experts_id,
 contracts.source_types_id,
-contracts.date_proposal,
+DATE_FORMAT(contracts.date_proposal, '%d.%m.%Y') AS date_proposal,
 contracts.scheme_type,
 contracts.add_data_proposal,
+contracts.add_data_contract,
+contracts.production_documents,
+contracts.prepayment,
 contracts.cost,
 contracts.total_cost,
 contracts.cash_income,
-contracts.date_cash_income,
+DATE_FORMAT(contracts.date_cash_income, '%d.%m.%Y') AS date_cash_income,
 contracts.number,
-contracts.date_contract,
-contracts.date_start,
-contracts.date_end,
-contracts.date_sample_income,
-contracts.date_protocol_income,
+DATE_FORMAT(contracts.date_contract, '%d.%m.%Y') AS date_contract,
+DATE_FORMAT(contracts.date_start, '%d.%m.%Y') AS date_start,
+DATE_FORMAT(contracts.date_end, '%d.%m.%Y') AS date_end,
+DATE_FORMAT(contracts.date_sample_income, '%d.%m.%Y') AS date_sample_income,
+DATE_FORMAT(contracts.date_protocol_income, '%d.%m.%Y') AS date_protocol_income,
 contracts.emission_types_id,
-contracts.date_planed_reatt_1,
+DATE_FORMAT(contracts.date_planed_reatt_1, '%d.%m.%Y') AS date_planed_reatt_1,
 contracts.date_real_reatt_1,
-contracts.date_planed_reatt_2,
+DATE_FORMAT(contracts.date_planed_reatt_2, '%d.%m.%Y') AS date_planed_reatt_2,
 contracts.date_real_reatt_2,
-contracts.date_planed_resert,
+DATE_FORMAT(contracts.date_planed_resert, '%d.%m.%Y') AS date_planed_resert,
 contracts.date_real_resert,
 products.id AS pkproducts_id,
 products.name AS products_name,
@@ -980,7 +988,14 @@ CONCAT( users.lastname, ' ', substr(users.firstname, 1, 1), '. ', substr(users.m
 INNER JOIN product_gosts ON selected_gosts.product_gosts_id = product_gosts.id
 WHERE (selected_gosts.using_gost = true) AND
 (selected_gosts.contracts_id = @contracts_id)
-) AS GOSTsList
+) AS GOSTsList,
+
+
+(SELECT person
+ FROM agents_contacts
+WHERE (agents_contacts.agents_id = agents.id)
+LIMIT 0,1
+) AS Bukh_FIO
 
 FROM
 contracts

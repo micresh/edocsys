@@ -23,7 +23,9 @@ namespace Edocsys
                 foreach (KeyValuePair<string, string> item in substitutions)
                 {
                     
-                    if ((item.Key == "{_TOTAL_COST_}") | (item.Key == "{_COST_}"))
+                    if ((item.Key == "{_TOTAL_COST_}") |
+                        (item.Key == "{_COST_}") |
+                        (item.Key == "{_PREPAYMENT_}"))
                     {
                         string key = item.Key;
                         string val = item.Value;

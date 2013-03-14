@@ -145,5 +145,73 @@ namespace Edocsys
             
         }
 
+        private void contractPaymentsDataGridView_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+        {
+            DataGridView s = sender as DataGridView;
+
+            if (e.RowIndex < 0)
+                return;
+            try
+            {
+                int days_left = Convert.ToInt32(s.Rows[e.RowIndex].Cells["daystodeadlineDataGridViewTextBoxColumn"].Value);
+
+                if (days_left < (int)Constants.DeadlineAlerts.Fortnight)
+                {
+                    e.CellStyle.BackColor = Color.FromArgb(0xFF, 0xCB, 0xDB);
+                    e.CellStyle.SelectionBackColor = Color.FromArgb(255, 0, 0);
+                }
+                if (days_left < (int)Constants.DeadlineAlerts.Week)
+                {
+                    e.CellStyle.BackColor = Color.FromArgb(0xFA, 0xDA, 0xDD);
+                    e.CellStyle.SelectionBackColor = Color.FromArgb(255, 0, 0);
+                }
+                if (days_left < (int)Constants.DeadlineAlerts.Overdue)
+                {
+                    e.CellStyle.BackColor = Color.FromArgb(0xFD, 0xD7, 0xE4);
+                    e.CellStyle.SelectionBackColor = Color.FromArgb(255, 0, 0);
+                }
+            }
+            catch { };
+        }
+
+        private void payedContractsdataGridView_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+        {
+            DataGridView s = sender as DataGridView;
+
+            if (e.RowIndex < 0)
+                return;
+            try
+            {
+                int days_left = Convert.ToInt32(s.Rows[e.RowIndex].Cells["daystodeadlineDataGridViewTextBoxColumn1"].Value);
+
+                if (days_left < (int)Constants.DeadlineAlerts.Fortnight)
+                {
+                    e.CellStyle.BackColor = Color.FromArgb(0xFF, 0xCB, 0xDB);
+                    e.CellStyle.SelectionBackColor = Color.FromArgb(255, 0, 0);
+                }
+                if (days_left < (int)Constants.DeadlineAlerts.Week)
+                {
+                    e.CellStyle.BackColor = Color.FromArgb(0xFA, 0xDA, 0xDD);
+                    e.CellStyle.SelectionBackColor = Color.FromArgb(255, 0, 0);
+                }
+                if (days_left < (int)Constants.DeadlineAlerts.Overdue)
+                {
+                    e.CellStyle.BackColor = Color.FromArgb(0xFD, 0xD7, 0xE4);
+                    e.CellStyle.SelectionBackColor = Color.FromArgb(255, 0, 0);
+                }
+            }
+            catch { };
+        }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            RefreshDatabase();
+        }
+
+        private void toolStripButton11_Click(object sender, EventArgs e)
+        {
+            RefreshDatabase();
+        }
+
     }
 }

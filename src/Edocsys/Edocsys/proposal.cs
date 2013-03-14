@@ -145,7 +145,7 @@ namespace Edocsys
                 return;
             }
 
-            int idContract = proposalGenerator.GetContractID(contractInfoDataTableBindingSource);
+            int idContract = DocGeneratorHelper.GetContractID(contractInfoDataTableBindingSource);
 
             try
             {
@@ -178,7 +178,7 @@ namespace Edocsys
             }
 
             int docType = (int)Constants.ContractTypes.Proposal;
-            int idContract = proposalGenerator.GetContractID(contractInfoDataTableBindingSource);
+            int idContract = DocGeneratorHelper.GetContractID(contractInfoDataTableBindingSource);
             try
             {
                 proposalGenerator.EditDoc(idContract, docType, (id) =>
@@ -216,7 +216,7 @@ namespace Edocsys
             }
 
             int docType = (int)Constants.ContractTypes.Proposal;
-            int idContract = proposalGenerator.GetContractID(contractInfoDataTableBindingSource);
+            int idContract = DocGeneratorHelper.GetContractID(contractInfoDataTableBindingSource);
 
             try
             {
@@ -248,7 +248,7 @@ namespace Edocsys
             }
 
             int docType = (int)Constants.ContractTypes.Proposal;
-            int idContract = proposalGenerator.GetContractID(contractInfoDataTableBindingSource);
+            int idContract = DocGeneratorHelper.GetContractID(contractInfoDataTableBindingSource);
 
             try
             {
@@ -271,8 +271,6 @@ namespace Edocsys
             this.contractInfoDataTableBindingSource.AddNew();
             DataRowView currentDoc = (DataRowView)this.contractInfoDataTableBindingSource.Current;
             currentDoc["contract_status_id"] = (int)Constants.ContractStatuses.NewProposal;
-            currentDoc["products_id"] = 1;    //MUST BEE CORRECT! WTHF?????
-            currentDoc["agents_id"] = 1;      //MUST BEE CORRECT! WTHF?????
             currentDoc["experts_id"] = 1;     //assign all to admin?????
             currentDoc["contract_types_id"] = (int)Constants.ContractTypes.Sertefication;
             currentDoc["source_types_id"] = (int)Constants.SourceTypes.Personal;
@@ -431,6 +429,11 @@ namespace Edocsys
         private void contractInfoDataTableBindingSource_CurrentChanged(object sender, EventArgs e)
         {
             FillGOSTsList();
+        }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            RefreshData();
         }
     }
 }

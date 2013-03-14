@@ -265,5 +265,10 @@ namespace Edocsys
             EnableActionButtons(false);
             ShowLoginButtons();
         }
+
+        private void HelpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            wmgr.ShowHelpForm();
+        }
     }
 }

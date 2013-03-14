@@ -84,9 +84,9 @@ namespace Edocsys
                 ConnectionManager.CurrentUser.Name = name;
                 ConnectionManager.CurrentUser.UserType = type;
 
-#if DEBUG
-                MessageBox.Show("Вы успешно авторизованы");
-#endif
+//#if DEBUG
+//                MessageBox.Show("Вы успешно авторизованы");
+//#endif
 
 
                 //close form after successful login
@@ -103,6 +103,11 @@ namespace Edocsys
         {
             selectedLogin = "";
             this.Close();
+        }
+
+        private void LoginForm_Shown(object sender, EventArgs e)
+        {
+            passtxbox.Focus();
         }
     }
 }

@@ -103,7 +103,7 @@ CREATE TABLE IF NOT EXISTS `edocbase`.`product_areas` (
 -- Продукция
 CREATE TABLE IF NOT EXISTS `edocbase`.`products` (
   `id`                  INT NOT NULL AUTO_INCREMENT,
-  `name`                VARCHAR(45) NULL,
+  `name`                VARCHAR(150) NULL,
   `okp`                 VARCHAR(31) NULL,
   `tnved`               VARCHAR(31) NULL,
   `product_areas_id`    INT NULL,
@@ -198,12 +198,16 @@ CREATE TABLE IF NOT EXISTS `edocbase`.`contracts` (
   `date_contract`       DATE NULL ,
   -- Схема сертификации
   `scheme_type`         VARCHAR(45) NULL ,
-  -- Дополнительная информация о заявке
+  -- Дополнительные сведения
   `add_data_proposal`   TEXT NULL,
   -- Признак оплаты
   `custom_gosts`        TINYINT(1) DEFAULT '0',
-  -- Дополнительная информация о договоре
+  -- Дополнительная информация о продукции
   `add_data_contract`   TEXT NULL,
+  -- Производственная документация
+  `production_documents` VARCHAR(50) NULL,
+  -- Аванс
+  `prepayment`          INT NULL ,
   -- Стоимость первого этапа
   `cost`                INT NULL ,
   -- Общая стоимость

@@ -116,7 +116,7 @@ namespace Edocsys
             }
 
             int docType = (int)Constants.ContractTypes.Reattestation;
-            int contract_id = contractGenerator.GetContractID(inspectionContractsBindingSource);
+            int contract_id = DocGeneratorHelper.GetContractID(inspectionContractsBindingSource);
 
             try
             {
@@ -149,7 +149,7 @@ namespace Edocsys
             }
 
             int docType = (int)Constants.ContractTypes.Reattestation;
-            int contract_id = contractGenerator.GetContractID(inspectionContractsBindingSource);
+            int contract_id = DocGeneratorHelper.GetContractID(inspectionContractsBindingSource);
 
             try
             {
@@ -187,7 +187,7 @@ namespace Edocsys
             }
 
             int docType = (int)Constants.ContractTypes.Reattestation;
-            int contract_id = contractGenerator.GetContractID(inspectionContractsBindingSource);
+            int contract_id = DocGeneratorHelper.GetContractID(inspectionContractsBindingSource);
 
             try
             {
@@ -221,7 +221,7 @@ namespace Edocsys
             }
 
             int docType = (int)Constants.ContractTypes.Reattestation;
-            int contract_id = contractGenerator.GetContractID(inspectionContractsBindingSource);
+            int contract_id = DocGeneratorHelper.GetContractID(inspectionContractsBindingSource);
 
             try
             {
@@ -279,6 +279,44 @@ namespace Edocsys
         private void buttonResert_Click(object sender, EventArgs e)
         {
             SaveInspectionControl();
+        }
+
+        private void bindingNavigatorDeleteItem_Click(object sender, EventArgs e)
+        {
+            if ((inspectionContractsBindingSource.Position < 0) ||
+                (inspectionContractsBindingSource.Position >= inspectionContractsBindingSource.Count))
+            {
+                //contract not selected
+                MessageBox.Show("Не выбран договор", "Ошибка");
+                return;
+            }
+
+            int contract_id = DocGeneratorHelper.GetContractID(inspectionContractsBindingSource);
+            wmgr.ShowDeleteContractForm(contract_id);
+        }
+
+        private void toolStripButton5_Click(object sender, EventArgs e)
+        {
+            if ((contractsOnInspectionBindingSource.Position < 0) ||
+                (contractsOnInspectionBindingSource.Position >= contractsOnInspectionBindingSource.Count))
+            {
+                //contract not selected
+                MessageBox.Show("Не выбран договор", "Ошибка");
+                return;
+            }
+
+            int contract_id = DocGeneratorHelper.GetContractID(contractsOnInspectionBindingSource);
+            wmgr.ShowDeleteContractForm(contract_id);
+        }
+
+        private void toolStripButton7_Click(object sender, EventArgs e)
+        {
+            RefreshDatabase();
+        }
+
+        private void toolStripButton8_Click(object sender, EventArgs e)
+        {
+            RefreshDatabase();
         }
     }
 }

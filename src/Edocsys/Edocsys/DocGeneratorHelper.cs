@@ -47,7 +47,7 @@ namespace Edocsys
         public delegate bool UpdateDocInDatabase(int id);
 
 
-        public int GetContractID(BindingSource bs)
+        public static int GetContractID(BindingSource bs)
         {
             int id = -1;
             DataRowView currentRow = (DataRowView)bs.Current;
@@ -57,7 +57,7 @@ namespace Edocsys
             return id;
         }
 
-        public int GetContractTypeID(BindingSource bs)
+        public static int GetContractTypeID(BindingSource bs)
         {
             int id = -1;
 

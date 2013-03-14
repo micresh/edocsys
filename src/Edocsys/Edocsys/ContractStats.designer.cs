@@ -32,57 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ContractStatsForm));
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabFinishedTasks = new System.Windows.Forms.TabPage();
-            this.tabPageBadJob = new System.Windows.Forms.TabPage();
-            this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
-            this.bindingNavigatorContractSigning = new System.Windows.Forms.BindingNavigator(this.components);
-            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
-            this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
-            this.bindingNavigatorPositionItem = new System.Windows.Forms.ToolStripTextBox();
-            this.bindingNavigatorSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
-            this.usersBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
-            this.filterFinishedContractsText = new System.Windows.Forms.ToolStripTextBox();
             this.finishedContractsDataGridView = new System.Windows.Forms.DataGridView();
-            this.finishedContractsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.edocbaseDataSet = new Edocsys.EdocbaseDataSet();
-            this.tableAdapterManager = new Edocsys.EdocbaseDataSetTableAdapters.TableAdapterManager();
-            this.contractDocDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.contractDocDataTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.ContractDocDataTableAdapter();
-            this.finishedContractsTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.FinishedContractsTableAdapter();
-            this.badContractsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.badContractsTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.BadContractsTableAdapter();
-            this.bindingNavigatorBadContracts = new System.Windows.Forms.BindingNavigator(this.components);
-            this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton6 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripLabel3 = new System.Windows.Forms.ToolStripLabel();
-            this.filterBadContractsTextBox = new System.Windows.Forms.ToolStripTextBox();
-            this.badContractsDataTableDataGridView = new System.Windows.Forms.DataGridView();
-            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripButtonSaveProposal = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButtonOpenProposal = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButtonSaveContract = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripButtonOpenContract = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButtonSaveAct = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripButtonOpenAct = new System.Windows.Forms.ToolStripButton();
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -101,6 +51,36 @@
             this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn25 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn29 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.finishedContractsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.edocbaseDataSet = new Edocsys.EdocbaseDataSet();
+            this.bindingNavigatorContractSigning = new System.Windows.Forms.BindingNavigator(this.components);
+            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
+            this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
+            this.bindingNavigatorPositionItem = new System.Windows.Forms.ToolStripTextBox();
+            this.bindingNavigatorSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripButton7 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
+            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
+            this.usersBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
+            this.filterFinishedContractsText = new System.Windows.Forms.ToolStripTextBox();
+            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripButtonSaveProposal = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonOpenProposal = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripButtonSaveContract = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonOpenContract = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripButtonSaveAct = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonOpenAct = new System.Windows.Forms.ToolStripButton();
+            this.tabPageBadJob = new System.Windows.Forms.TabPage();
+            this.badContractsDataTableDataGridView = new System.Windows.Forms.DataGridView();
             this.contractstatusnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.agentsnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.agenttypesnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -119,19 +99,43 @@
             this.cashincomeDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.datecashincomeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.agentsfullnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.badContractsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.bindingNavigatorBadContracts = new System.Windows.Forms.BindingNavigator(this.components);
+            this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripButton8 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator10 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton6 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripLabel3 = new System.Windows.Forms.ToolStripLabel();
+            this.filterBadContractsTextBox = new System.Windows.Forms.ToolStripTextBox();
+            this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
+            this.tableAdapterManager = new Edocsys.EdocbaseDataSetTableAdapters.TableAdapterManager();
+            this.contractDocDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.contractDocDataTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.ContractDocDataTableAdapter();
+            this.finishedContractsTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.FinishedContractsTableAdapter();
+            this.badContractsTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.BadContractsTableAdapter();
             this.tabControl.SuspendLayout();
             this.tabFinishedTasks.SuspendLayout();
-            this.tabPageBadJob.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingNavigatorContractSigning)).BeginInit();
-            this.bindingNavigatorContractSigning.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.finishedContractsDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.finishedContractsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.edocbaseDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.contractDocDataBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingNavigatorContractSigning)).BeginInit();
+            this.bindingNavigatorContractSigning.SuspendLayout();
+            this.tabPageBadJob.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.badContractsDataTableDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.badContractsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigatorBadContracts)).BeginInit();
             this.bindingNavigatorBadContracts.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.badContractsDataTableDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.contractDocDataBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl
@@ -158,164 +162,6 @@
             this.tabFinishedTasks.TabIndex = 8;
             this.tabFinishedTasks.Text = global::Edocsys.Properties.Settings.Default.FinishedTasksTitle;
             this.tabFinishedTasks.UseVisualStyleBackColor = true;
-            // 
-            // tabPageBadJob
-            // 
-            this.tabPageBadJob.Controls.Add(this.badContractsDataTableDataGridView);
-            this.tabPageBadJob.Controls.Add(this.bindingNavigatorBadContracts);
-            this.tabPageBadJob.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Edocsys.Properties.Settings.Default, "TabBadJob", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.tabPageBadJob.Location = new System.Drawing.Point(4, 22);
-            this.tabPageBadJob.Name = "tabPageBadJob";
-            this.tabPageBadJob.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageBadJob.Size = new System.Drawing.Size(1106, 444);
-            this.tabPageBadJob.TabIndex = 4;
-            this.tabPageBadJob.Text = global::Edocsys.Properties.Settings.Default.TabBadJob;
-            this.tabPageBadJob.UseVisualStyleBackColor = true;
-            // 
-            // saveFileDialog
-            // 
-            this.saveFileDialog.Filter = "Файлы Word 2007-2010| *.docx|Все файлы|*.*";
-            // 
-            // bindingNavigatorContractSigning
-            // 
-            this.bindingNavigatorContractSigning.AddNewItem = null;
-            this.bindingNavigatorContractSigning.BindingSource = this.finishedContractsBindingSource;
-            this.bindingNavigatorContractSigning.CountItem = this.bindingNavigatorCountItem;
-            this.bindingNavigatorContractSigning.DeleteItem = null;
-            this.bindingNavigatorContractSigning.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.bindingNavigatorMoveFirstItem,
-            this.bindingNavigatorMovePreviousItem,
-            this.bindingNavigatorSeparator,
-            this.bindingNavigatorPositionItem,
-            this.bindingNavigatorCountItem,
-            this.bindingNavigatorSeparator1,
-            this.bindingNavigatorMoveNextItem,
-            this.bindingNavigatorMoveLastItem,
-            this.bindingNavigatorSeparator2,
-            this.bindingNavigatorDeleteItem,
-            this.usersBindingNavigatorSaveItem,
-            this.toolStripSeparator1,
-            this.toolStripLabel1,
-            this.filterFinishedContractsText,
-            this.toolStripSeparator6,
-            this.toolStripButtonSaveProposal,
-            this.toolStripButtonOpenProposal,
-            this.toolStripSeparator7,
-            this.toolStripButtonSaveContract,
-            this.toolStripButtonOpenContract,
-            this.toolStripSeparator8,
-            this.toolStripButtonSaveAct,
-            this.toolStripButtonOpenAct});
-            this.bindingNavigatorContractSigning.Location = new System.Drawing.Point(3, 3);
-            this.bindingNavigatorContractSigning.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
-            this.bindingNavigatorContractSigning.MoveLastItem = this.bindingNavigatorMoveLastItem;
-            this.bindingNavigatorContractSigning.MoveNextItem = this.bindingNavigatorMoveNextItem;
-            this.bindingNavigatorContractSigning.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
-            this.bindingNavigatorContractSigning.Name = "bindingNavigatorContractSigning";
-            this.bindingNavigatorContractSigning.PositionItem = this.bindingNavigatorPositionItem;
-            this.bindingNavigatorContractSigning.Size = new System.Drawing.Size(1100, 25);
-            this.bindingNavigatorContractSigning.TabIndex = 27;
-            this.bindingNavigatorContractSigning.Text = "bindingNavigator1";
-            // 
-            // bindingNavigatorCountItem
-            // 
-            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(35, 22);
-            this.bindingNavigatorCountItem.Text = "of {0}";
-            this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
-            // 
-            // bindingNavigatorMoveFirstItem
-            // 
-            this.bindingNavigatorMoveFirstItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
-            this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
-            this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorMoveFirstItem.Text = "Move first";
-            // 
-            // bindingNavigatorMovePreviousItem
-            // 
-            this.bindingNavigatorMovePreviousItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
-            this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
-            this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorMovePreviousItem.Text = "Move previous";
-            // 
-            // bindingNavigatorSeparator
-            // 
-            this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 25);
-            // 
-            // bindingNavigatorPositionItem
-            // 
-            this.bindingNavigatorPositionItem.AccessibleName = "Position";
-            this.bindingNavigatorPositionItem.AutoSize = false;
-            this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
-            this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 23);
-            this.bindingNavigatorPositionItem.Text = "0";
-            this.bindingNavigatorPositionItem.ToolTipText = "Current position";
-            // 
-            // bindingNavigatorSeparator1
-            // 
-            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
-            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 25);
-            // 
-            // bindingNavigatorMoveNextItem
-            // 
-            this.bindingNavigatorMoveNextItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
-            this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
-            this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorMoveNextItem.Text = "Move next";
-            // 
-            // bindingNavigatorMoveLastItem
-            // 
-            this.bindingNavigatorMoveLastItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
-            this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
-            this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorMoveLastItem.Text = "Move last";
-            // 
-            // bindingNavigatorSeparator2
-            // 
-            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
-            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
-            // 
-            // bindingNavigatorDeleteItem
-            // 
-            this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
-            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
-            this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorDeleteItem.Text = "Delete";
-            // 
-            // usersBindingNavigatorSaveItem
-            // 
-            this.usersBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.usersBindingNavigatorSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("usersBindingNavigatorSaveItem.Image")));
-            this.usersBindingNavigatorSaveItem.Name = "usersBindingNavigatorSaveItem";
-            this.usersBindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 22);
-            this.usersBindingNavigatorSaveItem.Text = "Save Data";
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
-            // 
-            // toolStripLabel1
-            // 
-            this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(42, 22);
-            this.toolStripLabel1.Text = "Поиск";
-            // 
-            // filterFinishedContractsText
-            // 
-            this.filterFinishedContractsText.Name = "filterFinishedContractsText";
-            this.filterFinishedContractsText.Size = new System.Drawing.Size(200, 25);
             // 
             // finishedContractsDataGridView
             // 
@@ -348,306 +194,6 @@
             this.finishedContractsDataGridView.Name = "finishedContractsDataGridView";
             this.finishedContractsDataGridView.Size = new System.Drawing.Size(1100, 413);
             this.finishedContractsDataGridView.TabIndex = 28;
-            // 
-            // finishedContractsBindingSource
-            // 
-            this.finishedContractsBindingSource.DataMember = "FinishedContracts";
-            this.finishedContractsBindingSource.DataSource = this.edocbaseDataSet;
-            // 
-            // edocbaseDataSet
-            // 
-            this.edocbaseDataSet.CaseSensitive = true;
-            this.edocbaseDataSet.DataSetName = "EdocbaseDataSet";
-            this.edocbaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // tableAdapterManager
-            // 
-            this.tableAdapterManager.agent_typesTableAdapter = null;
-            this.tableAdapterManager.agents_contactsTableAdapter = null;
-            this.tableAdapterManager.agentsTableAdapter = null;
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.Connection = null;
-            this.tableAdapterManager.contract_statusTableAdapter = null;
-            this.tableAdapterManager.contract_types_for_workTableAdapter = null;
-            this.tableAdapterManager.contract_typesTableAdapter = null;
-            this.tableAdapterManager.ContractInfoTableAdapter = null;
-            this.tableAdapterManager.ContractPrepareForWorkTAdapter = null;
-            this.tableAdapterManager.ContractSigningTableAdapter = null;
-            this.tableAdapterManager.contractsTableAdapter = null;
-            this.tableAdapterManager.doc_templatesTableAdapter = null;
-            this.tableAdapterManager.documentsTableAdapter = null;
-            this.tableAdapterManager.emission_typesTableAdapter = null;
-            this.tableAdapterManager.expertsTableAdapter = null;
-            this.tableAdapterManager.GOSTSelectionTableAdapter = null;
-            this.tableAdapterManager.log_journalTableAdapter = null;
-            this.tableAdapterManager.product_areasTableAdapter = null;
-            this.tableAdapterManager.product_gostsTableAdapter = null;
-            this.tableAdapterManager.productsTableAdapter = null;
-            this.tableAdapterManager.selected_gostsTableAdapter = null;
-            this.tableAdapterManager.source_typesTableAdapter = null;
-            this.tableAdapterManager.UpdateOrder = Edocsys.EdocbaseDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            this.tableAdapterManager.user_typesTableAdapter = null;
-            this.tableAdapterManager.usersTableAdapter = null;
-            // 
-            // contractDocDataBindingSource
-            // 
-            this.contractDocDataBindingSource.DataMember = "ContractDocData";
-            this.contractDocDataBindingSource.DataSource = this.edocbaseDataSet;
-            // 
-            // contractDocDataTableAdapter
-            // 
-            this.contractDocDataTableAdapter.ClearBeforeFill = true;
-            // 
-            // finishedContractsTableAdapter
-            // 
-            this.finishedContractsTableAdapter.ClearBeforeFill = true;
-            // 
-            // badContractsBindingSource
-            // 
-            this.badContractsBindingSource.DataMember = "BadContracts";
-            this.badContractsBindingSource.DataSource = this.edocbaseDataSet;
-            // 
-            // badContractsTableAdapter
-            // 
-            this.badContractsTableAdapter.ClearBeforeFill = true;
-            // 
-            // bindingNavigatorBadContracts
-            // 
-            this.bindingNavigatorBadContracts.AddNewItem = null;
-            this.bindingNavigatorBadContracts.BindingSource = this.badContractsBindingSource;
-            this.bindingNavigatorBadContracts.CountItem = this.toolStripLabel2;
-            this.bindingNavigatorBadContracts.DeleteItem = null;
-            this.bindingNavigatorBadContracts.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton1,
-            this.toolStripButton2,
-            this.toolStripSeparator2,
-            this.toolStripTextBox1,
-            this.toolStripLabel2,
-            this.toolStripSeparator3,
-            this.toolStripButton3,
-            this.toolStripButton4,
-            this.toolStripSeparator4,
-            this.toolStripButton5,
-            this.toolStripButton6,
-            this.toolStripSeparator5,
-            this.toolStripLabel3,
-            this.filterBadContractsTextBox});
-            this.bindingNavigatorBadContracts.Location = new System.Drawing.Point(3, 3);
-            this.bindingNavigatorBadContracts.MoveFirstItem = this.toolStripButton1;
-            this.bindingNavigatorBadContracts.MoveLastItem = this.toolStripButton4;
-            this.bindingNavigatorBadContracts.MoveNextItem = this.toolStripButton3;
-            this.bindingNavigatorBadContracts.MovePreviousItem = this.toolStripButton2;
-            this.bindingNavigatorBadContracts.Name = "bindingNavigatorBadContracts";
-            this.bindingNavigatorBadContracts.PositionItem = this.toolStripTextBox1;
-            this.bindingNavigatorBadContracts.Size = new System.Drawing.Size(1100, 25);
-            this.bindingNavigatorBadContracts.TabIndex = 28;
-            this.bindingNavigatorBadContracts.Text = "bindingNavigator1";
-            // 
-            // toolStripLabel2
-            // 
-            this.toolStripLabel2.Name = "toolStripLabel2";
-            this.toolStripLabel2.Size = new System.Drawing.Size(35, 22);
-            this.toolStripLabel2.Text = "of {0}";
-            this.toolStripLabel2.ToolTipText = "Total number of items";
-            // 
-            // toolStripButton1
-            // 
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.RightToLeftAutoMirrorImage = true;
-            this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton1.Text = "Move first";
-            // 
-            // toolStripButton2
-            // 
-            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
-            this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.RightToLeftAutoMirrorImage = true;
-            this.toolStripButton2.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton2.Text = "Move previous";
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
-            // 
-            // toolStripTextBox1
-            // 
-            this.toolStripTextBox1.AccessibleName = "Position";
-            this.toolStripTextBox1.AutoSize = false;
-            this.toolStripTextBox1.Name = "toolStripTextBox1";
-            this.toolStripTextBox1.Size = new System.Drawing.Size(50, 23);
-            this.toolStripTextBox1.Text = "0";
-            this.toolStripTextBox1.ToolTipText = "Current position";
-            // 
-            // toolStripSeparator3
-            // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
-            // 
-            // toolStripButton3
-            // 
-            this.toolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton3.Image")));
-            this.toolStripButton3.Name = "toolStripButton3";
-            this.toolStripButton3.RightToLeftAutoMirrorImage = true;
-            this.toolStripButton3.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton3.Text = "Move next";
-            // 
-            // toolStripButton4
-            // 
-            this.toolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton4.Image")));
-            this.toolStripButton4.Name = "toolStripButton4";
-            this.toolStripButton4.RightToLeftAutoMirrorImage = true;
-            this.toolStripButton4.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton4.Text = "Move last";
-            // 
-            // toolStripSeparator4
-            // 
-            this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 25);
-            // 
-            // toolStripButton5
-            // 
-            this.toolStripButton5.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton5.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton5.Image")));
-            this.toolStripButton5.Name = "toolStripButton5";
-            this.toolStripButton5.RightToLeftAutoMirrorImage = true;
-            this.toolStripButton5.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton5.Text = "Delete";
-            // 
-            // toolStripButton6
-            // 
-            this.toolStripButton6.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton6.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton6.Image")));
-            this.toolStripButton6.Name = "toolStripButton6";
-            this.toolStripButton6.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton6.Text = "Save Data";
-            // 
-            // toolStripSeparator5
-            // 
-            this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(6, 25);
-            // 
-            // toolStripLabel3
-            // 
-            this.toolStripLabel3.Name = "toolStripLabel3";
-            this.toolStripLabel3.Size = new System.Drawing.Size(42, 22);
-            this.toolStripLabel3.Text = "Поиск";
-            // 
-            // filterBadContractsTextBox
-            // 
-            this.filterBadContractsTextBox.Name = "filterBadContractsTextBox";
-            this.filterBadContractsTextBox.Size = new System.Drawing.Size(200, 25);
-            // 
-            // badContractsDataTableDataGridView
-            // 
-            this.badContractsDataTableDataGridView.AllowUserToAddRows = false;
-            this.badContractsDataTableDataGridView.AllowUserToDeleteRows = false;
-            this.badContractsDataTableDataGridView.AutoGenerateColumns = false;
-            this.badContractsDataTableDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.badContractsDataTableDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.contractstatusnameDataGridViewTextBoxColumn,
-            this.agentsnameDataGridViewTextBoxColumn,
-            this.agenttypesnameDataGridViewTextBoxColumn,
-            this.numberDataGridViewTextBoxColumn,
-            this.productsnameDataGridViewTextBoxColumn,
-            this.contracttypesnameDataGridViewTextBoxColumn,
-            this.expertFIODataGridViewTextBoxColumn,
-            this.dateproposalDataGridViewTextBoxColumn,
-            this.datecontractDataGridViewTextBoxColumn,
-            this.datestartDataGridViewTextBoxColumn,
-            this.dateendDataGridViewTextBoxColumn,
-            this.datesampleincomeDataGridViewTextBoxColumn,
-            this.dateprotocolincomeDataGridViewTextBoxColumn,
-            this.costDataGridViewTextBoxColumn,
-            this.totalcostDataGridViewTextBoxColumn,
-            this.cashincomeDataGridViewCheckBoxColumn,
-            this.datecashincomeDataGridViewTextBoxColumn,
-            this.agentsfullnameDataGridViewTextBoxColumn});
-            this.badContractsDataTableDataGridView.DataSource = this.badContractsBindingSource;
-            this.badContractsDataTableDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.badContractsDataTableDataGridView.Location = new System.Drawing.Point(3, 28);
-            this.badContractsDataTableDataGridView.Name = "badContractsDataTableDataGridView";
-            this.badContractsDataTableDataGridView.Size = new System.Drawing.Size(1100, 413);
-            this.badContractsDataTableDataGridView.TabIndex = 29;
-            // 
-            // toolStripSeparator6
-            // 
-            this.toolStripSeparator6.Name = "toolStripSeparator6";
-            this.toolStripSeparator6.Size = new System.Drawing.Size(6, 25);
-            // 
-            // toolStripButtonSaveProposal
-            // 
-            this.toolStripButtonSaveProposal.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonSaveProposal.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonSaveProposal.Image")));
-            this.toolStripButtonSaveProposal.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonSaveProposal.Name = "toolStripButtonSaveProposal";
-            this.toolStripButtonSaveProposal.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButtonSaveProposal.Text = "toolStripButton7";
-            this.toolStripButtonSaveProposal.Click += new System.EventHandler(this.toolStripButtonSaveProposal_Click);
-            // 
-            // toolStripButtonOpenProposal
-            // 
-            this.toolStripButtonOpenProposal.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonOpenProposal.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonOpenProposal.Image")));
-            this.toolStripButtonOpenProposal.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonOpenProposal.Name = "toolStripButtonOpenProposal";
-            this.toolStripButtonOpenProposal.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButtonOpenProposal.Text = "toolStripButton8";
-            this.toolStripButtonOpenProposal.Click += new System.EventHandler(this.toolStripButtonOpenProposal_Click);
-            // 
-            // toolStripButtonSaveContract
-            // 
-            this.toolStripButtonSaveContract.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonSaveContract.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonSaveContract.Image")));
-            this.toolStripButtonSaveContract.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonSaveContract.Name = "toolStripButtonSaveContract";
-            this.toolStripButtonSaveContract.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButtonSaveContract.Text = "toolStripButton9";
-            this.toolStripButtonSaveContract.Click += new System.EventHandler(this.toolStripButtonSaveContract_Click);
-            // 
-            // toolStripSeparator7
-            // 
-            this.toolStripSeparator7.Name = "toolStripSeparator7";
-            this.toolStripSeparator7.Size = new System.Drawing.Size(6, 25);
-            // 
-            // toolStripButtonOpenContract
-            // 
-            this.toolStripButtonOpenContract.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonOpenContract.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonOpenContract.Image")));
-            this.toolStripButtonOpenContract.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonOpenContract.Name = "toolStripButtonOpenContract";
-            this.toolStripButtonOpenContract.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButtonOpenContract.Text = "toolStripButton7";
-            // 
-            // toolStripButtonSaveAct
-            // 
-            this.toolStripButtonSaveAct.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonSaveAct.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonSaveAct.Image")));
-            this.toolStripButtonSaveAct.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonSaveAct.Name = "toolStripButtonSaveAct";
-            this.toolStripButtonSaveAct.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButtonSaveAct.Text = "toolStripButton7";
-            this.toolStripButtonSaveAct.Click += new System.EventHandler(this.toolStripButtonSaveAct_Click);
-            // 
-            // toolStripSeparator8
-            // 
-            this.toolStripSeparator8.Name = "toolStripSeparator8";
-            this.toolStripSeparator8.Size = new System.Drawing.Size(6, 25);
-            // 
-            // toolStripButtonOpenAct
-            // 
-            this.toolStripButtonOpenAct.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonOpenAct.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonOpenAct.Image")));
-            this.toolStripButtonOpenAct.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonOpenAct.Name = "toolStripButtonOpenAct";
-            this.toolStripButtonOpenAct.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButtonOpenAct.Text = "toolStripButton7";
-            this.toolStripButtonOpenAct.Click += new System.EventHandler(this.toolStripButtonOpenAct_Click);
             // 
             // dataGridViewTextBoxColumn8
             // 
@@ -757,6 +303,301 @@
             this.dataGridViewTextBoxColumn29.HeaderText = "Статус";
             this.dataGridViewTextBoxColumn29.Name = "dataGridViewTextBoxColumn29";
             // 
+            // finishedContractsBindingSource
+            // 
+            this.finishedContractsBindingSource.DataMember = "FinishedContracts";
+            this.finishedContractsBindingSource.DataSource = this.edocbaseDataSet;
+            // 
+            // edocbaseDataSet
+            // 
+            this.edocbaseDataSet.CaseSensitive = true;
+            this.edocbaseDataSet.DataSetName = "EdocbaseDataSet";
+            this.edocbaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // bindingNavigatorContractSigning
+            // 
+            this.bindingNavigatorContractSigning.AddNewItem = null;
+            this.bindingNavigatorContractSigning.BindingSource = this.finishedContractsBindingSource;
+            this.bindingNavigatorContractSigning.CountItem = this.bindingNavigatorCountItem;
+            this.bindingNavigatorContractSigning.DeleteItem = null;
+            this.bindingNavigatorContractSigning.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.bindingNavigatorMoveFirstItem,
+            this.bindingNavigatorMovePreviousItem,
+            this.bindingNavigatorSeparator,
+            this.bindingNavigatorPositionItem,
+            this.bindingNavigatorCountItem,
+            this.bindingNavigatorSeparator1,
+            this.bindingNavigatorMoveNextItem,
+            this.bindingNavigatorMoveLastItem,
+            this.bindingNavigatorSeparator2,
+            this.toolStripButton7,
+            this.toolStripSeparator9,
+            this.bindingNavigatorDeleteItem,
+            this.usersBindingNavigatorSaveItem,
+            this.toolStripSeparator1,
+            this.toolStripLabel1,
+            this.filterFinishedContractsText,
+            this.toolStripSeparator6,
+            this.toolStripButtonSaveProposal,
+            this.toolStripButtonOpenProposal,
+            this.toolStripSeparator7,
+            this.toolStripButtonSaveContract,
+            this.toolStripButtonOpenContract,
+            this.toolStripSeparator8,
+            this.toolStripButtonSaveAct,
+            this.toolStripButtonOpenAct});
+            this.bindingNavigatorContractSigning.Location = new System.Drawing.Point(3, 3);
+            this.bindingNavigatorContractSigning.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
+            this.bindingNavigatorContractSigning.MoveLastItem = this.bindingNavigatorMoveLastItem;
+            this.bindingNavigatorContractSigning.MoveNextItem = this.bindingNavigatorMoveNextItem;
+            this.bindingNavigatorContractSigning.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
+            this.bindingNavigatorContractSigning.Name = "bindingNavigatorContractSigning";
+            this.bindingNavigatorContractSigning.PositionItem = this.bindingNavigatorPositionItem;
+            this.bindingNavigatorContractSigning.Size = new System.Drawing.Size(1100, 25);
+            this.bindingNavigatorContractSigning.TabIndex = 27;
+            this.bindingNavigatorContractSigning.Text = "bindingNavigator1";
+            // 
+            // bindingNavigatorCountItem
+            // 
+            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(35, 22);
+            this.bindingNavigatorCountItem.Text = "of {0}";
+            this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
+            // 
+            // bindingNavigatorMoveFirstItem
+            // 
+            this.bindingNavigatorMoveFirstItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
+            this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
+            this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorMoveFirstItem.Text = "Move first";
+            // 
+            // bindingNavigatorMovePreviousItem
+            // 
+            this.bindingNavigatorMovePreviousItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
+            this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
+            this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorMovePreviousItem.Text = "Move previous";
+            // 
+            // bindingNavigatorSeparator
+            // 
+            this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
+            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 25);
+            // 
+            // bindingNavigatorPositionItem
+            // 
+            this.bindingNavigatorPositionItem.AccessibleName = "Position";
+            this.bindingNavigatorPositionItem.AutoSize = false;
+            this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
+            this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 23);
+            this.bindingNavigatorPositionItem.Text = "0";
+            this.bindingNavigatorPositionItem.ToolTipText = "Current position";
+            // 
+            // bindingNavigatorSeparator1
+            // 
+            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
+            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 25);
+            // 
+            // bindingNavigatorMoveNextItem
+            // 
+            this.bindingNavigatorMoveNextItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
+            this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
+            this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorMoveNextItem.Text = "Move next";
+            // 
+            // bindingNavigatorMoveLastItem
+            // 
+            this.bindingNavigatorMoveLastItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
+            this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
+            this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorMoveLastItem.Text = "Move last";
+            // 
+            // bindingNavigatorSeparator2
+            // 
+            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
+            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripButton7
+            // 
+            this.toolStripButton7.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton7.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton7.Image")));
+            this.toolStripButton7.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton7.Name = "toolStripButton7";
+            this.toolStripButton7.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton7.Text = "toolStripButton1";
+            this.toolStripButton7.Click += new System.EventHandler(this.toolStripButton7_Click);
+            // 
+            // toolStripSeparator9
+            // 
+            this.toolStripSeparator9.Name = "toolStripSeparator9";
+            this.toolStripSeparator9.Size = new System.Drawing.Size(6, 25);
+            // 
+            // bindingNavigatorDeleteItem
+            // 
+            this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
+            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
+            this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorDeleteItem.Text = "Delete";
+            // 
+            // usersBindingNavigatorSaveItem
+            // 
+            this.usersBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.usersBindingNavigatorSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("usersBindingNavigatorSaveItem.Image")));
+            this.usersBindingNavigatorSaveItem.Name = "usersBindingNavigatorSaveItem";
+            this.usersBindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 22);
+            this.usersBindingNavigatorSaveItem.Text = "Save Data";
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripLabel1
+            // 
+            this.toolStripLabel1.Name = "toolStripLabel1";
+            this.toolStripLabel1.Size = new System.Drawing.Size(42, 22);
+            this.toolStripLabel1.Text = "Поиск";
+            // 
+            // filterFinishedContractsText
+            // 
+            this.filterFinishedContractsText.Name = "filterFinishedContractsText";
+            this.filterFinishedContractsText.Size = new System.Drawing.Size(200, 25);
+            // 
+            // toolStripSeparator6
+            // 
+            this.toolStripSeparator6.Name = "toolStripSeparator6";
+            this.toolStripSeparator6.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripButtonSaveProposal
+            // 
+            this.toolStripButtonSaveProposal.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonSaveProposal.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonSaveProposal.Image")));
+            this.toolStripButtonSaveProposal.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonSaveProposal.Name = "toolStripButtonSaveProposal";
+            this.toolStripButtonSaveProposal.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonSaveProposal.Text = "toolStripButton7";
+            this.toolStripButtonSaveProposal.Visible = false;
+            this.toolStripButtonSaveProposal.Click += new System.EventHandler(this.toolStripButtonSaveProposal_Click);
+            // 
+            // toolStripButtonOpenProposal
+            // 
+            this.toolStripButtonOpenProposal.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonOpenProposal.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonOpenProposal.Image")));
+            this.toolStripButtonOpenProposal.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonOpenProposal.Name = "toolStripButtonOpenProposal";
+            this.toolStripButtonOpenProposal.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonOpenProposal.Text = "toolStripButton8";
+            this.toolStripButtonOpenProposal.Visible = false;
+            this.toolStripButtonOpenProposal.Click += new System.EventHandler(this.toolStripButtonOpenProposal_Click);
+            // 
+            // toolStripSeparator7
+            // 
+            this.toolStripSeparator7.Name = "toolStripSeparator7";
+            this.toolStripSeparator7.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripButtonSaveContract
+            // 
+            this.toolStripButtonSaveContract.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonSaveContract.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonSaveContract.Image")));
+            this.toolStripButtonSaveContract.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonSaveContract.Name = "toolStripButtonSaveContract";
+            this.toolStripButtonSaveContract.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonSaveContract.Text = "toolStripButton9";
+            this.toolStripButtonSaveContract.Visible = false;
+            this.toolStripButtonSaveContract.Click += new System.EventHandler(this.toolStripButtonSaveContract_Click);
+            // 
+            // toolStripButtonOpenContract
+            // 
+            this.toolStripButtonOpenContract.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonOpenContract.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonOpenContract.Image")));
+            this.toolStripButtonOpenContract.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonOpenContract.Name = "toolStripButtonOpenContract";
+            this.toolStripButtonOpenContract.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonOpenContract.Text = "toolStripButton7";
+            this.toolStripButtonOpenContract.Visible = false;
+            this.toolStripButtonOpenContract.Click += new System.EventHandler(this.toolStripButtonOpenContract_Click);
+            // 
+            // toolStripSeparator8
+            // 
+            this.toolStripSeparator8.Name = "toolStripSeparator8";
+            this.toolStripSeparator8.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripButtonSaveAct
+            // 
+            this.toolStripButtonSaveAct.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonSaveAct.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonSaveAct.Image")));
+            this.toolStripButtonSaveAct.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonSaveAct.Name = "toolStripButtonSaveAct";
+            this.toolStripButtonSaveAct.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonSaveAct.Text = "toolStripButton7";
+            this.toolStripButtonSaveAct.Visible = false;
+            this.toolStripButtonSaveAct.Click += new System.EventHandler(this.toolStripButtonSaveAct_Click);
+            // 
+            // toolStripButtonOpenAct
+            // 
+            this.toolStripButtonOpenAct.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonOpenAct.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonOpenAct.Image")));
+            this.toolStripButtonOpenAct.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonOpenAct.Name = "toolStripButtonOpenAct";
+            this.toolStripButtonOpenAct.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonOpenAct.Text = "toolStripButton7";
+            this.toolStripButtonOpenAct.Visible = false;
+            this.toolStripButtonOpenAct.Click += new System.EventHandler(this.toolStripButtonOpenAct_Click);
+            // 
+            // tabPageBadJob
+            // 
+            this.tabPageBadJob.Controls.Add(this.badContractsDataTableDataGridView);
+            this.tabPageBadJob.Controls.Add(this.bindingNavigatorBadContracts);
+            this.tabPageBadJob.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Edocsys.Properties.Settings.Default, "TabBadJob", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.tabPageBadJob.Location = new System.Drawing.Point(4, 22);
+            this.tabPageBadJob.Name = "tabPageBadJob";
+            this.tabPageBadJob.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageBadJob.Size = new System.Drawing.Size(1106, 444);
+            this.tabPageBadJob.TabIndex = 4;
+            this.tabPageBadJob.Text = global::Edocsys.Properties.Settings.Default.TabBadJob;
+            this.tabPageBadJob.UseVisualStyleBackColor = true;
+            // 
+            // badContractsDataTableDataGridView
+            // 
+            this.badContractsDataTableDataGridView.AllowUserToAddRows = false;
+            this.badContractsDataTableDataGridView.AllowUserToDeleteRows = false;
+            this.badContractsDataTableDataGridView.AutoGenerateColumns = false;
+            this.badContractsDataTableDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.badContractsDataTableDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.contractstatusnameDataGridViewTextBoxColumn,
+            this.agentsnameDataGridViewTextBoxColumn,
+            this.agenttypesnameDataGridViewTextBoxColumn,
+            this.numberDataGridViewTextBoxColumn,
+            this.productsnameDataGridViewTextBoxColumn,
+            this.contracttypesnameDataGridViewTextBoxColumn,
+            this.expertFIODataGridViewTextBoxColumn,
+            this.dateproposalDataGridViewTextBoxColumn,
+            this.datecontractDataGridViewTextBoxColumn,
+            this.datestartDataGridViewTextBoxColumn,
+            this.dateendDataGridViewTextBoxColumn,
+            this.datesampleincomeDataGridViewTextBoxColumn,
+            this.dateprotocolincomeDataGridViewTextBoxColumn,
+            this.costDataGridViewTextBoxColumn,
+            this.totalcostDataGridViewTextBoxColumn,
+            this.cashincomeDataGridViewCheckBoxColumn,
+            this.datecashincomeDataGridViewTextBoxColumn,
+            this.agentsfullnameDataGridViewTextBoxColumn});
+            this.badContractsDataTableDataGridView.DataSource = this.badContractsBindingSource;
+            this.badContractsDataTableDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.badContractsDataTableDataGridView.Location = new System.Drawing.Point(3, 28);
+            this.badContractsDataTableDataGridView.Name = "badContractsDataTableDataGridView";
+            this.badContractsDataTableDataGridView.Size = new System.Drawing.Size(1100, 413);
+            this.badContractsDataTableDataGridView.TabIndex = 29;
+            // 
             // contractstatusnameDataGridViewTextBoxColumn
             // 
             this.contractstatusnameDataGridViewTextBoxColumn.DataPropertyName = "contract_status_name";
@@ -865,6 +706,212 @@
             this.agentsfullnameDataGridViewTextBoxColumn.HeaderText = "Контрагент";
             this.agentsfullnameDataGridViewTextBoxColumn.Name = "agentsfullnameDataGridViewTextBoxColumn";
             // 
+            // badContractsBindingSource
+            // 
+            this.badContractsBindingSource.DataMember = "BadContracts";
+            this.badContractsBindingSource.DataSource = this.edocbaseDataSet;
+            // 
+            // bindingNavigatorBadContracts
+            // 
+            this.bindingNavigatorBadContracts.AddNewItem = null;
+            this.bindingNavigatorBadContracts.BindingSource = this.badContractsBindingSource;
+            this.bindingNavigatorBadContracts.CountItem = this.toolStripLabel2;
+            this.bindingNavigatorBadContracts.DeleteItem = null;
+            this.bindingNavigatorBadContracts.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripButton1,
+            this.toolStripButton2,
+            this.toolStripSeparator2,
+            this.toolStripTextBox1,
+            this.toolStripLabel2,
+            this.toolStripSeparator3,
+            this.toolStripButton3,
+            this.toolStripButton4,
+            this.toolStripSeparator4,
+            this.toolStripButton8,
+            this.toolStripSeparator10,
+            this.toolStripButton5,
+            this.toolStripButton6,
+            this.toolStripSeparator5,
+            this.toolStripLabel3,
+            this.filterBadContractsTextBox});
+            this.bindingNavigatorBadContracts.Location = new System.Drawing.Point(3, 3);
+            this.bindingNavigatorBadContracts.MoveFirstItem = this.toolStripButton1;
+            this.bindingNavigatorBadContracts.MoveLastItem = this.toolStripButton4;
+            this.bindingNavigatorBadContracts.MoveNextItem = this.toolStripButton3;
+            this.bindingNavigatorBadContracts.MovePreviousItem = this.toolStripButton2;
+            this.bindingNavigatorBadContracts.Name = "bindingNavigatorBadContracts";
+            this.bindingNavigatorBadContracts.PositionItem = this.toolStripTextBox1;
+            this.bindingNavigatorBadContracts.Size = new System.Drawing.Size(1100, 25);
+            this.bindingNavigatorBadContracts.TabIndex = 28;
+            this.bindingNavigatorBadContracts.Text = "bindingNavigator1";
+            // 
+            // toolStripLabel2
+            // 
+            this.toolStripLabel2.Name = "toolStripLabel2";
+            this.toolStripLabel2.Size = new System.Drawing.Size(35, 22);
+            this.toolStripLabel2.Text = "of {0}";
+            this.toolStripLabel2.ToolTipText = "Total number of items";
+            // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.RightToLeftAutoMirrorImage = true;
+            this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton1.Text = "Move first";
+            // 
+            // toolStripButton2
+            // 
+            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
+            this.toolStripButton2.Name = "toolStripButton2";
+            this.toolStripButton2.RightToLeftAutoMirrorImage = true;
+            this.toolStripButton2.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton2.Text = "Move previous";
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripTextBox1
+            // 
+            this.toolStripTextBox1.AccessibleName = "Position";
+            this.toolStripTextBox1.AutoSize = false;
+            this.toolStripTextBox1.Name = "toolStripTextBox1";
+            this.toolStripTextBox1.Size = new System.Drawing.Size(50, 23);
+            this.toolStripTextBox1.Text = "0";
+            this.toolStripTextBox1.ToolTipText = "Current position";
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripButton3
+            // 
+            this.toolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton3.Image")));
+            this.toolStripButton3.Name = "toolStripButton3";
+            this.toolStripButton3.RightToLeftAutoMirrorImage = true;
+            this.toolStripButton3.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton3.Text = "Move next";
+            // 
+            // toolStripButton4
+            // 
+            this.toolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton4.Image")));
+            this.toolStripButton4.Name = "toolStripButton4";
+            this.toolStripButton4.RightToLeftAutoMirrorImage = true;
+            this.toolStripButton4.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton4.Text = "Move last";
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripButton8
+            // 
+            this.toolStripButton8.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton8.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton8.Image")));
+            this.toolStripButton8.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton8.Name = "toolStripButton8";
+            this.toolStripButton8.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton8.Text = "toolStripButton1";
+            this.toolStripButton8.Click += new System.EventHandler(this.toolStripButton8_Click);
+            // 
+            // toolStripSeparator10
+            // 
+            this.toolStripSeparator10.Name = "toolStripSeparator10";
+            this.toolStripSeparator10.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripButton5
+            // 
+            this.toolStripButton5.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton5.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton5.Image")));
+            this.toolStripButton5.Name = "toolStripButton5";
+            this.toolStripButton5.RightToLeftAutoMirrorImage = true;
+            this.toolStripButton5.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton5.Text = "Delete";
+            // 
+            // toolStripButton6
+            // 
+            this.toolStripButton6.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton6.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton6.Image")));
+            this.toolStripButton6.Name = "toolStripButton6";
+            this.toolStripButton6.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton6.Text = "Save Data";
+            // 
+            // toolStripSeparator5
+            // 
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            this.toolStripSeparator5.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripLabel3
+            // 
+            this.toolStripLabel3.Name = "toolStripLabel3";
+            this.toolStripLabel3.Size = new System.Drawing.Size(42, 22);
+            this.toolStripLabel3.Text = "Поиск";
+            // 
+            // filterBadContractsTextBox
+            // 
+            this.filterBadContractsTextBox.Name = "filterBadContractsTextBox";
+            this.filterBadContractsTextBox.Size = new System.Drawing.Size(200, 25);
+            // 
+            // saveFileDialog
+            // 
+            this.saveFileDialog.Filter = "Файлы Word 2007-2010| *.docx|Все файлы|*.*";
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.agent_typesTableAdapter = null;
+            this.tableAdapterManager.agents_contactsTableAdapter = null;
+            this.tableAdapterManager.agentsTableAdapter = null;
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.Connection = null;
+            this.tableAdapterManager.contract_statusTableAdapter = null;
+            this.tableAdapterManager.contract_types_for_workTableAdapter = null;
+            this.tableAdapterManager.contract_typesTableAdapter = null;
+            this.tableAdapterManager.ContractInfoTableAdapter = null;
+            this.tableAdapterManager.ContractPrepareForWorkTAdapter = null;
+            this.tableAdapterManager.ContractSigningTableAdapter = null;
+            this.tableAdapterManager.ContractsOnInspectionTableAdapter = null;
+            this.tableAdapterManager.contractsTableAdapter = null;
+            this.tableAdapterManager.doc_templatesTableAdapter = null;
+            this.tableAdapterManager.documentsTableAdapter = null;
+            this.tableAdapterManager.emission_typesTableAdapter = null;
+            this.tableAdapterManager.expertsTableAdapter = null;
+            this.tableAdapterManager.GOSTSelectionTableAdapter = null;
+            this.tableAdapterManager.InspectionContractsTableAdapter = null;
+            this.tableAdapterManager.log_journalTableAdapter = null;
+            this.tableAdapterManager.product_areasTableAdapter = null;
+            this.tableAdapterManager.product_gostsTableAdapter = null;
+            this.tableAdapterManager.productsTableAdapter = null;
+            this.tableAdapterManager.selected_gostsTableAdapter = null;
+            this.tableAdapterManager.source_typesTableAdapter = null;
+            this.tableAdapterManager.UpdateOrder = Edocsys.EdocbaseDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            this.tableAdapterManager.user_typesTableAdapter = null;
+            this.tableAdapterManager.usersTableAdapter = null;
+            // 
+            // contractDocDataBindingSource
+            // 
+            this.contractDocDataBindingSource.DataMember = "ContractDocData";
+            this.contractDocDataBindingSource.DataSource = this.edocbaseDataSet;
+            // 
+            // contractDocDataTableAdapter
+            // 
+            this.contractDocDataTableAdapter.ClearBeforeFill = true;
+            // 
+            // finishedContractsTableAdapter
+            // 
+            this.finishedContractsTableAdapter.ClearBeforeFill = true;
+            // 
+            // badContractsTableAdapter
+            // 
+            this.badContractsTableAdapter.ClearBeforeFill = true;
+            // 
             // ContractStatsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -878,20 +925,20 @@
             this.tabControl.ResumeLayout(false);
             this.tabFinishedTasks.ResumeLayout(false);
             this.tabFinishedTasks.PerformLayout();
-            this.tabPageBadJob.ResumeLayout(false);
-            this.tabPageBadJob.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingNavigatorContractSigning)).EndInit();
-            this.bindingNavigatorContractSigning.ResumeLayout(false);
-            this.bindingNavigatorContractSigning.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.finishedContractsDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.finishedContractsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.edocbaseDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.contractDocDataBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingNavigatorContractSigning)).EndInit();
+            this.bindingNavigatorContractSigning.ResumeLayout(false);
+            this.bindingNavigatorContractSigning.PerformLayout();
+            this.tabPageBadJob.ResumeLayout(false);
+            this.tabPageBadJob.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.badContractsDataTableDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.badContractsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigatorBadContracts)).EndInit();
             this.bindingNavigatorBadContracts.ResumeLayout(false);
             this.bindingNavigatorBadContracts.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.badContractsDataTableDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.contractDocDataBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -987,6 +1034,10 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn cashincomeDataGridViewCheckBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn datecashincomeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn agentsfullnameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.ToolStripButton toolStripButton7;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator9;
+        private System.Windows.Forms.ToolStripButton toolStripButton8;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator10;
 
         //private EdocbaseDataSetTableAdapters.Exec_contractsTableAdapter exec_contractsTableAdapter;
     }

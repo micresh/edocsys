@@ -109,6 +109,18 @@
     <Compile Include="ContractStats.designer.cs">
       <DependentUpon>ContractStats.cs</DependentUpon>
     </Compile>
+    <Compile Include="DeleteContract.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DeleteContract.Designer.cs">
+      <DependentUpon>DeleteContract.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HelpForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HelpForm.Designer.cs">
+      <DependentUpon>HelpForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="InspectionControl.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -210,6 +222,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ContractStats.resx">
       <DependentUpon>ContractStats.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DeleteContract.resx">
+      <DependentUpon>DeleteContract.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HelpForm.resx">
+      <DependentUpon>HelpForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="InspectionControl.resx">
       <DependentUpon>InspectionControl.cs</DependentUpon>

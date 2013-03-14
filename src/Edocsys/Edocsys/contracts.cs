@@ -89,8 +89,8 @@ namespace Edocsys
                 return;
             }
 
-            int docType = contractGenerator.GetContractTypeID(contractSigningBindingSource);
-            int contract_id = contractGenerator.GetContractID(contractSigningBindingSource);
+            int docType = DocGeneratorHelper.GetContractTypeID(contractSigningBindingSource);
+            int contract_id = DocGeneratorHelper.GetContractID(contractSigningBindingSource);
 
             try
             {
@@ -100,7 +100,6 @@ namespace Edocsys
                         return MessageBox.Show("Обновить документ для договора #" + id, "Подтвердить обновление документа", MessageBoxButtons.YesNo) == DialogResult.Yes;
                     });
 
-                this.tableAdapterManager.UpdateAll(this.edocbaseDataSet);
                 this.edocbaseDataSet.AcceptChanges();
             }
             catch (NullReferenceException ex)
@@ -136,8 +135,8 @@ namespace Edocsys
                 return;
             }
 
-            int docType = contractGenerator.GetContractTypeID(contractSigningBindingSource);
-            int contract_id = contractGenerator.GetContractID(contractSigningBindingSource);
+            int docType = DocGeneratorHelper.GetContractTypeID(contractSigningBindingSource);
+            int contract_id = DocGeneratorHelper.GetContractID(contractSigningBindingSource);
 
             try
             {
@@ -174,8 +173,8 @@ namespace Edocsys
                 return;
             }
 
-            int docType = contractGenerator.GetContractTypeID(contractSigningBindingSource);
-            int contract_id = contractGenerator.GetContractID(contractSigningBindingSource);
+            int docType = DocGeneratorHelper.GetContractTypeID(contractSigningBindingSource);
+            int contract_id = DocGeneratorHelper.GetContractID(contractSigningBindingSource);
 
             try
             {
@@ -208,8 +207,8 @@ namespace Edocsys
                 return;
             }
 
-            int docType = contractGenerator.GetContractTypeID(contractSigningBindingSource);
-            int contract_id = contractGenerator.GetContractID(contractSigningBindingSource);
+            int docType = DocGeneratorHelper.GetContractTypeID(contractSigningBindingSource);
+            int contract_id = DocGeneratorHelper.GetContractID(contractSigningBindingSource);
 
             try
             {
@@ -485,6 +484,35 @@ namespace Edocsys
                 MessageBox.Show(ex.Message, "LoadDoc ERROR");
             }
 
+            RefreshDatabase();
+        }
+
+        private void bindingNavigatorDeleteItem_Click(object sender, EventArgs e)
+        {
+            if ((contractSigningBindingSource.Position < 0) ||
+                (contractSigningBindingSource.Position >= contractSigningBindingSource.Count))
+            {
+                //contract not selected
+                MessageBox.Show("Не выбран договор", "Ошибка");
+                return;
+            }
+
+            int contract_id = DocGeneratorHelper.GetContractID(contractSigningBindingSource);
+            wmgr.ShowDeleteContractForm(contract_id);
+        }
+
+        private void toolStripButton5_Click(object sender, EventArgs e)
+        {
+            RefreshDatabase();
+        }
+
+        private void toolStripButton6_Click(object sender, EventArgs e)
+        {
+            RefreshDatabase();
+        }
+
+        private void toolStripButton7_Click(object sender, EventArgs e)
+        {
             RefreshDatabase();
         }
     }

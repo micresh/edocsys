@@ -79,9 +79,7 @@
             this.contract_status_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.assignedContractsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.assignedContractsBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
-            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -90,7 +88,6 @@
             this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton6 = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripButton7 = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.filterAssignedToolStripTextBox = new System.Windows.Forms.ToolStripTextBox();
             this.proposalLabel = new System.Windows.Forms.Label();
@@ -98,6 +95,8 @@
             this.expertAssignmentTAdapter = new Edocsys.EdocbaseDataSetTableAdapters.ExpertAssignmentTAdapter();
             this.expertsTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.expertsTableAdapter();
             this.assignedContractsTAdapter = new Edocsys.EdocbaseDataSetTableAdapters.AssignedContractsTAdapter();
+            this.toolStripButton8 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton9 = new System.Windows.Forms.ToolStripButton();
             this.tabControlAssignExpert.SuspendLayout();
             this.tabPageAssignExpert.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -131,7 +130,7 @@
             this.tabControlAssignExpert.Location = new System.Drawing.Point(0, 0);
             this.tabControlAssignExpert.Name = "tabControlAssignExpert";
             this.tabControlAssignExpert.SelectedIndex = 0;
-            this.tabControlAssignExpert.Size = new System.Drawing.Size(1278, 485);
+            this.tabControlAssignExpert.Size = new System.Drawing.Size(1276, 485);
             this.tabControlAssignExpert.TabIndex = 6;
             this.tabControlAssignExpert.Text = "Назначить эксперта";
             // 
@@ -142,7 +141,7 @@
             this.tabPageAssignExpert.Location = new System.Drawing.Point(4, 22);
             this.tabPageAssignExpert.Name = "tabPageAssignExpert";
             this.tabPageAssignExpert.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageAssignExpert.Size = new System.Drawing.Size(1270, 459);
+            this.tabPageAssignExpert.Size = new System.Drawing.Size(1268, 459);
             this.tabPageAssignExpert.TabIndex = 0;
             this.tabPageAssignExpert.Text = global::Edocsys.Properties.Settings.Default.AssignExpertTabText;
             this.tabPageAssignExpert.UseVisualStyleBackColor = true;
@@ -161,7 +160,7 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.panel1);
-            this.splitContainer1.Size = new System.Drawing.Size(1264, 453);
+            this.splitContainer1.Size = new System.Drawing.Size(1262, 453);
             this.splitContainer1.SplitterDistance = 400;
             this.splitContainer1.TabIndex = 7;
             // 
@@ -180,8 +179,8 @@
             // 
             this.splitContainer2.Panel2.Controls.Add(this.expertsListBox);
             this.splitContainer2.Panel2.Controls.Add(this.panel2);
-            this.splitContainer2.Size = new System.Drawing.Size(1264, 400);
-            this.splitContainer2.SplitterDistance = 964;
+            this.splitContainer2.Size = new System.Drawing.Size(1262, 400);
+            this.splitContainer2.SplitterDistance = 962;
             this.splitContainer2.TabIndex = 0;
             // 
             // proposalsDataGridView
@@ -203,7 +202,7 @@
             this.proposalsDataGridView.MultiSelect = false;
             this.proposalsDataGridView.Name = "proposalsDataGridView";
             this.proposalsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.proposalsDataGridView.Size = new System.Drawing.Size(964, 375);
+            this.proposalsDataGridView.Size = new System.Drawing.Size(962, 375);
             this.proposalsDataGridView.TabIndex = 10;
             // 
             // products_name
@@ -280,6 +279,7 @@
             this.toolStripButton12,
             this.toolStripButton13,
             this.toolStripSeparator7,
+            this.toolStripButton8,
             this.toolStripSeparator8,
             this.filterProposalsToolStripTextBox});
             this.bindingNavigator1.Location = new System.Drawing.Point(0, 0);
@@ -289,7 +289,7 @@
             this.bindingNavigator1.MovePreviousItem = this.toolStripButton11;
             this.bindingNavigator1.Name = "bindingNavigator1";
             this.bindingNavigator1.PositionItem = this.toolStripTextBox2;
-            this.bindingNavigator1.Size = new System.Drawing.Size(964, 25);
+            this.bindingNavigator1.Size = new System.Drawing.Size(962, 25);
             this.bindingNavigator1.TabIndex = 9;
             this.bindingNavigator1.Text = "bindingNavigator1";
             // 
@@ -416,7 +416,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1264, 49);
+            this.panel1.Size = new System.Drawing.Size(1262, 49);
             this.panel1.TabIndex = 5;
             // 
             // label
@@ -476,7 +476,7 @@
             this.tabPageAssignedExperts.Location = new System.Drawing.Point(4, 22);
             this.tabPageAssignedExperts.Name = "tabPageAssignedExperts";
             this.tabPageAssignedExperts.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageAssignedExperts.Size = new System.Drawing.Size(1270, 459);
+            this.tabPageAssignedExperts.Size = new System.Drawing.Size(1268, 459);
             this.tabPageAssignedExperts.TabIndex = 1;
             this.tabPageAssignedExperts.Text = global::Edocsys.Properties.Settings.Default.AssignedExpertTabText;
             this.tabPageAssignedExperts.UseVisualStyleBackColor = true;
@@ -502,7 +502,7 @@
             this.assignedContractsDataGridView.Location = new System.Drawing.Point(3, 28);
             this.assignedContractsDataGridView.Name = "assignedContractsDataGridView";
             this.assignedContractsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.assignedContractsDataGridView.Size = new System.Drawing.Size(1264, 428);
+            this.assignedContractsDataGridView.Size = new System.Drawing.Size(1262, 428);
             this.assignedContractsDataGridView.TabIndex = 10;
             // 
             // dataGridViewTextBoxColumn1
@@ -571,10 +571,10 @@
             // 
             // assignedContractsBindingNavigator
             // 
-            this.assignedContractsBindingNavigator.AddNewItem = this.toolStripButton1;
+            this.assignedContractsBindingNavigator.AddNewItem = null;
             this.assignedContractsBindingNavigator.BindingSource = this.assignedContractsBindingSource;
             this.assignedContractsBindingNavigator.CountItem = this.toolStripLabel1;
-            this.assignedContractsBindingNavigator.DeleteItem = this.toolStripButton2;
+            this.assignedContractsBindingNavigator.DeleteItem = null;
             this.assignedContractsBindingNavigator.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButton3,
             this.toolStripButton4,
@@ -585,9 +585,7 @@
             this.toolStripButton5,
             this.toolStripButton6,
             this.toolStripSeparator3,
-            this.toolStripButton1,
-            this.toolStripButton2,
-            this.toolStripButton7,
+            this.toolStripButton9,
             this.toolStripSeparator4,
             this.filterAssignedToolStripTextBox});
             this.assignedContractsBindingNavigator.Location = new System.Drawing.Point(3, 3);
@@ -597,19 +595,9 @@
             this.assignedContractsBindingNavigator.MovePreviousItem = this.toolStripButton4;
             this.assignedContractsBindingNavigator.Name = "assignedContractsBindingNavigator";
             this.assignedContractsBindingNavigator.PositionItem = this.toolStripTextBox1;
-            this.assignedContractsBindingNavigator.Size = new System.Drawing.Size(1264, 25);
+            this.assignedContractsBindingNavigator.Size = new System.Drawing.Size(1262, 25);
             this.assignedContractsBindingNavigator.TabIndex = 8;
             this.assignedContractsBindingNavigator.Text = "bindingNavigator1";
-            // 
-            // toolStripButton1
-            // 
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.RightToLeftAutoMirrorImage = true;
-            this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton1.Text = "Add new";
-            this.toolStripButton1.Visible = false;
             // 
             // toolStripLabel1
             // 
@@ -617,16 +605,6 @@
             this.toolStripLabel1.Size = new System.Drawing.Size(35, 22);
             this.toolStripLabel1.Text = "of {0}";
             this.toolStripLabel1.ToolTipText = "Total number of items";
-            // 
-            // toolStripButton2
-            // 
-            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
-            this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.RightToLeftAutoMirrorImage = true;
-            this.toolStripButton2.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton2.Text = "Delete";
-            this.toolStripButton2.Visible = false;
             // 
             // toolStripButton3
             // 
@@ -688,15 +666,6 @@
             this.toolStripSeparator3.Name = "toolStripSeparator3";
             this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
             // 
-            // toolStripButton7
-            // 
-            this.toolStripButton7.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton7.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton7.Image")));
-            this.toolStripButton7.Name = "toolStripButton7";
-            this.toolStripButton7.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton7.Text = "Save Data";
-            this.toolStripButton7.Visible = false;
-            // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
@@ -728,12 +697,16 @@
             this.tableAdapterManager.contract_types_for_workTableAdapter = null;
             this.tableAdapterManager.contract_typesTableAdapter = null;
             this.tableAdapterManager.ContractInfoTableAdapter = null;
+            this.tableAdapterManager.ContractPrepareForWorkTAdapter = null;
+            this.tableAdapterManager.ContractSigningTableAdapter = null;
+            this.tableAdapterManager.ContractsOnInspectionTableAdapter = null;
             this.tableAdapterManager.contractsTableAdapter = null;
             this.tableAdapterManager.doc_templatesTableAdapter = null;
             this.tableAdapterManager.documentsTableAdapter = null;
             this.tableAdapterManager.emission_typesTableAdapter = null;
             this.tableAdapterManager.expertsTableAdapter = null;
             this.tableAdapterManager.GOSTSelectionTableAdapter = null;
+            this.tableAdapterManager.InspectionContractsTableAdapter = null;
             this.tableAdapterManager.log_journalTableAdapter = null;
             this.tableAdapterManager.product_areasTableAdapter = null;
             this.tableAdapterManager.product_gostsTableAdapter = null;
@@ -756,11 +729,31 @@
             // 
             this.assignedContractsTAdapter.ClearBeforeFill = true;
             // 
+            // toolStripButton8
+            // 
+            this.toolStripButton8.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton8.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton8.Image")));
+            this.toolStripButton8.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton8.Name = "toolStripButton8";
+            this.toolStripButton8.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton8.Text = "toolStripButton1";
+            this.toolStripButton8.Click += new System.EventHandler(this.toolStripButton8_Click);
+            // 
+            // toolStripButton9
+            // 
+            this.toolStripButton9.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton9.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton9.Image")));
+            this.toolStripButton9.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton9.Name = "toolStripButton9";
+            this.toolStripButton9.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton9.Text = "toolStripButton1";
+            this.toolStripButton9.Click += new System.EventHandler(this.toolStripButton9_Click);
+            // 
             // AssignExpertForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1278, 485);
+            this.ClientSize = new System.Drawing.Size(1276, 485);
             this.Controls.Add(this.tabControlAssignExpert);
             this.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Edocsys.Properties.Settings.Default, "AssighExpertFormText", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.Name = "AssignExpertForm";
@@ -820,9 +813,7 @@
         private System.Windows.Forms.Label label;
         private System.Windows.Forms.Label proposalLabel;
         private System.Windows.Forms.BindingNavigator assignedContractsBindingNavigator;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
         private System.Windows.Forms.ToolStripLabel toolStripLabel1;
-        private System.Windows.Forms.ToolStripButton toolStripButton2;
         private System.Windows.Forms.ToolStripButton toolStripButton3;
         private System.Windows.Forms.ToolStripButton toolStripButton4;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
@@ -831,7 +822,6 @@
         private System.Windows.Forms.ToolStripButton toolStripButton5;
         private System.Windows.Forms.ToolStripButton toolStripButton6;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
-        private System.Windows.Forms.ToolStripButton toolStripButton7;
         private System.Windows.Forms.DataGridView assignedContractsDataGridView;
         private System.Windows.Forms.BindingSource expertAssignmentBindingSource;
         private EdocbaseDataSetTableAdapters.ExpertAssignmentTAdapter expertAssignmentTAdapter;
@@ -869,5 +859,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn agentsnameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn agenttypesnameDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn contract_status_name;
+        private System.Windows.Forms.ToolStripButton toolStripButton8;
+        private System.Windows.Forms.ToolStripButton toolStripButton9;
     }
 }

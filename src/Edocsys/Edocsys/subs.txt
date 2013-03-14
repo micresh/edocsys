@@ -8,6 +8,9 @@
 {_DATE_PROPOSAL_}          date_proposal
 {_SCHEME_TYPE_}            scheme_type
 {_ADD_DATA_PROPOSAL_}      add_data_proposal
+{_PRODUCTION_DOCUMENTS_}   production_documents
+{_ADD_DATA_CONTRACT_}      add_data_contract
+{_PREPAYMENT_}             prepayment
 {_COST_}                   cost
 {_TOTAL_COST_}             total_cost
 {_CASH_INCOME_}            cash_income
@@ -50,6 +53,7 @@
 {_AGENTS_FULLNAME_}        agents_fullname
 {_CONTACT_PERS_NAME_FIO_}  contact_pers_name_FIO
 {_CONTACT_PERS_NAME_IOF_}  contact_pers_name_IOF
+{_BUKH_FIO_}               Bukh_FIO
 {_PKCONTRACT_TYPES_ID_}    pkcontract_types_id
 {_CONTRACT_TYPES_NAME_}    contract_types_name
 {_PKEMISSION_TYPES_ID_}    pkemission_types_id

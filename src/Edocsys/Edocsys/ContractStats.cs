@@ -70,7 +70,7 @@ namespace Edocsys
 
         private void buttonEditContract_Click(object sender, EventArgs e)
         {
-            int docType = contractGenerator.GetContractTypeID(finishedContractsBindingSource);
+            int docType = DocGeneratorHelper.GetContractTypeID(finishedContractsBindingSource);
             OpenDoc(docType);
         }
 
@@ -84,7 +84,7 @@ namespace Edocsys
                 return;
             }
 
-            int contract_id = contractGenerator.GetContractID(finishedContractsBindingSource);
+            int contract_id = DocGeneratorHelper.GetContractID(finishedContractsBindingSource);
 
             try
             {
@@ -122,7 +122,7 @@ namespace Edocsys
                 return;
             }
 
-            int contract_id = contractGenerator.GetContractID(finishedContractsBindingSource);
+            int contract_id = DocGeneratorHelper.GetContractID(finishedContractsBindingSource);
 
             try
             {
@@ -142,8 +142,15 @@ namespace Edocsys
 
         private void toolStripButtonSaveContract_Click(object sender, EventArgs e)
         {
-            int docType = contractGenerator.GetContractTypeID(finishedContractsBindingSource);
-            SaveDoc(docType);
+            try
+            {
+                int docType = DocGeneratorHelper.GetContractTypeID(finishedContractsBindingSource);
+                SaveDoc(docType);
+            }
+            catch
+            {
+                MessageBox.Show("Ошибка выбора контракта");
+            }
         }
 
         private void toolStripButtonSaveAct_Click(object sender, EventArgs e)
@@ -164,6 +171,21 @@ namespace Edocsys
         private void toolStripButtonOpenAct_Click(object sender, EventArgs e)
         {
             OpenDoc((int)Constants.ContractTypes.Act);
+        }
+
+        private void toolStripButton7_Click(object sender, EventArgs e)
+        {
+            RefreshDatabase();
+        }
+
+        private void toolStripButton8_Click(object sender, EventArgs e)
+        {
+            RefreshDatabase();
+        }
+
+        private void toolStripButtonOpenContract_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -33,13 +33,18 @@ namespace Edocsys
             this.expertAssignmentTAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
             this.assignedContractsTAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
 
-            this.expertAssignmentTAdapter.Fill(this.edocbaseDataSet.ExpertAssignment);
-            this.expertsTableAdapter.Fill(this.edocbaseDataSet.experts);
-            this.assignedContractsTAdapter.Fill(this.edocbaseDataSet.AssignedContracts);
+            RefreshDatabase();
 
             //add filters
             assignedFilter = new FilterHelper(assignedContractsDataGridView, filterAssignedToolStripTextBox.TextBox);
             proposalsFilter = new FilterHelper(proposalsDataGridView, filterProposalsToolStripTextBox.TextBox);
+        }
+
+        private void RefreshDatabase()
+        {
+            this.expertAssignmentTAdapter.Fill(this.edocbaseDataSet.ExpertAssignment);
+            this.expertsTableAdapter.Fill(this.edocbaseDataSet.experts);
+            this.assignedContractsTAdapter.Fill(this.edocbaseDataSet.AssignedContracts);
         }
 
         private void assignButton_Click(object sender, EventArgs e)
@@ -83,6 +88,16 @@ namespace Edocsys
                 }
 
             }
+        }
+
+        private void toolStripButton8_Click(object sender, EventArgs e)
+        {
+            RefreshDatabase();
+        }
+
+        private void toolStripButton9_Click(object sender, EventArgs e)
+        {
+            RefreshDatabase();
         }
     }
 }

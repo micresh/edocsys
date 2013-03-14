@@ -55,5 +55,12 @@ namespace Edocsys
             Phone = 2,
             Internet = 3,
         }
+
+        public enum DeadlineAlerts : int
+        {
+            Overdue =  0,
+            Week = 7,
+            Fortnight = 14,
+        }
     }
 }

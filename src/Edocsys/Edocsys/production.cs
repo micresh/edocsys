@@ -67,7 +67,7 @@ namespace Edocsys
 
                 DataRowView currentRow = (DataRowView)productsBindingSource.Current;
 
-                string agent = String.Format("Контрагент: {0}", Convert.ToString(currentRow["name"]));
+                string agent = String.Format("Продукция: {0}", Convert.ToString(currentRow["name"]));
 
                 toolStripLabelProduct.Text = agent;
             }
@@ -76,7 +76,7 @@ namespace Edocsys
         private void bindingNavigatorAddNewItem1_Click(object sender, EventArgs e)
         {
             int pos = productsBindingSource.Position;
-            SaveProducts(); ;
+            SaveProducts();
             productsBindingSource.Position = pos;
 
             this.product_gostsBindingSource.AddNew();
@@ -106,6 +106,11 @@ namespace Edocsys
             this.product_gostsBindingSource.EndEdit();
             this.tableAdapterManager.UpdateAll(this.edocbaseDataSet);
             this.edocbaseDataSet.AcceptChanges();
+        }
+
+        private void toolStripButton2_Click(object sender, EventArgs e)
+        {
+            RefreshDatabase();
         }
     }
 }
