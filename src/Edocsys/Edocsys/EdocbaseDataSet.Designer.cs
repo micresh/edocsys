@@ -7735,8 +7735,6 @@ namespace Edocsys {
             
             private global::System.Data.DataColumn columncontract_status_id;
             
-            private global::System.Data.DataColumn columnproducts_id1;
-            
             private global::System.Data.DataColumn columnagents_id1;
             
             private global::System.Data.DataColumn columnagents_name;
@@ -7761,10 +7759,6 @@ namespace Edocsys {
             
             private global::System.Data.DataColumn columncontract_types_name;
             
-            private global::System.Data.DataColumn columnemission_types_id;
-            
-            private global::System.Data.DataColumn columnemission_types_name;
-            
             private global::System.Data.DataColumn columnexperts_id;
             
             private global::System.Data.DataColumn columnsource_types_id;
@@ -7785,15 +7779,21 @@ namespace Edocsys {
             
             private global::System.Data.DataColumn columncustom_gosts;
             
-            private global::System.Data.DataColumn columnhas_proposal_document2;
-            
             private global::System.Data.DataColumn columnproduction_documents;
-            
-            private global::System.Data.DataColumn columnhas_proposal_document3;
             
             private global::System.Data.DataColumn columnprepayment;
             
+            private global::System.Data.DataColumn columnadd_data_contract;
+            
+            private global::System.Data.DataColumn columnpkproducts_id;
+            
+            private global::System.Data.DataColumn columnproducts_tnved;
+            
+            private global::System.Data.DataColumn columnproducts_okp;
+            
             private global::System.Data.DataColumn columnhas_proposal_document;
+            
+            private global::System.Data.DataColumn columngosts_list;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -7865,14 +7865,6 @@ namespace Edocsys {
             public global::System.Data.DataColumn contract_status_idColumn {
                 get {
                     return this.columncontract_status_id;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn products_id1Column {
-                get {
-                    return this.columnproducts_id1;
                 }
             }
             
@@ -7974,22 +7966,6 @@ namespace Edocsys {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn emission_types_idColumn {
-                get {
-                    return this.columnemission_types_id;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn emission_types_nameColumn {
-                get {
-                    return this.columnemission_types_name;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public global::System.Data.DataColumn experts_idColumn {
                 get {
                     return this.columnexperts_id;
@@ -8070,25 +8046,9 @@ namespace Edocsys {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn has_proposal_document2Column {
-                get {
-                    return this.columnhas_proposal_document2;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public global::System.Data.DataColumn production_documentsColumn {
                 get {
                     return this.columnproduction_documents;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn has_proposal_document3Column {
-                get {
-                    return this.columnhas_proposal_document3;
                 }
             }
             
@@ -8102,9 +8062,49 @@ namespace Edocsys {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn add_data_contractColumn {
+                get {
+                    return this.columnadd_data_contract;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn pkproducts_idColumn {
+                get {
+                    return this.columnpkproducts_id;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn products_tnvedColumn {
+                get {
+                    return this.columnproducts_tnved;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn products_okpColumn {
+                get {
+                    return this.columnproducts_okp;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public global::System.Data.DataColumn has_proposal_documentColumn {
                 get {
                     return this.columnhas_proposal_document;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn gosts_listColumn {
+                get {
+                    return this.columngosts_list;
                 }
             }
             
@@ -8160,8 +8160,6 @@ namespace Edocsys {
                         string contact_pers_name_IOF, 
                         int contract_types_id1, 
                         string contract_types_name, 
-                        int emission_types_id, 
-                        string emission_types_name, 
                         int experts_id, 
                         int source_types_id, 
                         System.DateTime date_proposal, 
@@ -8172,11 +8170,13 @@ namespace Edocsys {
                         int total_cost, 
                         bool cash_income, 
                         bool custom_gosts, 
-                        bool has_proposal_document2, 
                         string production_documents, 
-                        bool has_proposal_document3, 
                         int prepayment, 
-                        bool has_proposal_document) {
+                        string add_data_contract, 
+                        string products_tnved, 
+                        string products_okp, 
+                        bool has_proposal_document, 
+                        string gosts_list) {
                 ContractInfoDataTableRow rowContractInfoDataTableRow = ((ContractInfoDataTableRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -8184,7 +8184,6 @@ namespace Edocsys {
                         agents_id,
                         contract_types_id,
                         contract_status_id,
-                        null,
                         null,
                         agents_name,
                         null,
@@ -8197,8 +8196,6 @@ namespace Edocsys {
                         contact_pers_name_IOF,
                         contract_types_id1,
                         contract_types_name,
-                        emission_types_id,
-                        emission_types_name,
                         experts_id,
                         source_types_id,
                         date_proposal,
@@ -8209,23 +8206,17 @@ namespace Edocsys {
                         total_cost,
                         cash_income,
                         custom_gosts,
-                        has_proposal_document2,
                         production_documents,
-                        has_proposal_document3,
                         prepayment,
-                        has_proposal_document};
+                        add_data_contract,
+                        null,
+                        products_tnved,
+                        products_okp,
+                        has_proposal_document,
+                        gosts_list};
                 rowContractInfoDataTableRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowContractInfoDataTableRow);
                 return rowContractInfoDataTableRow;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ContractInfoDataTableRow FindByidproducts_id1agents_id1(int id, int products_id1, int agents_id1) {
-                return ((ContractInfoDataTableRow)(this.Rows.Find(new object[] {
-                            id,
-                            products_id1,
-                            agents_id1})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -8250,7 +8241,6 @@ namespace Edocsys {
                 this.columnagents_id = base.Columns["agents_id"];
                 this.columncontract_types_id = base.Columns["contract_types_id"];
                 this.columncontract_status_id = base.Columns["contract_status_id"];
-                this.columnproducts_id1 = base.Columns["products_id1"];
                 this.columnagents_id1 = base.Columns["agents_id1"];
                 this.columnagents_name = base.Columns["agents_name"];
                 this.columnagent_types_id = base.Columns["agent_types_id"];
@@ -8263,8 +8253,6 @@ namespace Edocsys {
                 this.columncontact_pers_name_IOF = base.Columns["contact_pers_name_IOF"];
                 this.columncontract_types_id1 = base.Columns["contract_types_id1"];
                 this.columncontract_types_name = base.Columns["contract_types_name"];
-                this.columnemission_types_id = base.Columns["emission_types_id"];
-                this.columnemission_types_name = base.Columns["emission_types_name"];
                 this.columnexperts_id = base.Columns["experts_id"];
                 this.columnsource_types_id = base.Columns["source_types_id"];
                 this.columndate_proposal = base.Columns["date_proposal"];
@@ -8275,11 +8263,14 @@ namespace Edocsys {
                 this.columntotal_cost = base.Columns["total_cost"];
                 this.columncash_income = base.Columns["cash_income"];
                 this.columncustom_gosts = base.Columns["custom_gosts"];
-                this.columnhas_proposal_document2 = base.Columns["has_proposal_document2"];
                 this.columnproduction_documents = base.Columns["production_documents"];
-                this.columnhas_proposal_document3 = base.Columns["has_proposal_document3"];
                 this.columnprepayment = base.Columns["prepayment"];
+                this.columnadd_data_contract = base.Columns["add_data_contract"];
+                this.columnpkproducts_id = base.Columns["pkproducts_id"];
+                this.columnproducts_tnved = base.Columns["products_tnved"];
+                this.columnproducts_okp = base.Columns["products_okp"];
                 this.columnhas_proposal_document = base.Columns["has_proposal_document"];
+                this.columngosts_list = base.Columns["gosts_list"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -8295,8 +8286,6 @@ namespace Edocsys {
                 base.Columns.Add(this.columncontract_types_id);
                 this.columncontract_status_id = new global::System.Data.DataColumn("contract_status_id", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncontract_status_id);
-                this.columnproducts_id1 = new global::System.Data.DataColumn("products_id1", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnproducts_id1);
                 this.columnagents_id1 = new global::System.Data.DataColumn("agents_id1", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnagents_id1);
                 this.columnagents_name = new global::System.Data.DataColumn("agents_name", typeof(string), null, global::System.Data.MappingType.Element);
@@ -8321,10 +8310,6 @@ namespace Edocsys {
                 base.Columns.Add(this.columncontract_types_id1);
                 this.columncontract_types_name = new global::System.Data.DataColumn("contract_types_name", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncontract_types_name);
-                this.columnemission_types_id = new global::System.Data.DataColumn("emission_types_id", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnemission_types_id);
-                this.columnemission_types_name = new global::System.Data.DataColumn("emission_types_name", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnemission_types_name);
                 this.columnexperts_id = new global::System.Data.DataColumn("experts_id", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnexperts_id);
                 this.columnsource_types_id = new global::System.Data.DataColumn("source_types_id", typeof(int), null, global::System.Data.MappingType.Element);
@@ -8345,20 +8330,22 @@ namespace Edocsys {
                 base.Columns.Add(this.columncash_income);
                 this.columncustom_gosts = new global::System.Data.DataColumn("custom_gosts", typeof(bool), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncustom_gosts);
-                this.columnhas_proposal_document2 = new global::System.Data.DataColumn("has_proposal_document2", typeof(bool), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnhas_proposal_document2);
                 this.columnproduction_documents = new global::System.Data.DataColumn("production_documents", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnproduction_documents);
-                this.columnhas_proposal_document3 = new global::System.Data.DataColumn("has_proposal_document3", typeof(bool), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnhas_proposal_document3);
                 this.columnprepayment = new global::System.Data.DataColumn("prepayment", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnprepayment);
+                this.columnadd_data_contract = new global::System.Data.DataColumn("add_data_contract", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnadd_data_contract);
+                this.columnpkproducts_id = new global::System.Data.DataColumn("pkproducts_id", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnpkproducts_id);
+                this.columnproducts_tnved = new global::System.Data.DataColumn("products_tnved", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnproducts_tnved);
+                this.columnproducts_okp = new global::System.Data.DataColumn("products_okp", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnproducts_okp);
                 this.columnhas_proposal_document = new global::System.Data.DataColumn("has_proposal_document", typeof(bool), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnhas_proposal_document);
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnid,
-                                this.columnproducts_id1,
-                                this.columnagents_id1}, true));
+                this.columngosts_list = new global::System.Data.DataColumn("gosts_list", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columngosts_list);
                 this.columnid.AutoIncrement = true;
                 this.columnid.AutoIncrementSeed = -1;
                 this.columnid.AutoIncrementStep = -1;
@@ -8367,14 +8354,9 @@ namespace Edocsys {
                 this.columnagents_id.AllowDBNull = false;
                 this.columncontract_types_id.AllowDBNull = false;
                 this.columncontract_status_id.AllowDBNull = false;
-                this.columnproducts_id1.AutoIncrement = true;
-                this.columnproducts_id1.AutoIncrementSeed = -1;
-                this.columnproducts_id1.AutoIncrementStep = -1;
-                this.columnproducts_id1.AllowDBNull = false;
                 this.columnagents_id1.AutoIncrement = true;
                 this.columnagents_id1.AutoIncrementSeed = -1;
                 this.columnagents_id1.AutoIncrementStep = -1;
-                this.columnagents_id1.AllowDBNull = false;
                 this.columnagents_name.MaxLength = 63;
                 this.columnagent_types_id.AutoIncrement = true;
                 this.columnagent_types_id.AutoIncrementSeed = -1;
@@ -8387,12 +8369,18 @@ namespace Edocsys {
                 this.columncontact_pers_name_FIO.MaxLength = 36;
                 this.columncontact_pers_name_IOF.MaxLength = 36;
                 this.columncontract_types_name.MaxLength = 55;
-                this.columnemission_types_name.MaxLength = 45;
                 this.columnexperts_id.AllowDBNull = false;
                 this.columnscheme_type.MaxLength = 45;
                 this.columnadd_data_proposal.MaxLength = 21845;
                 this.columnproducts_name.MaxLength = 150;
                 this.columnproduction_documents.MaxLength = 50;
+                this.columnadd_data_contract.MaxLength = 21845;
+                this.columnpkproducts_id.AutoIncrement = true;
+                this.columnpkproducts_id.AutoIncrementSeed = -1;
+                this.columnpkproducts_id.AutoIncrementStep = -1;
+                this.columnproducts_tnved.MaxLength = 31;
+                this.columnproducts_okp.MaxLength = 31;
+                this.columngosts_list.MaxLength = 80;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -26896,20 +26884,14 @@ namespace Edocsys {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int products_id1 {
-                get {
-                    return ((int)(this[this.tableContractInfoDataTable.products_id1Column]));
-                }
-                set {
-                    this[this.tableContractInfoDataTable.products_id1Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public int agents_id1 {
                 get {
-                    return ((int)(this[this.tableContractInfoDataTable.agents_id1Column]));
+                    try {
+                        return ((int)(this[this.tableContractInfoDataTable.agents_id1Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'agents_id1\' in table \'ContractInfoDataTable\' is DBNull.", e);
+                    }
                 }
                 set {
                     this[this.tableContractInfoDataTable.agents_id1Column] = value;
@@ -27103,40 +27085,6 @@ namespace Edocsys {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int emission_types_id {
-                get {
-                    try {
-                        return ((int)(this[this.tableContractInfoDataTable.emission_types_idColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'emission_types_id\' in table \'ContractInfoDataTable\' is DBNu" +
-                                "ll.", e);
-                    }
-                }
-                set {
-                    this[this.tableContractInfoDataTable.emission_types_idColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string emission_types_name {
-                get {
-                    try {
-                        return ((string)(this[this.tableContractInfoDataTable.emission_types_nameColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'emission_types_name\' in table \'ContractInfoDataTable\' is DB" +
-                                "Null.", e);
-                    }
-                }
-                set {
-                    this[this.tableContractInfoDataTable.emission_types_nameColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public int experts_id {
                 get {
                     return ((int)(this[this.tableContractInfoDataTable.experts_idColumn]));
@@ -27294,23 +27242,6 @@ namespace Edocsys {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool has_proposal_document2 {
-                get {
-                    try {
-                        return ((bool)(this[this.tableContractInfoDataTable.has_proposal_document2Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'has_proposal_document2\' in table \'ContractInfoDataTable\' is" +
-                                " DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableContractInfoDataTable.has_proposal_document2Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string production_documents {
                 get {
                     try {
@@ -27323,23 +27254,6 @@ namespace Edocsys {
                 }
                 set {
                     this[this.tableContractInfoDataTable.production_documentsColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool has_proposal_document3 {
-                get {
-                    try {
-                        return ((bool)(this[this.tableContractInfoDataTable.has_proposal_document3Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'has_proposal_document3\' in table \'ContractInfoDataTable\' is" +
-                                " DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableContractInfoDataTable.has_proposal_document3Column] = value;
                 }
             }
             
@@ -27361,6 +27275,72 @@ namespace Edocsys {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string add_data_contract {
+                get {
+                    try {
+                        return ((string)(this[this.tableContractInfoDataTable.add_data_contractColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'add_data_contract\' in table \'ContractInfoDataTable\' is DBNu" +
+                                "ll.", e);
+                    }
+                }
+                set {
+                    this[this.tableContractInfoDataTable.add_data_contractColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int pkproducts_id {
+                get {
+                    try {
+                        return ((int)(this[this.tableContractInfoDataTable.pkproducts_idColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'pkproducts_id\' in table \'ContractInfoDataTable\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableContractInfoDataTable.pkproducts_idColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string products_tnved {
+                get {
+                    try {
+                        return ((string)(this[this.tableContractInfoDataTable.products_tnvedColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'products_tnved\' in table \'ContractInfoDataTable\' is DBNull." +
+                                "", e);
+                    }
+                }
+                set {
+                    this[this.tableContractInfoDataTable.products_tnvedColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string products_okp {
+                get {
+                    try {
+                        return ((string)(this[this.tableContractInfoDataTable.products_okpColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'products_okp\' in table \'ContractInfoDataTable\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableContractInfoDataTable.products_okpColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool has_proposal_document {
                 get {
                     try {
@@ -27374,6 +27354,34 @@ namespace Edocsys {
                 set {
                     this[this.tableContractInfoDataTable.has_proposal_documentColumn] = value;
                 }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string gosts_list {
+                get {
+                    try {
+                        return ((string)(this[this.tableContractInfoDataTable.gosts_listColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'gosts_list\' in table \'ContractInfoDataTable\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableContractInfoDataTable.gosts_listColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isagents_id1Null() {
+                return this.IsNull(this.tableContractInfoDataTable.agents_id1Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setagents_id1Null() {
+                this[this.tableContractInfoDataTable.agents_id1Column] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -27510,30 +27518,6 @@ namespace Edocsys {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool Isemission_types_idNull() {
-                return this.IsNull(this.tableContractInfoDataTable.emission_types_idColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void Setemission_types_idNull() {
-                this[this.tableContractInfoDataTable.emission_types_idColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool Isemission_types_nameNull() {
-                return this.IsNull(this.tableContractInfoDataTable.emission_types_nameColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void Setemission_types_nameNull() {
-                this[this.tableContractInfoDataTable.emission_types_nameColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool Issource_types_idNull() {
                 return this.IsNull(this.tableContractInfoDataTable.source_types_idColumn);
             }
@@ -27642,18 +27626,6 @@ namespace Edocsys {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool Ishas_proposal_document2Null() {
-                return this.IsNull(this.tableContractInfoDataTable.has_proposal_document2Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void Sethas_proposal_document2Null() {
-                this[this.tableContractInfoDataTable.has_proposal_document2Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool Isproduction_documentsNull() {
                 return this.IsNull(this.tableContractInfoDataTable.production_documentsColumn);
             }
@@ -27662,18 +27634,6 @@ namespace Edocsys {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void Setproduction_documentsNull() {
                 this[this.tableContractInfoDataTable.production_documentsColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool Ishas_proposal_document3Null() {
-                return this.IsNull(this.tableContractInfoDataTable.has_proposal_document3Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void Sethas_proposal_document3Null() {
-                this[this.tableContractInfoDataTable.has_proposal_document3Column] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -27690,6 +27650,54 @@ namespace Edocsys {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isadd_data_contractNull() {
+                return this.IsNull(this.tableContractInfoDataTable.add_data_contractColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setadd_data_contractNull() {
+                this[this.tableContractInfoDataTable.add_data_contractColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Ispkproducts_idNull() {
+                return this.IsNull(this.tableContractInfoDataTable.pkproducts_idColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setpkproducts_idNull() {
+                this[this.tableContractInfoDataTable.pkproducts_idColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isproducts_tnvedNull() {
+                return this.IsNull(this.tableContractInfoDataTable.products_tnvedColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setproducts_tnvedNull() {
+                this[this.tableContractInfoDataTable.products_tnvedColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isproducts_okpNull() {
+                return this.IsNull(this.tableContractInfoDataTable.products_okpColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setproducts_okpNull() {
+                this[this.tableContractInfoDataTable.products_okpColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool Ishas_proposal_documentNull() {
                 return this.IsNull(this.tableContractInfoDataTable.has_proposal_documentColumn);
             }
@@ -27698,6 +27706,18 @@ namespace Edocsys {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void Sethas_proposal_documentNull() {
                 this[this.tableContractInfoDataTable.has_proposal_documentColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isgosts_listNull() {
+                return this.IsNull(this.tableContractInfoDataTable.gosts_listColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setgosts_listNull() {
+                this[this.tableContractInfoDataTable.gosts_listColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -43906,7 +43926,6 @@ doc_templates ON contract_types.id = doc_templates.contract_types_id";
             tableMapping.ColumnMappings.Add("agents_id", "agents_id");
             tableMapping.ColumnMappings.Add("contract_types_id", "contract_types_id");
             tableMapping.ColumnMappings.Add("contract_status_id", "contract_status_id");
-            tableMapping.ColumnMappings.Add("products_id1", "products_id1");
             tableMapping.ColumnMappings.Add("agents_id1", "agents_id1");
             tableMapping.ColumnMappings.Add("agents_name", "agents_name");
             tableMapping.ColumnMappings.Add("agent_types_id", "agent_types_id");
@@ -43919,8 +43938,6 @@ doc_templates ON contract_types.id = doc_templates.contract_types_id";
             tableMapping.ColumnMappings.Add("contact_pers_name_IOF", "contact_pers_name_IOF");
             tableMapping.ColumnMappings.Add("contract_types_id1", "contract_types_id1");
             tableMapping.ColumnMappings.Add("contract_types_name", "contract_types_name");
-            tableMapping.ColumnMappings.Add("emission_types_id", "emission_types_id");
-            tableMapping.ColumnMappings.Add("emission_types_name", "emission_types_name");
             tableMapping.ColumnMappings.Add("experts_id", "experts_id");
             tableMapping.ColumnMappings.Add("source_types_id", "source_types_id");
             tableMapping.ColumnMappings.Add("date_proposal", "date_proposal");
@@ -43933,7 +43950,12 @@ doc_templates ON contract_types.id = doc_templates.contract_types_id";
             tableMapping.ColumnMappings.Add("custom_gosts", "custom_gosts");
             tableMapping.ColumnMappings.Add("production_documents", "production_documents");
             tableMapping.ColumnMappings.Add("prepayment", "prepayment");
+            tableMapping.ColumnMappings.Add("add_data_contract", "add_data_contract");
+            tableMapping.ColumnMappings.Add("pkproducts_id", "pkproducts_id");
+            tableMapping.ColumnMappings.Add("products_tnved", "products_tnved");
+            tableMapping.ColumnMappings.Add("products_okp", "products_okp");
             tableMapping.ColumnMappings.Add("has_proposal_document", "has_proposal_document");
+            tableMapping.ColumnMappings.Add("gosts_list", "gosts_list");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
@@ -43950,10 +43972,10 @@ doc_templates ON contract_types.id = doc_templates.contract_types_id";
             this._adapter.InsertCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = @"INSERT INTO contracts
-                         (products_id, agents_id, experts_id, contract_status_id, emission_types_id, contract_types_id, date_proposal, scheme_type, add_data_proposal, 
-                         production_documents, custom_gosts, source_types_id, prepayment, cost, total_cost, cash_income)
+                         (products_id, agents_id, experts_id, contract_status_id, emission_types_id, contract_types_id, date_proposal, scheme_type, add_data_proposal, add_data_contract, 
+                         production_documents, custom_gosts, gosts_list, source_types_id, prepayment, cost, total_cost, cash_income)
 VALUES        (@products_id, @agents_id, @experts_id, @contract_status_id, @emission_types_id, @contract_types_id, @date_proposal, @scheme_type, @add_data_proposal, 
-                         @production_documents, @custom_gosts, @source_types_id, @prepayment, @cost, @total_cost, 0)";
+                         @add_data_contract, @production_documents, @custom_gosts, @gosts_list, @source_types_id, @prepayment, @cost, @total_cost, 0)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@products_id";
@@ -44021,6 +44043,14 @@ VALUES        (@products_id, @agents_id, @experts_id, @contract_status_id, @emis
             param.SourceColumn = "add_data_proposal";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@add_data_contract";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Text;
+            param.Size = 2147483647;
+            param.IsNullable = true;
+            param.SourceColumn = "add_data_contract";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@production_documents";
             param.DbType = global::System.Data.DbType.String;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
@@ -44035,6 +44065,14 @@ VALUES        (@products_id, @agents_id, @experts_id, @contract_status_id, @emis
             param.Size = 1024;
             param.IsNullable = true;
             param.SourceColumn = "custom_gosts";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@gosts_list";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.Size = 80;
+            param.IsNullable = true;
+            param.SourceColumn = "gosts_list";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@source_types_id";
@@ -44067,10 +44105,10 @@ VALUES        (@products_id, @agents_id, @experts_id, @contract_status_id, @emis
             this._adapter.UpdateCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
             this._adapter.UpdateCommand.CommandText = @"UPDATE       contracts
-SET                products_id = @products_id, agents_id = @agents_id, experts_id = @experts_id, contract_status_id = @contract_status_id, 
-                         emission_types_id = @emission_types_id, contract_types_id = @contract_types_id, date_proposal = @date_proposal, scheme_type = @scheme_type, 
-                         add_data_proposal = @add_data_proposal, production_documents = @production_documents, source_types_id = @source_types_id, prepayment = @prepayment, 
-                         cost = @cost, total_cost = @total_cost, cash_income = 0
+SET                products_id = @products_id, agents_id = @agents_id, experts_id = @experts_id, contract_status_id = @contract_status_id, contract_types_id = @contract_types_id, 
+                         date_proposal = @date_proposal, add_data_contract = @add_data_contract, scheme_type = @scheme_type, add_data_proposal = @add_data_proposal, 
+                         production_documents = @production_documents, custom_gosts = @custom_gosts, gosts_list = @gosts_list, source_types_id = @source_types_id, 
+                         prepayment = @prepayment, cost = @cost, total_cost = @total_cost, cash_income = 0
 WHERE        (id = @original_id)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
@@ -44102,13 +44140,6 @@ WHERE        (id = @original_id)";
             param.SourceColumn = "contract_status_id";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@emission_types_id";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
-            param.IsNullable = true;
-            param.SourceColumn = "emission_types_id";
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@contract_types_id";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
@@ -44121,6 +44152,14 @@ WHERE        (id = @original_id)";
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Date;
             param.IsNullable = true;
             param.SourceColumn = "date_proposal";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@add_data_contract";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Text;
+            param.Size = 2147483647;
+            param.IsNullable = true;
+            param.SourceColumn = "add_data_contract";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@scheme_type";
@@ -44145,6 +44184,22 @@ WHERE        (id = @original_id)";
             param.Size = 50;
             param.IsNullable = true;
             param.SourceColumn = "production_documents";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@custom_gosts";
+            param.DbType = global::System.Data.DbType.Object;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Byte;
+            param.Size = 1024;
+            param.IsNullable = true;
+            param.SourceColumn = "custom_gosts";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@gosts_list";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.Size = 80;
+            param.IsNullable = true;
+            param.SourceColumn = "gosts_list";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@source_types_id";
@@ -44200,27 +44255,26 @@ WHERE        (id = @original_id)";
             this._commandCollection[0].CommandText = "SELECT\r\ncontracts.id,\r\ncontracts.products_id,\r\ncontracts.agents_id,\r\ncontracts.co" +
                 "ntract_types_id,\r\ncontracts.contract_status_id,\r\ncontracts.experts_id,\r\ncontract" +
                 "s.source_types_id,\r\ncontracts.date_proposal,\r\ncontracts.production_documents,\r\nc" +
-                "ontracts.scheme_type,\r\ncontracts.add_data_proposal,\r\ncontracts.custom_gosts,\r\nco" +
-                "ntracts.prepayment,\r\ncontracts.cost,\r\ncontracts.total_cost,\r\ncontracts.cash_inco" +
-                "me,\r\nproducts.name AS products_name,\r\nproducts.id AS products_id, \r\nagents.id AS" +
-                " agents_id,\r\nagents.name AS agents_name,\r\nagents.pers_lastname,\r\nagents.pers_fir" +
-                "stname,\r\nagents.pers_middlename,\r\nagent_types.id AS agent_types_id,\r\nagent_types" +
-                ".name AS agent_types_name,\r\nCONCAT( agent_types.name, \' \', agents.name ) AS agen" +
-                "ts_fullname, \r\nCONCAT( agents.pers_lastname, \' \', substr(agents.pers_firstname, " +
-                "1, 1), \'. \', substr(agents.pers_middlename, 1, 1), \'.\' ) AS contact_pers_name_FI" +
-                "O,\r\nCONCAT( substr(agents.pers_firstname, 1, 1), \'. \', substr(agents.pers_middle" +
-                "name, 1, 1), \'. \', agents.pers_lastname ) AS contact_pers_name_IOF,\r\ncontract_ty" +
-                "pes.id AS contract_types_id,\r\ncontract_types.name AS contract_types_name,\r\nemiss" +
-                "ion_types.id AS emission_types_id,\r\nemission_types.name AS emission_types_name,\r" +
-                "\n(SELECT IFNULL((SELECT (documents.contract_types_id = 0) FROM documents WHERE (" +
-                "documents.contract_types_id = 0) AND (documents.contracts_id=contracts.id)), fal" +
-                "se)) AS has_proposal_document\r\nFROM\r\ncontracts\r\nLEFT OUTER JOIN agents ON contra" +
-                "cts.agents_id = agents.id\r\nLEFT OUTER JOIN products ON contracts.products_id = p" +
-                "roducts.id\r\nLEFT OUTER JOIN agent_types ON agents.agent_types_id = agent_types.i" +
-                "d\r\nLEFT OUTER JOIN contract_types ON contracts.contract_types_id = contract_type" +
-                "s.id\r\nLEFT OUTER JOIN emission_types ON contracts.emission_types_id = emission_t" +
-                "ypes.id\r\nLEFT OUTER JOIN documents ON contracts.id = documents.contracts_id\r\nWHE" +
-                "RE\r\n    (contracts.contract_status_id = 0)";
+                "ontracts.scheme_type,\r\ncontracts.add_data_proposal,\r\ncontracts.add_data_contract" +
+                ",\r\ncontracts.custom_gosts,\r\ncontracts.gosts_list,\r\ncontracts.prepayment,\r\ncontra" +
+                "cts.cost,\r\ncontracts.total_cost,\r\ncontracts.cash_income,\r\nproducts.id AS pkprodu" +
+                "cts_id, \r\nproducts.name AS products_name,\r\nproducts.tnved AS products_tnved,\r\npr" +
+                "oducts.okp AS products_okp,\r\nagents.id AS agents_id,\r\nagents.name AS agents_name" +
+                ",\r\nagents.pers_lastname,\r\nagents.pers_firstname,\r\nagents.pers_middlename,\r\nagent" +
+                "_types.id AS agent_types_id,\r\nagent_types.name AS agent_types_name,\r\nCONCAT( age" +
+                "nt_types.name, \' \', agents.name ) AS agents_fullname, \r\nCONCAT( agents.pers_last" +
+                "name, \' \', substr(agents.pers_firstname, 1, 1), \'. \', substr(agents.pers_middlen" +
+                "ame, 1, 1), \'.\' ) AS contact_pers_name_FIO,\r\nCONCAT( substr(agents.pers_firstnam" +
+                "e, 1, 1), \'. \', substr(agents.pers_middlename, 1, 1), \'. \', agents.pers_lastname" +
+                " ) AS contact_pers_name_IOF,\r\ncontract_types.id AS contract_types_id,\r\ncontract_" +
+                "types.name AS contract_types_name,\r\n(SELECT IFNULL((SELECT (documents.contract_t" +
+                "ypes_id = 0) FROM documents WHERE (documents.contract_types_id = 0) AND (documen" +
+                "ts.contracts_id=contracts.id)), false)) AS has_proposal_document\r\nFROM\r\ncontract" +
+                "s\r\nLEFT OUTER JOIN agents ON contracts.agents_id = agents.id\r\nLEFT OUTER JOIN pr" +
+                "oducts ON contracts.products_id = products.id\r\nLEFT OUTER JOIN agent_types ON ag" +
+                "ents.agent_types_id = agent_types.id\r\nLEFT OUTER JOIN contract_types ON contract" +
+                "s.contract_types_id = contract_types.id\r\nWHERE\r\n    (contracts.contract_status_i" +
+                "d = 0)";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[1].Connection = this.Connection;

@@ -11,13 +11,17 @@ contracts.date_proposal,
 contracts.production_documents,
 contracts.scheme_type,
 contracts.add_data_proposal,
+contracts.add_data_contract,
 contracts.custom_gosts,
+contracts.gosts_list,
 contracts.prepayment,
 contracts.cost,
 contracts.total_cost,
 contracts.cash_income,
+products.id AS pkproducts_id, 
 products.name AS products_name,
-products.id AS products_id, 
+products.tnved AS products_tnved,
+products.okp AS products_okp,
 agents.id AS agents_id,
 agents.name AS agents_name,
 agents.pers_lastname,
@@ -30,8 +34,6 @@ CONCAT( agents.pers_lastname, ' ', substr(agents.pers_firstname, 1, 1), '. ', su
 CONCAT( substr(agents.pers_firstname, 1, 1), '. ', substr(agents.pers_middlename, 1, 1), '. ', agents.pers_lastname ) AS contact_pers_name_IOF,
 contract_types.id AS contract_types_id,
 contract_types.name AS contract_types_name,
-emission_types.id AS emission_types_id,
-emission_types.name AS emission_types_name,
 (SELECT IFNULL((SELECT (documents.contract_types_id = 0) FROM documents WHERE (documents.contract_types_id = 0) AND (documents.contracts_id=contracts.id)), false)) AS has_proposal_document
 FROM
 contracts
@@ -39,7 +41,6 @@ LEFT OUTER JOIN agents ON contracts.agents_id = agents.id
 LEFT OUTER JOIN products ON contracts.products_id = products.id
 LEFT OUTER JOIN agent_types ON agents.agent_types_id = agent_types.id
 LEFT OUTER JOIN contract_types ON contracts.contract_types_id = contract_types.id
-LEFT OUTER JOIN emission_types ON contracts.emission_types_id = emission_types.id
 WHERE
     (contracts.contract_status_id = 0)
 
@@ -52,10 +53,12 @@ WHERE (id = @id)
 
 INSERT INTO contracts
 (products_id, agents_id, experts_id, contract_status_id, emission_types_id, contract_types_id,
-    date_proposal, scheme_type, add_data_proposal, production_documents, custom_gosts, source_types_id, prepayment, cost, total_cost, cash_income)
+    date_proposal, scheme_type, add_data_proposal, add_data_contract, production_documents, custom_gosts, 
+    gosts_list, source_types_id, prepayment, cost, total_cost, cash_income)
 VALUES
 (@products_id, @agents_id, @experts_id, @contract_status_id, @emission_types_id, @contract_types_id,
-@date_proposal, @scheme_type, @add_data_proposal, @production_documents, @custom_gosts, @source_types_id, @prepayment, @cost, @total_cost, 0)
+    @date_proposal, @scheme_type, @add_data_proposal, @add_data_contract, @production_documents, @custom_gosts,
+    @gosts_list, @source_types_id, @prepayment, @cost, @total_cost, 0)
 
 
 
@@ -65,12 +68,14 @@ products_id = @products_id,
 agents_id = @agents_id,
 experts_id = @experts_id,
 contract_status_id = @contract_status_id,
-emission_types_id = @emission_types_id,
 contract_types_id = @contract_types_id,
 date_proposal = @date_proposal,
+add_data_contract = @add_data_contract,
 scheme_type = @scheme_type,
 add_data_proposal = @add_data_proposal,
 production_documents = @production_documents,
+custom_gosts = @custom_gosts,
+gosts_list = @gosts_list,
 source_types_id = @source_types_id,
 prepayment = @prepayment,
 cost = @cost,

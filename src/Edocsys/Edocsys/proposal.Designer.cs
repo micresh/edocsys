@@ -40,6 +40,8 @@
             System.Windows.Forms.Label total_costLabel;
             System.Windows.Forms.Label production_documentsLabel;
             System.Windows.Forms.Label prepaymentLabel;
+            System.Windows.Forms.Label products_tnvedLabel;
+            System.Windows.Forms.Label products_okpLabel;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProposalForm));
             this.mainSplitContainer = new System.Windows.Forms.SplitContainer();
             this.proposalsDataGridView = new System.Windows.Forms.DataGridView();
@@ -51,12 +53,12 @@
             this.cost = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.total_cost = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.schemetypeFIODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.emissiontypesnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.agentsfullnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.has_proposal_document = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.SendProposalColumn = new System.Windows.Forms.DataGridViewButtonColumn();
             this.contractInfoDataTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.edocbaseDataSet = new Edocsys.EdocbaseDataSet();
+            this.add_data_contractTextBox = new System.Windows.Forms.TextBox();
             this.prepaymentTextBox = new System.Windows.Forms.TextBox();
             this.production_documentsTextBox = new System.Windows.Forms.TextBox();
             this.buttonFillGosts = new System.Windows.Forms.Button();
@@ -66,8 +68,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.total_costTextBox = new System.Windows.Forms.TextBox();
             this.costTextBox = new System.Windows.Forms.TextBox();
-            this.emission_types_idComboBox = new System.Windows.Forms.ComboBox();
-            this.emission_typesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.contract_typeComboBox = new System.Windows.Forms.ComboBox();
             this.contract_typesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.date_proposalDateTimePicker = new System.Windows.Forms.DateTimePicker();
@@ -82,6 +82,8 @@
             this.schemeTypeTextBox = new System.Windows.Forms.TextBox();
             this.productComboBox = new System.Windows.Forms.ComboBox();
             this.productsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.emissiontypesnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.emission_typesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
@@ -97,6 +99,8 @@
             this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.contractsBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.contractsBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.filterToolStripTextBox = new System.Windows.Forms.ToolStripTextBox();
@@ -110,8 +114,8 @@
             this.gOSTSelectionTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.GOSTSelectionTableAdapter();
             this.contractDocDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.contractDocDataTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.ContractDocDataTableAdapter();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.okpLabel1 = new System.Windows.Forms.Label();
+            this.tnvedLabel1 = new System.Windows.Forms.Label();
             proposalProductLabel = new System.Windows.Forms.Label();
             proposalEmissionLabel = new System.Windows.Forms.Label();
             proposalSchemeTypeLabel = new System.Windows.Forms.Label();
@@ -123,6 +127,8 @@
             total_costLabel = new System.Windows.Forms.Label();
             production_documentsLabel = new System.Windows.Forms.Label();
             prepaymentLabel = new System.Windows.Forms.Label();
+            products_tnvedLabel = new System.Windows.Forms.Label();
+            products_okpLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.mainSplitContainer)).BeginInit();
             this.mainSplitContainer.Panel1.SuspendLayout();
             this.mainSplitContainer.Panel2.SuspendLayout();
@@ -130,11 +136,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.proposalsDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.contractInfoDataTableBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.edocbaseDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emission_typesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.contract_typesBindingSource)).BeginInit();
             this.porposalGenerationGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.agentsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emission_typesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.contractsBindingNavigator)).BeginInit();
             this.contractsBindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gOSTSelectionBindingSource)).BeginInit();
@@ -147,7 +153,7 @@
             proposalProductLabel.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Edocsys.Properties.Settings.Default, "product_nameLabelText", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             proposalProductLabel.Location = new System.Drawing.Point(12, 29);
             proposalProductLabel.Name = "proposalProductLabel";
-            proposalProductLabel.Size = new System.Drawing.Size(139, 13);
+            proposalProductLabel.Size = new System.Drawing.Size(94, 13);
             proposalProductLabel.TabIndex = 4;
             proposalProductLabel.Text = global::Edocsys.Properties.Settings.Default.product_nameLabelText;
             // 
@@ -155,9 +161,9 @@
             // 
             proposalEmissionLabel.AutoSize = true;
             proposalEmissionLabel.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Edocsys.Properties.Settings.Default, "ProposalEmissionLabelText", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            proposalEmissionLabel.Location = new System.Drawing.Point(12, 99);
+            proposalEmissionLabel.Location = new System.Drawing.Point(12, 69);
             proposalEmissionLabel.Name = "proposalEmissionLabel";
-            proposalEmissionLabel.Size = new System.Drawing.Size(128, 13);
+            proposalEmissionLabel.Size = new System.Drawing.Size(139, 13);
             proposalEmissionLabel.TabIndex = 6;
             proposalEmissionLabel.Text = global::Edocsys.Properties.Settings.Default.ProposalEmissionLabelText;
             // 
@@ -195,7 +201,7 @@
             // 
             contract_typeLabel.AutoSize = true;
             contract_typeLabel.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Edocsys.Properties.Settings.Default, "ContractTypeText", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            contract_typeLabel.Location = new System.Drawing.Point(12, 75);
+            contract_typeLabel.Location = new System.Drawing.Point(12, 95);
             contract_typeLabel.Name = "contract_typeLabel";
             contract_typeLabel.Size = new System.Drawing.Size(124, 13);
             contract_typeLabel.TabIndex = 21;
@@ -204,7 +210,7 @@
             // date_proposalLabel
             // 
             date_proposalLabel.AutoSize = true;
-            date_proposalLabel.Location = new System.Drawing.Point(12, 53);
+            date_proposalLabel.Location = new System.Drawing.Point(539, 67);
             date_proposalLabel.Name = "date_proposalLabel";
             date_proposalLabel.Size = new System.Drawing.Size(110, 13);
             date_proposalLabel.TabIndex = 27;
@@ -213,7 +219,7 @@
             // costLabel
             // 
             costLabel.AutoSize = true;
-            costLabel.Location = new System.Drawing.Point(471, 54);
+            costLabel.Location = new System.Drawing.Point(836, 52);
             costLabel.Name = "costLabel";
             costLabel.Size = new System.Drawing.Size(41, 13);
             costLabel.TabIndex = 28;
@@ -222,7 +228,7 @@
             // total_costLabel
             // 
             total_costLabel.AutoSize = true;
-            total_costLabel.Location = new System.Drawing.Point(618, 52);
+            total_costLabel.Location = new System.Drawing.Point(804, 77);
             total_costLabel.Name = "total_costLabel";
             total_costLabel.Size = new System.Drawing.Size(78, 13);
             total_costLabel.TabIndex = 29;
@@ -240,11 +246,30 @@
             // prepaymentLabel
             // 
             prepaymentLabel.AutoSize = true;
-            prepaymentLabel.Location = new System.Drawing.Point(324, 53);
+            prepaymentLabel.Location = new System.Drawing.Point(839, 22);
             prepaymentLabel.Name = "prepaymentLabel";
             prepaymentLabel.Size = new System.Drawing.Size(38, 13);
             prepaymentLabel.TabIndex = 41;
             prepaymentLabel.Text = "Аванс";
+            prepaymentLabel.Click += new System.EventHandler(this.prepaymentLabel_Click);
+            // 
+            // products_tnvedLabel
+            // 
+            products_tnvedLabel.AutoSize = true;
+            products_tnvedLabel.Location = new System.Drawing.Point(357, 50);
+            products_tnvedLabel.Name = "products_tnvedLabel";
+            products_tnvedLabel.Size = new System.Drawing.Size(45, 13);
+            products_tnvedLabel.TabIndex = 43;
+            products_tnvedLabel.Text = "ТНВЭД";
+            // 
+            // products_okpLabel
+            // 
+            products_okpLabel.AutoSize = true;
+            products_okpLabel.Location = new System.Drawing.Point(169, 51);
+            products_okpLabel.Name = "products_okpLabel";
+            products_okpLabel.Size = new System.Drawing.Size(30, 13);
+            products_okpLabel.TabIndex = 44;
+            products_okpLabel.Text = "ОКП";
             // 
             // mainSplitContainer
             // 
@@ -262,6 +287,11 @@
             // mainSplitContainer.Panel2
             // 
             this.mainSplitContainer.Panel2.AutoScroll = true;
+            this.mainSplitContainer.Panel2.Controls.Add(this.tnvedLabel1);
+            this.mainSplitContainer.Panel2.Controls.Add(this.okpLabel1);
+            this.mainSplitContainer.Panel2.Controls.Add(this.add_data_contractTextBox);
+            this.mainSplitContainer.Panel2.Controls.Add(products_okpLabel);
+            this.mainSplitContainer.Panel2.Controls.Add(products_tnvedLabel);
             this.mainSplitContainer.Panel2.Controls.Add(prepaymentLabel);
             this.mainSplitContainer.Panel2.Controls.Add(this.prepaymentTextBox);
             this.mainSplitContainer.Panel2.Controls.Add(production_documentsLabel);
@@ -276,7 +306,6 @@
             this.mainSplitContainer.Panel2.Controls.Add(costLabel);
             this.mainSplitContainer.Panel2.Controls.Add(this.costTextBox);
             this.mainSplitContainer.Panel2.Controls.Add(date_proposalLabel);
-            this.mainSplitContainer.Panel2.Controls.Add(this.emission_types_idComboBox);
             this.mainSplitContainer.Panel2.Controls.Add(this.contract_typeComboBox);
             this.mainSplitContainer.Panel2.Controls.Add(this.date_proposalDateTimePicker);
             this.mainSplitContainer.Panel2.Controls.Add(this.porposalGenerationGroupBox);
@@ -310,7 +339,6 @@
             this.cost,
             this.total_cost,
             this.schemetypeFIODataGridViewTextBoxColumn,
-            this.emissiontypesnameDataGridViewTextBoxColumn,
             this.agentsfullnameDataGridViewTextBoxColumn,
             this.has_proposal_document,
             this.SendProposalColumn});
@@ -381,13 +409,6 @@
             this.schemetypeFIODataGridViewTextBoxColumn.Name = "schemetypeFIODataGridViewTextBoxColumn";
             this.schemetypeFIODataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // emissiontypesnameDataGridViewTextBoxColumn
-            // 
-            this.emissiontypesnameDataGridViewTextBoxColumn.DataPropertyName = "emission_types_name";
-            this.emissiontypesnameDataGridViewTextBoxColumn.HeaderText = "Тип выпуска";
-            this.emissiontypesnameDataGridViewTextBoxColumn.Name = "emissiontypesnameDataGridViewTextBoxColumn";
-            this.emissiontypesnameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
             // agentsfullnameDataGridViewTextBoxColumn
             // 
             this.agentsfullnameDataGridViewTextBoxColumn.DataPropertyName = "agents_fullname";
@@ -421,13 +442,22 @@
             this.edocbaseDataSet.DataSetName = "EdocbaseDataSet";
             this.edocbaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
+            // add_data_contractTextBox
+            // 
+            this.add_data_contractTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.contractInfoDataTableBindingSource, "add_data_contract", true));
+            this.add_data_contractTextBox.Location = new System.Drawing.Point(167, 68);
+            this.add_data_contractTextBox.Name = "add_data_contractTextBox";
+            this.add_data_contractTextBox.Size = new System.Drawing.Size(366, 20);
+            this.add_data_contractTextBox.TabIndex = 46;
+            // 
             // prepaymentTextBox
             // 
             this.prepaymentTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.contractInfoDataTableBindingSource, "prepayment", true));
-            this.prepaymentTextBox.Location = new System.Drawing.Point(368, 50);
+            this.prepaymentTextBox.Location = new System.Drawing.Point(883, 19);
             this.prepaymentTextBox.Name = "prepaymentTextBox";
             this.prepaymentTextBox.Size = new System.Drawing.Size(100, 20);
             this.prepaymentTextBox.TabIndex = 42;
+            this.prepaymentTextBox.TextChanged += new System.EventHandler(this.prepaymentTextBox_TextChanged);
             // 
             // production_documentsTextBox
             // 
@@ -491,7 +521,7 @@
             // total_costTextBox
             // 
             this.total_costTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.contractInfoDataTableBindingSource, "total_cost", true));
-            this.total_costTextBox.Location = new System.Drawing.Point(702, 49);
+            this.total_costTextBox.Location = new System.Drawing.Point(883, 74);
             this.total_costTextBox.Name = "total_costTextBox";
             this.total_costTextBox.Size = new System.Drawing.Size(100, 20);
             this.total_costTextBox.TabIndex = 30;
@@ -499,27 +529,10 @@
             // costTextBox
             // 
             this.costTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.contractInfoDataTableBindingSource, "cost", true));
-            this.costTextBox.Location = new System.Drawing.Point(518, 50);
+            this.costTextBox.Location = new System.Drawing.Point(883, 48);
             this.costTextBox.Name = "costTextBox";
-            this.costTextBox.Size = new System.Drawing.Size(94, 20);
+            this.costTextBox.Size = new System.Drawing.Size(100, 20);
             this.costTextBox.TabIndex = 29;
-            // 
-            // emission_types_idComboBox
-            // 
-            this.emission_types_idComboBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.contractInfoDataTableBindingSource, "emission_types_id", true));
-            this.emission_types_idComboBox.DataSource = this.emission_typesBindingSource;
-            this.emission_types_idComboBox.DisplayMember = "name";
-            this.emission_types_idComboBox.FormattingEnabled = true;
-            this.emission_types_idComboBox.Location = new System.Drawing.Point(167, 96);
-            this.emission_types_idComboBox.Name = "emission_types_idComboBox";
-            this.emission_types_idComboBox.Size = new System.Drawing.Size(635, 21);
-            this.emission_types_idComboBox.TabIndex = 27;
-            this.emission_types_idComboBox.ValueMember = "id";
-            // 
-            // emission_typesBindingSource
-            // 
-            this.emission_typesBindingSource.DataMember = "emission_types";
-            this.emission_typesBindingSource.DataSource = this.edocbaseDataSet;
             // 
             // contract_typeComboBox
             // 
@@ -527,7 +540,7 @@
             this.contract_typeComboBox.DataSource = this.contract_typesBindingSource;
             this.contract_typeComboBox.DisplayMember = "name";
             this.contract_typeComboBox.FormattingEnabled = true;
-            this.contract_typeComboBox.Location = new System.Drawing.Point(167, 72);
+            this.contract_typeComboBox.Location = new System.Drawing.Point(167, 92);
             this.contract_typeComboBox.Name = "contract_typeComboBox";
             this.contract_typeComboBox.Size = new System.Drawing.Size(635, 21);
             this.contract_typeComboBox.TabIndex = 25;
@@ -541,7 +554,7 @@
             // date_proposalDateTimePicker
             // 
             this.date_proposalDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.contractInfoDataTableBindingSource, "date_proposal", true));
-            this.date_proposalDateTimePicker.Location = new System.Drawing.Point(167, 49);
+            this.date_proposalDateTimePicker.Location = new System.Drawing.Point(654, 63);
             this.date_proposalDateTimePicker.Name = "date_proposalDateTimePicker";
             this.date_proposalDateTimePicker.Size = new System.Drawing.Size(148, 20);
             this.date_proposalDateTimePicker.TabIndex = 28;
@@ -554,9 +567,9 @@
             this.porposalGenerationGroupBox.Controls.Add(this.buttonGenerateProposalDoc);
             this.porposalGenerationGroupBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Edocsys.Properties.Settings.Default, "ProposalOperationsGroupBox", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.porposalGenerationGroupBox.Dock = System.Windows.Forms.DockStyle.Right;
-            this.porposalGenerationGroupBox.Location = new System.Drawing.Point(972, 0);
+            this.porposalGenerationGroupBox.Location = new System.Drawing.Point(983, 0);
             this.porposalGenerationGroupBox.Name = "porposalGenerationGroupBox";
-            this.porposalGenerationGroupBox.Size = new System.Drawing.Size(292, 200);
+            this.porposalGenerationGroupBox.Size = new System.Drawing.Size(292, 189);
             this.porposalGenerationGroupBox.TabIndex = 24;
             this.porposalGenerationGroupBox.TabStop = false;
             this.porposalGenerationGroupBox.Text = global::Edocsys.Properties.Settings.Default.ProposalOperationsGroupBox;
@@ -656,6 +669,18 @@
             // 
             this.productsBindingSource.DataMember = "products";
             this.productsBindingSource.DataSource = this.edocbaseDataSet;
+            // 
+            // emissiontypesnameDataGridViewTextBoxColumn
+            // 
+            this.emissiontypesnameDataGridViewTextBoxColumn.DataPropertyName = "emission_types_name";
+            this.emissiontypesnameDataGridViewTextBoxColumn.HeaderText = "Тип выпуска";
+            this.emissiontypesnameDataGridViewTextBoxColumn.Name = "emissiontypesnameDataGridViewTextBoxColumn";
+            this.emissiontypesnameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // emission_typesBindingSource
+            // 
+            this.emission_typesBindingSource.DataMember = "emission_types";
+            this.emission_typesBindingSource.DataSource = this.edocbaseDataSet;
             // 
             // openFileDialog
             // 
@@ -795,6 +820,21 @@
             this.contractsBindingNavigator.TabIndex = 0;
             this.contractsBindingNavigator.Text = "bindingNavigator1";
             // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton1.Text = "toolStripButton1";
+            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
+            // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
@@ -879,20 +919,23 @@
             // 
             this.contractDocDataTableAdapter.ClearBeforeFill = true;
             // 
-            // toolStripButton1
+            // okpLabel1
             // 
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton1.Text = "toolStripButton1";
-            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
+            this.okpLabel1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productsBindingSource, "okp", true));
+            this.okpLabel1.Location = new System.Drawing.Point(196, 50);
+            this.okpLabel1.Name = "okpLabel1";
+            this.okpLabel1.Size = new System.Drawing.Size(155, 18);
+            this.okpLabel1.TabIndex = 47;
+            this.okpLabel1.Text = "label3";
             // 
-            // toolStripSeparator2
+            // tnvedLabel1
             // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
+            this.tnvedLabel1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productsBindingSource, "tnved", true));
+            this.tnvedLabel1.Location = new System.Drawing.Point(408, 50);
+            this.tnvedLabel1.Name = "tnvedLabel1";
+            this.tnvedLabel1.Size = new System.Drawing.Size(195, 18);
+            this.tnvedLabel1.TabIndex = 48;
+            this.tnvedLabel1.Text = "label3";
             // 
             // ProposalForm
             // 
@@ -913,11 +956,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.proposalsDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.contractInfoDataTableBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.edocbaseDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emission_typesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.contract_typesBindingSource)).EndInit();
             this.porposalGenerationGroupBox.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.agentsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emission_typesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.contractsBindingNavigator)).EndInit();
             this.contractsBindingNavigator.ResumeLayout(false);
             this.contractsBindingNavigator.PerformLayout();
@@ -965,7 +1008,6 @@
         private System.Windows.Forms.BindingSource productsBindingSource;
         private EdocbaseDataSetTableAdapters.contract_typesTableAdapter contract_typesTableAdapter;
         private System.Windows.Forms.BindingSource contract_typesBindingSource;
-        private System.Windows.Forms.ComboBox emission_types_idComboBox;
         private EdocbaseDataSetTableAdapters.emission_typesTableAdapter emission_typesTableAdapter;
         private System.Windows.Forms.BindingSource emission_typesBindingSource;
         private System.Windows.Forms.BindingSource contractInfoDataTableBindingSource;
@@ -1001,6 +1043,9 @@
         private System.Windows.Forms.TextBox prepaymentTextBox;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.TextBox add_data_contractTextBox;
+        private System.Windows.Forms.Label tnvedLabel1;
+        private System.Windows.Forms.Label okpLabel1;
 
         //private EdocbaseDataSetTableAdapters.TemplatesDataTableTableAdapter templatesDataTableTableAdapter;
         //private EdocbaseDataSetTableAdapters.ProductsTableAdapter productsTableAdapter;

@@ -45,7 +45,7 @@
       <Value Profile="(Default)">&amp;Помощь</Value>
     </Setting>
     <Setting Name="product_nameLabelText" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Наименование продукции</Value>
+      <Value Profile="(Default)">Класс продукции</Value>
     </Setting>
     <Setting Name="product_OKPLabelText" Type="System.String" Scope="User">
       <Value Profile="(Default)">Код ОКП</Value>
@@ -69,7 +69,7 @@
       <Value Profile="(Default)">edocbase</Value>
     </Setting>
     <Setting Name="ProposalEmissionLabelText" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Тип выпуска продукции</Value>
+      <Value Profile="(Default)">Наименование продукции</Value>
     </Setting>
     <Setting Name="ProposalClientDocsLabelText" Type="System.String" Scope="User">
       <Value Profile="(Default)">Учредительные документы</Value>
@@ -279,7 +279,7 @@
       <Value Profile="(Default)">Загрузить файл заявки с диска</Value>
     </Setting>
     <Setting Name="ContractTypeText" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Тип проводимых работ</Value>
+      <Value Profile="(Default)">Вид проводимых работ</Value>
     </Setting>
     <Setting Name="ContractOperationGroupBox" Type="System.String" Scope="User">
       <Value Profile="(Default)">Операции с договором</Value>

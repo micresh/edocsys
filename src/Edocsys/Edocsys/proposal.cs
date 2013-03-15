@@ -274,7 +274,7 @@ namespace Edocsys
             currentDoc["experts_id"] = 1;     //assign all to admin?????
             currentDoc["contract_types_id"] = (int)Constants.ContractTypes.Sertefication;
             currentDoc["source_types_id"] = (int)Constants.SourceTypes.Personal;
-            currentDoc["date_proposal"] = DateTime.Now;
+            currentDoc["date_proposal"] = DateTime.Now.Date;
 
             //reset gost controls
             checkBoxCustomGOSTS.Checked = false;
@@ -434,6 +434,16 @@ namespace Edocsys
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
             RefreshData();
+        }
+
+        private void prepaymentLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void prepaymentTextBox_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

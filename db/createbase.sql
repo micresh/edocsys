@@ -202,7 +202,9 @@ CREATE TABLE IF NOT EXISTS `edocbase`.`contracts` (
   `add_data_proposal`   TEXT NULL,
   -- Признак оплаты
   `custom_gosts`        TINYINT(1) DEFAULT '0',
-  -- Дополнительная информация о продукции
+  -- Признак оплаты
+  `gosts_list`        VARCHAR(80) NULL,
+    -- Дополнительная информация о продукции
   `add_data_contract`   TEXT NULL,
   -- Производственная документация
   `production_documents` VARCHAR(50) NULL,
