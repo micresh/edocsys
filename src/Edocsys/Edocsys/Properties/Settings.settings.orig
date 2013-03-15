@@ -12,7 +12,7 @@
       <Value Profile="(Default)">&amp;Файл</Value>
     </Setting>
     <Setting Name="LoginToolStripMenuItemText" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Вход</Value>
+      <Value Profile="(Default)">Начать сеанс</Value>
     </Setting>
     <Setting Name="ExitToolStripMenuItemText" Type="System.String" Scope="User">
       <Value Profile="(Default)">Выход</Value>
@@ -27,28 +27,25 @@
       <Value Profile="(Default)">Назначение эксперта</Value>
     </Setting>
     <Setting Name="AddingExpertToolStripMenuItemText" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Добавление эксперта</Value>
+      <Value Profile="(Default)">Эксперты</Value>
     </Setting>
     <Setting Name="DocToolStripMenuItemText" Type="System.String" Scope="User">
-      <Value Profile="(Default)">&amp;Документы</Value>
+      <Value Profile="(Default)">&amp;Этапы работы</Value>
     </Setting>
     <Setting Name="ContractorToolStripMenuItemText" Type="System.String" Scope="User">
       <Value Profile="(Default)">Контрагенты</Value>
-    </Setting>
-    <Setting Name="ProductionToolStripMenuItemText" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Область аккредитации</Value>
     </Setting>
     <Setting Name="ProposalToolStripMenuItemText" Type="System.String" Scope="User">
       <Value Profile="(Default)">Заявки</Value>
     </Setting>
     <Setting Name="ContractToolStripMenuItemText" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Договора</Value>
+      <Value Profile="(Default)">Ведение договоров</Value>
     </Setting>
     <Setting Name="HelpToolStripMenuItemText" Type="System.String" Scope="User">
       <Value Profile="(Default)">&amp;Помощь</Value>
     </Setting>
     <Setting Name="product_nameLabelText" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Наименование продукции</Value>
+      <Value Profile="(Default)">Класс продукции</Value>
     </Setting>
     <Setting Name="product_OKPLabelText" Type="System.String" Scope="User">
       <Value Profile="(Default)">Код ОКП</Value>
@@ -56,51 +53,11 @@
     <Setting Name="product_TNVEDLabelText" Type="System.String" Scope="User">
       <Value Profile="(Default)">Код ТНВД</Value>
     </Setting>
-    <Setting Name="ProductionFormText" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Область аккредитации</Value>
-    </Setting>
     <Setting Name="WindowToolStripMenuItemText" Type="System.String" Scope="User">
       <Value Profile="(Default)">Окна</Value>
     </Setting>
-    <Setting Name="ContractStatuses" Type="System.Collections.Specialized.StringCollection" Scope="Application">
-      <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
-&lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;string&gt;00 - Заявка добавлена&lt;/string&gt;
-  &lt;string&gt;01 - К заявке прикреплен эксперт&lt;/string&gt;
-  &lt;string&gt;02 - Начата работа&lt;/string&gt;
-  &lt;string&gt;03 - Оформлен акт выполненных работ&lt;/string&gt;
-  &lt;string&gt;04 - Акт утверден руководителем&lt;/string&gt;
-  &lt;string&gt;20 - Договор исполнен&lt;/string&gt;
-  &lt;string&gt;21 - Заказчик  Эл. Джон&lt;/string&gt;
-  &lt;string&gt;22 - Эксперт  Эл. Джон&lt;/string&gt;
-  &lt;string&gt;23 - Директор  Эл. Джон&lt;/string&gt;
-&lt;/ArrayOfString&gt;</Value>
-    </Setting>
-    <Setting Name="PaymentStatuses" Type="System.Collections.Specialized.StringCollection" Scope="Application">
-      <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
-&lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;string&gt;10 - Договор оформлен&lt;/string&gt;
-  &lt;string&gt;11 - Договор подписан&lt;/string&gt;
-  &lt;string&gt;12 - Перечислен аванс&lt;/string&gt;
-  &lt;string&gt;13 - Перечислена полная сумма&lt;/string&gt;
-&lt;/ArrayOfString&gt;</Value>
-    </Setting>
     <Setting Name="ProposalFormText" Type="System.String" Scope="User">
       <Value Profile="(Default)">Заявки</Value>
-    </Setting>
-    <Setting Name="EdocbaseConnectionStringHomeVolik" Type="(Connection string)" Scope="Application">
-      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
-&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;ConnectionString&gt;host=localhost;Port=3309;User Id=defuser;password=ttrr;Persist Security Info=True;database=Edocbase&lt;/ConnectionString&gt;
-&lt;/SerializableConnectionString&gt;</DesignTimeValue>
-      <Value Profile="(Default)">host=localhost;Port=3309;User Id=defuser;password=ttrr;Persist Security Info=True;database=Edocbase</Value>
-    </Setting>
-    <Setting Name="EdocbaseConnectionStringServer" Type="(Connection string)" Scope="Application">
-      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
-&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;ConnectionString&gt;server=10.0.2.2;User Id=defuser;password=ttrr;Persist Security Info=True;database=Edocbase&lt;/ConnectionString&gt;
-&lt;/SerializableConnectionString&gt;</DesignTimeValue>
-      <Value Profile="(Default)">server=10.0.2.2;User Id=defuser;password=ttrr;Persist Security Info=True;database=Edocbase</Value>
     </Setting>
     <Setting Name="ConnHost" Type="System.String" Scope="User">
       <Value Profile="(Default)">192.168.137.85</Value>
@@ -109,17 +66,10 @@
       <Value Profile="(Default)">3306</Value>
     </Setting>
     <Setting Name="ConnDatabase" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Edocbase</Value>
-    </Setting>
-    <Setting Name="EdocbaseConnectionStringHomeMicresh" Type="(Connection string)" Scope="Application">
-      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
-&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;ConnectionString&gt;host=localhost;User Id=defuser;password=ttrr;Persist Security Info=True;database=Edocbase&lt;/ConnectionString&gt;
-&lt;/SerializableConnectionString&gt;</DesignTimeValue>
-      <Value Profile="(Default)">host=localhost;User Id=defuser;password=ttrr;Persist Security Info=True;database=Edocbase</Value>
+      <Value Profile="(Default)">edocbase</Value>
     </Setting>
     <Setting Name="ProposalEmissionLabelText" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Тип выпуска продукции</Value>
+      <Value Profile="(Default)">Наименование продукции</Value>
     </Setting>
     <Setting Name="ProposalClientDocsLabelText" Type="System.String" Scope="User">
       <Value Profile="(Default)">Учредительные документы</Value>
@@ -133,20 +83,298 @@
     <Setting Name="ProposalContractTypeLabelText" Type="System.String" Scope="User">
       <Value Profile="(Default)">Тип договора</Value>
     </Setting>
-    <Setting Name="EdocbaseConnectionStringHomeVolikRoot" Type="(Connection string)" Scope="Application">
-      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
-&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;ConnectionString&gt;host=localhost;Port=3309;User Id=root;password=po12jein45bf;Persist Security Info=True;database=Edocbase&lt;/ConnectionString&gt;
-&lt;/SerializableConnectionString&gt;</DesignTimeValue>
-      <Value Profile="(Default)">host=localhost;Port=3309;User Id=root;password=po12jein45bf;Persist Security Info=True;database=Edocbase</Value>
+    <Setting Name="ProductionToolStripMenuItemText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Область аккредитации</Value>
+    </Setting>
+    <Setting Name="ProductionFormText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Область аккредитации</Value>
+    </Setting>
+    <Setting Name="ExpertsFormText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Эксперты</Value>
+    </Setting>
+    <Setting Name="ClientsFormText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Контрагенты</Value>
+    </Setting>
+    <Setting Name="AgentsFullNameText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Полное название</Value>
+    </Setting>
+    <Setting Name="AgentsShortNameText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Сокращенное название</Value>
+    </Setting>
+    <Setting Name="AgentsAddressText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Адрес</Value>
+    </Setting>
+    <Setting Name="AgentsPhoneText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Телефон</Value>
+    </Setting>
+    <Setting Name="AgentsFaxText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Факс</Value>
+    </Setting>
+    <Setting Name="AgentsEMailText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">E-mail</Value>
+    </Setting>
+    <Setting Name="AgentsContactInformationText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Контактная информация</Value>
+    </Setting>
+    <Setting Name="AgentsBankInformationText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Реквизиты</Value>
+    </Setting>
+    <Setting Name="AgentsINNText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">ИНН</Value>
+    </Setting>
+    <Setting Name="AgentsOGRNText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">ОГРН</Value>
+    </Setting>
+    <Setting Name="AgentsKPPText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">КПП</Value>
+    </Setting>
+    <Setting Name="AgentsOKPOText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">ОКПО</Value>
+    </Setting>
+    <Setting Name="AgentsKSText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Кор/счет</Value>
+    </Setting>
+    <Setting Name="AgentsRSText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Р/счет</Value>
+    </Setting>
+    <Setting Name="AgentsBIKText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">БИК</Value>
+    </Setting>
+    <Setting Name="AgentsBankText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Наименование банка</Value>
+    </Setting>
+    <Setting Name="AgentsContactPersonText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Ответственное лицо</Value>
+    </Setting>
+    <Setting Name="AgentsDocText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Документы</Value>
+    </Setting>
+    <Setting Name="AgentsPersonStatusText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Должность</Value>
+    </Setting>
+    <Setting Name="AgentsPersonFirstNameText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Имя</Value>
+    </Setting>
+    <Setting Name="AgentsPersonLastNameText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Фамилия</Value>
+    </Setting>
+    <Setting Name="AgentsPersonMiddleNameText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Отчество</Value>
+    </Setting>
+    <Setting Name="ConfigFormText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Настройки</Value>
+    </Setting>
+    <Setting Name="ConfigSaveText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Сохранить</Value>
+    </Setting>
+    <Setting Name="ConfigCancelText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Отмена</Value>
+    </Setting>
+    <Setting Name="ConfigHostText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Хост</Value>
+    </Setting>
+    <Setting Name="ConfigPortText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Порт</Value>
+    </Setting>
+    <Setting Name="ConfigDatabaseText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Имя базы данных</Value>
+    </Setting>
+    <Setting Name="ConfigResetToDefaults" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Сборосить</Value>
+    </Setting>
+    <Setting Name="ConfigTestConnectionText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Проверить подключение</Value>
+    </Setting>
+    <Setting Name="LogFilename" Type="System.String" Scope="User">
+      <Value Profile="(Default)">log.txt</Value>
+    </Setting>
+    <Setting Name="AssighExpertFormText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Назначение экспертизы</Value>
+    </Setting>
+    <Setting Name="AssignExpertTabText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Назначить эксперта</Value>
+    </Setting>
+    <Setting Name="AssignedExpertTabText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Назначенные эксперты</Value>
+    </Setting>
+    <Setting Name="AssignExpertExpertsText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Эксперты</Value>
+    </Setting>
+    <Setting Name="ProposalAgentNameText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Название контрагента</Value>
+    </Setting>
+    <Setting Name="AssignExprtsExpertText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Эксперт</Value>
+    </Setting>
+    <Setting Name="AssignExpertProposalText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Заявка</Value>
+    </Setting>
+    <Setting Name="AssignExpertsAssignButtonText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Назначить</Value>
+    </Setting>
+    <Setting Name="LoginFormText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Вход</Value>
+    </Setting>
+    <Setting Name="LoginFormCancelText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Отмена</Value>
+    </Setting>
+    <Setting Name="LoginFormLoginText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Войти</Value>
+    </Setting>
+    <Setting Name="AgentsTypeName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Форма собственности</Value>
+    </Setting>
+    <Setting Name="AgentsContactsText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Контакты</Value>
+    </Setting>
+    <Setting Name="DocTemplatesTitle" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Шаблоны документов</Value>
+    </Setting>
+    <Setting Name="DocTemplateOperationsText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Шаблон не выбран</Value>
+    </Setting>
+    <Setting Name="ContractsFormTitle" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Договора</Value>
+    </Setting>
+    <Setting Name="TabExpertAssigned" Type="System.String" Scope="User">
+      <Value Profile="(Default)">На подписании договора</Value>
+    </Setting>
+    <Setting Name="TabTaskProcessed" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Договора в работе</Value>
+    </Setting>
+    <Setting Name="TabTaskReady" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Пдтверждение выполнения договора</Value>
+    </Setting>
+    <Setting Name="TabTaskFinished" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Выдача акта и подтверждение клиентом</Value>
+    </Setting>
+    <Setting Name="TabBadJob" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Невыполненные задания</Value>
+    </Setting>
+    <Setting Name="LoadTemplateButton" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Загрузить шаблон документа</Value>
+    </Setting>
+    <Setting Name="EditTemplateButton" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Изменить шаблон документа</Value>
+    </Setting>
+    <Setting Name="SaveTemplateButton" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Сохранить шаблон на диск</Value>
+    </Setting>
+    <Setting Name="TemplatePresenceText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Наличие загруженного шаблона</Value>
+    </Setting>
+    <Setting Name="GenerateProposalTitle" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Сгенерировать заявку</Value>
+    </Setting>
+    <Setting Name="EditProposalButton" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Редактировать файл заявки</Value>
+    </Setting>
+    <Setting Name="ProposalOperationsGroupBox" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Операции с документом заявки</Value>
+    </Setting>
+    <Setting Name="SaveProposalButton" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Сохранть файл заявки на диск</Value>
+    </Setting>
+    <Setting Name="LoadProposalButton" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Загрузить файл заявки с диска</Value>
+    </Setting>
+    <Setting Name="ContractTypeText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Вид проводимых работ</Value>
+    </Setting>
+    <Setting Name="ContractOperationGroupBox" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Операции с договором</Value>
+    </Setting>
+    <Setting Name="GenerateContractTitle" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Сгенерировать договор</Value>
+    </Setting>
+    <Setting Name="ContractNumberTitle" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Номер договора</Value>
+    </Setting>
+    <Setting Name="EditContractTitle" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Редактировать файл договора</Value>
+    </Setting>
+    <Setting Name="SaveContractTitle" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Сохранть файл договора на диск</Value>
+    </Setting>
+    <Setting Name="LoadContractTitle" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Загрузить файл договора с диска</Value>
+    </Setting>
+    <Setting Name="ProductAreasTitle" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Область аккредитации</Value>
+    </Setting>
+    <Setting Name="GOSTSelectionTitle" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Выбор ГОСТов</Value>
+    </Setting>
+    <Setting Name="ContractsNumberTitle" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Номер договора</Value>
+    </Setting>
+    <Setting Name="ContractDateCTitle" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Дата заключения договора</Value>
+    </Setting>
+    <Setting Name="ContractsDateStartTitle" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Дата начала работ</Value>
+    </Setting>
+    <Setting Name="ContractsDateSampleIncomeTitle" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Дата поступления образца</Value>
+    </Setting>
+    <Setting Name="ContractsDateProtocolIncomeTitle" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Дата поступления протокола</Value>
+    </Setting>
+    <Setting Name="PreparationsForTaskTitle" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Ожидание и подготовка к работе</Value>
+    </Setting>
+    <Setting Name="ContractDateEndTitle" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Дата окончания работ</Value>
+    </Setting>
+    <Setting Name="ReattestationSignTitle" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Заключение договора инспекционного контроля</Value>
+    </Setting>
+    <Setting Name="InspectionControlTitle" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Договора на инспекционном контроле</Value>
+    </Setting>
+    <Setting Name="FinishedTasksTitle" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Завершенные договора</Value>
     </Setting>
     <Setting Name="EdocbaseConnectionString" Type="(Connection string)" Scope="Application">
       <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
 &lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;ConnectionString&gt;server=192.168.137.85;User Id=root;password=po12jein45bf;Persist Security Info=True;database=Edocbase&lt;/ConnectionString&gt;
+  &lt;ConnectionString&gt;server=192.168.137.85;User Id=root;password=po12jein45bf;Persist Security Info=True;database=edocbase&lt;/ConnectionString&gt;
   &lt;ProviderName&gt;MySql.Data.MySqlClient&lt;/ProviderName&gt;
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
-      <Value Profile="(Default)">server=192.168.137.85;User Id=root;password=po12jein45bf;Persist Security Info=True;database=Edocbase</Value>
+      <Value Profile="(Default)">server=192.168.137.85;User Id=root;password=po12jein45bf;Persist Security Info=True;database=edocbase</Value>
+    </Setting>
+    <Setting Name="WorksForContractTitle" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Работы по договору</Value>
+    </Setting>
+    <Setting Name="ContractPaymentsTitle" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Оплата договоров</Value>
+    </Setting>
+    <Setting Name="InspectionControlMenuTitle" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Инспекционный контроль</Value>
+    </Setting>
+    <Setting Name="ContractStatsTitle" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Статистика договоров</Value>
+    </Setting>
+    <Setting Name="ContractActTitle" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Операции с актами</Value>
+    </Setting>
+    <Setting Name="PayedContractsTitle" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Оплаченые договора</Value>
+    </Setting>
+    <Setting Name="GenerateActTitle" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Сгенерировать акт выполнения работ</Value>
+    </Setting>
+    <Setting Name="ActEditTitle" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Редактировать файл акта</Value>
+    </Setting>
+    <Setting Name="ActSaveTitle" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Сохранить файл акта на диск</Value>
+    </Setting>
+    <Setting Name="ActLoadTitle" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Загрузить файл акта с диска</Value>
+    </Setting>
+    <Setting Name="ReattContractTitle" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Операции с договором инспекционного контроля</Value>
     </Setting>
   </Settings>
 </SettingsFile>

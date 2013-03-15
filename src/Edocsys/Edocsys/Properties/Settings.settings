@@ -144,10 +144,10 @@
       <Value Profile="(Default)">Наименование банка</Value>
     </Setting>
     <Setting Name="AgentsContactPersonText" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Ответственное лицо</Value>
+      <Value Profile="(Default)">Руководитель организации</Value>
     </Setting>
     <Setting Name="AgentsDocText" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Документы</Value>
+      <Value Profile="(Default)">Действующий на основании</Value>
     </Setting>
     <Setting Name="AgentsPersonStatusText" Type="System.String" Scope="User">
       <Value Profile="(Default)">Должность</Value>
@@ -225,7 +225,7 @@
       <Value Profile="(Default)">Форма собственности</Value>
     </Setting>
     <Setting Name="AgentsContactsText" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Контакты</Value>
+      <Value Profile="(Default)">Дополнительные контакты</Value>
     </Setting>
     <Setting Name="DocTemplatesTitle" Type="System.String" Scope="User">
       <Value Profile="(Default)">Шаблоны документов</Value>

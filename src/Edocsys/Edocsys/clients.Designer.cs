@@ -302,11 +302,10 @@
             // 
             // ag_docLabel
             // 
-            ag_docLabel.AutoSize = true;
             ag_docLabel.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Edocsys.Properties.Settings.Default, "AgentsDocText", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            ag_docLabel.Location = new System.Drawing.Point(7, 22);
+            ag_docLabel.Location = new System.Drawing.Point(3, 22);
             ag_docLabel.Name = "ag_docLabel";
-            ag_docLabel.Size = new System.Drawing.Size(66, 13);
+            ag_docLabel.Size = new System.Drawing.Size(79, 28);
             ag_docLabel.TabIndex = 40;
             ag_docLabel.Text = global::Edocsys.Properties.Settings.Default.AgentsDocText;
             // 
@@ -365,7 +364,7 @@
             this.agents_contactsDataGridView.Location = new System.Drawing.Point(3, 41);
             this.agents_contactsDataGridView.MultiSelect = false;
             this.agents_contactsDataGridView.Name = "agents_contactsDataGridView";
-            this.agents_contactsDataGridView.Size = new System.Drawing.Size(662, 144);
+            this.agents_contactsDataGridView.Size = new System.Drawing.Size(662, 131);
             this.agents_contactsDataGridView.TabIndex = 3;
             // 
             // person
@@ -570,11 +569,17 @@
             this.tableAdapterManager.contract_statusTableAdapter = null;
             this.tableAdapterManager.contract_types_for_workTableAdapter = null;
             this.tableAdapterManager.contract_typesTableAdapter = null;
+            this.tableAdapterManager.ContractInfoTableAdapter = null;
+            this.tableAdapterManager.ContractPrepareForWorkTAdapter = null;
+            this.tableAdapterManager.ContractSigningTableAdapter = null;
+            this.tableAdapterManager.ContractsOnInspectionTableAdapter = null;
             this.tableAdapterManager.contractsTableAdapter = null;
             this.tableAdapterManager.doc_templatesTableAdapter = null;
             this.tableAdapterManager.documentsTableAdapter = null;
             this.tableAdapterManager.emission_typesTableAdapter = null;
             this.tableAdapterManager.expertsTableAdapter = null;
+            this.tableAdapterManager.GOSTSelectionTableAdapter = null;
+            this.tableAdapterManager.InspectionContractsTableAdapter = null;
             this.tableAdapterManager.log_journalTableAdapter = null;
             this.tableAdapterManager.product_areasTableAdapter = null;
             this.tableAdapterManager.product_gostsTableAdapter = null;
@@ -607,7 +612,7 @@
             this.splitContainer1.Panel2.Controls.Add(this.groupBox2);
             this.splitContainer1.Panel2.Controls.Add(this.groupBox1);
             this.splitContainer1.Panel2MinSize = 490;
-            this.splitContainer1.Size = new System.Drawing.Size(1162, 522);
+            this.splitContainer1.Size = new System.Drawing.Size(1162, 498);
             this.splitContainer1.SplitterDistance = 668;
             this.splitContainer1.TabIndex = 8;
             // 
@@ -617,9 +622,9 @@
             this.groupBox4.Controls.Add(this.bindingNavigatorContacts);
             this.groupBox4.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Edocsys.Properties.Settings.Default, "AgentsContactsText", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.groupBox4.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.groupBox4.Location = new System.Drawing.Point(0, 334);
+            this.groupBox4.Location = new System.Drawing.Point(0, 323);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(668, 188);
+            this.groupBox4.Size = new System.Drawing.Size(668, 175);
             this.groupBox4.TabIndex = 49;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = global::Edocsys.Properties.Settings.Default.AgentsContactsText;
@@ -774,7 +779,7 @@
             this.agentsDataGridView.Name = "agentsDataGridView";
             this.agentsDataGridView.ReadOnly = true;
             this.agentsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.agentsDataGridView.Size = new System.Drawing.Size(668, 522);
+            this.agentsDataGridView.Size = new System.Drawing.Size(668, 498);
             this.agentsDataGridView.TabIndex = 7;
             // 
             // fullname
@@ -821,7 +826,7 @@
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox3.Location = new System.Drawing.Point(0, 323);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(490, 199);
+            this.groupBox3.Size = new System.Drawing.Size(490, 175);
             this.groupBox3.TabIndex = 46;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = global::Edocsys.Properties.Settings.Default.AgentsContactPersonText;
@@ -1051,7 +1056,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1162, 547);
+            this.ClientSize = new System.Drawing.Size(1162, 523);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.agentsBindingNavigator);
             this.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Edocsys.Properties.Settings.Default, "ClientsFormText", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));

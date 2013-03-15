@@ -37,9 +37,9 @@ namespace Edocsys
             //Resertification = 4,                // (4, 'Документ о первом инспекционном контроле')
             //Документы для договора
             Sertefication = 10,                 // (10, 'Сертификация')
-            SerteficationWithDeclaration = 11,  // (11, 'Сертификация с декларацией')
-            LabIssues = 12,                     // (12, 'Лабораторные исследования')
-            LabIssuesWithSertefication = 13,    // (13, 'Лабораторные исследования с сертификацией')
+            SerteficationWithDeclaration = 11,  // (11, 'Декларация соответствия')
+            LabIssues = 12,                     // (12, 'Лабораторные испытания')
+            LabIssuesWithSertefication = 13,    // (13, 'Лабораторные испытания с сертификацией')
         }
 
         public enum UserTypes : int

@@ -33,11 +33,12 @@ namespace Edocsys
             f.Activate();
         }
 
-        private static void AssignFormToMDI(Form f)
+        private static Form AssignFormToMDI(Form f)
         {
             //assign parent
             f.MdiParent = MDIParent;
             f.Show();
+            return f;
         }
 
         //use generics to create common ShowForm method
@@ -52,7 +53,9 @@ namespace Edocsys
                 ActivateForm(f);
             else
                 //create form and add it to MDI list
-                AssignFormToMDI(new T());
+            f = AssignFormToMDI(new T());
+
+            f.WindowState = FormWindowState.Maximized;
         }
 
         //use generics to get form object
