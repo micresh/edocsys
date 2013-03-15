@@ -362,6 +362,9 @@ namespace Edocsys
 
         private void buttonFillGosts_Click(object sender, EventArgs e)
         {
+            if (contractInfoDataTableBindingSource.Position < 0)
+                return;
+
             // remove custom => clear all and refill again
             DataRowView currentRow = (DataRowView)this.contractInfoDataTableBindingSource.Current;
 
