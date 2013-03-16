@@ -8,10 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.IO;
 
-
 using MySql.Data.MySqlClient;
-
-using System.Diagnostics;
 
 namespace Edocsys
 {
@@ -21,10 +18,6 @@ namespace Edocsys
         {
             InitializeComponent();
             wmgr.SetMDIParent(this);
-
-            //set trace information logger
-            Debug.Listeners.Add(new TextWriterTraceListener(global::Edocsys.Properties.Settings.Default.LogFilename));
-            Trace.Listeners.Add(new TextWriterTraceListener(global::Edocsys.Properties.Settings.Default.LogFilename));
         }
 
         private void LoginToolStripMenuItem_Click_1(object sender, EventArgs e)
@@ -99,6 +92,8 @@ namespace Edocsys
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            TraceHelper.LogInfo("------------------------- STRAT PROGRAM");
+
             this.usersTableAdapter.Connection.ConnectionString = ConnectionManager.TestConnectionString;
 
             try
@@ -107,7 +102,7 @@ namespace Edocsys
             }
             catch (MySqlException ex)
             {
-                Trace.TraceWarning("MAINFORM: Ошибка подключения к базе данных. " + ex.Message);
+                TraceHelper.LogWarning("MAINFORM: Ошибка подключения к базе данных" , ex);
 
                 //error to get users
                 fillUsersToolStripButton.Visible = true;
@@ -170,9 +165,9 @@ namespace Edocsys
 
         private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
         {
+            TraceHelper.LogInfo("------------------------- END PROGRAM");
             //save debug information
-            Trace.Flush();
-            Debug.Flush();
+            TraceHelper.Flush();
         }
 
         private void usersBindingNavigatorSaveItem_Click(object sender, EventArgs e)
