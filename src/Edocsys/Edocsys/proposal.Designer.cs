@@ -158,12 +158,11 @@
             // proposalSchemeTypeLabel
             // 
             proposalSchemeTypeLabel.AutoSize = true;
-            proposalSchemeTypeLabel.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Edocsys.Properties.Settings.Default, "ProposalSchemeTypeLabelText", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             proposalSchemeTypeLabel.Location = new System.Drawing.Point(12, 144);
             proposalSchemeTypeLabel.Name = "proposalSchemeTypeLabel";
-            proposalSchemeTypeLabel.Size = new System.Drawing.Size(115, 13);
+            proposalSchemeTypeLabel.Size = new System.Drawing.Size(39, 13);
             proposalSchemeTypeLabel.TabIndex = 11;
-            proposalSchemeTypeLabel.Text = global::Edocsys.Properties.Settings.Default.ProposalSchemeTypeLabelText;
+            proposalSchemeTypeLabel.Text = "Схема";
             // 
             // proposalAddDataLabel
             // 
