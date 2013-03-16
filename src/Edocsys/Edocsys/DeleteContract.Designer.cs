@@ -119,11 +119,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(239, 175);
+            this.ClientSize = new System.Drawing.Size(245, 175);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonBadJobByExpert);
             this.Controls.Add(this.buttonBadJobByAgent);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "DeleteContractForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Расторгнуть договор";
             this.Load += new System.EventHandler(this.DeleteContractForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.edocbaseDataSet)).EndInit();
