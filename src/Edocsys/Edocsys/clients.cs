@@ -98,7 +98,7 @@ namespace Edocsys
 
             DataRowView row = edocbaseDataSet.agents_contacts.DefaultView.AddNew();
 
-            DataRow currentRow = edocbaseDataSet.agents.DefaultView[agentsBindingSource.Position].Row;
+            DataRowView currentRow = (DataRowView)agentsBindingSource.Current;
 
             int idAgent = Convert.ToInt32(currentRow["id"]);
 
@@ -108,6 +108,44 @@ namespace Edocsys
         private void bindingNavigatorAddNewItem_Click(object sender, EventArgs e)
         {
             DataRowView row = edocbaseDataSet.agents.DefaultView.AddNew();
+        }
+
+        private void bindingNavigatorDeleteItem_Click(object sender, EventArgs e)
+        {
+            if ((agentsBindingSource.Position < 0) ||
+                (agentsBindingSource.Position >= agentsBindingSource.Count))
+            {
+                return;
+            }
+
+            DataRowView currentRow = (DataRowView)agentsBindingSource.Current;
+
+            int id = Convert.ToInt32(currentRow["id"]);
+
+
+            if (MessageBox.Show("Удалить контрагента #" + id, "Подтвердить удаление контрагента", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                agentsBindingSource.RemoveCurrent();
+            }
+        }
+
+        private void bindingNavigatorDeleteItem1_Click(object sender, EventArgs e)
+        {
+            if ((agents_contactsBindingSource.Position < 0) ||
+                (agents_contactsBindingSource.Position >= agents_contactsBindingSource.Count))
+            {
+                return;
+            }
+
+            DataRowView currentRow = (DataRowView)agents_contactsBindingSource.Current;
+
+            int id = Convert.ToInt32(currentRow["id"]);
+
+
+            if (MessageBox.Show("Удалить контактное лицо #" + id, "Подтвердить удаление контактного лица", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                agents_contactsBindingSource.RemoveCurrent();
+            }
         }
     }
 }

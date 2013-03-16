@@ -49,19 +49,12 @@
             System.Windows.Forms.Label ag_pers_lastnameLabel;
             System.Windows.Forms.Label ag_pers_middlenameLabel;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ClientsForm));
-            this.agents_contactsDataGridView = new System.Windows.Forms.DataGridView();
-            this.person = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.phoneDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.emailDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.faxDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.agents_contactsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.agentsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.edocbaseDataSet = new Edocsys.EdocbaseDataSet();
             this.agentsBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
-            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
@@ -70,6 +63,7 @@
             this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.agentsBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
@@ -77,11 +71,20 @@
             this.tableAdapterManager = new Edocsys.EdocbaseDataSetTableAdapters.TableAdapterManager();
             this.agentsTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.agentsTableAdapter();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.agentsDataGridView = new System.Windows.Forms.DataGridView();
+            this.fullname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.person_shortname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fullnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.agents_contactsDataGridView = new System.Windows.Forms.DataGridView();
+            this.person = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.phoneDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.emailDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.faxDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bindingNavigatorContacts = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewItem1 = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorCountItem1 = new System.Windows.Forms.ToolStripLabel();
-            this.bindingNavigatorDeleteItem1 = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveFirstItem1 = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMovePreviousItem1 = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator3 = new System.Windows.Forms.ToolStripSeparator();
@@ -90,12 +93,9 @@
             this.bindingNavigatorMoveNextItem1 = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveLastItem1 = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+            this.bindingNavigatorDeleteItem1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripLabelAgent = new System.Windows.Forms.ToolStripLabel();
             this.toolStripButtonSaveContact = new System.Windows.Forms.ToolStripButton();
-            this.agentsDataGridView = new System.Windows.Forms.DataGridView();
-            this.fullname = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.person_shortname = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fullnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.pers_statusTextBox = new System.Windows.Forms.TextBox();
             this.docTextBox = new System.Windows.Forms.TextBox();
@@ -140,7 +140,6 @@
             ag_pers_firstnameLabel = new System.Windows.Forms.Label();
             ag_pers_lastnameLabel = new System.Windows.Forms.Label();
             ag_pers_middlenameLabel = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.agents_contactsDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.agents_contactsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.agentsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.edocbaseDataSet)).BeginInit();
@@ -150,10 +149,11 @@
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.agentsDataGridView)).BeginInit();
             this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.agents_contactsDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigatorContacts)).BeginInit();
             this.bindingNavigatorContacts.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.agentsDataGridView)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -349,55 +349,6 @@
             ag_pers_middlenameLabel.TabIndex = 48;
             ag_pers_middlenameLabel.Text = global::Edocsys.Properties.Settings.Default.AgentsPersonMiddleNameText;
             // 
-            // agents_contactsDataGridView
-            // 
-            this.agents_contactsDataGridView.AutoGenerateColumns = false;
-            this.agents_contactsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.agents_contactsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.person,
-            this.status,
-            this.phoneDataGridViewTextBoxColumn1,
-            this.emailDataGridViewTextBoxColumn1,
-            this.faxDataGridViewTextBoxColumn1});
-            this.agents_contactsDataGridView.DataSource = this.agents_contactsBindingSource;
-            this.agents_contactsDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.agents_contactsDataGridView.Location = new System.Drawing.Point(3, 41);
-            this.agents_contactsDataGridView.MultiSelect = false;
-            this.agents_contactsDataGridView.Name = "agents_contactsDataGridView";
-            this.agents_contactsDataGridView.Size = new System.Drawing.Size(662, 131);
-            this.agents_contactsDataGridView.TabIndex = 3;
-            // 
-            // person
-            // 
-            this.person.DataPropertyName = "person";
-            this.person.HeaderText = "Ф.И.О.";
-            this.person.Name = "person";
-            this.person.Width = 200;
-            // 
-            // status
-            // 
-            this.status.DataPropertyName = "status";
-            this.status.HeaderText = "Должность";
-            this.status.Name = "status";
-            // 
-            // phoneDataGridViewTextBoxColumn1
-            // 
-            this.phoneDataGridViewTextBoxColumn1.DataPropertyName = "phone";
-            this.phoneDataGridViewTextBoxColumn1.HeaderText = "Телефон";
-            this.phoneDataGridViewTextBoxColumn1.Name = "phoneDataGridViewTextBoxColumn1";
-            // 
-            // emailDataGridViewTextBoxColumn1
-            // 
-            this.emailDataGridViewTextBoxColumn1.DataPropertyName = "email";
-            this.emailDataGridViewTextBoxColumn1.HeaderText = "E-mail";
-            this.emailDataGridViewTextBoxColumn1.Name = "emailDataGridViewTextBoxColumn1";
-            // 
-            // faxDataGridViewTextBoxColumn1
-            // 
-            this.faxDataGridViewTextBoxColumn1.DataPropertyName = "fax";
-            this.faxDataGridViewTextBoxColumn1.HeaderText = "Факс";
-            this.faxDataGridViewTextBoxColumn1.Name = "faxDataGridViewTextBoxColumn1";
-            // 
             // agents_contactsBindingSource
             // 
             this.agents_contactsBindingSource.DataMember = "fk_agents_agents_contacts";
@@ -421,7 +372,7 @@
             this.agentsBindingNavigator.AddNewItem = this.bindingNavigatorAddNewItem;
             this.agentsBindingNavigator.BindingSource = this.agentsBindingSource;
             this.agentsBindingNavigator.CountItem = this.bindingNavigatorCountItem;
-            this.agentsBindingNavigator.DeleteItem = this.bindingNavigatorDeleteItem;
+            this.agentsBindingNavigator.DeleteItem = null;
             this.agentsBindingNavigator.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.bindingNavigatorMoveFirstItem,
             this.bindingNavigatorMovePreviousItem,
@@ -445,7 +396,7 @@
             this.agentsBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.agentsBindingNavigator.Name = "agentsBindingNavigator";
             this.agentsBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.agentsBindingNavigator.Size = new System.Drawing.Size(1162, 25);
+            this.agentsBindingNavigator.Size = new System.Drawing.Size(1187, 25);
             this.agentsBindingNavigator.TabIndex = 0;
             this.agentsBindingNavigator.Text = "bindingNavigator1";
             // 
@@ -465,15 +416,6 @@
             this.bindingNavigatorCountItem.Size = new System.Drawing.Size(35, 22);
             this.bindingNavigatorCountItem.Text = "of {0}";
             this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
-            // 
-            // bindingNavigatorDeleteItem
-            // 
-            this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
-            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
-            this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorDeleteItem.Text = "Delete";
             // 
             // bindingNavigatorMoveFirstItem
             // 
@@ -535,6 +477,16 @@
             this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
             this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
             // 
+            // bindingNavigatorDeleteItem
+            // 
+            this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
+            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
+            this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorDeleteItem.Text = "Delete";
+            this.bindingNavigatorDeleteItem.Click += new System.EventHandler(this.bindingNavigatorDeleteItem_Click);
+            // 
             // agentsBindingNavigatorSaveItem
             // 
             this.agentsBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -557,6 +509,7 @@
             // 
             // filterToolStripTextBox
             // 
+            this.filterToolStripTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.filterToolStripTextBox.Name = "filterToolStripTextBox";
             this.filterToolStripTextBox.Size = new System.Drawing.Size(200, 25);
             // 
@@ -603,38 +556,137 @@
             // 
             // splitContainer1.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.groupBox4);
             this.splitContainer1.Panel1.Controls.Add(this.agentsDataGridView);
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.Controls.Add(this.groupBox4);
             this.splitContainer1.Panel2.Controls.Add(this.groupBox3);
             this.splitContainer1.Panel2.Controls.Add(this.groupBox2);
             this.splitContainer1.Panel2.Controls.Add(this.groupBox1);
             this.splitContainer1.Panel2MinSize = 490;
-            this.splitContainer1.Size = new System.Drawing.Size(1162, 498);
-            this.splitContainer1.SplitterDistance = 668;
+            this.splitContainer1.Size = new System.Drawing.Size(1187, 668);
+            this.splitContainer1.SplitterDistance = 692;
             this.splitContainer1.TabIndex = 8;
+            // 
+            // agentsDataGridView
+            // 
+            this.agentsDataGridView.AllowUserToAddRows = false;
+            this.agentsDataGridView.AllowUserToDeleteRows = false;
+            this.agentsDataGridView.AutoGenerateColumns = false;
+            this.agentsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.agentsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.fullname,
+            this.person_shortname,
+            this.fullnameDataGridViewTextBoxColumn});
+            this.agentsDataGridView.DataSource = this.agentsBindingSource;
+            this.agentsDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.agentsDataGridView.Location = new System.Drawing.Point(0, 0);
+            this.agentsDataGridView.MultiSelect = false;
+            this.agentsDataGridView.Name = "agentsDataGridView";
+            this.agentsDataGridView.ReadOnly = true;
+            this.agentsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.agentsDataGridView.Size = new System.Drawing.Size(692, 668);
+            this.agentsDataGridView.TabIndex = 7;
+            // 
+            // fullname
+            // 
+            this.fullname.DataPropertyName = "name";
+            this.fullname.HeaderText = "Название";
+            this.fullname.MinimumWidth = 200;
+            this.fullname.Name = "fullname";
+            this.fullname.ReadOnly = true;
+            this.fullname.ToolTipText = "Название";
+            this.fullname.Width = 200;
+            // 
+            // person_shortname
+            // 
+            this.person_shortname.DataPropertyName = "contact_pers_name_FIO";
+            this.person_shortname.HeaderText = "Ф.И.О. ответственного";
+            this.person_shortname.MinimumWidth = 200;
+            this.person_shortname.Name = "person_shortname";
+            this.person_shortname.ReadOnly = true;
+            this.person_shortname.ToolTipText = "Ф.И.О. ответственного";
+            this.person_shortname.Width = 200;
+            // 
+            // fullnameDataGridViewTextBoxColumn
+            // 
+            this.fullnameDataGridViewTextBoxColumn.DataPropertyName = "fullname";
+            this.fullnameDataGridViewTextBoxColumn.HeaderText = "Полное название";
+            this.fullnameDataGridViewTextBoxColumn.Name = "fullnameDataGridViewTextBoxColumn";
+            this.fullnameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.fullnameDataGridViewTextBoxColumn.Width = 200;
             // 
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.agents_contactsDataGridView);
             this.groupBox4.Controls.Add(this.bindingNavigatorContacts);
             this.groupBox4.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Edocsys.Properties.Settings.Default, "AgentsContactsText", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.groupBox4.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.groupBox4.Location = new System.Drawing.Point(0, 323);
+            this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox4.Location = new System.Drawing.Point(0, 498);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(668, 175);
-            this.groupBox4.TabIndex = 49;
+            this.groupBox4.Size = new System.Drawing.Size(491, 170);
+            this.groupBox4.TabIndex = 51;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = global::Edocsys.Properties.Settings.Default.AgentsContactsText;
+            // 
+            // agents_contactsDataGridView
+            // 
+            this.agents_contactsDataGridView.AllowUserToAddRows = false;
+            this.agents_contactsDataGridView.AllowUserToDeleteRows = false;
+            this.agents_contactsDataGridView.AutoGenerateColumns = false;
+            this.agents_contactsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.agents_contactsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.person,
+            this.status,
+            this.phoneDataGridViewTextBoxColumn1,
+            this.emailDataGridViewTextBoxColumn1,
+            this.faxDataGridViewTextBoxColumn1});
+            this.agents_contactsDataGridView.DataSource = this.agents_contactsBindingSource;
+            this.agents_contactsDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.agents_contactsDataGridView.Location = new System.Drawing.Point(3, 41);
+            this.agents_contactsDataGridView.MultiSelect = false;
+            this.agents_contactsDataGridView.Name = "agents_contactsDataGridView";
+            this.agents_contactsDataGridView.Size = new System.Drawing.Size(485, 126);
+            this.agents_contactsDataGridView.TabIndex = 3;
+            // 
+            // person
+            // 
+            this.person.DataPropertyName = "person";
+            this.person.HeaderText = "Ф.И.О.";
+            this.person.Name = "person";
+            this.person.Width = 200;
+            // 
+            // status
+            // 
+            this.status.DataPropertyName = "status";
+            this.status.HeaderText = "Должность";
+            this.status.Name = "status";
+            // 
+            // phoneDataGridViewTextBoxColumn1
+            // 
+            this.phoneDataGridViewTextBoxColumn1.DataPropertyName = "phone";
+            this.phoneDataGridViewTextBoxColumn1.HeaderText = "Телефон";
+            this.phoneDataGridViewTextBoxColumn1.Name = "phoneDataGridViewTextBoxColumn1";
+            // 
+            // emailDataGridViewTextBoxColumn1
+            // 
+            this.emailDataGridViewTextBoxColumn1.DataPropertyName = "email";
+            this.emailDataGridViewTextBoxColumn1.HeaderText = "E-mail";
+            this.emailDataGridViewTextBoxColumn1.Name = "emailDataGridViewTextBoxColumn1";
+            // 
+            // faxDataGridViewTextBoxColumn1
+            // 
+            this.faxDataGridViewTextBoxColumn1.DataPropertyName = "fax";
+            this.faxDataGridViewTextBoxColumn1.HeaderText = "Факс";
+            this.faxDataGridViewTextBoxColumn1.Name = "faxDataGridViewTextBoxColumn1";
             // 
             // bindingNavigatorContacts
             // 
             this.bindingNavigatorContacts.AddNewItem = this.bindingNavigatorAddNewItem1;
             this.bindingNavigatorContacts.BindingSource = this.agents_contactsBindingSource;
             this.bindingNavigatorContacts.CountItem = this.bindingNavigatorCountItem1;
-            this.bindingNavigatorContacts.DeleteItem = this.bindingNavigatorDeleteItem1;
+            this.bindingNavigatorContacts.DeleteItem = null;
             this.bindingNavigatorContacts.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.bindingNavigatorMoveFirstItem1,
             this.bindingNavigatorMovePreviousItem1,
@@ -656,7 +708,7 @@
             this.bindingNavigatorContacts.MovePreviousItem = this.bindingNavigatorMovePreviousItem1;
             this.bindingNavigatorContacts.Name = "bindingNavigatorContacts";
             this.bindingNavigatorContacts.PositionItem = this.bindingNavigatorPositionItem1;
-            this.bindingNavigatorContacts.Size = new System.Drawing.Size(662, 25);
+            this.bindingNavigatorContacts.Size = new System.Drawing.Size(485, 25);
             this.bindingNavigatorContacts.TabIndex = 2;
             this.bindingNavigatorContacts.Text = "bindingNavigatorContacts";
             // 
@@ -668,7 +720,6 @@
             this.bindingNavigatorAddNewItem1.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorAddNewItem1.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorAddNewItem1.Text = "Add new";
-            this.bindingNavigatorAddNewItem1.Click += new System.EventHandler(this.bindingNavigatorAddNewItem1_Click);
             // 
             // bindingNavigatorCountItem1
             // 
@@ -676,15 +727,6 @@
             this.bindingNavigatorCountItem1.Size = new System.Drawing.Size(35, 22);
             this.bindingNavigatorCountItem1.Text = "of {0}";
             this.bindingNavigatorCountItem1.ToolTipText = "Total number of items";
-            // 
-            // bindingNavigatorDeleteItem1
-            // 
-            this.bindingNavigatorDeleteItem1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorDeleteItem1.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem1.Image")));
-            this.bindingNavigatorDeleteItem1.Name = "bindingNavigatorDeleteItem1";
-            this.bindingNavigatorDeleteItem1.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorDeleteItem1.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorDeleteItem1.Text = "Delete";
             // 
             // bindingNavigatorMoveFirstItem1
             // 
@@ -746,6 +788,16 @@
             this.bindingNavigatorSeparator5.Name = "bindingNavigatorSeparator5";
             this.bindingNavigatorSeparator5.Size = new System.Drawing.Size(6, 25);
             // 
+            // bindingNavigatorDeleteItem1
+            // 
+            this.bindingNavigatorDeleteItem1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorDeleteItem1.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem1.Image")));
+            this.bindingNavigatorDeleteItem1.Name = "bindingNavigatorDeleteItem1";
+            this.bindingNavigatorDeleteItem1.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorDeleteItem1.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorDeleteItem1.Text = "Delete";
+            this.bindingNavigatorDeleteItem1.Click += new System.EventHandler(this.bindingNavigatorDeleteItem1_Click);
+            // 
             // toolStripLabelAgent
             // 
             this.toolStripLabelAgent.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
@@ -760,55 +812,6 @@
             this.toolStripButtonSaveContact.Name = "toolStripButtonSaveContact";
             this.toolStripButtonSaveContact.Size = new System.Drawing.Size(23, 22);
             this.toolStripButtonSaveContact.Text = "Save Data";
-            this.toolStripButtonSaveContact.Click += new System.EventHandler(this.toolStripButtonSaveContact_Click);
-            // 
-            // agentsDataGridView
-            // 
-            this.agentsDataGridView.AllowUserToAddRows = false;
-            this.agentsDataGridView.AllowUserToDeleteRows = false;
-            this.agentsDataGridView.AutoGenerateColumns = false;
-            this.agentsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.agentsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.fullname,
-            this.person_shortname,
-            this.fullnameDataGridViewTextBoxColumn});
-            this.agentsDataGridView.DataSource = this.agentsBindingSource;
-            this.agentsDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.agentsDataGridView.Location = new System.Drawing.Point(0, 0);
-            this.agentsDataGridView.MultiSelect = false;
-            this.agentsDataGridView.Name = "agentsDataGridView";
-            this.agentsDataGridView.ReadOnly = true;
-            this.agentsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.agentsDataGridView.Size = new System.Drawing.Size(668, 498);
-            this.agentsDataGridView.TabIndex = 7;
-            // 
-            // fullname
-            // 
-            this.fullname.DataPropertyName = "name";
-            this.fullname.HeaderText = "Название";
-            this.fullname.MinimumWidth = 200;
-            this.fullname.Name = "fullname";
-            this.fullname.ReadOnly = true;
-            this.fullname.ToolTipText = "Название";
-            this.fullname.Width = 200;
-            // 
-            // person_shortname
-            // 
-            this.person_shortname.DataPropertyName = "contact_pers_name_FIO";
-            this.person_shortname.HeaderText = "Ф.И.О. ответственного";
-            this.person_shortname.MinimumWidth = 200;
-            this.person_shortname.Name = "person_shortname";
-            this.person_shortname.ReadOnly = true;
-            this.person_shortname.ToolTipText = "Ф.И.О. ответственного";
-            this.person_shortname.Width = 200;
-            // 
-            // fullnameDataGridViewTextBoxColumn
-            // 
-            this.fullnameDataGridViewTextBoxColumn.DataPropertyName = "fullname";
-            this.fullnameDataGridViewTextBoxColumn.HeaderText = "Полное название";
-            this.fullnameDataGridViewTextBoxColumn.Name = "fullnameDataGridViewTextBoxColumn";
-            this.fullnameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.fullnameDataGridViewTextBoxColumn.Width = 200;
             // 
             // groupBox3
             // 
@@ -823,10 +826,10 @@
             this.groupBox3.Controls.Add(ag_pers_middlenameLabel);
             this.groupBox3.Controls.Add(this.pers_middlenameTextBox);
             this.groupBox3.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Edocsys.Properties.Settings.Default, "AgentsContactPersonText", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox3.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox3.Location = new System.Drawing.Point(0, 323);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(490, 175);
+            this.groupBox3.Size = new System.Drawing.Size(491, 175);
             this.groupBox3.TabIndex = 46;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = global::Edocsys.Properties.Settings.Default.AgentsContactPersonText;
@@ -892,7 +895,7 @@
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox2.Location = new System.Drawing.Point(0, 175);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(490, 148);
+            this.groupBox2.Size = new System.Drawing.Size(491, 148);
             this.groupBox2.TabIndex = 45;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = global::Edocsys.Properties.Settings.Default.AgentsBankInformationText;
@@ -973,7 +976,7 @@
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(490, 175);
+            this.groupBox1.Size = new System.Drawing.Size(491, 175);
             this.groupBox1.TabIndex = 44;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = global::Edocsys.Properties.Settings.Default.AgentsContactInformationText;
@@ -1056,14 +1059,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1162, 523);
+            this.ClientSize = new System.Drawing.Size(1187, 693);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.agentsBindingNavigator);
             this.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Edocsys.Properties.Settings.Default, "ClientsFormText", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.Name = "ClientsForm";
             this.Text = global::Edocsys.Properties.Settings.Default.ClientsFormText;
             this.Load += new System.EventHandler(this.clients_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.agents_contactsDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.agents_contactsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.agentsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.edocbaseDataSet)).EndInit();
@@ -1074,12 +1076,13 @@
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.agentsDataGridView)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.agents_contactsDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigatorContacts)).EndInit();
             this.bindingNavigatorContacts.ResumeLayout(false);
             this.bindingNavigatorContacts.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.agentsDataGridView)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -1134,11 +1137,27 @@
         private System.Windows.Forms.TextBox phoneTextBox;
         private System.Windows.Forms.TextBox faxTextBox;
         private System.Windows.Forms.TextBox emailTextBox;
+        private EdocbaseDataSetTableAdapters.agentsTableAdapter agentsTableAdapter;
+        private EdocbaseDataSetTableAdapters.agent_typesTableAdapter agent_typesTableAdapter;
+        private EdocbaseDataSetTableAdapters.agents_contactsTableAdapter agents_contactsTableAdapter;
+        private System.Windows.Forms.BindingSource agent_typesBindingSource;
+        private System.Windows.Forms.BindingSource agents_contactsBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fullname;
+        private System.Windows.Forms.DataGridViewTextBoxColumn person_shortname;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fullnameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel1;
+        private System.Windows.Forms.ToolStripTextBox filterToolStripTextBox;
         private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.DataGridView agents_contactsDataGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn person;
+        private System.Windows.Forms.DataGridViewTextBoxColumn status;
+        private System.Windows.Forms.DataGridViewTextBoxColumn phoneDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn emailDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn faxDataGridViewTextBoxColumn1;
         private System.Windows.Forms.BindingNavigator bindingNavigatorContacts;
         private System.Windows.Forms.ToolStripButton bindingNavigatorAddNewItem1;
         private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem1;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorDeleteItem1;
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveFirstItem1;
         private System.Windows.Forms.ToolStripButton bindingNavigatorMovePreviousItem1;
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator3;
@@ -1147,25 +1166,9 @@
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveNextItem1;
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem1;
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator5;
+        private System.Windows.Forms.ToolStripButton bindingNavigatorDeleteItem1;
         private System.Windows.Forms.ToolStripLabel toolStripLabelAgent;
         private System.Windows.Forms.ToolStripButton toolStripButtonSaveContact;
-        private EdocbaseDataSetTableAdapters.agentsTableAdapter agentsTableAdapter;
-        private EdocbaseDataSetTableAdapters.agent_typesTableAdapter agent_typesTableAdapter;
-        private EdocbaseDataSetTableAdapters.agents_contactsTableAdapter agents_contactsTableAdapter;
-        private System.Windows.Forms.BindingSource agent_typesBindingSource;
-        private System.Windows.Forms.DataGridView agents_contactsDataGridView;
-        private System.Windows.Forms.BindingSource agents_contactsBindingSource;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fullname;
-        private System.Windows.Forms.DataGridViewTextBoxColumn person_shortname;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fullnameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn person;
-        private System.Windows.Forms.DataGridViewTextBoxColumn status;
-        private System.Windows.Forms.DataGridViewTextBoxColumn phoneDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn emailDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn faxDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripLabel toolStripLabel1;
-        private System.Windows.Forms.ToolStripTextBox filterToolStripTextBox;
 
         //private EdocbaseDataSetTableAdapters.Agents_typesTableAdapter agents_typesTableAdapter;
         //private EdocbaseDataSetTableAdapters.AgentsTableAdapter agentsTableAdapter;
