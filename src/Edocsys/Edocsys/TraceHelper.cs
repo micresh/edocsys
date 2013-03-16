@@ -45,7 +45,7 @@ namespace Edocsys
 
         public static void LogInfo(string msg)
         {
-            Trace.TraceWarning((DateTime.Now).ToString());
+            Trace.TraceInformation((DateTime.Now).ToString());
             Trace.TraceInformation(msg);
         }
 
