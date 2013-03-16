@@ -557,13 +557,12 @@
             // 
             this.tabPageBadJob.Controls.Add(this.badContractsDataTableDataGridView);
             this.tabPageBadJob.Controls.Add(this.bindingNavigatorBadContracts);
-            this.tabPageBadJob.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Edocsys.Properties.Settings.Default, "TabBadJob", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.tabPageBadJob.Location = new System.Drawing.Point(4, 22);
             this.tabPageBadJob.Name = "tabPageBadJob";
             this.tabPageBadJob.Padding = new System.Windows.Forms.Padding(3);
             this.tabPageBadJob.Size = new System.Drawing.Size(1106, 444);
             this.tabPageBadJob.TabIndex = 4;
-            this.tabPageBadJob.Text = global::Edocsys.Properties.Settings.Default.TabBadJob;
+            this.tabPageBadJob.Text = "Невыполненные договора";
             this.tabPageBadJob.UseVisualStyleBackColor = true;
             // 
             // badContractsDataTableDataGridView
