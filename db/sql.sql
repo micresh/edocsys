@@ -126,7 +126,7 @@ AND
 (product_gosts_id = @product_gosts_id)
 
 
--- FillByConract
+-- GOSTSelection
 SELECT
 selected_gosts.id,
 selected_gosts.contracts_id,
@@ -144,8 +144,6 @@ WHERE
 selected_gosts.contracts_id = @contracts_id
 
 
-
-
 -- ClearAll
 DELETE FROM
 selected_gosts
@@ -156,7 +154,7 @@ WHERE
 INSERT INTO
 selected_gosts
 (contracts_id, using_gost, product_gosts_id)
-SELECT @contracts_id AS cid, '1', product_gosts.id FROM product_gosts WHERE (product_gosts.products_id = @product_gosts_id)
+SELECT @contracts_id AS cid, '0', product_gosts.id FROM product_gosts WHERE (product_gosts.products_id = @product_gosts_id)
 
 
 -- !-----------------------------------------------------------
