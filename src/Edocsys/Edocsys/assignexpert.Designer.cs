@@ -44,7 +44,7 @@
             this.agenttypesnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.expertAssignmentBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.edocbaseDataSet = new Edocsys.EdocbaseDataSet();
-            this.bindingNavigator1 = new System.Windows.Forms.BindingNavigator(this.components);
+            this.bindingNavigatorAssignedExperts = new System.Windows.Forms.BindingNavigator(this.components);
             this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripButton10 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton11 = new System.Windows.Forms.ToolStripButton();
@@ -110,8 +110,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.proposalsDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.expertAssignmentBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.edocbaseDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
-            this.bindingNavigator1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingNavigatorAssignedExperts)).BeginInit();
+            this.bindingNavigatorAssignedExperts.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.expertsBindingSource)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -173,7 +173,7 @@
             // splitContainer2.Panel1
             // 
             this.splitContainer2.Panel1.Controls.Add(this.proposalsDataGridView);
-            this.splitContainer2.Panel1.Controls.Add(this.bindingNavigator1);
+            this.splitContainer2.Panel1.Controls.Add(this.bindingNavigatorAssignedExperts);
             // 
             // splitContainer2.Panel2
             // 
@@ -263,13 +263,13 @@
             this.edocbaseDataSet.DataSetName = "EdocbaseDataSet";
             this.edocbaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // bindingNavigator1
+            // bindingNavigatorAssignedExperts
             // 
-            this.bindingNavigator1.AddNewItem = null;
-            this.bindingNavigator1.BindingSource = this.expertAssignmentBindingSource;
-            this.bindingNavigator1.CountItem = this.toolStripLabel2;
-            this.bindingNavigator1.DeleteItem = null;
-            this.bindingNavigator1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.bindingNavigatorAssignedExperts.AddNewItem = null;
+            this.bindingNavigatorAssignedExperts.BindingSource = this.expertAssignmentBindingSource;
+            this.bindingNavigatorAssignedExperts.CountItem = this.toolStripLabel2;
+            this.bindingNavigatorAssignedExperts.DeleteItem = null;
+            this.bindingNavigatorAssignedExperts.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButton10,
             this.toolStripButton11,
             this.toolStripSeparator5,
@@ -282,16 +282,16 @@
             this.toolStripButton8,
             this.toolStripSeparator8,
             this.filterProposalsToolStripTextBox});
-            this.bindingNavigator1.Location = new System.Drawing.Point(0, 0);
-            this.bindingNavigator1.MoveFirstItem = this.toolStripButton10;
-            this.bindingNavigator1.MoveLastItem = this.toolStripButton13;
-            this.bindingNavigator1.MoveNextItem = this.toolStripButton12;
-            this.bindingNavigator1.MovePreviousItem = this.toolStripButton11;
-            this.bindingNavigator1.Name = "bindingNavigator1";
-            this.bindingNavigator1.PositionItem = this.toolStripTextBox2;
-            this.bindingNavigator1.Size = new System.Drawing.Size(962, 25);
-            this.bindingNavigator1.TabIndex = 9;
-            this.bindingNavigator1.Text = "bindingNavigator1";
+            this.bindingNavigatorAssignedExperts.Location = new System.Drawing.Point(0, 0);
+            this.bindingNavigatorAssignedExperts.MoveFirstItem = this.toolStripButton10;
+            this.bindingNavigatorAssignedExperts.MoveLastItem = this.toolStripButton13;
+            this.bindingNavigatorAssignedExperts.MoveNextItem = this.toolStripButton12;
+            this.bindingNavigatorAssignedExperts.MovePreviousItem = this.toolStripButton11;
+            this.bindingNavigatorAssignedExperts.Name = "bindingNavigatorAssignedExperts";
+            this.bindingNavigatorAssignedExperts.PositionItem = this.toolStripTextBox2;
+            this.bindingNavigatorAssignedExperts.Size = new System.Drawing.Size(962, 25);
+            this.bindingNavigatorAssignedExperts.TabIndex = 9;
+            this.bindingNavigatorAssignedExperts.Text = "bindingNavigator1";
             // 
             // toolStripLabel2
             // 
@@ -775,9 +775,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.proposalsDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.expertAssignmentBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.edocbaseDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).EndInit();
-            this.bindingNavigator1.ResumeLayout(false);
-            this.bindingNavigator1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingNavigatorAssignedExperts)).EndInit();
+            this.bindingNavigatorAssignedExperts.ResumeLayout(false);
+            this.bindingNavigatorAssignedExperts.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.expertsBindingSource)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
@@ -833,7 +833,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
         private System.Windows.Forms.ToolStripTextBox filterAssignedToolStripTextBox;
         private System.Windows.Forms.DataGridView proposalsDataGridView;
-        private System.Windows.Forms.BindingNavigator bindingNavigator1;
+        private System.Windows.Forms.BindingNavigator bindingNavigatorAssignedExperts;
         private System.Windows.Forms.ToolStripLabel toolStripLabel2;
         private System.Windows.Forms.ToolStripButton toolStripButton10;
         private System.Windows.Forms.ToolStripButton toolStripButton11;
