@@ -243,6 +243,9 @@ namespace Edocsys
             if (checker(contract_id)){
                 FillDocData(contract_id, docType, data, currentDoc);
             }
+
+            AcceptDocUpdate();
+            Refresh();
         }
 
         private void FillDocData(int contract_id, int docType, byte[] data, DataRowView currentDoc)
