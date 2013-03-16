@@ -124,7 +124,7 @@ namespace Edocsys
 
                 if (!hasDocument)
                 {
-                    if (MessageBox.Show("Внимание! Документ заявки #" + id + " не сгенерирован! Продолжить обработку?", "Подтвердить отправку заявки", MessageBoxButtons.YesNo) != DialogResult.Yes)
+                    if (MessageBox.Show("Внимание! Документ заявки #" + id + " не сгенерирован! Продолжить отправку заявки?", "Подтвердить отправку заявки", MessageBoxButtons.YesNo) != DialogResult.Yes)
                     return;
                 }
 
