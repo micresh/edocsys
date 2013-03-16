@@ -183,9 +183,36 @@ namespace Edocsys
             RefreshDatabase();
         }
 
-        private void toolStripButtonOpenContract_Click(object sender, EventArgs e)
+        private void bindingNavigatorDeleteItem_Click(object sender, EventArgs e)
         {
+            if ((finishedContractsBindingSource.Position < 0) ||
+                (finishedContractsBindingSource.Position >= finishedContractsBindingSource.Count))
+            {
+                return;
+            }
 
+            int id = DocGeneratorHelper.GetContractID(finishedContractsBindingSource);
+
+            if (MessageBox.Show("Удалить договор #" + id, "Подтвердить удаление договора", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                finishedContractsBindingSource.RemoveCurrent();
+            }
+        }
+
+        private void toolStripButton5_Click(object sender, EventArgs e)
+        {
+            if ((badContractsBindingSource.Position < 0) ||
+                (badContractsBindingSource.Position >= badContractsBindingSource.Count))
+            {
+                return;
+            }
+
+            int id = DocGeneratorHelper.GetContractID(badContractsBindingSource);
+
+            if (MessageBox.Show("Удалить договор #" + id, "Подтвердить удаление договора", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                badContractsBindingSource.RemoveCurrent();
+            }
         }
     }
 }

@@ -447,6 +447,7 @@
             this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorDeleteItem.Text = "Delete";
+            this.bindingNavigatorDeleteItem.Click += new System.EventHandler(this.bindingNavigatorDeleteItem_Click);
             // 
             // usersBindingNavigatorSaveItem
             // 
@@ -524,7 +525,6 @@
             this.toolStripButtonOpenContract.Size = new System.Drawing.Size(23, 22);
             this.toolStripButtonOpenContract.Text = "toolStripButton7";
             this.toolStripButtonOpenContract.Visible = false;
-            this.toolStripButtonOpenContract.Click += new System.EventHandler(this.toolStripButtonOpenContract_Click);
             // 
             // toolStripSeparator8
             // 
@@ -834,6 +834,7 @@
             this.toolStripButton5.RightToLeftAutoMirrorImage = true;
             this.toolStripButton5.Size = new System.Drawing.Size(23, 22);
             this.toolStripButton5.Text = "Delete";
+            this.toolStripButton5.Click += new System.EventHandler(this.toolStripButton5_Click);
             // 
             // toolStripButton6
             // 
