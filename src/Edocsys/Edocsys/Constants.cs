@@ -37,7 +37,7 @@ namespace Edocsys
             //Resertification = 4,                // (4, 'Документ о первом инспекционном контроле')
             //Документы для договора
             Sertefication = 10,                 // (10, 'Сертификация')
-            SerteficationWithDeclaration = 11,  // (11, 'Декларация соответствия')
+            SerteficationWithDeclaration = 11,  // (11, 'Декларирование соответствия')
             LabIssues = 12,                     // (12, 'Лабораторные испытания')
             LabIssuesWithSertefication = 13,    // (13, 'Лабораторные испытания с сертификацией')
         }

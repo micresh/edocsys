@@ -18,9 +18,9 @@ INSERT INTO `edocbase`.`contract_types` (`id`, `name`) VALUES (2,'Договор
 -- INSERT INTO `edocbase`.`contract_types` (`id`, `name`) VALUES (3,'Документ о втором инспекционном контроле/реаттестации');
 
 INSERT INTO `edocbase`.`contract_types` (`id`, `name`) VALUES (10,'Сертификация');
-INSERT INTO `edocbase`.`contract_types` (`id`, `name`) VALUES (11,'Декларация соответствия');
-INSERT INTO `edocbase`.`contract_types` (`id`, `name`) VALUES (12,'Лабораторные исследования');
-INSERT INTO `edocbase`.`contract_types` (`id`, `name`) VALUES (13,'Лабораторные исследования с сертификацией');
+INSERT INTO `edocbase`.`contract_types` (`id`, `name`) VALUES (11,'Декларирование соответствия');
+INSERT INTO `edocbase`.`contract_types` (`id`, `name`) VALUES (12,'Лабораторные испытания');
+INSERT INTO `edocbase`.`contract_types` (`id`, `name`) VALUES (13,'Лабораторные испытания с сертификацией');
 
 
 -- insert contract statuses into contract_status table
