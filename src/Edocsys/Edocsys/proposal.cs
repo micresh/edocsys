@@ -344,5 +344,21 @@ namespace Edocsys
 
             contractInfoDataTableBindingSource.Position = pos;
         }
+
+        private void bindingNavigatorDeleteItem_Click(object sender, EventArgs e)
+        {
+            if ((contractInfoDataTableBindingSource.Position < 0) ||
+                (contractInfoDataTableBindingSource.Position >= contractInfoDataTableBindingSource.Count))
+            {
+                return;
+            }
+
+            int id = DocGeneratorHelper.GetContractID(contractInfoDataTableBindingSource);
+
+            if (MessageBox.Show("Удалить заявку #" + id, "Подтвердить удаление заявки", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                contractInfoDataTableBindingSource.RemoveCurrent();
+            }
+        }
     }
 }

@@ -693,6 +693,7 @@
             this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorDeleteItem.Text = "Delete";
+            this.bindingNavigatorDeleteItem.Click += new System.EventHandler(this.bindingNavigatorDeleteItem_Click);
             // 
             // contractsBindingNavigatorSaveItem
             // 
@@ -708,7 +709,7 @@
             this.contractsBindingNavigator.AddNewItem = null;
             this.contractsBindingNavigator.BindingSource = this.contractInfoDataTableBindingSource;
             this.contractsBindingNavigator.CountItem = this.bindingNavigatorCountItem;
-            this.contractsBindingNavigator.DeleteItem = this.bindingNavigatorDeleteItem;
+            this.contractsBindingNavigator.DeleteItem = null;
             this.contractsBindingNavigator.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.bindingNavigatorMoveFirstItem,
             this.bindingNavigatorMovePreviousItem,
