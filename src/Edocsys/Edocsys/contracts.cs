@@ -52,9 +52,12 @@ namespace Edocsys
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Save Error");
+                string type = "Save ERROR";
+                string msg = ex.Message;
+                string title = type;
+                TraceHelper.LogError(type, ex, this);
+                MessageBox.Show(msg, title);
             }
-            /**/
         }
 
         private void RefreshDatabase()
@@ -74,9 +77,12 @@ namespace Edocsys
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Refresh Error");
+                string type = "Refresh ERROR";
+                string msg = ex.Message;
+                string title = type;
+                TraceHelper.LogError(type, ex, this);
+                MessageBox.Show(msg, title);
             }
-            /**/
         }
 
         private void buttonGenerateContract_Click(object sender, EventArgs e)
@@ -104,11 +110,19 @@ namespace Edocsys
             }
             catch (NullReferenceException ex)
             {
-                MessageBox.Show("Ошибка получения данных для заполнения: " + ex.Message, "Ошибка");
+                string msg = "Ошибка получения данных для заполнения: " + ex.Message;
+                string title = "Ошибка";
+                string type = "GenerateDoc GetData ERROR";
+                TraceHelper.LogError(type, ex, sender);
+                MessageBox.Show(msg, title);
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "GenerateDoc Error");
+                string type = "GenerateDoc ERROR";
+                string msg = ex.Message;
+                string title = type;
+                TraceHelper.LogError(type, ex, sender);
+                MessageBox.Show(msg, title);
             }
 
             RefreshDatabase();
@@ -148,11 +162,19 @@ namespace Edocsys
             }
             catch (NullReferenceException ex)
             {
-                MessageBox.Show("Файл заявки отсутствует в БД: " + ex.Message, "Отсутствие заявки");
+                string msg = "Файл заявки отсутствует в БД: " + ex.Message;
+                string title = "Отсутствие документа";
+                string type = "EditDoc GetData ERROR";
+                TraceHelper.LogError(type, ex, sender);
+                MessageBox.Show(msg, title);
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "EditDoc ERROR");
+                string type = "EditDoc ERROR";
+                string msg = ex.Message;
+                string title = type;
+                TraceHelper.LogError(type, ex, sender);
+                MessageBox.Show(msg, title);
             }
 
             RefreshDatabase();
@@ -182,11 +204,20 @@ namespace Edocsys
             }
             catch (NullReferenceException ex)
             {
-                MessageBox.Show("Файл договора отсутствует в БД: " + ex.Message, "Отсутствие договора");
+                string msg = "Файл договора отсутствует в БД: " + ex.Message;
+                string title = "Отсутствие договора";
+                string type = "SaveDoc GetData ERROR";
+                TraceHelper.LogError(type, ex, sender);
+                MessageBox.Show(msg, title);
+
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "SaveDoc ERROR");
+                string type = "SaveDoc ERROR";
+                string msg = ex.Message;
+                string title = type;
+                TraceHelper.LogError(type, ex, sender);
+                MessageBox.Show(msg, title);
             }
 
             RefreshDatabase();
@@ -216,11 +247,19 @@ namespace Edocsys
             }
             catch (NullReferenceException ex)
             {
-                MessageBox.Show("Ошибка загрузки документа: " + ex.Message, "Ошибка");
+                string msg = "Ошибка загрузки документа: " + ex.Message;
+                string title = "Ошибка";
+                string type = "LoadDoc GetData ERROR";
+                TraceHelper.LogError(type, ex, sender);
+                MessageBox.Show(msg, title);
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "LoadDoc ERROR");
+                string type = "LoadDoc ERROR";
+                string msg = ex.Message;
+                string title = type;
+                TraceHelper.LogError(type, ex, sender);
+                MessageBox.Show(msg, title);
             }
 
             RefreshDatabase();
@@ -248,7 +287,11 @@ namespace Edocsys
                         }
                         catch (Exception ex)
                         {
-                            MessageBox.Show(ex.Message, "Save Error");
+                            string type = "Send save ERROR";
+                            string msg = ex.Message;
+                            string title = type;
+                            TraceHelper.LogError(type, ex, sender);
+                            MessageBox.Show(msg, title);
                         }
                     }
                 }
@@ -285,7 +328,11 @@ namespace Edocsys
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show(ex.Message, "Save Error");
+                        string type = "Confirm save ERROR";
+                        string msg = ex.Message;
+                        string title = type;
+                        TraceHelper.LogError(type, ex, sender);
+                        MessageBox.Show(msg, title); ;
                     }
                 }
             }
@@ -319,7 +366,11 @@ namespace Edocsys
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show(ex.Message, "Save Error");
+                        string type = "Act save ERROR";
+                        string msg = ex.Message;
+                        string title = type;
+                        TraceHelper.LogError(type, ex, sender);
+                        MessageBox.Show(msg, title);
                     }
                 }
             }
@@ -336,7 +387,11 @@ namespace Edocsys
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show(ex.Message, "Save Error");
+                        string type = "Send save ERROR";
+                        string msg = ex.Message;
+                        string title = type;
+                        TraceHelper.LogError(type, ex, sender);
+                        MessageBox.Show(msg, title);
                     }
                 }
             }
@@ -376,11 +431,19 @@ namespace Edocsys
             }
             catch (NullReferenceException ex)
             {
-                MessageBox.Show("Ошибка получения данных для заполнения: " + ex.Message, "Ошибка");
+                string type = "Act save ERROR";
+                string msg = "Ошибка получения данных для заполнения: " + ex.Message;
+                string title = "Ошибка";
+                TraceHelper.LogError(type, ex, sender);
+                MessageBox.Show(msg, title);
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "GenerateDoc Error");
+                string type = "GenerateDocACT ERROR";
+                string msg = ex.Message;
+                string title = type;
+                TraceHelper.LogError(type, ex, sender);
+                MessageBox.Show(msg, title);
             }
 
             RefreshDatabase();
@@ -409,11 +472,19 @@ namespace Edocsys
             }
             catch (NullReferenceException ex)
             {
-                MessageBox.Show("Файл заявки отсутствует в БД: " + ex.Message, "Отсутствие заявки");
+                string type = "EditDocACT GetData ERROR";
+                string msg = "Файл акта отсутствует в БД: " + ex.Message;
+                string title = "Отсутствие акта";
+                TraceHelper.LogError(type, ex, sender);
+                MessageBox.Show(msg, title);
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "EditDoc ERROR");
+                string type = "EditDocACT ERROR";
+                string msg = ex.Message;
+                string title = type;
+                TraceHelper.LogError(type, ex, sender);
+                MessageBox.Show(msg, title);
             }
 
             RefreshDatabase();
@@ -443,11 +514,19 @@ namespace Edocsys
             }
             catch (NullReferenceException ex)
             {
-                MessageBox.Show("Файл договора отсутствует в БД: " + ex.Message, "Отсутствие договора");
+                string type = "SaveDocACT GetData ERROR";
+                string msg = "Файл акта отсутствует в БД: " + ex.Message;
+                string title = "Отсутствие акта";
+                TraceHelper.LogError(type, ex, sender);
+                MessageBox.Show(msg, title);
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "SaveDoc ERROR");
+                string type = "SaveDocACT ERROR";
+                string msg = ex.Message;
+                string title = type;
+                TraceHelper.LogError(type, ex, sender);
+                MessageBox.Show(msg, title);
             }
 
             RefreshDatabase();
@@ -477,11 +556,19 @@ namespace Edocsys
             }
             catch (NullReferenceException ex)
             {
-                MessageBox.Show("Ошибка загрузки документа: " + ex.Message, "Ошибка");
+                string type = "LoadDocACT GetData ERROR";
+                string msg = "Ошибка загрузки документа: " + ex.Message;
+                string title = "Ошибка";
+                TraceHelper.LogError(type, ex, sender);
+                MessageBox.Show(msg, title);
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "LoadDoc ERROR");
+                string type = "LoadDocACT ERROR";
+                string msg = ex.Message;
+                string title = type;
+                TraceHelper.LogError(type, ex, sender);
+                MessageBox.Show(msg, title);
             }
 
             RefreshDatabase();
