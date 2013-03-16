@@ -27,8 +27,12 @@ namespace Edocsys
 
         private FilterHelper filter;
         private DocGeneratorHelper proposalGenerator;
+
         public int currentContractID;
         public int currentProductID;
+        public string GOSTsList;
+        public string ProductionDocuments;
+        public bool UseTUIsteadGosts;
 
         private void SaveProposal()
         {
@@ -269,112 +273,43 @@ namespace Edocsys
         private void bindingNavigatorAddNewItem_Click(object sender, EventArgs e)
         {
             this.contractInfoDataTableBindingSource.AddNew();
-            DataRowView currentDoc = (DataRowView)this.contractInfoDataTableBindingSource.Current;
-            currentDoc["contract_status_id"] = (int)Constants.ContractStatuses.NewProposal;
-            currentDoc["experts_id"] = 1;     //assign all to admin?????
-            currentDoc["contract_types_id"] = (int)Constants.ContractTypes.Sertefication;
-            currentDoc["source_types_id"] = (int)Constants.SourceTypes.Personal;
-            currentDoc["date_proposal"] = DateTime.Now.Date;
-
-            //reset gost controls
-            checkBoxCustomGOSTS.Checked = false;
-            GOSTsTextBox.Text = "";
-
-            FillGOSTsList();
-        }
-
-        private void buttonGOSTSelection_Click(object sender, EventArgs e)
-        {
-            //SaveProposal();
-            int pos = contractInfoDataTableBindingSource.Position;
-
 
             DataRowView currentRow = (DataRowView)this.contractInfoDataTableBindingSource.Current;
+            currentRow["contract_status_id"] = (int)Constants.ContractStatuses.NewProposal;
+            currentRow["experts_id"] = 1;     //assign all to admin?????
+            currentRow["contract_types_id"] = (int)Constants.ContractTypes.Sertefication;
+            currentRow["source_types_id"] = (int)Constants.SourceTypes.Personal;
+            currentRow["date_proposal"] = DateTime.Now.Date;
 
-            if ((int)(currentRow["id"]) < 0)
-            {
-                SaveProposal();
-                RefreshData();
-                contractInfoDataTableBindingSource.Position = pos;
-            }
+            currentRow["custom_gosts"] = false;
+            currentRow["production_documents"] = "(нет)";
+            currentRow["gosts_list"] = "(нет)";
+        }
 
-            currentRow = (DataRowView)this.contractInfoDataTableBindingSource.Current;
 
-            this.currentProductID = Convert.ToInt32(currentRow["products_id"]);
-            this.currentContractID = Convert.ToInt32(currentRow["id"]);
-
-            GOSTSelectionForm gsf = new GOSTSelectionForm(this);
-
-            gsf.ShowDialog();
-
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
             RefreshData();
-
-            contractInfoDataTableBindingSource.Position = pos;
-
-            FillGOSTsList();
         }
 
-        private void checkBoxCustomGOSTS_CheckedChanged(object sender, EventArgs e)
+        private void buttonFillConditions_Click(object sender, EventArgs e)
         {
-            if (contractInfoDataTableBindingSource.Position < 0)
+            if ((contractInfoDataTableBindingSource.Position < 0) ||
+                (contractInfoDataTableBindingSource.Position >= contractInfoDataTableBindingSource.Count))
+            {
                 return;
-
-            bool selected = ((CheckBox)sender).Checked;
-
-
-            GOSTsTextBox.Enabled = selected;
-            buttonGOSTSelection.Enabled = selected;
-            buttonFillGosts.Enabled = !selected;
-
-            DataRowView currentRow = (DataRowView)this.contractInfoDataTableBindingSource.Current;
+            }
 
             int pos = contractInfoDataTableBindingSource.Position;
 
-            if ((int)(currentRow["id"]) < 0)
-            {
-                SaveProposal();
-                RefreshData();
-                //return;
-                contractInfoDataTableBindingSource.Position = pos;
-            }
-
-            currentRow = (DataRowView)this.contractInfoDataTableBindingSource.Current;
-
-            this.currentProductID = Convert.ToInt32(currentRow["products_id"]);
-            this.currentContractID = Convert.ToInt32(currentRow["id"]);
-
-            if (selected)
-            {
-                // use custom gosts
-                currentRow["custom_gosts"] = true;
-            }
-            else
-            {
-                // remove custom => clear all and refill again
-                currentRow["custom_gosts"] = false;
-
-                gOSTSelectionTableAdapter.ClearAll(currentContractID);
-                gOSTSelectionTableAdapter.FillAll(currentContractID, currentProductID);
-            }
-
-            FillGOSTsList();
-        }
-
-        private void buttonFillGosts_Click(object sender, EventArgs e)
-        {
-            if (contractInfoDataTableBindingSource.Position < 0)
-                return;
-
-            // remove custom => clear all and refill again
             DataRowView currentRow = (DataRowView)this.contractInfoDataTableBindingSource.Current;
 
-            int pos = contractInfoDataTableBindingSource.Position;
-
             if ((int)(currentRow["id"]) < 0)
             {
+                //not saved => save
                 SaveProposal();
                 RefreshData();
-                //return;
+
                 contractInfoDataTableBindingSource.Position = pos;
             }
 
@@ -382,71 +317,32 @@ namespace Edocsys
 
             if (currentRow["products_id"] == null)
             {
+                MessageBox.Show("Не выбран вид продукции");
                 return;
             }
 
             this.currentProductID = Convert.ToInt32(currentRow["products_id"]);
             this.currentContractID = Convert.ToInt32(currentRow["id"]);
 
-            gOSTSelectionTableAdapter.ClearAll(currentContractID);
-            gOSTSelectionTableAdapter.FillAll(currentContractID, currentProductID);
+            this.currentProductID = Convert.ToInt32(currentRow["products_id"]);
+            this.currentContractID = Convert.ToInt32(currentRow["id"]);
+            this.ProductionDocuments = Convert.ToString(currentRow["production_documents"]);
+            this.GOSTsList = Convert.ToString(currentRow["gosts_list"]);
+            this.UseTUIsteadGosts = Convert.ToBoolean(currentRow["custom_gosts"]);
 
+            GOSTSelectionForm gsf = new GOSTSelectionForm(this);
 
-            FillGOSTsList();
-        }
-
-        private void FillGOSTsList()
-        {
-            if ((contractInfoDataTableBindingSource.Position < 0) ||
-            (contractInfoDataTableBindingSource.Position >= contractInfoDataTableBindingSource.Count))
+            if (gsf.ShowDialog() == DialogResult.OK)
             {
-                return;
+                currentRow["production_documents"] = this.ProductionDocuments;
+                currentRow["gosts_list"] = this.GOSTsList;
+                currentRow["custom_gosts"] = this.UseTUIsteadGosts;
+
+                SaveProposal();
+                RefreshData();
             }
 
-            DataRowView currentRow = (DataRowView)this.contractInfoDataTableBindingSource.Current;
-
-            int currentContractID = Convert.ToInt32(currentRow["id"]);
-            if (currentContractID < 0)
-                return;
-
-            string res = GetGOSTsList(currentContractID);
-            GOSTsTextBox.Text = res;
-        }
-
-        private string GetGOSTsList(int contractID)
-        {
-
-            this.gOSTSelectionTableAdapter.FillByContract(this.edocbaseDataSet.GOSTSelection, contractID);
-
-            string list = "";
-            foreach (DataRowView x in this.gOSTSelectionBindingSource)
-            {
-                if (x["using_gost"] != DBNull.Value)
-                    if ((bool)x["using_gost"])
-                        list += x["number"] + "; ";
-            }
-
-            return list;
-        }
-
-        private void contractInfoDataTableBindingSource_CurrentChanged(object sender, EventArgs e)
-        {
-            FillGOSTsList();
-        }
-
-        private void toolStripButton1_Click(object sender, EventArgs e)
-        {
-            RefreshData();
-        }
-
-        private void prepaymentLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void prepaymentTextBox_TextChanged(object sender, EventArgs e)
-        {
-
+            contractInfoDataTableBindingSource.Position = pos;
         }
     }
 }
