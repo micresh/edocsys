@@ -5,7 +5,6 @@ using System.Text;
 using System.IO;
 
 using System.Data;
-using System.Diagnostics;
 using Novacode;
 
 
@@ -69,7 +68,7 @@ namespace Edocsys
                 }
                 catch (Exception ex)
                 {
-                    Trace.TraceWarning(String.Format("DocXGenerator: Ошибка извлечения данных: k: {0} => v: {1} [{2}]",  k, v, ex.Message));
+                    TraceHelper.LogWarning(String.Format("DocXGenerator: Ошибка извлечения данных: k: {0} => v: {1} [{2}]",  k, v, ex.Message), ex);
                 }
 
                 substitutions.Add(k, v);
