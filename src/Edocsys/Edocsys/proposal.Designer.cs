@@ -209,9 +209,9 @@
             production_documentsLabel.AutoSize = true;
             production_documentsLabel.Location = new System.Drawing.Point(12, 167);
             production_documentsLabel.Name = "production_documentsLabel";
-            production_documentsLabel.Size = new System.Drawing.Size(81, 13);
+            production_documentsLabel.Size = new System.Drawing.Size(92, 13);
             production_documentsLabel.TabIndex = 40;
-            production_documentsLabel.Text = "Выполнены по";
+            production_documentsLabel.Text = "Выпускаемая по";
             // 
             // products_tnvedLabel
             // 

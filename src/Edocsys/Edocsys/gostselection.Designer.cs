@@ -35,6 +35,10 @@
             this.tableAdapterManager = new Edocsys.EdocbaseDataSetTableAdapters.TableAdapterManager();
             this.gOSTSelectionDataGridView = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.buttonRefreshGostList = new System.Windows.Forms.Button();
+            this.radioButtonTU = new System.Windows.Forms.RadioButton();
+            this.radioButtonGOST = new System.Windows.Forms.RadioButton();
             this.textBoxProductionDocuments = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -43,16 +47,12 @@
             this.GOSTPresenceColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.number = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.type = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.radioButtonGOST = new System.Windows.Forms.RadioButton();
-            this.radioButtonTU = new System.Windows.Forms.RadioButton();
-            this.buttonRefreshGostList = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.gOSTSelectionBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.edocbaseDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gOSTSelectionDataGridView)).BeginInit();
             this.panel2.SuspendLayout();
-            this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // gOSTSelectionTableAdapter
@@ -130,21 +130,68 @@
             this.panel2.Size = new System.Drawing.Size(471, 112);
             this.panel2.TabIndex = 12;
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.buttonRefreshGostList);
+            this.groupBox1.Controls.Add(this.radioButtonTU);
+            this.groupBox1.Controls.Add(this.radioButtonGOST);
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox1.Location = new System.Drawing.Point(0, 0);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(471, 65);
+            this.groupBox1.TabIndex = 2;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Условия производства и соответствия";
+            // 
+            // buttonRefreshGostList
+            // 
+            this.buttonRefreshGostList.Location = new System.Drawing.Point(267, 25);
+            this.buttonRefreshGostList.Name = "buttonRefreshGostList";
+            this.buttonRefreshGostList.Size = new System.Drawing.Size(192, 23);
+            this.buttonRefreshGostList.TabIndex = 2;
+            this.buttonRefreshGostList.Text = "Перезаполнить список ГОСТов";
+            this.buttonRefreshGostList.UseVisualStyleBackColor = true;
+            this.buttonRefreshGostList.Click += new System.EventHandler(this.buttonRefreshGostList_Click);
+            // 
+            // radioButtonTU
+            // 
+            this.radioButtonTU.AutoSize = true;
+            this.radioButtonTU.Location = new System.Drawing.Point(12, 42);
+            this.radioButtonTU.Name = "radioButtonTU";
+            this.radioButtonTU.Size = new System.Drawing.Size(40, 17);
+            this.radioButtonTU.TabIndex = 1;
+            this.radioButtonTU.Text = "ТУ";
+            this.radioButtonTU.UseVisualStyleBackColor = true;
+            this.radioButtonTU.CheckedChanged += new System.EventHandler(this.radioButtonTU_CheckedChanged);
+            // 
+            // radioButtonGOST
+            // 
+            this.radioButtonGOST.AutoSize = true;
+            this.radioButtonGOST.Checked = true;
+            this.radioButtonGOST.Location = new System.Drawing.Point(12, 19);
+            this.radioButtonGOST.Name = "radioButtonGOST";
+            this.radioButtonGOST.Size = new System.Drawing.Size(53, 17);
+            this.radioButtonGOST.TabIndex = 0;
+            this.radioButtonGOST.TabStop = true;
+            this.radioButtonGOST.Text = "ГОСТ";
+            this.radioButtonGOST.UseVisualStyleBackColor = true;
+            this.radioButtonGOST.CheckedChanged += new System.EventHandler(this.radioButtonGOST_CheckedChanged);
+            // 
             // textBoxProductionDocuments
             // 
-            this.textBoxProductionDocuments.Location = new System.Drawing.Point(100, 79);
+            this.textBoxProductionDocuments.Location = new System.Drawing.Point(107, 79);
             this.textBoxProductionDocuments.Name = "textBoxProductionDocuments";
-            this.textBoxProductionDocuments.Size = new System.Drawing.Size(350, 20);
+            this.textBoxProductionDocuments.Size = new System.Drawing.Size(343, 20);
             this.textBoxProductionDocuments.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(15, 82);
+            this.label1.Location = new System.Drawing.Point(9, 82);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(79, 13);
+            this.label1.Size = new System.Drawing.Size(92, 13);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Выполнено по";
+            this.label1.Text = "Выпускаемая по";
             // 
             // panel1
             // 
@@ -198,53 +245,6 @@
             this.type.Name = "type";
             this.type.Width = 200;
             // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.buttonRefreshGostList);
-            this.groupBox1.Controls.Add(this.radioButtonTU);
-            this.groupBox1.Controls.Add(this.radioButtonGOST);
-            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupBox1.Location = new System.Drawing.Point(0, 0);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(471, 65);
-            this.groupBox1.TabIndex = 2;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Условия производства и соответствия";
-            // 
-            // radioButtonGOST
-            // 
-            this.radioButtonGOST.AutoSize = true;
-            this.radioButtonGOST.Checked = true;
-            this.radioButtonGOST.Location = new System.Drawing.Point(12, 19);
-            this.radioButtonGOST.Name = "radioButtonGOST";
-            this.radioButtonGOST.Size = new System.Drawing.Size(53, 17);
-            this.radioButtonGOST.TabIndex = 0;
-            this.radioButtonGOST.TabStop = true;
-            this.radioButtonGOST.Text = "ГОСТ";
-            this.radioButtonGOST.UseVisualStyleBackColor = true;
-            this.radioButtonGOST.CheckedChanged += new System.EventHandler(this.radioButtonGOST_CheckedChanged);
-            // 
-            // radioButtonTU
-            // 
-            this.radioButtonTU.AutoSize = true;
-            this.radioButtonTU.Location = new System.Drawing.Point(12, 42);
-            this.radioButtonTU.Name = "radioButtonTU";
-            this.radioButtonTU.Size = new System.Drawing.Size(40, 17);
-            this.radioButtonTU.TabIndex = 1;
-            this.radioButtonTU.Text = "ТУ";
-            this.radioButtonTU.UseVisualStyleBackColor = true;
-            this.radioButtonTU.CheckedChanged += new System.EventHandler(this.radioButtonTU_CheckedChanged);
-            // 
-            // buttonRefreshGostList
-            // 
-            this.buttonRefreshGostList.Location = new System.Drawing.Point(267, 25);
-            this.buttonRefreshGostList.Name = "buttonRefreshGostList";
-            this.buttonRefreshGostList.Size = new System.Drawing.Size(192, 23);
-            this.buttonRefreshGostList.TabIndex = 2;
-            this.buttonRefreshGostList.Text = "Перезаполнить список ГОСТов";
-            this.buttonRefreshGostList.UseVisualStyleBackColor = true;
-            this.buttonRefreshGostList.Click += new System.EventHandler(this.buttonRefreshGostList_Click);
-            // 
             // GOSTSelectionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -254,20 +254,19 @@
             this.Controls.Add(this.gOSTSelectionDataGridView);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Edocsys.Properties.Settings.Default, "GOSTSelectionTitle", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "GOSTSelectionForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = global::Edocsys.Properties.Settings.Default.GOSTSelectionTitle;
+            this.Text = "Условия производства и соответствия";
             this.Load += new System.EventHandler(this.gostselection_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gOSTSelectionBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.edocbaseDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gOSTSelectionDataGridView)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            this.panel1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -279,9 +278,6 @@
         private System.Windows.Forms.BindingSource gOSTSelectionBindingSource;
         private EdocbaseDataSetTableAdapters.GOSTSelectionTableAdapter gOSTSelectionTableAdapter;
         private System.Windows.Forms.DataGridView gOSTSelectionDataGridView;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn GOSTPresenceColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn number;
-        private System.Windows.Forms.DataGridViewTextBoxColumn type;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.TextBox textBoxProductionDocuments;
         private System.Windows.Forms.Label label1;
@@ -292,5 +288,8 @@
         private System.Windows.Forms.RadioButton radioButtonTU;
         private System.Windows.Forms.RadioButton radioButtonGOST;
         private System.Windows.Forms.Button buttonRefreshGostList;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn GOSTPresenceColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn number;
+        private System.Windows.Forms.DataGridViewTextBoxColumn type;
     }
 }
