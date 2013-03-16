@@ -102,7 +102,7 @@ namespace Edocsys
             }
             catch (MySqlException ex)
             {
-                TraceHelper.LogWarning("MAINFORM: Ошибка подключения к базе данных" , ex);
+                TraceHelper.LogWarning("MAINFORM: Ошибка подключения к базе данных" , ex, sender);
 
                 //error to get users
                 fillUsersToolStripButton.Visible = true;
@@ -186,9 +186,12 @@ namespace Edocsys
             {
                 FillUsersToolStrip();
             }
-            catch (MySqlException)
+            catch (MySqlException ex)
             {
                 MessageBox.Show("Ошибка подключения к базе данных");
+
+                string type = "MAINFORM DB Connection Error";
+                TraceHelper.LogError(type, ex, sender);
 
                 //error to get users
                 fillUsersToolStripButton.Visible = true;

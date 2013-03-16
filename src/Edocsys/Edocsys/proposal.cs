@@ -53,7 +53,7 @@ namespace Edocsys
                 string msg = ex.Message;
                 string title = "Save ERROR";
                 string type = "Save ERROR";
-                TraceHelper.LogError(type, ex);
+                TraceHelper.LogError(type, ex, this);
                 MessageBox.Show(msg, title);
             }
         }
@@ -78,7 +78,7 @@ namespace Edocsys
                 string msg = ex.Message;
                 string title = "Refresh ERROR";
                 string type = "Refresh ERROR";
-                TraceHelper.LogError(type, ex);
+                TraceHelper.LogError(type, ex, this);
                 MessageBox.Show(msg, title);
             }
         }
@@ -144,7 +144,7 @@ namespace Edocsys
                         string msg = ex.Message;
                         string title = "Send save ERROR";
                         string type = "Send save ERROR";
-                        TraceHelper.LogError(type, ex);
+                        TraceHelper.LogError(type, ex, sender);
                         MessageBox.Show(msg, title);
                     }
                 }
@@ -176,7 +176,7 @@ namespace Edocsys
                 string msg = ex.Message;
                 string title = "Ошибка получения данных для заполнения";
                 string type = "GenerateDoc GetData ERROR";
-                TraceHelper.LogError(type, ex);
+                TraceHelper.LogError(type, ex, sender);
                 MessageBox.Show(msg, title);
             }
             catch (Exception ex)
@@ -184,7 +184,7 @@ namespace Edocsys
                 string msg = ex.Message;
                 string title = "GenerateDoc ERROR";
                 string type = "GenerateDoc ERROR";
-                TraceHelper.LogError(type, ex);
+                TraceHelper.LogError(type, ex, sender);
                 MessageBox.Show(msg, title);
             }
 
@@ -216,7 +216,7 @@ namespace Edocsys
                 string msg = "Файл заявки отсутствует в БД " + ex.Message;
                 string title = "Отсутствие заявки";
                 string type = "EditDoc GetData ERROR";
-                TraceHelper.LogError(type, ex);
+                TraceHelper.LogError(type, ex, sender);
                 MessageBox.Show(msg, title);
             }
             catch (Exception ex)
@@ -224,7 +224,7 @@ namespace Edocsys
                 string msg = "Ошибка получения данных для заполнения" + ex.Message;
                 string title = "EditDoc ERROR";
                 string type = "EditDoc ERROR";
-                TraceHelper.LogError(type, ex);
+                TraceHelper.LogError(type, ex, sender);
                 MessageBox.Show(msg, title);
             }
 
@@ -259,7 +259,7 @@ namespace Edocsys
                 string msg = "Файл заявки отсутствует в БД";
                 string title = "Отсутствие заявки";
                 string type = "SaveDoc GetData ERROR";
-                TraceHelper.LogError(type, ex);
+                TraceHelper.LogError(type, ex, sender);
                 MessageBox.Show(msg, title);
             }
             catch (Exception ex)
@@ -267,7 +267,7 @@ namespace Edocsys
                 string msg = ex.Message;
                 string title = "SaveDoc ERROR";
                 string type = "SaveDoc ERROR";
-                TraceHelper.LogError(type, ex);
+                TraceHelper.LogError(type, ex, sender);
                 MessageBox.Show(msg, title);
             }
         }
@@ -299,7 +299,7 @@ namespace Edocsys
                 string msg = "Ошибка загрузки документа: " + ex.Message;
                 string title = "Ошибка";
                 string type = "LoadDoc GetData ERROR";
-                TraceHelper.LogError(type, ex);
+                TraceHelper.LogError(type, ex, sender);
                 MessageBox.Show(msg, title);
             }
             catch (Exception ex)
@@ -307,7 +307,7 @@ namespace Edocsys
                 string msg = ex.Message;
                 string title = "LoadDoc ERROR";
                 string type = "LoadDoc ERROR";
-                TraceHelper.LogError(type, ex);
+                TraceHelper.LogError(type, ex, sender);
                 MessageBox.Show(msg, title);
             }
             

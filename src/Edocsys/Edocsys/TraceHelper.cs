@@ -9,12 +9,30 @@ namespace Edocsys
 {
     static class TraceHelper
     {
+        public static void LogError(string msg, Exception ex, object sender)
+        {
+            Trace.TraceError((DateTime.Now).ToString());
+            Trace.TraceError("[" + sender.GetType() + "] : " + sender.ToString());
+            Trace.TraceError(msg);
+            Trace.TraceError(ex.Source.ToString());
+            Trace.TraceError(ex.Message);
+        }
+
         public static void LogError(string msg, Exception ex)
         {
             Trace.TraceError((DateTime.Now).ToString());
             Trace.TraceError(msg);
             Trace.TraceError(ex.Source.ToString());
             Trace.TraceError(ex.Message);
+        }
+
+        public static void LogWarning(string msg, Exception ex, object sender)
+        {
+            Trace.TraceWarning((DateTime.Now).ToString());
+            Trace.TraceWarning("[" + sender.GetType() + "] : " + sender.ToString());
+            Trace.TraceWarning(msg);
+            Trace.TraceWarning(ex.Source.ToString());
+            Trace.TraceWarning(ex.Message);
         }
 
         public static void LogWarning(string msg, Exception ex)
