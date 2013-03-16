@@ -768,7 +768,7 @@
             // 
             this.filterToolStripTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.filterToolStripTextBox.Name = "filterToolStripTextBox";
-            this.filterToolStripTextBox.Size = new System.Drawing.Size(200, 25);
+            this.filterToolStripTextBox.Size = new System.Drawing.Size(300, 25);
             // 
             // agentsTableAdapter
             // 
