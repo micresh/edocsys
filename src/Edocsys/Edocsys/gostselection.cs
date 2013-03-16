@@ -52,10 +52,10 @@ namespace Edocsys
             {
                 if (x["using_gost"] != DBNull.Value)
                     if ((bool)x["using_gost"])
-                        list += x["number"] + "; ";
+                        list += x["number"] + ", ";
             }
 
-            list = list.TrimEnd("; ".ToCharArray());
+            list = list.TrimEnd(", ".ToCharArray());
 
             return list;
         }

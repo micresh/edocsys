@@ -934,6 +934,7 @@ DATE_FORMAT(contracts.date_proposal, '%d.%m.%Y') AS date_proposal,
 contracts.scheme_type,
 contracts.add_data_proposal,
 contracts.add_data_contract,
+contracts.gosts_list AS GOSTsList,
 contracts.production_documents,
 contracts.prepayment,
 contracts.cost,
@@ -986,13 +987,6 @@ contract_types.name AS contract_types_name,
 emission_types.id AS pkemission_types_id,
 emission_types.name AS emission_types_name,
 CONCAT( users.lastname, ' ', substr(users.firstname, 1, 1), '. ', substr(users.middlename, 1, 1), '.' ) AS expert_FIO,
-
-(SELECT GROUP_CONCAT(product_gosts.number SEPARATOR ', ') FROM selected_gosts
-INNER JOIN product_gosts ON selected_gosts.product_gosts_id = product_gosts.id
-WHERE (selected_gosts.using_gost = true) AND
-(selected_gosts.contracts_id = @contracts_id)
-) AS GOSTsList,
-
 
 (SELECT person
  FROM agents_contacts
