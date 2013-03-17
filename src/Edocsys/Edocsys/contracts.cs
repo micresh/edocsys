@@ -156,8 +156,7 @@ namespace Edocsys
         private void usersBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
             //set data to current date if it is null
-            if ((contractSigningBindingSource.Position < 0) ||
-                (contractSigningBindingSource.Position >= contractSigningBindingSource.Count))
+            if (contractSigningBindingSource.Position >= 0)
             {
                 DataRowView currentRow = (DataRowView)contractSigningBindingSource.Current;
                 int id = Convert.ToInt32(currentRow["id"]);
@@ -420,15 +419,6 @@ namespace Edocsys
 
                 int id = Convert.ToInt32(currentRow["id"]);
 
-
-                bool hasDocument = Convert.ToBoolean(currentRow["has_act_document"]);
-
-                if (!hasDocument)
-                {
-                    if (MessageBox.Show("Внимание! Документ акта выполнения работ #" + id + " не сгенерирован! Продолжить подтвержение выполения?", "Подтвердить выполнение работ", MessageBoxButtons.YesNo) != DialogResult.Yes)
-                        return;
-                }
-
                 if (MessageBox.Show("Подтвердить выполнение договора #" + id, "Подтвердить выполнение работ", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
                     try
@@ -463,17 +453,35 @@ namespace Edocsys
             }
 
             DataRowView currentRow = (DataRowView)contractDoneBindingSource.Current;
-            int idContract = Convert.ToInt32(currentRow["id"]);
+            int id = Convert.ToInt32(currentRow["id"]);
+
+            //validate data
+            bool hasDocument = Convert.ToBoolean(currentRow["has_act_document"]);
+
+            bool cash_income = Convert.ToBoolean(currentRow["cash_income"]);
+
 
             if (e.ColumnIndex == contractDoneDataTableDataGridView.Columns["FinishContractColumn"].Index)
             {
+                if (!hasDocument)
+                {
+                    if (MessageBox.Show("Внимание! Документ акта выполнения работ #" + id + " не сгенерирован! Продолжить подтвержение выполения?", "Подтвердить завершение работ по договору", MessageBoxButtons.YesNo) != DialogResult.Yes)
+                        return;
+                }
 
-                if (MessageBox.Show("Подтвердить оформление акта и завершение договора #" + idContract, "Подтвердить завершение работ по договору", MessageBoxButtons.YesNo) == DialogResult.Yes)
+
+                if (!cash_income)
+                {
+                    if (MessageBox.Show("Внимание! Нет подтверждения оплаты по договру #" + id + " не сгенерирован! Продолжить подтвержение выполения?", "Подтвердить завершение работ по договору", MessageBoxButtons.YesNo) != DialogResult.Yes)
+                        return;
+                }
+
+                if (MessageBox.Show("Подтвердить оформление акта и завершение договора #" + id, "Подтвердить завершение работ по договору", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
                     try
                     {
                         //set task finished
-                        this.contractDoneTableAdapter.ConfirmContractDone((int)Constants.ContractStatuses.FinishedTasks, idContract);
+                        this.contractDoneTableAdapter.ConfirmContractDone((int)Constants.ContractStatuses.FinishedTasks, id);
 
                         UpdateDatabase();
                         RefreshDatabase();
@@ -491,11 +499,26 @@ namespace Edocsys
 
             if (e.ColumnIndex == contractDoneDataTableDataGridView.Columns["ReattSignColumn"].Index)
             {
-                if (MessageBox.Show("Подтвердить направление договора #" + idContract + " на инспекционный контроль", "Подтвердить инспекционный контроль по договору", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                if (!hasDocument)
+                {
+                    if (MessageBox.Show("Внимание! Документ акта выполнения работ #" + id + " не сгенерирован! Продолжить выполение?", "Подтвердить проведение инспекционного контроля по договору", MessageBoxButtons.YesNo) != DialogResult.Yes)
+                        return;
+                }
+
+
+                if (!cash_income)
+                {
+                    if (MessageBox.Show("Внимание! Нет подтверждения оплаты по договру #" + id + " не сгенерирован! Продолжить выполение?", "Подтвердить проведение инспекционного контроля по договору", MessageBoxButtons.YesNo) != DialogResult.Yes)
+                        return;
+                }
+
+
+
+                if (MessageBox.Show("Подтвердить направление договора #" + id + " на инспекционный контроль", "Подтвердить проведение инспекционного контроля по договору", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
                     try
                     {
-                        this.contractDoneTableAdapter.SendContractToInspectionControl((int)Constants.ContractStatuses.ReattestationSign, idContract);
+                        this.contractDoneTableAdapter.SendContractToInspectionControl((int)Constants.ContractStatuses.ReattestationSign, id);
                         UpdateDatabase();
                         RefreshDatabase();
                     }

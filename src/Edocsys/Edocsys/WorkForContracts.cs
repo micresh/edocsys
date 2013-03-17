@@ -94,8 +94,7 @@ namespace Edocsys
 
         private void toolStripButton12_Click(object sender, EventArgs e)
         {
-            if ((contractPrepareForWorkBindingSource.Position < 0) ||
-                (contractPrepareForWorkBindingSource.Position >= contractPrepareForWorkBindingSource.Count))
+            if (contractPrepareForWorkBindingSource.Position >= 0)
             {
                 DataRowView currentRow = (DataRowView)contractPrepareForWorkBindingSource.Current;
                 int id = Convert.ToInt32(currentRow["id"]);
