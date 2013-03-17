@@ -156,7 +156,8 @@ namespace Edocsys
         private void usersBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
             //set data to current date if it is null
-            if (contractSigningBindingSource.Position >= 0)
+            if ((contractSigningBindingSource.Position < 0) ||
+                (contractSigningBindingSource.Position >= contractSigningBindingSource.Count))
             {
                 DataRowView currentRow = (DataRowView)contractSigningBindingSource.Current;
                 int id = Convert.ToInt32(currentRow["id"]);

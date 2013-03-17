@@ -738,6 +738,15 @@ date_real_resert = @date_real_resert
 WHERE
 (id = @original_id)
 
+
+-- StartInspectionControl
+UPDATE
+contracts
+SET
+contract_status_id = @contract_status_id
+WHERE
+(id = @original_id)
+
 -- !-----------------------------------------------------------
 
 
@@ -805,6 +814,14 @@ date_planed_reatt_2 = @date_planed_reatt_2,
 date_real_reatt_2 = @date_real_reatt_2,
 date_planed_resert = @date_planed_resert,
 date_real_resert = @date_real_resert
+WHERE
+(id = @original_id)
+
+-- FinishInspectionControl
+UPDATE
+contracts
+SET
+contract_status_id = @contract_status_id
 WHERE
 (id = @original_id)
 -- !-----------------------------------------------------------

@@ -58592,7 +58592,7 @@ WHERE        (id = @original_id)";
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[1];
+            this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[2];
             this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT\r\ncontracts.id,\r\ncontracts.products_id,\r\ncontracts.agents_id,\r\ncontracts.co" +
@@ -58620,6 +58620,26 @@ WHERE        (id = @original_id)";
                 "t_status_id = contract_status.id\r\nLEFT OUTER JOIN users ON contracts.experts_id " +
                 "= users.id\r\nWHERE\r\n(contracts.contract_status_id = 7)";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::MySql.Data.MySqlClient.MySqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "UPDATE\r\ncontracts\r\nSET\r\ncontract_status_id = @contract_status_id\r\nWHERE\r\n(id = @o" +
+                "riginal_id)";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@contract_status_id";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "contract_status_id";
+            this._commandCollection[1].Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@original_id";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "id";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._commandCollection[1].Parameters.Add(param);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -58673,6 +58693,31 @@ WHERE        (id = @original_id)";
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         public virtual int Update(global::System.Data.DataRow[] dataRows) {
             return this.Adapter.Update(dataRows);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
+        public virtual int StartInspectionControl(int contract_status_id, int original_id) {
+            global::MySql.Data.MySqlClient.MySqlCommand command = this.CommandCollection[1];
+            command.Parameters[0].Value = ((int)(contract_status_id));
+            command.Parameters[1].Value = ((int)(original_id));
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            int returnValue;
+            try {
+                returnValue = command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            return returnValue;
         }
     }
     
@@ -58904,7 +58949,7 @@ WHERE        (id = @original_id)";
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[1];
+            this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[2];
             this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT\r\ncontracts.id,\r\ncontracts.products_id,\r\ncontracts.agents_id,\r\ncontracts.co" +
@@ -58930,6 +58975,26 @@ WHERE        (id = @original_id)";
                 "\nLEFT OUTER JOIN users ON contracts.experts_id = users.id\r\nWHERE\r\n(contracts.con" +
                 "tract_status_id = 8)";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::MySql.Data.MySqlClient.MySqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "UPDATE\r\ncontracts\r\nSET\r\ncontract_status_id = @contract_status_id\r\nWHERE\r\n(id = @o" +
+                "riginal_id)";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@contract_status_id";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "contract_status_id";
+            this._commandCollection[1].Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@original_id";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "id";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._commandCollection[1].Parameters.Add(param);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -58983,6 +59048,31 @@ WHERE        (id = @original_id)";
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         public virtual int Update(global::System.Data.DataRow[] dataRows) {
             return this.Adapter.Update(dataRows);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
+        public virtual int FinishInspectionControl(int contract_status_id, int original_id) {
+            global::MySql.Data.MySqlClient.MySqlCommand command = this.CommandCollection[1];
+            command.Parameters[0].Value = ((int)(contract_status_id));
+            command.Parameters[1].Value = ((int)(original_id));
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            int returnValue;
+            try {
+                returnValue = command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            return returnValue;
         }
     }
     
