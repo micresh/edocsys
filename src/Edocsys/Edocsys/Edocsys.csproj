@@ -76,7 +76,7 @@
     <Compile Include="assignexpert.Designer.cs">
       <DependentUpon>assignexpert.cs</DependentUpon>
     </Compile>
-    <Compile Include="BlobLoader.cs" />
+    <Compile Include="Helpers\BlobLoader.cs" />
     <Compile Include="clients.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -89,7 +89,7 @@
     <Compile Include="config.Designer.cs">
       <DependentUpon>config.cs</DependentUpon>
     </Compile>
-    <Compile Include="ConnectionManager.cs" />
+    <Compile Include="Helpers\ConnectionManager.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="ContractPayments.cs">
       <SubType>Form</SubType>
@@ -109,7 +109,7 @@
     <Compile Include="ContractStats.designer.cs">
       <DependentUpon>ContractStats.cs</DependentUpon>
     </Compile>
-    <Compile Include="DataGridViewHelper.cs" />
+    <Compile Include="Helpers\DataGridViewHelper.cs" />
     <Compile Include="DeleteContract.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -128,22 +128,22 @@
     <Compile Include="InspectionControl.designer.cs">
       <DependentUpon>InspectionControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="RuDateAndMoneyConverter.cs" />
-    <Compile Include="TraceHelper.cs" />
+    <Compile Include="Helpers\RuDateAndMoneyConverter.cs" />
+    <Compile Include="Helpers\TraceHelper.cs" />
     <Compile Include="WorkForContracts.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="WorkForContracts.Designer.cs">
       <DependentUpon>WorkForContracts.cs</DependentUpon>
     </Compile>
-    <Compile Include="DocGeneratorHelper.cs" />
+    <Compile Include="Helpers\DocGeneratorHelper.cs" />
     <Compile Include="doctemplates.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="doctemplates.Designer.cs">
       <DependentUpon>doctemplates.cs</DependentUpon>
     </Compile>
-    <Compile Include="DocXgenerator.cs" />
+    <Compile Include="Helpers\DocXgenerator.cs" />
     <Compile Include="EdocbaseDataSet.cs">
       <DependentUpon>EdocbaseDataSet.xsd</DependentUpon>
       <SubType>Component</SubType>
@@ -159,7 +159,7 @@
     <Compile Include="experts.Designer.cs">
       <DependentUpon>experts.cs</DependentUpon>
     </Compile>
-    <Compile Include="FilterHelper.cs" />
+    <Compile Include="Helpers\FilterHelper.cs" />
     <Compile Include="gostselection.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -206,7 +206,7 @@
     <Compile Include="useradm.Designer.cs">
       <DependentUpon>useradm.cs</DependentUpon>
     </Compile>
-    <Compile Include="wmgr.cs" />
+    <Compile Include="Helpers\wmgr.cs" />
     <EmbeddedResource Include="assignexpert.resx">
       <DependentUpon>assignexpert.cs</DependentUpon>
     </EmbeddedResource>
@@ -322,6 +322,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
