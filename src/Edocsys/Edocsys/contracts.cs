@@ -64,16 +64,9 @@ namespace Edocsys
         {
             try
             {
-                int pos = contractSigningBindingSource.Position;
-
-                this.contractSigningTableAdapter.Fill(this.edocbaseDataSet.ContractSigning);
-                this.contractComplitionMgrCfmTableAdapter.Fill(this.edocbaseDataSet.ContractComplitionMgrCfm);
-                this.contractDoneTableAdapter.Fill(this.edocbaseDataSet.ContractDone);
-
-                this.contractsSigningDataGridView.Refresh();
-
-                contractSigningBindingSource.Position = pos;
-
+                RefreshContractSigning();
+                RefreshContractComplitionManagerConfrim();
+                RefreshContractDone();
             }
             catch (Exception ex)
             {
@@ -83,6 +76,38 @@ namespace Edocsys
                 TraceHelper.LogError(type, ex, this);
                 MessageBox.Show(msg, title);
             }
+        }
+        private void RefreshContractDone()
+        {
+            int pos = contractDocDataBindingSource.Position;
+
+            this.contractDoneTableAdapter.Fill(this.edocbaseDataSet.ContractDone);
+
+            contractDocDataBindingSource.Position = pos;
+
+            this.contractDoneDataTableDataGridView.Refresh();
+        }
+
+        private void RefreshContractComplitionManagerConfrim()
+        {
+            int pos = contractComplitionMgrCfmBindingSource.Position;
+
+            this.contractComplitionMgrCfmTableAdapter.Fill(this.edocbaseDataSet.ContractComplitionMgrCfm);
+
+            contractComplitionMgrCfmBindingSource.Position = pos;
+
+            this.contractComplitionManagerConfrimDataGridView.Refresh();
+        }
+
+        private void RefreshContractSigning()
+        {
+            int pos = contractSigningBindingSource.Position;
+
+            this.contractSigningTableAdapter.Fill(this.edocbaseDataSet.ContractSigning);
+
+            contractSigningBindingSource.Position = pos;
+
+            this.contractsSigningDataGridView.Refresh();
         }
 
         private void buttonGenerateContract_Click(object sender, EventArgs e)
@@ -125,10 +150,46 @@ namespace Edocsys
                 MessageBox.Show(msg, title);
             }
 
-            RefreshDatabase();
+            RefreshContractSigning();
         }
 
         private void usersBindingNavigatorSaveItem_Click(object sender, EventArgs e)
+        {
+            //set data to current date if it is null
+            if (contractSigningBindingSource.Position >= 0)
+            {
+                DataRowView currentRow = (DataRowView)contractSigningBindingSource.Current;
+                int id = Convert.ToInt32(currentRow["id"]);
+
+                if ((currentRow["date_contract"] == null)
+                    || (currentRow["date_contract"] == DBNull.Value))
+                {
+                    currentRow["date_contract"] = DateTime.Now.Date;
+                }
+
+                if ((currentRow["prepayment"] == null)
+                    || (currentRow["prepayment"] == DBNull.Value))
+                {
+                    currentRow["prepayment"] = 0;
+                }
+
+                if ((currentRow["cost"] == null)
+                    || (currentRow["cost"] == DBNull.Value))
+                {
+                    currentRow["cost"] = 0;
+                }
+
+                if ((currentRow["total_cost"] == null)
+                    || (currentRow["total_cost"] == DBNull.Value))
+                {
+                    currentRow["total_cost"] = 0;
+                }
+            }
+
+            SaveContractInDatabase();
+        }
+
+        private void SaveContractInDatabase()
         {
             this.Validate();
             this.contractSigningBindingSource.EndEdit();
@@ -177,7 +238,7 @@ namespace Edocsys
                 MessageBox.Show(msg, title);
             }
 
-            RefreshDatabase();
+            RefreshContractSigning();
         }
 
         private void buttonSaveContract_Click(object sender, EventArgs e)
@@ -220,7 +281,7 @@ namespace Edocsys
                 MessageBox.Show(msg, title);
             }
 
-            RefreshDatabase();
+            RefreshContractSigning();
         }
 
         private void buttonLoadContract_Click(object sender, EventArgs e)
@@ -262,7 +323,7 @@ namespace Edocsys
                 MessageBox.Show(msg, title);
             }
 
-            RefreshDatabase();
+            RefreshContractSigning();
         }
 
         private void contractsSigningDataTableDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -271,15 +332,58 @@ namespace Edocsys
             {
                 if (contractSigningBindingSource.Position >= 0)
                 {
-                    DataRow currentRow = edocbaseDataSet.ContractSigning.DefaultView[contractSigningBindingSource.Position].Row;
-                    int idContract = Convert.ToInt32(currentRow["id"]);
+                    DataRowView currentRow = (DataRowView)contractSigningBindingSource.Current;
+                    int id = Convert.ToInt32(currentRow["id"]);
 
-                    if (MessageBox.Show("Подтвердить подписание договора #" + idContract, "Подписание договора", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    //chack all values set
+                    if ((currentRow["number"] == null)
+                        || (currentRow["number"] == DBNull.Value))
+                    {
+                        if (MessageBox.Show("Внимание! Отстутсвует номер договра. Продолжить подписание договора?", "Подтвердить подписание договора", MessageBoxButtons.YesNo) != DialogResult.Yes)
+                            return;
+                    }
+
+                    if ((currentRow["date_contract"] == null)
+                        || (currentRow["date_contract"] == DBNull.Value))
+                    {
+                        if (MessageBox.Show("Внимание! Не указана дата заключения договора. Продолжить подписание договора?", "Подтвердить подписание договора", MessageBoxButtons.YesNo) != DialogResult.Yes)
+                            return;
+                        //DialogResult x = MessageBox.Show("Внимание! Не указана дата заключения договора. Установть текущую дату?", "Подтвердить подписание договора", MessageBoxButtons.YesNoCancel);
+                        //if (x == DialogResult.Cancel)
+                        //    return;
+                        //if (x == DialogResult.Yes)
+                        //{
+                        //    currentRow["date_contract"] = DateTime.Now.Date;
+                        //    //SaveContractInDatabase();
+                        //}
+                    }
+                     
+                    if ((currentRow["prepayment"] == null)
+                        || (currentRow["prepayment"] == DBNull.Value)
+                        || (currentRow["cost"] == null)
+                        || (currentRow["cost"] == DBNull.Value)
+                        || (currentRow["total_cost"] == null)
+                        || (currentRow["total_cost"] == DBNull.Value))
+                    {
+                        if (MessageBox.Show("Внимание! Не указаны суммы договора. Продолжить подписание договора?", "Подтвердить подписание договора", MessageBoxButtons.YesNo) != DialogResult.Yes)
+                            return;
+                    }
+
+                    bool hasDocument = Convert.ToBoolean(currentRow["has_contract_document"]);
+
+                    if (!hasDocument)
+                    {
+                        if (MessageBox.Show("Внимание! Документ договра #" + id + " не сгенерирован! Продолжить подписание договора?", "Подтвердить подписание договора", MessageBoxButtons.YesNo) != DialogResult.Yes)
+                            return;
+                    }
+
+
+                    if (MessageBox.Show("Подтвердить подписание договора #" + id, "Подписание договора", MessageBoxButtons.YesNo) == DialogResult.Yes)
                     {
                         try
                         {
                             //set task finished
-                            this.contractSigningTableAdapter.ConfirmSigning((int)Constants.ContractStatuses.PrepareForWork, idContract);
+                            this.contractSigningTableAdapter.ConfirmSigning((int)Constants.ContractStatuses.PrepareForWork, id);
 
                             //refresh data
                             UpdateDatabase();
@@ -297,7 +401,7 @@ namespace Edocsys
                 }
             }
 
-            RefreshDatabase();
+            RefreshContractSigning();
         }
 
         private void contractComplitionManagerConfrimDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -311,16 +415,25 @@ namespace Edocsys
                     MessageBox.Show("Не выбран договор", "Ошибка");
                     return;
                 }
+                DataRowView currentRow = (DataRowView)contractComplitionMgrCfmBindingSource.Current;
 
-                DataRow currentRow = edocbaseDataSet.ContractComplitionMgrCfm.DefaultView[contractComplitionMgrCfmBindingSource.Position].Row;
-                int idContract = Convert.ToInt32(currentRow["id"]);
+                int id = Convert.ToInt32(currentRow["id"]);
 
-                if (MessageBox.Show("Подтвердить выполнение договора #" + idContract, "Подтвердить выполнение работ", MessageBoxButtons.YesNo) == DialogResult.Yes)
+
+                bool hasDocument = Convert.ToBoolean(currentRow["has_act_document"]);
+
+                if (!hasDocument)
+                {
+                    if (MessageBox.Show("Внимание! Документ акта выполнения работ #" + id + " не сгенерирован! Продолжить подтвержение выполения?", "Подтвердить выполнение работ", MessageBoxButtons.YesNo) != DialogResult.Yes)
+                        return;
+                }
+
+                if (MessageBox.Show("Подтвердить выполнение договора #" + id, "Подтвердить выполнение работ", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
                     try
                     {
                         //set task finished
-                        this.contractComplitionMgrCfmTableAdapter.ConfirmFinished((int)Constants.ContractStatuses.ComplitionAgentConfrim, idContract);
+                        this.contractComplitionMgrCfmTableAdapter.ConfirmFinished((int)Constants.ContractStatuses.ComplitionAgentConfrim, id);
 
                         //refresh data
                         UpdateDatabase();
@@ -348,7 +461,7 @@ namespace Edocsys
                 return;
             }
 
-            DataRow currentRow = edocbaseDataSet.ContractDone.DefaultView[contractDoneBindingSource.Position].Row;
+            DataRowView currentRow = (DataRowView)contractDoneBindingSource.Current;
             int idContract = Convert.ToInt32(currentRow["id"]);
 
             if (e.ColumnIndex == contractDoneDataTableDataGridView.Columns["FinishContractColumn"].Index)
@@ -446,7 +559,7 @@ namespace Edocsys
                 MessageBox.Show(msg, title);
             }
 
-            RefreshDatabase();
+            RefreshContractDone();
         }
 
         private void buttonEditAct_Click(object sender, EventArgs e)
@@ -487,7 +600,7 @@ namespace Edocsys
                 MessageBox.Show(msg, title);
             }
 
-            RefreshDatabase();
+            RefreshContractDone();
         }
 
         private void buttonSaveAct_Click(object sender, EventArgs e)
@@ -529,7 +642,7 @@ namespace Edocsys
                 MessageBox.Show(msg, title);
             }
 
-            RefreshDatabase();
+            RefreshContractDone();
         }
 
         private void buttonLoadAct_Click(object sender, EventArgs e)
@@ -571,7 +684,7 @@ namespace Edocsys
                 MessageBox.Show(msg, title);
             }
 
-            RefreshDatabase();
+            RefreshContractDone();
         }
 
         private void bindingNavigatorDeleteItem_Click(object sender, EventArgs e)
@@ -590,17 +703,17 @@ namespace Edocsys
 
         private void toolStripButton5_Click(object sender, EventArgs e)
         {
-            RefreshDatabase();
+            RefreshContractSigning();
         }
 
         private void toolStripButton6_Click(object sender, EventArgs e)
         {
-            RefreshDatabase();
+            RefreshContractComplitionManagerConfrim();
         }
 
         private void toolStripButton7_Click(object sender, EventArgs e)
         {
-            RefreshDatabase();
+            RefreshContractDone();
         }
     }
 }
