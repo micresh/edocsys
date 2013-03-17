@@ -109,6 +109,7 @@
     <Compile Include="ContractStats.designer.cs">
       <DependentUpon>ContractStats.cs</DependentUpon>
     </Compile>
+    <Compile Include="DataGridViewHelper.cs" />
     <Compile Include="DeleteContract.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -7,8 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-using System.Reflection;
-
 namespace Edocsys
 {
     public partial class ContractPaymentsForm : Form
@@ -32,29 +30,9 @@ namespace Edocsys
             filterPayedContracts = new FilterHelper(payedContractsdataGridView, filterPayedContractsTextBox.TextBox);
 
 
-            typeof(DataGridView).InvokeMember(
-                           "DoubleBuffered",
-                           BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.SetProperty,
-                           null,
-                           payedContractsdataGridView,
-                           new object[] { true });
-
-
-            typeof(DataGridView).InvokeMember(
-               "DoubleBuffered",
-               BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.SetProperty,
-               null,
-               contractPaymentsDataGridView,
-               new object[] { true });
-            //public void DoubleBuffered(this DataGridView dgv, bool setting)
-            // {
-            //     Type dgvType = dgv.GetType();
-            //     PropertyInfo pi = dgvType.GetProperty("DoubleBuffered",
-            //         BindingFlags.Instance | BindingFlags.NonPublic);
-            //     pi.SetValue(dgv, setting, null);
-            // }
+            DataGridViewHelper.DoubleBuffered(contractPaymentsDataGridView, true);
+            DataGridViewHelper.DoubleBuffered(payedContractsdataGridView, true);
         }
-
 
 
 
@@ -223,7 +201,8 @@ namespace Edocsys
                     return;
 
                 int days_left = Convert.ToInt32(s.Rows[e.RowIndex].Cells["daystodeadlineDataGridViewTextBoxColumn"].Value);
-                ChangeGridRowColor(s, e, days_left);
+                DataGridViewRow row = s.Rows[e.RowIndex];
+                DataGridViewHelper.ChangeGridRowColor(row, days_left);
             }
         }
 
@@ -240,42 +219,9 @@ namespace Edocsys
                     return;
 
                 int days_left = Convert.ToInt32(s.Rows[e.RowIndex].Cells["daystodeadlineDataGridViewTextBoxColumn1"].Value);
-                ChangeGridRowColor(s, e, days_left);
+                DataGridViewRow row = s.Rows[e.RowIndex];
+                DataGridViewHelper.ChangeGridRowColor(row, days_left);
             }
-        }
-
-        private static void ChangeGridRowColor(DataGridView s, DataGridViewCellPaintingEventArgs e, int days_left)
-        {
-            Color bk, sbk;
-            try
-            {
-                bk = s.Rows[e.RowIndex].DefaultCellStyle.BackColor;
-                sbk = s.Rows[e.RowIndex].DefaultCellStyle.SelectionBackColor;
-
-                
-
-                if (days_left < (int)Constants.DeadlineAlerts.Fortnight)
-                {
-                    bk = Color.FromArgb(0xFF, 0xCB, 0xDB);
-                    sbk = Color.FromArgb(255, 0, 0);
-                }
-                if (days_left < (int)Constants.DeadlineAlerts.Week)
-                {
-                    bk = Color.FromArgb(0xFA, 0xDA, 0xDD);
-                    sbk = Color.FromArgb(255, 0, 0);
-                }
-                if (days_left < (int)Constants.DeadlineAlerts.Overdue)
-                {
-                    bk = Color.FromArgb(0xFD, 0xD7, 0xE4);
-                    sbk = Color.FromArgb(255, 0, 0);
-                }
-
-                s.Rows[e.RowIndex].DefaultCellStyle.BackColor = bk;
-                s.Rows[e.RowIndex].DefaultCellStyle.SelectionBackColor = sbk;
-                //e.CellStyle.BackColor = bk;
-                //e.CellStyle.SelectionBackColor = sbk;
-            }
-            catch { };
         }
 
         private void toolStripButton1_Click(object sender, EventArgs e)
