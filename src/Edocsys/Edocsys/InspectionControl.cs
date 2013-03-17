@@ -34,7 +34,6 @@ namespace Edocsys
 
             //doc helper
             contractGenerator = new DocGeneratorHelper(edocbaseDataSet.documents, edocbaseDataSet.doc_templates, edocbaseDataSet.ContractDocData);
-
         }
 
 
@@ -371,6 +370,7 @@ namespace Edocsys
                 }
             }
             SaveContractsOnInspectionControl();
+            RefreshContractsOnInspection();
         }
 
         private void buttonReatt2_Click(object sender, EventArgs e)
@@ -389,6 +389,7 @@ namespace Edocsys
                 }
             }
             SaveContractsOnInspectionControl();
+            RefreshContractsOnInspection();
         }
 
         private void buttonResert_Click(object sender, EventArgs e)
@@ -407,6 +408,7 @@ namespace Edocsys
                 }
             }
             SaveContractsOnInspectionControl();
+            RefreshContractsOnInspection();
         }
 
         private void bindingNavigatorDeleteItem_Click(object sender, EventArgs e)
@@ -449,7 +451,7 @@ namespace Edocsys
 
         private void contractsOnInspectionDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == contractsOnInspectionDataGridView.Columns["StartWorkColumn"].Index)
+            if (e.ColumnIndex == contractsOnInspectionDataGridView.Columns["FinishInspectionControlColumn"].Index)
             {
                 if ((contractsOnInspectionBindingSource.Position < 0) ||
                     (contractsOnInspectionBindingSource.Position >= contractsOnInspectionBindingSource.Count))
@@ -524,7 +526,7 @@ namespace Edocsys
 
         private void inspectionContractsDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == inspectionContractsDataGridView.Columns["FinishInspectionControlColumn"].Index)
+            if (e.ColumnIndex == inspectionContractsDataGridView.Columns["StartControlColumn"].Index)
             {
                 if ((inspectionContractsBindingSource.Position < 0) ||
                     (inspectionContractsBindingSource.Position >= inspectionContractsBindingSource.Count))

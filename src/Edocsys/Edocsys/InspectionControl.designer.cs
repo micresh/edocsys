@@ -39,13 +39,10 @@
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabReattestationSign = new System.Windows.Forms.TabPage();
             this.inspectionContractsDataGridView = new System.Windows.Forms.DataGridView();
-            this.number = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.date_planed_reatt_1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.date_planed_reatt_2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.date_planed_resert = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.has_inspection_document = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.SignContractColumn = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.buttonSetDateResert = new System.Windows.Forms.Button();
+            this.buttonSetDateReatt2 = new System.Windows.Forms.Button();
+            this.buttonSetDateReatt1 = new System.Windows.Forms.Button();
             this.date_planed_resertDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.date_planed_reatt_2DateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.date_planed_reatt_1DateTimePicker = new System.Windows.Forms.DateTimePicker();
@@ -99,9 +96,12 @@
             this.filterContractsOnInspectionTextBox = new System.Windows.Forms.ToolStripTextBox();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
-            this.buttonSetDateReatt1 = new System.Windows.Forms.Button();
-            this.buttonSetDateReatt2 = new System.Windows.Forms.Button();
-            this.buttonSetDateResert = new System.Windows.Forms.Button();
+            this.number = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.date_planed_reatt_1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.date_planed_reatt_2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.date_planed_resert = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.has_inspection_document = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.StartControlColumn = new System.Windows.Forms.DataGridViewButtonColumn();
             this.productsnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contracttypesnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.agentsnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -125,9 +125,18 @@
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.date_real_reatt_1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.days_to_deadline_reatt_1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.date_real_reatt_2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.days_to_deadline_reatt_2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.date_real_resert = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.days_to_deadline_resert = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FinishInspectionControlColumn = new System.Windows.Forms.DataGridViewButtonColumn();
             date_planed_reatt_1Label = new System.Windows.Forms.Label();
             date_planed_reatt_2Label = new System.Windows.Forms.Label();
@@ -254,7 +263,7 @@
             this.dateproposalDataGridViewTextBoxColumn,
             this.agentsfullnameDataGridViewTextBoxColumn,
             this.expertFIODataGridViewTextBoxColumn,
-            this.SignContractColumn});
+            this.StartControlColumn});
             this.inspectionContractsDataGridView.DataSource = this.inspectionContractsBindingSource;
             this.inspectionContractsDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.inspectionContractsDataGridView.Location = new System.Drawing.Point(3, 28);
@@ -265,48 +274,6 @@
             this.inspectionContractsDataGridView.Size = new System.Drawing.Size(1100, 253);
             this.inspectionContractsDataGridView.TabIndex = 30;
             this.inspectionContractsDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.inspectionContractsDataGridView_CellContentClick);
-            // 
-            // number
-            // 
-            this.number.DataPropertyName = "number";
-            this.number.HeaderText = "Номер";
-            this.number.Name = "number";
-            this.number.ReadOnly = true;
-            // 
-            // date_planed_reatt_1
-            // 
-            this.date_planed_reatt_1.DataPropertyName = "date_planed_reatt_1";
-            this.date_planed_reatt_1.HeaderText = "Дата 1-ой реаттестации";
-            this.date_planed_reatt_1.Name = "date_planed_reatt_1";
-            this.date_planed_reatt_1.ReadOnly = true;
-            // 
-            // date_planed_reatt_2
-            // 
-            this.date_planed_reatt_2.DataPropertyName = "date_planed_reatt_2";
-            this.date_planed_reatt_2.HeaderText = "Дата 2-ой реаттестации";
-            this.date_planed_reatt_2.Name = "date_planed_reatt_2";
-            this.date_planed_reatt_2.ReadOnly = true;
-            // 
-            // date_planed_resert
-            // 
-            this.date_planed_resert.DataPropertyName = "date_planed_resert";
-            this.date_planed_resert.HeaderText = "Дата ресертификации";
-            this.date_planed_resert.Name = "date_planed_resert";
-            this.date_planed_resert.ReadOnly = true;
-            // 
-            // has_inspection_document
-            // 
-            this.has_inspection_document.DataPropertyName = "has_inspection_document";
-            this.has_inspection_document.HeaderText = "Договор";
-            this.has_inspection_document.Name = "has_inspection_document";
-            this.has_inspection_document.ReadOnly = true;
-            this.has_inspection_document.Width = 70;
-            // 
-            // SignContractColumn
-            // 
-            this.SignContractColumn.HeaderText = "Начать инспекционный контроль";
-            this.SignContractColumn.Name = "SignContractColumn";
-            this.SignContractColumn.ReadOnly = true;
             // 
             // panel1
             // 
@@ -325,6 +292,36 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1100, 160);
             this.panel1.TabIndex = 28;
+            // 
+            // buttonSetDateResert
+            // 
+            this.buttonSetDateResert.Location = new System.Drawing.Point(392, 96);
+            this.buttonSetDateResert.Name = "buttonSetDateResert";
+            this.buttonSetDateResert.Size = new System.Drawing.Size(292, 23);
+            this.buttonSetDateResert.TabIndex = 39;
+            this.buttonSetDateResert.Text = "Установить сегдняшнюю дату для  ресертификации";
+            this.buttonSetDateResert.UseVisualStyleBackColor = true;
+            this.buttonSetDateResert.Click += new System.EventHandler(this.buttonSetDateResert_Click);
+            // 
+            // buttonSetDateReatt2
+            // 
+            this.buttonSetDateReatt2.Location = new System.Drawing.Point(392, 54);
+            this.buttonSetDateReatt2.Name = "buttonSetDateReatt2";
+            this.buttonSetDateReatt2.Size = new System.Drawing.Size(292, 23);
+            this.buttonSetDateReatt2.TabIndex = 38;
+            this.buttonSetDateReatt2.Text = "Установить сегдняшнюю дату для 2-ой реаттестации";
+            this.buttonSetDateReatt2.UseVisualStyleBackColor = true;
+            this.buttonSetDateReatt2.Click += new System.EventHandler(this.buttonSetDateReatt2_Click);
+            // 
+            // buttonSetDateReatt1
+            // 
+            this.buttonSetDateReatt1.Location = new System.Drawing.Point(392, 12);
+            this.buttonSetDateReatt1.Name = "buttonSetDateReatt1";
+            this.buttonSetDateReatt1.Size = new System.Drawing.Size(292, 23);
+            this.buttonSetDateReatt1.TabIndex = 37;
+            this.buttonSetDateReatt1.Text = "Установить сегдняшнюю дату для 1-ой реаттестации";
+            this.buttonSetDateReatt1.UseVisualStyleBackColor = true;
+            this.buttonSetDateReatt1.Click += new System.EventHandler(this.buttonSetDateReatt1_Click);
             // 
             // date_planed_resertDateTimePicker
             // 
@@ -595,9 +592,18 @@
             this.dataGridViewTextBoxColumn4,
             this.dataGridViewTextBoxColumn5,
             this.dataGridViewTextBoxColumn6,
+            this.date_real_reatt_1,
+            this.days_to_deadline_reatt_1,
             this.dataGridViewTextBoxColumn7,
+            this.date_real_reatt_2,
+            this.days_to_deadline_reatt_2,
             this.dataGridViewTextBoxColumn8,
+            this.date_real_resert,
+            this.days_to_deadline_resert,
             this.dataGridViewTextBoxColumn9,
+            this.dataGridViewTextBoxColumn10,
+            this.dataGridViewTextBoxColumn11,
+            this.dataGridViewTextBoxColumn12,
             this.FinishInspectionControlColumn});
             this.contractsOnInspectionDataGridView.DataSource = this.contractsOnInspectionBindingSource;
             this.contractsOnInspectionDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -841,35 +847,47 @@
             // 
             this.saveFileDialog.Filter = "Файлы Word 2007-2010| *.docx|Все файлы|*.*";
             // 
-            // buttonSetDateReatt1
+            // number
             // 
-            this.buttonSetDateReatt1.Location = new System.Drawing.Point(392, 12);
-            this.buttonSetDateReatt1.Name = "buttonSetDateReatt1";
-            this.buttonSetDateReatt1.Size = new System.Drawing.Size(292, 23);
-            this.buttonSetDateReatt1.TabIndex = 37;
-            this.buttonSetDateReatt1.Text = "Установить сегдняшнюю дату для 1-ой реаттестации";
-            this.buttonSetDateReatt1.UseVisualStyleBackColor = true;
-            this.buttonSetDateReatt1.Click += new System.EventHandler(this.buttonSetDateReatt1_Click);
+            this.number.DataPropertyName = "number";
+            this.number.HeaderText = "Номер";
+            this.number.Name = "number";
+            this.number.ReadOnly = true;
             // 
-            // buttonSetDateReatt2
+            // date_planed_reatt_1
             // 
-            this.buttonSetDateReatt2.Location = new System.Drawing.Point(392, 54);
-            this.buttonSetDateReatt2.Name = "buttonSetDateReatt2";
-            this.buttonSetDateReatt2.Size = new System.Drawing.Size(292, 23);
-            this.buttonSetDateReatt2.TabIndex = 38;
-            this.buttonSetDateReatt2.Text = "Установить сегдняшнюю дату для 2-ой реаттестации";
-            this.buttonSetDateReatt2.UseVisualStyleBackColor = true;
-            this.buttonSetDateReatt2.Click += new System.EventHandler(this.buttonSetDateReatt2_Click);
+            this.date_planed_reatt_1.DataPropertyName = "date_planed_reatt_1";
+            this.date_planed_reatt_1.HeaderText = "Дата 1-ой реаттестации";
+            this.date_planed_reatt_1.Name = "date_planed_reatt_1";
+            this.date_planed_reatt_1.ReadOnly = true;
             // 
-            // buttonSetDateResert
+            // date_planed_reatt_2
             // 
-            this.buttonSetDateResert.Location = new System.Drawing.Point(392, 96);
-            this.buttonSetDateResert.Name = "buttonSetDateResert";
-            this.buttonSetDateResert.Size = new System.Drawing.Size(292, 23);
-            this.buttonSetDateResert.TabIndex = 39;
-            this.buttonSetDateResert.Text = "Установить сегдняшнюю дату для  ресертификации";
-            this.buttonSetDateResert.UseVisualStyleBackColor = true;
-            this.buttonSetDateResert.Click += new System.EventHandler(this.buttonSetDateResert_Click);
+            this.date_planed_reatt_2.DataPropertyName = "date_planed_reatt_2";
+            this.date_planed_reatt_2.HeaderText = "Дата 2-ой реаттестации";
+            this.date_planed_reatt_2.Name = "date_planed_reatt_2";
+            this.date_planed_reatt_2.ReadOnly = true;
+            // 
+            // date_planed_resert
+            // 
+            this.date_planed_resert.DataPropertyName = "date_planed_resert";
+            this.date_planed_resert.HeaderText = "Дата ресертификации";
+            this.date_planed_resert.Name = "date_planed_resert";
+            this.date_planed_resert.ReadOnly = true;
+            // 
+            // has_inspection_document
+            // 
+            this.has_inspection_document.DataPropertyName = "has_inspection_document";
+            this.has_inspection_document.HeaderText = "Договор";
+            this.has_inspection_document.Name = "has_inspection_document";
+            this.has_inspection_document.ReadOnly = true;
+            this.has_inspection_document.Width = 70;
+            // 
+            // StartControlColumn
+            // 
+            this.StartControlColumn.HeaderText = "Начать инспекционный контроль";
+            this.StartControlColumn.Name = "StartControlColumn";
+            this.StartControlColumn.ReadOnly = true;
             // 
             // productsnameDataGridViewTextBoxColumn
             // 
@@ -1035,31 +1053,94 @@
             // 
             // dataGridViewTextBoxColumn6
             // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "total_cost";
-            this.dataGridViewTextBoxColumn6.HeaderText = "Общая сумма";
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "date_planed_reatt_1";
+            this.dataGridViewTextBoxColumn6.HeaderText = "Планируемая дата 1-ой реаттестации";
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             this.dataGridViewTextBoxColumn6.ReadOnly = true;
             // 
+            // date_real_reatt_1
+            // 
+            this.date_real_reatt_1.DataPropertyName = "date_real_reatt_1";
+            this.date_real_reatt_1.HeaderText = "Реальная дата 1-ой реаттестации";
+            this.date_real_reatt_1.Name = "date_real_reatt_1";
+            this.date_real_reatt_1.ReadOnly = true;
+            // 
+            // days_to_deadline_reatt_1
+            // 
+            this.days_to_deadline_reatt_1.DataPropertyName = "days_to_deadline_reatt_1";
+            this.days_to_deadline_reatt_1.HeaderText = "Дней до 1-ой реаттестации";
+            this.days_to_deadline_reatt_1.Name = "days_to_deadline_reatt_1";
+            this.days_to_deadline_reatt_1.ReadOnly = true;
+            // 
             // dataGridViewTextBoxColumn7
             // 
-            this.dataGridViewTextBoxColumn7.DataPropertyName = "date_proposal";
-            this.dataGridViewTextBoxColumn7.HeaderText = "Дата поступления заявки";
+            this.dataGridViewTextBoxColumn7.DataPropertyName = "date_planed_reatt_2";
+            this.dataGridViewTextBoxColumn7.HeaderText = "Планируемая дата 2-ой реаттестации";
             this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
             this.dataGridViewTextBoxColumn7.ReadOnly = true;
             // 
+            // date_real_reatt_2
+            // 
+            this.date_real_reatt_2.DataPropertyName = "date_real_reatt_2";
+            this.date_real_reatt_2.HeaderText = "Реальная дата 2-ой реаттестации";
+            this.date_real_reatt_2.Name = "date_real_reatt_2";
+            this.date_real_reatt_2.ReadOnly = true;
+            // 
+            // days_to_deadline_reatt_2
+            // 
+            this.days_to_deadline_reatt_2.DataPropertyName = "days_to_deadline_reatt_2";
+            this.days_to_deadline_reatt_2.HeaderText = "Дней до 2-ой реаттестации";
+            this.days_to_deadline_reatt_2.Name = "days_to_deadline_reatt_2";
+            this.days_to_deadline_reatt_2.ReadOnly = true;
+            // 
             // dataGridViewTextBoxColumn8
             // 
-            this.dataGridViewTextBoxColumn8.DataPropertyName = "agents_fullname";
-            this.dataGridViewTextBoxColumn8.HeaderText = "Контрагент";
+            this.dataGridViewTextBoxColumn8.DataPropertyName = "date_planed_resert";
+            this.dataGridViewTextBoxColumn8.HeaderText = "Планируемая дата ресертификации";
             this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
             this.dataGridViewTextBoxColumn8.ReadOnly = true;
             // 
+            // date_real_resert
+            // 
+            this.date_real_resert.DataPropertyName = "date_real_resert";
+            this.date_real_resert.HeaderText = "Реальная дата ресертификации";
+            this.date_real_resert.Name = "date_real_resert";
+            this.date_real_resert.ReadOnly = true;
+            // 
+            // days_to_deadline_resert
+            // 
+            this.days_to_deadline_resert.DataPropertyName = "days_to_deadline_resert";
+            this.days_to_deadline_resert.HeaderText = "Дней до ресертификации";
+            this.days_to_deadline_resert.Name = "days_to_deadline_resert";
+            this.days_to_deadline_resert.ReadOnly = true;
+            // 
             // dataGridViewTextBoxColumn9
             // 
-            this.dataGridViewTextBoxColumn9.DataPropertyName = "expert_FIO";
-            this.dataGridViewTextBoxColumn9.HeaderText = "Эксперт";
+            this.dataGridViewTextBoxColumn9.DataPropertyName = "total_cost";
+            this.dataGridViewTextBoxColumn9.HeaderText = "Общая сумма";
             this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
             this.dataGridViewTextBoxColumn9.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn10
+            // 
+            this.dataGridViewTextBoxColumn10.DataPropertyName = "date_proposal";
+            this.dataGridViewTextBoxColumn10.HeaderText = "Дата поступления заявки";
+            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            this.dataGridViewTextBoxColumn10.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn11
+            // 
+            this.dataGridViewTextBoxColumn11.DataPropertyName = "agents_fullname";
+            this.dataGridViewTextBoxColumn11.HeaderText = "Контрагент";
+            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
+            this.dataGridViewTextBoxColumn11.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn12
+            // 
+            this.dataGridViewTextBoxColumn12.DataPropertyName = "expert_FIO";
+            this.dataGridViewTextBoxColumn12.HeaderText = "Эксперт";
+            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
+            this.dataGridViewTextBoxColumn12.ReadOnly = true;
             // 
             // FinishInspectionControlColumn
             // 
@@ -1170,6 +1251,9 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
         private System.Windows.Forms.ToolStripButton toolStripButton8;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
+        private System.Windows.Forms.Button buttonSetDateReatt1;
+        private System.Windows.Forms.Button buttonSetDateResert;
+        private System.Windows.Forms.Button buttonSetDateReatt2;
         private System.Windows.Forms.DataGridViewTextBoxColumn number;
         private System.Windows.Forms.DataGridViewTextBoxColumn productsnameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn contracttypesnameDataGridViewTextBoxColumn;
@@ -1184,19 +1268,25 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dateproposalDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn agentsfullnameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn expertFIODataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewButtonColumn SignContractColumn;
-        private System.Windows.Forms.Button buttonSetDateReatt1;
-        private System.Windows.Forms.Button buttonSetDateResert;
-        private System.Windows.Forms.Button buttonSetDateReatt2;
+        private System.Windows.Forms.DataGridViewButtonColumn StartControlColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn date_real_reatt_1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn days_to_deadline_reatt_1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn date_real_reatt_2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn days_to_deadline_reatt_2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn date_real_resert;
+        private System.Windows.Forms.DataGridViewTextBoxColumn days_to_deadline_resert;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
         private System.Windows.Forms.DataGridViewButtonColumn FinishInspectionControlColumn;
 
         //private EdocbaseDataSetTableAdapters.Exec_contractsTableAdapter exec_contractsTableAdapter;
