@@ -615,6 +615,7 @@
             this.contractsOnInspectionDataGridView.Size = new System.Drawing.Size(1100, 246);
             this.contractsOnInspectionDataGridView.TabIndex = 30;
             this.contractsOnInspectionDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.contractsOnInspectionDataGridView_CellContentClick);
+            this.contractsOnInspectionDataGridView.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.contractsOnInspectionDataGridView_CellPainting);
             // 
             // panel2
             // 
