@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
+using System.Reflection;
+
 namespace Edocsys
 {
     public partial class ContractPaymentsForm : Form
@@ -28,7 +30,32 @@ namespace Edocsys
 
             filterContractsPayments = new FilterHelper(contractPaymentsDataGridView, filterContractPaymentsTextBox.TextBox);
             filterPayedContracts = new FilterHelper(payedContractsdataGridView, filterPayedContractsTextBox.TextBox);
+
+
+            typeof(DataGridView).InvokeMember(
+                           "DoubleBuffered",
+                           BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.SetProperty,
+                           null,
+                           payedContractsdataGridView,
+                           new object[] { true });
+
+
+            typeof(DataGridView).InvokeMember(
+               "DoubleBuffered",
+               BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.SetProperty,
+               null,
+               contractPaymentsDataGridView,
+               new object[] { true });
+            //public void DoubleBuffered(this DataGridView dgv, bool setting)
+            // {
+            //     Type dgvType = dgv.GetType();
+            //     PropertyInfo pi = dgvType.GetProperty("DoubleBuffered",
+            //         BindingFlags.Instance | BindingFlags.NonPublic);
+            //     pi.SetValue(dgv, setting, null);
+            // }
         }
+
+
 
 
         private void UpdateDatabase()
@@ -44,23 +71,51 @@ namespace Edocsys
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Save Error");
+                string type = "Save ERROR";
+                string msg = ex.Message;
+                string title = type;
+                TraceHelper.LogError(type, ex, this);
+                MessageBox.Show(msg, title);
             }
-            /**/
         }
 
         private void RefreshDatabase()
         {
             try
             {
-                this.contractPaymentsTableAdapter.Fill(this.edocbaseDataSet.ContractPayments);
-                this.payedContractsTableAdapter.Fill(this.edocbaseDataSet.PayedContracts);
+                RefreshContractPayments();
+                RefreshPayedContract();
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Refresh Error");
+                string type = "Refresh ERROR";
+                string msg = ex.Message;
+                string title = type;
+                TraceHelper.LogError(type, ex, this);
+                MessageBox.Show(msg, title);
             }
-            /**/
+        }
+
+        private void RefreshContractPayments()
+        {
+            int pos = contractPaymentsBindingSource.Position;
+
+            this.contractPaymentsTableAdapter.Fill(this.edocbaseDataSet.ContractPayments);
+
+            contractPaymentsBindingSource.Position = pos;
+
+            this.contractPaymentsDataGridView.Refresh();
+        }
+
+        private void RefreshPayedContract()
+        {
+            int pos = payedContractsBindingSource.Position;
+
+            this.payedContractsTableAdapter.Fill(this.edocbaseDataSet.PayedContracts);
+
+            payedContractsBindingSource.Position = pos;
+
+            this.payedContractsdataGridView.Refresh();
         }
 
         private void contractInWorkDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -92,7 +147,12 @@ namespace Edocsys
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show(ex.Message, "Save Error");
+                        string type = "Save set payment ERROR";
+                        string msg = ex.Message;
+                        string title = type;
+                        TraceHelper.LogError(type, ex, this);
+                        MessageBox.Show(msg, title);
+
                     }
                 }
             }
@@ -138,7 +198,12 @@ namespace Edocsys
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show(ex.Message, "Save Error");
+                        string type = "Save cancel payment ERROR";
+                        string msg = ex.Message;
+                        string title = type;
+                        TraceHelper.LogError(type, ex, this);
+                        MessageBox.Show(msg, title);
+
                     }
                 }
             }
@@ -147,70 +212,80 @@ namespace Edocsys
 
         private void contractPaymentsDataGridView_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
         {
-            DataGridView s = sender as DataGridView;
-
             if (e.RowIndex < 0)
                 return;
-            try
-            {
-                int days_left = Convert.ToInt32(s.Rows[e.RowIndex].Cells["daystodeadlineDataGridViewTextBoxColumn"].Value);
 
-                if (days_left < (int)Constants.DeadlineAlerts.Fortnight)
-                {
-                    e.CellStyle.BackColor = Color.FromArgb(0xFF, 0xCB, 0xDB);
-                    e.CellStyle.SelectionBackColor = Color.FromArgb(255, 0, 0);
-                }
-                if (days_left < (int)Constants.DeadlineAlerts.Week)
-                {
-                    e.CellStyle.BackColor = Color.FromArgb(0xFA, 0xDA, 0xDD);
-                    e.CellStyle.SelectionBackColor = Color.FromArgb(255, 0, 0);
-                }
-                if (days_left < (int)Constants.DeadlineAlerts.Overdue)
-                {
-                    e.CellStyle.BackColor = Color.FromArgb(0xFD, 0xD7, 0xE4);
-                    e.CellStyle.SelectionBackColor = Color.FromArgb(255, 0, 0);
-                }
+            if (e.ColumnIndex == 0)
+            {
+                DataGridView s = sender as DataGridView;
+                if ((s.Rows[e.RowIndex].Cells["daystodeadlineDataGridViewTextBoxColumn"].Value == null) ||
+                    (s.Rows[e.RowIndex].Cells["daystodeadlineDataGridViewTextBoxColumn"].Value == DBNull.Value))
+                    return;
+
+                int days_left = Convert.ToInt32(s.Rows[e.RowIndex].Cells["daystodeadlineDataGridViewTextBoxColumn"].Value);
+                ChangeGridRowColor(s, e, days_left);
             }
-            catch { };
         }
 
         private void payedContractsdataGridView_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
         {
-            DataGridView s = sender as DataGridView;
-
             if (e.RowIndex < 0)
                 return;
+
+            if (e.ColumnIndex == 0)
+            {
+                DataGridView s = sender as DataGridView;
+                if ((s.Rows[e.RowIndex].Cells["daystodeadlineDataGridViewTextBoxColumn1"].Value == null) ||
+                    (s.Rows[e.RowIndex].Cells["daystodeadlineDataGridViewTextBoxColumn1"].Value == DBNull.Value))
+                    return;
+
+                int days_left = Convert.ToInt32(s.Rows[e.RowIndex].Cells["daystodeadlineDataGridViewTextBoxColumn1"].Value);
+                ChangeGridRowColor(s, e, days_left);
+            }
+        }
+
+        private static void ChangeGridRowColor(DataGridView s, DataGridViewCellPaintingEventArgs e, int days_left)
+        {
+            Color bk, sbk;
             try
             {
-                int days_left = Convert.ToInt32(s.Rows[e.RowIndex].Cells["daystodeadlineDataGridViewTextBoxColumn1"].Value);
+                bk = s.Rows[e.RowIndex].DefaultCellStyle.BackColor;
+                sbk = s.Rows[e.RowIndex].DefaultCellStyle.SelectionBackColor;
+
+                
 
                 if (days_left < (int)Constants.DeadlineAlerts.Fortnight)
                 {
-                    e.CellStyle.BackColor = Color.FromArgb(0xFF, 0xCB, 0xDB);
-                    e.CellStyle.SelectionBackColor = Color.FromArgb(255, 0, 0);
+                    bk = Color.FromArgb(0xFF, 0xCB, 0xDB);
+                    sbk = Color.FromArgb(255, 0, 0);
                 }
                 if (days_left < (int)Constants.DeadlineAlerts.Week)
                 {
-                    e.CellStyle.BackColor = Color.FromArgb(0xFA, 0xDA, 0xDD);
-                    e.CellStyle.SelectionBackColor = Color.FromArgb(255, 0, 0);
+                    bk = Color.FromArgb(0xFA, 0xDA, 0xDD);
+                    sbk = Color.FromArgb(255, 0, 0);
                 }
                 if (days_left < (int)Constants.DeadlineAlerts.Overdue)
                 {
-                    e.CellStyle.BackColor = Color.FromArgb(0xFD, 0xD7, 0xE4);
-                    e.CellStyle.SelectionBackColor = Color.FromArgb(255, 0, 0);
+                    bk = Color.FromArgb(0xFD, 0xD7, 0xE4);
+                    sbk = Color.FromArgb(255, 0, 0);
                 }
+
+                s.Rows[e.RowIndex].DefaultCellStyle.BackColor = bk;
+                s.Rows[e.RowIndex].DefaultCellStyle.SelectionBackColor = sbk;
+                //e.CellStyle.BackColor = bk;
+                //e.CellStyle.SelectionBackColor = sbk;
             }
             catch { };
         }
 
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
-            RefreshDatabase();
+            RefreshContractPayments();
         }
 
         private void toolStripButton11_Click(object sender, EventArgs e)
         {
-            RefreshDatabase();
+            RefreshPayedContract();
         }
 
     }

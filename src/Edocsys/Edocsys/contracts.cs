@@ -77,6 +77,7 @@ namespace Edocsys
                 MessageBox.Show(msg, title);
             }
         }
+
         private void RefreshContractDone()
         {
             int pos = contractDocDataBindingSource.Position;
