@@ -458,8 +458,10 @@ namespace Edocsys
 
             //validate data
             bool hasDocument = Convert.ToBoolean(currentRow["has_act_document"]);
-
-            bool cash_income = Convert.ToBoolean(currentRow["cash_income"]);
+            bool cash_income = false;
+            
+            if (currentRow["cash_income"] != DBNull.Value)
+                Convert.ToBoolean(currentRow["cash_income"]);
 
 
             if (e.ColumnIndex == contractDoneDataTableDataGridView.Columns["FinishContractColumn"].Index)
