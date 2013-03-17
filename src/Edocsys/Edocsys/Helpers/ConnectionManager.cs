@@ -52,6 +52,9 @@ namespace Edocsys
             //    CurrentUser.UserType = 1;
             //#endif
 
+            //SET Default DB user to connect
+            //TODO: load data from the settings
+            Login = "admin";
             Password = "wepo23nri_)(*";
         }
         private static string testConnectionString;
@@ -151,13 +154,12 @@ namespace Edocsys
             }
             catch (MySqlException e)
             {
-                Trace.TraceWarning("MySQL Error " + e.ErrorCode);
-                Trace.TraceWarning("MySQL Error " + e.Message);
+                TraceHelper.LogWarning(string.Format("MySQL Error [{0}] : [{1}]", e.ErrorCode, e.Number), e);
                 t = false;
             }
             catch (Exception e)
             {
-                Trace.TraceError("UNKNOWN Error " + e.Message);
+                TraceHelper.LogError("UNKNOWN Error", e);
                 t = false;
             }
             finally

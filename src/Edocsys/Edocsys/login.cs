@@ -67,9 +67,6 @@ namespace Edocsys
 
             if (psmgr.VerifyHash(passtxbox.Text, pass))
             {
-                ConnectionManager.Login = login;
-                ConnectionManager.Password = pass;
-
                 //verify database connection with new users
                 try
                 {
