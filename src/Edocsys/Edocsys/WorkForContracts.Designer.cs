@@ -116,6 +116,10 @@
             this.tableAdapterManager = new Edocsys.EdocbaseDataSetTableAdapters.TableAdapterManager();
             this.contractPrepareForWorkTAdapter = new Edocsys.EdocbaseDataSetTableAdapters.ContractPrepareForWorkTAdapter();
             this.contractInWorkTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.ContractInWorkTableAdapter();
+            this.buttonSetDateStart = new System.Windows.Forms.Button();
+            this.buttonSetDateEnd = new System.Windows.Forms.Button();
+            this.buttonSetDateSampleIncome = new System.Windows.Forms.Button();
+            this.buttonSetDateProtocolIncome = new System.Windows.Forms.Button();
             date_protocol_incomeLabel = new System.Windows.Forms.Label();
             date_sample_incomeLabel = new System.Windows.Forms.Label();
             date_startLabel = new System.Windows.Forms.Label();
@@ -139,7 +143,7 @@
             // 
             date_protocol_incomeLabel.AutoSize = true;
             date_protocol_incomeLabel.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Edocsys.Properties.Settings.Default, "ContractsDateProtocolIncomeTitle", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            date_protocol_incomeLabel.Location = new System.Drawing.Point(15, 125);
+            date_protocol_incomeLabel.Location = new System.Drawing.Point(10, 117);
             date_protocol_incomeLabel.Name = "date_protocol_incomeLabel";
             date_protocol_incomeLabel.Size = new System.Drawing.Size(156, 13);
             date_protocol_incomeLabel.TabIndex = 31;
@@ -149,7 +153,7 @@
             // 
             date_sample_incomeLabel.AutoSize = true;
             date_sample_incomeLabel.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Edocsys.Properties.Settings.Default, "ContractsDateSampleIncomeTitle", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            date_sample_incomeLabel.Location = new System.Drawing.Point(15, 102);
+            date_sample_incomeLabel.Location = new System.Drawing.Point(10, 85);
             date_sample_incomeLabel.Name = "date_sample_incomeLabel";
             date_sample_incomeLabel.Size = new System.Drawing.Size(145, 13);
             date_sample_incomeLabel.TabIndex = 30;
@@ -159,7 +163,7 @@
             // 
             date_startLabel.AutoSize = true;
             date_startLabel.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Edocsys.Properties.Settings.Default, "ContractsDateStartTitle", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            date_startLabel.Location = new System.Drawing.Point(15, 18);
+            date_startLabel.Location = new System.Drawing.Point(10, 20);
             date_startLabel.Name = "date_startLabel";
             date_startLabel.Size = new System.Drawing.Size(103, 13);
             date_startLabel.TabIndex = 29;
@@ -169,7 +173,7 @@
             // 
             date_endLabel.AutoSize = true;
             date_endLabel.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Edocsys.Properties.Settings.Default, "ContractDateEndTitle", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            date_endLabel.Location = new System.Drawing.Point(15, 51);
+            date_endLabel.Location = new System.Drawing.Point(10, 53);
             date_endLabel.Name = "date_endLabel";
             date_endLabel.Size = new System.Drawing.Size(121, 13);
             date_endLabel.TabIndex = 32;
@@ -230,7 +234,7 @@
             this.contractPrepareForWorkDataGridView.Name = "contractPrepareForWorkDataGridView";
             this.contractPrepareForWorkDataGridView.ReadOnly = true;
             this.contractPrepareForWorkDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.contractPrepareForWorkDataGridView.Size = new System.Drawing.Size(1100, 258);
+            this.contractPrepareForWorkDataGridView.Size = new System.Drawing.Size(1100, 253);
             this.contractPrepareForWorkDataGridView.TabIndex = 32;
             this.contractPrepareForWorkDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.contractPrepareForWorkDataGridView_CellContentClick);
             // 
@@ -505,6 +509,10 @@
             // panel3
             // 
             this.panel3.AutoScroll = true;
+            this.panel3.Controls.Add(this.buttonSetDateProtocolIncome);
+            this.panel3.Controls.Add(this.buttonSetDateSampleIncome);
+            this.panel3.Controls.Add(this.buttonSetDateEnd);
+            this.panel3.Controls.Add(this.buttonSetDateStart);
             this.panel3.Controls.Add(this.date_protocol_incomeDateTimePicker);
             this.panel3.Controls.Add(this.date_sample_incomeDateTimePicker);
             this.panel3.Controls.Add(date_endLabel);
@@ -514,41 +522,45 @@
             this.panel3.Controls.Add(date_sample_incomeLabel);
             this.panel3.Controls.Add(date_startLabel);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(3, 286);
+            this.panel3.Location = new System.Drawing.Point(3, 281);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1100, 155);
+            this.panel3.Size = new System.Drawing.Size(1100, 160);
             this.panel3.TabIndex = 30;
             // 
             // date_protocol_incomeDateTimePicker
             // 
             this.date_protocol_incomeDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.contractPrepareForWorkBindingSource, "date_protocol_income", true));
-            this.date_protocol_incomeDateTimePicker.Location = new System.Drawing.Point(216, 119);
+            this.date_protocol_incomeDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.date_protocol_incomeDateTimePicker.Location = new System.Drawing.Point(172, 115);
             this.date_protocol_incomeDateTimePicker.Name = "date_protocol_incomeDateTimePicker";
-            this.date_protocol_incomeDateTimePicker.Size = new System.Drawing.Size(144, 20);
+            this.date_protocol_incomeDateTimePicker.Size = new System.Drawing.Size(102, 20);
             this.date_protocol_incomeDateTimePicker.TabIndex = 35;
             // 
             // date_sample_incomeDateTimePicker
             // 
             this.date_sample_incomeDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.contractPrepareForWorkBindingSource, "date_sample_income", true));
-            this.date_sample_incomeDateTimePicker.Location = new System.Drawing.Point(216, 93);
+            this.date_sample_incomeDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.date_sample_incomeDateTimePicker.Location = new System.Drawing.Point(172, 83);
             this.date_sample_incomeDateTimePicker.Name = "date_sample_incomeDateTimePicker";
-            this.date_sample_incomeDateTimePicker.Size = new System.Drawing.Size(144, 20);
+            this.date_sample_incomeDateTimePicker.Size = new System.Drawing.Size(102, 20);
             this.date_sample_incomeDateTimePicker.TabIndex = 34;
             // 
             // date_endDateTimePicker
             // 
             this.date_endDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.contractPrepareForWorkBindingSource, "date_end", true));
-            this.date_endDateTimePicker.Location = new System.Drawing.Point(164, 44);
+            this.date_endDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.date_endDateTimePicker.Location = new System.Drawing.Point(169, 51);
             this.date_endDateTimePicker.Name = "date_endDateTimePicker";
-            this.date_endDateTimePicker.Size = new System.Drawing.Size(148, 20);
+            this.date_endDateTimePicker.Size = new System.Drawing.Size(102, 20);
             this.date_endDateTimePicker.TabIndex = 33;
             // 
             // date_startDateTimePicker
             // 
             this.date_startDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.contractPrepareForWorkBindingSource, "date_start", true));
-            this.date_startDateTimePicker.Location = new System.Drawing.Point(164, 12);
+            this.date_startDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.date_startDateTimePicker.Location = new System.Drawing.Point(169, 19);
             this.date_startDateTimePicker.Name = "date_startDateTimePicker";
-            this.date_startDateTimePicker.Size = new System.Drawing.Size(148, 20);
+            this.date_startDateTimePicker.Size = new System.Drawing.Size(102, 20);
             this.date_startDateTimePicker.TabIndex = 32;
             // 
             // tabInWork
@@ -605,24 +617,28 @@
             this.numberDataGridViewTextBoxColumn1.DataPropertyName = "number";
             this.numberDataGridViewTextBoxColumn1.HeaderText = "Номер договора";
             this.numberDataGridViewTextBoxColumn1.Name = "numberDataGridViewTextBoxColumn1";
+            this.numberDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // productsnameDataGridViewTextBoxColumn2
             // 
             this.productsnameDataGridViewTextBoxColumn2.DataPropertyName = "products_name";
             this.productsnameDataGridViewTextBoxColumn2.HeaderText = "Продукция";
             this.productsnameDataGridViewTextBoxColumn2.Name = "productsnameDataGridViewTextBoxColumn2";
+            this.productsnameDataGridViewTextBoxColumn2.ReadOnly = true;
             // 
             // agentsnameDataGridViewTextBoxColumn2
             // 
             this.agentsnameDataGridViewTextBoxColumn2.DataPropertyName = "agents_name";
             this.agentsnameDataGridViewTextBoxColumn2.HeaderText = "Контрагент";
             this.agentsnameDataGridViewTextBoxColumn2.Name = "agentsnameDataGridViewTextBoxColumn2";
+            this.agentsnameDataGridViewTextBoxColumn2.ReadOnly = true;
             // 
             // agenttypesnameDataGridViewTextBoxColumn2
             // 
             this.agenttypesnameDataGridViewTextBoxColumn2.DataPropertyName = "agent_types_name";
             this.agenttypesnameDataGridViewTextBoxColumn2.HeaderText = "Форма собственности";
             this.agenttypesnameDataGridViewTextBoxColumn2.Name = "agenttypesnameDataGridViewTextBoxColumn2";
+            this.agenttypesnameDataGridViewTextBoxColumn2.ReadOnly = true;
             this.agenttypesnameDataGridViewTextBoxColumn2.Width = 50;
             // 
             // contracttypesnameDataGridViewTextBoxColumn2
@@ -630,65 +646,76 @@
             this.contracttypesnameDataGridViewTextBoxColumn2.DataPropertyName = "contract_types_name";
             this.contracttypesnameDataGridViewTextBoxColumn2.HeaderText = "Тип работ";
             this.contracttypesnameDataGridViewTextBoxColumn2.Name = "contracttypesnameDataGridViewTextBoxColumn2";
+            this.contracttypesnameDataGridViewTextBoxColumn2.ReadOnly = true;
             // 
             // datestartDataGridViewTextBoxColumn1
             // 
             this.datestartDataGridViewTextBoxColumn1.DataPropertyName = "date_start";
             this.datestartDataGridViewTextBoxColumn1.HeaderText = "Дата начала работ";
             this.datestartDataGridViewTextBoxColumn1.Name = "datestartDataGridViewTextBoxColumn1";
+            this.datestartDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // dateendDataGridViewTextBoxColumn1
             // 
             this.dateendDataGridViewTextBoxColumn1.DataPropertyName = "date_end";
             this.dateendDataGridViewTextBoxColumn1.HeaderText = "Дата окончания работ";
             this.dateendDataGridViewTextBoxColumn1.Name = "dateendDataGridViewTextBoxColumn1";
+            this.dateendDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // daystodeadlineDataGridViewTextBoxColumn
             // 
             this.daystodeadlineDataGridViewTextBoxColumn.DataPropertyName = "days_to_deadline";
             this.daystodeadlineDataGridViewTextBoxColumn.HeaderText = "Дней до окончания";
             this.daystodeadlineDataGridViewTextBoxColumn.Name = "daystodeadlineDataGridViewTextBoxColumn";
+            this.daystodeadlineDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // costDataGridViewTextBoxColumn2
             // 
             this.costDataGridViewTextBoxColumn2.DataPropertyName = "cost";
             this.costDataGridViewTextBoxColumn2.HeaderText = "Сумма";
             this.costDataGridViewTextBoxColumn2.Name = "costDataGridViewTextBoxColumn2";
+            this.costDataGridViewTextBoxColumn2.ReadOnly = true;
             // 
             // totalcostDataGridViewTextBoxColumn2
             // 
             this.totalcostDataGridViewTextBoxColumn2.DataPropertyName = "total_cost";
             this.totalcostDataGridViewTextBoxColumn2.HeaderText = "Общая сумма";
             this.totalcostDataGridViewTextBoxColumn2.Name = "totalcostDataGridViewTextBoxColumn2";
+            this.totalcostDataGridViewTextBoxColumn2.ReadOnly = true;
             // 
             // agentsfullnameDataGridViewTextBoxColumn2
             // 
             this.agentsfullnameDataGridViewTextBoxColumn2.DataPropertyName = "agents_fullname";
             this.agentsfullnameDataGridViewTextBoxColumn2.HeaderText = "Контрагент";
             this.agentsfullnameDataGridViewTextBoxColumn2.Name = "agentsfullnameDataGridViewTextBoxColumn2";
+            this.agentsfullnameDataGridViewTextBoxColumn2.ReadOnly = true;
             // 
             // datesampleincomeDataGridViewTextBoxColumn1
             // 
             this.datesampleincomeDataGridViewTextBoxColumn1.DataPropertyName = "date_sample_income";
             this.datesampleincomeDataGridViewTextBoxColumn1.HeaderText = "Дата предоставления образцов";
             this.datesampleincomeDataGridViewTextBoxColumn1.Name = "datesampleincomeDataGridViewTextBoxColumn1";
+            this.datesampleincomeDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // dateprotocolincomeDataGridViewTextBoxColumn1
             // 
             this.dateprotocolincomeDataGridViewTextBoxColumn1.DataPropertyName = "date_protocol_income";
             this.dateprotocolincomeDataGridViewTextBoxColumn1.HeaderText = "Дата предоставления протокола";
             this.dateprotocolincomeDataGridViewTextBoxColumn1.Name = "dateprotocolincomeDataGridViewTextBoxColumn1";
+            this.dateprotocolincomeDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // expertFIODataGridViewTextBoxColumn2
             // 
             this.expertFIODataGridViewTextBoxColumn2.DataPropertyName = "expert_FIO";
             this.expertFIODataGridViewTextBoxColumn2.HeaderText = "Эксперт";
             this.expertFIODataGridViewTextBoxColumn2.Name = "expertFIODataGridViewTextBoxColumn2";
+            this.expertFIODataGridViewTextBoxColumn2.ReadOnly = true;
             // 
             // WorkDoneColumn
             // 
             this.WorkDoneColumn.HeaderText = "Работа завершена";
             this.WorkDoneColumn.Name = "WorkDoneColumn";
+            this.WorkDoneColumn.ReadOnly = true;
             // 
             // contractInWorkBindingSource
             // 
@@ -894,6 +921,46 @@
             // 
             this.contractInWorkTableAdapter.ClearBeforeFill = true;
             // 
+            // buttonSetDateStart
+            // 
+            this.buttonSetDateStart.Location = new System.Drawing.Point(296, 16);
+            this.buttonSetDateStart.Name = "buttonSetDateStart";
+            this.buttonSetDateStart.Size = new System.Drawing.Size(242, 23);
+            this.buttonSetDateStart.TabIndex = 36;
+            this.buttonSetDateStart.Text = "Установить дату начала работ";
+            this.buttonSetDateStart.UseVisualStyleBackColor = true;
+            this.buttonSetDateStart.Click += new System.EventHandler(this.buttonSetDateStart_Click);
+            // 
+            // buttonSetDateEnd
+            // 
+            this.buttonSetDateEnd.Location = new System.Drawing.Point(296, 48);
+            this.buttonSetDateEnd.Name = "buttonSetDateEnd";
+            this.buttonSetDateEnd.Size = new System.Drawing.Size(242, 23);
+            this.buttonSetDateEnd.TabIndex = 37;
+            this.buttonSetDateEnd.Text = "Установить дату окончания работ";
+            this.buttonSetDateEnd.UseVisualStyleBackColor = true;
+            this.buttonSetDateEnd.Click += new System.EventHandler(this.buttonSetDateEnd_Click);
+            // 
+            // buttonSetDateSampleIncome
+            // 
+            this.buttonSetDateSampleIncome.Location = new System.Drawing.Point(296, 80);
+            this.buttonSetDateSampleIncome.Name = "buttonSetDateSampleIncome";
+            this.buttonSetDateSampleIncome.Size = new System.Drawing.Size(242, 23);
+            this.buttonSetDateSampleIncome.TabIndex = 38;
+            this.buttonSetDateSampleIncome.Text = "Установить дату поступления образца";
+            this.buttonSetDateSampleIncome.UseVisualStyleBackColor = true;
+            this.buttonSetDateSampleIncome.Click += new System.EventHandler(this.buttonSetDateSampleIncome_Click);
+            // 
+            // buttonSetDateProtocolIncome
+            // 
+            this.buttonSetDateProtocolIncome.Location = new System.Drawing.Point(296, 112);
+            this.buttonSetDateProtocolIncome.Name = "buttonSetDateProtocolIncome";
+            this.buttonSetDateProtocolIncome.Size = new System.Drawing.Size(242, 23);
+            this.buttonSetDateProtocolIncome.TabIndex = 39;
+            this.buttonSetDateProtocolIncome.Text = "Установить дату поступления протокола";
+            this.buttonSetDateProtocolIncome.UseVisualStyleBackColor = true;
+            this.buttonSetDateProtocolIncome.Click += new System.EventHandler(this.buttonSetDateProtocolIncome_Click);
+            // 
             // WorkForContractsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1010,6 +1077,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dateprotocolincomeDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn expertFIODataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewButtonColumn WorkDoneColumn;
+        private System.Windows.Forms.Button buttonSetDateProtocolIncome;
+        private System.Windows.Forms.Button buttonSetDateSampleIncome;
+        private System.Windows.Forms.Button buttonSetDateEnd;
+        private System.Windows.Forms.Button buttonSetDateStart;
 
         //private EdocbaseDataSetTableAdapters.Exec_contractsTableAdapter exec_contractsTableAdapter;
     }

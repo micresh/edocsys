@@ -29,7 +29,6 @@ namespace Edocsys
             //add filters
             filterPrepareForWork = new FilterHelper(contractPrepareForWorkDataGridView, filterPrepareForWorkTextBox.TextBox);
             filterInWork = new FilterHelper(contractInWorkDataGridView, filterInWorkTextBox.TextBox);
-
         }
 
 
@@ -42,33 +41,85 @@ namespace Edocsys
                 this.tableAdapterManager.UpdateAll(this.edocbaseDataSet);
 
                 this.edocbaseDataSet.AcceptChanges();
-
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Save Error");
+                string type = "Save ERROR";
+                string msg = ex.Message;
+                string title = type;
+                TraceHelper.LogError(type, ex, this);
+                MessageBox.Show(msg, title);
             }
-            /**/
         }
 
         private void RefreshDatabase()
         {
             try
             {
-                this.contractPrepareForWorkTAdapter.Fill(this.edocbaseDataSet.ContractPrepareForWork);
-                this.contractInWorkTableAdapter.Fill(this.edocbaseDataSet.ContractInWork);
-
-                this.contractPrepareForWorkDataGridView.Refresh();
+                RefreshContractInWork();
+                RefreshContractPrepareForWork();
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Refresh Error");
+                string type = "Refresh ERROR";
+                string msg = ex.Message;
+                string title = type;
+                TraceHelper.LogError(type, ex, this);
+                MessageBox.Show(msg, title);
             }
-            /**/
+        }
+
+        private void RefreshContractPrepareForWork()
+        {
+            int pos = contractPrepareForWorkBindingSource.Position;
+
+            this.contractPrepareForWorkTAdapter.Fill(this.edocbaseDataSet.ContractPrepareForWork);
+
+            contractPrepareForWorkBindingSource.Position = pos;
+
+            this.contractPrepareForWorkDataGridView.Refresh();
+        }
+
+        private void RefreshContractInWork()
+        {
+            int pos = contractInWorkBindingSource.Position;
+
+            this.contractInWorkTableAdapter.Fill(this.edocbaseDataSet.ContractInWork);
+
+            contractInWorkBindingSource.Position = pos;
+
+            this.contractInWorkDataGridView.Refresh();
         }
 
 
         private void toolStripButton12_Click(object sender, EventArgs e)
+        {
+            if ((contractPrepareForWorkBindingSource.Position < 0) ||
+                (contractPrepareForWorkBindingSource.Position >= contractPrepareForWorkBindingSource.Count))
+            {
+                DataRowView currentRow = (DataRowView)contractPrepareForWorkBindingSource.Current;
+                int id = Convert.ToInt32(currentRow["id"]);
+
+                DateTime now = DateTime.Now.Date;
+
+                if ((currentRow["date_start"] == null)
+                    || (currentRow["date_start"] == DBNull.Value))
+                {
+                    currentRow["date_start"] = now;
+                }
+
+                if ((currentRow["date_end"] == null)
+                    || (currentRow["date_end"] == DBNull.Value))
+                {
+                    DateTime nxt = now.AddMonths(3);
+                    currentRow["date_end"] = nxt.Date;
+                }
+            }
+
+            SaveContractPrepareData();
+        }
+
+        private void SaveContractPrepareData()
         {
             this.Validate();
             this.contractPrepareForWorkBindingSource.EndEdit();
@@ -91,30 +142,67 @@ namespace Edocsys
                     return;
                 }
 
-                DataRow currentRow = edocbaseDataSet.ContractPrepareForWork.DefaultView[contractPrepareForWorkBindingSource.Position].Row;
-                int idContract = Convert.ToInt32(currentRow["id"]);
+                DataRowView currentRow = (DataRowView)contractPrepareForWorkBindingSource.Current;
+                int id = Convert.ToInt32(currentRow["id"]);
 
-                if (MessageBox.Show("Начать работы по договору #" + idContract, "Подтвердить начало работ", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                //validate data
+
+
+                if ((currentRow["date_start"] == null)
+                    || (currentRow["date_start"] == DBNull.Value))
+                {
+                    MessageBox.Show("Не установлена дата начала работ");
+                    return;
+                }
+
+                if ((currentRow["date_end"] == null)
+                    || (currentRow["date_end"] == DBNull.Value))
+                {
+                    MessageBox.Show("Не установлена дата окончания работ");
+                    return;
+                }
+
+
+                if ((currentRow["date_sample_income"] == null)
+                    || (currentRow["date_sample_income"] == DBNull.Value))
+                {
+                    if (MessageBox.Show("Внимание! Не установлена дата поступления образца. Начать работы?", "Подтвердить начало работ", MessageBoxButtons.YesNo) != DialogResult.Yes)
+                        return;
+                }
+
+                if ((currentRow["date_protocol_income"] == null)
+                    || (currentRow["date_protocol_income"] == DBNull.Value))
+                {
+                    if (MessageBox.Show("Внимание! Не установлена дата поступления протокола. Начать работы?", "Подтвердить начало работ", MessageBoxButtons.YesNo) != DialogResult.Yes)
+                        return;
+                }
+
+                TimeSpan days = Convert.ToDateTime(currentRow["date_end"]) - Convert.ToDateTime(currentRow["date_start"]);
+                if (days.Days < 0)
+                {
+                    if (MessageBox.Show("Внимание! Дата начала работ позже даты окончания! Начать работы?", "Подтвердить начало работ", MessageBoxButtons.YesNo) != DialogResult.Yes)
+                        return;
+                }
+
+
+                if (MessageBox.Show("Начать работы по договору #" + id, "Подтвердить начало работ", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
                     try
                     {
                         //set task processed
-                        this.contractPrepareForWorkTAdapter.StartWork((int)Constants.ContractStatuses.InWork, idContract);
-
-                        ////add executed contract
-                        //DateTime now = DateTime.Now;
-                        //DateTime nxt = now; ;
-                        //nxt = nxt.AddMonths(9);
-
+                        this.contractPrepareForWorkTAdapter.StartWork((int)Constants.ContractStatuses.InWork, id);
 
                         //refresh data
                         UpdateDatabase();
                         RefreshDatabase();
-
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show(ex.Message, "Save Error");
+                        string type = "Save ERROR";
+                        string msg = ex.Message;
+                        string title = type;
+                        TraceHelper.LogError(type, ex, sender);
+                        MessageBox.Show(msg, title);
                     }
                 }
                 
@@ -144,15 +232,17 @@ namespace Edocsys
                     return;
                 }
 
-                DataRow currentRow = edocbaseDataSet.ContractInWork.DefaultView[contractInWorkBindingSource.Position].Row;
-                int idContract = Convert.ToInt32(currentRow["id"]);
+                //validate data
 
-                if (MessageBox.Show("Подтвердить завершение работ по договору #" + idContract, "Подтвердить завершение работ", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                DataRowView currentRow = (DataRowView)contractInWorkBindingSource.Current;
+                int id = Convert.ToInt32(currentRow["id"]);
+
+                if (MessageBox.Show("Подтвердить завершение работ по договору #" + id, "Подтвердить завершение работ", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
                     try
                     {
                         //set task finished
-                        this.contractInWorkTableAdapter.WorkDone((int)Constants.ContractStatuses.ComplitionManagerConfrim, idContract);
+                        this.contractInWorkTableAdapter.WorkDone((int)Constants.ContractStatuses.ComplitionManagerConfrim, id);
 
                         //refresh data
                         UpdateDatabase();
@@ -160,7 +250,11 @@ namespace Edocsys
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show(ex.Message, "Save Error");
+                        string type = "Save ERROR";
+                        string msg = ex.Message;
+                        string title = type;
+                        TraceHelper.LogError(type, ex, sender);
+                        MessageBox.Show(msg, title);
                     }
                 }
             }
@@ -208,8 +302,6 @@ namespace Edocsys
                 e.InheritedRowStyle.SelectionBackColor = Color.Pink;// .FromArgb(255, 0, 0);
             }
             /**/
-
-
         }
 
         private void contractInWorkDataGridView_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
@@ -246,6 +338,26 @@ namespace Edocsys
         private void toolStripButton14_Click(object sender, EventArgs e)
         {
             RefreshDatabase();
+        }
+
+        private void buttonSetDateStart_Click(object sender, EventArgs e)
+        {
+            SaveContractPrepareData();
+        }
+
+        private void buttonSetDateEnd_Click(object sender, EventArgs e)
+        {
+            SaveContractPrepareData();
+        }
+
+        private void buttonSetDateSampleIncome_Click(object sender, EventArgs e)
+        {
+            SaveContractPrepareData();
+        }
+
+        private void buttonSetDateProtocolIncome_Click(object sender, EventArgs e)
+        {
+            SaveContractPrepareData();
         }
     }
 }

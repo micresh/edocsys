@@ -335,7 +335,7 @@ namespace Edocsys
                     DataRowView currentRow = (DataRowView)contractSigningBindingSource.Current;
                     int id = Convert.ToInt32(currentRow["id"]);
 
-                    //chack all values set
+                    //validate that all values set
                     if ((currentRow["number"] == null)
                         || (currentRow["number"] == DBNull.Value))
                     {
