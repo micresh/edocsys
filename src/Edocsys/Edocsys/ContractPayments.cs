@@ -26,10 +26,11 @@ namespace Edocsys
 
             RefreshDatabase();
 
+            //add filters
             filterContractsPayments = new FilterHelper(contractPaymentsDataGridView, filterContractPaymentsTextBox.TextBox);
             filterPayedContracts = new FilterHelper(payedContractsdataGridView, filterPayedContractsTextBox.TextBox);
 
-
+            //performance tuning
             DataGridViewHelper.DoubleBuffered(contractPaymentsDataGridView, true);
             DataGridViewHelper.DoubleBuffered(payedContractsdataGridView, true);
         }
@@ -181,7 +182,6 @@ namespace Edocsys
                         string title = type;
                         TraceHelper.LogError(type, ex, this);
                         MessageBox.Show(msg, title);
-
                     }
                 }
             }
@@ -233,6 +233,5 @@ namespace Edocsys
         {
             RefreshPayedContract();
         }
-
     }
 }
