@@ -20526,6 +20526,12 @@ namespace Edocsys {
             
             private global::System.Data.DataColumn columndate_real_resert;
             
+            private global::System.Data.DataColumn columndays_to_deadline_reatt_1;
+            
+            private global::System.Data.DataColumn columndays_to_deadline_reatt_2;
+            
+            private global::System.Data.DataColumn columndays_to_deadline_resert;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public ContractsOnInspectionDataTable() {
@@ -20857,6 +20863,30 @@ namespace Edocsys {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn days_to_deadline_reatt_1Column {
+                get {
+                    return this.columndays_to_deadline_reatt_1;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn days_to_deadline_reatt_2Column {
+                get {
+                    return this.columndays_to_deadline_reatt_2;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn days_to_deadline_resertColumn {
+                get {
+                    return this.columndays_to_deadline_resert;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -20925,7 +20955,10 @@ namespace Edocsys {
                         System.DateTime date_planed_reatt_2, 
                         System.DateTime date_real_reatt_2, 
                         System.DateTime date_planed_resert, 
-                        System.DateTime date_real_resert) {
+                        System.DateTime date_real_resert, 
+                        double days_to_deadline_reatt_1, 
+                        double days_to_deadline_reatt_2, 
+                        double days_to_deadline_resert) {
                 ContractsOnInspectionRow rowContractsOnInspectionRow = ((ContractsOnInspectionRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -20964,7 +20997,10 @@ namespace Edocsys {
                         date_planed_reatt_2,
                         date_real_reatt_2,
                         date_planed_resert,
-                        date_real_resert};
+                        date_real_resert,
+                        days_to_deadline_reatt_1,
+                        days_to_deadline_reatt_2,
+                        days_to_deadline_resert};
                 if ((parentproductsRowByfk_contracts_products14 != null)) {
                     columnValuesArray[1] = parentproductsRowByfk_contracts_products14[0];
                 }
@@ -21039,6 +21075,9 @@ namespace Edocsys {
                 this.columndate_real_reatt_2 = base.Columns["date_real_reatt_2"];
                 this.columndate_planed_resert = base.Columns["date_planed_resert"];
                 this.columndate_real_resert = base.Columns["date_real_resert"];
+                this.columndays_to_deadline_reatt_1 = base.Columns["days_to_deadline_reatt_1"];
+                this.columndays_to_deadline_reatt_2 = base.Columns["days_to_deadline_reatt_2"];
+                this.columndays_to_deadline_resert = base.Columns["days_to_deadline_resert"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -21118,6 +21157,12 @@ namespace Edocsys {
                 base.Columns.Add(this.columndate_planed_resert);
                 this.columndate_real_resert = new global::System.Data.DataColumn("date_real_resert", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndate_real_resert);
+                this.columndays_to_deadline_reatt_1 = new global::System.Data.DataColumn("days_to_deadline_reatt_1", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columndays_to_deadline_reatt_1);
+                this.columndays_to_deadline_reatt_2 = new global::System.Data.DataColumn("days_to_deadline_reatt_2", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columndays_to_deadline_reatt_2);
+                this.columndays_to_deadline_resert = new global::System.Data.DataColumn("days_to_deadline_resert", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columndays_to_deadline_resert);
                 this.columnid.AutoIncrement = true;
                 this.columnid.AutoIncrementSeed = -1;
                 this.columnid.AutoIncrementStep = -1;
@@ -39980,6 +40025,57 @@ namespace Edocsys {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public double days_to_deadline_reatt_1 {
+                get {
+                    try {
+                        return ((double)(this[this.tableContractsOnInspection.days_to_deadline_reatt_1Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'days_to_deadline_reatt_1\' in table \'ContractsOnInspection\' " +
+                                "is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableContractsOnInspection.days_to_deadline_reatt_1Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public double days_to_deadline_reatt_2 {
+                get {
+                    try {
+                        return ((double)(this[this.tableContractsOnInspection.days_to_deadline_reatt_2Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'days_to_deadline_reatt_2\' in table \'ContractsOnInspection\' " +
+                                "is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableContractsOnInspection.days_to_deadline_reatt_2Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public double days_to_deadline_resert {
+                get {
+                    try {
+                        return ((double)(this[this.tableContractsOnInspection.days_to_deadline_resertColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'days_to_deadline_resert\' in table \'ContractsOnInspection\' i" +
+                                "s DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableContractsOnInspection.days_to_deadline_resertColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public contract_statusRow contract_statusRow {
                 get {
                     return ((contract_statusRow)(this.GetParentRow(this.Table.ParentRelations["fk_contracts_contract_status14"])));
@@ -40413,6 +40509,42 @@ namespace Edocsys {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void Setdate_real_resertNull() {
                 this[this.tableContractsOnInspection.date_real_resertColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isdays_to_deadline_reatt_1Null() {
+                return this.IsNull(this.tableContractsOnInspection.days_to_deadline_reatt_1Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setdays_to_deadline_reatt_1Null() {
+                this[this.tableContractsOnInspection.days_to_deadline_reatt_1Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isdays_to_deadline_reatt_2Null() {
+                return this.IsNull(this.tableContractsOnInspection.days_to_deadline_reatt_2Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setdays_to_deadline_reatt_2Null() {
+                this[this.tableContractsOnInspection.days_to_deadline_reatt_2Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isdays_to_deadline_resertNull() {
+                return this.IsNull(this.tableContractsOnInspection.days_to_deadline_resertColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setdays_to_deadline_resertNull() {
+                this[this.tableContractsOnInspection.days_to_deadline_resertColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -58879,6 +59011,9 @@ WHERE        (id = @original_id)";
             tableMapping.ColumnMappings.Add("date_real_reatt_2", "date_real_reatt_2");
             tableMapping.ColumnMappings.Add("date_planed_resert", "date_planed_resert");
             tableMapping.ColumnMappings.Add("date_real_resert", "date_real_resert");
+            tableMapping.ColumnMappings.Add("days_to_deadline_reatt_1", "days_to_deadline_reatt_1");
+            tableMapping.ColumnMappings.Add("days_to_deadline_reatt_2", "days_to_deadline_reatt_2");
+            tableMapping.ColumnMappings.Add("days_to_deadline_resert", "days_to_deadline_resert");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.UpdateCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
@@ -58958,22 +59093,26 @@ WHERE        (id = @original_id)";
                 "umber,\r\ncontracts.date_contract,\r\ncontracts.date_start,\r\ncontracts.date_end,\r\nco" +
                 "ntracts.date_sample_income,\r\ncontracts.date_protocol_income,\r\ncontracts.cost,\r\nc" +
                 "ontracts.total_cost,\r\ncontracts.cash_income,\r\ncontracts.date_cash_income,\r\ncontr" +
-                "acts.date_planed_reatt_1,\r\ncontracts.date_real_reatt_1,\r\ncontracts.date_planed_r" +
-                "eatt_2,\r\ncontracts.date_real_reatt_2,\r\ncontracts.date_planed_resert,\r\ncontracts." +
-                "date_real_resert,\r\nproducts.id AS pkproducts_id,\r\nproducts.name AS products_name" +
-                ",\r\nagents.id AS pkagents_id,\r\nagents.name AS agents_name,\r\nagent_types.id AS pka" +
-                "gent_types_id,\r\nagent_types.name AS agent_types_name,\r\nCONCAT( agent_types.name," +
-                " \' \', agents.name ) AS agents_fullname,\r\ncontract_types.id AS pkcontract_types_i" +
-                "d,\r\ncontract_types.name AS contract_types_name,\r\ncontract_status.id AS pkcontrac" +
-                "t_status_id,\r\ncontract_status.name AS contract_status_name,\r\nCONCAT( users.lastn" +
-                "ame, \' \', substr(users.firstname, 1, 1), \'. \', substr(users.middlename, 1, 1), \'" +
-                ".\' ) AS expert_FIO\r\nFROM\r\ncontracts\r\nLEFT OUTER JOIN agents ON contracts.agents_" +
-                "id = agents.id\r\nLEFT OUTER JOIN products ON contracts.products_id = products.id\r" +
-                "\nLEFT OUTER JOIN agent_types ON agents.agent_types_id = agent_types.id\r\nLEFT OUT" +
-                "ER JOIN contract_types ON contracts.contract_types_id = contract_types.id\r\nLEFT " +
-                "OUTER JOIN contract_status ON contracts.contract_status_id = contract_status.id\r" +
-                "\nLEFT OUTER JOIN users ON contracts.experts_id = users.id\r\nWHERE\r\n(contracts.con" +
-                "tract_status_id = 8)";
+                "acts.date_planed_reatt_1,\r\n(IF(ISNULL(contracts.date_real_reatt_1), contracts.da" +
+                "te_planed_reatt_1 - CURDATE(), 0)) as days_to_deadline_reatt_1,\r\ncontracts.date_" +
+                "real_reatt_1,\r\ncontracts.date_planed_reatt_2,\r\n(IF(ISNULL(contracts.date_real_re" +
+                "att_2), contracts.date_planed_reatt_2 - CURDATE(), 0)) as days_to_deadline_reatt" +
+                "_2,\r\ncontracts.date_real_reatt_2,\r\ncontracts.date_planed_resert,\r\n(IF(ISNULL(con" +
+                "tracts.date_real_resert), contracts.date_planed_resert - CURDATE(), 0)) as days_" +
+                "to_deadline_resert,\r\ncontracts.date_real_resert,\r\nproducts.id AS pkproducts_id,\r" +
+                "\nproducts.name AS products_name,\r\nagents.id AS pkagents_id,\r\nagents.name AS agen" +
+                "ts_name,\r\nagent_types.id AS pkagent_types_id,\r\nagent_types.name AS agent_types_n" +
+                "ame,\r\nCONCAT( agent_types.name, \' \', agents.name ) AS agents_fullname,\r\ncontract" +
+                "_types.id AS pkcontract_types_id,\r\ncontract_types.name AS contract_types_name,\r\n" +
+                "contract_status.id AS pkcontract_status_id,\r\ncontract_status.name AS contract_st" +
+                "atus_name,\r\nCONCAT( users.lastname, \' \', substr(users.firstname, 1, 1), \'. \', su" +
+                "bstr(users.middlename, 1, 1), \'.\' ) AS expert_FIO\r\nFROM\r\ncontracts\r\nLEFT OUTER J" +
+                "OIN agents ON contracts.agents_id = agents.id\r\nLEFT OUTER JOIN products ON contr" +
+                "acts.products_id = products.id\r\nLEFT OUTER JOIN agent_types ON agents.agent_type" +
+                "s_id = agent_types.id\r\nLEFT OUTER JOIN contract_types ON contracts.contract_type" +
+                "s_id = contract_types.id\r\nLEFT OUTER JOIN contract_status ON contracts.contract_" +
+                "status_id = contract_status.id\r\nLEFT OUTER JOIN users ON contracts.experts_id = " +
+                "users.id\r\nWHERE\r\n(contracts.contract_status_id = 8)";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[1].Connection = this.Connection;
