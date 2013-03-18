@@ -5966,8 +5966,6 @@ namespace Edocsys {
             
             private global::System.Data.DataColumn columndate_end;
             
-            private global::System.Data.DataColumn columndays_to_deadline;
-            
             private global::System.Data.DataColumn columndate_sample_income;
             
             private global::System.Data.DataColumn columndate_protocol_income;
@@ -6000,7 +5998,9 @@ namespace Edocsys {
             
             private global::System.Data.DataColumn columnexpert_FIO;
             
-            private global::System.Data.DataColumn columnExpr1;
+            private global::System.Data.DataColumn columnexperts_id1;
+            
+            private global::System.Data.DataColumn columndays_to_deadline;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -6128,14 +6128,6 @@ namespace Edocsys {
             public global::System.Data.DataColumn date_endColumn {
                 get {
                     return this.columndate_end;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn days_to_deadlineColumn {
-                get {
-                    return this.columndays_to_deadline;
                 }
             }
             
@@ -6269,9 +6261,17 @@ namespace Edocsys {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Expr1Column {
+            public global::System.Data.DataColumn experts_id1Column {
                 get {
-                    return this.columnExpr1;
+                    return this.columnexperts_id1;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn days_to_deadlineColumn {
+                get {
+                    return this.columndays_to_deadline;
                 }
             }
             
@@ -6324,7 +6324,6 @@ namespace Edocsys {
                         System.DateTime date_contract, 
                         System.DateTime date_start, 
                         System.DateTime date_end, 
-                        double days_to_deadline, 
                         System.DateTime date_sample_income, 
                         System.DateTime date_protocol_income, 
                         int cost, 
@@ -6338,7 +6337,8 @@ namespace Edocsys {
                         int pkcontract_status_id, 
                         string contract_status_name, 
                         string expert_FIO, 
-                        int Expr1) {
+                        int experts_id1, 
+                        long days_to_deadline) {
                 ContractInWorkRow rowContractInWorkRow = ((ContractInWorkRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -6353,7 +6353,6 @@ namespace Edocsys {
                         date_contract,
                         date_start,
                         date_end,
-                        days_to_deadline,
                         date_sample_income,
                         date_protocol_income,
                         cost,
@@ -6370,7 +6369,8 @@ namespace Edocsys {
                         pkcontract_status_id,
                         contract_status_name,
                         expert_FIO,
-                        Expr1};
+                        experts_id1,
+                        days_to_deadline};
                 if ((parentproductsRowByfk_contracts_products6 != null)) {
                     columnValuesArray[1] = parentproductsRowByfk_contracts_products6[0];
                 }
@@ -6420,7 +6420,6 @@ namespace Edocsys {
                 this.columndate_contract = base.Columns["date_contract"];
                 this.columndate_start = base.Columns["date_start"];
                 this.columndate_end = base.Columns["date_end"];
-                this.columndays_to_deadline = base.Columns["days_to_deadline"];
                 this.columndate_sample_income = base.Columns["date_sample_income"];
                 this.columndate_protocol_income = base.Columns["date_protocol_income"];
                 this.columncost = base.Columns["cost"];
@@ -6437,7 +6436,8 @@ namespace Edocsys {
                 this.columnpkcontract_status_id = base.Columns["pkcontract_status_id"];
                 this.columncontract_status_name = base.Columns["contract_status_name"];
                 this.columnexpert_FIO = base.Columns["expert_FIO"];
-                this.columnExpr1 = base.Columns["Expr1"];
+                this.columnexperts_id1 = base.Columns["experts_id1"];
+                this.columndays_to_deadline = base.Columns["days_to_deadline"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6467,8 +6467,6 @@ namespace Edocsys {
                 base.Columns.Add(this.columndate_start);
                 this.columndate_end = new global::System.Data.DataColumn("date_end", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndate_end);
-                this.columndays_to_deadline = new global::System.Data.DataColumn("days_to_deadline", typeof(double), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columndays_to_deadline);
                 this.columndate_sample_income = new global::System.Data.DataColumn("date_sample_income", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndate_sample_income);
                 this.columndate_protocol_income = new global::System.Data.DataColumn("date_protocol_income", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
@@ -6501,8 +6499,10 @@ namespace Edocsys {
                 base.Columns.Add(this.columncontract_status_name);
                 this.columnexpert_FIO = new global::System.Data.DataColumn("expert_FIO", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnexpert_FIO);
-                this.columnExpr1 = new global::System.Data.DataColumn("Expr1", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnExpr1);
+                this.columnexperts_id1 = new global::System.Data.DataColumn("experts_id1", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnexperts_id1);
+                this.columndays_to_deadline = new global::System.Data.DataColumn("days_to_deadline", typeof(long), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columndays_to_deadline);
                 this.columnid.AutoIncrement = true;
                 this.columnid.AutoIncrementSeed = -1;
                 this.columnid.AutoIncrementStep = -1;
@@ -6529,7 +6529,7 @@ namespace Edocsys {
                 this.columncontract_types_name.MaxLength = 55;
                 this.columncontract_status_name.MaxLength = 45;
                 this.columnexpert_FIO.MaxLength = 38;
-                this.columnExpr1.AllowDBNull = false;
+                this.columnexperts_id1.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -16617,8 +16617,6 @@ namespace Edocsys {
             
             private global::System.Data.DataColumn columndate_end;
             
-            private global::System.Data.DataColumn columndays_to_deadline;
-            
             private global::System.Data.DataColumn columndate_sample_income;
             
             private global::System.Data.DataColumn columndate_protocol_income;
@@ -16656,6 +16654,8 @@ namespace Edocsys {
             private global::System.Data.DataColumn columnexpert_FIO;
             
             private global::System.Data.DataColumn columnprepayment;
+            
+            private global::System.Data.DataColumn columndays_to_deadline;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -16791,14 +16791,6 @@ namespace Edocsys {
             public global::System.Data.DataColumn date_endColumn {
                 get {
                     return this.columndate_end;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn days_to_deadlineColumn {
-                get {
-                    return this.columndays_to_deadline;
                 }
             }
             
@@ -16956,6 +16948,14 @@ namespace Edocsys {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn days_to_deadlineColumn {
+                get {
+                    return this.columndays_to_deadline;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -17004,7 +17004,6 @@ namespace Edocsys {
                         System.DateTime date_contract, 
                         System.DateTime date_start, 
                         System.DateTime date_end, 
-                        double days_to_deadline, 
                         System.DateTime date_sample_income, 
                         System.DateTime date_protocol_income, 
                         bool cash_income, 
@@ -17020,7 +17019,8 @@ namespace Edocsys {
                         int pkcontract_status_id, 
                         string contract_status_name, 
                         string expert_FIO, 
-                        int prepayment) {
+                        int prepayment, 
+                        long days_to_deadline) {
                 ContractPaymentsRow rowContractPaymentsRow = ((ContractPaymentsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -17036,7 +17036,6 @@ namespace Edocsys {
                         date_contract,
                         date_start,
                         date_end,
-                        days_to_deadline,
                         date_sample_income,
                         date_protocol_income,
                         cash_income,
@@ -17055,7 +17054,8 @@ namespace Edocsys {
                         pkcontract_status_id,
                         contract_status_name,
                         expert_FIO,
-                        prepayment};
+                        prepayment,
+                        days_to_deadline};
                 if ((parentproductsRowByfk_contracts_products8 != null)) {
                     columnValuesArray[1] = parentproductsRowByfk_contracts_products8[0];
                 }
@@ -17106,7 +17106,6 @@ namespace Edocsys {
                 this.columndate_contract = base.Columns["date_contract"];
                 this.columndate_start = base.Columns["date_start"];
                 this.columndate_end = base.Columns["date_end"];
-                this.columndays_to_deadline = base.Columns["days_to_deadline"];
                 this.columndate_sample_income = base.Columns["date_sample_income"];
                 this.columndate_protocol_income = base.Columns["date_protocol_income"];
                 this.columncash_income = base.Columns["cash_income"];
@@ -17126,6 +17125,7 @@ namespace Edocsys {
                 this.columncontract_status_name = base.Columns["contract_status_name"];
                 this.columnexpert_FIO = base.Columns["expert_FIO"];
                 this.columnprepayment = base.Columns["prepayment"];
+                this.columndays_to_deadline = base.Columns["days_to_deadline"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -17157,8 +17157,6 @@ namespace Edocsys {
                 base.Columns.Add(this.columndate_start);
                 this.columndate_end = new global::System.Data.DataColumn("date_end", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndate_end);
-                this.columndays_to_deadline = new global::System.Data.DataColumn("days_to_deadline", typeof(double), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columndays_to_deadline);
                 this.columndate_sample_income = new global::System.Data.DataColumn("date_sample_income", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndate_sample_income);
                 this.columndate_protocol_income = new global::System.Data.DataColumn("date_protocol_income", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
@@ -17197,6 +17195,8 @@ namespace Edocsys {
                 base.Columns.Add(this.columnexpert_FIO);
                 this.columnprepayment = new global::System.Data.DataColumn("prepayment", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnprepayment);
+                this.columndays_to_deadline = new global::System.Data.DataColumn("days_to_deadline", typeof(long), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columndays_to_deadline);
                 this.columnid.AutoIncrement = true;
                 this.columnid.AutoIncrementSeed = -1;
                 this.columnid.AutoIncrementStep = -1;
@@ -17383,8 +17383,6 @@ namespace Edocsys {
             
             private global::System.Data.DataColumn columndate_end;
             
-            private global::System.Data.DataColumn columndays_to_deadline;
-            
             private global::System.Data.DataColumn columndate_sample_income;
             
             private global::System.Data.DataColumn columndate_protocol_income;
@@ -17422,6 +17420,8 @@ namespace Edocsys {
             private global::System.Data.DataColumn columnexpert_FIO;
             
             private global::System.Data.DataColumn columnprepayment;
+            
+            private global::System.Data.DataColumn columndays_to_deadline;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -17557,14 +17557,6 @@ namespace Edocsys {
             public global::System.Data.DataColumn date_endColumn {
                 get {
                     return this.columndate_end;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn days_to_deadlineColumn {
-                get {
-                    return this.columndays_to_deadline;
                 }
             }
             
@@ -17722,6 +17714,14 @@ namespace Edocsys {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn days_to_deadlineColumn {
+                get {
+                    return this.columndays_to_deadline;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -17770,7 +17770,6 @@ namespace Edocsys {
                         System.DateTime date_contract, 
                         System.DateTime date_start, 
                         System.DateTime date_end, 
-                        double days_to_deadline, 
                         System.DateTime date_sample_income, 
                         System.DateTime date_protocol_income, 
                         bool cash_income, 
@@ -17786,7 +17785,8 @@ namespace Edocsys {
                         int pkcontract_status_id, 
                         string contract_status_name, 
                         string expert_FIO, 
-                        int prepayment) {
+                        int prepayment, 
+                        long days_to_deadline) {
                 PayedContractsRow rowPayedContractsRow = ((PayedContractsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -17802,7 +17802,6 @@ namespace Edocsys {
                         date_contract,
                         date_start,
                         date_end,
-                        days_to_deadline,
                         date_sample_income,
                         date_protocol_income,
                         cash_income,
@@ -17821,7 +17820,8 @@ namespace Edocsys {
                         pkcontract_status_id,
                         contract_status_name,
                         expert_FIO,
-                        prepayment};
+                        prepayment,
+                        days_to_deadline};
                 if ((parentproductsRowByfk_contracts_products9 != null)) {
                     columnValuesArray[1] = parentproductsRowByfk_contracts_products9[0];
                 }
@@ -17872,7 +17872,6 @@ namespace Edocsys {
                 this.columndate_contract = base.Columns["date_contract"];
                 this.columndate_start = base.Columns["date_start"];
                 this.columndate_end = base.Columns["date_end"];
-                this.columndays_to_deadline = base.Columns["days_to_deadline"];
                 this.columndate_sample_income = base.Columns["date_sample_income"];
                 this.columndate_protocol_income = base.Columns["date_protocol_income"];
                 this.columncash_income = base.Columns["cash_income"];
@@ -17892,6 +17891,7 @@ namespace Edocsys {
                 this.columncontract_status_name = base.Columns["contract_status_name"];
                 this.columnexpert_FIO = base.Columns["expert_FIO"];
                 this.columnprepayment = base.Columns["prepayment"];
+                this.columndays_to_deadline = base.Columns["days_to_deadline"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -17923,8 +17923,6 @@ namespace Edocsys {
                 base.Columns.Add(this.columndate_start);
                 this.columndate_end = new global::System.Data.DataColumn("date_end", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndate_end);
-                this.columndays_to_deadline = new global::System.Data.DataColumn("days_to_deadline", typeof(double), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columndays_to_deadline);
                 this.columndate_sample_income = new global::System.Data.DataColumn("date_sample_income", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndate_sample_income);
                 this.columndate_protocol_income = new global::System.Data.DataColumn("date_protocol_income", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
@@ -17963,6 +17961,8 @@ namespace Edocsys {
                 base.Columns.Add(this.columnexpert_FIO);
                 this.columnprepayment = new global::System.Data.DataColumn("prepayment", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnprepayment);
+                this.columndays_to_deadline = new global::System.Data.DataColumn("days_to_deadline", typeof(long), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columndays_to_deadline);
                 this.columnid.AutoIncrement = true;
                 this.columnid.AutoIncrementSeed = -1;
                 this.columnid.AutoIncrementStep = -1;
@@ -20956,9 +20956,9 @@ namespace Edocsys {
                         System.DateTime date_real_reatt_2, 
                         System.DateTime date_planed_resert, 
                         System.DateTime date_real_resert, 
-                        double days_to_deadline_reatt_1, 
-                        double days_to_deadline_reatt_2, 
-                        double days_to_deadline_resert) {
+                        long days_to_deadline_reatt_1, 
+                        long days_to_deadline_reatt_2, 
+                        long days_to_deadline_resert) {
                 ContractsOnInspectionRow rowContractsOnInspectionRow = ((ContractsOnInspectionRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -21157,11 +21157,11 @@ namespace Edocsys {
                 base.Columns.Add(this.columndate_planed_resert);
                 this.columndate_real_resert = new global::System.Data.DataColumn("date_real_resert", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndate_real_resert);
-                this.columndays_to_deadline_reatt_1 = new global::System.Data.DataColumn("days_to_deadline_reatt_1", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columndays_to_deadline_reatt_1 = new global::System.Data.DataColumn("days_to_deadline_reatt_1", typeof(long), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndays_to_deadline_reatt_1);
-                this.columndays_to_deadline_reatt_2 = new global::System.Data.DataColumn("days_to_deadline_reatt_2", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columndays_to_deadline_reatt_2 = new global::System.Data.DataColumn("days_to_deadline_reatt_2", typeof(long), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndays_to_deadline_reatt_2);
-                this.columndays_to_deadline_resert = new global::System.Data.DataColumn("days_to_deadline_resert", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columndays_to_deadline_resert = new global::System.Data.DataColumn("days_to_deadline_resert", typeof(long), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndays_to_deadline_resert);
                 this.columnid.AutoIncrement = true;
                 this.columnid.AutoIncrementSeed = -1;
@@ -25177,22 +25177,6 @@ namespace Edocsys {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public double days_to_deadline {
-                get {
-                    try {
-                        return ((double)(this[this.tableContractInWork.days_to_deadlineColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'days_to_deadline\' in table \'ContractInWork\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableContractInWork.days_to_deadlineColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public System.DateTime date_sample_income {
                 get {
                     try {
@@ -25449,12 +25433,28 @@ namespace Edocsys {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int Expr1 {
+            public int experts_id1 {
                 get {
-                    return ((int)(this[this.tableContractInWork.Expr1Column]));
+                    return ((int)(this[this.tableContractInWork.experts_id1Column]));
                 }
                 set {
-                    this[this.tableContractInWork.Expr1Column] = value;
+                    this[this.tableContractInWork.experts_id1Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public long days_to_deadline {
+                get {
+                    try {
+                        return ((long)(this[this.tableContractInWork.days_to_deadlineColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'days_to_deadline\' in table \'ContractInWork\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableContractInWork.days_to_deadlineColumn] = value;
                 }
             }
             
@@ -25605,18 +25605,6 @@ namespace Edocsys {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void Setdate_endNull() {
                 this[this.tableContractInWork.date_endColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool Isdays_to_deadlineNull() {
-                return this.IsNull(this.tableContractInWork.days_to_deadlineColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void Setdays_to_deadlineNull() {
-                this[this.tableContractInWork.days_to_deadlineColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -25809,6 +25797,18 @@ namespace Edocsys {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void Setexpert_FIONull() {
                 this[this.tableContractInWork.expert_FIOColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isdays_to_deadlineNull() {
+                return this.IsNull(this.tableContractInWork.days_to_deadlineColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setdays_to_deadlineNull() {
+                this[this.tableContractInWork.days_to_deadlineColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -34946,22 +34946,6 @@ namespace Edocsys {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public double days_to_deadline {
-                get {
-                    try {
-                        return ((double)(this[this.tableContractPayments.days_to_deadlineColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'days_to_deadline\' in table \'ContractPayments\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableContractPayments.days_to_deadlineColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public System.DateTime date_sample_income {
                 get {
                     try {
@@ -35271,6 +35255,22 @@ namespace Edocsys {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public long days_to_deadline {
+                get {
+                    try {
+                        return ((long)(this[this.tableContractPayments.days_to_deadlineColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'days_to_deadline\' in table \'ContractPayments\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableContractPayments.days_to_deadlineColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public contract_statusRow contract_statusRow {
                 get {
                     return ((contract_statusRow)(this.GetParentRow(this.Table.ParentRelations["fk_contracts_contract_status8"])));
@@ -35416,18 +35416,6 @@ namespace Edocsys {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void Setdate_endNull() {
                 this[this.tableContractPayments.date_endColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool Isdays_to_deadlineNull() {
-                return this.IsNull(this.tableContractPayments.days_to_deadlineColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void Setdays_to_deadlineNull() {
-                this[this.tableContractPayments.days_to_deadlineColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -35660,6 +35648,18 @@ namespace Edocsys {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isdays_to_deadlineNull() {
+                return this.IsNull(this.tableContractPayments.days_to_deadlineColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setdays_to_deadlineNull() {
+                this[this.tableContractPayments.days_to_deadlineColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public documentsRow[] GetdocumentsRows() {
                 if ((this.Table.ChildRelations["fk_documents_contracts8"] == null)) {
                     return new documentsRow[0];
@@ -35865,22 +35865,6 @@ namespace Edocsys {
                 }
                 set {
                     this[this.tablePayedContracts.date_endColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public double days_to_deadline {
-                get {
-                    try {
-                        return ((double)(this[this.tablePayedContracts.days_to_deadlineColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'days_to_deadline\' in table \'PayedContracts\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablePayedContracts.days_to_deadlineColumn] = value;
                 }
             }
             
@@ -36190,6 +36174,22 @@ namespace Edocsys {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public long days_to_deadline {
+                get {
+                    try {
+                        return ((long)(this[this.tablePayedContracts.days_to_deadlineColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'days_to_deadline\' in table \'PayedContracts\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePayedContracts.days_to_deadlineColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public contract_statusRow contract_statusRow {
                 get {
                     return ((contract_statusRow)(this.GetParentRow(this.Table.ParentRelations["fk_contracts_contract_status9"])));
@@ -36335,18 +36335,6 @@ namespace Edocsys {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void Setdate_endNull() {
                 this[this.tablePayedContracts.date_endColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool Isdays_to_deadlineNull() {
-                return this.IsNull(this.tablePayedContracts.days_to_deadlineColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void Setdays_to_deadlineNull() {
-                this[this.tablePayedContracts.days_to_deadlineColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -36575,6 +36563,18 @@ namespace Edocsys {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetprepaymentNull() {
                 this[this.tablePayedContracts.prepaymentColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isdays_to_deadlineNull() {
+                return this.IsNull(this.tablePayedContracts.days_to_deadlineColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setdays_to_deadlineNull() {
+                this[this.tablePayedContracts.days_to_deadlineColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -40025,10 +40025,10 @@ namespace Edocsys {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public double days_to_deadline_reatt_1 {
+            public long days_to_deadline_reatt_1 {
                 get {
                     try {
-                        return ((double)(this[this.tableContractsOnInspection.days_to_deadline_reatt_1Column]));
+                        return ((long)(this[this.tableContractsOnInspection.days_to_deadline_reatt_1Column]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'days_to_deadline_reatt_1\' in table \'ContractsOnInspection\' " +
@@ -40042,10 +40042,10 @@ namespace Edocsys {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public double days_to_deadline_reatt_2 {
+            public long days_to_deadline_reatt_2 {
                 get {
                     try {
-                        return ((double)(this[this.tableContractsOnInspection.days_to_deadline_reatt_2Column]));
+                        return ((long)(this[this.tableContractsOnInspection.days_to_deadline_reatt_2Column]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'days_to_deadline_reatt_2\' in table \'ContractsOnInspection\' " +
@@ -40059,10 +40059,10 @@ namespace Edocsys {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public double days_to_deadline_resert {
+            public long days_to_deadline_resert {
                 get {
                     try {
-                        return ((double)(this[this.tableContractsOnInspection.days_to_deadline_resertColumn]));
+                        return ((long)(this[this.tableContractsOnInspection.days_to_deadline_resertColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'days_to_deadline_resert\' in table \'ContractsOnInspection\' i" +
@@ -43405,7 +43405,6 @@ WHERE
             tableMapping.ColumnMappings.Add("date_contract", "date_contract");
             tableMapping.ColumnMappings.Add("date_start", "date_start");
             tableMapping.ColumnMappings.Add("date_end", "date_end");
-            tableMapping.ColumnMappings.Add("days_to_deadline", "days_to_deadline");
             tableMapping.ColumnMappings.Add("date_sample_income", "date_sample_income");
             tableMapping.ColumnMappings.Add("date_protocol_income", "date_protocol_income");
             tableMapping.ColumnMappings.Add("cost", "cost");
@@ -43422,7 +43421,8 @@ WHERE
             tableMapping.ColumnMappings.Add("pkcontract_status_id", "pkcontract_status_id");
             tableMapping.ColumnMappings.Add("contract_status_name", "contract_status_name");
             tableMapping.ColumnMappings.Add("expert_FIO", "expert_FIO");
-            tableMapping.ColumnMappings.Add("Expr1", "Expr1");
+            tableMapping.ColumnMappings.Add("experts_id1", "experts_id1");
+            tableMapping.ColumnMappings.Add("days_to_deadline", "days_to_deadline");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -43439,29 +43439,26 @@ WHERE
             this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[2];
             this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT        contracts.id, contracts.products_id, contracts.agents_id, contracts" +
-                ".contract_types_id, contracts.contract_status_id, contracts.experts_id, contract" +
-                "s.source_types_id, \r\n                         contracts.date_proposal, contracts" +
-                ".experts_id AS Expr1, contracts.number, contracts.date_contract, contracts.date_" +
-                "start, contracts.date_end, \r\n                         contracts.date_end - CURDA" +
-                "TE() AS days_to_deadline, contracts.date_sample_income, contracts.date_protocol_" +
-                "income, contracts.cost, contracts.total_cost, \r\n                         product" +
-                "s.id AS pkproducts_id, products.name AS products_name, agents.id AS pkagents_id," +
-                " agents.name AS agents_name, agent_types.id AS pkagent_types_id, \r\n             " +
-                "            agent_types.name AS agent_types_name, CONCAT(agent_types.name, \' \', " +
-                "agents.name) AS agents_fullname, contract_types.id AS pkcontract_types_id, \r\n   " +
-                "                      contract_types.name AS contract_types_name, contract_statu" +
-                "s.id AS pkcontract_status_id, contract_status.name AS contract_status_name, CONC" +
-                "AT(users.lastname, \r\n                         \' \', substr(users.firstname, 1, 1)" +
-                ", \'. \', substr(users.middlename, 1, 1), \'.\') AS expert_FIO\r\nFROM            cont" +
-                "racts LEFT OUTER JOIN\r\n                         agents ON contracts.agents_id = " +
-                "agents.id LEFT OUTER JOIN\r\n                         products ON contracts.produc" +
-                "ts_id = products.id LEFT OUTER JOIN\r\n                         agent_types ON age" +
-                "nts.agent_types_id = agent_types.id LEFT OUTER JOIN\r\n                         co" +
-                "ntract_types ON contracts.contract_types_id = contract_types.id LEFT OUTER JOIN\r" +
-                "\n                         contract_status ON contracts.contract_status_id = cont" +
-                "ract_status.id LEFT OUTER JOIN\r\n                         users ON contracts.expe" +
-                "rts_id = users.id\r\nWHERE        (contracts.contract_status_id = 4)";
+            this._commandCollection[0].CommandText = "SELECT\r\ncontracts.id,\r\ncontracts.products_id,\r\ncontracts.agents_id,\r\ncontracts.co" +
+                "ntract_types_id,\r\ncontracts.contract_status_id,\r\ncontracts.experts_id,\r\ncontract" +
+                "s.source_types_id,\r\ncontracts.date_proposal,\r\ncontracts.experts_id,\r\ncontracts.n" +
+                "umber,\r\ncontracts.date_contract,\r\ncontracts.date_start,\r\ncontracts.date_end,\r\nDA" +
+                "TEDIFF(contracts.date_end, CURDATE()) AS days_to_deadline,\r\ncontracts.date_sampl" +
+                "e_income,\r\ncontracts.date_protocol_income,\r\ncontracts.cost,\r\ncontracts.total_cos" +
+                "t,\r\nproducts.id AS pkproducts_id,\r\nproducts.name AS products_name,\r\nagents.id AS" +
+                " pkagents_id,\r\nagents.name AS agents_name,\r\nagent_types.id AS pkagent_types_id,\r" +
+                "\nagent_types.name AS agent_types_name,\r\nCONCAT( agent_types.name, \' \', agents.na" +
+                "me ) AS agents_fullname,\r\ncontract_types.id AS pkcontract_types_id,\r\ncontract_ty" +
+                "pes.name AS contract_types_name,\r\ncontract_status.id AS pkcontract_status_id,\r\nc" +
+                "ontract_status.name AS contract_status_name,\r\nCONCAT( users.lastname, \' \', subst" +
+                "r(users.firstname, 1, 1), \'. \', substr(users.middlename, 1, 1), \'.\' ) AS expert_" +
+                "FIO\r\nFROM\r\ncontracts\r\nLEFT OUTER JOIN agents ON contracts.agents_id = agents.id\r" +
+                "\nLEFT OUTER JOIN products ON contracts.products_id = products.id\r\nLEFT OUTER JOI" +
+                "N agent_types ON agents.agent_types_id = agent_types.id\r\nLEFT OUTER JOIN contrac" +
+                "t_types ON contracts.contract_types_id = contract_types.id\r\nLEFT OUTER JOIN cont" +
+                "ract_status ON contracts.contract_status_id = contract_status.id\r\nLEFT OUTER JOI" +
+                "N users ON contracts.experts_id = users.id\r\nWHERE\r\n(contracts.contract_status_id" +
+                " = 4)";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[1].Connection = this.Connection;
@@ -57542,7 +57539,6 @@ WHERE        (selected_gosts.contracts_id = @contracts_id)";
             tableMapping.ColumnMappings.Add("date_contract", "date_contract");
             tableMapping.ColumnMappings.Add("date_start", "date_start");
             tableMapping.ColumnMappings.Add("date_end", "date_end");
-            tableMapping.ColumnMappings.Add("days_to_deadline", "days_to_deadline");
             tableMapping.ColumnMappings.Add("date_sample_income", "date_sample_income");
             tableMapping.ColumnMappings.Add("date_protocol_income", "date_protocol_income");
             tableMapping.ColumnMappings.Add("cash_income", "cash_income");
@@ -57562,6 +57558,7 @@ WHERE        (selected_gosts.contracts_id = @contracts_id)";
             tableMapping.ColumnMappings.Add("contract_status_name", "contract_status_name");
             tableMapping.ColumnMappings.Add("expert_FIO", "expert_FIO");
             tableMapping.ColumnMappings.Add("prepayment", "prepayment");
+            tableMapping.ColumnMappings.Add("days_to_deadline", "days_to_deadline");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -57581,24 +57578,24 @@ WHERE        (selected_gosts.contracts_id = @contracts_id)";
             this._commandCollection[0].CommandText = "SELECT\r\ncontracts.id,\r\ncontracts.products_id,\r\ncontracts.agents_id,\r\ncontracts.co" +
                 "ntract_types_id,\r\ncontracts.contract_status_id,\r\ncontracts.experts_id,\r\ncontract" +
                 "s.source_types_id,\r\ncontracts.date_proposal,\r\ncontracts.experts_id,\r\ncontracts.n" +
-                "umber,\r\ncontracts.date_contract,\r\ncontracts.date_start,\r\ncontracts.date_end,\r\n(c" +
-                "ontracts.date_end - CURDATE()) as days_to_deadline,\r\ncontracts.date_sample_incom" +
-                "e,\r\ncontracts.date_protocol_income,\r\ncontracts.cash_income,\r\ncontracts.date_cash" +
-                "_income,\r\ncontracts.prepayment,\r\ncontracts.cost,\r\ncontracts.total_cost,\r\nproduct" +
-                "s.id AS pkproducts_id,\r\nproducts.name AS products_name,\r\nagents.id AS pkagents_i" +
-                "d,\r\nagents.name AS agents_name,\r\nagent_types.id AS pkagent_types_id,\r\nagent_type" +
-                "s.name AS agent_types_name,\r\nCONCAT( agent_types.name, \' \', agents.name ) AS age" +
-                "nts_fullname,\r\ncontract_types.id AS pkcontract_types_id,\r\ncontract_types.name AS" +
-                " contract_types_name,\r\ncontract_status.id AS pkcontract_status_id,\r\ncontract_sta" +
-                "tus.name AS contract_status_name,\r\nCONCAT( users.lastname, \' \', substr(users.fir" +
-                "stname, 1, 1), \'. \', substr(users.middlename, 1, 1), \'.\' ) AS expert_FIO\r\nFROM\r\n" +
-                "contracts\r\nLEFT OUTER JOIN agents ON contracts.agents_id = agents.id\r\nLEFT OUTER" +
-                " JOIN products ON contracts.products_id = products.id\r\nLEFT OUTER JOIN agent_typ" +
-                "es ON agents.agent_types_id = agent_types.id\r\nLEFT OUTER JOIN contract_types ON " +
-                "contracts.contract_types_id = contract_types.id\r\nLEFT OUTER JOIN contract_status" +
-                " ON contracts.contract_status_id = contract_status.id\r\nLEFT OUTER JOIN users ON " +
-                "contracts.experts_id = users.id\r\nWHERE\r\n(contracts.contract_status_id > 0)\r\nAND " +
-                "\r\n(contracts.contract_status_id < 9)\r\nAND\r\n(not contracts.cash_income)";
+                "umber,\r\ncontracts.date_contract,\r\ncontracts.date_start,\r\ncontracts.date_end,\r\nDA" +
+                "TEDIFF(contracts.date_end, CURDATE()) AS days_to_deadline,\r\ncontracts.date_sampl" +
+                "e_income,\r\ncontracts.date_protocol_income,\r\ncontracts.cash_income,\r\ncontracts.da" +
+                "te_cash_income,\r\ncontracts.prepayment,\r\ncontracts.cost,\r\ncontracts.total_cost,\r\n" +
+                "products.id AS pkproducts_id,\r\nproducts.name AS products_name,\r\nagents.id AS pka" +
+                "gents_id,\r\nagents.name AS agents_name,\r\nagent_types.id AS pkagent_types_id,\r\nage" +
+                "nt_types.name AS agent_types_name,\r\nCONCAT( agent_types.name, \' \', agents.name )" +
+                " AS agents_fullname,\r\ncontract_types.id AS pkcontract_types_id,\r\ncontract_types." +
+                "name AS contract_types_name,\r\ncontract_status.id AS pkcontract_status_id,\r\ncontr" +
+                "act_status.name AS contract_status_name,\r\nCONCAT( users.lastname, \' \', substr(us" +
+                "ers.firstname, 1, 1), \'. \', substr(users.middlename, 1, 1), \'.\' ) AS expert_FIO\r" +
+                "\nFROM\r\ncontracts\r\nLEFT OUTER JOIN agents ON contracts.agents_id = agents.id\r\nLEF" +
+                "T OUTER JOIN products ON contracts.products_id = products.id\r\nLEFT OUTER JOIN ag" +
+                "ent_types ON agents.agent_types_id = agent_types.id\r\nLEFT OUTER JOIN contract_ty" +
+                "pes ON contracts.contract_types_id = contract_types.id\r\nLEFT OUTER JOIN contract" +
+                "_status ON contracts.contract_status_id = contract_status.id\r\nLEFT OUTER JOIN us" +
+                "ers ON contracts.experts_id = users.id\r\nWHERE\r\n(contracts.contract_status_id > 0" +
+                ")\r\nAND \r\n(contracts.contract_status_id < 9)\r\nAND\r\n(not contracts.cash_income)";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[1].Connection = this.Connection;
@@ -57824,7 +57821,6 @@ WHERE        (selected_gosts.contracts_id = @contracts_id)";
             tableMapping.ColumnMappings.Add("date_contract", "date_contract");
             tableMapping.ColumnMappings.Add("date_start", "date_start");
             tableMapping.ColumnMappings.Add("date_end", "date_end");
-            tableMapping.ColumnMappings.Add("days_to_deadline", "days_to_deadline");
             tableMapping.ColumnMappings.Add("date_sample_income", "date_sample_income");
             tableMapping.ColumnMappings.Add("date_protocol_income", "date_protocol_income");
             tableMapping.ColumnMappings.Add("cash_income", "cash_income");
@@ -57844,6 +57840,7 @@ WHERE        (selected_gosts.contracts_id = @contracts_id)";
             tableMapping.ColumnMappings.Add("contract_status_name", "contract_status_name");
             tableMapping.ColumnMappings.Add("expert_FIO", "expert_FIO");
             tableMapping.ColumnMappings.Add("prepayment", "prepayment");
+            tableMapping.ColumnMappings.Add("days_to_deadline", "days_to_deadline");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -57863,24 +57860,24 @@ WHERE        (selected_gosts.contracts_id = @contracts_id)";
             this._commandCollection[0].CommandText = "SELECT\r\ncontracts.id,\r\ncontracts.products_id,\r\ncontracts.agents_id,\r\ncontracts.co" +
                 "ntract_types_id,\r\ncontracts.contract_status_id,\r\ncontracts.experts_id,\r\ncontract" +
                 "s.source_types_id,\r\ncontracts.date_proposal,\r\ncontracts.experts_id,\r\ncontracts.n" +
-                "umber,\r\ncontracts.date_contract,\r\ncontracts.date_start,\r\ncontracts.date_end,\r\n(c" +
-                "ontracts.date_end - CURDATE()) as days_to_deadline,\r\ncontracts.date_sample_incom" +
-                "e,\r\ncontracts.date_protocol_income,\r\ncontracts.cash_income,\r\ncontracts.date_cash" +
-                "_income,\r\ncontracts.prepayment,\r\ncontracts.cost,\r\ncontracts.total_cost,\r\nproduct" +
-                "s.id AS pkproducts_id,\r\nproducts.name AS products_name,\r\nagents.id AS pkagents_i" +
-                "d,\r\nagents.name AS agents_name,\r\nagent_types.id AS pkagent_types_id,\r\nagent_type" +
-                "s.name AS agent_types_name,\r\nCONCAT( agent_types.name, \' \', agents.name ) AS age" +
-                "nts_fullname,\r\ncontract_types.id AS pkcontract_types_id,\r\ncontract_types.name AS" +
-                " contract_types_name,\r\ncontract_status.id AS pkcontract_status_id,\r\ncontract_sta" +
-                "tus.name AS contract_status_name,\r\nCONCAT( users.lastname, \' \', substr(users.fir" +
-                "stname, 1, 1), \'. \', substr(users.middlename, 1, 1), \'.\' ) AS expert_FIO\r\nFROM\r\n" +
-                "contracts\r\nLEFT OUTER JOIN agents ON contracts.agents_id = agents.id\r\nLEFT OUTER" +
-                " JOIN products ON contracts.products_id = products.id\r\nLEFT OUTER JOIN agent_typ" +
-                "es ON agents.agent_types_id = agent_types.id\r\nLEFT OUTER JOIN contract_types ON " +
-                "contracts.contract_types_id = contract_types.id\r\nLEFT OUTER JOIN contract_status" +
-                " ON contracts.contract_status_id = contract_status.id\r\nLEFT OUTER JOIN users ON " +
-                "contracts.experts_id = users.id\r\nWHERE\r\n(contracts.contract_status_id > 0)\r\nAND " +
-                "\r\n(contracts.contract_status_id < 9)\r\nAND\r\n(contracts.cash_income)";
+                "umber,\r\ncontracts.date_contract,\r\ncontracts.date_start,\r\ncontracts.date_end,\r\nDA" +
+                "TEDIFF(contracts.date_end, CURDATE()) AS days_to_deadline,\r\ncontracts.date_sampl" +
+                "e_income,\r\ncontracts.date_protocol_income,\r\ncontracts.cash_income,\r\ncontracts.da" +
+                "te_cash_income,\r\ncontracts.prepayment,\r\ncontracts.cost,\r\ncontracts.total_cost,\r\n" +
+                "products.id AS pkproducts_id,\r\nproducts.name AS products_name,\r\nagents.id AS pka" +
+                "gents_id,\r\nagents.name AS agents_name,\r\nagent_types.id AS pkagent_types_id,\r\nage" +
+                "nt_types.name AS agent_types_name,\r\nCONCAT( agent_types.name, \' \', agents.name )" +
+                " AS agents_fullname,\r\ncontract_types.id AS pkcontract_types_id,\r\ncontract_types." +
+                "name AS contract_types_name,\r\ncontract_status.id AS pkcontract_status_id,\r\ncontr" +
+                "act_status.name AS contract_status_name,\r\nCONCAT( users.lastname, \' \', substr(us" +
+                "ers.firstname, 1, 1), \'. \', substr(users.middlename, 1, 1), \'.\' ) AS expert_FIO\r" +
+                "\nFROM\r\ncontracts\r\nLEFT OUTER JOIN agents ON contracts.agents_id = agents.id\r\nLEF" +
+                "T OUTER JOIN products ON contracts.products_id = products.id\r\nLEFT OUTER JOIN ag" +
+                "ent_types ON agents.agent_types_id = agent_types.id\r\nLEFT OUTER JOIN contract_ty" +
+                "pes ON contracts.contract_types_id = contract_types.id\r\nLEFT OUTER JOIN contract" +
+                "_status ON contracts.contract_status_id = contract_status.id\r\nLEFT OUTER JOIN us" +
+                "ers ON contracts.experts_id = users.id\r\nWHERE\r\n(contracts.contract_status_id > 0" +
+                ")\r\nAND \r\n(contracts.contract_status_id < 9)\r\nAND\r\n(contracts.cash_income)";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[1].Connection = this.Connection;
@@ -59093,26 +59090,26 @@ WHERE        (id = @original_id)";
                 "umber,\r\ncontracts.date_contract,\r\ncontracts.date_start,\r\ncontracts.date_end,\r\nco" +
                 "ntracts.date_sample_income,\r\ncontracts.date_protocol_income,\r\ncontracts.cost,\r\nc" +
                 "ontracts.total_cost,\r\ncontracts.cash_income,\r\ncontracts.date_cash_income,\r\ncontr" +
-                "acts.date_planed_reatt_1,\r\n(IF(ISNULL(contracts.date_real_reatt_1), contracts.da" +
-                "te_planed_reatt_1 - CURDATE(), 0)) as days_to_deadline_reatt_1,\r\ncontracts.date_" +
-                "real_reatt_1,\r\ncontracts.date_planed_reatt_2,\r\n(IF(ISNULL(contracts.date_real_re" +
-                "att_2), contracts.date_planed_reatt_2 - CURDATE(), 0)) as days_to_deadline_reatt" +
-                "_2,\r\ncontracts.date_real_reatt_2,\r\ncontracts.date_planed_resert,\r\n(IF(ISNULL(con" +
-                "tracts.date_real_resert), contracts.date_planed_resert - CURDATE(), 0)) as days_" +
-                "to_deadline_resert,\r\ncontracts.date_real_resert,\r\nproducts.id AS pkproducts_id,\r" +
-                "\nproducts.name AS products_name,\r\nagents.id AS pkagents_id,\r\nagents.name AS agen" +
-                "ts_name,\r\nagent_types.id AS pkagent_types_id,\r\nagent_types.name AS agent_types_n" +
-                "ame,\r\nCONCAT( agent_types.name, \' \', agents.name ) AS agents_fullname,\r\ncontract" +
-                "_types.id AS pkcontract_types_id,\r\ncontract_types.name AS contract_types_name,\r\n" +
-                "contract_status.id AS pkcontract_status_id,\r\ncontract_status.name AS contract_st" +
-                "atus_name,\r\nCONCAT( users.lastname, \' \', substr(users.firstname, 1, 1), \'. \', su" +
-                "bstr(users.middlename, 1, 1), \'.\' ) AS expert_FIO\r\nFROM\r\ncontracts\r\nLEFT OUTER J" +
-                "OIN agents ON contracts.agents_id = agents.id\r\nLEFT OUTER JOIN products ON contr" +
-                "acts.products_id = products.id\r\nLEFT OUTER JOIN agent_types ON agents.agent_type" +
-                "s_id = agent_types.id\r\nLEFT OUTER JOIN contract_types ON contracts.contract_type" +
-                "s_id = contract_types.id\r\nLEFT OUTER JOIN contract_status ON contracts.contract_" +
-                "status_id = contract_status.id\r\nLEFT OUTER JOIN users ON contracts.experts_id = " +
-                "users.id\r\nWHERE\r\n(contracts.contract_status_id = 8)";
+                "acts.date_planed_reatt_1,\r\n(IF(ISNULL(contracts.date_real_reatt_1), DATEDIFF(con" +
+                "tracts.date_planed_reatt_1, CURDATE()), 0)) as days_to_deadline_reatt_1,\r\ncontra" +
+                "cts.date_real_reatt_1,\r\ncontracts.date_planed_reatt_2,\r\n(IF(ISNULL(contracts.dat" +
+                "e_real_reatt_2), DATEDIFF(contracts.date_planed_reatt_2, CURDATE()), 0)) as days" +
+                "_to_deadline_reatt_2,\r\ncontracts.date_real_reatt_2,\r\ncontracts.date_planed_reser" +
+                "t,\r\n(IF(ISNULL(contracts.date_real_resert), DATEDIFF(contracts.date_planed_reser" +
+                "t, CURDATE()), 0)) as days_to_deadline_resert,\r\ncontracts.date_real_resert,\r\npro" +
+                "ducts.id AS pkproducts_id,\r\nproducts.name AS products_name,\r\nagents.id AS pkagen" +
+                "ts_id,\r\nagents.name AS agents_name,\r\nagent_types.id AS pkagent_types_id,\r\nagent_" +
+                "types.name AS agent_types_name,\r\nCONCAT( agent_types.name, \' \', agents.name ) AS" +
+                " agents_fullname,\r\ncontract_types.id AS pkcontract_types_id,\r\ncontract_types.nam" +
+                "e AS contract_types_name,\r\ncontract_status.id AS pkcontract_status_id,\r\ncontract" +
+                "_status.name AS contract_status_name,\r\nCONCAT( users.lastname, \' \', substr(users" +
+                ".firstname, 1, 1), \'. \', substr(users.middlename, 1, 1), \'.\' ) AS expert_FIO\r\nFR" +
+                "OM\r\ncontracts\r\nLEFT OUTER JOIN agents ON contracts.agents_id = agents.id\r\nLEFT O" +
+                "UTER JOIN products ON contracts.products_id = products.id\r\nLEFT OUTER JOIN agent" +
+                "_types ON agents.agent_types_id = agent_types.id\r\nLEFT OUTER JOIN contract_types" +
+                " ON contracts.contract_types_id = contract_types.id\r\nLEFT OUTER JOIN contract_st" +
+                "atus ON contracts.contract_status_id = contract_status.id\r\nLEFT OUTER JOIN users" +
+                " ON contracts.experts_id = users.id\r\nWHERE\r\n(contracts.contract_status_id = 8)";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[1].Connection = this.Connection;
