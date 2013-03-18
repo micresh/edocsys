@@ -725,7 +725,10 @@ namespace Edocsys
             }
 
             int contract_id = DocGeneratorHelper.GetContractID(contractSigningBindingSource);
+
             wmgr.ShowDeleteContractForm(contract_id);
+
+            RefreshContractSigning();
         }
 
         private void toolStripButton5_Click(object sender, EventArgs e)

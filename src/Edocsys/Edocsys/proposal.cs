@@ -403,6 +403,8 @@ namespace Edocsys
             {
                 contractInfoDataTableBindingSource.RemoveCurrent();
             }
+
+            RefreshData();
         }
     }
 }

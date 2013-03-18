@@ -427,6 +427,8 @@ namespace Edocsys
 
             int contract_id = DocGeneratorHelper.GetContractID(inspectionContractsBindingSource);
             wmgr.ShowDeleteContractForm(contract_id);
+
+            RefreshInspectionControl();
         }
 
         private void toolStripButton5_Click(object sender, EventArgs e)
@@ -441,6 +443,8 @@ namespace Edocsys
 
             int contract_id = DocGeneratorHelper.GetContractID(contractsOnInspectionBindingSource);
             wmgr.ShowDeleteContractForm(contract_id);
+
+            RefreshContractsOnInspection();
         }
 
         private void toolStripButton7_Click(object sender, EventArgs e)

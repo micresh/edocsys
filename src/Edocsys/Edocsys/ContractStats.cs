@@ -197,6 +197,8 @@ namespace Edocsys
             {
                 finishedContractsBindingSource.RemoveCurrent();
             }
+
+            RefreshDatabase();
         }
 
         private void toolStripButton5_Click(object sender, EventArgs e)
@@ -213,6 +215,8 @@ namespace Edocsys
             {
                 badContractsBindingSource.RemoveCurrent();
             }
+
+            RefreshDatabase();
         }
     }
 }
