@@ -275,6 +275,8 @@ namespace Edocsys
 
             int contract_id = DocGeneratorHelper.GetContractID(contractPrepareForWorkBindingSource);
             wmgr.ShowDeleteContractForm(contract_id);
+
+            RefreshContractPrepareForWork();
         }
 
         private void toolStripButton1_Click(object sender, EventArgs e)
@@ -289,6 +291,8 @@ namespace Edocsys
 
             int contract_id = DocGeneratorHelper.GetContractID(contractInWorkBindingSource);
             wmgr.ShowDeleteContractForm(contract_id);
+
+            RefreshContractInWork();
         }
 
         private void contractInWorkDataGridView_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
@@ -321,22 +325,83 @@ namespace Edocsys
 
         private void buttonSetDateStart_Click(object sender, EventArgs e)
         {
+            if (contractPrepareForWorkBindingSource.Position >= 0)
+            {
+                DataRowView currentRow = (DataRowView)contractPrepareForWorkBindingSource.Current;
+                int id = Convert.ToInt32(currentRow["id"]);
+
+                DateTime now = DateTime.Now.Date;
+
+                if ((currentRow["date_start"] == null)
+                    || (currentRow["date_start"] == DBNull.Value))
+                {
+                    currentRow["date_start"] = now.Date;
+                }
+            }
+
             SaveContractPrepareData();
+            RefreshContractPrepareForWork();
         }
 
         private void buttonSetDateEnd_Click(object sender, EventArgs e)
         {
+            if (contractPrepareForWorkBindingSource.Position >= 0)
+            {
+                DataRowView currentRow = (DataRowView)contractPrepareForWorkBindingSource.Current;
+                int id = Convert.ToInt32(currentRow["id"]);
+
+                DateTime now = DateTime.Now.Date;
+
+                if ((currentRow["date_end"] == null)
+                    || (currentRow["date_end"] == DBNull.Value))
+                {
+                    currentRow["date_end"] = now.Date;
+                }
+            }
+
             SaveContractPrepareData();
+            RefreshContractPrepareForWork();
         }
 
         private void buttonSetDateSampleIncome_Click(object sender, EventArgs e)
         {
+            if (contractPrepareForWorkBindingSource.Position >= 0)
+            {
+                DataRowView currentRow = (DataRowView)contractPrepareForWorkBindingSource.Current;
+                int id = Convert.ToInt32(currentRow["id"]);
+
+                DateTime now = DateTime.Now.Date;
+
+                if ((currentRow["date_sample_income"] == null)
+                    || (currentRow["date_sample_income"] == DBNull.Value))
+                {
+                    currentRow["date_sample_income"] = now.Date;
+                }
+            }
+            
+
             SaveContractPrepareData();
+            RefreshContractPrepareForWork();
         }
 
         private void buttonSetDateProtocolIncome_Click(object sender, EventArgs e)
         {
+            if (contractPrepareForWorkBindingSource.Position >= 0)
+            {
+                DataRowView currentRow = (DataRowView)contractPrepareForWorkBindingSource.Current;
+                int id = Convert.ToInt32(currentRow["id"]);
+
+                DateTime now = DateTime.Now.Date;
+
+                if ((currentRow["date_protocol_income"] == null)
+                    || (currentRow["date_protocol_income"] == DBNull.Value))
+                {
+                    currentRow["date_protocol_income"] = now.Date;
+                }
+            }
+
             SaveContractPrepareData();
+            RefreshContractPrepareForWork();
         }
     }
 }
