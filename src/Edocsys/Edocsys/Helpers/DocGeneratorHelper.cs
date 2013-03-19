@@ -143,10 +143,14 @@ namespace Edocsys
 
             string filename = BlobLoader.SaveToTemporaryFile(data);
 
-            //run word
-            Process process = Process.Start(filename);
+            ////run word
+            //Process process = Process.Start(filename);
 
-            process.WaitForExit();
+            //process.WaitForExit();
+
+            //run word throu dialog window
+            DocXEditForm f = new DocXEditForm(filename);
+            f.ShowDialog();
 
 
             if (checker(contract_id))
