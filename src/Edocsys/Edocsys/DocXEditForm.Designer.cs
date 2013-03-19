@@ -33,9 +33,9 @@
             // 
             // label1
             // 
-            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Location = new System.Drawing.Point(68, 59);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(285, 105);
+            this.label1.Size = new System.Drawing.Size(297, 160);
             this.label1.TabIndex = 0;
             this.label1.Text = "Для продолжения работы с программой закройте Word или другую программу работы с д" +
     "окументами";
@@ -45,7 +45,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(307, 123);
+            this.ClientSize = new System.Drawing.Size(437, 284);
             this.ControlBox = false;
             this.Controls.Add(this.label1);
             this.Cursor = System.Windows.Forms.Cursors.WaitCursor;
