@@ -237,13 +237,13 @@
       <Value Profile="(Default)">Договора</Value>
     </Setting>
     <Setting Name="TabExpertAssigned" Type="System.String" Scope="User">
-      <Value Profile="(Default)">На подписании договора</Value>
+      <Value Profile="(Default)">Неподписанные договора</Value>
     </Setting>
     <Setting Name="TabTaskProcessed" Type="System.String" Scope="User">
       <Value Profile="(Default)">Договора в работе</Value>
     </Setting>
     <Setting Name="TabTaskReady" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Пдтверждение выполнения договора</Value>
+      <Value Profile="(Default)">Подтверждение выполнения договора</Value>
     </Setting>
     <Setting Name="TabTaskFinished" Type="System.String" Scope="User">
       <Value Profile="(Default)">Выдача акта и подтверждение клиентом</Value>

@@ -423,7 +423,7 @@
             this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton1.Name = "toolStripButton1";
             this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton1.Text = "toolStripButton1";
+            this.toolStripButton1.Text = "Обновить";
             this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
             // toolStripSeparator9
@@ -514,119 +514,139 @@
             this.numberDataGridViewTextBoxColumn.DataPropertyName = "number";
             this.numberDataGridViewTextBoxColumn.HeaderText = "Номер договора";
             this.numberDataGridViewTextBoxColumn.Name = "numberDataGridViewTextBoxColumn";
+            this.numberDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // productsnameDataGridViewTextBoxColumn
             // 
             this.productsnameDataGridViewTextBoxColumn.DataPropertyName = "products_name";
             this.productsnameDataGridViewTextBoxColumn.HeaderText = "Продукция";
             this.productsnameDataGridViewTextBoxColumn.Name = "productsnameDataGridViewTextBoxColumn";
+            this.productsnameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // agentsnameDataGridViewTextBoxColumn
             // 
             this.agentsnameDataGridViewTextBoxColumn.DataPropertyName = "agents_name";
             this.agentsnameDataGridViewTextBoxColumn.HeaderText = "Контрагент";
             this.agentsnameDataGridViewTextBoxColumn.Name = "agentsnameDataGridViewTextBoxColumn";
+            this.agentsnameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn6
             // 
             this.dataGridViewTextBoxColumn6.DataPropertyName = "contract_status_name";
             this.dataGridViewTextBoxColumn6.HeaderText = "Состояние договора";
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
             // 
             // datecontractDataGridViewTextBoxColumn
             // 
             this.datecontractDataGridViewTextBoxColumn.DataPropertyName = "date_contract";
             this.datecontractDataGridViewTextBoxColumn.HeaderText = "Дата заключения контракта";
             this.datecontractDataGridViewTextBoxColumn.Name = "datecontractDataGridViewTextBoxColumn";
+            this.datecontractDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // contracttypesnameDataGridViewTextBoxColumn
             // 
             this.contracttypesnameDataGridViewTextBoxColumn.DataPropertyName = "contract_types_name";
             this.contracttypesnameDataGridViewTextBoxColumn.HeaderText = "Тип работ";
             this.contracttypesnameDataGridViewTextBoxColumn.Name = "contracttypesnameDataGridViewTextBoxColumn";
+            this.contracttypesnameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // cashincomeDataGridViewCheckBoxColumn
             // 
             this.cashincomeDataGridViewCheckBoxColumn.DataPropertyName = "cash_income";
             this.cashincomeDataGridViewCheckBoxColumn.HeaderText = "Наличие оплаты";
             this.cashincomeDataGridViewCheckBoxColumn.Name = "cashincomeDataGridViewCheckBoxColumn";
+            this.cashincomeDataGridViewCheckBoxColumn.ReadOnly = true;
             // 
             // datecashincomeDataGridViewTextBoxColumn
             // 
             this.datecashincomeDataGridViewTextBoxColumn.DataPropertyName = "date_cash_income";
             this.datecashincomeDataGridViewTextBoxColumn.HeaderText = "Дата поступления оплаты";
             this.datecashincomeDataGridViewTextBoxColumn.Name = "datecashincomeDataGridViewTextBoxColumn";
+            this.datecashincomeDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // CancelPaymentColumn
             // 
             this.CancelPaymentColumn.HeaderText = "Отмена оплаты";
             this.CancelPaymentColumn.Name = "CancelPaymentColumn";
+            this.CancelPaymentColumn.ReadOnly = true;
             // 
             // datestartDataGridViewTextBoxColumn
             // 
             this.datestartDataGridViewTextBoxColumn.DataPropertyName = "date_start";
             this.datestartDataGridViewTextBoxColumn.HeaderText = "Дата начала работ";
             this.datestartDataGridViewTextBoxColumn.Name = "datestartDataGridViewTextBoxColumn";
+            this.datestartDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // dateendDataGridViewTextBoxColumn
             // 
             this.dateendDataGridViewTextBoxColumn.DataPropertyName = "date_end";
             this.dateendDataGridViewTextBoxColumn.HeaderText = "Дата окончания работ";
             this.dateendDataGridViewTextBoxColumn.Name = "dateendDataGridViewTextBoxColumn";
+            this.dateendDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // daystodeadlineDataGridViewTextBoxColumn1
             // 
             this.daystodeadlineDataGridViewTextBoxColumn1.DataPropertyName = "days_to_deadline";
             this.daystodeadlineDataGridViewTextBoxColumn1.HeaderText = "Дней до окончания";
             this.daystodeadlineDataGridViewTextBoxColumn1.Name = "daystodeadlineDataGridViewTextBoxColumn1";
+            this.daystodeadlineDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // datesampleincomeDataGridViewTextBoxColumn
             // 
             this.datesampleincomeDataGridViewTextBoxColumn.DataPropertyName = "date_sample_income";
             this.datesampleincomeDataGridViewTextBoxColumn.HeaderText = "Дата посупления образца";
             this.datesampleincomeDataGridViewTextBoxColumn.Name = "datesampleincomeDataGridViewTextBoxColumn";
+            this.datesampleincomeDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // dateprotocolincomeDataGridViewTextBoxColumn
             // 
             this.dateprotocolincomeDataGridViewTextBoxColumn.DataPropertyName = "date_protocol_income";
             this.dateprotocolincomeDataGridViewTextBoxColumn.HeaderText = "Дата поступления протокола";
             this.dateprotocolincomeDataGridViewTextBoxColumn.Name = "dateprotocolincomeDataGridViewTextBoxColumn";
+            this.dateprotocolincomeDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.DataPropertyName = "prepayment";
             this.dataGridViewTextBoxColumn1.HeaderText = "Аванс";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // costDataGridViewTextBoxColumn
             // 
             this.costDataGridViewTextBoxColumn.DataPropertyName = "cost";
             this.costDataGridViewTextBoxColumn.HeaderText = "Сумма";
             this.costDataGridViewTextBoxColumn.Name = "costDataGridViewTextBoxColumn";
+            this.costDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // totalcostDataGridViewTextBoxColumn
             // 
             this.totalcostDataGridViewTextBoxColumn.DataPropertyName = "total_cost";
             this.totalcostDataGridViewTextBoxColumn.HeaderText = "Общая сумма";
             this.totalcostDataGridViewTextBoxColumn.Name = "totalcostDataGridViewTextBoxColumn";
+            this.totalcostDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // agenttypesnameDataGridViewTextBoxColumn
             // 
             this.agenttypesnameDataGridViewTextBoxColumn.DataPropertyName = "agent_types_name";
             this.agenttypesnameDataGridViewTextBoxColumn.HeaderText = "Форма собственности";
             this.agenttypesnameDataGridViewTextBoxColumn.Name = "agenttypesnameDataGridViewTextBoxColumn";
+            this.agenttypesnameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // expertFIODataGridViewTextBoxColumn
             // 
             this.expertFIODataGridViewTextBoxColumn.DataPropertyName = "expert_FIO";
             this.expertFIODataGridViewTextBoxColumn.HeaderText = "Эксперт";
             this.expertFIODataGridViewTextBoxColumn.Name = "expertFIODataGridViewTextBoxColumn";
+            this.expertFIODataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // agentsfullnameDataGridViewTextBoxColumn
             // 
             this.agentsfullnameDataGridViewTextBoxColumn.DataPropertyName = "agents_fullname";
             this.agentsfullnameDataGridViewTextBoxColumn.HeaderText = "Контрагент";
             this.agentsfullnameDataGridViewTextBoxColumn.Name = "agentsfullnameDataGridViewTextBoxColumn";
+            this.agentsfullnameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // payedContractsBindingSource
             // 
@@ -740,7 +760,7 @@
             this.toolStripButton11.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton11.Name = "toolStripButton11";
             this.toolStripButton11.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton11.Text = "toolStripButton1";
+            this.toolStripButton11.Text = "Обновить";
             this.toolStripButton11.Click += new System.EventHandler(this.toolStripButton11_Click);
             // 
             // toolStripSeparator10

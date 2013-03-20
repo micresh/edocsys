@@ -72,6 +72,10 @@
             this.toolStripLabel5 = new System.Windows.Forms.ToolStripLabel();
             this.filterPrepareForWorkTextBox = new System.Windows.Forms.ToolStripTextBox();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.buttonSetDateProtocolIncome = new System.Windows.Forms.Button();
+            this.buttonSetDateSampleIncome = new System.Windows.Forms.Button();
+            this.buttonSetDateEnd = new System.Windows.Forms.Button();
+            this.buttonSetDateStart = new System.Windows.Forms.Button();
             this.date_protocol_incomeDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.date_sample_incomeDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.date_endDateTimePicker = new System.Windows.Forms.DateTimePicker();
@@ -116,10 +120,6 @@
             this.tableAdapterManager = new Edocsys.EdocbaseDataSetTableAdapters.TableAdapterManager();
             this.contractPrepareForWorkTAdapter = new Edocsys.EdocbaseDataSetTableAdapters.ContractPrepareForWorkTAdapter();
             this.contractInWorkTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.ContractInWorkTableAdapter();
-            this.buttonSetDateStart = new System.Windows.Forms.Button();
-            this.buttonSetDateEnd = new System.Windows.Forms.Button();
-            this.buttonSetDateSampleIncome = new System.Windows.Forms.Button();
-            this.buttonSetDateProtocolIncome = new System.Windows.Forms.Button();
             date_protocol_incomeLabel = new System.Windows.Forms.Label();
             date_sample_incomeLabel = new System.Windows.Forms.Label();
             date_startLabel = new System.Windows.Forms.Label();
@@ -462,7 +462,7 @@
             this.toolStripButton14.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton14.Name = "toolStripButton14";
             this.toolStripButton14.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton14.Text = "toolStripButton1";
+            this.toolStripButton14.Text = "Обновить";
             this.toolStripButton14.Click += new System.EventHandler(this.toolStripButton14_Click);
             // 
             // toolStripSeparator10
@@ -526,6 +526,46 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1100, 160);
             this.panel3.TabIndex = 30;
+            // 
+            // buttonSetDateProtocolIncome
+            // 
+            this.buttonSetDateProtocolIncome.Location = new System.Drawing.Point(296, 112);
+            this.buttonSetDateProtocolIncome.Name = "buttonSetDateProtocolIncome";
+            this.buttonSetDateProtocolIncome.Size = new System.Drawing.Size(242, 23);
+            this.buttonSetDateProtocolIncome.TabIndex = 39;
+            this.buttonSetDateProtocolIncome.Text = "Установить дату поступления протокола";
+            this.buttonSetDateProtocolIncome.UseVisualStyleBackColor = true;
+            this.buttonSetDateProtocolIncome.Click += new System.EventHandler(this.buttonSetDateProtocolIncome_Click);
+            // 
+            // buttonSetDateSampleIncome
+            // 
+            this.buttonSetDateSampleIncome.Location = new System.Drawing.Point(296, 80);
+            this.buttonSetDateSampleIncome.Name = "buttonSetDateSampleIncome";
+            this.buttonSetDateSampleIncome.Size = new System.Drawing.Size(242, 23);
+            this.buttonSetDateSampleIncome.TabIndex = 38;
+            this.buttonSetDateSampleIncome.Text = "Установить дату поступления образца";
+            this.buttonSetDateSampleIncome.UseVisualStyleBackColor = true;
+            this.buttonSetDateSampleIncome.Click += new System.EventHandler(this.buttonSetDateSampleIncome_Click);
+            // 
+            // buttonSetDateEnd
+            // 
+            this.buttonSetDateEnd.Location = new System.Drawing.Point(296, 48);
+            this.buttonSetDateEnd.Name = "buttonSetDateEnd";
+            this.buttonSetDateEnd.Size = new System.Drawing.Size(242, 23);
+            this.buttonSetDateEnd.TabIndex = 37;
+            this.buttonSetDateEnd.Text = "Установить дату окончания работ";
+            this.buttonSetDateEnd.UseVisualStyleBackColor = true;
+            this.buttonSetDateEnd.Click += new System.EventHandler(this.buttonSetDateEnd_Click);
+            // 
+            // buttonSetDateStart
+            // 
+            this.buttonSetDateStart.Location = new System.Drawing.Point(296, 16);
+            this.buttonSetDateStart.Name = "buttonSetDateStart";
+            this.buttonSetDateStart.Size = new System.Drawing.Size(242, 23);
+            this.buttonSetDateStart.TabIndex = 36;
+            this.buttonSetDateStart.Text = "Установить дату начала работ";
+            this.buttonSetDateStart.UseVisualStyleBackColor = true;
+            this.buttonSetDateStart.Click += new System.EventHandler(this.buttonSetDateStart_Click);
             // 
             // date_protocol_incomeDateTimePicker
             // 
@@ -829,7 +869,7 @@
             this.toolStripButton13.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton13.Name = "toolStripButton13";
             this.toolStripButton13.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton13.Text = "toolStripButton1";
+            this.toolStripButton13.Text = "Обновить";
             this.toolStripButton13.Click += new System.EventHandler(this.toolStripButton13_Click);
             // 
             // toolStripSeparator4
@@ -919,46 +959,6 @@
             // contractInWorkTableAdapter
             // 
             this.contractInWorkTableAdapter.ClearBeforeFill = true;
-            // 
-            // buttonSetDateStart
-            // 
-            this.buttonSetDateStart.Location = new System.Drawing.Point(296, 16);
-            this.buttonSetDateStart.Name = "buttonSetDateStart";
-            this.buttonSetDateStart.Size = new System.Drawing.Size(242, 23);
-            this.buttonSetDateStart.TabIndex = 36;
-            this.buttonSetDateStart.Text = "Установить дату начала работ";
-            this.buttonSetDateStart.UseVisualStyleBackColor = true;
-            this.buttonSetDateStart.Click += new System.EventHandler(this.buttonSetDateStart_Click);
-            // 
-            // buttonSetDateEnd
-            // 
-            this.buttonSetDateEnd.Location = new System.Drawing.Point(296, 48);
-            this.buttonSetDateEnd.Name = "buttonSetDateEnd";
-            this.buttonSetDateEnd.Size = new System.Drawing.Size(242, 23);
-            this.buttonSetDateEnd.TabIndex = 37;
-            this.buttonSetDateEnd.Text = "Установить дату окончания работ";
-            this.buttonSetDateEnd.UseVisualStyleBackColor = true;
-            this.buttonSetDateEnd.Click += new System.EventHandler(this.buttonSetDateEnd_Click);
-            // 
-            // buttonSetDateSampleIncome
-            // 
-            this.buttonSetDateSampleIncome.Location = new System.Drawing.Point(296, 80);
-            this.buttonSetDateSampleIncome.Name = "buttonSetDateSampleIncome";
-            this.buttonSetDateSampleIncome.Size = new System.Drawing.Size(242, 23);
-            this.buttonSetDateSampleIncome.TabIndex = 38;
-            this.buttonSetDateSampleIncome.Text = "Установить дату поступления образца";
-            this.buttonSetDateSampleIncome.UseVisualStyleBackColor = true;
-            this.buttonSetDateSampleIncome.Click += new System.EventHandler(this.buttonSetDateSampleIncome_Click);
-            // 
-            // buttonSetDateProtocolIncome
-            // 
-            this.buttonSetDateProtocolIncome.Location = new System.Drawing.Point(296, 112);
-            this.buttonSetDateProtocolIncome.Name = "buttonSetDateProtocolIncome";
-            this.buttonSetDateProtocolIncome.Size = new System.Drawing.Size(242, 23);
-            this.buttonSetDateProtocolIncome.TabIndex = 39;
-            this.buttonSetDateProtocolIncome.Text = "Установить дату поступления протокола";
-            this.buttonSetDateProtocolIncome.UseVisualStyleBackColor = true;
-            this.buttonSetDateProtocolIncome.Click += new System.EventHandler(this.buttonSetDateProtocolIncome_Click);
             // 
             // WorkForContractsForm
             // 
