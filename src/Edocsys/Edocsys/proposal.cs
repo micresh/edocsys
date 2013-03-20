@@ -85,6 +85,8 @@ namespace Edocsys
 
         private void ProposalForm_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'edocbaseDataSet.documents' table. You can move, or remove it, as needed.
+            this.documentsTableAdapter.Fill(this.edocbaseDataSet.documents);
 
             this.agentsTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
             this.productsTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
@@ -401,6 +403,9 @@ namespace Edocsys
 
             if (MessageBox.Show("Удалить заявку #" + id, "Подтвердить удаление заявки", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
+                this.documentsTableAdapter.RemoveDocumentByContractID(id);
+                this.edocbaseDataSet.AcceptChanges();
+
                 contractInfoDataTableBindingSource.RemoveCurrent();
                 SaveProposal();
             }
