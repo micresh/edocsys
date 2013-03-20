@@ -46,9 +46,6 @@ WHERE
 
 
 
-DELETE FROM documents
-WHERE
-(contracts_id = @id);
 DELETE FROM contracts
 WHERE (id = @id)
 
@@ -1030,7 +1027,26 @@ WHERE
 
 -- !-------------------------------------------------------------------
 
+-- documents
 SELECT
+id, contracts_id,
+contract_types_id,
+users_id, date_modify,
+document
+FROM
+documents;
+
+-- RemoveDocumentsByContractID
+DELETE FROM documents
+WHERE
+(contracts_id = @id);
+
+
+-- !-------------------------------------------------------------------
+
+SELECT
+
+
 id,
 agent_types_id,
 name,
@@ -1134,13 +1150,6 @@ contracts;
 
 
 
-SELECT
-id, contracts_id,
-contract_types_id,
-users_id, date_modify,
-document
-FROM
-documents;
 
 
 -- experts
