@@ -402,6 +402,7 @@ namespace Edocsys
             if (MessageBox.Show("Удалить заявку #" + id, "Подтвердить удаление заявки", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 contractInfoDataTableBindingSource.RemoveCurrent();
+                SaveProposal();
             }
 
             RefreshData();
