@@ -961,7 +961,7 @@ namespace Edocsys.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("На подписании договора")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Неподписанные договора")]
         public string TabExpertAssigned {
             get {
                 return ((string)(this["TabExpertAssigned"]));
@@ -985,7 +985,7 @@ namespace Edocsys.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Пдтверждение выполнения договора")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Подтверждение выполнения договора")]
         public string TabTaskReady {
             get {
                 return ((string)(this["TabTaskReady"]));
