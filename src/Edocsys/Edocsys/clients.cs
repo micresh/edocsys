@@ -21,6 +21,7 @@ namespace Edocsys
         private void agentsBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
             SaveAgents();
+            RefreshClients();
         }
 
         private void SaveAgents()
@@ -32,8 +33,6 @@ namespace Edocsys
                 this.tableAdapterManager.UpdateAll(this.edocbaseDataSet);
 
                 this.edocbaseDataSet.AcceptChanges();
-
-                RefreshClients();
             }
             catch (MySql.Data.MySqlClient.MySqlException ex)
             {
