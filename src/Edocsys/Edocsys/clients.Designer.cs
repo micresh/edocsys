@@ -121,6 +121,7 @@
             this.emailTextBox = new System.Windows.Forms.TextBox();
             this.agent_typesTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.agent_typesTableAdapter();
             this.agents_contactsTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.agents_contactsTableAdapter();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             ag_type_idLabel = new System.Windows.Forms.Label();
             ag_INNLabel = new System.Windows.Forms.Label();
             ag_fullnameLabel = new System.Windows.Forms.Label();
@@ -164,7 +165,7 @@
             // 
             ag_type_idLabel.AutoSize = true;
             ag_type_idLabel.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Edocsys.Properties.Settings.Default, "AgentsTypeName", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            ag_type_idLabel.Location = new System.Drawing.Point(7, 48);
+            ag_type_idLabel.Location = new System.Drawing.Point(2, 48);
             ag_type_idLabel.Name = "ag_type_idLabel";
             ag_type_idLabel.Size = new System.Drawing.Size(123, 13);
             ag_type_idLabel.TabIndex = 27;
@@ -184,7 +185,7 @@
             // 
             ag_fullnameLabel.AutoSize = true;
             ag_fullnameLabel.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Edocsys.Properties.Settings.Default, "AgentsFullNameText", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            ag_fullnameLabel.Location = new System.Drawing.Point(7, 22);
+            ag_fullnameLabel.Location = new System.Drawing.Point(3, 22);
             ag_fullnameLabel.Name = "ag_fullnameLabel";
             ag_fullnameLabel.Size = new System.Drawing.Size(96, 13);
             ag_fullnameLabel.TabIndex = 24;
@@ -194,7 +195,7 @@
             // 
             ag_addrLabel.AutoSize = true;
             ag_addrLabel.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Edocsys.Properties.Settings.Default, "AgentsAddressText", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            ag_addrLabel.Location = new System.Drawing.Point(7, 71);
+            ag_addrLabel.Location = new System.Drawing.Point(5, 71);
             ag_addrLabel.Name = "ag_addrLabel";
             ag_addrLabel.Size = new System.Drawing.Size(38, 13);
             ag_addrLabel.TabIndex = 16;
@@ -383,6 +384,7 @@
             this.bindingNavigatorMoveNextItem,
             this.bindingNavigatorMoveLastItem,
             this.bindingNavigatorSeparator2,
+            this.toolStripButton1,
             this.bindingNavigatorAddNewItem,
             this.bindingNavigatorDeleteItem,
             this.agentsBindingNavigatorSaveItem,
@@ -840,7 +842,7 @@
             this.pers_statusTextBox.Location = new System.Drawing.Point(79, 72);
             this.pers_statusTextBox.Name = "pers_statusTextBox";
             this.pers_statusTextBox.Size = new System.Drawing.Size(398, 20);
-            this.pers_statusTextBox.TabIndex = 51;
+            this.pers_statusTextBox.TabIndex = 16;
             // 
             // docTextBox
             // 
@@ -849,7 +851,7 @@
             this.docTextBox.Multiline = true;
             this.docTextBox.Name = "docTextBox";
             this.docTextBox.Size = new System.Drawing.Size(398, 47);
-            this.docTextBox.TabIndex = 50;
+            this.docTextBox.TabIndex = 15;
             // 
             // pers_firstnameTextBox
             // 
@@ -857,7 +859,7 @@
             this.pers_firstnameTextBox.Location = new System.Drawing.Point(79, 121);
             this.pers_firstnameTextBox.Name = "pers_firstnameTextBox";
             this.pers_firstnameTextBox.Size = new System.Drawing.Size(398, 20);
-            this.pers_firstnameTextBox.TabIndex = 45;
+            this.pers_firstnameTextBox.TabIndex = 18;
             // 
             // pers_lastnameTextBox
             // 
@@ -865,7 +867,7 @@
             this.pers_lastnameTextBox.Location = new System.Drawing.Point(79, 96);
             this.pers_lastnameTextBox.Name = "pers_lastnameTextBox";
             this.pers_lastnameTextBox.Size = new System.Drawing.Size(399, 20);
-            this.pers_lastnameTextBox.TabIndex = 47;
+            this.pers_lastnameTextBox.TabIndex = 17;
             // 
             // pers_middlenameTextBox
             // 
@@ -873,7 +875,7 @@
             this.pers_middlenameTextBox.Location = new System.Drawing.Point(79, 147);
             this.pers_middlenameTextBox.Name = "pers_middlenameTextBox";
             this.pers_middlenameTextBox.Size = new System.Drawing.Size(399, 20);
-            this.pers_middlenameTextBox.TabIndex = 49;
+            this.pers_middlenameTextBox.TabIndex = 19;
             // 
             // groupBox2
             // 
@@ -906,7 +908,7 @@
             this.bankTextBox.Location = new System.Drawing.Point(129, 92);
             this.bankTextBox.Name = "bankTextBox";
             this.bankTextBox.Size = new System.Drawing.Size(348, 20);
-            this.bankTextBox.TabIndex = 37;
+            this.bankTextBox.TabIndex = 12;
             // 
             // rsTextBox
             // 
@@ -914,7 +916,7 @@
             this.rsTextBox.Location = new System.Drawing.Point(70, 40);
             this.rsTextBox.Name = "rsTextBox";
             this.rsTextBox.Size = new System.Drawing.Size(408, 20);
-            this.rsTextBox.TabIndex = 31;
+            this.rsTextBox.TabIndex = 10;
             // 
             // ksTextBox
             // 
@@ -922,7 +924,7 @@
             this.ksTextBox.Location = new System.Drawing.Point(70, 66);
             this.ksTextBox.Name = "ksTextBox";
             this.ksTextBox.Size = new System.Drawing.Size(408, 20);
-            this.ksTextBox.TabIndex = 33;
+            this.ksTextBox.TabIndex = 11;
             // 
             // BIKTextBox
             // 
@@ -930,7 +932,7 @@
             this.BIKTextBox.Location = new System.Drawing.Point(71, 15);
             this.BIKTextBox.Name = "BIKTextBox";
             this.BIKTextBox.Size = new System.Drawing.Size(173, 20);
-            this.BIKTextBox.TabIndex = 35;
+            this.BIKTextBox.TabIndex = 8;
             // 
             // OGRNTextBox
             // 
@@ -938,7 +940,7 @@
             this.OGRNTextBox.Location = new System.Drawing.Point(70, 118);
             this.OGRNTextBox.Name = "OGRNTextBox";
             this.OGRNTextBox.Size = new System.Drawing.Size(173, 20);
-            this.OGRNTextBox.TabIndex = 25;
+            this.OGRNTextBox.TabIndex = 13;
             // 
             // KPPTextBox
             // 
@@ -946,7 +948,8 @@
             this.KPPTextBox.Location = new System.Drawing.Point(304, 15);
             this.KPPTextBox.Name = "KPPTextBox";
             this.KPPTextBox.Size = new System.Drawing.Size(174, 20);
-            this.KPPTextBox.TabIndex = 27;
+            this.KPPTextBox.TabIndex = 9;
+            this.KPPTextBox.TextChanged += new System.EventHandler(this.KPPTextBox_TextChanged);
             // 
             // OKPOTextBox
             // 
@@ -954,7 +957,7 @@
             this.OKPOTextBox.Location = new System.Drawing.Point(304, 118);
             this.OKPOTextBox.Name = "OKPOTextBox";
             this.OKPOTextBox.Size = new System.Drawing.Size(173, 20);
-            this.OKPOTextBox.TabIndex = 29;
+            this.OKPOTextBox.TabIndex = 14;
             // 
             // groupBox1
             // 
@@ -990,7 +993,7 @@
             this.agent_types_idComboBox.Location = new System.Drawing.Point(129, 45);
             this.agent_types_idComboBox.Name = "agent_types_idComboBox";
             this.agent_types_idComboBox.Size = new System.Drawing.Size(121, 21);
-            this.agent_types_idComboBox.TabIndex = 28;
+            this.agent_types_idComboBox.TabIndex = 2;
             this.agent_types_idComboBox.ValueMember = "id";
             // 
             // agent_typesBindingSource
@@ -1004,7 +1007,7 @@
             this.INNTextBox.Location = new System.Drawing.Point(303, 45);
             this.INNTextBox.Name = "INNTextBox";
             this.INNTextBox.Size = new System.Drawing.Size(174, 20);
-            this.INNTextBox.TabIndex = 27;
+            this.INNTextBox.TabIndex = 3;
             // 
             // nameTextBox
             // 
@@ -1012,7 +1015,7 @@
             this.nameTextBox.Location = new System.Drawing.Point(100, 19);
             this.nameTextBox.Name = "nameTextBox";
             this.nameTextBox.Size = new System.Drawing.Size(377, 20);
-            this.nameTextBox.TabIndex = 25;
+            this.nameTextBox.TabIndex = 1;
             // 
             // addrTextBox
             // 
@@ -1021,7 +1024,7 @@
             this.addrTextBox.Multiline = true;
             this.addrTextBox.Name = "addrTextBox";
             this.addrTextBox.Size = new System.Drawing.Size(408, 49);
-            this.addrTextBox.TabIndex = 17;
+            this.addrTextBox.TabIndex = 4;
             // 
             // phoneTextBox
             // 
@@ -1029,7 +1032,7 @@
             this.phoneTextBox.Location = new System.Drawing.Point(70, 126);
             this.phoneTextBox.Name = "phoneTextBox";
             this.phoneTextBox.Size = new System.Drawing.Size(174, 20);
-            this.phoneTextBox.TabIndex = 19;
+            this.phoneTextBox.TabIndex = 5;
             // 
             // faxTextBox
             // 
@@ -1037,7 +1040,7 @@
             this.faxTextBox.Location = new System.Drawing.Point(305, 126);
             this.faxTextBox.Name = "faxTextBox";
             this.faxTextBox.Size = new System.Drawing.Size(173, 20);
-            this.faxTextBox.TabIndex = 21;
+            this.faxTextBox.TabIndex = 6;
             // 
             // emailTextBox
             // 
@@ -1045,7 +1048,7 @@
             this.emailTextBox.Location = new System.Drawing.Point(70, 152);
             this.emailTextBox.Name = "emailTextBox";
             this.emailTextBox.Size = new System.Drawing.Size(408, 20);
-            this.emailTextBox.TabIndex = 23;
+            this.emailTextBox.TabIndex = 7;
             // 
             // agent_typesTableAdapter
             // 
@@ -1054,6 +1057,16 @@
             // agents_contactsTableAdapter
             // 
             this.agents_contactsTableAdapter.ClearBeforeFill = true;
+            // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton1.Text = "Обновить";
+            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
             // ClientsForm
             // 
@@ -1169,6 +1182,7 @@
         private System.Windows.Forms.ToolStripButton bindingNavigatorDeleteItem1;
         private System.Windows.Forms.ToolStripLabel toolStripLabelAgent;
         private System.Windows.Forms.ToolStripButton toolStripButtonSaveContact;
+        private System.Windows.Forms.ToolStripButton toolStripButton1;
 
         //private EdocbaseDataSetTableAdapters.Agents_typesTableAdapter agents_typesTableAdapter;
         //private EdocbaseDataSetTableAdapters.AgentsTableAdapter agentsTableAdapter;

@@ -147,5 +147,29 @@ namespace Edocsys
                 agents_contactsBindingSource.RemoveCurrent();
             }
         }
+
+        private void KPPTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            RefreshClients();
+        }
+        private void RefreshClients()
+        {
+            int pos = agentsBindingSource.Position;
+
+            this.agentsTableAdapter.Fill(this.edocbaseDataSet.agents);
+
+            //this.contractSigningTableAdapter.Fill(this.edocbaseDataSet.ContractSigning);
+
+            agentsBindingSource.Position = pos;
+            
+            // contractSigningBindingSource.Position = pos;
+            this.agentsDataGridView.Refresh();
+            //this.contractsSigningDataGridView.Refresh();
+        }
     }
 }
