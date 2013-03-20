@@ -46,7 +46,9 @@ WHERE
 
 
 
-
+DELETE FROM documents
+WHERE
+(contracts_id = @id);
 DELETE FROM contracts
 WHERE (id = @id)
 
