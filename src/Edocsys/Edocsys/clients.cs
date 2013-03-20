@@ -27,19 +27,60 @@ namespace Edocsys
         {
             try
             {
-                int pos = agentsBindingSource.Position;
                 this.Validate();
                 this.agentsBindingSource.EndEdit();
                 this.tableAdapterManager.UpdateAll(this.edocbaseDataSet);
 
                 this.edocbaseDataSet.AcceptChanges();
-                this.agentsTableAdapter.Fill(this.edocbaseDataSet.agents);
-                this.agentsDataGridView.Refresh();
-                agentsBindingSource.Position = pos;
+
+                RefreshClients();
+            }
+            catch (MySql.Data.MySqlClient.MySqlException ex)
+            {
+
+                if (ex.Number == (int)MySql.Data.MySqlClient.MySqlErrorCode.RowIsReferenced2)
+                {
+                    string msg = "Невозможно удалить клиента.";
+
+                    string title = "Ошибка удаления";
+                    string type = "Delete constrain ERROR";
+                    TraceHelper.LogError(type, ex, this);
+                    MessageBox.Show(msg, title);
+                }
+                else
+                {
+                    throw;
+                }
+
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Save Error");
+                string msg = ex.Message;
+                string title = "Save ERROR";
+                string type = "Save ERROR";
+                TraceHelper.LogError(type, ex, this);
+                MessageBox.Show(msg, title);
+            }
+        }
+
+        private void SaveContacts()
+        {
+            try
+            {
+                this.Validate();
+
+                this.agents_contactsBindingSource.EndEdit();
+                this.agents_contactsTableAdapter.Update(this.edocbaseDataSet);
+
+                this.edocbaseDataSet.AcceptChanges();
+            }
+            catch (Exception ex)
+            {
+                string msg = ex.Message;
+                string title = "Save contacts ERROR";
+                string type = "Save contacts ERROR";
+                TraceHelper.LogError(type, ex, this);
+                MessageBox.Show(msg, title);
             }
         }
 
@@ -60,21 +101,8 @@ namespace Edocsys
 
         private void toolStripButtonSaveContact_Click(object sender, EventArgs e)
         {
-            try
-            {
-                this.Validate();
-                this.agents_contactsBindingSource.EndEdit();
-                this.agents_contactsTableAdapter.Update(this.edocbaseDataSet);
-               // this.tableAdapterManager.UpdateAll(this.edocbaseDataSet);
-
-                this.edocbaseDataSet.AcceptChanges();
-                this.agents_contactsTableAdapter.Fill(this.edocbaseDataSet.agents_contacts);
-                this.agents_contactsDataGridView.Refresh();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Save Error");
-            }
+            SaveContacts();
+            RefreshContacts();
         }
 
         private void agentsBindingSource_CurrentChanged(object sender, EventArgs e)
@@ -83,10 +111,12 @@ namespace Edocsys
                 && (edocbaseDataSet.agents.DefaultView.Count > agentsBindingSource.Position))
             {
                 DataRow currentRow = edocbaseDataSet.agents.DefaultView[agentsBindingSource.Position].Row;
+                if (currentRow.RowState != DataRowState.Deleted)
+                {
+                    string agent = String.Format("Контрагент: {0}", Convert.ToString(currentRow["name"]));
 
-                string agent = String.Format("Контрагент: {0}", Convert.ToString(currentRow["name"]));
-
-                toolStripLabelAgent.Text = agent;
+                    toolStripLabelAgent.Text = agent;
+                }
             }
         }
 
@@ -126,6 +156,9 @@ namespace Edocsys
             if (MessageBox.Show("Удалить контрагента #" + id, "Подтвердить удаление контрагента", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 agentsBindingSource.RemoveCurrent();
+
+                SaveAgents();
+                RefreshClients();
             }
         }
 
@@ -145,31 +178,37 @@ namespace Edocsys
             if (MessageBox.Show("Удалить контактное лицо #" + id, "Подтвердить удаление контактного лица", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 agents_contactsBindingSource.RemoveCurrent();
+                SaveContacts();
+                RefreshContacts();
             }
-        }
-
-        private void KPPTextBox_TextChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
             RefreshClients();
         }
+
         private void RefreshClients()
         {
             int pos = agentsBindingSource.Position;
 
             this.agentsTableAdapter.Fill(this.edocbaseDataSet.agents);
 
-            //this.contractSigningTableAdapter.Fill(this.edocbaseDataSet.ContractSigning);
-
             agentsBindingSource.Position = pos;
             
-            // contractSigningBindingSource.Position = pos;
             this.agentsDataGridView.Refresh();
-            //this.contractsSigningDataGridView.Refresh();
         }
+
+        private void RefreshContacts()
+        {
+            int pos = agents_contactsBindingSource.Position;
+
+            this.agents_contactsTableAdapter.Fill(this.edocbaseDataSet.agents_contacts);
+
+            agents_contactsBindingSource.Position = pos;
+            
+            this.agents_contactsDataGridView.Refresh();
+        }
+
     }
 }
