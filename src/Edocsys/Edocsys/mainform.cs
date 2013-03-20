@@ -43,9 +43,12 @@ namespace Edocsys
 
         private void EnableActionButtons(bool isEnabled)
         {
+            int userType = ConnectionManager.CurrentUser.UserType;
             //menus
             this.DocToolStripMenuItem.Enabled = isEnabled;
-            this.AdmToolStripMenuItem.Enabled = isEnabled;
+
+            this.AdmToolStripMenuItem.Enabled = false;
+            ContractPaymentsToolStripMenuItem.Enabled = true;
 
             //toolstrip
             for (int i = 0; i < mainToolStrip.Items.Count; ++i)
@@ -63,6 +66,35 @@ namespace Edocsys
                     mainToolStrip.Items[i].Enabled = !isEnabled;
                 }
             }
+
+            //hide non admin items
+            if (userType == (int)Constants.UserTypes.Admin)
+                if (isEnabled)
+                    this.AdmToolStripMenuItem.Enabled = isEnabled;
+
+            if (userType == (int)Constants.UserTypes.Expert)
+                //if (isEnabled)
+                    for (int i = 0; i < mainToolStrip.Items.Count; ++i)
+                    {
+                        if (mainToolStrip.Items[i].Name == "toolStripButton8")
+
+                        {
+                            mainToolStrip.Items[i].Enabled = false;
+                            ContractPaymentsToolStripMenuItem.Enabled = false;
+                        }
+                    }
+
+            if (userType == (int)Constants.UserTypes.Director)
+                //if (isEnabled)
+                    for (int i = 0; i < mainToolStrip.Items.Count; ++i)
+                    {
+                        if (mainToolStrip.Items[i].Name == "toolStripButton8")
+                        {
+                            mainToolStrip.Items[i].Enabled = true;
+                            ContractPaymentsToolStripMenuItem.Enabled = true;
+                        }
+                    }
+
         }
 
         private void ExitToolStripMenuItem_Click(object sender, EventArgs e)
