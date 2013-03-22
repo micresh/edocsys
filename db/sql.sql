@@ -307,6 +307,14 @@ contract_status_id = @contract_status_id
 WHERE
 (id = @original_id)
 
+-- ReturnToProposals
+UPDATE
+contracts
+SET
+contract_status_id = @contract_status_id
+WHERE
+(id = @original_id)
+
 
 
 -- !-----------------------------------------------------------

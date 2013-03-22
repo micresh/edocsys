@@ -745,5 +745,40 @@ namespace Edocsys
         {
             RefreshContractDone();
         }
+
+        private void toolStripButtonReturnToProposals_Click(object sender, EventArgs e)
+        {
+            if ((contractSigningBindingSource.Position < 0) ||
+                (contractSigningBindingSource.Position >= contractSigningBindingSource.Count))
+            {
+                //contract not selected
+                MessageBox.Show("Не выбран договор", "Ошибка");
+                return;
+            }
+
+            DataRowView currentRow = (DataRowView)contractSigningBindingSource.Current;
+            int id = Convert.ToInt32(currentRow["id"]);
+
+            if (MessageBox.Show("Подтвердить возврат договора #" + id + " к заявкам на изменение", "Подтвердить возврат договора к заявкам", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                try
+                {
+                    this.contractSigningTableAdapter.ReturnToProposals((int)Constants.ContractStatuses.NewProposal, id);
+
+                    UpdateDatabase();
+                }
+                catch (Exception ex)
+                {
+                    string type = "Return save ERROR";
+                    string msg = ex.Message;
+                    string title = type;
+                    TraceHelper.LogError(type, ex, sender);
+                    MessageBox.Show(msg, title);
+                }
+            }
+
+            RefreshContractSigning();
+
+        }
     }
 }

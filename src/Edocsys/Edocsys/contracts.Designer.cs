@@ -79,6 +79,8 @@
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.usersBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripButtonReturnToProposals = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.filterContractSigningText = new System.Windows.Forms.ToolStripTextBox();
@@ -545,6 +547,8 @@
             this.toolStripSeparator6,
             this.bindingNavigatorDeleteItem,
             this.usersBindingNavigatorSaveItem,
+            this.toolStripSeparator7,
+            this.toolStripButtonReturnToProposals,
             this.toolStripSeparator1,
             this.toolStripLabel1,
             this.filterContractSigningText});
@@ -659,6 +663,21 @@
             this.usersBindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 22);
             this.usersBindingNavigatorSaveItem.Text = "Save Data";
             this.usersBindingNavigatorSaveItem.Click += new System.EventHandler(this.usersBindingNavigatorSaveItem_Click);
+            // 
+            // toolStripSeparator7
+            // 
+            this.toolStripSeparator7.Name = "toolStripSeparator7";
+            this.toolStripSeparator7.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripButtonReturnToProposals
+            // 
+            this.toolStripButtonReturnToProposals.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonReturnToProposals.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonReturnToProposals.Image")));
+            this.toolStripButtonReturnToProposals.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonReturnToProposals.Name = "toolStripButtonReturnToProposals";
+            this.toolStripButtonReturnToProposals.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonReturnToProposals.Text = "Вернуть к заявкам для изменения";
+            this.toolStripButtonReturnToProposals.Click += new System.EventHandler(this.toolStripButtonReturnToProposals_Click);
             // 
             // toolStripSeparator1
             // 
@@ -1542,6 +1561,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn expertFIODataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn has_contract_document;
         private System.Windows.Forms.DataGridViewButtonColumn SignContractColumn;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
+        private System.Windows.Forms.ToolStripButton toolStripButtonReturnToProposals;
 
         //private EdocbaseDataSetTableAdapters.Exec_contractsTableAdapter exec_contractsTableAdapter;
     }
