@@ -24,7 +24,7 @@ INSERT INTO `edocbase`.`contract_types` (`id`, `name`) VALUES (13,'Лабора�
 
 
 -- insert contract statuses into contract_status table
-INSERT INTO `edocbase`.`contract_status` (`id`, `name`) VALUES (0,'Заявка добавлена');
+INSERT INTO `edocbase`.`contract_status` (`id`, `name`) VALUES (0,'Подготовка заявки');
 INSERT INTO `edocbase`.`contract_status` (`id`, `name`) VALUES (1,'Закрепление эксперта');
 INSERT INTO `edocbase`.`contract_status` (`id`, `name`) VALUES (2,'Заключение договора');
 INSERT INTO `edocbase`.`contract_status` (`id`, `name`) VALUES (3,'Подготовка к работе');

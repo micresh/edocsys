@@ -17,22 +17,31 @@ namespace Edocsys
         }
 
         private DocGeneratorHelper contractGenerator;
-        private FilterHelper filterFinishedContracts, filterBadContracts;
+        private FilterHelper filterFinishedContracts, filterBadContracts, filterCurrentContracts;
+
+        private int status_id = -1;
 
 
         private void ContractsForm_Load(object sender, EventArgs e)
         {
             this.badContractsTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
             this.finishedContractsTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
+            this.currentContractsTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
 
             RefreshDatabase();
 
             //add filters
             filterFinishedContracts= new FilterHelper(finishedContractsDataGridView, filterFinishedContractsText.TextBox);
             filterBadContracts = new FilterHelper(badContractsDataTableDataGridView, filterBadContractsTextBox.TextBox);
+            filterCurrentContracts = new FilterHelper(currentContractsDataGridView, filterCurrentContractsToolStripTextBox.TextBox);
 
             //doc helper
             contractGenerator = new DocGeneratorHelper(edocbaseDataSet.documents, edocbaseDataSet.doc_templates, edocbaseDataSet.ContractDocData);
+
+            //performance tuning
+            DataGridViewHelper.DoubleBuffered(currentContractsDataGridView, true);
+            DataGridViewHelper.DoubleBuffered(badContractsDataTableDataGridView, true);
+            DataGridViewHelper.DoubleBuffered(finishedContractsDataGridView, true);
         }
 
 
@@ -45,28 +54,95 @@ namespace Edocsys
                 this.tableAdapterManager.UpdateAll(this.edocbaseDataSet);
 
                 this.edocbaseDataSet.AcceptChanges();
-
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Save Error");
+                string msg = ex.Message;
+                string title = "Save ERROR";
+                string type = "Save ERROR";
+                TraceHelper.LogError(type, ex, this);
+                MessageBox.Show(msg, title);
             }
-            /**/
         }
 
         private void RefreshDatabase()
         {
+            RefreshCurrentContracts();
+            RefreshBadContracts();
+            RefreshFinishedContracts();
+        }
+
+        private void RefreshBadContracts()
+        {
             try
             {
+                int pos = badContractsBindingSource.Position;
+
                 this.badContractsTableAdapter.Fill(this.edocbaseDataSet.BadContracts);
-                this.finishedContractsTableAdapter.Fill(this.edocbaseDataSet.FinishedContracts);
+
+                badContractsBindingSource.Position = pos;
+
+                this.badContractsDataTableDataGridView.Refresh();
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Refresh Error");
+                string msg = ex.Message;
+                string title = "Refresh ERROR";
+                string type = "Refresh ERROR RefreshBadContracts";
+                TraceHelper.LogError(type, ex, this);
+                MessageBox.Show(msg, title);
             }
-            /**/
         }
+
+        private void RefreshFinishedContracts()
+        {
+            try
+            {
+                int pos = finishedContractsBindingSource.Position;
+
+                this.finishedContractsTableAdapter.Fill(this.edocbaseDataSet.FinishedContracts);
+
+                finishedContractsBindingSource.Position = pos;
+
+                this.finishedContractsDataGridView.Refresh();
+            }
+            catch (Exception ex)
+            {
+                string msg = ex.Message;
+                string title = "Refresh ERROR";
+                string type = "Refresh ERROR RefreshFinishedContracts";
+                TraceHelper.LogError(type, ex, this);
+                MessageBox.Show(msg, title);
+            }
+        }
+
+        private void RefreshCurrentContracts()
+        {
+            try
+            {
+                int pos = currentContractsBindingSource.Position;
+
+                bool dont_filter_status = true;
+
+                if (status_id != -1)
+                    dont_filter_status = false;
+
+                this.currentContractsTableAdapter.Fill(this.edocbaseDataSet.CurrentContracts, dont_filter_status, status_id);
+
+                currentContractsBindingSource.Position = pos;
+
+                this.currentContractsDataGridView.Refresh();
+            }
+            catch (Exception ex)
+            {
+                string msg = ex.Message;
+                string title = "Refresh ERROR";
+                string type = "Refresh ERROR RefreshCurrentContracts";
+                TraceHelper.LogError(type, ex, this);
+                MessageBox.Show(msg, title);
+            }
+        }
+
 
         private void buttonEditContract_Click(object sender, EventArgs e)
         {
@@ -217,6 +293,126 @@ namespace Edocsys
             }
 
             RefreshDatabase();
+        }
+
+        private void radioButtonAll_CheckedChanged(object sender, EventArgs e)
+        {
+            this.status_id = -1;
+            RefreshCurrentContracts();
+        }
+
+        private void radioButtonNewProposal_CheckedChanged(object sender, EventArgs e)
+        {
+            this.status_id = (int)Constants.ContractStatuses.NewProposal;
+            RefreshCurrentContracts();
+        }
+
+        private void radioButtonExpertAssignment_CheckedChanged(object sender, EventArgs e)
+        {
+            this.status_id = (int)Constants.ContractStatuses.ExpertAssignment;
+            RefreshCurrentContracts();
+        }
+
+        private void radioButtonContractSigning_CheckedChanged(object sender, EventArgs e)
+        {
+            this.status_id = (int)Constants.ContractStatuses.ContractSigning;
+            RefreshCurrentContracts();
+        }
+
+        private void radioButtonPrepareForWork_CheckedChanged(object sender, EventArgs e)
+        {
+            this.status_id = (int)Constants.ContractStatuses.PrepareForWork;
+            RefreshCurrentContracts();
+        }
+
+        private void radioButtonInWork_CheckedChanged(object sender, EventArgs e)
+        {
+            this.status_id = (int)Constants.ContractStatuses.InWork;
+            RefreshCurrentContracts();
+        }
+
+        private void radioButtonComplitionManagerConfrim_CheckedChanged(object sender, EventArgs e)
+        {
+            this.status_id = (int)Constants.ContractStatuses.ComplitionManagerConfrim;
+            RefreshCurrentContracts();
+        }
+
+        private void radioButtonComplitionAgentConfrim_CheckedChanged(object sender, EventArgs e)
+        {
+            this.status_id = (int)Constants.ContractStatuses.ComplitionAgentConfrim;
+            RefreshCurrentContracts();
+        }
+
+        private void radioButtonReattestationSign_CheckedChanged(object sender, EventArgs e)
+        {
+            this.status_id = (int)Constants.ContractStatuses.ReattestationSign;
+            RefreshCurrentContracts();
+        }
+
+        private void radioButtonInspectionControl_CheckedChanged(object sender, EventArgs e)
+        {
+            this.status_id = (int)Constants.ContractStatuses.InspectionControl;
+            RefreshCurrentContracts();
+        }
+
+        private void toolStripButton13_Click(object sender, EventArgs e)
+        {
+            RefreshCurrentContracts();
+        }
+
+        private void currentContractsDataGridView_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+        {
+            if (e.RowIndex < 0)
+                return;
+
+            if (e.ColumnIndex == 0)
+            {
+                DataGridView s = sender as DataGridView;
+
+                //skip errors
+                if ((s.Rows[e.RowIndex].Cells["days_to_deadline"].Value == null) ||
+                    (s.Rows[e.RowIndex].Cells["date_real_reatt_1"].Value == null) ||
+                    (s.Rows[e.RowIndex].Cells["days_to_deadline_reatt_1"].Value == null) ||
+                    (s.Rows[e.RowIndex].Cells["date_real_reatt_2"].Value == null) ||
+                    (s.Rows[e.RowIndex].Cells["days_to_deadline_reatt_2"].Value == null) ||
+                    (s.Rows[e.RowIndex].Cells["date_real_resert"].Value == null) ||
+                    (s.Rows[e.RowIndex].Cells["days_to_deadline_resert"].Value == null))
+                    return;
+
+                //count days
+                int days_left = (int)Constants.DeadlineAlerts.Fortnight + 1;
+
+                if (s.Rows[e.RowIndex].Cells["date_planed_reatt_1"].Value == DBNull.Value)
+                {
+                        if (s.Rows[e.RowIndex].Cells["days_to_deadline"].Value != DBNull.Value)
+                        {
+                            days_left = Math.Min(Convert.ToInt32(s.Rows[e.RowIndex].Cells["days_to_deadline"].Value), days_left);
+                        }
+                }
+
+
+                if (s.Rows[e.RowIndex].Cells["date_real_reatt_1"].Value == DBNull.Value)
+                {
+                    if (s.Rows[e.RowIndex].Cells["days_to_deadline_reatt_1"].Value != DBNull.Value)
+                        days_left = Math.Min(Convert.ToInt32(s.Rows[e.RowIndex].Cells["days_to_deadline_reatt_1"].Value), days_left);
+                }
+
+                if (s.Rows[e.RowIndex].Cells["date_real_reatt_2"].Value == DBNull.Value)
+                {
+                    if (s.Rows[e.RowIndex].Cells["days_to_deadline_reatt_2"].Value != DBNull.Value)
+                        days_left = Math.Min(Convert.ToInt32(s.Rows[e.RowIndex].Cells["days_to_deadline_reatt_2"].Value), days_left);
+                }
+
+                if (s.Rows[e.RowIndex].Cells["date_real_resert"].Value == DBNull.Value)
+                {
+                    if (s.Rows[e.RowIndex].Cells["days_to_deadline_resert"].Value != DBNull.Value)
+                        days_left = Math.Min(Convert.ToInt32(s.Rows[e.RowIndex].Cells["days_to_deadline_resert"].Value), days_left);
+                }
+
+                DataGridViewRow row = s.Rows[e.RowIndex];
+
+                DataGridViewHelper.ChangeGridRowColor(row, days_left);
+            }
         }
     }
 }

@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ContractStatsForm));
             this.tabControl = new System.Windows.Forms.TabControl();
+            this.tabPageCurrentTasks = new System.Windows.Forms.TabPage();
             this.tabFinishedTasks = new System.Windows.Forms.TabPage();
             this.finishedContractsDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -123,7 +124,59 @@
             this.contractDocDataTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.ContractDocDataTableAdapter();
             this.finishedContractsTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.FinishedContractsTableAdapter();
             this.badContractsTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.BadContractsTableAdapter();
+            this.currentContractsDataGridView = new System.Windows.Forms.DataGridView();
+            this.currentContractsBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
+            this.toolStripLabel4 = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripButton9 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton10 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator11 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripTextBox2 = new System.Windows.Forms.ToolStripTextBox();
+            this.toolStripSeparator12 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripButton11 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton12 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator13 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripButton13 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator14 = new System.Windows.Forms.ToolStripSeparator();
+            this.filterCurrentContractsToolStripTextBox = new System.Windows.Forms.ToolStripTextBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.radioButtonNewProposal = new System.Windows.Forms.RadioButton();
+            this.radioButtonExpertAssignment = new System.Windows.Forms.RadioButton();
+            this.radioButtonContractSigning = new System.Windows.Forms.RadioButton();
+            this.radioButtonPrepareForWork = new System.Windows.Forms.RadioButton();
+            this.radioButtonInWork = new System.Windows.Forms.RadioButton();
+            this.radioButtonComplitionManagerConfrim = new System.Windows.Forms.RadioButton();
+            this.radioButtonComplitionAgentConfrim = new System.Windows.Forms.RadioButton();
+            this.radioButtonReattestationSign = new System.Windows.Forms.RadioButton();
+            this.radioButtonInspectionControl = new System.Windows.Forms.RadioButton();
+            this.currentContractsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.currentContractsTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.CurrentContractsTableAdapter();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.expert_FIO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contract_status_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.number = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.prepayment = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cash_income = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.date_cash_income = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.date_contract = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.date_start = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.date_end = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.days_to_deadline = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.date_sample_income = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.date_protocol_income = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.date_planed_reatt_1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.days_to_deadline_reatt_1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.date_real_reatt_1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.date_planed_reatt_2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.days_to_deadline_reatt_2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.date_real_reatt_2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.date_planed_resert = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.days_to_deadline_resert = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.date_real_resert = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.radioButtonAll = new System.Windows.Forms.RadioButton();
             this.tabControl.SuspendLayout();
+            this.tabPageCurrentTasks.SuspendLayout();
             this.tabFinishedTasks.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.finishedContractsDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.finishedContractsBindingSource)).BeginInit();
@@ -136,10 +189,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigatorBadContracts)).BeginInit();
             this.bindingNavigatorBadContracts.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.contractDocDataBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.currentContractsDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.currentContractsBindingNavigator)).BeginInit();
+            this.currentContractsBindingNavigator.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.currentContractsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl
             // 
+            this.tabControl.Controls.Add(this.tabPageCurrentTasks);
             this.tabControl.Controls.Add(this.tabFinishedTasks);
             this.tabControl.Controls.Add(this.tabPageBadJob);
             this.tabControl.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -148,6 +207,19 @@
             this.tabControl.SelectedIndex = 0;
             this.tabControl.Size = new System.Drawing.Size(1114, 470);
             this.tabControl.TabIndex = 2;
+            // 
+            // tabPageCurrentTasks
+            // 
+            this.tabPageCurrentTasks.Controls.Add(this.currentContractsDataGridView);
+            this.tabPageCurrentTasks.Controls.Add(this.groupBox1);
+            this.tabPageCurrentTasks.Controls.Add(this.currentContractsBindingNavigator);
+            this.tabPageCurrentTasks.Location = new System.Drawing.Point(4, 22);
+            this.tabPageCurrentTasks.Name = "tabPageCurrentTasks";
+            this.tabPageCurrentTasks.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageCurrentTasks.Size = new System.Drawing.Size(1106, 444);
+            this.tabPageCurrentTasks.TabIndex = 9;
+            this.tabPageCurrentTasks.Text = "Текущие договора";
+            this.tabPageCurrentTasks.UseVisualStyleBackColor = true;
             // 
             // tabFinishedTasks
             // 
@@ -954,6 +1026,478 @@
             // 
             this.badContractsTableAdapter.ClearBeforeFill = true;
             // 
+            // currentContractsDataGridView
+            // 
+            this.currentContractsDataGridView.AllowUserToAddRows = false;
+            this.currentContractsDataGridView.AllowUserToDeleteRows = false;
+            this.currentContractsDataGridView.AutoGenerateColumns = false;
+            this.currentContractsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.currentContractsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.expert_FIO,
+            this.contract_status_name,
+            this.number,
+            this.prepayment,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.cash_income,
+            this.date_cash_income,
+            this.date_contract,
+            this.date_start,
+            this.date_end,
+            this.days_to_deadline,
+            this.date_sample_income,
+            this.date_protocol_income,
+            this.date_planed_reatt_1,
+            this.days_to_deadline_reatt_1,
+            this.date_real_reatt_1,
+            this.date_planed_reatt_2,
+            this.days_to_deadline_reatt_2,
+            this.date_real_reatt_2,
+            this.date_planed_resert,
+            this.days_to_deadline_resert,
+            this.date_real_resert});
+            this.currentContractsDataGridView.DataSource = this.currentContractsBindingSource;
+            this.currentContractsDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.currentContractsDataGridView.Location = new System.Drawing.Point(3, 121);
+            this.currentContractsDataGridView.MultiSelect = false;
+            this.currentContractsDataGridView.Name = "currentContractsDataGridView";
+            this.currentContractsDataGridView.ReadOnly = true;
+            this.currentContractsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.currentContractsDataGridView.Size = new System.Drawing.Size(1100, 320);
+            this.currentContractsDataGridView.TabIndex = 11;
+            this.currentContractsDataGridView.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.currentContractsDataGridView_CellPainting);
+            // 
+            // currentContractsBindingNavigator
+            // 
+            this.currentContractsBindingNavigator.AddNewItem = null;
+            this.currentContractsBindingNavigator.BindingSource = this.currentContractsBindingSource;
+            this.currentContractsBindingNavigator.CountItem = this.toolStripLabel4;
+            this.currentContractsBindingNavigator.DeleteItem = null;
+            this.currentContractsBindingNavigator.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripButton9,
+            this.toolStripButton10,
+            this.toolStripSeparator11,
+            this.toolStripTextBox2,
+            this.toolStripLabel4,
+            this.toolStripSeparator12,
+            this.toolStripButton11,
+            this.toolStripButton12,
+            this.toolStripSeparator13,
+            this.toolStripButton13,
+            this.toolStripSeparator14,
+            this.filterCurrentContractsToolStripTextBox});
+            this.currentContractsBindingNavigator.Location = new System.Drawing.Point(3, 3);
+            this.currentContractsBindingNavigator.MoveFirstItem = this.toolStripButton9;
+            this.currentContractsBindingNavigator.MoveLastItem = this.toolStripButton12;
+            this.currentContractsBindingNavigator.MoveNextItem = this.toolStripButton11;
+            this.currentContractsBindingNavigator.MovePreviousItem = this.toolStripButton10;
+            this.currentContractsBindingNavigator.Name = "currentContractsBindingNavigator";
+            this.currentContractsBindingNavigator.PositionItem = this.toolStripTextBox2;
+            this.currentContractsBindingNavigator.Size = new System.Drawing.Size(1100, 25);
+            this.currentContractsBindingNavigator.TabIndex = 12;
+            this.currentContractsBindingNavigator.Text = "bindingNavigator1";
+            // 
+            // toolStripLabel4
+            // 
+            this.toolStripLabel4.Name = "toolStripLabel4";
+            this.toolStripLabel4.Size = new System.Drawing.Size(35, 22);
+            this.toolStripLabel4.Text = "of {0}";
+            this.toolStripLabel4.ToolTipText = "Total number of items";
+            // 
+            // toolStripButton9
+            // 
+            this.toolStripButton9.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton9.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton9.Image")));
+            this.toolStripButton9.Name = "toolStripButton9";
+            this.toolStripButton9.RightToLeftAutoMirrorImage = true;
+            this.toolStripButton9.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton9.Text = "Move first";
+            // 
+            // toolStripButton10
+            // 
+            this.toolStripButton10.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton10.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton10.Image")));
+            this.toolStripButton10.Name = "toolStripButton10";
+            this.toolStripButton10.RightToLeftAutoMirrorImage = true;
+            this.toolStripButton10.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton10.Text = "Move previous";
+            // 
+            // toolStripSeparator11
+            // 
+            this.toolStripSeparator11.Name = "toolStripSeparator11";
+            this.toolStripSeparator11.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripTextBox2
+            // 
+            this.toolStripTextBox2.AccessibleName = "Position";
+            this.toolStripTextBox2.AutoSize = false;
+            this.toolStripTextBox2.Name = "toolStripTextBox2";
+            this.toolStripTextBox2.Size = new System.Drawing.Size(50, 21);
+            this.toolStripTextBox2.Text = "0";
+            this.toolStripTextBox2.ToolTipText = "Current position";
+            // 
+            // toolStripSeparator12
+            // 
+            this.toolStripSeparator12.Name = "toolStripSeparator12";
+            this.toolStripSeparator12.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripButton11
+            // 
+            this.toolStripButton11.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton11.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton11.Image")));
+            this.toolStripButton11.Name = "toolStripButton11";
+            this.toolStripButton11.RightToLeftAutoMirrorImage = true;
+            this.toolStripButton11.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton11.Text = "Move next";
+            // 
+            // toolStripButton12
+            // 
+            this.toolStripButton12.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton12.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton12.Image")));
+            this.toolStripButton12.Name = "toolStripButton12";
+            this.toolStripButton12.RightToLeftAutoMirrorImage = true;
+            this.toolStripButton12.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton12.Text = "Move last";
+            // 
+            // toolStripSeparator13
+            // 
+            this.toolStripSeparator13.Name = "toolStripSeparator13";
+            this.toolStripSeparator13.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripButton13
+            // 
+            this.toolStripButton13.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton13.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton13.Image")));
+            this.toolStripButton13.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton13.Name = "toolStripButton13";
+            this.toolStripButton13.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton13.Text = "Обновить";
+            this.toolStripButton13.Click += new System.EventHandler(this.toolStripButton13_Click);
+            // 
+            // toolStripSeparator14
+            // 
+            this.toolStripSeparator14.Name = "toolStripSeparator14";
+            this.toolStripSeparator14.Size = new System.Drawing.Size(6, 25);
+            // 
+            // filterCurrentContractsToolStripTextBox
+            // 
+            this.filterCurrentContractsToolStripTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.filterCurrentContractsToolStripTextBox.Name = "filterCurrentContractsToolStripTextBox";
+            this.filterCurrentContractsToolStripTextBox.Size = new System.Drawing.Size(200, 25);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.radioButtonAll);
+            this.groupBox1.Controls.Add(this.radioButtonInspectionControl);
+            this.groupBox1.Controls.Add(this.radioButtonReattestationSign);
+            this.groupBox1.Controls.Add(this.radioButtonComplitionAgentConfrim);
+            this.groupBox1.Controls.Add(this.radioButtonComplitionManagerConfrim);
+            this.groupBox1.Controls.Add(this.radioButtonInWork);
+            this.groupBox1.Controls.Add(this.radioButtonPrepareForWork);
+            this.groupBox1.Controls.Add(this.radioButtonContractSigning);
+            this.groupBox1.Controls.Add(this.radioButtonExpertAssignment);
+            this.groupBox1.Controls.Add(this.radioButtonNewProposal);
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox1.Location = new System.Drawing.Point(3, 28);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(1100, 93);
+            this.groupBox1.TabIndex = 13;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Фильтр этапов выполнения работ";
+            // 
+            // radioButtonNewProposal
+            // 
+            this.radioButtonNewProposal.AutoSize = true;
+            this.radioButtonNewProposal.Location = new System.Drawing.Point(17, 42);
+            this.radioButtonNewProposal.Name = "radioButtonNewProposal";
+            this.radioButtonNewProposal.Size = new System.Drawing.Size(124, 17);
+            this.radioButtonNewProposal.TabIndex = 0;
+            this.radioButtonNewProposal.Text = "Подготовка заявки";
+            this.radioButtonNewProposal.UseVisualStyleBackColor = true;
+            this.radioButtonNewProposal.CheckedChanged += new System.EventHandler(this.radioButtonNewProposal_CheckedChanged);
+            // 
+            // radioButtonExpertAssignment
+            // 
+            this.radioButtonExpertAssignment.AutoSize = true;
+            this.radioButtonExpertAssignment.Location = new System.Drawing.Point(17, 65);
+            this.radioButtonExpertAssignment.Name = "radioButtonExpertAssignment";
+            this.radioButtonExpertAssignment.Size = new System.Drawing.Size(142, 17);
+            this.radioButtonExpertAssignment.TabIndex = 1;
+            this.radioButtonExpertAssignment.Text = "Закрепление эксперта";
+            this.radioButtonExpertAssignment.UseVisualStyleBackColor = true;
+            this.radioButtonExpertAssignment.CheckedChanged += new System.EventHandler(this.radioButtonExpertAssignment_CheckedChanged);
+            // 
+            // radioButtonContractSigning
+            // 
+            this.radioButtonContractSigning.AutoSize = true;
+            this.radioButtonContractSigning.Location = new System.Drawing.Point(191, 19);
+            this.radioButtonContractSigning.Name = "radioButtonContractSigning";
+            this.radioButtonContractSigning.Size = new System.Drawing.Size(137, 17);
+            this.radioButtonContractSigning.TabIndex = 2;
+            this.radioButtonContractSigning.Text = "Заключение договора";
+            this.radioButtonContractSigning.UseVisualStyleBackColor = true;
+            this.radioButtonContractSigning.CheckedChanged += new System.EventHandler(this.radioButtonContractSigning_CheckedChanged);
+            // 
+            // radioButtonPrepareForWork
+            // 
+            this.radioButtonPrepareForWork.AutoSize = true;
+            this.radioButtonPrepareForWork.Location = new System.Drawing.Point(191, 42);
+            this.radioButtonPrepareForWork.Name = "radioButtonPrepareForWork";
+            this.radioButtonPrepareForWork.Size = new System.Drawing.Size(132, 17);
+            this.radioButtonPrepareForWork.TabIndex = 3;
+            this.radioButtonPrepareForWork.Text = "Подготовка к работе";
+            this.radioButtonPrepareForWork.UseVisualStyleBackColor = true;
+            this.radioButtonPrepareForWork.CheckedChanged += new System.EventHandler(this.radioButtonPrepareForWork_CheckedChanged);
+            // 
+            // radioButtonInWork
+            // 
+            this.radioButtonInWork.AutoSize = true;
+            this.radioButtonInWork.Location = new System.Drawing.Point(191, 65);
+            this.radioButtonInWork.Name = "radioButtonInWork";
+            this.radioButtonInWork.Size = new System.Drawing.Size(70, 17);
+            this.radioButtonInWork.TabIndex = 4;
+            this.radioButtonInWork.Text = "В работе";
+            this.radioButtonInWork.UseVisualStyleBackColor = true;
+            this.radioButtonInWork.CheckedChanged += new System.EventHandler(this.radioButtonInWork_CheckedChanged);
+            // 
+            // radioButtonComplitionManagerConfrim
+            // 
+            this.radioButtonComplitionManagerConfrim.AutoSize = true;
+            this.radioButtonComplitionManagerConfrim.Location = new System.Drawing.Point(364, 19);
+            this.radioButtonComplitionManagerConfrim.Name = "radioButtonComplitionManagerConfrim";
+            this.radioButtonComplitionManagerConfrim.Size = new System.Drawing.Size(252, 17);
+            this.radioButtonComplitionManagerConfrim.TabIndex = 5;
+            this.radioButtonComplitionManagerConfrim.Text = "Подтверждение выполнения руководителем";
+            this.radioButtonComplitionManagerConfrim.UseVisualStyleBackColor = true;
+            this.radioButtonComplitionManagerConfrim.CheckedChanged += new System.EventHandler(this.radioButtonComplitionManagerConfrim_CheckedChanged);
+            // 
+            // radioButtonComplitionAgentConfrim
+            // 
+            this.radioButtonComplitionAgentConfrim.AutoSize = true;
+            this.radioButtonComplitionAgentConfrim.Location = new System.Drawing.Point(364, 42);
+            this.radioButtonComplitionAgentConfrim.Name = "radioButtonComplitionAgentConfrim";
+            this.radioButtonComplitionAgentConfrim.Size = new System.Drawing.Size(223, 17);
+            this.radioButtonComplitionAgentConfrim.TabIndex = 6;
+            this.radioButtonComplitionAgentConfrim.Text = "Подтверждение выполнения клиентом";
+            this.radioButtonComplitionAgentConfrim.UseVisualStyleBackColor = true;
+            this.radioButtonComplitionAgentConfrim.CheckedChanged += new System.EventHandler(this.radioButtonComplitionAgentConfrim_CheckedChanged);
+            // 
+            // radioButtonReattestationSign
+            // 
+            this.radioButtonReattestationSign.AutoSize = true;
+            this.radioButtonReattestationSign.Location = new System.Drawing.Point(644, 19);
+            this.radioButtonReattestationSign.Name = "radioButtonReattestationSign";
+            this.radioButtonReattestationSign.Size = new System.Drawing.Size(209, 17);
+            this.radioButtonReattestationSign.TabIndex = 7;
+            this.radioButtonReattestationSign.Text = "Заключение договора реаттестации";
+            this.radioButtonReattestationSign.UseVisualStyleBackColor = true;
+            this.radioButtonReattestationSign.CheckedChanged += new System.EventHandler(this.radioButtonReattestationSign_CheckedChanged);
+            // 
+            // radioButtonInspectionControl
+            // 
+            this.radioButtonInspectionControl.AutoSize = true;
+            this.radioButtonInspectionControl.Location = new System.Drawing.Point(644, 42);
+            this.radioButtonInspectionControl.Name = "radioButtonInspectionControl";
+            this.radioButtonInspectionControl.Size = new System.Drawing.Size(223, 17);
+            this.radioButtonInspectionControl.TabIndex = 8;
+            this.radioButtonInspectionControl.Text = "Договора на инспекционном контроле";
+            this.radioButtonInspectionControl.UseVisualStyleBackColor = true;
+            this.radioButtonInspectionControl.CheckedChanged += new System.EventHandler(this.radioButtonInspectionControl_CheckedChanged);
+            // 
+            // currentContractsBindingSource
+            // 
+            this.currentContractsBindingSource.DataMember = "CurrentContracts";
+            this.currentContractsBindingSource.DataSource = this.edocbaseDataSet;
+            // 
+            // currentContractsTableAdapter
+            // 
+            this.currentContractsTableAdapter.ClearBeforeFill = true;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "products_name";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Продукция";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Width = 200;
+            // 
+            // expert_FIO
+            // 
+            this.expert_FIO.DataPropertyName = "expert_FIO";
+            this.expert_FIO.HeaderText = "Эксперт";
+            this.expert_FIO.Name = "expert_FIO";
+            this.expert_FIO.ReadOnly = true;
+            this.expert_FIO.Width = 150;
+            // 
+            // contract_status_name
+            // 
+            this.contract_status_name.DataPropertyName = "contract_status_name";
+            this.contract_status_name.HeaderText = "Состояние договора";
+            this.contract_status_name.Name = "contract_status_name";
+            this.contract_status_name.ReadOnly = true;
+            this.contract_status_name.Width = 200;
+            // 
+            // number
+            // 
+            this.number.DataPropertyName = "number";
+            this.number.HeaderText = "Номер договора";
+            this.number.Name = "number";
+            this.number.ReadOnly = true;
+            // 
+            // prepayment
+            // 
+            this.prepayment.DataPropertyName = "prepayment";
+            this.prepayment.HeaderText = "Предоплата";
+            this.prepayment.Name = "prepayment";
+            this.prepayment.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "cost";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Сумма";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "total_cost";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Общая сумма";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
+            // cash_income
+            // 
+            this.cash_income.DataPropertyName = "cash_income";
+            this.cash_income.HeaderText = "Опалта";
+            this.cash_income.Name = "cash_income";
+            this.cash_income.ReadOnly = true;
+            // 
+            // date_cash_income
+            // 
+            this.date_cash_income.DataPropertyName = "date_cash_income";
+            this.date_cash_income.HeaderText = "Дата оплаты";
+            this.date_cash_income.Name = "date_cash_income";
+            this.date_cash_income.ReadOnly = true;
+            // 
+            // date_contract
+            // 
+            this.date_contract.DataPropertyName = "date_contract";
+            this.date_contract.HeaderText = "Дата заключения договора";
+            this.date_contract.Name = "date_contract";
+            this.date_contract.ReadOnly = true;
+            // 
+            // date_start
+            // 
+            this.date_start.DataPropertyName = "date_start";
+            this.date_start.HeaderText = "Дата начала работ";
+            this.date_start.Name = "date_start";
+            this.date_start.ReadOnly = true;
+            // 
+            // date_end
+            // 
+            this.date_end.DataPropertyName = "date_end";
+            this.date_end.HeaderText = "Дата окончания работ";
+            this.date_end.Name = "date_end";
+            this.date_end.ReadOnly = true;
+            // 
+            // days_to_deadline
+            // 
+            this.days_to_deadline.DataPropertyName = "days_to_deadline";
+            this.days_to_deadline.HeaderText = "Дней до окончания";
+            this.days_to_deadline.Name = "days_to_deadline";
+            this.days_to_deadline.ReadOnly = true;
+            // 
+            // date_sample_income
+            // 
+            this.date_sample_income.DataPropertyName = "date_sample_income";
+            this.date_sample_income.HeaderText = "Дата предоставления образца";
+            this.date_sample_income.Name = "date_sample_income";
+            this.date_sample_income.ReadOnly = true;
+            // 
+            // date_protocol_income
+            // 
+            this.date_protocol_income.DataPropertyName = "date_protocol_income";
+            this.date_protocol_income.HeaderText = "Дата получения протокола";
+            this.date_protocol_income.Name = "date_protocol_income";
+            this.date_protocol_income.ReadOnly = true;
+            // 
+            // date_planed_reatt_1
+            // 
+            this.date_planed_reatt_1.DataPropertyName = "date_planed_reatt_1";
+            this.date_planed_reatt_1.HeaderText = "Планируемая дата 1-ой реаттестации";
+            this.date_planed_reatt_1.Name = "date_planed_reatt_1";
+            this.date_planed_reatt_1.ReadOnly = true;
+            // 
+            // days_to_deadline_reatt_1
+            // 
+            this.days_to_deadline_reatt_1.DataPropertyName = "days_to_deadline_reatt_1";
+            this.days_to_deadline_reatt_1.HeaderText = "Дней до 1-ой реаттестации";
+            this.days_to_deadline_reatt_1.Name = "days_to_deadline_reatt_1";
+            this.days_to_deadline_reatt_1.ReadOnly = true;
+            // 
+            // date_real_reatt_1
+            // 
+            this.date_real_reatt_1.DataPropertyName = "date_real_reatt_1";
+            this.date_real_reatt_1.HeaderText = "Реальная дата 1-ой реаттестации";
+            this.date_real_reatt_1.Name = "date_real_reatt_1";
+            this.date_real_reatt_1.ReadOnly = true;
+            // 
+            // date_planed_reatt_2
+            // 
+            this.date_planed_reatt_2.DataPropertyName = "date_planed_reatt_2";
+            this.date_planed_reatt_2.HeaderText = "Планируемая дата 2-ой реаттестации";
+            this.date_planed_reatt_2.Name = "date_planed_reatt_2";
+            this.date_planed_reatt_2.ReadOnly = true;
+            // 
+            // days_to_deadline_reatt_2
+            // 
+            this.days_to_deadline_reatt_2.DataPropertyName = "days_to_deadline_reatt_2";
+            this.days_to_deadline_reatt_2.HeaderText = "Дней до 2-ой реаттестации";
+            this.days_to_deadline_reatt_2.Name = "days_to_deadline_reatt_2";
+            this.days_to_deadline_reatt_2.ReadOnly = true;
+            // 
+            // date_real_reatt_2
+            // 
+            this.date_real_reatt_2.DataPropertyName = "date_real_reatt_2";
+            this.date_real_reatt_2.HeaderText = "Реальная дата 2-ой реаттестации";
+            this.date_real_reatt_2.Name = "date_real_reatt_2";
+            this.date_real_reatt_2.ReadOnly = true;
+            // 
+            // date_planed_resert
+            // 
+            this.date_planed_resert.DataPropertyName = "date_planed_resert";
+            this.date_planed_resert.HeaderText = "Планируемая дата ресертификации";
+            this.date_planed_resert.Name = "date_planed_resert";
+            this.date_planed_resert.ReadOnly = true;
+            // 
+            // days_to_deadline_resert
+            // 
+            this.days_to_deadline_resert.DataPropertyName = "days_to_deadline_resert";
+            this.days_to_deadline_resert.HeaderText = "Дней до ресертификации";
+            this.days_to_deadline_resert.Name = "days_to_deadline_resert";
+            this.days_to_deadline_resert.ReadOnly = true;
+            // 
+            // date_real_resert
+            // 
+            this.date_real_resert.DataPropertyName = "date_real_resert";
+            this.date_real_resert.HeaderText = "Реальная дата ресертификации";
+            this.date_real_resert.Name = "date_real_resert";
+            this.date_real_resert.ReadOnly = true;
+            // 
+            // radioButtonAll
+            // 
+            this.radioButtonAll.AutoSize = true;
+            this.radioButtonAll.Checked = true;
+            this.radioButtonAll.Location = new System.Drawing.Point(17, 19);
+            this.radioButtonAll.Name = "radioButtonAll";
+            this.radioButtonAll.Size = new System.Drawing.Size(109, 17);
+            this.radioButtonAll.TabIndex = 1;
+            this.radioButtonAll.TabStop = true;
+            this.radioButtonAll.Text = "ВСЕ ДОГОВОРА";
+            this.radioButtonAll.UseVisualStyleBackColor = true;
+            this.radioButtonAll.CheckedChanged += new System.EventHandler(this.radioButtonAll_CheckedChanged);
+            // 
             // ContractStatsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -965,6 +1509,8 @@
             this.Text = global::Edocsys.Properties.Settings.Default.ContractStatsTitle;
             this.Load += new System.EventHandler(this.ContractsForm_Load);
             this.tabControl.ResumeLayout(false);
+            this.tabPageCurrentTasks.ResumeLayout(false);
+            this.tabPageCurrentTasks.PerformLayout();
             this.tabFinishedTasks.ResumeLayout(false);
             this.tabFinishedTasks.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.finishedContractsDataGridView)).EndInit();
@@ -981,6 +1527,13 @@
             this.bindingNavigatorBadContracts.ResumeLayout(false);
             this.bindingNavigatorBadContracts.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.contractDocDataBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.currentContractsDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.currentContractsBindingNavigator)).EndInit();
+            this.currentContractsBindingNavigator.ResumeLayout(false);
+            this.currentContractsBindingNavigator.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.currentContractsBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1080,6 +1633,58 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn cashincomeDataGridViewCheckBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn datecashincomeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn agentsfullnameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.TabPage tabPageCurrentTasks;
+        private System.Windows.Forms.DataGridView currentContractsDataGridView;
+        private System.Windows.Forms.BindingNavigator currentContractsBindingNavigator;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel4;
+        private System.Windows.Forms.ToolStripButton toolStripButton9;
+        private System.Windows.Forms.ToolStripButton toolStripButton10;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator11;
+        private System.Windows.Forms.ToolStripTextBox toolStripTextBox2;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator12;
+        private System.Windows.Forms.ToolStripButton toolStripButton11;
+        private System.Windows.Forms.ToolStripButton toolStripButton12;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator13;
+        private System.Windows.Forms.ToolStripButton toolStripButton13;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator14;
+        private System.Windows.Forms.ToolStripTextBox filterCurrentContractsToolStripTextBox;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.RadioButton radioButtonExpertAssignment;
+        private System.Windows.Forms.RadioButton radioButtonNewProposal;
+        private System.Windows.Forms.RadioButton radioButtonPrepareForWork;
+        private System.Windows.Forms.RadioButton radioButtonContractSigning;
+        private System.Windows.Forms.RadioButton radioButtonInWork;
+        private System.Windows.Forms.RadioButton radioButtonComplitionManagerConfrim;
+        private System.Windows.Forms.RadioButton radioButtonComplitionAgentConfrim;
+        private System.Windows.Forms.RadioButton radioButtonReattestationSign;
+        private System.Windows.Forms.RadioButton radioButtonInspectionControl;
+        private System.Windows.Forms.BindingSource currentContractsBindingSource;
+        private EdocbaseDataSetTableAdapters.CurrentContractsTableAdapter currentContractsTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn expert_FIO;
+        private System.Windows.Forms.DataGridViewTextBoxColumn contract_status_name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn number;
+        private System.Windows.Forms.DataGridViewTextBoxColumn prepayment;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn cash_income;
+        private System.Windows.Forms.DataGridViewTextBoxColumn date_cash_income;
+        private System.Windows.Forms.DataGridViewTextBoxColumn date_contract;
+        private System.Windows.Forms.DataGridViewTextBoxColumn date_start;
+        private System.Windows.Forms.DataGridViewTextBoxColumn date_end;
+        private System.Windows.Forms.DataGridViewTextBoxColumn days_to_deadline;
+        private System.Windows.Forms.DataGridViewTextBoxColumn date_sample_income;
+        private System.Windows.Forms.DataGridViewTextBoxColumn date_protocol_income;
+        private System.Windows.Forms.DataGridViewTextBoxColumn date_planed_reatt_1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn days_to_deadline_reatt_1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn date_real_reatt_1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn date_planed_reatt_2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn days_to_deadline_reatt_2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn date_real_reatt_2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn date_planed_resert;
+        private System.Windows.Forms.DataGridViewTextBoxColumn days_to_deadline_resert;
+        private System.Windows.Forms.DataGridViewTextBoxColumn date_real_resert;
+        private System.Windows.Forms.RadioButton radioButtonAll;
 
         //private EdocbaseDataSetTableAdapters.Exec_contractsTableAdapter exec_contractsTableAdapter;
     }

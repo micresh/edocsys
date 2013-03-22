@@ -10,7 +10,7 @@ namespace Edocsys
         //Статусы/этапы выполнения работ
         public enum ContractStatuses : int
         {
-            NewProposal = 0,                    // (0,'Создание заявки')
+            NewProposal = 0,                    // (0,'Подготовка заявки')
             ExpertAssignment = 1,               // (1,'Закрепление эксперта')
             ContractSigning = 2,                // (2,'Заключение договора') - заключение договора/установка суммы
             PrepareForWork = 3,                 // (3,'Подготовка к работе') - получение образцов/акт списания образцов
