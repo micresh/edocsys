@@ -21,30 +21,74 @@ namespace Edocsys
             this.Validate();
             this.expertAssignmentBindingSource.EndEdit();
             this.tableAdapterManager.UpdateAll(this.edocbaseDataSet);
-
         }
         private FilterHelper assignedFilter, proposalsFilter;
 
         private void AssignExpertForm_Load(object sender, EventArgs e)
         {
-
-
             this.expertsTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
             this.expertAssignmentTAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
             this.assignedContractsTAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
+
+            this.contract_statusTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
+
+            this.contract_statusTableAdapter.Fill(this.edocbaseDataSet.contract_status);
 
             RefreshDatabase();
 
             //add filters
             assignedFilter = new FilterHelper(assignedContractsDataGridView, filterAssignedToolStripTextBox.TextBox);
-            proposalsFilter = new FilterHelper(proposalsDataGridView, filterProposalsToolStripTextBox.TextBox);
+            proposalsFilter = new FilterHelper(expertAssignmentDataGridView, filterProposalsToolStripTextBox.TextBox);
         }
 
         private void RefreshDatabase()
         {
+            RefreshContractsToAssign();
+            RefreshAssignedContracts();
+        }
+
+        private void RefreshAssignedContracts()
+        {
+            int pos = assignedContractsBindingSource.Position;
+
+            AssignedExpertsFill();
+
+            assignedContractsBindingSource.Position = pos;
+
+            this.assignedContractsDataGridView.Refresh();
+        }
+
+        private void RefreshContractsToAssign()
+        {
+            int pos = expertAssignmentBindingSource.Position;
+
             this.expertAssignmentTAdapter.Fill(this.edocbaseDataSet.ExpertAssignment);
             this.expertsTableAdapter.Fill(this.edocbaseDataSet.experts);
-            this.assignedContractsTAdapter.Fill(this.edocbaseDataSet.AssignedContracts);
+
+            expertAssignmentBindingSource.Position = pos;
+
+            this.expertAssignmentDataGridView.Refresh();
+        }
+
+        private void AssignedExpertsFill()
+        {
+            bool dont_filter_experts = true;
+            int expert_id = 0;
+            if (checkBoxExpertsFilter.Checked)
+            {
+                dont_filter_experts = false;
+                expert_id = Convert.ToInt32(fullnameComboBox.SelectedValue);
+            }
+
+            bool dont_filter_status = true;
+            int status_id = 0;
+            if (checkBoxStatuses.Checked)
+            {
+                dont_filter_status = false;
+                status_id = Convert.ToInt32(nameComboBox.SelectedValue);
+            }
+
+            this.assignedContractsTAdapter.Fill(this.edocbaseDataSet.AssignedContracts, dont_filter_experts, expert_id, dont_filter_status, status_id);
         }
 
         private void assignButton_Click(object sender, EventArgs e)
@@ -74,13 +118,12 @@ namespace Edocsys
                     //assign expert
                     this.expertAssignmentTAdapter.AssignExpert((int)Constants.ContractStatuses.ContractSigning, idExpert, idContract);
 
-                    ///refresh data
-                    this.edocbaseDataSet.AcceptChanges();
-                    this.expertAssignmentTAdapter.Fill(this.edocbaseDataSet.ExpertAssignment);
-                    this.assignedContractsTAdapter.Fill(this.edocbaseDataSet.AssignedContracts);
+                    //refresh data
 
-                    this.proposalsDataGridView.Refresh();
-                    this.assignedContractsDataGridView.Refresh();
+                    SaveDatabase();
+
+                    RefreshDatabase();
+
                 }
                 catch (Exception ex)
                 {
@@ -90,14 +133,41 @@ namespace Edocsys
             }
         }
 
+        private void SaveDatabase()
+        {
+            this.edocbaseDataSet.AcceptChanges();
+        }
+
         private void toolStripButton8_Click(object sender, EventArgs e)
         {
-            RefreshDatabase();
+            RefreshContractsToAssign();
         }
 
         private void toolStripButton9_Click(object sender, EventArgs e)
         {
-            RefreshDatabase();
+            RefreshAssignedContracts();
+        }
+
+        private void checkBoxExpertsFilter_CheckedChanged(object sender, EventArgs e)
+        {
+            fullnameComboBox.Enabled = ((CheckBox)sender).Checked;
+            RefreshAssignedContracts();
+        }
+
+        private void checkBoxStatuses_CheckedChanged(object sender, EventArgs e)
+        {
+            nameComboBox.Enabled = ((CheckBox)sender).Checked;
+            RefreshAssignedContracts();
+        }
+
+        private void fullnameComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            RefreshAssignedContracts();
+        }
+
+        private void nameComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            RefreshAssignedContracts();
         }
     }
 }

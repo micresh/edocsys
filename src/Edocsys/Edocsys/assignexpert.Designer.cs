@@ -34,7 +34,7 @@
             this.tabPageAssignExpert = new System.Windows.Forms.TabPage();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
-            this.proposalsDataGridView = new System.Windows.Forms.DataGridView();
+            this.expertAssignmentDataGridView = new System.Windows.Forms.DataGridView();
             this.products_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contracttypesnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dateproposalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -79,6 +79,14 @@
             this.agenttypesnameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contract_status_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.assignedContractsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.nameComboBox = new System.Windows.Forms.ComboBox();
+            this.contract_statusBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.checkBoxStatuses = new System.Windows.Forms.CheckBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.checkBoxExpertsFilter = new System.Windows.Forms.CheckBox();
+            this.fullnameComboBox = new System.Windows.Forms.ComboBox();
             this.assignedContractsBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
@@ -97,6 +105,7 @@
             this.expertAssignmentTAdapter = new Edocsys.EdocbaseDataSetTableAdapters.ExpertAssignmentTAdapter();
             this.expertsTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.expertsTableAdapter();
             this.assignedContractsTAdapter = new Edocsys.EdocbaseDataSetTableAdapters.AssignedContractsTAdapter();
+            this.contract_statusTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.contract_statusTableAdapter();
             this.tabControlAssignExpert.SuspendLayout();
             this.tabPageAssignExpert.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -107,7 +116,7 @@
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.proposalsDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.expertAssignmentDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.expertAssignmentBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.edocbaseDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigatorAssignedExperts)).BeginInit();
@@ -118,6 +127,10 @@
             this.tabPageAssignedExperts.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.assignedContractsDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.assignedContractsBindingSource)).BeginInit();
+            this.panel3.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.contract_statusBindingSource)).BeginInit();
+            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.assignedContractsBindingNavigator)).BeginInit();
             this.assignedContractsBindingNavigator.SuspendLayout();
             this.SuspendLayout();
@@ -172,7 +185,7 @@
             // 
             // splitContainer2.Panel1
             // 
-            this.splitContainer2.Panel1.Controls.Add(this.proposalsDataGridView);
+            this.splitContainer2.Panel1.Controls.Add(this.expertAssignmentDataGridView);
             this.splitContainer2.Panel1.Controls.Add(this.bindingNavigatorAssignedExperts);
             // 
             // splitContainer2.Panel2
@@ -183,13 +196,13 @@
             this.splitContainer2.SplitterDistance = 962;
             this.splitContainer2.TabIndex = 0;
             // 
-            // proposalsDataGridView
+            // expertAssignmentDataGridView
             // 
-            this.proposalsDataGridView.AllowUserToAddRows = false;
-            this.proposalsDataGridView.AllowUserToDeleteRows = false;
-            this.proposalsDataGridView.AutoGenerateColumns = false;
-            this.proposalsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.proposalsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.expertAssignmentDataGridView.AllowUserToAddRows = false;
+            this.expertAssignmentDataGridView.AllowUserToDeleteRows = false;
+            this.expertAssignmentDataGridView.AutoGenerateColumns = false;
+            this.expertAssignmentDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.expertAssignmentDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.products_name,
             this.contracttypesnameDataGridViewTextBoxColumn,
             this.dateproposalDataGridViewTextBoxColumn,
@@ -197,15 +210,15 @@
             this.total_cost,
             this.agents_name,
             this.agenttypesnameDataGridViewTextBoxColumn});
-            this.proposalsDataGridView.DataSource = this.expertAssignmentBindingSource;
-            this.proposalsDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.proposalsDataGridView.Location = new System.Drawing.Point(0, 25);
-            this.proposalsDataGridView.MultiSelect = false;
-            this.proposalsDataGridView.Name = "proposalsDataGridView";
-            this.proposalsDataGridView.ReadOnly = true;
-            this.proposalsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.proposalsDataGridView.Size = new System.Drawing.Size(962, 375);
-            this.proposalsDataGridView.TabIndex = 10;
+            this.expertAssignmentDataGridView.DataSource = this.expertAssignmentBindingSource;
+            this.expertAssignmentDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.expertAssignmentDataGridView.Location = new System.Drawing.Point(0, 25);
+            this.expertAssignmentDataGridView.MultiSelect = false;
+            this.expertAssignmentDataGridView.Name = "expertAssignmentDataGridView";
+            this.expertAssignmentDataGridView.ReadOnly = true;
+            this.expertAssignmentDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.expertAssignmentDataGridView.Size = new System.Drawing.Size(962, 375);
+            this.expertAssignmentDataGridView.TabIndex = 10;
             // 
             // products_name
             // 
@@ -489,6 +502,7 @@
             // tabPageAssignedExperts
             // 
             this.tabPageAssignedExperts.Controls.Add(this.assignedContractsDataGridView);
+            this.tabPageAssignedExperts.Controls.Add(this.panel3);
             this.tabPageAssignedExperts.Controls.Add(this.assignedContractsBindingNavigator);
             this.tabPageAssignedExperts.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Edocsys.Properties.Settings.Default, "AssignedExpertTabText", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.tabPageAssignedExperts.Location = new System.Drawing.Point(4, 22);
@@ -517,12 +531,12 @@
             this.contract_status_name});
             this.assignedContractsDataGridView.DataSource = this.assignedContractsBindingSource;
             this.assignedContractsDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.assignedContractsDataGridView.Location = new System.Drawing.Point(3, 28);
+            this.assignedContractsDataGridView.Location = new System.Drawing.Point(3, 146);
             this.assignedContractsDataGridView.MultiSelect = false;
             this.assignedContractsDataGridView.Name = "assignedContractsDataGridView";
             this.assignedContractsDataGridView.ReadOnly = true;
             this.assignedContractsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.assignedContractsDataGridView.Size = new System.Drawing.Size(1262, 428);
+            this.assignedContractsDataGridView.Size = new System.Drawing.Size(1262, 310);
             this.assignedContractsDataGridView.TabIndex = 10;
             // 
             // dataGridViewTextBoxColumn1
@@ -596,6 +610,93 @@
             // 
             this.assignedContractsBindingSource.DataMember = "AssignedContracts";
             this.assignedContractsBindingSource.DataSource = this.edocbaseDataSet;
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.groupBox2);
+            this.panel3.Controls.Add(this.groupBox1);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel3.Location = new System.Drawing.Point(3, 28);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(1262, 118);
+            this.panel3.TabIndex = 11;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.nameComboBox);
+            this.groupBox2.Controls.Add(this.checkBoxStatuses);
+            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox2.Location = new System.Drawing.Point(0, 55);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(1262, 63);
+            this.groupBox2.TabIndex = 3;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Фильтр этапов выполнения работ";
+            // 
+            // nameComboBox
+            // 
+            this.nameComboBox.DataSource = this.contract_statusBindingSource;
+            this.nameComboBox.DisplayMember = "name";
+            this.nameComboBox.Enabled = false;
+            this.nameComboBox.FormattingEnabled = true;
+            this.nameComboBox.Location = new System.Drawing.Point(185, 26);
+            this.nameComboBox.Name = "nameComboBox";
+            this.nameComboBox.Size = new System.Drawing.Size(712, 21);
+            this.nameComboBox.TabIndex = 2;
+            this.nameComboBox.ValueMember = "id";
+            this.nameComboBox.SelectedIndexChanged += new System.EventHandler(this.nameComboBox_SelectedIndexChanged);
+            // 
+            // contract_statusBindingSource
+            // 
+            this.contract_statusBindingSource.DataMember = "contract_status";
+            this.contract_statusBindingSource.DataSource = this.edocbaseDataSet;
+            // 
+            // checkBoxStatuses
+            // 
+            this.checkBoxStatuses.AutoSize = true;
+            this.checkBoxStatuses.Location = new System.Drawing.Point(18, 28);
+            this.checkBoxStatuses.Name = "checkBoxStatuses";
+            this.checkBoxStatuses.Size = new System.Drawing.Size(147, 17);
+            this.checkBoxStatuses.TabIndex = 0;
+            this.checkBoxStatuses.Text = "Этап выполнения работ";
+            this.checkBoxStatuses.UseVisualStyleBackColor = true;
+            this.checkBoxStatuses.CheckedChanged += new System.EventHandler(this.checkBoxStatuses_CheckedChanged);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.checkBoxExpertsFilter);
+            this.groupBox1.Controls.Add(this.fullnameComboBox);
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox1.Location = new System.Drawing.Point(0, 0);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(1262, 55);
+            this.groupBox1.TabIndex = 0;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Фильтр экспертов";
+            // 
+            // checkBoxExpertsFilter
+            // 
+            this.checkBoxExpertsFilter.AutoSize = true;
+            this.checkBoxExpertsFilter.Location = new System.Drawing.Point(18, 24);
+            this.checkBoxExpertsFilter.Name = "checkBoxExpertsFilter";
+            this.checkBoxExpertsFilter.Size = new System.Drawing.Size(76, 17);
+            this.checkBoxExpertsFilter.TabIndex = 2;
+            this.checkBoxExpertsFilter.Text = "Эксперты";
+            this.checkBoxExpertsFilter.UseVisualStyleBackColor = true;
+            this.checkBoxExpertsFilter.CheckedChanged += new System.EventHandler(this.checkBoxExpertsFilter_CheckedChanged);
+            // 
+            // fullnameComboBox
+            // 
+            this.fullnameComboBox.DataSource = this.expertsBindingSource;
+            this.fullnameComboBox.DisplayMember = "fullname";
+            this.fullnameComboBox.Enabled = false;
+            this.fullnameComboBox.FormattingEnabled = true;
+            this.fullnameComboBox.Location = new System.Drawing.Point(100, 22);
+            this.fullnameComboBox.Name = "fullnameComboBox";
+            this.fullnameComboBox.Size = new System.Drawing.Size(797, 21);
+            this.fullnameComboBox.TabIndex = 1;
+            this.fullnameComboBox.ValueMember = "id";
+            this.fullnameComboBox.SelectedIndexChanged += new System.EventHandler(this.fullnameComboBox_SelectedIndexChanged);
             // 
             // assignedContractsBindingNavigator
             // 
@@ -768,6 +869,10 @@
             // 
             this.assignedContractsTAdapter.ClearBeforeFill = true;
             // 
+            // contract_statusTableAdapter
+            // 
+            this.contract_statusTableAdapter.ClearBeforeFill = true;
+            // 
             // AssignExpertForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -789,7 +894,7 @@
             this.splitContainer2.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.proposalsDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.expertAssignmentDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.expertAssignmentBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.edocbaseDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigatorAssignedExperts)).EndInit();
@@ -804,6 +909,12 @@
             this.tabPageAssignedExperts.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.assignedContractsDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.assignedContractsBindingSource)).EndInit();
+            this.panel3.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.contract_statusBindingSource)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.assignedContractsBindingNavigator)).EndInit();
             this.assignedContractsBindingNavigator.ResumeLayout(false);
             this.assignedContractsBindingNavigator.PerformLayout();
@@ -849,7 +960,7 @@
         private EdocbaseDataSetTableAdapters.AssignedContractsTAdapter assignedContractsTAdapter;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
         private System.Windows.Forms.ToolStripTextBox filterAssignedToolStripTextBox;
-        private System.Windows.Forms.DataGridView proposalsDataGridView;
+        private System.Windows.Forms.DataGridView expertAssignmentDataGridView;
         private System.Windows.Forms.BindingNavigator bindingNavigatorAssignedExperts;
         private System.Windows.Forms.ToolStripLabel toolStripLabel2;
         private System.Windows.Forms.ToolStripButton toolStripButton10;
@@ -880,5 +991,14 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn agentsnameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn agenttypesnameDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn contract_status_name;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.ComboBox fullnameComboBox;
+        private System.Windows.Forms.CheckBox checkBoxExpertsFilter;
+        private System.Windows.Forms.BindingSource contract_statusBindingSource;
+        private EdocbaseDataSetTableAdapters.contract_statusTableAdapter contract_statusTableAdapter;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.ComboBox nameComboBox;
+        private System.Windows.Forms.CheckBox checkBoxStatuses;
     }
 }

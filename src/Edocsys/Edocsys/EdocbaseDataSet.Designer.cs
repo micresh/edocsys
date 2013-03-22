@@ -2651,8 +2651,6 @@ namespace Edocsys {
             
             private global::System.Data.DataColumn columncontract_types_name;
             
-            private global::System.Data.DataColumn columnexperts_id1;
-            
             private global::System.Data.DataColumn columncost;
             
             private global::System.Data.DataColumn columntotal_cost;
@@ -2810,14 +2808,6 @@ namespace Edocsys {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn experts_id1Column {
-                get {
-                    return this.columnexperts_id1;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public global::System.Data.DataColumn costColumn {
                 get {
                     return this.columncost;
@@ -2938,7 +2928,6 @@ namespace Edocsys {
                         string agent_types_name, 
                         string agents_fullname, 
                         string contract_types_name, 
-                        int experts_id1, 
                         int cost, 
                         int total_cost, 
                         int pkcontract_types_id, 
@@ -2960,7 +2949,6 @@ namespace Edocsys {
                         agent_types_name,
                         agents_fullname,
                         contract_types_name,
-                        experts_id1,
                         cost,
                         total_cost,
                         null,
@@ -3020,7 +3008,6 @@ namespace Edocsys {
                 this.columnagent_types_name = base.Columns["agent_types_name"];
                 this.columnagents_fullname = base.Columns["agents_fullname"];
                 this.columncontract_types_name = base.Columns["contract_types_name"];
-                this.columnexperts_id1 = base.Columns["experts_id1"];
                 this.columncost = base.Columns["cost"];
                 this.columntotal_cost = base.Columns["total_cost"];
                 this.columnpkproducts_id = base.Columns["pkproducts_id"];
@@ -3061,8 +3048,6 @@ namespace Edocsys {
                 base.Columns.Add(this.columnagents_fullname);
                 this.columncontract_types_name = new global::System.Data.DataColumn("contract_types_name", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncontract_types_name);
-                this.columnexperts_id1 = new global::System.Data.DataColumn("experts_id1", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnexperts_id1);
                 this.columncost = new global::System.Data.DataColumn("cost", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncost);
                 this.columntotal_cost = new global::System.Data.DataColumn("total_cost", typeof(int), null, global::System.Data.MappingType.Element);
@@ -3095,7 +3080,6 @@ namespace Edocsys {
                 this.columnagent_types_name.MaxLength = 8;
                 this.columnagents_fullname.MaxLength = 72;
                 this.columncontract_types_name.MaxLength = 55;
-                this.columnexperts_id1.AllowDBNull = false;
                 this.columnpkproducts_id.AutoIncrement = true;
                 this.columnpkproducts_id.AutoIncrementSeed = -1;
                 this.columnpkproducts_id.AutoIncrementStep = -1;
@@ -21506,17 +21490,6 @@ namespace Edocsys {
                 }
                 set {
                     this[this.tableAssignedContracts.contract_types_nameColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int experts_id1 {
-                get {
-                    return ((int)(this[this.tableAssignedContracts.experts_id1Column]));
-                }
-                set {
-                    this[this.tableAssignedContracts.experts_id1Column] = value;
                 }
             }
             
@@ -41932,7 +41905,6 @@ namespace Edocsys.EdocbaseDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("agent_types_name", "agent_types_name");
             tableMapping.ColumnMappings.Add("agents_fullname", "agents_fullname");
             tableMapping.ColumnMappings.Add("contract_types_name", "contract_types_name");
-            tableMapping.ColumnMappings.Add("experts_id1", "experts_id1");
             tableMapping.ColumnMappings.Add("cost", "cost");
             tableMapping.ColumnMappings.Add("total_cost", "total_cost");
             tableMapping.ColumnMappings.Add("pkproducts_id", "pkproducts_id");
@@ -41958,49 +41930,80 @@ namespace Edocsys.EdocbaseDataSetTableAdapters {
             this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[1];
             this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT
-contracts.id,
-contracts.products_id,
-contracts.agents_id,
-contracts.contract_types_id,
-contracts.contract_status_id,
-contracts.experts_id,
-contracts.source_types_id,
-contracts.date_proposal,
-contracts.experts_id,
-contracts.cost,
-contracts.total_cost,
-products.id AS pkproducts_id,
-products.name AS products_name,
-agents.id AS pkagents_id,
-agents.name AS agents_name,
-agent_types.id AS pkagent_types_id,
-agent_types.name AS agent_types_name,
-CONCAT( agent_types.name, ' ', agents.name ) AS agents_fullname,
-contract_types.id AS pkcontract_types_id,
-contract_types.name AS contract_types_name,
-contract_status.id AS pkcontract_status_id,
-contract_status.name AS contract_status_name,
-CONCAT( users.lastname, ' ', substr(users.firstname, 1, 1), '. ', substr(users.middlename, 1, 1), '.' ) AS expert_FIO
-FROM
-contracts
-LEFT OUTER JOIN agents ON contracts.agents_id = agents.id
-LEFT OUTER JOIN products ON contracts.products_id = products.id
-LEFT OUTER JOIN agent_types ON agents.agent_types_id = agent_types.id
-LEFT OUTER JOIN contract_types ON contracts.contract_types_id = contract_types.id
-LEFT OUTER JOIN contract_status ON contracts.contract_status_id = contract_status.id
-LEFT OUTER JOIN users ON contracts.experts_id = users.id
-WHERE
-    (contracts.contract_status_id >= 2)";
+            this._commandCollection[0].CommandText = "SELECT        contracts.id, contracts.products_id, contracts.agents_id, contracts" +
+                ".contract_types_id, contracts.contract_status_id, contracts.experts_id, contract" +
+                "s.source_types_id, \r\n                         contracts.date_proposal, contracts" +
+                ".cost, contracts.total_cost, products.id AS pkproducts_id, products.name AS prod" +
+                "ucts_name, agents.id AS pkagents_id, \r\n                         agents.name AS a" +
+                "gents_name, agent_types.id AS pkagent_types_id, agent_types.name AS agent_types_" +
+                "name, CONCAT(agent_types.name, \' \', agents.name) \r\n                         AS a" +
+                "gents_fullname, contract_types.id AS pkcontract_types_id, contract_types.name AS" +
+                " contract_types_name, contract_status.id AS pkcontract_status_id, \r\n            " +
+                "             contract_status.name AS contract_status_name, CONCAT(users.lastname" +
+                ", \' \', substr(users.firstname, 1, 1), \'. \', substr(users.middlename, 1, 1), \'.\')" +
+                " \r\n                         AS expert_FIO\r\nFROM            contracts LEFT OUTER " +
+                "JOIN\r\n                         agents ON contracts.agents_id = agents.id LEFT OU" +
+                "TER JOIN\r\n                         products ON contracts.products_id = products." +
+                "id LEFT OUTER JOIN\r\n                         agent_types ON agents.agent_types_i" +
+                "d = agent_types.id LEFT OUTER JOIN\r\n                         contract_types ON c" +
+                "ontracts.contract_types_id = contract_types.id LEFT OUTER JOIN\r\n                " +
+                "         contract_status ON contracts.contract_status_id = contract_status.id LE" +
+                "FT OUTER JOIN\r\n                         users ON contracts.experts_id = users.id" +
+                "\r\nWHERE     (contracts.contract_status_id >= 2)\r\n    AND\r\n    (\r\n        (@dont_" +
+                "filter_experts)\r\n        OR\r\n        (contracts.experts_id = @expert_id)\r\n    )\r" +
+                "\n    AND\r\n    (\r\n        (@dont_filter_status)\r\n        OR\r\n        (contract_st" +
+                "atus.id = @status_id)\r\n    )";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@dont_filter_experts";
+            param.DbType = global::System.Data.DbType.Boolean;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.UByte;
+            param.IsNullable = true;
+            param.SourceColumn = "source_types_id";
+            this._commandCollection[0].Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@expert_id";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "experts_id";
+            this._commandCollection[0].Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@dont_filter_status";
+            param.DbType = global::System.Data.DbType.Boolean;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.UByte;
+            param.IsNullable = true;
+            param.SourceColumn = "source_types_id";
+            this._commandCollection[0].Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@status_id";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "pkcontract_status_id";
+            this._commandCollection[0].Parameters.Add(param);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(EdocbaseDataSet.AssignedContractsDataTable dataTable) {
+        public virtual int Fill(EdocbaseDataSet.AssignedContractsDataTable dataTable, global::System.Nullable<bool> dont_filter_experts, int expert_id, global::System.Nullable<bool> dont_filter_status, int status_id) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((dont_filter_experts.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((bool)(dont_filter_experts.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.SelectCommand.Parameters[1].Value = ((int)(expert_id));
+            if ((dont_filter_status.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((bool)(dont_filter_status.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.SelectCommand.Parameters[3].Value = ((int)(status_id));
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
             }
@@ -42012,8 +42015,22 @@ WHERE
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual EdocbaseDataSet.AssignedContractsDataTable GetData() {
+        public virtual EdocbaseDataSet.AssignedContractsDataTable GetData(global::System.Nullable<bool> dont_filter_experts, int expert_id, global::System.Nullable<bool> dont_filter_status, int status_id) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((dont_filter_experts.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((bool)(dont_filter_experts.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.SelectCommand.Parameters[1].Value = ((int)(expert_id));
+            if ((dont_filter_status.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((bool)(dont_filter_status.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.SelectCommand.Parameters[3].Value = ((int)(status_id));
             EdocbaseDataSet.AssignedContractsDataTable dataTable = new EdocbaseDataSet.AssignedContractsDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;

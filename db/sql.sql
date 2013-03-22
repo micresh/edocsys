@@ -215,7 +215,6 @@ contracts.contract_status_id,
 contracts.experts_id,
 contracts.source_types_id,
 contracts.date_proposal,
-contracts.experts_id,
 contracts.cost,
 contracts.total_cost,
 products.id AS pkproducts_id,
@@ -240,7 +239,18 @@ LEFT OUTER JOIN contract_status ON contracts.contract_status_id = contract_statu
 LEFT OUTER JOIN users ON contracts.experts_id = users.id
 WHERE
     (contracts.contract_status_id >= 2)
-
+    AND
+    (
+        (contracts.source_types_id = @dont_filter_experts)
+        OR
+        (contracts.experts_id = @expert_id)
+    )
+    AND
+    (
+        (contracts.source_types_id = @dont_filter_status)
+        OR
+        (contract_status.id = @status_id)
+    )
 
 -- !-----------------------------------------------------------
 
