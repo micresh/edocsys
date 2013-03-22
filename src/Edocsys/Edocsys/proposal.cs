@@ -86,6 +86,8 @@ namespace Edocsys
         private void ProposalForm_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'edocbaseDataSet.documents' table. You can move, or remove it, as needed.
+            this.documentsTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
+
             this.documentsTableAdapter.Fill(this.edocbaseDataSet.documents);
 
             this.agentsTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
