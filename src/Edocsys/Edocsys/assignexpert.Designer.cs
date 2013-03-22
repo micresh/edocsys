@@ -576,6 +576,7 @@
             this.assignedContractsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.assignedContractsDataGridView.Size = new System.Drawing.Size(1262, 310);
             this.assignedContractsDataGridView.TabIndex = 10;
+            this.assignedContractsDataGridView.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.assignedContractsDataGridView_CellPainting);
             // 
             // assignedContractsBindingSource
             // 
