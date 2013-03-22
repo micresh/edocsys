@@ -215,8 +215,27 @@ contracts.contract_status_id,
 contracts.experts_id,
 contracts.source_types_id,
 contracts.date_proposal,
+contracts.number,
+contracts.date_contract,
+contracts.date_start,
+contracts.date_end,
+DATEDIFF(contracts.date_end, CURDATE()) AS days_to_deadline,
+contracts.date_sample_income,
+contracts.date_protocol_income,
+contracts.prepayment,
 contracts.cost,
 contracts.total_cost,
+contracts.cash_income,
+contracts.date_cash_income,
+contracts.date_planed_reatt_1,
+(IF(ISNULL(contracts.date_real_reatt_1), DATEDIFF(contracts.date_planed_reatt_1, CURDATE()), 0)) as days_to_deadline_reatt_1,
+contracts.date_real_reatt_1,
+contracts.date_planed_reatt_2,
+(IF(ISNULL(contracts.date_real_reatt_2), DATEDIFF(contracts.date_planed_reatt_2, CURDATE()), 0)) as days_to_deadline_reatt_2,
+contracts.date_real_reatt_2,
+contracts.date_planed_resert,
+(IF(ISNULL(contracts.date_real_resert), DATEDIFF(contracts.date_planed_resert, CURDATE()), 0)) as days_to_deadline_resert,
+contracts.date_real_resert,
 products.id AS pkproducts_id,
 products.name AS products_name,
 agents.id AS pkagents_id,
@@ -241,13 +260,15 @@ WHERE
     (contracts.contract_status_id >= 2)
     AND
     (
-        (contracts.source_types_id = @dont_filter_experts)
+        -- (contracts.source_types_id = @dont_filter_experts)
+        (@dont_filter_experts)
         OR
         (contracts.experts_id = @expert_id)
     )
     AND
     (
-        (contracts.source_types_id = @dont_filter_status)
+        -- (contracts.source_types_id = @dont_filter_status)
+        (@dont_filter_status)
         OR
         (contract_status.id = @status_id)
     )

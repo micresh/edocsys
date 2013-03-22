@@ -39,6 +39,9 @@ namespace Edocsys
             //add filters
             assignedFilter = new FilterHelper(assignedContractsDataGridView, filterAssignedToolStripTextBox.TextBox);
             proposalsFilter = new FilterHelper(expertAssignmentDataGridView, filterProposalsToolStripTextBox.TextBox);
+
+            //performance tuning
+            DataGridViewHelper.DoubleBuffered(assignedContractsDataGridView, true);
         }
 
         private void RefreshDatabase()
