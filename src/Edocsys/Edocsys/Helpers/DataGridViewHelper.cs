@@ -142,5 +142,51 @@ namespace Edocsys
             row.DefaultCellStyle.BackColor = bk;
             row.DefaultCellStyle.SelectionBackColor = sbk;
         }
+
+        public static void HighlightStandartStats(DataGridView s, int idx)
+        {
+            //skip errors
+            if ((s.Rows[idx].Cells["days_to_deadline"].Value == null) ||
+                (s.Rows[idx].Cells["date_real_reatt_1"].Value == null) ||
+                (s.Rows[idx].Cells["days_to_deadline_reatt_1"].Value == null) ||
+                (s.Rows[idx].Cells["date_real_reatt_2"].Value == null) ||
+                (s.Rows[idx].Cells["days_to_deadline_reatt_2"].Value == null) ||
+                (s.Rows[idx].Cells["date_real_resert"].Value == null) ||
+                (s.Rows[idx].Cells["days_to_deadline_resert"].Value == null))
+                return;
+
+            //count days
+            int days_left = (int)Constants.DeadlineAlerts.Fortnight + 1;
+
+            if (s.Rows[idx].Cells["date_planed_reatt_1"].Value == DBNull.Value)
+            {
+                if (s.Rows[idx].Cells["days_to_deadline"].Value != DBNull.Value)
+                {
+                    days_left = Math.Min(Convert.ToInt32(s.Rows[idx].Cells["days_to_deadline"].Value), days_left);
+                }
+            }
+
+            if (s.Rows[idx].Cells["date_real_reatt_1"].Value == DBNull.Value)
+            {
+                if (s.Rows[idx].Cells["days_to_deadline_reatt_1"].Value != DBNull.Value)
+                    days_left = Math.Min(Convert.ToInt32(s.Rows[idx].Cells["days_to_deadline_reatt_1"].Value), days_left);
+            }
+
+            if (s.Rows[idx].Cells["date_real_reatt_2"].Value == DBNull.Value)
+            {
+                if (s.Rows[idx].Cells["days_to_deadline_reatt_2"].Value != DBNull.Value)
+                    days_left = Math.Min(Convert.ToInt32(s.Rows[idx].Cells["days_to_deadline_reatt_2"].Value), days_left);
+            }
+
+            if (s.Rows[idx].Cells["date_real_resert"].Value == DBNull.Value)
+            {
+                if (s.Rows[idx].Cells["days_to_deadline_resert"].Value != DBNull.Value)
+                    days_left = Math.Min(Convert.ToInt32(s.Rows[idx].Cells["days_to_deadline_resert"].Value), days_left);
+            }
+
+            DataGridViewRow row = s.Rows[idx];
+
+            ChangeGridRowColor(row, days_left);
+        }
     }
 }
