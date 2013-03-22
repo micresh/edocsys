@@ -135,7 +135,7 @@ namespace Edocsys
             if (days_left < (int)Constants.DeadlineAlerts.Overdue)
             {
                 //pink
-                bk = Color.FromArgb(0xFF, 0x66, 0xCC);
+                bk = Color.FromArgb(0xFF, 0x66, 0x99);
                 sbk = Color.FromArgb(255, 0, 0);
             }
 
