@@ -209,7 +209,7 @@ namespace Edocsys
 
                 if (s.Rows[e.RowIndex].Cells["date_end"].Value != DBNull.Value)
                 {
-                    if (Convert.ToDateTime(s.Rows[e.RowIndex].Cells["date_end"].Value) < DateTime.Now.Date)
+                    if (Convert.ToDateTime(s.Rows[e.RowIndex].Cells["date_end"].Value) >= DateTime.Now.Date)
                     {
                         if (s.Rows[e.RowIndex].Cells["days_to_deadline"].Value != DBNull.Value)
                         {
