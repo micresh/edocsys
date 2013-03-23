@@ -102,7 +102,7 @@ namespace Edocsys
                     {
                         if (this.password != "")
                         {
-                            currentRow["password"] = this.password;
+                            currentRow["password"] = User.GetHash(this.password);
                             SaveUser();
                             RefreshData();
                         }

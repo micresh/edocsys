@@ -82,6 +82,7 @@
             this.Controls.Add(this.buttonSave);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "SetPasswordForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Установить пароль";
             this.Load += new System.EventHandler(this.SetPasswordForm_Load);
             this.ResumeLayout(false);

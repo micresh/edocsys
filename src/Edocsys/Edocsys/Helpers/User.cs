@@ -18,6 +18,16 @@ namespace Edocsys
             }
             return t;
         }
+        public static string GetHash(string source)
+        {
+            string res;
+            using (MD5 md5hash = MD5.Create())
+            {
+                res = GetMD5hash(md5hash, source);
+            }
+
+            return res;
+        }
 
         private static bool VerifyMd5Hash(MD5 md5Hash, string input, string hash)
         {
