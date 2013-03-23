@@ -31,55 +31,56 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.mainMenuStrip = new System.Windows.Forms.MenuStrip();
-            this.FileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.configFormToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.TSMFileMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.TSMConfig = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
-            this.LoginToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.TSMLogin = new System.Windows.Forms.ToolStripMenuItem();
+            this.TSMLogout = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripSeparator();
-            this.ExitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.DocToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.AgentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ProposalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ExpertAssignToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ContractToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.WorksToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ContractPaymentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.InspectionControlToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ContractStatsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.AdmToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.AdmpanelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ExpertsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.TSMExit = new System.Windows.Forms.ToolStripMenuItem();
+            this.TSMWorkMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.TSMAgents = new System.Windows.Forms.ToolStripMenuItem();
+            this.TSMProposals = new System.Windows.Forms.ToolStripMenuItem();
+            this.TSMAssignExpert = new System.Windows.Forms.ToolStripMenuItem();
+            this.TSMContracts = new System.Windows.Forms.ToolStripMenuItem();
+            this.TSMWorkForContracts = new System.Windows.Forms.ToolStripMenuItem();
+            this.TSMContractPayments = new System.Windows.Forms.ToolStripMenuItem();
+            this.TSMInspectionControl = new System.Windows.Forms.ToolStripMenuItem();
+            this.TSMContractStats = new System.Windows.Forms.ToolStripMenuItem();
+            this.TSMAdminMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.TSMUserAdmin = new System.Windows.Forms.ToolStripMenuItem();
+            this.TSMExperts = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
-            this.docTemplatesFormToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ProductionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.TSMDocTemplates = new System.Windows.Forms.ToolStripMenuItem();
+            this.TSMProduction = new System.Windows.Forms.ToolStripMenuItem();
             this.WindowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.HelpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.TSMHelp = new System.Windows.Forms.ToolStripMenuItem();
             this.mainToolStrip = new System.Windows.Forms.ToolStrip();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.TSBAgents = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
+            this.TSBProposals = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripButton7 = new System.Windows.Forms.ToolStripButton();
+            this.TSBAssignExpert = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
+            this.TSBContracts = new System.Windows.Forms.ToolStripButton();
+            this.TSBWorkForContracts = new System.Windows.Forms.ToolStripButton();
+            this.TSBInspectionControl = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripButton8 = new System.Windows.Forms.ToolStripButton();
+            this.TSBContractPayments = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripButton6 = new System.Windows.Forms.ToolStripButton();
+            this.TSBContractStats = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-            this.loginToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.usersToolStripComboBox = new System.Windows.Forms.ToolStripComboBox();
-            this.fillUsersToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.TSBLogin = new System.Windows.Forms.ToolStripButton();
+            this.TMCUsersCBox = new System.Windows.Forms.ToolStripComboBox();
+            this.TSBFillUsers = new System.Windows.Forms.ToolStripButton();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.curentUserToolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.usersTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.usersTableAdapter();
             this.edocbaseDataSet = new Edocsys.EdocbaseDataSet();
             this.usersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tableAdapterManager = new Edocsys.EdocbaseDataSetTableAdapters.TableAdapterManager();
+            this.TSBLogout = new System.Windows.Forms.ToolStripButton();
             this.mainMenuStrip.SuspendLayout();
             this.mainToolStrip.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -90,11 +91,11 @@
             // mainMenuStrip
             // 
             this.mainMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.FileToolStripMenuItem,
-            this.DocToolStripMenuItem,
-            this.AdmToolStripMenuItem,
+            this.TSMFileMenu,
+            this.TSMWorkMenu,
+            this.TSMAdminMenu,
             this.WindowToolStripMenuItem,
-            this.HelpToolStripMenuItem});
+            this.TSMHelp});
             this.mainMenuStrip.Location = new System.Drawing.Point(0, 0);
             this.mainMenuStrip.MdiWindowListItem = this.WindowToolStripMenuItem;
             this.mainMenuStrip.Name = "mainMenuStrip";
@@ -102,172 +103,172 @@
             this.mainMenuStrip.TabIndex = 0;
             this.mainMenuStrip.Text = "menuStrip1";
             // 
-            // FileToolStripMenuItem
+            // TSMFileMenu
             // 
-            this.FileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.configFormToolStripMenuItem,
+            this.TSMFileMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.TSMConfig,
             this.toolStripMenuItem1,
-            this.LoginToolStripMenuItem,
-            this.logoutToolStripMenuItem,
+            this.TSMLogin,
+            this.TSMLogout,
             this.toolStripMenuItem3,
-            this.ExitToolStripMenuItem});
-            this.FileToolStripMenuItem.Name = "FileToolStripMenuItem";
-            this.FileToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
-            this.FileToolStripMenuItem.Text = global::Edocsys.Properties.Settings.Default.FileToolStripMenuItemText;
+            this.TSMExit});
+            this.TSMFileMenu.Name = "TSMFileMenu";
+            this.TSMFileMenu.Size = new System.Drawing.Size(48, 20);
+            this.TSMFileMenu.Text = global::Edocsys.Properties.Settings.Default.FileToolStripMenuItemText;
             // 
-            // configFormToolStripMenuItem
+            // TSMConfig
             // 
-            this.configFormToolStripMenuItem.Name = "configFormToolStripMenuItem";
-            this.configFormToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
-            this.configFormToolStripMenuItem.Text = global::Edocsys.Properties.Settings.Default.ConfigFormText;
-            this.configFormToolStripMenuItem.Click += new System.EventHandler(this.configFormToolStripMenuItem_Click);
+            this.TSMConfig.Name = "TSMConfig";
+            this.TSMConfig.Size = new System.Drawing.Size(169, 22);
+            this.TSMConfig.Text = global::Edocsys.Properties.Settings.Default.ConfigFormText;
+            this.TSMConfig.Click += new System.EventHandler(this.configFormToolStripMenuItem_Click);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
             this.toolStripMenuItem1.Size = new System.Drawing.Size(166, 6);
             // 
-            // LoginToolStripMenuItem
+            // TSMLogin
             // 
-            this.LoginToolStripMenuItem.Name = "LoginToolStripMenuItem";
-            this.LoginToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
-            this.LoginToolStripMenuItem.Text = global::Edocsys.Properties.Settings.Default.LoginToolStripMenuItemText;
-            this.LoginToolStripMenuItem.Click += new System.EventHandler(this.LoginToolStripMenuItem_Click_1);
+            this.TSMLogin.Name = "TSMLogin";
+            this.TSMLogin.Size = new System.Drawing.Size(169, 22);
+            this.TSMLogin.Text = global::Edocsys.Properties.Settings.Default.LoginToolStripMenuItemText;
+            this.TSMLogin.Click += new System.EventHandler(this.LoginToolStripMenuItem_Click_1);
             // 
-            // logoutToolStripMenuItem
+            // TSMLogout
             // 
-            this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
-            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
-            this.logoutToolStripMenuItem.Text = "Завершить сеанс";
-            this.logoutToolStripMenuItem.Click += new System.EventHandler(this.logoutToolStripMenuItem_Click);
+            this.TSMLogout.Name = "TSMLogout";
+            this.TSMLogout.Size = new System.Drawing.Size(169, 22);
+            this.TSMLogout.Text = "Завершить сеанс";
+            this.TSMLogout.Click += new System.EventHandler(this.logoutToolStripMenuItem_Click);
             // 
             // toolStripMenuItem3
             // 
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
             this.toolStripMenuItem3.Size = new System.Drawing.Size(166, 6);
             // 
-            // ExitToolStripMenuItem
+            // TSMExit
             // 
-            this.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem";
-            this.ExitToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
-            this.ExitToolStripMenuItem.Text = global::Edocsys.Properties.Settings.Default.ExitToolStripMenuItemText;
-            this.ExitToolStripMenuItem.Click += new System.EventHandler(this.ExitToolStripMenuItem_Click);
+            this.TSMExit.Name = "TSMExit";
+            this.TSMExit.Size = new System.Drawing.Size(169, 22);
+            this.TSMExit.Text = global::Edocsys.Properties.Settings.Default.ExitToolStripMenuItemText;
+            this.TSMExit.Click += new System.EventHandler(this.ExitToolStripMenuItem_Click);
             // 
-            // DocToolStripMenuItem
+            // TSMWorkMenu
             // 
-            this.DocToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.AgentsToolStripMenuItem,
-            this.ProposalToolStripMenuItem,
-            this.ExpertAssignToolStripMenuItem,
-            this.ContractToolStripMenuItem,
-            this.WorksToolStripMenuItem,
-            this.ContractPaymentsToolStripMenuItem,
-            this.InspectionControlToolStripMenuItem,
-            this.ContractStatsToolStripMenuItem});
-            this.DocToolStripMenuItem.Name = "DocToolStripMenuItem";
-            this.DocToolStripMenuItem.Size = new System.Drawing.Size(97, 20);
-            this.DocToolStripMenuItem.Text = global::Edocsys.Properties.Settings.Default.DocToolStripMenuItemText;
+            this.TSMWorkMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.TSMAgents,
+            this.TSMProposals,
+            this.TSMAssignExpert,
+            this.TSMContracts,
+            this.TSMWorkForContracts,
+            this.TSMContractPayments,
+            this.TSMInspectionControl,
+            this.TSMContractStats});
+            this.TSMWorkMenu.Name = "TSMWorkMenu";
+            this.TSMWorkMenu.Size = new System.Drawing.Size(97, 20);
+            this.TSMWorkMenu.Text = global::Edocsys.Properties.Settings.Default.DocToolStripMenuItemText;
             // 
-            // AgentsToolStripMenuItem
+            // TSMAgents
             // 
-            this.AgentsToolStripMenuItem.Name = "AgentsToolStripMenuItem";
-            this.AgentsToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
-            this.AgentsToolStripMenuItem.Text = global::Edocsys.Properties.Settings.Default.ClientsFormText;
-            this.AgentsToolStripMenuItem.Click += new System.EventHandler(this.AgentsToolStripMenuItem_Click);
+            this.TSMAgents.Name = "TSMAgents";
+            this.TSMAgents.Size = new System.Drawing.Size(221, 22);
+            this.TSMAgents.Text = global::Edocsys.Properties.Settings.Default.ClientsFormText;
+            this.TSMAgents.Click += new System.EventHandler(this.AgentsToolStripMenuItem_Click);
             // 
-            // ProposalToolStripMenuItem
+            // TSMProposals
             // 
-            this.ProposalToolStripMenuItem.Name = "ProposalToolStripMenuItem";
-            this.ProposalToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
-            this.ProposalToolStripMenuItem.Text = global::Edocsys.Properties.Settings.Default.ProposalToolStripMenuItemText;
-            this.ProposalToolStripMenuItem.Click += new System.EventHandler(this.proposalToolStripMenuItem_Click);
+            this.TSMProposals.Name = "TSMProposals";
+            this.TSMProposals.Size = new System.Drawing.Size(221, 22);
+            this.TSMProposals.Text = global::Edocsys.Properties.Settings.Default.ProposalToolStripMenuItemText;
+            this.TSMProposals.Click += new System.EventHandler(this.proposalToolStripMenuItem_Click);
             // 
-            // ExpertAssignToolStripMenuItem
+            // TSMAssignExpert
             // 
-            this.ExpertAssignToolStripMenuItem.Name = "ExpertAssignToolStripMenuItem";
-            this.ExpertAssignToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
-            this.ExpertAssignToolStripMenuItem.Text = global::Edocsys.Properties.Settings.Default.AssignexpertToolStripMenuItemText;
-            this.ExpertAssignToolStripMenuItem.Click += new System.EventHandler(this.ExpertAssignToolStripMenuItem_Click);
+            this.TSMAssignExpert.Name = "TSMAssignExpert";
+            this.TSMAssignExpert.Size = new System.Drawing.Size(221, 22);
+            this.TSMAssignExpert.Text = global::Edocsys.Properties.Settings.Default.AssignexpertToolStripMenuItemText;
+            this.TSMAssignExpert.Click += new System.EventHandler(this.ExpertAssignToolStripMenuItem_Click);
             // 
-            // ContractToolStripMenuItem
+            // TSMContracts
             // 
-            this.ContractToolStripMenuItem.Name = "ContractToolStripMenuItem";
-            this.ContractToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
-            this.ContractToolStripMenuItem.Text = global::Edocsys.Properties.Settings.Default.ContractToolStripMenuItemText;
-            this.ContractToolStripMenuItem.Click += new System.EventHandler(this.ContractToolStripMenuItem_Click);
+            this.TSMContracts.Name = "TSMContracts";
+            this.TSMContracts.Size = new System.Drawing.Size(221, 22);
+            this.TSMContracts.Text = global::Edocsys.Properties.Settings.Default.ContractToolStripMenuItemText;
+            this.TSMContracts.Click += new System.EventHandler(this.ContractToolStripMenuItem_Click);
             // 
-            // WorksToolStripMenuItem
+            // TSMWorkForContracts
             // 
-            this.WorksToolStripMenuItem.Name = "WorksToolStripMenuItem";
-            this.WorksToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
-            this.WorksToolStripMenuItem.Text = global::Edocsys.Properties.Settings.Default.WorksForContractTitle;
-            this.WorksToolStripMenuItem.Click += new System.EventHandler(this.WorksToolStripMenuItem_Click);
+            this.TSMWorkForContracts.Name = "TSMWorkForContracts";
+            this.TSMWorkForContracts.Size = new System.Drawing.Size(221, 22);
+            this.TSMWorkForContracts.Text = global::Edocsys.Properties.Settings.Default.WorksForContractTitle;
+            this.TSMWorkForContracts.Click += new System.EventHandler(this.WorksToolStripMenuItem_Click);
             // 
-            // ContractPaymentsToolStripMenuItem
+            // TSMContractPayments
             // 
-            this.ContractPaymentsToolStripMenuItem.Name = "ContractPaymentsToolStripMenuItem";
-            this.ContractPaymentsToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
-            this.ContractPaymentsToolStripMenuItem.Text = global::Edocsys.Properties.Settings.Default.ContractPaymentsTitle;
-            this.ContractPaymentsToolStripMenuItem.Click += new System.EventHandler(this.ContractPaymentsToolStripMenuItem_Click);
+            this.TSMContractPayments.Name = "TSMContractPayments";
+            this.TSMContractPayments.Size = new System.Drawing.Size(221, 22);
+            this.TSMContractPayments.Text = global::Edocsys.Properties.Settings.Default.ContractPaymentsTitle;
+            this.TSMContractPayments.Click += new System.EventHandler(this.ContractPaymentsToolStripMenuItem_Click);
             // 
-            // InspectionControlToolStripMenuItem
+            // TSMInspectionControl
             // 
-            this.InspectionControlToolStripMenuItem.Name = "InspectionControlToolStripMenuItem";
-            this.InspectionControlToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
-            this.InspectionControlToolStripMenuItem.Text = global::Edocsys.Properties.Settings.Default.InspectionControlMenuTitle;
-            this.InspectionControlToolStripMenuItem.Click += new System.EventHandler(this.InspectionControlToolStripMenuItem_Click);
+            this.TSMInspectionControl.Name = "TSMInspectionControl";
+            this.TSMInspectionControl.Size = new System.Drawing.Size(221, 22);
+            this.TSMInspectionControl.Text = global::Edocsys.Properties.Settings.Default.InspectionControlMenuTitle;
+            this.TSMInspectionControl.Click += new System.EventHandler(this.InspectionControlToolStripMenuItem_Click);
             // 
-            // ContractStatsToolStripMenuItem
+            // TSMContractStats
             // 
-            this.ContractStatsToolStripMenuItem.Name = "ContractStatsToolStripMenuItem";
-            this.ContractStatsToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
-            this.ContractStatsToolStripMenuItem.Text = global::Edocsys.Properties.Settings.Default.ContractStatsTitle;
-            this.ContractStatsToolStripMenuItem.Click += new System.EventHandler(this.ContractStatsToolStripMenuItem_Click);
+            this.TSMContractStats.Name = "TSMContractStats";
+            this.TSMContractStats.Size = new System.Drawing.Size(221, 22);
+            this.TSMContractStats.Text = global::Edocsys.Properties.Settings.Default.ContractStatsTitle;
+            this.TSMContractStats.Click += new System.EventHandler(this.ContractStatsToolStripMenuItem_Click);
             // 
-            // AdmToolStripMenuItem
+            // TSMAdminMenu
             // 
-            this.AdmToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.AdmpanelToolStripMenuItem,
-            this.ExpertsToolStripMenuItem,
+            this.TSMAdminMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.TSMUserAdmin,
+            this.TSMExperts,
             this.toolStripMenuItem2,
-            this.docTemplatesFormToolStripMenuItem,
-            this.ProductionToolStripMenuItem});
-            this.AdmToolStripMenuItem.Name = "AdmToolStripMenuItem";
-            this.AdmToolStripMenuItem.Size = new System.Drawing.Size(134, 20);
-            this.AdmToolStripMenuItem.Text = global::Edocsys.Properties.Settings.Default.AdmToolStripMenuItemText;
+            this.TSMDocTemplates,
+            this.TSMProduction});
+            this.TSMAdminMenu.Name = "TSMAdminMenu";
+            this.TSMAdminMenu.Size = new System.Drawing.Size(134, 20);
+            this.TSMAdminMenu.Text = global::Edocsys.Properties.Settings.Default.AdmToolStripMenuItemText;
             // 
-            // AdmpanelToolStripMenuItem
+            // TSMUserAdmin
             // 
-            this.AdmpanelToolStripMenuItem.Name = "AdmpanelToolStripMenuItem";
-            this.AdmpanelToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
-            this.AdmpanelToolStripMenuItem.Text = global::Edocsys.Properties.Settings.Default.AdmpanelToolStripMenuItemText;
-            this.AdmpanelToolStripMenuItem.Click += new System.EventHandler(this.AdmpanelToolStripMenuItem_Click);
+            this.TSMUserAdmin.Name = "TSMUserAdmin";
+            this.TSMUserAdmin.Size = new System.Drawing.Size(233, 22);
+            this.TSMUserAdmin.Text = global::Edocsys.Properties.Settings.Default.AdmpanelToolStripMenuItemText;
+            this.TSMUserAdmin.Click += new System.EventHandler(this.AdmpanelToolStripMenuItem_Click);
             // 
-            // ExpertsToolStripMenuItem
+            // TSMExperts
             // 
-            this.ExpertsToolStripMenuItem.Name = "ExpertsToolStripMenuItem";
-            this.ExpertsToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
-            this.ExpertsToolStripMenuItem.Text = global::Edocsys.Properties.Settings.Default.AddingExpertToolStripMenuItemText;
-            this.ExpertsToolStripMenuItem.Click += new System.EventHandler(this.ExpertsToolStripMenuItem_Click);
+            this.TSMExperts.Name = "TSMExperts";
+            this.TSMExperts.Size = new System.Drawing.Size(233, 22);
+            this.TSMExperts.Text = global::Edocsys.Properties.Settings.Default.AddingExpertToolStripMenuItemText;
+            this.TSMExperts.Click += new System.EventHandler(this.ExpertsToolStripMenuItem_Click);
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
             this.toolStripMenuItem2.Size = new System.Drawing.Size(230, 6);
             // 
-            // docTemplatesFormToolStripMenuItem
+            // TSMDocTemplates
             // 
-            this.docTemplatesFormToolStripMenuItem.Name = "docTemplatesFormToolStripMenuItem";
-            this.docTemplatesFormToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
-            this.docTemplatesFormToolStripMenuItem.Text = global::Edocsys.Properties.Settings.Default.DocTemplatesTitle;
-            this.docTemplatesFormToolStripMenuItem.Click += new System.EventHandler(this.docTemplatesFormToolStripMenuItem_Click);
+            this.TSMDocTemplates.Name = "TSMDocTemplates";
+            this.TSMDocTemplates.Size = new System.Drawing.Size(233, 22);
+            this.TSMDocTemplates.Text = global::Edocsys.Properties.Settings.Default.DocTemplatesTitle;
+            this.TSMDocTemplates.Click += new System.EventHandler(this.docTemplatesFormToolStripMenuItem_Click);
             // 
-            // ProductionToolStripMenuItem
+            // TSMProduction
             // 
-            this.ProductionToolStripMenuItem.Name = "ProductionToolStripMenuItem";
-            this.ProductionToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
-            this.ProductionToolStripMenuItem.Text = "Область аккредитации";
-            this.ProductionToolStripMenuItem.Click += new System.EventHandler(this.ProductionToolStripMenuItem_Click);
+            this.TSMProduction.Name = "TSMProduction";
+            this.TSMProduction.Size = new System.Drawing.Size(233, 22);
+            this.TSMProduction.Text = "Область аккредитации";
+            this.TSMProduction.Click += new System.EventHandler(this.ProductionToolStripMenuItem_Click);
             // 
             // WindowToolStripMenuItem
             // 
@@ -275,145 +276,146 @@
             this.WindowToolStripMenuItem.Size = new System.Drawing.Size(47, 20);
             this.WindowToolStripMenuItem.Text = global::Edocsys.Properties.Settings.Default.WindowToolStripMenuItemText;
             // 
-            // HelpToolStripMenuItem
+            // TSMHelp
             // 
-            this.HelpToolStripMenuItem.Name = "HelpToolStripMenuItem";
-            this.HelpToolStripMenuItem.Size = new System.Drawing.Size(68, 20);
-            this.HelpToolStripMenuItem.Text = global::Edocsys.Properties.Settings.Default.HelpToolStripMenuItemText;
-            this.HelpToolStripMenuItem.Click += new System.EventHandler(this.HelpToolStripMenuItem_Click);
+            this.TSMHelp.Name = "TSMHelp";
+            this.TSMHelp.Size = new System.Drawing.Size(68, 20);
+            this.TSMHelp.Text = global::Edocsys.Properties.Settings.Default.HelpToolStripMenuItemText;
+            this.TSMHelp.Click += new System.EventHandler(this.HelpToolStripMenuItem_Click);
             // 
             // mainToolStrip
             // 
             this.mainToolStrip.ImageScalingSize = new System.Drawing.Size(50, 50);
             this.mainToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton1,
+            this.TSBAgents,
             this.toolStripSeparator5,
-            this.toolStripButton2,
+            this.TSBProposals,
             this.toolStripSeparator6,
-            this.toolStripButton7,
+            this.TSBAssignExpert,
             this.toolStripSeparator3,
-            this.toolStripButton3,
-            this.toolStripButton4,
-            this.toolStripButton5,
+            this.TSBContracts,
+            this.TSBWorkForContracts,
+            this.TSBInspectionControl,
             this.toolStripSeparator7,
-            this.toolStripButton8,
+            this.TSBContractPayments,
             this.toolStripSeparator2,
-            this.toolStripButton6,
+            this.TSBContractStats,
             this.toolStripSeparator1,
+            this.TSBLogout,
             this.toolStripSeparator4,
-            this.loginToolStripButton,
-            this.usersToolStripComboBox,
-            this.fillUsersToolStripButton});
+            this.TSBLogin,
+            this.TMCUsersCBox,
+            this.TSBFillUsers});
             this.mainToolStrip.Location = new System.Drawing.Point(0, 24);
             this.mainToolStrip.Name = "mainToolStrip";
             this.mainToolStrip.Size = new System.Drawing.Size(825, 57);
             this.mainToolStrip.TabIndex = 2;
             this.mainToolStrip.Text = "toolStrip1";
             // 
-            // toolStripButton1
+            // TSBAgents
             // 
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(54, 54);
-            this.toolStripButton1.Text = "Контрагенты";
-            this.toolStripButton1.Click += new System.EventHandler(this.AgentsToolStripMenuItem_Click);
+            this.TSBAgents.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.TSBAgents.Image = ((System.Drawing.Image)(resources.GetObject("TSBAgents.Image")));
+            this.TSBAgents.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.TSBAgents.Name = "TSBAgents";
+            this.TSBAgents.Size = new System.Drawing.Size(54, 54);
+            this.TSBAgents.Text = "Контрагенты";
+            this.TSBAgents.Click += new System.EventHandler(this.AgentsToolStripMenuItem_Click);
             // 
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
             this.toolStripSeparator5.Size = new System.Drawing.Size(6, 57);
             // 
-            // toolStripButton2
+            // TSBProposals
             // 
-            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
-            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(54, 54);
-            this.toolStripButton2.Text = "Заявки";
-            this.toolStripButton2.Click += new System.EventHandler(this.proposalToolStripMenuItem_Click);
+            this.TSBProposals.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.TSBProposals.Image = ((System.Drawing.Image)(resources.GetObject("TSBProposals.Image")));
+            this.TSBProposals.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.TSBProposals.Name = "TSBProposals";
+            this.TSBProposals.Size = new System.Drawing.Size(54, 54);
+            this.TSBProposals.Text = "Заявки";
+            this.TSBProposals.Click += new System.EventHandler(this.proposalToolStripMenuItem_Click);
             // 
             // toolStripSeparator6
             // 
             this.toolStripSeparator6.Name = "toolStripSeparator6";
             this.toolStripSeparator6.Size = new System.Drawing.Size(6, 57);
             // 
-            // toolStripButton7
+            // TSBAssignExpert
             // 
-            this.toolStripButton7.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton7.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton7.Image")));
-            this.toolStripButton7.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton7.Name = "toolStripButton7";
-            this.toolStripButton7.Size = new System.Drawing.Size(54, 54);
-            this.toolStripButton7.Text = "Назначение эксперта";
-            this.toolStripButton7.Click += new System.EventHandler(this.AssignexpertToolStripMenuItem_Click);
+            this.TSBAssignExpert.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.TSBAssignExpert.Image = ((System.Drawing.Image)(resources.GetObject("TSBAssignExpert.Image")));
+            this.TSBAssignExpert.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.TSBAssignExpert.Name = "TSBAssignExpert";
+            this.TSBAssignExpert.Size = new System.Drawing.Size(54, 54);
+            this.TSBAssignExpert.Text = "Назначение эксперта";
+            this.TSBAssignExpert.Click += new System.EventHandler(this.AssignexpertToolStripMenuItem_Click);
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
             this.toolStripSeparator3.Size = new System.Drawing.Size(6, 57);
             // 
-            // toolStripButton3
+            // TSBContracts
             // 
-            this.toolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton3.Image")));
-            this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton3.Name = "toolStripButton3";
-            this.toolStripButton3.Size = new System.Drawing.Size(54, 54);
-            this.toolStripButton3.Text = "Ведение договоров";
-            this.toolStripButton3.Click += new System.EventHandler(this.ContractToolStripMenuItem_Click);
+            this.TSBContracts.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.TSBContracts.Image = ((System.Drawing.Image)(resources.GetObject("TSBContracts.Image")));
+            this.TSBContracts.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.TSBContracts.Name = "TSBContracts";
+            this.TSBContracts.Size = new System.Drawing.Size(54, 54);
+            this.TSBContracts.Text = "Ведение договоров";
+            this.TSBContracts.Click += new System.EventHandler(this.ContractToolStripMenuItem_Click);
             // 
-            // toolStripButton4
+            // TSBWorkForContracts
             // 
-            this.toolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton4.Image")));
-            this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton4.Name = "toolStripButton4";
-            this.toolStripButton4.Size = new System.Drawing.Size(54, 54);
-            this.toolStripButton4.Text = "Работы по договору";
-            this.toolStripButton4.Click += new System.EventHandler(this.WorksToolStripMenuItem_Click);
+            this.TSBWorkForContracts.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.TSBWorkForContracts.Image = ((System.Drawing.Image)(resources.GetObject("TSBWorkForContracts.Image")));
+            this.TSBWorkForContracts.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.TSBWorkForContracts.Name = "TSBWorkForContracts";
+            this.TSBWorkForContracts.Size = new System.Drawing.Size(54, 54);
+            this.TSBWorkForContracts.Text = "Работы по договору";
+            this.TSBWorkForContracts.Click += new System.EventHandler(this.WorksToolStripMenuItem_Click);
             // 
-            // toolStripButton5
+            // TSBInspectionControl
             // 
-            this.toolStripButton5.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton5.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton5.Image")));
-            this.toolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton5.Name = "toolStripButton5";
-            this.toolStripButton5.Size = new System.Drawing.Size(54, 54);
-            this.toolStripButton5.Text = "Инспекционный контроль";
-            this.toolStripButton5.Click += new System.EventHandler(this.InspectionControlToolStripMenuItem_Click);
+            this.TSBInspectionControl.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.TSBInspectionControl.Image = ((System.Drawing.Image)(resources.GetObject("TSBInspectionControl.Image")));
+            this.TSBInspectionControl.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.TSBInspectionControl.Name = "TSBInspectionControl";
+            this.TSBInspectionControl.Size = new System.Drawing.Size(54, 54);
+            this.TSBInspectionControl.Text = "Инспекционный контроль";
+            this.TSBInspectionControl.Click += new System.EventHandler(this.InspectionControlToolStripMenuItem_Click);
             // 
             // toolStripSeparator7
             // 
             this.toolStripSeparator7.Name = "toolStripSeparator7";
             this.toolStripSeparator7.Size = new System.Drawing.Size(6, 57);
             // 
-            // toolStripButton8
+            // TSBContractPayments
             // 
-            this.toolStripButton8.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton8.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton8.Image")));
-            this.toolStripButton8.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton8.Name = "toolStripButton8";
-            this.toolStripButton8.Size = new System.Drawing.Size(54, 54);
-            this.toolStripButton8.Text = "Оплата догворов";
-            this.toolStripButton8.Click += new System.EventHandler(this.ContractPaymentsToolStripMenuItem_Click);
+            this.TSBContractPayments.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.TSBContractPayments.Image = ((System.Drawing.Image)(resources.GetObject("TSBContractPayments.Image")));
+            this.TSBContractPayments.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.TSBContractPayments.Name = "TSBContractPayments";
+            this.TSBContractPayments.Size = new System.Drawing.Size(54, 54);
+            this.TSBContractPayments.Text = "Оплата догворов";
+            this.TSBContractPayments.Click += new System.EventHandler(this.ContractPaymentsToolStripMenuItem_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(6, 57);
             // 
-            // toolStripButton6
+            // TSBContractStats
             // 
-            this.toolStripButton6.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton6.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton6.Image")));
-            this.toolStripButton6.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton6.Name = "toolStripButton6";
-            this.toolStripButton6.Size = new System.Drawing.Size(54, 54);
-            this.toolStripButton6.Text = "Статистика договоров";
-            this.toolStripButton6.Click += new System.EventHandler(this.ContractStatsToolStripMenuItem_Click);
+            this.TSBContractStats.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.TSBContractStats.Image = ((System.Drawing.Image)(resources.GetObject("TSBContractStats.Image")));
+            this.TSBContractStats.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.TSBContractStats.Name = "TSBContractStats";
+            this.TSBContractStats.Size = new System.Drawing.Size(54, 54);
+            this.TSBContractStats.Text = "Статистика договоров";
+            this.TSBContractStats.Click += new System.EventHandler(this.ContractStatsToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
@@ -426,33 +428,33 @@
             this.toolStripSeparator4.Name = "toolStripSeparator4";
             this.toolStripSeparator4.Size = new System.Drawing.Size(6, 57);
             // 
-            // loginToolStripButton
+            // TSBLogin
             // 
-            this.loginToolStripButton.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.loginToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.loginToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("loginToolStripButton.Image")));
-            this.loginToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.loginToolStripButton.Name = "loginToolStripButton";
-            this.loginToolStripButton.Size = new System.Drawing.Size(54, 54);
-            this.loginToolStripButton.Text = "Вход";
-            this.loginToolStripButton.Click += new System.EventHandler(this.loginToolStripButton_Click);
+            this.TSBLogin.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.TSBLogin.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.TSBLogin.Image = ((System.Drawing.Image)(resources.GetObject("TSBLogin.Image")));
+            this.TSBLogin.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.TSBLogin.Name = "TSBLogin";
+            this.TSBLogin.Size = new System.Drawing.Size(54, 54);
+            this.TSBLogin.Text = "Вход";
+            this.TSBLogin.Click += new System.EventHandler(this.loginToolStripButton_Click);
             // 
-            // usersToolStripComboBox
+            // TMCUsersCBox
             // 
-            this.usersToolStripComboBox.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.usersToolStripComboBox.Name = "usersToolStripComboBox";
-            this.usersToolStripComboBox.Size = new System.Drawing.Size(200, 57);
+            this.TMCUsersCBox.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.TMCUsersCBox.Name = "TMCUsersCBox";
+            this.TMCUsersCBox.Size = new System.Drawing.Size(200, 57);
             // 
-            // fillUsersToolStripButton
+            // TSBFillUsers
             // 
-            this.fillUsersToolStripButton.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.fillUsersToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.fillUsersToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("fillUsersToolStripButton.Image")));
-            this.fillUsersToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.fillUsersToolStripButton.Name = "fillUsersToolStripButton";
-            this.fillUsersToolStripButton.Size = new System.Drawing.Size(54, 54);
-            this.fillUsersToolStripButton.Text = "Обновить список пользователей";
-            this.fillUsersToolStripButton.Click += new System.EventHandler(this.fillUsersToolStripButton_Click);
+            this.TSBFillUsers.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.TSBFillUsers.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.TSBFillUsers.Image = ((System.Drawing.Image)(resources.GetObject("TSBFillUsers.Image")));
+            this.TSBFillUsers.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.TSBFillUsers.Name = "TSBFillUsers";
+            this.TSBFillUsers.Size = new System.Drawing.Size(54, 54);
+            this.TSBFillUsers.Text = "Обновить список пользователей";
+            this.TSBFillUsers.Click += new System.EventHandler(this.fillUsersToolStripButton_Click);
             // 
             // statusStrip1
             // 
@@ -515,6 +517,17 @@
             this.tableAdapterManager.user_typesTableAdapter = null;
             this.tableAdapterManager.usersTableAdapter = this.usersTableAdapter;
             // 
+            // TSBLogout
+            // 
+            this.TSBLogout.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.TSBLogout.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.TSBLogout.Image = ((System.Drawing.Image)(resources.GetObject("TSBLogout.Image")));
+            this.TSBLogout.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.TSBLogout.Name = "TSBLogout";
+            this.TSBLogout.Size = new System.Drawing.Size(54, 54);
+            this.TSBLogout.Text = "toolStripButton1";
+            this.TSBLogout.Click += new System.EventHandler(this.logoutToolStripMenuItem_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -548,55 +561,56 @@
         #endregion
 
         private System.Windows.Forms.MenuStrip mainMenuStrip;
-        private System.Windows.Forms.ToolStripMenuItem FileToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem LoginToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem ExitToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem AdmToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem DocToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem ProposalToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem AdmpanelToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem ExpertsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem ContractToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem HelpToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem TSMFileMenu;
+        private System.Windows.Forms.ToolStripMenuItem TSMLogin;
+        private System.Windows.Forms.ToolStripMenuItem TSMExit;
+        private System.Windows.Forms.ToolStripMenuItem TSMAdminMenu;
+        private System.Windows.Forms.ToolStripMenuItem TSMWorkMenu;
+        private System.Windows.Forms.ToolStripMenuItem TSMProposals;
+        private System.Windows.Forms.ToolStripMenuItem TSMUserAdmin;
+        private System.Windows.Forms.ToolStripMenuItem TSMExperts;
+        private System.Windows.Forms.ToolStripMenuItem TSMContracts;
+        private System.Windows.Forms.ToolStripMenuItem TSMHelp;
         private System.Windows.Forms.ToolStrip mainToolStrip;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripMenuItem WindowToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem configFormToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem TSMConfig;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem2;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
-        private System.Windows.Forms.ToolStripButton toolStripButton2;
-        private System.Windows.Forms.ToolStripButton toolStripButton3;
-        private System.Windows.Forms.ToolStripButton toolStripButton4;
-        private System.Windows.Forms.ToolStripButton toolStripButton5;
-        private System.Windows.Forms.ToolStripButton toolStripButton6;
+        private System.Windows.Forms.ToolStripButton TSBAgents;
+        private System.Windows.Forms.ToolStripButton TSBProposals;
+        private System.Windows.Forms.ToolStripButton TSBContracts;
+        private System.Windows.Forms.ToolStripButton TSBWorkForContracts;
+        private System.Windows.Forms.ToolStripButton TSBInspectionControl;
+        private System.Windows.Forms.ToolStripButton TSBContractStats;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
-        private System.Windows.Forms.ToolStripButton toolStripButton8;
+        private System.Windows.Forms.ToolStripButton TSBContractPayments;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripButton loginToolStripButton;
-        private System.Windows.Forms.ToolStripComboBox usersToolStripComboBox;
+        private System.Windows.Forms.ToolStripButton TSBLogin;
+        private System.Windows.Forms.ToolStripComboBox TMCUsersCBox;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private EdocbaseDataSetTableAdapters.usersTableAdapter usersTableAdapter;
         private EdocbaseDataSet edocbaseDataSet;
         private System.Windows.Forms.BindingSource usersBindingSource;
         private EdocbaseDataSetTableAdapters.TableAdapterManager tableAdapterManager;
-        private System.Windows.Forms.ToolStripButton fillUsersToolStripButton;
+        private System.Windows.Forms.ToolStripButton TSBFillUsers;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
         private System.Windows.Forms.ToolStripStatusLabel curentUserToolStripStatusLabel;
-        private System.Windows.Forms.ToolStripMenuItem docTemplatesFormToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem ExpertAssignToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem AgentsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem ProductionToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem WorksToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem InspectionControlToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem ContractPaymentsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem ContractStatsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem logoutToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem TSMDocTemplates;
+        private System.Windows.Forms.ToolStripMenuItem TSMAssignExpert;
+        private System.Windows.Forms.ToolStripMenuItem TSMAgents;
+        private System.Windows.Forms.ToolStripMenuItem TSMProduction;
+        private System.Windows.Forms.ToolStripMenuItem TSMWorkForContracts;
+        private System.Windows.Forms.ToolStripMenuItem TSMInspectionControl;
+        private System.Windows.Forms.ToolStripMenuItem TSMContractPayments;
+        private System.Windows.Forms.ToolStripMenuItem TSMContractStats;
+        private System.Windows.Forms.ToolStripMenuItem TSMLogout;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem3;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
-        private System.Windows.Forms.ToolStripButton toolStripButton7;
+        private System.Windows.Forms.ToolStripButton TSBAssignExpert;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
+        private System.Windows.Forms.ToolStripButton TSBLogout;
     }
 }
 

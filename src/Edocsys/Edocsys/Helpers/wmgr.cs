@@ -109,6 +109,14 @@ namespace Edocsys
             l.ShowDialog();
         }
 
+        public static void CloseAllOpendWindows()
+        {
+            foreach (Form f in MDIParent.MdiChildren)
+            {
+                f.Close();
+            }
+        }
+
         public static void ShowClientsForm()
         {
             ShowForm<ClientsForm>();

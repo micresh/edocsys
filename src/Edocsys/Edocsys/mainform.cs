@@ -30,70 +30,36 @@ namespace Edocsys
         {
             if (ConnectionManager.CurrentUser.UserID > 0)
             {
-                HideLoginButtons();
-
                 EnableActionButtons(true);
+
+                HideLoginButtons();
             }
             else
             {
-                ShowLoginButtons();
                 EnableActionButtons(false);
+                ShowLoginButtons();
             }
         }
 
         private void EnableActionButtons(bool isEnabled)
         {
-            int userType = ConnectionManager.CurrentUser.UserType;
-            //menus
-            this.DocToolStripMenuItem.Enabled = isEnabled;
-
-            this.AdmToolStripMenuItem.Enabled = false;
-            ContractPaymentsToolStripMenuItem.Enabled = true;
-
-            //toolstrip
-            for (int i = 0; i < mainToolStrip.Items.Count; ++i)
+            foreach (ToolStripItem item in mainToolStrip.Items)
             {
-                if ((mainToolStrip.Items[i].Name != "fillUsersToolStripButton")
-                    &&
-                    (mainToolStrip.Items[i].Name != "usersToolStripComboBox")
-                    &&
-                    (mainToolStrip.Items[i].Name != "loginToolStripButton"))
-                {
-                    mainToolStrip.Items[i].Enabled = isEnabled;
-                }
-                else
-                {
-                    mainToolStrip.Items[i].Enabled = !isEnabled;
-                }
+                if (item.Name.Length >= 3)
+                    item.Enabled = ConnectionManager.CurrentUser.HasAccess(item.Name.Substring(3));
             }
 
-            //hide non admin items
-            if (userType == (int)Constants.UserTypes.Admin)
-                if (isEnabled)
-                    this.AdmToolStripMenuItem.Enabled = isEnabled;
+            foreach (ToolStripMenuItem mainmenu in mainMenuStrip.Items)
+            {
+                if (mainmenu.Name.Length >= 3)
+                    mainmenu.Enabled = ConnectionManager.CurrentUser.HasAccess(mainmenu.Name.Substring(3));
 
-            if (userType == (int)Constants.UserTypes.Expert)
-                //if (isEnabled)
-                    for (int i = 0; i < mainToolStrip.Items.Count; ++i)
-                    {
-                        if (mainToolStrip.Items[i].Name == "toolStripButton8")
-
-                        {
-                            mainToolStrip.Items[i].Enabled = false;
-                            ContractPaymentsToolStripMenuItem.Enabled = false;
-                        }
-                    }
-
-            if (userType == (int)Constants.UserTypes.Director)
-                //if (isEnabled)
-                    for (int i = 0; i < mainToolStrip.Items.Count; ++i)
-                    {
-                        if (mainToolStrip.Items[i].Name == "toolStripButton8")
-                        {
-                            mainToolStrip.Items[i].Enabled = true;
-                            ContractPaymentsToolStripMenuItem.Enabled = true;
-                        }
-                    }
+                foreach (ToolStripItem item in mainmenu.DropDownItems)
+                {
+                    if (item.Name.Length >= 3)
+                       item.Enabled = ConnectionManager.CurrentUser.HasAccess(item.Name.Substring(3));
+                }
+            }
 
         }
 
@@ -137,15 +103,16 @@ namespace Edocsys
                 TraceHelper.LogWarning("MAINFORM: Ошибка подключения к базе данных" , ex, sender);
 
                 //error to get users
-                fillUsersToolStripButton.Visible = true;
+                TSBFillUsers.Visible = true;
                 HideLoginButtons();
                 return;
             }
 
             //success users get
-            fillUsersToolStripButton.Visible = false;
-            ShowLoginButtons();
+            TSBFillUsers.Visible = false;
             EnableActionButtons(false);
+
+            ShowLoginButtons();
         }
 
         /// <summary>
@@ -155,29 +122,33 @@ namespace Edocsys
         {
             this.usersTableAdapter.Fill(this.edocbaseDataSet.users);
 
+            TMCUsersCBox.Items.Clear();
+
             //select active user
             foreach (DataRowView x in this.usersBindingSource)
             {
                 string login = (x["login"]).ToString();
-                usersToolStripComboBox.Items.Add(login);
+                TMCUsersCBox.Items.Add(login);
             }
 
-            if (usersToolStripComboBox.Items.Count > 0)
-                usersToolStripComboBox.SelectedIndex = 0;
+            if (TMCUsersCBox.Items.Count > 0)
+                TMCUsersCBox.SelectedIndex = 0;
         }
 
         private void ShowLoginButtons()
         {
             //set visible login buttons
-            loginToolStripButton.Visible = true;
-            usersToolStripComboBox.Visible = true;
+            TSBLogin.Visible = true;
+            TMCUsersCBox.Visible = true;
+            TSBLogout.Visible = false;
         }
 
         private void HideLoginButtons()
         {
             //set invisible login buttons
-            loginToolStripButton.Visible = false;
-            usersToolStripComboBox.Visible = false;
+            TSBLogin.Visible = false;
+            TMCUsersCBox.Visible = false;
+            TSBLogout.Visible = true;
         }
 
         private void AssignexpertToolStripMenuItem_Click(object sender, EventArgs e)
@@ -226,19 +197,19 @@ namespace Edocsys
                 TraceHelper.LogError(type, ex, sender);
 
                 //error to get users
-                fillUsersToolStripButton.Visible = true;
+                TSBFillUsers.Visible = true;
                 HideLoginButtons();
                 return;
             }
 
             //success users get
-            fillUsersToolStripButton.Visible = false;
+            TSBFillUsers.Visible = false;
             ShowLoginButtons();
         }
 
         private void loginToolStripButton_Click(object sender, EventArgs e)
         {
-            wmgr.ShowLoginForm(usersToolStripComboBox.Text);
+            wmgr.ShowLoginForm(TMCUsersCBox.Text);
             UpdateLoginControls();
             this.Activate();
         }
@@ -291,6 +262,8 @@ namespace Edocsys
         private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ConnectionManager.ResetToDefaults();
+
+            wmgr.CloseAllOpendWindows();
 
             EnableActionButtons(false);
             ShowLoginButtons();
