@@ -126,7 +126,8 @@ namespace Edocsys
             foreach (DataRowView x in this.usersBindingSource)
             {
                 string login = (x["login"]).ToString();
-                TMCUsersCBox.Items.Add(login);
+                if (login != "")
+                    TMCUsersCBox.Items.Add(login);
             }
 
             if (TMCUsersCBox.Items.Count > 0)

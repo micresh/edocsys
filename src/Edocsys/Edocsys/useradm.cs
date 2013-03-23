@@ -16,45 +16,103 @@ namespace Edocsys
             InitializeComponent();
         }
 
+        public string password;
+
         private void usersBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
-            this.Validate();
-            this.usersBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.edocbaseDataSet);
+            SaveUser();
+        }
 
+        private void SaveUser()
+        {
+            try
+            {
+                this.Validate();
+                this.usersBindingSource.EndEdit();
+                this.tableAdapterManager.UpdateAll(this.edocbaseDataSet);
+                this.edocbaseDataSet.AcceptChanges();
+            }
+            catch (Exception ex)
+            {
+                string msg = ex.Message;
+                string title = "Save ERROR";
+                string type = "Save ERROR";
+                TraceHelper.LogError(type, ex, this);
+                MessageBox.Show(msg, title);
+            }
+        }
+
+        private void RefreshData()
+        {
+            try
+            {
+                int pos = usersBindingSource.Position;
+
+                this.usersTableAdapter.Fill(this.edocbaseDataSet.users);
+
+                usersBindingSource.Position = pos;
+
+                this.usersDataGridView.Refresh();
+            }
+            catch (Exception ex)
+            {
+                string msg = ex.Message;
+                string title = "Refresh ERROR";
+                string type = "Refresh ERROR";
+                TraceHelper.LogError(type, ex, this);
+                MessageBox.Show(msg, title);
+            }
         }
 
         private void UseradmForm_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'edocbaseDataSet.users' table. You can move, or remove it, as needed.
+            this.user_typesTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
+            this.usersTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
+
+            this.user_typesTableAdapter.Fill(this.edocbaseDataSet.user_types);
             this.usersTableAdapter.Fill(this.edocbaseDataSet.users);
-            // TODO: This line of code loads data into the 'edocbaseDataSet.users' table. You can move, or remove it, as needed.
-            this.usersTableAdapter.Fill(this.edocbaseDataSet.users);
-
         }
 
-        private void btnUseradd_Click(object sender, EventArgs e)
+        private void usersDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            //usersTableAdapter.Useradd(loginTextBox.Text, psmgr.GetHashString(passwordTextBox.Text), Convert.ToInt32(typeTextBox.Text), log_databaseTextBox.Text);
-        }
+            DataGridView s = (DataGridView)sender;
+            BindingSource bs = (BindingSource)s.DataSource;
 
-        private void btnCheck_Click(object sender, EventArgs e)
-        {
-            //bool chkdatabaselog;
-            //chkdatabaselog = (log_databaseTextBox.Text == "admin") || (log_databaseTextBox.Text == "direktor") || (log_databaseTextBox.Text == "expert");
-            //if (chkdatabaselog)
-            //{
-            //    btnUseradd.Enabled = true;
-            //}
-            //else MessageBox.Show("Неверное имя пользователя в базе данных");
-        }
+            if (e.ColumnIndex == (s.Columns["SetPasswordButton"].Index))
+            {
+                if (bs.Position >= 0)
+                {
+                    DataRowView currentRow = (DataRowView)bs.Current;
+                    int id = Convert.ToInt32(currentRow["id"]);
 
-        private void usersBindingNavigatorSaveItem_Click_1(object sender, EventArgs e)
-        {
-            this.Validate();
-            this.usersBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.edocbaseDataSet);
+                    int pos = bs.Position;
 
+                    if ((int)(currentRow["id"]) < 0)
+                    {
+                        //not saved => save
+                        SaveUser();
+                        RefreshData();
+                    }
+
+                    this.password = "";
+
+                    SetPasswordForm pwdf = new SetPasswordForm(this);
+
+                    if (pwdf.ShowDialog() == DialogResult.OK)
+                    {
+                        if (this.password != "")
+                        {
+                            currentRow["password"] = this.password;
+                            SaveUser();
+                            RefreshData();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Пароль не может быть пустым", "Ошибка");
+                        }
+                    }
+                }
+            }
         }
     }
 }

@@ -65,7 +65,7 @@ namespace Edocsys
                             Convert.ToString(currentRow["middlename"])[0] + ".";
             int type = Convert.ToInt32(currentRow["user_types_id"]);
 
-            if (psmgr.VerifyHash(passtxbox.Text, pass))
+            if (User.VerifyHash(passtxbox.Text, pass))
             {
                 //verify database connection with new users
                 try

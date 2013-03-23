@@ -136,6 +136,12 @@
     </Compile>
     <Compile Include="Helpers\RuDateAndMoneyConverter.cs" />
     <Compile Include="Helpers\TraceHelper.cs" />
+    <Compile Include="SetPassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SetPassword.Designer.cs">
+      <DependentUpon>SetPassword.cs</DependentUpon>
+    </Compile>
     <Compile Include="WorkForContracts.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -198,14 +204,13 @@
     <Compile Include="proposal.Designer.cs">
       <DependentUpon>proposal.cs</DependentUpon>
     </Compile>
-    <Compile Include="psmgr.cs" />
     <Compile Include="reportclient.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="reportclient.Designer.cs">
       <DependentUpon>reportclient.cs</DependentUpon>
     </Compile>
-    <Compile Include="User.cs" />
+    <Compile Include="Helpers\User.cs" />
     <Compile Include="useradm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -242,6 +247,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="InspectionControl.resx">
       <DependentUpon>InspectionControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SetPassword.resx">
+      <DependentUpon>SetPassword.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WorkForContracts.resx">
       <DependentUpon>WorkForContracts.cs</DependentUpon>
