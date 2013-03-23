@@ -77,7 +77,16 @@ namespace Edocsys
         {
             int pos = contractPrepareForWorkBindingSource.Position;
 
-            this.contractPrepareForWorkTAdapter.Fill(this.edocbaseDataSet.ContractPrepareForWork);
+            int expert_id = ConnectionManager.CurrentUser.UserID;
+
+            bool dont_filter = true;
+
+            if (ConnectionManager.CurrentUser.UserType == (int)Constants.UserTypes.Expert)
+            {
+                dont_filter = false;
+            }
+
+            this.contractPrepareForWorkTAdapter.Fill(this.edocbaseDataSet.ContractPrepareForWork, dont_filter, expert_id);
 
             contractPrepareForWorkBindingSource.Position = pos;
 
@@ -88,7 +97,15 @@ namespace Edocsys
         {
             int pos = contractInWorkBindingSource.Position;
 
-            this.contractInWorkTableAdapter.Fill(this.edocbaseDataSet.ContractInWork);
+            int expert_id = ConnectionManager.CurrentUser.UserID;
+
+            bool dont_filter = true;
+
+            if (ConnectionManager.CurrentUser.UserType == (int)Constants.UserTypes.Expert)
+            {
+                dont_filter = false;
+            }
+            this.contractInWorkTableAdapter.Fill(this.edocbaseDataSet.ContractInWork, dont_filter, expert_id);
 
             contractInWorkBindingSource.Position = pos;
 

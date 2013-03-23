@@ -45372,53 +45372,47 @@ WHERE        (id = @original_id)";
             this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[2];
             this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT
-contracts.id,
-contracts.products_id,
-contracts.agents_id,
-contracts.contract_types_id,
-contracts.contract_status_id,
-contracts.experts_id,
-contracts.source_types_id,
-contracts.date_proposal,
-contracts.experts_id,
-contracts.number,
-contracts.date_contract,
-contracts.date_start,
-contracts.date_end,
-contracts.date_sample_income,
-contracts.date_protocol_income,
-contracts.cost,
-contracts.total_cost,
-products.id AS pkproducts_id,
-products.name AS products_name,
-agents.id AS pkagents_id,
-agents.name AS agents_name,
-agent_types.id AS pkagent_types_id,
-agent_types.name AS agent_types_name,
-CONCAT( agent_types.name, ' ', agents.name ) AS agents_fullname,
-contract_types.id AS pkcontract_types_id,
-contract_types.name AS contract_types_name,
-contract_status.id AS pkcontract_status_id,
-contract_status.name AS contract_status_name,
-CONCAT( users.lastname, ' ', substr(users.firstname, 1, 1), '. ', substr(users.middlename, 1, 1), '.' ) AS expert_FIO
-FROM
-contracts
-LEFT OUTER JOIN agents ON contracts.agents_id = agents.id
-LEFT OUTER JOIN products ON contracts.products_id = products.id
-LEFT OUTER JOIN agent_types ON agents.agent_types_id = agent_types.id
-LEFT OUTER JOIN contract_types ON contracts.contract_types_id = contract_types.id
-LEFT OUTER JOIN contract_status ON contracts.contract_status_id = contract_status.id
-LEFT OUTER JOIN users ON contracts.experts_id = users.id
-WHERE
-(contracts.contract_status_id = 3)";
+            this._commandCollection[0].CommandText = "SELECT\r\ncontracts.id,\r\ncontracts.products_id,\r\ncontracts.agents_id,\r\ncontracts.co" +
+                "ntract_types_id,\r\ncontracts.contract_status_id,\r\ncontracts.experts_id,\r\ncontract" +
+                "s.source_types_id,\r\ncontracts.date_proposal,\r\ncontracts.experts_id,\r\ncontracts.n" +
+                "umber,\r\ncontracts.date_contract,\r\ncontracts.date_start,\r\ncontracts.date_end,\r\nco" +
+                "ntracts.date_sample_income,\r\ncontracts.date_protocol_income,\r\ncontracts.cost,\r\nc" +
+                "ontracts.total_cost,\r\nproducts.id AS pkproducts_id,\r\nproducts.name AS products_n" +
+                "ame,\r\nagents.id AS pkagents_id,\r\nagents.name AS agents_name,\r\nagent_types.id AS " +
+                "pkagent_types_id,\r\nagent_types.name AS agent_types_name,\r\nCONCAT( agent_types.na" +
+                "me, \' \', agents.name ) AS agents_fullname,\r\ncontract_types.id AS pkcontract_type" +
+                "s_id,\r\ncontract_types.name AS contract_types_name,\r\ncontract_status.id AS pkcont" +
+                "ract_status_id,\r\ncontract_status.name AS contract_status_name,\r\nCONCAT( users.la" +
+                "stname, \' \', substr(users.firstname, 1, 1), \'. \', substr(users.middlename, 1, 1)" +
+                ", \'.\' ) AS expert_FIO\r\nFROM\r\ncontracts\r\nLEFT OUTER JOIN agents ON contracts.agen" +
+                "ts_id = agents.id\r\nLEFT OUTER JOIN products ON contracts.products_id = products." +
+                "id\r\nLEFT OUTER JOIN agent_types ON agents.agent_types_id = agent_types.id\r\nLEFT " +
+                "OUTER JOIN contract_types ON contracts.contract_types_id = contract_types.id\r\nLE" +
+                "FT OUTER JOIN contract_status ON contracts.contract_status_id = contract_status." +
+                "id\r\nLEFT OUTER JOIN users ON contracts.experts_id = users.id\r\nWHERE\r\n(contracts." +
+                "contract_status_id = 3)\r\nAND\r\n    (\r\n        (@dont_filter)\r\n        OR\r\n       " +
+                " (contracts.experts_id = @expert_id)\r\n    )";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@dont_filter";
+            param.DbType = global::System.Data.DbType.Boolean;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.UByte;
+            param.IsNullable = true;
+            param.SourceColumn = "source_types_id";
+            this._commandCollection[0].Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@expert_id";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "experts_id";
+            this._commandCollection[0].Parameters.Add(param);
             this._commandCollection[1] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[1].Connection = this.Connection;
             this._commandCollection[1].CommandText = "UPDATE\r\ncontracts\r\nSET\r\ncontract_status_id = @contract_status_id\r\nWHERE\r\n(id = @o" +
                 "riginal_id)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
-            global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@contract_status_id";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
@@ -45439,8 +45433,10 @@ WHERE
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(EdocbaseDataSet.ContractPrepareForWorkDataTable dataTable) {
+        public virtual int Fill(EdocbaseDataSet.ContractPrepareForWorkDataTable dataTable, bool dont_filter, int expert_id) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((bool)(dont_filter));
+            this.Adapter.SelectCommand.Parameters[1].Value = ((int)(expert_id));
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
             }
@@ -45452,8 +45448,10 @@ WHERE
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual EdocbaseDataSet.ContractPrepareForWorkDataTable GetData() {
+        public virtual EdocbaseDataSet.ContractPrepareForWorkDataTable GetData(bool dont_filter, int expert_id) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((bool)(dont_filter));
+            this.Adapter.SelectCommand.Parameters[1].Value = ((int)(expert_id));
             EdocbaseDataSet.ContractPrepareForWorkDataTable dataTable = new EdocbaseDataSet.ContractPrepareForWorkDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -46362,14 +46360,29 @@ WHERE
                 "t_types ON contracts.contract_types_id = contract_types.id\r\nLEFT OUTER JOIN cont" +
                 "ract_status ON contracts.contract_status_id = contract_status.id\r\nLEFT OUTER JOI" +
                 "N users ON contracts.experts_id = users.id\r\nWHERE\r\n(contracts.contract_status_id" +
-                " = 4)";
+                " = 4)\r\nAND\r\n    (\r\n        (@dont_filter)\r\n        OR\r\n        (contracts.expert" +
+                "s_id = @expert_id)\r\n)\r\n";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@dont_filter";
+            param.DbType = global::System.Data.DbType.Boolean;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.UByte;
+            param.IsNullable = true;
+            param.SourceColumn = "source_types_id";
+            this._commandCollection[0].Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@expert_id";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "experts_id";
+            this._commandCollection[0].Parameters.Add(param);
             this._commandCollection[1] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[1].Connection = this.Connection;
             this._commandCollection[1].CommandText = "UPDATE\r\ncontracts\r\nSET\r\ncontract_status_id = @contract_status_id\r\nWHERE\r\n(id = @o" +
                 "riginal_id)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
-            global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@contract_status_id";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
@@ -46390,8 +46403,10 @@ WHERE
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(EdocbaseDataSet.ContractInWorkDataTable dataTable) {
+        public virtual int Fill(EdocbaseDataSet.ContractInWorkDataTable dataTable, bool dont_filter, int expert_id) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((bool)(dont_filter));
+            this.Adapter.SelectCommand.Parameters[1].Value = ((int)(expert_id));
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
             }
@@ -46403,8 +46418,10 @@ WHERE
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual EdocbaseDataSet.ContractInWorkDataTable GetData() {
+        public virtual EdocbaseDataSet.ContractInWorkDataTable GetData(bool dont_filter, int expert_id) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((bool)(dont_filter));
+            this.Adapter.SelectCommand.Parameters[1].Value = ((int)(expert_id));
             EdocbaseDataSet.ContractInWorkDataTable dataTable = new EdocbaseDataSet.ContractInWorkDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;

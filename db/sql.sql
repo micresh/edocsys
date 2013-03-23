@@ -393,6 +393,13 @@ LEFT OUTER JOIN contract_status ON contracts.contract_status_id = contract_statu
 LEFT OUTER JOIN users ON contracts.experts_id = users.id
 WHERE
 (contracts.contract_status_id = 3)
+AND
+    (
+        -- (contracts.source_types_id = @dont_filter)
+        (@dont_filter)
+        OR
+        (contracts.experts_id = @expert_id)
+    )
 
 
 UPDATE
@@ -461,7 +468,13 @@ LEFT OUTER JOIN contract_status ON contracts.contract_status_id = contract_statu
 LEFT OUTER JOIN users ON contracts.experts_id = users.id
 WHERE
 (contracts.contract_status_id = 4)
-
+AND
+    (
+        -- (contracts.source_types_id = @dont_filter)
+        (@dont_filter)
+        OR
+        (contracts.experts_id = @expert_id)
+    )
 
 
 -- WorkDone

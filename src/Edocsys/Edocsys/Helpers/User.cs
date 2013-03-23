@@ -113,7 +113,7 @@ namespace Edocsys
 
         private Dictionary<string, UserTypeAccess> AccessItems = new Dictionary<string, UserTypeAccess>()
             {
-                //TOP
+                //TOP                                          DEFLT  ADM  DIRCT EXPERT
                 {"FileMenu",                new UserTypeAccess(true,  true, true, true)},
                 {"WorkMenu",                new UserTypeAccess(false, true, true, true)},
                 {"AdminMenu",               new UserTypeAccess(false, true, true, false)},
@@ -131,7 +131,7 @@ namespace Edocsys
                 {"Agents",              new UserTypeAccess(false, true, true, true)},
                 {"Proposals",           new UserTypeAccess(false, true, true, true)},
                 {"AssignExpert",        new UserTypeAccess(false, true, true, false)},
-                {"Contracts",           new UserTypeAccess(false, true, true, true)},
+                {"Contracts",           new UserTypeAccess(false, true, true, false)},
                 {"WorkForContracts",    new UserTypeAccess(false, true, true, true)},
                 {"ContractPayments",    new UserTypeAccess(false, true, true, false)},
                 {"InspectionControl",   new UserTypeAccess(false, true, true, true)},
