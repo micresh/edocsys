@@ -30,18 +30,17 @@ namespace Edocsys
         {
             if (ConnectionManager.CurrentUser.UserID > 0)
             {
-                EnableActionButtons(true);
-
+                ActionButtonsSetPermission();
                 HideLoginButtons();
             }
             else
             {
-                EnableActionButtons(false);
+                ActionButtonsSetPermission();
                 ShowLoginButtons();
             }
         }
 
-        private void EnableActionButtons(bool isEnabled)
+        private void ActionButtonsSetPermission()
         {
             foreach (ToolStripItem item in mainToolStrip.Items)
             {
@@ -60,7 +59,6 @@ namespace Edocsys
                        item.Enabled = ConnectionManager.CurrentUser.HasAccess(item.Name.Substring(3));
                 }
             }
-
         }
 
         private void ExitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -110,7 +108,7 @@ namespace Edocsys
 
             //success users get
             TSBFillUsers.Visible = false;
-            EnableActionButtons(false);
+            ActionButtonsSetPermission();
 
             ShowLoginButtons();
         }
@@ -171,14 +169,6 @@ namespace Edocsys
             TraceHelper.LogInfo("------------------------- END PROGRAM");
             //save debug information
             TraceHelper.Flush();
-        }
-
-        private void usersBindingNavigatorSaveItem_Click(object sender, EventArgs e)
-        {
-            this.Validate();
-            this.usersBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.edocbaseDataSet);
-
         }
 
         private void fillUsersToolStripButton_Click(object sender, EventArgs e)
@@ -265,7 +255,7 @@ namespace Edocsys
 
             wmgr.CloseAllOpendWindows();
 
-            EnableActionButtons(false);
+            ActionButtonsSetPermission();
             ShowLoginButtons();
         }
 
