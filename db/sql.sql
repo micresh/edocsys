@@ -703,6 +703,9 @@ agents.name AS agents_name,
 agent_types.id AS pkagent_types_id,
 agent_types.name AS agent_types_name,
 CONCAT( agent_types.name, ' ', agents.name ) AS agents_fullname,
+agents.phone AS agent_types_phone,
+agents.fax AS agent_types_fax,
+agents.email AS agent_types_email,
 contract_types.id AS pkcontract_types_id,
 contract_types.name AS contract_types_name,
 contract_status.id AS pkcontract_status_id,
@@ -718,6 +721,24 @@ LEFT OUTER JOIN contract_status ON contracts.contract_status_id = contract_statu
 LEFT OUTER JOIN users ON contracts.experts_id = users.id
 WHERE
 (contracts.contract_status_id = 9)
+
+
+-- !-----------------------------------------------------------
+
+
+-- AgentsContactsForFinishedContracts
+SELECT
+agents_contacts.id,
+agents_contacts.person,
+agents_contacts.phone,
+agents_contacts.status,
+agents_contacts.fax,
+agents_contacts.email
+FROM
+agents_contacts
+INNER JOIN agents ON agents_contacts.agents_id = agents.id
+INNER JOIN contracts ON agents.id = contracts.agents_id
+WHERE contracts.id = @contracts_id
 
 
 -- !-----------------------------------------------------------

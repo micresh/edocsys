@@ -27,6 +27,8 @@ namespace Edocsys
             this.badContractsTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
             this.finishedContractsTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
             this.currentContractsTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
+            this.agentsContactsForFinishedContractsTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
+            
 
             RefreshDatabase();
 
@@ -83,12 +85,33 @@ namespace Edocsys
                 badContractsBindingSource.Position = pos;
 
                 this.badContractsDataTableDataGridView.Refresh();
+
+                RefreshFinishedContractsAgentsContacts();
             }
             catch (Exception ex)
             {
                 string msg = ex.Message;
                 string title = "Refresh ERROR";
                 string type = "Refresh ERROR RefreshBadContracts";
+                TraceHelper.LogError(type, ex, this);
+                MessageBox.Show(msg, title);
+            }
+        }
+
+
+        private void RefreshFinishedContractsAgentsContacts()
+        {
+            try
+            {
+                int id = GetCurrentFinishedContractID(finishedContractsBindingSource);
+                this.agentsContactsForFinishedContractsTableAdapter.Fill(this.edocbaseDataSet.AgentsContactsForFinishedContracts, id);
+                this.agents_contactsDataGridView.Refresh();
+            }
+            catch (Exception ex)
+            {
+                string msg = ex.Message;
+                string title = "Refresh ERROR";
+                string type = "Refresh ERROR RefreshFinishedContractsAgentsContacts";
                 TraceHelper.LogError(type, ex, this);
                 MessageBox.Show(msg, title);
             }
@@ -371,6 +394,37 @@ namespace Edocsys
 
                 DataGridViewHelper.HighlightStandartStats(s, e.RowIndex);
             }
+        }
+
+        private void finishedContractsBindingSource_CurrentChanged(object sender, EventArgs e)
+        {
+            if ((finishedContractsBindingSource.Position >= 0)
+                && (edocbaseDataSet.FinishedContracts.DefaultView.Count > finishedContractsBindingSource.Position))
+            {
+                DataRow currentRow = edocbaseDataSet.FinishedContracts.DefaultView[finishedContractsBindingSource.Position].Row;
+                if (currentRow.RowState != DataRowState.Deleted)
+                {
+                    string agent = String.Format("Контрагент: {0}", Convert.ToString(currentRow["agents_name"]));
+
+                    toolStripLabelAgent.Text = agent;
+
+                    RefreshFinishedContractsAgentsContacts();
+                }
+            }
+        }
+
+        private int GetCurrentFinishedContractID(BindingSource bindingSource)
+        {
+            if ((bindingSource.Position >= 0)
+                && (edocbaseDataSet.FinishedContracts.DefaultView.Count > bindingSource.Position))
+            {
+                DataRow currentRow = edocbaseDataSet.FinishedContracts.DefaultView[bindingSource.Position].Row;
+                if (currentRow.RowState != DataRowState.Deleted)
+                {
+                   return Convert.ToInt32(currentRow["id"]);
+                }
+            }
+            return 0;
         }
     }
 }
