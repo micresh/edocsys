@@ -70,6 +70,7 @@
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.TSBContractStats = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.TSBLogout = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.TSBLogin = new System.Windows.Forms.ToolStripButton();
             this.TMCUsersCBox = new System.Windows.Forms.ToolStripComboBox();
@@ -80,7 +81,6 @@
             this.edocbaseDataSet = new Edocsys.EdocbaseDataSet();
             this.usersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tableAdapterManager = new Edocsys.EdocbaseDataSetTableAdapters.TableAdapterManager();
-            this.TSBLogout = new System.Windows.Forms.ToolStripButton();
             this.mainMenuStrip.SuspendLayout();
             this.mainToolStrip.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -422,6 +422,18 @@
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(6, 57);
             // 
+            // TSBLogout
+            // 
+            this.TSBLogout.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.TSBLogout.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.TSBLogout.Image = ((System.Drawing.Image)(resources.GetObject("TSBLogout.Image")));
+            this.TSBLogout.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.TSBLogout.Name = "TSBLogout";
+            this.TSBLogout.Size = new System.Drawing.Size(54, 54);
+            this.TSBLogout.Text = "Завершить сеанс";
+            this.TSBLogout.ToolTipText = "Завершить сеанс";
+            this.TSBLogout.Click += new System.EventHandler(this.logoutToolStripMenuItem_Click);
+            // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
@@ -516,17 +528,6 @@
             this.tableAdapterManager.UpdateOrder = Edocsys.EdocbaseDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             this.tableAdapterManager.user_typesTableAdapter = null;
             this.tableAdapterManager.usersTableAdapter = this.usersTableAdapter;
-            // 
-            // TSBLogout
-            // 
-            this.TSBLogout.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.TSBLogout.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.TSBLogout.Image = ((System.Drawing.Image)(resources.GetObject("TSBLogout.Image")));
-            this.TSBLogout.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.TSBLogout.Name = "TSBLogout";
-            this.TSBLogout.Size = new System.Drawing.Size(54, 54);
-            this.TSBLogout.Text = "toolStripButton1";
-            this.TSBLogout.Click += new System.EventHandler(this.logoutToolStripMenuItem_Click);
             // 
             // MainForm
             // 

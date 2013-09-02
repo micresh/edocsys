@@ -90,7 +90,7 @@ namespace Edocsys
         {
             TraceHelper.LogInfo("------------------------- STRAT PROGRAM");
 
-            wmgr.CloseAllOpendWindows();
+            //wmgr.CloseAllOpendWindows();
             ActionButtonsSetPermission();
 
             this.usersTableAdapter.Connection.ConnectionString = ConnectionManager.TestConnectionString;
