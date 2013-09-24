@@ -340,7 +340,29 @@ namespace Edocsys
             RefreshData();
         }
 
-        private void buttonFillConditions_Click(object sender, EventArgs e)
+        private void bindingNavigatorDeleteItem_Click(object sender, EventArgs e)
+        {
+            if ((contractInfoDataTableBindingSource.Position < 0) ||
+                (contractInfoDataTableBindingSource.Position >= contractInfoDataTableBindingSource.Count))
+            {
+                return;
+            }
+
+            int id = DocGeneratorHelper.GetContractID(contractInfoDataTableBindingSource);
+
+            if (MessageBox.Show("Удалить заявку #" + id, "Подтвердить удаление заявки", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                this.documentsTableAdapter.RemoveDocumentByContractID(id);
+                this.edocbaseDataSet.AcceptChanges();
+
+                contractInfoDataTableBindingSource.RemoveCurrent();
+                SaveProposal();
+            }
+
+            RefreshData();
+        }
+
+        private void gostsListLabel_DoubleClick(object sender, EventArgs e)
         {
             if ((contractInfoDataTableBindingSource.Position < 0) ||
                 (contractInfoDataTableBindingSource.Position >= contractInfoDataTableBindingSource.Count))
@@ -391,28 +413,6 @@ namespace Edocsys
             }
 
             contractInfoDataTableBindingSource.Position = pos;
-        }
-
-        private void bindingNavigatorDeleteItem_Click(object sender, EventArgs e)
-        {
-            if ((contractInfoDataTableBindingSource.Position < 0) ||
-                (contractInfoDataTableBindingSource.Position >= contractInfoDataTableBindingSource.Count))
-            {
-                return;
-            }
-
-            int id = DocGeneratorHelper.GetContractID(contractInfoDataTableBindingSource);
-
-            if (MessageBox.Show("Удалить заявку #" + id, "Подтвердить удаление заявки", MessageBoxButtons.YesNo) == DialogResult.Yes)
-            {
-                this.documentsTableAdapter.RemoveDocumentByContractID(id);
-                this.edocbaseDataSet.AcceptChanges();
-
-                contractInfoDataTableBindingSource.RemoveCurrent();
-                SaveProposal();
-            }
-
-            RefreshData();
         }
     }
 }
