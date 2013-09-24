@@ -69,6 +69,7 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.filterToolStripTextBox = new System.Windows.Forms.ToolStripTextBox();
+            this.toolStripButtonCreateNewContract = new System.Windows.Forms.ToolStripButton();
             this.tableAdapterManager = new Edocsys.EdocbaseDataSetTableAdapters.TableAdapterManager();
             this.agentsTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.agentsTableAdapter();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
@@ -122,6 +123,7 @@
             this.emailTextBox = new System.Windows.Forms.TextBox();
             this.agent_typesTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.agent_typesTableAdapter();
             this.agents_contactsTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.agents_contactsTableAdapter();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             ag_type_idLabel = new System.Windows.Forms.Label();
             ag_INNLabel = new System.Windows.Forms.Label();
             ag_fullnameLabel = new System.Windows.Forms.Label();
@@ -389,6 +391,8 @@
             this.bindingNavigatorDeleteItem,
             this.agentsBindingNavigatorSaveItem,
             this.toolStripSeparator1,
+            this.toolStripButtonCreateNewContract,
+            this.toolStripSeparator2,
             this.toolStripLabel1,
             this.filterToolStripTextBox});
             this.agentsBindingNavigator.Location = new System.Drawing.Point(0, 0);
@@ -524,6 +528,16 @@
             this.filterToolStripTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.filterToolStripTextBox.Name = "filterToolStripTextBox";
             this.filterToolStripTextBox.Size = new System.Drawing.Size(200, 25);
+            // 
+            // toolStripButtonCreateNewContract
+            // 
+            this.toolStripButtonCreateNewContract.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonCreateNewContract.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonCreateNewContract.Image")));
+            this.toolStripButtonCreateNewContract.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonCreateNewContract.Name = "toolStripButtonCreateNewContract";
+            this.toolStripButtonCreateNewContract.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonCreateNewContract.Text = "Заключть новый договор";
+            this.toolStripButtonCreateNewContract.Click += new System.EventHandler(this.toolStripButtonCreateNewContract_Click);
             // 
             // tableAdapterManager
             // 
@@ -1067,6 +1081,11 @@
             // 
             this.agents_contactsTableAdapter.ClearBeforeFill = true;
             // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
+            // 
             // ClientsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1182,6 +1201,8 @@
         private System.Windows.Forms.ToolStripLabel toolStripLabelAgent;
         private System.Windows.Forms.ToolStripButton toolStripButtonSaveContact;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.ToolStripButton toolStripButtonCreateNewContract;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
 
         //private EdocbaseDataSetTableAdapters.Agents_typesTableAdapter agents_typesTableAdapter;
         //private EdocbaseDataSetTableAdapters.AgentsTableAdapter agentsTableAdapter;

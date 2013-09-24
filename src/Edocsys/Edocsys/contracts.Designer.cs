@@ -214,16 +214,18 @@
             // costLabel
             // 
             costLabel.AutoSize = true;
-            costLabel.Location = new System.Drawing.Point(14, 100);
+            costLabel.Enabled = false;
+            costLabel.Location = new System.Drawing.Point(467, 45);
             costLabel.Name = "costLabel";
             costLabel.Size = new System.Drawing.Size(41, 13);
             costLabel.TabIndex = 31;
             costLabel.Text = "Сумма";
+            costLabel.Visible = false;
             // 
             // total_costLabel
             // 
             total_costLabel.AutoSize = true;
-            total_costLabel.Location = new System.Drawing.Point(14, 125);
+            total_costLabel.Location = new System.Drawing.Point(14, 67);
             total_costLabel.Name = "total_costLabel";
             total_costLabel.Size = new System.Drawing.Size(78, 13);
             total_costLabel.TabIndex = 32;
@@ -232,11 +234,13 @@
             // prepaymentLabel
             // 
             prepaymentLabel.AutoSize = true;
-            prepaymentLabel.Location = new System.Drawing.Point(14, 73);
+            prepaymentLabel.Enabled = false;
+            prepaymentLabel.Location = new System.Drawing.Point(467, 18);
             prepaymentLabel.Name = "prepaymentLabel";
             prepaymentLabel.Size = new System.Drawing.Size(38, 13);
             prepaymentLabel.TabIndex = 33;
             prepaymentLabel.Text = "Аванс";
+            prepaymentLabel.Visible = false;
             // 
             // tabControl
             // 
@@ -428,15 +432,17 @@
             // prepaymentTextBox
             // 
             this.prepaymentTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.contractSigningBindingSource, "prepayment", true));
-            this.prepaymentTextBox.Location = new System.Drawing.Point(184, 70);
+            this.prepaymentTextBox.Enabled = false;
+            this.prepaymentTextBox.Location = new System.Drawing.Point(637, 15);
             this.prepaymentTextBox.Name = "prepaymentTextBox";
             this.prepaymentTextBox.Size = new System.Drawing.Size(100, 20);
             this.prepaymentTextBox.TabIndex = 34;
+            this.prepaymentTextBox.Visible = false;
             // 
             // total_costTextBox
             // 
             this.total_costTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.contractSigningBindingSource, "total_cost", true));
-            this.total_costTextBox.Location = new System.Drawing.Point(184, 122);
+            this.total_costTextBox.Location = new System.Drawing.Point(184, 64);
             this.total_costTextBox.Name = "total_costTextBox";
             this.total_costTextBox.Size = new System.Drawing.Size(100, 20);
             this.total_costTextBox.TabIndex = 33;
@@ -444,10 +450,12 @@
             // costTextBox
             // 
             this.costTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.contractSigningBindingSource, "cost", true));
-            this.costTextBox.Location = new System.Drawing.Point(184, 96);
+            this.costTextBox.Enabled = false;
+            this.costTextBox.Location = new System.Drawing.Point(637, 41);
             this.costTextBox.Name = "costTextBox";
             this.costTextBox.Size = new System.Drawing.Size(100, 20);
             this.costTextBox.TabIndex = 32;
+            this.costTextBox.Visible = false;
             // 
             // date_contractDateTimePicker
             // 

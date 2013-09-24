@@ -55,6 +55,8 @@
             this.TSMProduction = new System.Windows.Forms.ToolStripMenuItem();
             this.WindowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TSMHelp = new System.Windows.Forms.ToolStripMenuItem();
+            this.TSMAbout = new System.Windows.Forms.ToolStripMenuItem();
+            this.TSMScheme = new System.Windows.Forms.ToolStripMenuItem();
             this.mainToolStrip = new System.Windows.Forms.ToolStrip();
             this.TSBAgents = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
@@ -70,6 +72,7 @@
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.TSBContractStats = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.TSBLogout = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.TSBLogin = new System.Windows.Forms.ToolStripButton();
             this.TMCUsersCBox = new System.Windows.Forms.ToolStripComboBox();
@@ -80,7 +83,6 @@
             this.edocbaseDataSet = new Edocsys.EdocbaseDataSet();
             this.usersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tableAdapterManager = new Edocsys.EdocbaseDataSetTableAdapters.TableAdapterManager();
-            this.TSBLogout = new System.Windows.Forms.ToolStripButton();
             this.mainMenuStrip.SuspendLayout();
             this.mainToolStrip.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -278,10 +280,26 @@
             // 
             // TSMHelp
             // 
+            this.TSMHelp.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.TSMAbout,
+            this.TSMScheme});
             this.TSMHelp.Name = "TSMHelp";
             this.TSMHelp.Size = new System.Drawing.Size(68, 20);
             this.TSMHelp.Text = global::Edocsys.Properties.Settings.Default.HelpToolStripMenuItemText;
-            this.TSMHelp.Click += new System.EventHandler(this.HelpToolStripMenuItem_Click);
+            // 
+            // TSMAbout
+            // 
+            this.TSMAbout.Name = "TSMAbout";
+            this.TSMAbout.Size = new System.Drawing.Size(152, 22);
+            this.TSMAbout.Text = "О программе";
+            this.TSMAbout.Click += new System.EventHandler(this.TSMIAbout_Click);
+            // 
+            // TSMScheme
+            // 
+            this.TSMScheme.Name = "TSMScheme";
+            this.TSMScheme.Size = new System.Drawing.Size(152, 22);
+            this.TSMScheme.Text = "Схема работы";
+            this.TSMScheme.Click += new System.EventHandler(this.TSMIScheme_Click);
             // 
             // mainToolStrip
             // 
@@ -422,6 +440,18 @@
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(6, 57);
             // 
+            // TSBLogout
+            // 
+            this.TSBLogout.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.TSBLogout.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.TSBLogout.Image = ((System.Drawing.Image)(resources.GetObject("TSBLogout.Image")));
+            this.TSBLogout.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.TSBLogout.Name = "TSBLogout";
+            this.TSBLogout.Size = new System.Drawing.Size(54, 54);
+            this.TSBLogout.Text = "Завершить сеанс";
+            this.TSBLogout.ToolTipText = "Завершить сеанс";
+            this.TSBLogout.Click += new System.EventHandler(this.logoutToolStripMenuItem_Click);
+            // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
@@ -517,17 +547,6 @@
             this.tableAdapterManager.user_typesTableAdapter = null;
             this.tableAdapterManager.usersTableAdapter = this.usersTableAdapter;
             // 
-            // TSBLogout
-            // 
-            this.TSBLogout.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.TSBLogout.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.TSBLogout.Image = ((System.Drawing.Image)(resources.GetObject("TSBLogout.Image")));
-            this.TSBLogout.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.TSBLogout.Name = "TSBLogout";
-            this.TSBLogout.Size = new System.Drawing.Size(54, 54);
-            this.TSBLogout.Text = "toolStripButton1";
-            this.TSBLogout.Click += new System.EventHandler(this.logoutToolStripMenuItem_Click);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -611,6 +630,8 @@
         private System.Windows.Forms.ToolStripButton TSBAssignExpert;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
         private System.Windows.Forms.ToolStripButton TSBLogout;
+        private System.Windows.Forms.ToolStripMenuItem TSMAbout;
+        private System.Windows.Forms.ToolStripMenuItem TSMScheme;
     }
 }
 

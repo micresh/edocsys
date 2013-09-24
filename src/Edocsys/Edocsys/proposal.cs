@@ -69,9 +69,9 @@ namespace Edocsys
 
                 this.contractInfoTableAdapter.Fill(this.edocbaseDataSet.ContractInfoDataTable);
 
-                this.proposalsDataGridView.Refresh();
-
                 contractInfoDataTableBindingSource.Position = pos;
+
+                this.proposalsDataGridView.Refresh();
             }   
             catch (Exception ex)
             {
@@ -323,6 +323,32 @@ namespace Edocsys
             this.contractInfoDataTableBindingSource.AddNew();
 
             DataRowView currentRow = (DataRowView)this.contractInfoDataTableBindingSource.Current;
+
+            AddNewProposal(currentRow);
+        }
+
+        public void AddNewProposalWithAgent(int agents_id)
+        {
+            this.contractInfoDataTableBindingSource.AddNew();
+
+            DataRowView currentRow = (DataRowView)this.contractInfoDataTableBindingSource.Current;
+
+            AddNewProposal(currentRow);
+
+            currentRow["agents_id"] = agents_id;
+
+            //first avauil product
+            DataRowView productRow = (DataRowView)this.productsBindingSource.Current;
+
+            currentRow["products_id"] = productRow["id"];
+
+            SaveProposal();
+            RefreshData();
+        }
+
+
+        private void AddNewProposal(DataRowView currentRow)
+        {
             currentRow["contract_status_id"] = (int)Constants.ContractStatuses.NewProposal;
             currentRow["experts_id"] = 1;     //assign all to admin?????
             currentRow["contract_types_id"] = (int)Constants.ContractTypes.Sertefication;
@@ -340,7 +366,29 @@ namespace Edocsys
             RefreshData();
         }
 
-        private void buttonFillConditions_Click(object sender, EventArgs e)
+        private void bindingNavigatorDeleteItem_Click(object sender, EventArgs e)
+        {
+            if ((contractInfoDataTableBindingSource.Position < 0) ||
+                (contractInfoDataTableBindingSource.Position >= contractInfoDataTableBindingSource.Count))
+            {
+                return;
+            }
+
+            int id = DocGeneratorHelper.GetContractID(contractInfoDataTableBindingSource);
+
+            if (MessageBox.Show("Удалить заявку #" + id, "Подтвердить удаление заявки", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                this.documentsTableAdapter.RemoveDocumentByContractID(id);
+                this.edocbaseDataSet.AcceptChanges();
+
+                contractInfoDataTableBindingSource.RemoveCurrent();
+                SaveProposal();
+            }
+
+            RefreshData();
+        }
+
+        private void gostsListLabel_DoubleClick(object sender, EventArgs e)
         {
             if ((contractInfoDataTableBindingSource.Position < 0) ||
                 (contractInfoDataTableBindingSource.Position >= contractInfoDataTableBindingSource.Count))
@@ -391,28 +439,6 @@ namespace Edocsys
             }
 
             contractInfoDataTableBindingSource.Position = pos;
-        }
-
-        private void bindingNavigatorDeleteItem_Click(object sender, EventArgs e)
-        {
-            if ((contractInfoDataTableBindingSource.Position < 0) ||
-                (contractInfoDataTableBindingSource.Position >= contractInfoDataTableBindingSource.Count))
-            {
-                return;
-            }
-
-            int id = DocGeneratorHelper.GetContractID(contractInfoDataTableBindingSource);
-
-            if (MessageBox.Show("Удалить заявку #" + id, "Подтвердить удаление заявки", MessageBoxButtons.YesNo) == DialogResult.Yes)
-            {
-                this.documentsTableAdapter.RemoveDocumentByContractID(id);
-                this.edocbaseDataSet.AcceptChanges();
-
-                contractInfoDataTableBindingSource.RemoveCurrent();
-                SaveProposal();
-            }
-
-            RefreshData();
         }
     }
 }

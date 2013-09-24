@@ -90,7 +90,7 @@ namespace Edocsys
         {
             TraceHelper.LogInfo("------------------------- STRAT PROGRAM");
 
-            wmgr.CloseAllOpendWindows();
+            //wmgr.CloseAllOpendWindows();
             ActionButtonsSetPermission();
 
             this.usersTableAdapter.Connection.ConnectionString = ConnectionManager.TestConnectionString;
@@ -263,9 +263,14 @@ namespace Edocsys
             ShowLoginButtons();
         }
 
-        private void HelpToolStripMenuItem_Click(object sender, EventArgs e)
+        private void TSMIScheme_Click(object sender, EventArgs e)
         {
             wmgr.ShowHelpForm();
+        }
+
+        private void TSMIAbout_Click(object sender, EventArgs e)
+        {
+            wmgr.ShowAboutForm();
         }
     }
 }
