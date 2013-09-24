@@ -60,10 +60,10 @@
       <Value Profile="(Default)">Заявки</Value>
     </Setting>
     <Setting Name="ConnHost" Type="System.String" Scope="User">
-      <Value Profile="(Default)">192.168.137.85</Value>
+      <Value Profile="(Default)">localhost</Value>
     </Setting>
     <Setting Name="ConnPort" Type="System.String" Scope="User">
-      <Value Profile="(Default)">3306</Value>
+      <Value Profile="(Default)">3309</Value>
     </Setting>
     <Setting Name="ConnDatabase" Type="System.String" Scope="User">
       <Value Profile="(Default)">edocbase</Value>
@@ -338,10 +338,10 @@
     <Setting Name="EdocbaseConnectionString" Type="(Connection string)" Scope="Application">
       <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
 &lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;ConnectionString&gt;server=192.168.137.85;User Id=root;password=po12jein45bf;Persist Security Info=True;database=edocbase&lt;/ConnectionString&gt;
+  &lt;ConnectionString&gt;server=localhost;Port=3309;User Id=root;password=po12jein45bf;Persist Security Info=True;database=edocbase&lt;/ConnectionString&gt;
   &lt;ProviderName&gt;MySql.Data.MySqlClient&lt;/ProviderName&gt;
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
-      <Value Profile="(Default)">server=192.168.137.85;User Id=root;password=po12jein45bf;Persist Security Info=True;database=edocbase</Value>
+      <Value Profile="(Default)">server=localhost;Port=3309;User Id=root;password=po12jein45bf;Persist Security Info=True;database=edocbase</Value>
     </Setting>
     <Setting Name="WorksForContractTitle" Type="System.String" Scope="User">
       <Value Profile="(Default)">Работы по договору</Value>
