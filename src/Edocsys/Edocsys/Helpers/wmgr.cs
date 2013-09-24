@@ -173,5 +173,12 @@ namespace Edocsys
         {
             ShowForm<ContractPaymentsForm>();
         }
+
+        public static void ShowAboutForm()
+        {
+            AboutForm f = new AboutForm();
+
+            f.ShowDialog();
+        }
     }
 }

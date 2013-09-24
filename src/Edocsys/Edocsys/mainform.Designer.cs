@@ -55,6 +55,8 @@
             this.TSMProduction = new System.Windows.Forms.ToolStripMenuItem();
             this.WindowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TSMHelp = new System.Windows.Forms.ToolStripMenuItem();
+            this.TSMAbout = new System.Windows.Forms.ToolStripMenuItem();
+            this.TSMScheme = new System.Windows.Forms.ToolStripMenuItem();
             this.mainToolStrip = new System.Windows.Forms.ToolStrip();
             this.TSBAgents = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
@@ -278,10 +280,26 @@
             // 
             // TSMHelp
             // 
+            this.TSMHelp.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.TSMAbout,
+            this.TSMScheme});
             this.TSMHelp.Name = "TSMHelp";
             this.TSMHelp.Size = new System.Drawing.Size(68, 20);
             this.TSMHelp.Text = global::Edocsys.Properties.Settings.Default.HelpToolStripMenuItemText;
-            this.TSMHelp.Click += new System.EventHandler(this.HelpToolStripMenuItem_Click);
+            // 
+            // TSMAbout
+            // 
+            this.TSMAbout.Name = "TSMAbout";
+            this.TSMAbout.Size = new System.Drawing.Size(152, 22);
+            this.TSMAbout.Text = "О программе";
+            this.TSMAbout.Click += new System.EventHandler(this.TSMIAbout_Click);
+            // 
+            // TSMScheme
+            // 
+            this.TSMScheme.Name = "TSMScheme";
+            this.TSMScheme.Size = new System.Drawing.Size(152, 22);
+            this.TSMScheme.Text = "Схема работы";
+            this.TSMScheme.Click += new System.EventHandler(this.TSMIScheme_Click);
             // 
             // mainToolStrip
             // 
@@ -612,6 +630,8 @@
         private System.Windows.Forms.ToolStripButton TSBAssignExpert;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
         private System.Windows.Forms.ToolStripButton TSBLogout;
+        private System.Windows.Forms.ToolStripMenuItem TSMAbout;
+        private System.Windows.Forms.ToolStripMenuItem TSMScheme;
     }
 }
 

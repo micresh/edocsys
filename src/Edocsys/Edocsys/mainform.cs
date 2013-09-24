@@ -263,9 +263,14 @@ namespace Edocsys
             ShowLoginButtons();
         }
 
-        private void HelpToolStripMenuItem_Click(object sender, EventArgs e)
+        private void TSMIScheme_Click(object sender, EventArgs e)
         {
             wmgr.ShowHelpForm();
+        }
+
+        private void TSMIAbout_Click(object sender, EventArgs e)
+        {
+            wmgr.ShowAboutForm();
         }
     }
 }

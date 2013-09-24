@@ -156,6 +156,10 @@ namespace Edocsys
                 //Toolstrip
                 {"FillUsers",           new UserTypeAccess(true, true, true, true)},
                 {"UsersCBox",           new UserTypeAccess(true, true, true, true)},
+
+                //Help
+                {"About",               new UserTypeAccess(true,  true, true, true)},
+                {"Scheme",              new UserTypeAccess(true,  true, true, true)},
             };
     }
 }

@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Edocsys")]
 [assembly: AssemblyProduct("Edocsys")]
-[assembly: AssemblyCopyright("Copyright © Edocsys 2012")]
+[assembly: AssemblyCopyright("Copyright © Edocsys 2012-2013")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
