@@ -1,7 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Reflection;
-using System.Text;
+using System.Deployment.Application;
 
 namespace Edocsys.Helpers
 {
@@ -23,12 +22,26 @@ namespace Edocsys.Helpers
         {
             get
             {
-                var asm = Assembly.GetExecutingAssembly();
-                //if you want the full four-part version number:
-                return asm.GetName().Version.ToString(4);
-                //You can reference asm.GetName().Version to get Major, Minor, MajorRevision, MinorRevision
-                //components individually and do with them as you please.
+                Version myVersion = Assembly.GetExecutingAssembly().GetName().Version;
+                return string.Format("Application version: v{0}.{1}.{2}.{3}", myVersion.Major, myVersion.Minor, myVersion.Build, myVersion.Revision);
             }
         }
+
+        static public string DeploymentVersion
+        {
+            get
+            {
+                string version = "Not deployed yet.";
+
+                if (ApplicationDeployment.IsNetworkDeployed)
+                {
+                    Version myVersion = ApplicationDeployment.CurrentDeployment.CurrentVersion;
+                    version = string.Format("ClickOnce published version: v{0}.{1}.{2}.{3}", myVersion.Major, myVersion.Minor, myVersion.Build, myVersion.Revision);
+                }
+
+                return version;
+            }
+        }
+
     }
 }

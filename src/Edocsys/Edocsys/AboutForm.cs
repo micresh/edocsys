@@ -19,7 +19,8 @@ namespace Edocsys
 
         private void AboutForm_Load(object sender, EventArgs e)
         {
-            labelVersion.Text = AppInfoHelper.AssemblyVersion;
+            labelAppVersion.Text = AppInfoHelper.AssemblyVersion;
+            labelDeployVersion.Text = AppInfoHelper.DeploymentVersion;
             labelPath.Text = AppInfoHelper.AssemblyDirectory;
         }
 
