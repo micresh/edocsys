@@ -69,9 +69,9 @@ namespace Edocsys
 
                 this.contractInfoTableAdapter.Fill(this.edocbaseDataSet.ContractInfoDataTable);
 
-                this.proposalsDataGridView.Refresh();
-
                 contractInfoDataTableBindingSource.Position = pos;
+
+                this.proposalsDataGridView.Refresh();
             }   
             catch (Exception ex)
             {
@@ -323,6 +323,32 @@ namespace Edocsys
             this.contractInfoDataTableBindingSource.AddNew();
 
             DataRowView currentRow = (DataRowView)this.contractInfoDataTableBindingSource.Current;
+
+            AddNewProposal(currentRow);
+        }
+
+        public void AddNewProposalWithAgent(int agents_id)
+        {
+            this.contractInfoDataTableBindingSource.AddNew();
+
+            DataRowView currentRow = (DataRowView)this.contractInfoDataTableBindingSource.Current;
+
+            AddNewProposal(currentRow);
+
+            currentRow["agents_id"] = agents_id;
+
+            //first avauil product
+            DataRowView productRow = (DataRowView)this.productsBindingSource.Current;
+
+            currentRow["products_id"] = productRow["id"];
+
+            SaveProposal();
+            RefreshData();
+        }
+
+
+        private void AddNewProposal(DataRowView currentRow)
+        {
             currentRow["contract_status_id"] = (int)Constants.ContractStatuses.NewProposal;
             currentRow["experts_id"] = 1;     //assign all to admin?????
             currentRow["contract_types_id"] = (int)Constants.ContractTypes.Sertefication;

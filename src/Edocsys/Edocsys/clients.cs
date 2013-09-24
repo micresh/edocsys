@@ -209,5 +209,25 @@ namespace Edocsys
             this.agents_contactsDataGridView.Refresh();
         }
 
+        private void toolStripButtonCreateNewContract_Click(object sender, EventArgs e)
+        {
+            if ((agentsBindingSource.Position < 0) ||
+                (agentsBindingSource.Position >= agentsBindingSource.Count))
+            {
+                return;
+            }
+
+            DataRowView currentRow = (DataRowView)agentsBindingSource.Current;
+
+            int id = Convert.ToInt32(currentRow["id"]);
+
+
+            if (MessageBox.Show("Создать заявку для Контрагента #" + id, "Подтвердить создание заявки", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                wmgr.ShowProporsalForm(id);
+            }
+            
+        }
+
     }
 }

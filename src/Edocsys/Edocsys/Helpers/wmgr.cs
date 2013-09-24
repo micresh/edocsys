@@ -54,7 +54,7 @@ namespace Edocsys
             else
                 //create form and add it to MDI list
                 f = new T();
-                AssignFormToMDI(f);
+            AssignFormToMDI(f);
         }
 
         //use generics to get form object
@@ -81,6 +81,21 @@ namespace Edocsys
 
             //activate form
             f.ShowDialog();
+        }
+
+
+        //use generics to create common ShowForm method
+        private static T GetOrCreateForm<T>() where T : Form, new()
+        {
+            //try to find form
+            Form f = FindForm(typeof(T));
+
+            //if exists
+            if (f == null)
+                //create form and add it to MDI list
+                f = new T();
+            AssignFormToMDI(f);
+            return (T)f;
         }
 
         public static void ShowLoginForm(string login)
@@ -147,6 +162,15 @@ namespace Edocsys
         }
         public static void ShowProporsalForm()
         {
+            ShowForm<ProposalForm>();
+        }
+
+        public static void ShowProporsalForm(int agents_id)
+        {
+            ProposalForm f = GetOrCreateForm<ProposalForm>();
+
+            f.AddNewProposalWithAgent(agents_id);
+
             ShowForm<ProposalForm>();
         }
         public static void ShowReportClientForm()

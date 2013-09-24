@@ -868,7 +868,6 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView proposalsDataGridView;
         private System.Windows.Forms.ComboBox productComboBox;
         private System.Windows.Forms.TextBox addDataTextBox;
         private System.Windows.Forms.TextBox schemeTypeTextBox;
@@ -935,6 +934,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn schemetypeFIODataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn has_proposal_document;
         private System.Windows.Forms.DataGridViewButtonColumn SendProposalColumn;
+        private System.Windows.Forms.DataGridView proposalsDataGridView;
 
         //private EdocbaseDataSetTableAdapters.TemplatesDataTableTableAdapter templatesDataTableTableAdapter;
         //private EdocbaseDataSetTableAdapters.ProductsTableAdapter productsTableAdapter;
