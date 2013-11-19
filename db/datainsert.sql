@@ -13,14 +13,17 @@ INSERT INTO `edocbase`.`users` (`login`, `password`, `lastname`, `firstname`, `m
 -- insert contract_types into contract_types table
 INSERT INTO `edocbase`.`contract_types` (`id`, `name`) VALUES (0,'Заявка');
 INSERT INTO `edocbase`.`contract_types` (`id`, `name`) VALUES (1,'Акт выполненных работ');
-INSERT INTO `edocbase`.`contract_types` (`id`, `name`) VALUES (2,'Договор об инспекционном контроле');
+INSERT INTO `edocbase`.`contract_types` (`id`, `name`) VALUES (2,'Договор об инспекционном контроле (ЛД)');
 -- INSERT INTO `edocbase`.`contract_types` (`id`, `name`) VALUES (2,'Документ о первом инспекционном контроле/реаттестации');
 -- INSERT INTO `edocbase`.`contract_types` (`id`, `name`) VALUES (3,'Документ о втором инспекционном контроле/реаттестации');
 
-INSERT INTO `edocbase`.`contract_types` (`id`, `name`) VALUES (10,'Сертификация');
-INSERT INTO `edocbase`.`contract_types` (`id`, `name`) VALUES (11,'Декларирование соответствия');
-INSERT INTO `edocbase`.`contract_types` (`id`, `name`) VALUES (12,'Лабораторные испытания');
-INSERT INTO `edocbase`.`contract_types` (`id`, `name`) VALUES (13,'Лабораторные испытания с сертификацией');
+INSERT INTO `edocbase`.`contract_types` (`id`, `name`) VALUES (10,'Сертификация (ОС)');
+INSERT INTO `edocbase`.`contract_types` (`id`, `name`) VALUES (11,'Декларирование соответствия (Д)');
+INSERT INTO `edocbase`.`contract_types` (`id`, `name`) VALUES (12,'Сертификационные испытания (ИЛ)');
+INSERT INTO `edocbase`.`contract_types` (`id`, `name`) VALUES (13,'Сертификация c сертификационными испытаниями (ЛС)');
+INSERT INTO `edocbase`.`contract_types` (`id`, `name`) VALUES (14,'Разработка технических условий (ТУ)');
+INSERT INTO `edocbase`.`contract_types` (`id`, `name`) VALUES (15,'Договор на конкретные испытания (Г)');
+INSERT INTO `edocbase`.`contract_types` (`id`, `name`) VALUES (16,'Лабораторный контроль (ЛК)');
 
 
 -- insert contract statuses into contract_status table

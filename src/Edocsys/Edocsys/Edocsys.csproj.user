@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <PublishUrlHistory>.\publish\|d:\projects\edocsys\publish\|\\I7-3770\i7d\update\|publish\</PublishUrlHistory>
+    <PublishUrlHistory>.\publish\|D:\update\|D:\projects\edocsys\ssh\|d:\projects\edocsys\publish\|\\I7-3770\i7d\update\</PublishUrlHistory>
     <InstallUrlHistory>http://kisp.no-ip.org/edocsys/updates/lastest/|\\I7-3770\i7d\update\</InstallUrlHistory>
     <SupportUrlHistory />
-    <UpdateUrlHistory>\\I7-3770\i7d\update\</UpdateUrlHistory>
+    <UpdateUrlHistory>http://kisp.no-ip.org/edocsys/updates/lastest/|\\I7-3770\i7d\update\</UpdateUrlHistory>
     <BootstrapperUrlHistory />
     <ErrorReportUrlHistory />
     <FallbackCulture>en-US</FallbackCulture>
