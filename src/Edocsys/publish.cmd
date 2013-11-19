@@ -1,0 +1,1 @@
+msbuild /target:publish /property:configuration=Release
