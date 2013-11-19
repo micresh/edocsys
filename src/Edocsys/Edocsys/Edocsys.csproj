@@ -32,11 +32,7 @@
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>index.htm</WebPage>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
-<<<<<<< local
-    <ApplicationRevision>2</ApplicationRevision>
-=======
     <ApplicationRevision>4</ApplicationRevision>
->>>>>>> other
     <ApplicationVersion>0.3.1.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
