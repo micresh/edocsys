@@ -1497,5 +1497,17 @@ namespace Edocsys.Properties {
                 this["ReattContractTitle"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Формы собственности")]
+        public string AgentTypesTitle {
+            get {
+                return ((string)(this["AgentTypesTitle"]));
+            }
+            set {
+                this["AgentTypesTitle"] = value;
+            }
+        }
     }
 }

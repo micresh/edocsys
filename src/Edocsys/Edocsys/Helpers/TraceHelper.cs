@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 //using System.Linq;
+using System.Net;
 using System.Text;
 
 using System.Diagnostics;
@@ -60,6 +61,29 @@ namespace Edocsys
         {
             Debug.Flush();
             Trace.Flush();
+        }
+
+        public static string GetCurrentHost()
+        {
+            return Dns.GetHostName();
+        }
+        public static string GetCurrentIpAddress()
+        {
+            string hostname = Dns.GetHostName();
+
+            IPAddress[] ips = Dns.GetHostAddresses(hostname);
+
+            string result = String.Empty;
+
+            if (ips.Length > 0)
+            {
+                foreach (var ip in ips)
+                {
+                    result += " | " + ip.ToString();
+                }
+            }
+
+            return result;
         }
     }
 }

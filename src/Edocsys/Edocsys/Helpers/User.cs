@@ -152,6 +152,7 @@ namespace Edocsys
                 {"Experts",             new UserTypeAccess(false, true, true, false)},
                 {"DocTemplates",        new UserTypeAccess(false, true, true, false)},
                 {"Production",          new UserTypeAccess(false, true, true, false)},
+                {"AgentTypes",          new UserTypeAccess(false, true, true, false)},
 
                 //Toolstrip
                 {"FillUsers",           new UserTypeAccess(true, true, true, true)},

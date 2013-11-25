@@ -102,6 +102,12 @@
     <Compile Include="AboutForm.designer.cs">
       <DependentUpon>AboutForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="AgentTypes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AgentTypes.designer.cs">
+      <DependentUpon>AgentTypes.cs</DependentUpon>
+    </Compile>
     <Compile Include="assignexpert.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -253,6 +259,9 @@
     <Compile Include="Helpers\wmgr.cs" />
     <EmbeddedResource Include="AboutForm.resx">
       <DependentUpon>AboutForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AgentTypes.resx">
+      <DependentUpon>AgentTypes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="assignexpert.resx">
       <DependentUpon>assignexpert.cs</DependentUpon>

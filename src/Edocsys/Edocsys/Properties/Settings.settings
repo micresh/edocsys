@@ -376,5 +376,8 @@
     <Setting Name="ReattContractTitle" Type="System.String" Scope="User">
       <Value Profile="(Default)">Операции с договором инспекционного контроля</Value>
     </Setting>
+    <Setting Name="AgentTypesTitle" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Формы собственности</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
