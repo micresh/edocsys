@@ -417,7 +417,7 @@
             this.TSBContractPayments.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.TSBContractPayments.Name = "TSBContractPayments";
             this.TSBContractPayments.Size = new System.Drawing.Size(54, 54);
-            this.TSBContractPayments.Text = "Оплата догворов";
+            this.TSBContractPayments.Text = global::Edocsys.Properties.Settings.Default.ContractPaymentsTitle;
             this.TSBContractPayments.Click += new System.EventHandler(this.ContractPaymentsToolStripMenuItem_Click);
             // 
             // toolStripSeparator2

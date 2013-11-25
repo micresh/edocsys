@@ -122,7 +122,9 @@ namespace Edocsys
         private void bindingNavigatorAddNewItem1_Click(object sender, EventArgs e)
         {
             int pos = agentsBindingSource.Position;
+
             SaveAgents();
+
             agentsBindingSource.Position = pos;
 
             DataRowView row = edocbaseDataSet.agents_contacts.DefaultView.AddNew();
@@ -136,7 +138,12 @@ namespace Edocsys
 
         private void bindingNavigatorAddNewItem_Click(object sender, EventArgs e)
         {
-            DataRowView row = edocbaseDataSet.agents.DefaultView.AddNew();
+            this.agentsBindingSource.AddNew();
+
+            DataRowView currentRow = (DataRowView)this.agentsBindingSource.Current;
+
+            //currentRow["agent_types_id"] = 0; //default agent type: empty
+            currentRow["agent_types_id"] = 1; //default agent type: OOO
         }
 
         private void bindingNavigatorDeleteItem_Click(object sender, EventArgs e)
