@@ -89,6 +89,9 @@ namespace Edocsys
         private void MainForm_Load(object sender, EventArgs e)
         {
             TraceHelper.LogInfo("------------------------- STRAT PROGRAM");
+            TraceHelper.LogInfo("Current HOST is: " + TraceHelper.GetCurrentHost());
+            TraceHelper.LogInfo("Current IP is: " + TraceHelper.GetCurrentIpAddress());
+            
 
             //wmgr.CloseAllOpendWindows();
             ActionButtonsSetPermission();
@@ -272,5 +275,11 @@ namespace Edocsys
         {
             wmgr.ShowAboutForm();
         }
+
+        private void TSMAgentTypes_Click(object sender, EventArgs e)
+        {
+            wmgr.ShowAgentTypesForm();
+        }
+
     }
 }

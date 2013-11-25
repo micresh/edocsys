@@ -53,6 +53,7 @@
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
             this.TSMDocTemplates = new System.Windows.Forms.ToolStripMenuItem();
             this.TSMProduction = new System.Windows.Forms.ToolStripMenuItem();
+            this.TSMAgentTypes = new System.Windows.Forms.ToolStripMenuItem();
             this.WindowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TSMHelp = new System.Windows.Forms.ToolStripMenuItem();
             this.TSMAbout = new System.Windows.Forms.ToolStripMenuItem();
@@ -234,7 +235,8 @@
             this.TSMExperts,
             this.toolStripMenuItem2,
             this.TSMDocTemplates,
-            this.TSMProduction});
+            this.TSMProduction,
+            this.TSMAgentTypes});
             this.TSMAdminMenu.Name = "TSMAdminMenu";
             this.TSMAdminMenu.Size = new System.Drawing.Size(134, 20);
             this.TSMAdminMenu.Text = global::Edocsys.Properties.Settings.Default.AdmToolStripMenuItemText;
@@ -271,6 +273,13 @@
             this.TSMProduction.Size = new System.Drawing.Size(233, 22);
             this.TSMProduction.Text = "Область аккредитации";
             this.TSMProduction.Click += new System.EventHandler(this.ProductionToolStripMenuItem_Click);
+            // 
+            // TSMAgentTypes
+            // 
+            this.TSMAgentTypes.Name = "TSMAgentTypes";
+            this.TSMAgentTypes.Size = new System.Drawing.Size(233, 22);
+            this.TSMAgentTypes.Text = global::Edocsys.Properties.Settings.Default.AgentTypesTitle;
+            this.TSMAgentTypes.Click += new System.EventHandler(this.TSMAgentTypes_Click);
             // 
             // WindowToolStripMenuItem
             // 
@@ -417,7 +426,7 @@
             this.TSBContractPayments.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.TSBContractPayments.Name = "TSBContractPayments";
             this.TSBContractPayments.Size = new System.Drawing.Size(54, 54);
-            this.TSBContractPayments.Text = "Оплата догворов";
+            this.TSBContractPayments.Text = global::Edocsys.Properties.Settings.Default.ContractPaymentsTitle;
             this.TSBContractPayments.Click += new System.EventHandler(this.ContractPaymentsToolStripMenuItem_Click);
             // 
             // toolStripSeparator2
@@ -632,6 +641,7 @@
         private System.Windows.Forms.ToolStripButton TSBLogout;
         private System.Windows.Forms.ToolStripMenuItem TSMAbout;
         private System.Windows.Forms.ToolStripMenuItem TSMScheme;
+        private System.Windows.Forms.ToolStripMenuItem TSMAgentTypes;
     }
 }
 

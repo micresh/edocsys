@@ -197,7 +197,10 @@ namespace Edocsys
         {
             ShowForm<ContractPaymentsForm>();
         }
-
+        public static void ShowAgentTypesForm()
+        {
+            ShowForm<AgentTypesForm>();
+        }
         public static void ShowAboutForm()
         {
             AboutForm f = new AboutForm();
