@@ -321,7 +321,7 @@
       <Value Profile="(Default)">Дата поступления протокола</Value>
     </Setting>
     <Setting Name="PreparationsForTaskTitle" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Ожидание и подготовка к работе</Value>
+      <Value Profile="(Default)">Планирование выполнения работ</Value>
     </Setting>
     <Setting Name="ContractDateEndTitle" Type="System.String" Scope="User">
       <Value Profile="(Default)">Дата окончания работ</Value>

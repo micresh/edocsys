@@ -401,7 +401,7 @@
             this.TSBWorkForContracts.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.TSBWorkForContracts.Name = "TSBWorkForContracts";
             this.TSBWorkForContracts.Size = new System.Drawing.Size(54, 54);
-            this.TSBWorkForContracts.Text = "Работы по договору";
+            this.TSBWorkForContracts.Text = "Планирование работ";
             this.TSBWorkForContracts.Click += new System.EventHandler(this.WorksToolStripMenuItem_Click);
             // 
             // TSBInspectionControl

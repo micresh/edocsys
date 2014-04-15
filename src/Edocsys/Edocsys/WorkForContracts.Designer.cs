@@ -533,7 +533,7 @@
             this.buttonSetDateProtocolIncome.Name = "buttonSetDateProtocolIncome";
             this.buttonSetDateProtocolIncome.Size = new System.Drawing.Size(242, 23);
             this.buttonSetDateProtocolIncome.TabIndex = 39;
-            this.buttonSetDateProtocolIncome.Text = "Установить дату поступления протокола";
+            this.buttonSetDateProtocolIncome.Text = "Установить дату поступления документации";
             this.buttonSetDateProtocolIncome.UseVisualStyleBackColor = true;
             this.buttonSetDateProtocolIncome.Click += new System.EventHandler(this.buttonSetDateProtocolIncome_Click);
             // 
