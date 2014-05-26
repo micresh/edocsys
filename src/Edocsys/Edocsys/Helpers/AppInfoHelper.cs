@@ -27,6 +27,14 @@ namespace Edocsys.Helpers
             }
         }
 
+        static public string DatabaseVersion
+        {
+            get
+            {
+                return string.Format("Database revision: {0}", DBMigrationHelper.DatabaseVersion);
+            }
+        }
+
         static public string DeploymentVersion
         {
             get

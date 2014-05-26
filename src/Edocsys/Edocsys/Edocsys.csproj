@@ -161,6 +161,7 @@
     <Compile Include="DeleteContract.Designer.cs">
       <DependentUpon>DeleteContract.cs</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\DBMigrationHelper.cs" />
     <Compile Include="HelpForm.cs">
       <SubType>Form</SubType>
     </Compile>

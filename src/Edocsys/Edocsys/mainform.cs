@@ -10,6 +10,8 @@ using System.IO;
 
 using MySql.Data.MySqlClient;
 
+using Edocsys.Helpers;
+
 namespace Edocsys
 {
     public partial class MainForm : Form
@@ -91,7 +93,9 @@ namespace Edocsys
             TraceHelper.LogInfo("------------------------- STRAT PROGRAM");
             TraceHelper.LogInfo("Current HOST is: " + TraceHelper.GetCurrentHost());
             TraceHelper.LogInfo("Current IP is: " + TraceHelper.GetCurrentIpAddress());
-            
+
+            int result = DBMigrationHelper.MigrateDB();
+            TraceHelper.LogInfo("Migrating Database: " + result.ToString());
 
             //wmgr.CloseAllOpendWindows();
             ActionButtonsSetPermission();

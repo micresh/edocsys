@@ -32,6 +32,7 @@
             this.labelAppVersion = new System.Windows.Forms.Label();
             this.labelPath = new System.Windows.Forms.Label();
             this.labelDeployVersion = new System.Windows.Forms.Label();
+            this.labelDatabaseVersion = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // labelName
@@ -47,7 +48,7 @@
             // labelAppVersion
             // 
             this.labelAppVersion.AutoSize = true;
-            this.labelAppVersion.Location = new System.Drawing.Point(12, 106);
+            this.labelAppVersion.Location = new System.Drawing.Point(12, 83);
             this.labelAppVersion.Name = "labelAppVersion";
             this.labelAppVersion.Size = new System.Drawing.Size(55, 13);
             this.labelAppVersion.TabIndex = 1;
@@ -64,17 +65,27 @@
             // labelDeployVersion
             // 
             this.labelDeployVersion.AutoSize = true;
-            this.labelDeployVersion.Location = new System.Drawing.Point(12, 124);
+            this.labelDeployVersion.Location = new System.Drawing.Point(12, 103);
             this.labelDeployVersion.Name = "labelDeployVersion";
             this.labelDeployVersion.Size = new System.Drawing.Size(55, 13);
             this.labelDeployVersion.TabIndex = 3;
             this.labelDeployVersion.Text = "VERSION";
+            // 
+            // labelDatabaseVersion
+            // 
+            this.labelDatabaseVersion.AutoSize = true;
+            this.labelDatabaseVersion.Location = new System.Drawing.Point(12, 125);
+            this.labelDatabaseVersion.Name = "labelDatabaseVersion";
+            this.labelDatabaseVersion.Size = new System.Drawing.Size(55, 13);
+            this.labelDatabaseVersion.TabIndex = 4;
+            this.labelDatabaseVersion.Text = "VERSION";
             // 
             // AboutForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(338, 193);
+            this.Controls.Add(this.labelDatabaseVersion);
             this.Controls.Add(this.labelDeployVersion);
             this.Controls.Add(this.labelPath);
             this.Controls.Add(this.labelAppVersion);
@@ -98,6 +109,7 @@
         private System.Windows.Forms.Label labelAppVersion;
         private System.Windows.Forms.Label labelPath;
         private System.Windows.Forms.Label labelDeployVersion;
+        private System.Windows.Forms.Label labelDatabaseVersion;
 
     }
 }
