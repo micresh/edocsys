@@ -17,7 +17,7 @@ namespace Edocsys.Helpers
         {
             get
             {
-                int version = 0;
+                int version = -1;
 
                 MySqlConnection conn = new MySqlConnection(ConnectionManager.ConnectionString);
 
@@ -141,6 +141,9 @@ namespace Edocsys.Helpers
         public static int MigrateDB()
         {
             int currentVersion = DBMigrationHelper.DatabaseVersion;
+
+            if (currentVersion == -1)
+                return -1;
 
             int maxVersion = GetMaxMigrationVersion();
 
