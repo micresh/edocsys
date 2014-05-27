@@ -42,7 +42,9 @@ namespace Edocsys.Helpers
                                     `id` int(11) NOT NULL AUTO_INCREMENT,
                                     `version` int(11) DEFAULT 0,
                                     `sqlnumber` int(11) DEFAULT 0,
-                                    `modification_date` DATETIME NULL,                                    `sql_command` varchar (512) NULL,                                    PRIMARY KEY (`id`)
+                                    `modification_date` DATETIME NULL,
+                                    `sql_command` varchar (512) NULL,
+                                    PRIMARY KEY (`id`)
                                 ) ENGINE=InnoDB DEFAULT CHARSET=utf8";
 
                         c.CommandText = cmd;
@@ -192,6 +194,7 @@ namespace Edocsys.Helpers
 
         private static Migration[] Migrations = new Migration[]
         {
+#region DBMigration__01__2014_05_26
             //DBMigration #01 [2014-05-26]
             //change structure agents
             new Migration(01, 01, @"ALTER TABLE `edocbase`.`agents` CHANGE COLUMN `phone` `phone` VARCHAR(50) NULL DEFAULT NULL"),
@@ -214,8 +217,11 @@ namespace Edocsys.Helpers
             new Migration(01, 10, @"UPDATE `edocbase`.`source_types` SET `name` = 'Лично в офисе'  WHERE (`id` = 1)"),
             new Migration(01, 11, @"UPDATE `edocbase`.`source_types` SET `name` = 'По телефону'    WHERE (`id` = 2)"),
             new Migration(01, 12, @"UPDATE `edocbase`.`source_types` SET `name` = 'Через интернет' WHERE (`id` = 3)"),
+#endregion
 
+#region DBMigration__02__2014_00_00
             //DBMigration #02 [2014-00-00]
+#endregion
         };
 
         internal class Migration
