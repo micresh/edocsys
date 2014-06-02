@@ -104,8 +104,8 @@ CREATE TABLE IF NOT EXISTS `edocbase`.`product_areas` (
 CREATE TABLE IF NOT EXISTS `edocbase`.`products` (
   `id`                  INT NOT NULL AUTO_INCREMENT,
   `name`                VARCHAR(150) NULL,
-  `okp`                 VARCHAR(31) NULL,
-  `tnved`               VARCHAR(31) NULL,
+  `okp`                 VARCHAR(64) NULL,
+  `tnved`               VARCHAR(64) NULL,
   `product_areas_id`    INT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_products_product_areas` (`product_areas_id` ASC) ,

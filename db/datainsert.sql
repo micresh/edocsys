@@ -48,10 +48,10 @@ INSERT INTO `edocbase`.`product_areas` (`id`, `name`) VALUES (1,'Область 
 
 
 -- insert agent types into agent_types table
-INSERT INTO `edocbase`.`agent_types` (`id`, `name`) VALUES (0, '');
-INSERT INTO `edocbase`.`agent_types` (`id`, `name`) VALUES (1, 'ООО');
-INSERT INTO `edocbase`.`agent_types` (`id`, `name`) VALUES (2, 'ОАО');
-INSERT INTO `edocbase`.`agent_types` (`id`, `name`) VALUES (3, 'ЗАО');
+INSERT INTO `edocbase`.`agent_types` (`id`, `name`) VALUES (1, '');
+INSERT INTO `edocbase`.`agent_types` (`id`, `name`) VALUES (2, 'ООО');
+INSERT INTO `edocbase`.`agent_types` (`id`, `name`) VALUES (3, 'ОАО');
+INSERT INTO `edocbase`.`agent_types` (`id`, `name`) VALUES (4, 'ЗАО');
 
 -- insert emission types into emission_types table
 INSERT INTO `edocbase`.`emission_types` (`id`, `name`) VALUES (1, 'Единичное производство');
