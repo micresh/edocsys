@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Reflection;
 using System.Deployment.Application;
+using System.Windows.Forms;
 
 namespace Edocsys.Helpers
 {
@@ -22,8 +23,10 @@ namespace Edocsys.Helpers
         {
             get
             {
-                Version myVersion = Assembly.GetExecutingAssembly().GetName().Version;
-                return string.Format("Application version: v{0}.{1}.{2}.{3}", myVersion.Major, myVersion.Minor, myVersion.Build, myVersion.Revision);
+                return Application.ProductVersion;
+
+                //Version myVersion = Assembly.GetExecutingAssembly().GetName().Version;
+                //return string.Format("Application version: v{0}.{1}.{2}.{3}", myVersion.Major, myVersion.Minor, myVersion.Build, myVersion.Revision);
             }
         }
 
