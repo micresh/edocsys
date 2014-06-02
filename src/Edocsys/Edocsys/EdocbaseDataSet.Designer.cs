@@ -15151,9 +15151,9 @@ namespace Edocsys {
                 this.columnid.AutoIncrementStep = -1;
                 this.columnid.AllowDBNull = false;
                 this.columnid.Unique = true;
-                this.columntnved.MaxLength = 31;
+                this.columntnved.MaxLength = 64;
                 this.columnname.MaxLength = 150;
-                this.columnokp.MaxLength = 31;
+                this.columnokp.MaxLength = 64;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

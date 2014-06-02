@@ -208,7 +208,17 @@ namespace Edocsys.Helpers
             new Migration(01, 06, @"ALTER TABLE `edocbase`.`agents_contacts` CHANGE COLUMN `fax` `fax` VARCHAR(50) NULL DEFAULT NULL"),
 
             // add new data agent_types
-            new Migration(01, 07, @"INSERT INTO `edocbase`.`agent_types` (`id`, `name`) VALUES (0, '');"),
+            new Migration(01, 07, @"
+                                    SET foreign_key_checks = 0;
+
+                                    DELETE FROM `edocbase`.`agent_types` where id >= 0;
+
+                                    INSERT INTO `edocbase`.`agent_types` (`id`, `name`) VALUES (1, '');
+                                    INSERT INTO `edocbase`.`agent_types` (`id`, `name`) VALUES (2, 'ООО');
+                                    INSERT INTO `edocbase`.`agent_types` (`id`, `name`) VALUES (3, 'ОАО');
+                                    INSERT INTO `edocbase`.`agent_types` (`id`, `name`) VALUES (4, 'ЗАО');
+
+                                    SET foreign_key_checks = 1;"),
             
             //db updates emission_types
             new Migration(01, 08, @"UPDATE `edocbase`.`emission_types` SET `name` = 'Единичное производство' WHERE (`id` = 1)"),
@@ -219,8 +229,13 @@ namespace Edocsys.Helpers
             new Migration(01, 12, @"UPDATE `edocbase`.`source_types` SET `name` = 'Через интернет' WHERE (`id` = 3)"),
 #endregion
 
-#region DBMigration__02__2014_00_00
-            //DBMigration #02 [2014-00-00]
+#region DBMigration__02__2014_06_02
+            //DBMigration #02 [2014-06-02]
+
+            //change structure products
+            new Migration(02, 01, @"ALTER TABLE `edocbase`.`products` CHANGE COLUMN `okp` `okp` VARCHAR(64) NULL DEFAULT NULL"),
+            new Migration(02, 02, @"ALTER TABLE `edocbase`.`products` CHANGE COLUMN `tnved` `tnved` VARCHAR(64) NULL DEFAULT NULL"),
+
 #endregion
         };
 
