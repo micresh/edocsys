@@ -32,12 +32,11 @@ namespace Edocsys
                         if (val != "")
                             summ = Convert.ToDouble(item.Value);
                         val = RuDateAndMoneyConverter.CurrencyToTxtFull_SBR(summ, true);
-                        key = key.Substring(0, key.Length - 1) + "_STR_}";
-                        doc.ReplaceText(item.Key, val);
+                        key = key.Substring(0, key.Length - 2) + "_STR_}";
+                        doc.ReplaceText(key, val);
                     }
 
                     doc.ReplaceText(item.Key, item.Value);
-                    
                 }
 
                 doc.Save();
