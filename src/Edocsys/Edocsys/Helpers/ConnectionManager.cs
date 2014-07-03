@@ -43,14 +43,14 @@ namespace Edocsys
 
             CurrentUser.Name = "";
             CurrentUser.UserID = 0;
-            
-            ////DEBUG FEATURE
-            //#if DEBUG
-            //    Login = "admin";
-            //    CurrentUser.Name = "adm";
-            //    CurrentUser.UserID = 1;
-            //    CurrentUser.UserType = 1;
-            //#endif
+
+            //DEBUG FEATURE
+#if DEBUG
+            Login = "admin";
+            CurrentUser.Name = "adm";
+            CurrentUser.UserID = 1;
+            CurrentUser.UserType = 1;
+#endif
 
             //SET Default DB user to connect
             //TODO: load data from the settings

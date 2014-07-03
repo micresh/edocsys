@@ -17,7 +17,7 @@ namespace Edocsys
         }
 
         private FilterHelper filterPrepareForWork, filterInWork;
-
+        private DataGridViewFooterDecorator fdContractPrepareForWorkDataGridView, fdContractInWorkDataGridView;
 
         private void ContractsForm_Load(object sender, EventArgs e)
         {
@@ -33,6 +33,20 @@ namespace Edocsys
             //performance tuning
             DataGridViewHelper.DoubleBuffered(contractPrepareForWorkDataGridView, true);
             DataGridViewHelper.DoubleBuffered(contractInWorkDataGridView, true);
+
+            //Add decorators
+            fdContractPrepareForWorkDataGridView = new DataGridViewFooterDecorator(contractPrepareForWorkDataGridView, new Dictionary<string, ColumnHandler>
+                        {
+                            {"numberDataGridViewTextBoxColumn", new ColumnHandler (DataGridViewFooterDecorator.StaticText, "number", "ИТОГО", null)}, 
+                            {"totalcostDataGridViewTextBoxColumn1", new ColumnHandler (DataGridViewFooterDecorator.Sum, "total_cost", null, contractPrepareForWorkDataGridView)}, 
+                        }
+                        );
+            fdContractInWorkDataGridView = new DataGridViewFooterDecorator(contractInWorkDataGridView, new Dictionary<string, ColumnHandler>
+                        {
+                            {"numberDataGridViewTextBoxColumn1", new ColumnHandler (DataGridViewFooterDecorator.StaticText, "number", "ИТОГО", null)}, 
+                            {"totalcostDataGridViewTextBoxColumn2", new ColumnHandler (DataGridViewFooterDecorator.Sum, "total_cost", null, contractInWorkDataGridView)}, 
+                        }
+                        );
         }
 
 

@@ -17,6 +17,8 @@ namespace Edocsys
         }
 
         private FilterHelper filterPayedContracts, filterContractsPayments;
+        private DataGridViewFooterDecorator fdContractPaymentsDataGridView;
+        private DataGridViewFooterDecorator fdPayedContractsdataGridView;
 
         private void ContractsForm_Load(object sender, EventArgs e)
         {
@@ -33,6 +35,19 @@ namespace Edocsys
             //performance tuning
             DataGridViewHelper.DoubleBuffered(contractPaymentsDataGridView, true);
             DataGridViewHelper.DoubleBuffered(payedContractsdataGridView, true);
+
+            fdContractPaymentsDataGridView = new DataGridViewFooterDecorator(contractPaymentsDataGridView, new Dictionary<string, ColumnHandler>
+                        {
+                            {"totalcostDataGridViewTextBoxColumn2", new ColumnHandler (DataGridViewFooterDecorator.Sum, "total_cost", null, contractPaymentsDataGridView)}, 
+                            {"numberDataGridViewTextBoxColumn1", new ColumnHandler (DataGridViewFooterDecorator.StaticText, "number", "ИТОГО", null)}, 
+                        }
+                        );
+            fdPayedContractsdataGridView = new DataGridViewFooterDecorator(payedContractsdataGridView, new Dictionary<string, ColumnHandler>
+                        {
+                            {"totalcostDataGridViewTextBoxColumn", new ColumnHandler (DataGridViewFooterDecorator.Sum, "total_cost", null, payedContractsdataGridView)}, 
+                            {"numberDataGridViewTextBoxColumn", new ColumnHandler (DataGridViewFooterDecorator.StaticText, "number", "ИТОГО", null)}, 
+                        }
+                        );
         }
 
 

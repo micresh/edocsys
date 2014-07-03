@@ -19,6 +19,8 @@ namespace Edocsys
         private DocGeneratorHelper contractGenerator;
         private FilterHelper filterInspection, filterOnInspection;
 
+        private DataGridViewFooterDecorator fdInspectionContractsDataGridView, fdContractsOnInspectionDataGridView;
+
 
         private void ContractsForm_Load(object sender, EventArgs e)
         {
@@ -38,6 +40,21 @@ namespace Edocsys
             //performance tuning
             DataGridViewHelper.DoubleBuffered(inspectionContractsDataGridView, true);
             DataGridViewHelper.DoubleBuffered(contractsOnInspectionDataGridView, true);
+
+            fdInspectionContractsDataGridView = new DataGridViewFooterDecorator(inspectionContractsDataGridView, new Dictionary<string, ColumnHandler>
+                        {
+                            {"number", new ColumnHandler (DataGridViewFooterDecorator.StaticText, "number", "ИТОГО", null)}, 
+                            {"totalcostDataGridViewTextBoxColumn", new ColumnHandler (DataGridViewFooterDecorator.Sum, "total_cost", null, inspectionContractsDataGridView)}, 
+                        }
+            );
+
+            fdContractsOnInspectionDataGridView = new DataGridViewFooterDecorator(contractsOnInspectionDataGridView, new Dictionary<string, ColumnHandler>
+                        {
+                            {"dataGridViewTextBoxColumn1", new ColumnHandler (DataGridViewFooterDecorator.StaticText, "products_name", "ИТОГО", null)}, 
+                            {"dataGridViewTextBoxColumn9", new ColumnHandler (DataGridViewFooterDecorator.Sum, "total_cost", null, contractsOnInspectionDataGridView)}, 
+                        }
+            );
+
         }
 
 

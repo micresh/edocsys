@@ -344,7 +344,7 @@
       <Value Profile="(Default)">server=192.168.0.4;Port=3306;User Id=root;password=po12jein45bf;Persist Security Info=True;database=edocbase</Value>
     </Setting>
     <Setting Name="WorksForContractTitle" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Работы по договору</Value>
+      <Value Profile="(Default)">Планирование работ</Value>
     </Setting>
     <Setting Name="ContractPaymentsTitle" Type="System.String" Scope="User">
       <Value Profile="(Default)">Оплата договоров</Value>

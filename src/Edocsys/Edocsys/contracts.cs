@@ -19,6 +19,11 @@ namespace Edocsys
         private FilterHelper filterContractSigning, filterComplitionManagerConfrim, filterContractDone;
         private DocGeneratorHelper contractGenerator, actGenerator;
 
+        private DataGridViewFooterDecorator footerDecoratorContracts;
+        private DataGridViewFooterDecorator footerDecoratorContractComplitionManagerConfrim;
+        private DataGridViewFooterDecorator footerDecoratorContractDone;
+        
+
 
         private void ContractsForm_Load(object sender, EventArgs e)
         {
@@ -36,6 +41,28 @@ namespace Edocsys
             //doc helper
             contractGenerator = new DocGeneratorHelper(edocbaseDataSet.documents, edocbaseDataSet.doc_templates, edocbaseDataSet.ContractDocData);
             actGenerator = new DocGeneratorHelper(edocbaseDataSet.documents, edocbaseDataSet.doc_templates, edocbaseDataSet.ContractDocData);
+
+            //Add FooterDecorators
+            footerDecoratorContracts = new DataGridViewFooterDecorator(contractsSigningDataGridView, new Dictionary<string, ColumnHandler>
+                        {
+                            {"totalcostDataGridViewTextBoxColumn", new ColumnHandler (DataGridViewFooterDecorator.Sum, "total_cost", null, contractsSigningDataGridView)}, 
+                            {"number", new ColumnHandler (DataGridViewFooterDecorator.StaticText, "number", "ИТОГО", null)}, 
+                        }
+                        );
+            footerDecoratorContractComplitionManagerConfrim = new DataGridViewFooterDecorator(contractComplitionManagerConfrimDataGridView, new Dictionary<string, ColumnHandler>
+                        {
+                            {"totalcostDataGridViewTextBoxColumn3", new ColumnHandler (DataGridViewFooterDecorator.Sum, "total_cost", null, contractComplitionManagerConfrimDataGridView)}, 
+                            {"numberDataGridViewTextBoxColumn2", new ColumnHandler (DataGridViewFooterDecorator.StaticText, "number", "ИТОГО", null)}, 
+                        }
+                        );
+
+            footerDecoratorContractDone = new DataGridViewFooterDecorator(contractDoneDataTableDataGridView, new Dictionary<string, ColumnHandler>
+                        {
+                            {"totalcostDataGridViewTextBoxColumn1", new ColumnHandler (DataGridViewFooterDecorator.Sum, "total_cost", null, contractDoneDataTableDataGridView)}, 
+                            {"numberDataGridViewTextBoxColumn", new ColumnHandler (DataGridViewFooterDecorator.StaticText, "number", "ИТОГО", null)}, 
+                        }
+                        );
+
         }
 
 
@@ -358,7 +385,7 @@ namespace Edocsys
                         //    //SaveContractInDatabase();
                         //}
                     }
-                     
+
                     if ((currentRow["prepayment"] == null)
                         || (currentRow["prepayment"] == DBNull.Value)
                         || (currentRow["cost"] == null)
@@ -459,7 +486,7 @@ namespace Edocsys
             //validate data
             bool hasDocument = Convert.ToBoolean(currentRow["has_act_document"]);
             bool cash_income = false;
-            
+
             if (currentRow["cash_income"] != DBNull.Value)
                 Convert.ToBoolean(currentRow["cash_income"]);
 
@@ -778,7 +805,6 @@ namespace Edocsys
             }
 
             RefreshContractSigning();
-
         }
     }
 }

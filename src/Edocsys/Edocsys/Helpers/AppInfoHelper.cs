@@ -11,7 +11,7 @@ namespace Edocsys.Helpers
         {
             get
             {
-                //dont use Assembly.GetExecutingAssembly().Location, instead use the CodeBase property
+                //don't use Assembly.GetExecutingAssembly().Location, instead use the CodeBase property
                 string codeBase = Assembly.GetExecutingAssembly().CodeBase;
                 UriBuilder uri = new UriBuilder(codeBase);
                 string path = Uri.UnescapeDataString(uri.Path);

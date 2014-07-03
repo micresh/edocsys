@@ -84,6 +84,11 @@
             this.edocbaseDataSet = new Edocsys.EdocbaseDataSet();
             this.usersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tableAdapterManager = new Edocsys.EdocbaseDataSetTableAdapters.TableAdapterManager();
+            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripMenuItem7 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripSeparator();
             this.mainMenuStrip.SuspendLayout();
             this.mainToolStrip.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -161,12 +166,17 @@
             // 
             this.TSMWorkMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.TSMAgents,
+            this.toolStripMenuItem4,
             this.TSMProposals,
+            this.toolStripMenuItem5,
             this.TSMAssignExpert,
+            this.toolStripMenuItem6,
             this.TSMContracts,
             this.TSMWorkForContracts,
-            this.TSMContractPayments,
             this.TSMInspectionControl,
+            this.toolStripMenuItem7,
+            this.TSMContractPayments,
+            this.toolStripMenuItem8,
             this.TSMContractStats});
             this.TSMWorkMenu.Name = "TSMWorkMenu";
             this.TSMWorkMenu.Size = new System.Drawing.Size(97, 20);
@@ -556,6 +566,31 @@
             this.tableAdapterManager.user_typesTableAdapter = null;
             this.tableAdapterManager.usersTableAdapter = this.usersTableAdapter;
             // 
+            // toolStripMenuItem4
+            // 
+            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(218, 6);
+            // 
+            // toolStripMenuItem5
+            // 
+            this.toolStripMenuItem5.Name = "toolStripMenuItem5";
+            this.toolStripMenuItem5.Size = new System.Drawing.Size(218, 6);
+            // 
+            // toolStripMenuItem6
+            // 
+            this.toolStripMenuItem6.Name = "toolStripMenuItem6";
+            this.toolStripMenuItem6.Size = new System.Drawing.Size(218, 6);
+            // 
+            // toolStripMenuItem7
+            // 
+            this.toolStripMenuItem7.Name = "toolStripMenuItem7";
+            this.toolStripMenuItem7.Size = new System.Drawing.Size(218, 6);
+            // 
+            // toolStripMenuItem8
+            // 
+            this.toolStripMenuItem8.Name = "toolStripMenuItem8";
+            this.toolStripMenuItem8.Size = new System.Drawing.Size(218, 6);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -642,6 +677,11 @@
         private System.Windows.Forms.ToolStripMenuItem TSMAbout;
         private System.Windows.Forms.ToolStripMenuItem TSMScheme;
         private System.Windows.Forms.ToolStripMenuItem TSMAgentTypes;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem4;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem5;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem6;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem7;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem8;
     }
 }
 
