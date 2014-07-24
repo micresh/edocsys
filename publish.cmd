@@ -1,8 +1,9 @@
+@echo off
+
+REM Set VS2010 environment
 REM ~ %comspec% /k ""D:\devel\Microsoft Visual Studio 10.0\VC\vcvarsall.bat"" x86
 
 ""D:\devel\Microsoft Visual Studio 10.0\VC\vcvarsall.bat"" x86
-
-REM ~ @echo off
 
 
 pushd .
