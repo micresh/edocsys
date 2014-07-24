@@ -1054,6 +1054,7 @@
             this.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Edocsys.Properties.Settings.Default, "AssighExpertFormText", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.Name = "AssignExpertForm";
             this.Text = global::Edocsys.Properties.Settings.Default.AssighExpertFormText;
+            this.Activated += new System.EventHandler(this.AssignExpertForm_Activated);
             this.Load += new System.EventHandler(this.AssignExpertForm_Load);
             this.tabControlAssignExpert.ResumeLayout(false);
             this.tabPageAssignExpert.ResumeLayout(false);

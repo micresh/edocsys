@@ -35,8 +35,9 @@
             this.contractPaymentsDataGridView = new System.Windows.Forms.DataGridView();
             this.numberDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.productsnameDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.agentsnameDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.agentsfullnameDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.agenttypesnameDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.agentsnameDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contracttypesnameDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contract_status_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.prepayment = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -46,7 +47,6 @@
             this.datestartDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dateendDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.daystodeadlineDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.agentsfullnameDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.datesampleincomeDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dateprotocolincomeDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.expertFIODataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -159,8 +159,9 @@
             this.contractPaymentsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.numberDataGridViewTextBoxColumn1,
             this.productsnameDataGridViewTextBoxColumn2,
-            this.agentsnameDataGridViewTextBoxColumn2,
+            this.agentsfullnameDataGridViewTextBoxColumn2,
             this.agenttypesnameDataGridViewTextBoxColumn2,
+            this.agentsnameDataGridViewTextBoxColumn2,
             this.contracttypesnameDataGridViewTextBoxColumn2,
             this.contract_status_name,
             this.prepayment,
@@ -170,7 +171,6 @@
             this.datestartDataGridViewTextBoxColumn1,
             this.dateendDataGridViewTextBoxColumn1,
             this.daystodeadlineDataGridViewTextBoxColumn,
-            this.agentsfullnameDataGridViewTextBoxColumn2,
             this.datesampleincomeDataGridViewTextBoxColumn1,
             this.dateprotocolincomeDataGridViewTextBoxColumn1,
             this.expertFIODataGridViewTextBoxColumn2});
@@ -200,12 +200,12 @@
             this.productsnameDataGridViewTextBoxColumn2.Name = "productsnameDataGridViewTextBoxColumn2";
             this.productsnameDataGridViewTextBoxColumn2.ReadOnly = true;
             // 
-            // agentsnameDataGridViewTextBoxColumn2
+            // agentsfullnameDataGridViewTextBoxColumn2
             // 
-            this.agentsnameDataGridViewTextBoxColumn2.DataPropertyName = "agents_name";
-            this.agentsnameDataGridViewTextBoxColumn2.HeaderText = "Контрагент";
-            this.agentsnameDataGridViewTextBoxColumn2.Name = "agentsnameDataGridViewTextBoxColumn2";
-            this.agentsnameDataGridViewTextBoxColumn2.ReadOnly = true;
+            this.agentsfullnameDataGridViewTextBoxColumn2.DataPropertyName = "agents_fullname";
+            this.agentsfullnameDataGridViewTextBoxColumn2.HeaderText = "Контрагент";
+            this.agentsfullnameDataGridViewTextBoxColumn2.Name = "agentsfullnameDataGridViewTextBoxColumn2";
+            this.agentsfullnameDataGridViewTextBoxColumn2.ReadOnly = true;
             // 
             // agenttypesnameDataGridViewTextBoxColumn2
             // 
@@ -213,7 +213,16 @@
             this.agenttypesnameDataGridViewTextBoxColumn2.HeaderText = "Форма собственности";
             this.agenttypesnameDataGridViewTextBoxColumn2.Name = "agenttypesnameDataGridViewTextBoxColumn2";
             this.agenttypesnameDataGridViewTextBoxColumn2.ReadOnly = true;
+            this.agenttypesnameDataGridViewTextBoxColumn2.Visible = false;
             this.agenttypesnameDataGridViewTextBoxColumn2.Width = 50;
+            // 
+            // agentsnameDataGridViewTextBoxColumn2
+            // 
+            this.agentsnameDataGridViewTextBoxColumn2.DataPropertyName = "agents_name";
+            this.agentsnameDataGridViewTextBoxColumn2.HeaderText = "Контрагент";
+            this.agentsnameDataGridViewTextBoxColumn2.Name = "agentsnameDataGridViewTextBoxColumn2";
+            this.agentsnameDataGridViewTextBoxColumn2.ReadOnly = true;
+            this.agentsnameDataGridViewTextBoxColumn2.Visible = false;
             // 
             // contracttypesnameDataGridViewTextBoxColumn2
             // 
@@ -276,13 +285,6 @@
             this.daystodeadlineDataGridViewTextBoxColumn.HeaderText = "Дней до окончания";
             this.daystodeadlineDataGridViewTextBoxColumn.Name = "daystodeadlineDataGridViewTextBoxColumn";
             this.daystodeadlineDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // agentsfullnameDataGridViewTextBoxColumn2
-            // 
-            this.agentsfullnameDataGridViewTextBoxColumn2.DataPropertyName = "agents_fullname";
-            this.agentsfullnameDataGridViewTextBoxColumn2.HeaderText = "Контрагент";
-            this.agentsfullnameDataGridViewTextBoxColumn2.Name = "agentsfullnameDataGridViewTextBoxColumn2";
-            this.agentsfullnameDataGridViewTextBoxColumn2.ReadOnly = true;
             // 
             // datesampleincomeDataGridViewTextBoxColumn1
             // 
@@ -841,6 +843,7 @@
             this.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Edocsys.Properties.Settings.Default, "ContractPaymentsTitle", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.Name = "ContractPaymentsForm";
             this.Text = global::Edocsys.Properties.Settings.Default.ContractPaymentsTitle;
+            this.Activated += new System.EventHandler(this.ContractPaymentsForm_Activated);
             this.Load += new System.EventHandler(this.ContractsForm_Load);
             this.tabControl.ResumeLayout(false);
             this.tabInWork.ResumeLayout(false);
@@ -907,23 +910,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator9;
         private System.Windows.Forms.ToolStripButton toolStripButton11;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator10;
-        private System.Windows.Forms.DataGridViewTextBoxColumn numberDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn productsnameDataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn agentsnameDataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn agenttypesnameDataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn contracttypesnameDataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn contract_status_name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn prepayment;
-        private System.Windows.Forms.DataGridViewTextBoxColumn costDataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn totalcostDataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewButtonColumn ConfirmPaymentColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn datestartDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dateendDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn daystodeadlineDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn agentsfullnameDataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn datesampleincomeDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dateprotocolincomeDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn expertFIODataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn numberDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn productsnameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn agentsnameDataGridViewTextBoxColumn;
@@ -944,6 +930,23 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn agenttypesnameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn expertFIODataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn agentsfullnameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn numberDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn productsnameDataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn agentsfullnameDataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn agenttypesnameDataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn agentsnameDataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn contracttypesnameDataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn contract_status_name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn prepayment;
+        private System.Windows.Forms.DataGridViewTextBoxColumn costDataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn totalcostDataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewButtonColumn ConfirmPaymentColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn datestartDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dateendDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn daystodeadlineDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn datesampleincomeDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dateprotocolincomeDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn expertFIODataGridViewTextBoxColumn2;
 
         //private EdocbaseDataSetTableAdapters.Exec_contractsTableAdapter exec_contractsTableAdapter;
     }

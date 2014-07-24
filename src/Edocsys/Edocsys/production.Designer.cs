@@ -583,6 +583,7 @@
             this.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Edocsys.Properties.Settings.Default, "ProductionFormText", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.Name = "ProductionForm";
             this.Text = global::Edocsys.Properties.Settings.Default.ProductionFormText;
+            this.Activated += new System.EventHandler(this.ProductionForm_Activated);
             this.Load += new System.EventHandler(this.ProductionForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.edocbaseDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.product_gostsBindingSource)).EndInit();

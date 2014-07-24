@@ -748,5 +748,10 @@ namespace Edocsys
                 DataGridViewHelper.ChangeGridRowColor(row, days_left);
             }
         }
+
+        private void InspectionControlForm_Activated(object sender, EventArgs e)
+        {
+            RefreshDatabase();
+        }
     }
 }

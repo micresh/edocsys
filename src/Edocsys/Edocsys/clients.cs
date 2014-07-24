@@ -236,5 +236,10 @@ namespace Edocsys
             
         }
 
+        private void ClientsForm_Activated(object sender, EventArgs e)
+        {
+            RefreshClients();
+        }
+
     }
 }

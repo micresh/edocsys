@@ -22,6 +22,7 @@ namespace Edocsys
             this.expertAssignmentBindingSource.EndEdit();
             this.tableAdapterManager.UpdateAll(this.edocbaseDataSet);
         }
+
         private FilterHelper assignedFilter, proposalsFilter;
         private DataGridViewFooterDecorator fdExpertAssignmentDataGridView, fdAssignedContractsDataGridView;
 
@@ -199,6 +200,11 @@ namespace Edocsys
 
                 DataGridViewHelper.HighlightStandartStats(s, e.RowIndex);
             }
+        }
+
+        private void AssignExpertForm_Activated(object sender, EventArgs e)
+        {
+            RefreshDatabase();
         }
     }
 }

@@ -22,7 +22,7 @@ namespace Edocsys
         private void contractsBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
             SaveProposal();
-            RefreshData();
+            RefreshDatabase();
         }
 
         private FilterHelper filter;
@@ -58,7 +58,7 @@ namespace Edocsys
             }
         }
 
-        private void RefreshData()
+        private void RefreshDatabase()
         {
             try
             {
@@ -85,7 +85,6 @@ namespace Edocsys
 
         private void ProposalForm_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'edocbaseDataSet.documents' table. You can move, or remove it, as needed.
             this.documentsTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
 
             this.documentsTableAdapter.Fill(this.edocbaseDataSet.documents);
@@ -101,7 +100,7 @@ namespace Edocsys
 
             this.emission_typesTableAdapter.Fill(this.edocbaseDataSet.emission_types);
 
-            RefreshData();
+            RefreshDatabase();
 
             // Add filter
             filter = new FilterHelper(proposalsDataGridView, filterToolStripTextBox.TextBox);
@@ -141,7 +140,7 @@ namespace Edocsys
                         this.contractInfoTableAdapter.SendProposal((int)Constants.ContractStatuses.ExpertAssignment, id);
 
                         SaveProposal();
-                        RefreshData();
+                        RefreshDatabase();
                     }
                     catch (Exception ex)
                     {
@@ -192,7 +191,7 @@ namespace Edocsys
                 MessageBox.Show(msg, title);
             }
 
-            RefreshData();
+            RefreshDatabase();
         }
 
         private void buttonEditProposal_Click(object sender, EventArgs e)
@@ -232,7 +231,7 @@ namespace Edocsys
                 MessageBox.Show(msg, title);
             }
 
-            RefreshData();
+            RefreshDatabase();
         }
 
 
@@ -315,7 +314,7 @@ namespace Edocsys
                 MessageBox.Show(msg, title);
             }
             
-            RefreshData();
+            RefreshDatabase();
         }
 
         private void bindingNavigatorAddNewItem_Click(object sender, EventArgs e)
@@ -343,7 +342,7 @@ namespace Edocsys
             currentRow["products_id"] = productRow["id"];
 
             SaveProposal();
-            RefreshData();
+            RefreshDatabase();
         }
 
 
@@ -363,7 +362,7 @@ namespace Edocsys
 
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
-            RefreshData();
+            RefreshDatabase();
         }
 
         private void bindingNavigatorDeleteItem_Click(object sender, EventArgs e)
@@ -385,7 +384,7 @@ namespace Edocsys
                 SaveProposal();
             }
 
-            RefreshData();
+            RefreshDatabase();
         }
 
         private void gostsListLabel_DoubleClick(object sender, EventArgs e)
@@ -404,7 +403,7 @@ namespace Edocsys
             {
                 //not saved => save
                 SaveProposal();
-                RefreshData();
+                RefreshDatabase();
 
                 contractInfoDataTableBindingSource.Position = pos;
             }
@@ -435,10 +434,15 @@ namespace Edocsys
                 currentRow["custom_gosts"] = this.UseTUIsteadGosts;
 
                 SaveProposal();
-                RefreshData();
+                RefreshDatabase();
             }
 
             contractInfoDataTableBindingSource.Position = pos;
+        }
+
+        private void ProposalForm_Activated(object sender, EventArgs e)
+        {
+            RefreshDatabase();
         }
     }
 }

@@ -434,5 +434,10 @@ namespace Edocsys
             SaveContractPrepareData();
             RefreshContractPrepareForWork();
         }
+
+        private void WorkForContractsForm_Activated(object sender, EventArgs e)
+        {
+            RefreshDatabase();
+        }
     }
 }

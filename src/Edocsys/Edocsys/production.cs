@@ -112,5 +112,10 @@ namespace Edocsys
         {
             RefreshDatabase();
         }
+
+        private void ProductionForm_Activated(object sender, EventArgs e)
+        {
+            RefreshDatabase();
+        }
     }
 }
