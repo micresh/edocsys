@@ -248,5 +248,10 @@ namespace Edocsys
         {
             RefreshPayedContract();
         }
+
+        private void ContractPaymentsForm_Activated(object sender, EventArgs e)
+        {
+            RefreshDatabase();
+        }
     }
 }

@@ -806,5 +806,10 @@ namespace Edocsys
 
             RefreshContractSigning();
         }
+
+        private void ContractsForm_Activated(object sender, EventArgs e)
+        {
+            RefreshDatabase();
+        }
     }
 }

@@ -173,10 +173,6 @@ namespace Edocsys
 
             ShowForm<ProposalForm>();
         }
-        public static void ShowReportClientForm()
-        {
-            ShowForm<ReportClientForm>();
-        }
         public static void ShowConfigForm()
         {
             ShowForm<ConfigForm>();
