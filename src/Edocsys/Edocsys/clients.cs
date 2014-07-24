@@ -240,6 +240,5 @@ namespace Edocsys
         {
             RefreshClients();
         }
-
     }
 }
