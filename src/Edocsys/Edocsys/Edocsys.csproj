@@ -245,12 +245,6 @@
     <Compile Include="proposal.Designer.cs">
       <DependentUpon>proposal.cs</DependentUpon>
     </Compile>
-    <Compile Include="reportclient.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="reportclient.Designer.cs">
-      <DependentUpon>reportclient.cs</DependentUpon>
-    </Compile>
     <Compile Include="Helpers\User.cs" />
     <Compile Include="useradm.cs">
       <SubType>Form</SubType>
@@ -330,9 +324,6 @@
     </Compile>
     <EmbeddedResource Include="proposal.resx">
       <DependentUpon>proposal.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="reportclient.resx">
-      <DependentUpon>reportclient.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="useradm.resx">
       <DependentUpon>useradm.cs</DependentUpon>
