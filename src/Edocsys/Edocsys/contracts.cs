@@ -811,5 +811,10 @@ namespace Edocsys
         {
             RefreshDatabase();
         }
+
+        private void tabControl_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            RefreshDatabase();
+        }
     }
 }
