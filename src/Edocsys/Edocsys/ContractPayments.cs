@@ -38,13 +38,15 @@ namespace Edocsys
 
             fdContractPaymentsDataGridView = new DataGridViewFooterDecorator(contractPaymentsDataGridView, new Dictionary<string, ColumnHandler>
                         {
-                            {"totalcostDataGridViewTextBoxColumn2", new ColumnHandler (DataGridViewFooterDecorator.Sum, "total_cost", null, contractPaymentsDataGridView)}, 
+                            {"totalcostDataGridViewTextBoxColumn2", new ColumnHandler (DataGridViewFooterDecorator.Sum, "total_cost", null, contractPaymentsDataGridView)},
+                            {"prepayment", new ColumnHandler (DataGridViewFooterDecorator.Sum, "prepayment", null, contractPaymentsDataGridView)},
                             {"numberDataGridViewTextBoxColumn1", new ColumnHandler (DataGridViewFooterDecorator.StaticText, "number", "ИТОГО", null)}, 
                         }
                         );
             fdPayedContractsdataGridView = new DataGridViewFooterDecorator(payedContractsdataGridView, new Dictionary<string, ColumnHandler>
                         {
                             {"totalcostDataGridViewTextBoxColumn", new ColumnHandler (DataGridViewFooterDecorator.Sum, "total_cost", null, payedContractsdataGridView)}, 
+                            {"dataGridViewTextBoxColumn1", new ColumnHandler (DataGridViewFooterDecorator.Sum, "prepayment", null, payedContractsdataGridView)}, 
                             {"numberDataGridViewTextBoxColumn", new ColumnHandler (DataGridViewFooterDecorator.StaticText, "number", "ИТОГО", null)}, 
                         }
                         );
