@@ -19328,6 +19328,8 @@ namespace Edocsys {
             
             private global::System.Data.DataColumn columnagent_types_email;
             
+            private global::System.Data.DataColumn columnprepayment;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public FinishedContractsDataTable() {
@@ -19635,6 +19637,14 @@ namespace Edocsys {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn prepaymentColumn {
+                get {
+                    return this.columnprepayment;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -19700,7 +19710,8 @@ namespace Edocsys {
                         string expert_FIO, 
                         string agent_types_phone, 
                         string agent_types_fax, 
-                        string agent_types_email) {
+                        string agent_types_email, 
+                        int prepayment) {
                 FinishedContractsRow rowFinishedContractsRow = ((FinishedContractsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -19736,7 +19747,8 @@ namespace Edocsys {
                         expert_FIO,
                         agent_types_phone,
                         agent_types_fax,
-                        agent_types_email};
+                        agent_types_email,
+                        prepayment};
                 if ((parentproductsRowByfk_contracts_products11 != null)) {
                     columnValuesArray[1] = parentproductsRowByfk_contracts_products11[0];
                 }
@@ -19808,6 +19820,7 @@ namespace Edocsys {
                 this.columnagent_types_phone = base.Columns["agent_types_phone"];
                 this.columnagent_types_fax = base.Columns["agent_types_fax"];
                 this.columnagent_types_email = base.Columns["agent_types_email"];
+                this.columnprepayment = base.Columns["prepayment"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -19881,6 +19894,8 @@ namespace Edocsys {
                 base.Columns.Add(this.columnagent_types_fax);
                 this.columnagent_types_email = new global::System.Data.DataColumn("agent_types_email", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnagent_types_email);
+                this.columnprepayment = new global::System.Data.DataColumn("prepayment", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnprepayment);
                 this.columnid.AutoIncrement = true;
                 this.columnid.AutoIncrementSeed = -1;
                 this.columnid.AutoIncrementStep = -1;
@@ -40273,6 +40288,22 @@ namespace Edocsys {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int prepayment {
+                get {
+                    try {
+                        return ((int)(this[this.tableFinishedContracts.prepaymentColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'prepayment\' in table \'FinishedContracts\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableFinishedContracts.prepaymentColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public contract_statusRow contract_statusRow {
                 get {
                     return ((contract_statusRow)(this.GetParentRow(this.Table.ParentRelations["fk_contracts_contract_status11"])));
@@ -40670,6 +40701,18 @@ namespace Edocsys {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void Setagent_types_emailNull() {
                 this[this.tableFinishedContracts.agent_types_emailColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsprepaymentNull() {
+                return this.IsNull(this.tableFinishedContracts.prepaymentColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetprepaymentNull() {
+                this[this.tableFinishedContracts.prepaymentColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -62295,6 +62338,7 @@ WHERE        (selected_gosts.contracts_id = @contracts_id)";
             tableMapping.ColumnMappings.Add("agent_types_phone", "agent_types_phone");
             tableMapping.ColumnMappings.Add("agent_types_fax", "agent_types_fax");
             tableMapping.ColumnMappings.Add("agent_types_email", "agent_types_email");
+            tableMapping.ColumnMappings.Add("prepayment", "prepayment");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -62315,23 +62359,23 @@ WHERE        (selected_gosts.contracts_id = @contracts_id)";
                 "ntract_types_id,\r\ncontracts.contract_status_id,\r\ncontracts.experts_id,\r\ncontract" +
                 "s.source_types_id,\r\ncontracts.date_proposal,\r\ncontracts.experts_id,\r\ncontracts.n" +
                 "umber,\r\ncontracts.date_contract,\r\ncontracts.date_start,\r\ncontracts.date_end,\r\nco" +
-                "ntracts.date_sample_income,\r\ncontracts.date_protocol_income,\r\ncontracts.cost,\r\nc" +
-                "ontracts.total_cost,\r\ncontracts.cash_income,\r\ncontracts.date_cash_income,\r\nprodu" +
-                "cts.id AS pkproducts_id,\r\nproducts.name AS products_name,\r\nagents.id AS pkagents" +
-                "_id,\r\nagents.name AS agents_name,\r\nagent_types.id AS pkagent_types_id,\r\nagent_ty" +
-                "pes.name AS agent_types_name,\r\nCONCAT( agent_types.name, \' \', agents.name ) AS a" +
-                "gents_fullname,\r\nagents.phone AS agent_types_phone,\r\nagents.fax AS agent_types_f" +
-                "ax,\r\nagents.email AS agent_types_email,\r\ncontract_types.id AS pkcontract_types_i" +
-                "d,\r\ncontract_types.name AS contract_types_name,\r\ncontract_status.id AS pkcontrac" +
-                "t_status_id,\r\ncontract_status.name AS contract_status_name,\r\nCONCAT( users.lastn" +
-                "ame, \' \', substr(users.firstname, 1, 1), \'. \', substr(users.middlename, 1, 1), \'" +
-                ".\' ) AS expert_FIO\r\nFROM\r\ncontracts\r\nLEFT OUTER JOIN agents ON contracts.agents_" +
-                "id = agents.id\r\nLEFT OUTER JOIN products ON contracts.products_id = products.id\r" +
-                "\nLEFT OUTER JOIN agent_types ON agents.agent_types_id = agent_types.id\r\nLEFT OUT" +
-                "ER JOIN contract_types ON contracts.contract_types_id = contract_types.id\r\nLEFT " +
-                "OUTER JOIN contract_status ON contracts.contract_status_id = contract_status.id\r" +
-                "\nLEFT OUTER JOIN users ON contracts.experts_id = users.id\r\nWHERE\r\n(contracts.con" +
-                "tract_status_id = 9)";
+                "ntracts.date_sample_income,\r\ncontracts.date_protocol_income,\r\ncontracts.prepayme" +
+                "nt,\r\ncontracts.cost,\r\ncontracts.total_cost,\r\ncontracts.cash_income,\r\ncontracts.d" +
+                "ate_cash_income,\r\nproducts.id AS pkproducts_id,\r\nproducts.name AS products_name," +
+                "\r\nagents.id AS pkagents_id,\r\nagents.name AS agents_name,\r\nagent_types.id AS pkag" +
+                "ent_types_id,\r\nagent_types.name AS agent_types_name,\r\nCONCAT( agent_types.name, " +
+                "\' \', agents.name ) AS agents_fullname,\r\nagents.phone AS agent_types_phone,\r\nagen" +
+                "ts.fax AS agent_types_fax,\r\nagents.email AS agent_types_email,\r\ncontract_types.i" +
+                "d AS pkcontract_types_id,\r\ncontract_types.name AS contract_types_name,\r\ncontract" +
+                "_status.id AS pkcontract_status_id,\r\ncontract_status.name AS contract_status_nam" +
+                "e,\r\nCONCAT( users.lastname, \' \', substr(users.firstname, 1, 1), \'. \', substr(use" +
+                "rs.middlename, 1, 1), \'.\' ) AS expert_FIO\r\nFROM\r\ncontracts\r\nLEFT OUTER JOIN agen" +
+                "ts ON contracts.agents_id = agents.id\r\nLEFT OUTER JOIN products ON contracts.pro" +
+                "ducts_id = products.id\r\nLEFT OUTER JOIN agent_types ON agents.agent_types_id = a" +
+                "gent_types.id\r\nLEFT OUTER JOIN contract_types ON contracts.contract_types_id = c" +
+                "ontract_types.id\r\nLEFT OUTER JOIN contract_status ON contracts.contract_status_i" +
+                "d = contract_status.id\r\nLEFT OUTER JOIN users ON contracts.experts_id = users.id" +
+                "\r\nWHERE\r\n(contracts.contract_status_id = 9)";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
