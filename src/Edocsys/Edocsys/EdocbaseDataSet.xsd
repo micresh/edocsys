@@ -710,6 +710,7 @@ contracts.date_start,
 contracts.date_end,
 contracts.date_sample_income,
 contracts.date_protocol_income,
+contracts.prepayment,
 contracts.cost,
 contracts.total_cost,
 contracts.cash_income,
@@ -773,6 +774,7 @@ WHERE
               <Mapping SourceColumn="pkcontract_status_id" DataSetColumn="pkcontract_status_id" />
               <Mapping SourceColumn="contract_status_name" DataSetColumn="contract_status_name" />
               <Mapping SourceColumn="expert_FIO" DataSetColumn="expert_FIO" />
+              <Mapping SourceColumn="prepayment" DataSetColumn="prepayment" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -4210,6 +4212,7 @@ WHERE contracts.id = @contracts_id</CommandText>
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+              <xs:element name="prepayment" msprop:Generator_ColumnVarNameInTable="columnprepayment" msprop:Generator_ColumnPropNameInRow="prepayment" msprop:Generator_ColumnPropNameInTable="prepaymentColumn" msprop:Generator_UserColumnName="prepayment" type="xs:int" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
