@@ -369,6 +369,7 @@ contracts.date_start,
 contracts.date_end,
 contracts.date_sample_income,
 contracts.date_protocol_income,
+contracts.prepayment,
 contracts.cost,
 contracts.total_cost,
 products.id AS pkproducts_id,
@@ -444,6 +445,7 @@ contracts.date_end,
 DATEDIFF(contracts.date_end, CURDATE()) AS days_to_deadline,
 contracts.date_sample_income,
 contracts.date_protocol_income,
+contracts.prepayment,
 contracts.cost,
 contracts.total_cost,
 products.id AS pkproducts_id,
@@ -505,6 +507,7 @@ contracts.date_start,
 contracts.date_end,
 contracts.date_sample_income,
 contracts.date_protocol_income,
+contracts.prepayment,
 contracts.cost,
 contracts.total_cost,
 contracts.cash_income,
@@ -563,6 +566,7 @@ contracts.date_start,
 contracts.date_end,
 contracts.date_sample_income,
 contracts.date_protocol_income,
+contracts.prepayment,
 contracts.cost,
 contracts.total_cost,
 contracts.cash_income,
@@ -578,7 +582,12 @@ contract_types.name AS contract_types_name,
 contract_status.id AS pkcontract_status_id,
 contract_status.name AS contract_status_name,
 CONCAT( users.lastname, ' ', substr(users.firstname, 1, 1), '. ', substr(users.middlename, 1, 1), '.' ) AS expert_FIO,
-(SELECT IFNULL((SELECT (documents.contract_types_id = 1) FROM documents WHERE (documents.contract_types_id = 1) AND (documents.contracts_id=contracts.id)), false)) AS has_act_document
+-- (SELECT IFNULL((SELECT (documents.contract_types_id = 1) FROM documents WHERE (documents.contract_types_id = 1) AND (documents.contracts_id=contracts.id)), false)) AS has_act_document
+(
+    SELECT IFNULL(
+        (SELECT (documents.contract_types_id = 1) FROM documents WHERE (documents.contract_types_id = 1) AND (documents.contracts_id=contracts.id))
+        , 0) -- false
+) AS has_act_document
 FROM
 contracts
 LEFT OUTER JOIN agents ON contracts.agents_id = agents.id
@@ -661,6 +670,14 @@ AND
 (not contracts.cash_income)
 
 
+-- Update
+UPDATE
+contracts
+SET
+prepayment = @prepayment
+WHERE
+(id = @original_id)
+
 
 -- SetPaymentComplete
 UPDATE
@@ -692,6 +709,7 @@ contracts.date_start,
 contracts.date_end,
 contracts.date_sample_income,
 contracts.date_protocol_income,
+contracts.prepayment,
 contracts.cost,
 contracts.total_cost,
 contracts.cash_income,
@@ -762,6 +780,7 @@ contracts.date_start,
 contracts.date_end,
 contracts.date_sample_income,
 contracts.date_protocol_income,
+contracts.prepayment,
 contracts.cost,
 contracts.total_cost,
 contracts.cash_income,
