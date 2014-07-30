@@ -206,5 +206,10 @@ namespace Edocsys
         {
             RefreshDatabase();
         }
+
+        private void tabControlAssignExpert_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            RefreshDatabase();
+        }
     }
 }
