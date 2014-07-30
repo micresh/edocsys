@@ -40,6 +40,7 @@
             this.dateproposalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cost = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.total_cost = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.agents_fullname = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.agents_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.agenttypesnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.expertAssignmentBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -165,6 +166,7 @@
             this.tabControlAssignExpert.Size = new System.Drawing.Size(1276, 485);
             this.tabControlAssignExpert.TabIndex = 6;
             this.tabControlAssignExpert.Text = "Назначить эксперта";
+            this.tabControlAssignExpert.SelectedIndexChanged += new System.EventHandler(this.tabControlAssignExpert_SelectedIndexChanged);
             // 
             // tabPageAssignExpert
             // 
@@ -227,6 +229,7 @@
             this.dateproposalDataGridViewTextBoxColumn,
             this.cost,
             this.total_cost,
+            this.agents_fullname,
             this.agents_name,
             this.agenttypesnameDataGridViewTextBoxColumn});
             this.expertAssignmentDataGridView.DataSource = this.expertAssignmentBindingSource;
@@ -267,6 +270,7 @@
             this.cost.HeaderText = "Сумма";
             this.cost.Name = "cost";
             this.cost.ReadOnly = true;
+            this.cost.Visible = false;
             // 
             // total_cost
             // 
@@ -275,6 +279,14 @@
             this.total_cost.Name = "total_cost";
             this.total_cost.ReadOnly = true;
             // 
+            // agents_fullname
+            // 
+            this.agents_fullname.DataPropertyName = "agents_fullname";
+            this.agents_fullname.HeaderText = "Контрагент";
+            this.agents_fullname.Name = "agents_fullname";
+            this.agents_fullname.ReadOnly = true;
+            this.agents_fullname.Width = 200;
+            // 
             // agents_name
             // 
             this.agents_name.DataPropertyName = "agents_name";
@@ -282,6 +294,7 @@
             this.agents_name.Name = "agents_name";
             this.agents_name.ReadOnly = true;
             this.agents_name.ToolTipText = "Контрагент";
+            this.agents_name.Visible = false;
             this.agents_name.Width = 200;
             // 
             // agenttypesnameDataGridViewTextBoxColumn
@@ -290,6 +303,7 @@
             this.agenttypesnameDataGridViewTextBoxColumn.HeaderText = "Форма собственности";
             this.agenttypesnameDataGridViewTextBoxColumn.Name = "agenttypesnameDataGridViewTextBoxColumn";
             this.agenttypesnameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.agenttypesnameDataGridViewTextBoxColumn.Visible = false;
             // 
             // expertAssignmentBindingSource
             // 
@@ -619,7 +633,7 @@
             // prepayment
             // 
             this.prepayment.DataPropertyName = "prepayment";
-            this.prepayment.HeaderText = "Предоплата";
+            this.prepayment.HeaderText = "Оплачено";
             this.prepayment.Name = "prepayment";
             this.prepayment.ReadOnly = true;
             // 
@@ -629,6 +643,7 @@
             this.dataGridViewTextBoxColumn2.HeaderText = "Сумма";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.dataGridViewTextBoxColumn2.Visible = false;
             // 
             // dataGridViewTextBoxColumn3
             // 
@@ -1009,6 +1024,7 @@
             this.tableAdapterManager.contract_types_for_workTableAdapter = null;
             this.tableAdapterManager.contract_typesTableAdapter = null;
             this.tableAdapterManager.ContractInfoTableAdapter = null;
+            this.tableAdapterManager.ContractPaymentsTableAdapter = null;
             this.tableAdapterManager.ContractPrepareForWorkTAdapter = null;
             this.tableAdapterManager.ContractSigningTableAdapter = null;
             this.tableAdapterManager.ContractsOnInspectionTableAdapter = null;
@@ -1148,13 +1164,6 @@
         private System.Windows.Forms.ToolStripTextBox filterProposalsToolStripTextBox;
         private System.Windows.Forms.ToolStripButton toolStripButton8;
         private System.Windows.Forms.ToolStripButton toolStripButton9;
-        private System.Windows.Forms.DataGridViewTextBoxColumn products_name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn contracttypesnameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dateproposalDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cost;
-        private System.Windows.Forms.DataGridViewTextBoxColumn total_cost;
-        private System.Windows.Forms.DataGridViewTextBoxColumn agents_name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn agenttypesnameDataGridViewTextBoxColumn;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.ComboBox fullnameComboBox;
@@ -1164,6 +1173,14 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.ComboBox nameComboBox;
         private System.Windows.Forms.CheckBox checkBoxStatuses;
+        private System.Windows.Forms.DataGridViewTextBoxColumn products_name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn contracttypesnameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dateproposalDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cost;
+        private System.Windows.Forms.DataGridViewTextBoxColumn total_cost;
+        private System.Windows.Forms.DataGridViewTextBoxColumn agents_fullname;
+        private System.Windows.Forms.DataGridViewTextBoxColumn agents_name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn agenttypesnameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn contracttypesnameDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn expert_FIO;
