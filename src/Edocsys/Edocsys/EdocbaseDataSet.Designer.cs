@@ -61365,6 +61365,26 @@ WHERE        (selected_gosts.contracts_id = @contracts_id)";
             tableMapping.ColumnMappings.Add("prepayment", "prepayment");
             tableMapping.ColumnMappings.Add("days_to_deadline", "days_to_deadline");
             this._adapter.TableMappings.Add(tableMapping);
+            this._adapter.UpdateCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
+            this._adapter.UpdateCommand.Connection = this.Connection;
+            this._adapter.UpdateCommand.CommandText = "UPDATE       contracts\r\nSET                prepayment = @prepayment\r\nWHERE       " +
+                " (id = @original_id)";
+            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
+            global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@prepayment";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "prepayment";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@original_id";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "id";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -61454,6 +61474,35 @@ WHERE        (selected_gosts.contracts_id = @contracts_id)";
             EdocbaseDataSet.ContractPaymentsDataTable dataTable = new EdocbaseDataSet.ContractPaymentsDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(EdocbaseDataSet.ContractPaymentsDataTable dataTable) {
+            return this.Adapter.Update(dataTable);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(EdocbaseDataSet dataSet) {
+            return this.Adapter.Update(dataSet, "ContractPayments");
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow dataRow) {
+            return this.Adapter.Update(new global::System.Data.DataRow[] {
+                        dataRow});
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow[] dataRows) {
+            return this.Adapter.Update(dataRows);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -63535,6 +63584,8 @@ WHERE contracts.id = @contracts_id";
         
         private GOSTSelectionTableAdapter _gOSTSelectionTableAdapter;
         
+        private ContractPaymentsTableAdapter _contractPaymentsTableAdapter;
+        
         private InspectionContractsTableAdapter _inspectionContractsTableAdapter;
         
         private ContractsOnInspectionTableAdapter _contractsOnInspectionTableAdapter;
@@ -63881,6 +63932,20 @@ WHERE contracts.id = @contracts_id";
         [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
             "a", "System.Drawing.Design.UITypeEditor")]
+        public ContractPaymentsTableAdapter ContractPaymentsTableAdapter {
+            get {
+                return this._contractPaymentsTableAdapter;
+            }
+            set {
+                this._contractPaymentsTableAdapter = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
+            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
+            "a", "System.Drawing.Design.UITypeEditor")]
         public InspectionContractsTableAdapter InspectionContractsTableAdapter {
             get {
                 return this._inspectionContractsTableAdapter;
@@ -64015,6 +64080,10 @@ WHERE contracts.id = @contracts_id";
                             && (this._gOSTSelectionTableAdapter.Connection != null))) {
                     return this._gOSTSelectionTableAdapter.Connection;
                 }
+                if (((this._contractPaymentsTableAdapter != null) 
+                            && (this._contractPaymentsTableAdapter.Connection != null))) {
+                    return this._contractPaymentsTableAdapter.Connection;
+                }
                 if (((this._inspectionContractsTableAdapter != null) 
                             && (this._inspectionContractsTableAdapter.Connection != null))) {
                     return this._inspectionContractsTableAdapter.Connection;
@@ -64103,6 +64172,9 @@ WHERE contracts.id = @contracts_id";
                     count = (count + 1);
                 }
                 if ((this._gOSTSelectionTableAdapter != null)) {
+                    count = (count + 1);
+                }
+                if ((this._contractPaymentsTableAdapter != null)) {
                     count = (count + 1);
                 }
                 if ((this._inspectionContractsTableAdapter != null)) {
@@ -64263,6 +64335,15 @@ WHERE contracts.id = @contracts_id";
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._gOSTSelectionTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._contractPaymentsTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.ContractPayments.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._contractPaymentsTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -64485,6 +64566,14 @@ WHERE contracts.id = @contracts_id";
                     allAddedRows.AddRange(addedRows);
                 }
             }
+            if ((this._contractPaymentsTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.ContractPayments.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._contractPaymentsTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
             if ((this._contractPrepareForWorkTAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.ContractPrepareForWork.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
@@ -64636,6 +64725,14 @@ WHERE contracts.id = @contracts_id";
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._contractPrepareForWorkTAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._contractPaymentsTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.ContractPayments.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._contractPaymentsTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -64921,6 +65018,11 @@ WHERE contracts.id = @contracts_id";
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
+            if (((this._contractPaymentsTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._contractPaymentsTableAdapter.Connection) == false))) {
+                throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
+                        "tring.");
+            }
             if (((this._inspectionContractsTableAdapter != null) 
                         && (this.MatchTableAdapterConnection(this._inspectionContractsTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
@@ -65170,6 +65272,15 @@ WHERE contracts.id = @contracts_id";
                         adaptersWithAcceptChangesDuringUpdate.Add(this._gOSTSelectionTableAdapter.Adapter);
                     }
                 }
+                if ((this._contractPaymentsTableAdapter != null)) {
+                    revertConnections.Add(this._contractPaymentsTableAdapter, this._contractPaymentsTableAdapter.Connection);
+                    this._contractPaymentsTableAdapter.Connection = ((global::MySql.Data.MySqlClient.MySqlConnection)(workConnection));
+                    this._contractPaymentsTableAdapter.Transaction = ((global::MySql.Data.MySqlClient.MySqlTransaction)(workTransaction));
+                    if (this._contractPaymentsTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._contractPaymentsTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._contractPaymentsTableAdapter.Adapter);
+                    }
+                }
                 if ((this._inspectionContractsTableAdapter != null)) {
                     revertConnections.Add(this._inspectionContractsTableAdapter, this._inspectionContractsTableAdapter.Connection);
                     this._inspectionContractsTableAdapter.Connection = ((global::MySql.Data.MySqlClient.MySqlConnection)(workConnection));
@@ -65337,6 +65448,10 @@ WHERE contracts.id = @contracts_id";
                 if ((this._gOSTSelectionTableAdapter != null)) {
                     this._gOSTSelectionTableAdapter.Connection = ((global::MySql.Data.MySqlClient.MySqlConnection)(revertConnections[this._gOSTSelectionTableAdapter]));
                     this._gOSTSelectionTableAdapter.Transaction = null;
+                }
+                if ((this._contractPaymentsTableAdapter != null)) {
+                    this._contractPaymentsTableAdapter.Connection = ((global::MySql.Data.MySqlClient.MySqlConnection)(revertConnections[this._contractPaymentsTableAdapter]));
+                    this._contractPaymentsTableAdapter.Transaction = null;
                 }
                 if ((this._inspectionContractsTableAdapter != null)) {
                     this._inspectionContractsTableAdapter.Connection = ((global::MySql.Data.MySqlClient.MySqlConnection)(revertConnections[this._inspectionContractsTableAdapter]));
