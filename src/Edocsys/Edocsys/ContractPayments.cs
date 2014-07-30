@@ -154,13 +154,18 @@ namespace Edocsys
 
         private void toolStripButton6_Click(object sender, EventArgs e)
         {
+            SaveContractPayments();
+
+            RefreshContractPayments();
+        }
+
+        private void SaveContractPayments()
+        {
             this.Validate();
             this.contractPaymentsBindingSource.EndEdit();
-            //this.contractPaymentsBindingSource.Update(this.edocbaseDataSet.ContractSigning);
+            this.contractPaymentsTableAdapter.Update(this.edocbaseDataSet.ContractPayments);
 
             this.edocbaseDataSet.AcceptChanges();
-
-            RefreshDatabase();
         }
 
         private void payedContractsdataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -177,6 +182,17 @@ namespace Edocsys
 
                 DataRow currentRow = edocbaseDataSet.PayedContracts.DefaultView[payedContractsBindingSource.Position].Row;
                 int idContract = Convert.ToInt32(currentRow["id"]);
+
+                int prepayment = Convert.ToInt32(currentRow["prepayment"]);
+                int total_cost = Convert.ToInt32(currentRow["total_cost"]);
+
+                if (prepayment < total_cost)
+                {
+                    if (MessageBox.Show("Внимание!\nСумма полсуенных средств меньше стоимости договора!\nПодтвердить оплату работ по договору #" + idContract, "Подтвердить оплату работ", MessageBoxButtons.YesNo) == DialogResult.No)
+                    {
+                        return;
+                    }
+                }
 
                 if (MessageBox.Show("Подтвердить оплату работ по договору #" + idContract, "Подтвердить оплату работ", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
@@ -252,6 +268,51 @@ namespace Edocsys
         private void ContractPaymentsForm_Activated(object sender, EventArgs e)
         {
             RefreshDatabase();
+        }
+
+        private void buttonAddSumm_Click(object sender, EventArgs e)
+        {
+            if (contractPaymentsBindingSource.Position >= 0)
+            {
+                DataRowView currentRow = (DataRowView)contractPaymentsBindingSource.Current;
+                int id = Convert.ToInt32(currentRow["id"]);
+
+                int sum = Convert.ToInt32(textBoxSum.Text);
+
+                if ((currentRow["prepayment"] == null)
+                    || (currentRow["prepayment"] == DBNull.Value))
+                {
+                    currentRow["prepayment"] = 0;
+                }
+
+                int newSum = Convert.ToInt32(currentRow["prepayment"]) + sum;
+
+                if (newSum > Convert.ToInt32(currentRow["total_cost"]))
+                {
+                    if (MessageBox.Show("Внимание!\nСумма средств больше стоимости договора!\nПодтвердить получение суммы за работу по договору #" + id, "Подтвердить получение суммы", MessageBoxButtons.YesNo) == DialogResult.No)
+                    {
+                        return;
+                    }
+                }
+
+                currentRow["prepayment"] = newSum;
+            }
+
+            SaveContractPayments();
+
+            RefreshContractPayments();
+
+            textBoxSum.Text = "0";
+        }
+
+        private void tabControl_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            RefreshDatabase();
+        }
+
+        private void toolStripButton12_Click(object sender, EventArgs e)
+        {
+            RefreshPayedContract();
         }
     }
 }
