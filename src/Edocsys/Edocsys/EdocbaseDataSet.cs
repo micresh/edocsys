@@ -15,6 +15,10 @@ namespace Edocsys {
 }
 
 namespace Edocsys.EdocbaseDataSetTableAdapters {
+    partial class ContractPrepareForWorkTAdapter
+    {
+    }
+
     partial class ContractInfoTableAdapter
     {
     }

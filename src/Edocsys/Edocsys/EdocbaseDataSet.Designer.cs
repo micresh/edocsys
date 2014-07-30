@@ -4222,6 +4222,8 @@ namespace Edocsys {
             
             private global::System.Data.DataColumn columnexpert_FIO;
             
+            private global::System.Data.DataColumn columnprepayment;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public ContractPrepareForWorkDataTable() {
@@ -4489,6 +4491,14 @@ namespace Edocsys {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn prepaymentColumn {
+                get {
+                    return this.columnprepayment;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -4549,7 +4559,8 @@ namespace Edocsys {
                         string contract_types_name, 
                         int pkcontract_status_id, 
                         string contract_status_name, 
-                        string expert_FIO) {
+                        string expert_FIO, 
+                        int prepayment) {
                 ContractPrepareForWorkRow rowContractPrepareForWorkRow = ((ContractPrepareForWorkRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -4580,7 +4591,8 @@ namespace Edocsys {
                         contract_types_name,
                         pkcontract_status_id,
                         contract_status_name,
-                        expert_FIO};
+                        expert_FIO,
+                        prepayment};
                 if ((parentproductsRowByfk_contracts_products5 != null)) {
                     columnValuesArray[1] = parentproductsRowByfk_contracts_products5[0];
                 }
@@ -4647,6 +4659,7 @@ namespace Edocsys {
                 this.columnpkcontract_status_id = base.Columns["pkcontract_status_id"];
                 this.columncontract_status_name = base.Columns["contract_status_name"];
                 this.columnexpert_FIO = base.Columns["expert_FIO"];
+                this.columnprepayment = base.Columns["prepayment"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4710,6 +4723,8 @@ namespace Edocsys {
                 base.Columns.Add(this.columncontract_status_name);
                 this.columnexpert_FIO = new global::System.Data.DataColumn("expert_FIO", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnexpert_FIO);
+                this.columnprepayment = new global::System.Data.DataColumn("prepayment", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnprepayment);
                 this.columnid.AutoIncrement = true;
                 this.columnid.AutoIncrementSeed = -1;
                 this.columnid.AutoIncrementStep = -1;
@@ -25140,6 +25155,22 @@ namespace Edocsys {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int prepayment {
+                get {
+                    try {
+                        return ((int)(this[this.tableContractPrepareForWork.prepaymentColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'prepayment\' in table \'ContractPrepareForWork\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableContractPrepareForWork.prepaymentColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public contract_statusRow contract_statusRow {
                 get {
                     return ((contract_statusRow)(this.GetParentRow(this.Table.ParentRelations["fk_contracts_contract_status5"])));
@@ -25477,6 +25508,18 @@ namespace Edocsys {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void Setexpert_FIONull() {
                 this[this.tableContractPrepareForWork.expert_FIOColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsprepaymentNull() {
+                return this.IsNull(this.tableContractPrepareForWork.prepaymentColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetprepaymentNull() {
+                this[this.tableContractPrepareForWork.prepaymentColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -46032,6 +46075,7 @@ WHERE
             tableMapping.ColumnMappings.Add("pkcontract_status_id", "pkcontract_status_id");
             tableMapping.ColumnMappings.Add("contract_status_name", "contract_status_name");
             tableMapping.ColumnMappings.Add("expert_FIO", "expert_FIO");
+            tableMapping.ColumnMappings.Add("prepayment", "prepayment");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.UpdateCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
@@ -46110,29 +46154,30 @@ WHERE        (id = @original_id)";
                 "ntract_types_id,\r\ncontracts.contract_status_id,\r\ncontracts.experts_id,\r\ncontract" +
                 "s.source_types_id,\r\ncontracts.date_proposal,\r\ncontracts.experts_id,\r\ncontracts.n" +
                 "umber,\r\ncontracts.date_contract,\r\ncontracts.date_start,\r\ncontracts.date_end,\r\nco" +
-                "ntracts.date_sample_income,\r\ncontracts.date_protocol_income,\r\ncontracts.cost,\r\nc" +
-                "ontracts.total_cost,\r\nproducts.id AS pkproducts_id,\r\nproducts.name AS products_n" +
-                "ame,\r\nagents.id AS pkagents_id,\r\nagents.name AS agents_name,\r\nagent_types.id AS " +
-                "pkagent_types_id,\r\nagent_types.name AS agent_types_name,\r\nCONCAT( agent_types.na" +
-                "me, \' \', agents.name ) AS agents_fullname,\r\ncontract_types.id AS pkcontract_type" +
-                "s_id,\r\ncontract_types.name AS contract_types_name,\r\ncontract_status.id AS pkcont" +
-                "ract_status_id,\r\ncontract_status.name AS contract_status_name,\r\nCONCAT( users.la" +
-                "stname, \' \', substr(users.firstname, 1, 1), \'. \', substr(users.middlename, 1, 1)" +
-                ", \'.\' ) AS expert_FIO\r\nFROM\r\ncontracts\r\nLEFT OUTER JOIN agents ON contracts.agen" +
-                "ts_id = agents.id\r\nLEFT OUTER JOIN products ON contracts.products_id = products." +
-                "id\r\nLEFT OUTER JOIN agent_types ON agents.agent_types_id = agent_types.id\r\nLEFT " +
-                "OUTER JOIN contract_types ON contracts.contract_types_id = contract_types.id\r\nLE" +
-                "FT OUTER JOIN contract_status ON contracts.contract_status_id = contract_status." +
-                "id\r\nLEFT OUTER JOIN users ON contracts.experts_id = users.id\r\nWHERE\r\n(contracts." +
-                "contract_status_id = 3)\r\nAND\r\n    (\r\n        (@dont_filter)\r\n        OR\r\n       " +
-                " (contracts.experts_id = @expert_id)\r\n    )";
+                "ntracts.date_sample_income,\r\ncontracts.date_protocol_income,\r\ncontracts.prepayme" +
+                "nt,\r\ncontracts.cost,\r\ncontracts.total_cost,\r\nproducts.id AS pkproducts_id,\r\nprod" +
+                "ucts.name AS products_name,\r\nagents.id AS pkagents_id,\r\nagents.name AS agents_na" +
+                "me,\r\nagent_types.id AS pkagent_types_id,\r\nagent_types.name AS agent_types_name,\r" +
+                "\nCONCAT( agent_types.name, \' \', agents.name ) AS agents_fullname,\r\ncontract_type" +
+                "s.id AS pkcontract_types_id,\r\ncontract_types.name AS contract_types_name,\r\ncontr" +
+                "act_status.id AS pkcontract_status_id,\r\ncontract_status.name AS contract_status_" +
+                "name,\r\nCONCAT( users.lastname, \' \', substr(users.firstname, 1, 1), \'. \', substr(" +
+                "users.middlename, 1, 1), \'.\' ) AS expert_FIO\r\nFROM\r\ncontracts\r\nLEFT OUTER JOIN a" +
+                "gents ON contracts.agents_id = agents.id\r\nLEFT OUTER JOIN products ON contracts." +
+                "products_id = products.id\r\nLEFT OUTER JOIN agent_types ON agents.agent_types_id " +
+                "= agent_types.id\r\nLEFT OUTER JOIN contract_types ON contracts.contract_types_id " +
+                "= contract_types.id\r\nLEFT OUTER JOIN contract_status ON contracts.contract_statu" +
+                "s_id = contract_status.id\r\nLEFT OUTER JOIN users ON contracts.experts_id = users" +
+                ".id\r\nWHERE\r\n(contracts.contract_status_id = 3)\r\nAND\r\n    (\r\n        -- (contract" +
+                "s.source_types_id = @dont_filter)\r\n        (@dont_filter)\r\n        OR\r\n        (" +
+                "contracts.experts_id = @expert_id)\r\n    )";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@dont_filter";
             param.DbType = global::System.Data.DbType.Boolean;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.UByte;
             param.IsNullable = true;
-            param.SourceColumn = "source_types_id";
+            param.SourceColumn = "";
             this._commandCollection[0].Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@expert_id";
@@ -46167,9 +46212,14 @@ WHERE        (id = @original_id)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(EdocbaseDataSet.ContractPrepareForWorkDataTable dataTable, bool dont_filter, int expert_id) {
+        public virtual int Fill(EdocbaseDataSet.ContractPrepareForWorkDataTable dataTable, global::System.Nullable<bool> dont_filter, int expert_id) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            this.Adapter.SelectCommand.Parameters[0].Value = ((bool)(dont_filter));
+            if ((dont_filter.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((bool)(dont_filter.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
             this.Adapter.SelectCommand.Parameters[1].Value = ((int)(expert_id));
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -46182,9 +46232,14 @@ WHERE        (id = @original_id)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual EdocbaseDataSet.ContractPrepareForWorkDataTable GetData(bool dont_filter, int expert_id) {
+        public virtual EdocbaseDataSet.ContractPrepareForWorkDataTable GetData(global::System.Nullable<bool> dont_filter, int expert_id) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            this.Adapter.SelectCommand.Parameters[0].Value = ((bool)(dont_filter));
+            if ((dont_filter.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((bool)(dont_filter.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
             this.Adapter.SelectCommand.Parameters[1].Value = ((int)(expert_id));
             EdocbaseDataSet.ContractPrepareForWorkDataTable dataTable = new EdocbaseDataSet.ContractPrepareForWorkDataTable();
             this.Adapter.Fill(dataTable);
@@ -61808,27 +61863,34 @@ WHERE        (selected_gosts.contracts_id = @contracts_id)";
             this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[3];
             this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT\r\ncontracts.id,\r\ncontracts.products_id,\r\ncontracts.agents_id,\r\ncontracts.co" +
-                "ntract_types_id,\r\ncontracts.contract_status_id,\r\ncontracts.experts_id,\r\ncontract" +
-                "s.source_types_id,\r\ncontracts.date_proposal,\r\ncontracts.experts_id,\r\ncontracts.n" +
-                "umber,\r\ncontracts.date_contract,\r\ncontracts.date_start,\r\ncontracts.date_end,\r\nco" +
-                "ntracts.date_sample_income,\r\ncontracts.date_protocol_income,\r\ncontracts.prepayme" +
-                "nt,\r\ncontracts.cost,\r\ncontracts.total_cost,\r\ncontracts.cash_income,\r\nproducts.id" +
-                " AS pkproducts_id,\r\nproducts.name AS products_name,\r\nagents.id AS pkagents_id,\r\n" +
-                "agents.name AS agents_name,\r\nagent_types.id AS pkagent_types_id,\r\nagent_types.na" +
-                "me AS agent_types_name,\r\nCONCAT( agent_types.name, \' \', agents.name ) AS agents_" +
-                "fullname,\r\ncontract_types.id AS pkcontract_types_id,\r\ncontract_types.name AS con" +
-                "tract_types_name,\r\ncontract_status.id AS pkcontract_status_id,\r\ncontract_status." +
-                "name AS contract_status_name,\r\nCONCAT( users.lastname, \' \', substr(users.firstna" +
-                "me, 1, 1), \'. \', substr(users.middlename, 1, 1), \'.\' ) AS expert_FIO,\r\n(SELECT I" +
-                "FNULL((SELECT (documents.contract_types_id = 1) FROM documents WHERE (documents." +
-                "contract_types_id = 1) AND (documents.contracts_id=contracts.id)), false)) AS ha" +
-                "s_act_document\r\nFROM\r\ncontracts\r\nLEFT OUTER JOIN agents ON contracts.agents_id =" +
-                " agents.id\r\nLEFT OUTER JOIN products ON contracts.products_id = products.id\r\nLEF" +
-                "T OUTER JOIN agent_types ON agents.agent_types_id = agent_types.id\r\nLEFT OUTER J" +
-                "OIN contract_types ON contracts.contract_types_id = contract_types.id\r\nLEFT OUTE" +
-                "R JOIN contract_status ON contracts.contract_status_id = contract_status.id\r\nLEF" +
-                "T OUTER JOIN users ON contracts.experts_id = users.id\r\nWHERE\r\n(contracts.contrac" +
+            this._commandCollection[0].CommandText = "SELECT        contracts.id, contracts.products_id, contracts.agents_id, contracts" +
+                ".contract_types_id, contracts.contract_status_id, contracts.experts_id, contract" +
+                "s.source_types_id, \r\n                         contracts.date_proposal, contracts" +
+                ".experts_id, contracts.number, contracts.date_contract, contracts.date_start, co" +
+                "ntracts.date_end, contracts.date_sample_income, \r\n                         contr" +
+                "acts.date_protocol_income, contracts.prepayment, contracts.cost, contracts.total" +
+                "_cost, contracts.cash_income, products.id AS pkproducts_id, products.name AS pro" +
+                "ducts_name, \r\n                         agents.id AS pkagents_id, agents.name AS " +
+                "agents_name, agent_types.id AS pkagent_types_id, agent_types.name AS agent_types" +
+                "_name, \r\n                         CONCAT(agent_types.name, \' \', agents.name) AS " +
+                "agents_fullname, contract_types.id AS pkcontract_types_id, contract_types.name A" +
+                "S contract_types_name, \r\n                         contract_status.id AS pkcontra" +
+                "ct_status_id, contract_status.name AS contract_status_name, CONCAT(users.lastnam" +
+                "e, \' \', substr(users.firstname, 1, 1), \'. \', \r\n                         substr(u" +
+                "sers.middlename, 1, 1), \'.\') AS expert_FIO,\r\n                             (SELEC" +
+                "T        IFNULL\r\n                                                             ((" +
+                "SELECT        (documents.contract_types_id = 1)\r\n                               " +
+                "                                  FROM            documents\r\n                   " +
+                "                                              WHERE        (documents.contract_t" +
+                "ypes_id = 1) AND (documents.contracts_id = contracts.id)), `false`)) AS has_act_" +
+                "document\r\nFROM            contracts LEFT OUTER JOIN\r\n                         ag" +
+                "ents ON contracts.agents_id = agents.id LEFT OUTER JOIN\r\n                       " +
+                "  products ON contracts.products_id = products.id LEFT OUTER JOIN\r\n             " +
+                "            agent_types ON agents.agent_types_id = agent_types.id LEFT OUTER JOI" +
+                "N\r\n                         contract_types ON contracts.contract_types_id = cont" +
+                "ract_types.id LEFT OUTER JOIN\r\n                         contract_status ON contr" +
+                "acts.contract_status_id = contract_status.id LEFT OUTER JOIN\r\n                  " +
+                "       users ON contracts.experts_id = users.id\r\nWHERE        (contracts.contrac" +
                 "t_status_id = 6)";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::MySql.Data.MySqlClient.MySqlCommand();
