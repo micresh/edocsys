@@ -42,6 +42,15 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProposalForm));
             this.mainSplitContainer = new System.Windows.Forms.SplitContainer();
             this.proposalsDataGridView = new System.Windows.Forms.DataGridView();
+            this.agents_fullname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contracttypesnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contactpersnameFIODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.schemetypeFIODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.has_proposal_document = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.SendProposalColumn = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.agenttypesnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.agentsnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contractInfoDataTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.edocbaseDataSet = new Edocsys.EdocbaseDataSet();
             this.production_documentsLabel2 = new System.Windows.Forms.Label();
@@ -97,15 +106,6 @@
             this.contractDocDataTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.ContractDocDataTableAdapter();
             this.documentsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.documentsTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.documentsTableAdapter();
-            this.agents_fullname = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.productNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.contracttypesnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.contactpersnameFIODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.schemetypeFIODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.has_proposal_document = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.SendProposalColumn = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.agenttypesnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.agentsnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             proposalProductLabel = new System.Windows.Forms.Label();
             proposalEmissionLabel = new System.Windows.Forms.Label();
             proposalSchemeTypeLabel = new System.Windows.Forms.Label();
@@ -297,8 +297,78 @@
             this.proposalsDataGridView.ReadOnly = true;
             this.proposalsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.proposalsDataGridView.Size = new System.Drawing.Size(1264, 354);
-            this.proposalsDataGridView.TabIndex = 2;
+            this.proposalsDataGridView.TabIndex = 0;
             this.proposalsDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.contractsDataGridView_CellClick);
+            // 
+            // agents_fullname
+            // 
+            this.agents_fullname.DataPropertyName = "agents_fullname";
+            this.agents_fullname.HeaderText = "Контрагент";
+            this.agents_fullname.Name = "agents_fullname";
+            this.agents_fullname.ReadOnly = true;
+            this.agents_fullname.Width = 150;
+            // 
+            // productNameDataGridViewTextBoxColumn
+            // 
+            this.productNameDataGridViewTextBoxColumn.DataPropertyName = "products_name";
+            this.productNameDataGridViewTextBoxColumn.HeaderText = "Продукция";
+            this.productNameDataGridViewTextBoxColumn.Name = "productNameDataGridViewTextBoxColumn";
+            this.productNameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.productNameDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // contracttypesnameDataGridViewTextBoxColumn
+            // 
+            this.contracttypesnameDataGridViewTextBoxColumn.DataPropertyName = "contract_types_name";
+            this.contracttypesnameDataGridViewTextBoxColumn.HeaderText = "Вид проводимых работ";
+            this.contracttypesnameDataGridViewTextBoxColumn.Name = "contracttypesnameDataGridViewTextBoxColumn";
+            this.contracttypesnameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.contracttypesnameDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // contactpersnameFIODataGridViewTextBoxColumn
+            // 
+            this.contactpersnameFIODataGridViewTextBoxColumn.DataPropertyName = "contact_pers_name_FIO";
+            this.contactpersnameFIODataGridViewTextBoxColumn.HeaderText = "Контактное лицо";
+            this.contactpersnameFIODataGridViewTextBoxColumn.Name = "contactpersnameFIODataGridViewTextBoxColumn";
+            this.contactpersnameFIODataGridViewTextBoxColumn.ReadOnly = true;
+            this.contactpersnameFIODataGridViewTextBoxColumn.Width = 150;
+            // 
+            // schemetypeFIODataGridViewTextBoxColumn
+            // 
+            this.schemetypeFIODataGridViewTextBoxColumn.DataPropertyName = "scheme_type";
+            this.schemetypeFIODataGridViewTextBoxColumn.HeaderText = "Схема сертификации";
+            this.schemetypeFIODataGridViewTextBoxColumn.Name = "schemetypeFIODataGridViewTextBoxColumn";
+            this.schemetypeFIODataGridViewTextBoxColumn.ReadOnly = true;
+            this.schemetypeFIODataGridViewTextBoxColumn.Width = 150;
+            // 
+            // has_proposal_document
+            // 
+            this.has_proposal_document.DataPropertyName = "has_proposal_document";
+            this.has_proposal_document.HeaderText = "Документ";
+            this.has_proposal_document.Name = "has_proposal_document";
+            this.has_proposal_document.ReadOnly = true;
+            this.has_proposal_document.Width = 70;
+            // 
+            // SendProposalColumn
+            // 
+            this.SendProposalColumn.HeaderText = "Отправить заявку";
+            this.SendProposalColumn.Name = "SendProposalColumn";
+            this.SendProposalColumn.ReadOnly = true;
+            // 
+            // agenttypesnameDataGridViewTextBoxColumn
+            // 
+            this.agenttypesnameDataGridViewTextBoxColumn.DataPropertyName = "agent_types_name";
+            this.agenttypesnameDataGridViewTextBoxColumn.HeaderText = "Форма собственности";
+            this.agenttypesnameDataGridViewTextBoxColumn.Name = "agenttypesnameDataGridViewTextBoxColumn";
+            this.agenttypesnameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.agenttypesnameDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // agentsnameDataGridViewTextBoxColumn
+            // 
+            this.agentsnameDataGridViewTextBoxColumn.DataPropertyName = "agents_name";
+            this.agentsnameDataGridViewTextBoxColumn.HeaderText = "Контрагент";
+            this.agentsnameDataGridViewTextBoxColumn.Name = "agentsnameDataGridViewTextBoxColumn";
+            this.agentsnameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.agentsnameDataGridViewTextBoxColumn.Visible = false;
             // 
             // contractInfoDataTableBindingSource
             // 
@@ -318,7 +388,7 @@
             this.production_documentsLabel2.Location = new System.Drawing.Point(167, 164);
             this.production_documentsLabel2.Name = "production_documentsLabel2";
             this.production_documentsLabel2.Size = new System.Drawing.Size(265, 21);
-            this.production_documentsLabel2.TabIndex = 50;
+            this.production_documentsLabel2.TabIndex = 8;
             this.production_documentsLabel2.Text = "ProdDocuments";
             this.production_documentsLabel2.DoubleClick += new System.EventHandler(this.gostsListLabel_DoubleClick);
             // 
@@ -329,7 +399,7 @@
             this.gostsListLabel.Location = new System.Drawing.Point(435, 164);
             this.gostsListLabel.Name = "gostsListLabel";
             this.gostsListLabel.Size = new System.Drawing.Size(367, 21);
-            this.gostsListLabel.TabIndex = 49;
+            this.gostsListLabel.TabIndex = 9;
             this.gostsListLabel.Text = "GOSTList";
             this.gostsListLabel.DoubleClick += new System.EventHandler(this.gostsListLabel_DoubleClick);
             // 
@@ -340,7 +410,7 @@
             this.tnvedLabel1.Location = new System.Drawing.Point(526, 49);
             this.tnvedLabel1.Name = "tnvedLabel1";
             this.tnvedLabel1.Size = new System.Drawing.Size(276, 21);
-            this.tnvedLabel1.TabIndex = 48;
+            this.tnvedLabel1.TabIndex = 3;
             this.tnvedLabel1.Text = "tvned";
             // 
             // productsBindingSource
@@ -355,7 +425,7 @@
             this.okpLabel1.Location = new System.Drawing.Point(198, 49);
             this.okpLabel1.Name = "okpLabel1";
             this.okpLabel1.Size = new System.Drawing.Size(276, 21);
-            this.okpLabel1.TabIndex = 47;
+            this.okpLabel1.TabIndex = 2;
             this.okpLabel1.Text = "okp";
             // 
             // add_data_contractTextBox
@@ -364,7 +434,7 @@
             this.add_data_contractTextBox.Location = new System.Drawing.Point(167, 73);
             this.add_data_contractTextBox.Name = "add_data_contractTextBox";
             this.add_data_contractTextBox.Size = new System.Drawing.Size(635, 20);
-            this.add_data_contractTextBox.TabIndex = 46;
+            this.add_data_contractTextBox.TabIndex = 4;
             // 
             // contract_typeComboBox
             // 
@@ -375,7 +445,7 @@
             this.contract_typeComboBox.Location = new System.Drawing.Point(167, 116);
             this.contract_typeComboBox.Name = "contract_typeComboBox";
             this.contract_typeComboBox.Size = new System.Drawing.Size(635, 21);
-            this.contract_typeComboBox.TabIndex = 25;
+            this.contract_typeComboBox.TabIndex = 6;
             this.contract_typeComboBox.ValueMember = "id";
             // 
             // contract_typesBindingSource
@@ -390,7 +460,7 @@
             this.date_proposalDateTimePicker.Location = new System.Drawing.Point(167, 93);
             this.date_proposalDateTimePicker.Name = "date_proposalDateTimePicker";
             this.date_proposalDateTimePicker.Size = new System.Drawing.Size(97, 20);
-            this.date_proposalDateTimePicker.TabIndex = 28;
+            this.date_proposalDateTimePicker.TabIndex = 5;
             this.date_proposalDateTimePicker.Value = new System.DateTime(2013, 3, 16, 0, 0, 0, 0);
             // 
             // porposalGenerationGroupBox
@@ -414,7 +484,7 @@
             this.buttonLoadProposal.Location = new System.Drawing.Point(21, 116);
             this.buttonLoadProposal.Name = "buttonLoadProposal";
             this.buttonLoadProposal.Size = new System.Drawing.Size(246, 23);
-            this.buttonLoadProposal.TabIndex = 20;
+            this.buttonLoadProposal.TabIndex = 3;
             this.buttonLoadProposal.Text = global::Edocsys.Properties.Settings.Default.LoadProposalButton;
             this.buttonLoadProposal.UseVisualStyleBackColor = true;
             this.buttonLoadProposal.Click += new System.EventHandler(this.buttonLoadProposal_Click);
@@ -426,7 +496,7 @@
             this.buttonSaveProposal.Location = new System.Drawing.Point(21, 86);
             this.buttonSaveProposal.Name = "buttonSaveProposal";
             this.buttonSaveProposal.Size = new System.Drawing.Size(246, 23);
-            this.buttonSaveProposal.TabIndex = 19;
+            this.buttonSaveProposal.TabIndex = 2;
             this.buttonSaveProposal.Text = global::Edocsys.Properties.Settings.Default.SaveProposalButton;
             this.buttonSaveProposal.UseVisualStyleBackColor = true;
             this.buttonSaveProposal.Click += new System.EventHandler(this.buttonSaveProposal_Click);
@@ -438,7 +508,7 @@
             this.buttonEditProposal.Location = new System.Drawing.Point(21, 57);
             this.buttonEditProposal.Name = "buttonEditProposal";
             this.buttonEditProposal.Size = new System.Drawing.Size(246, 23);
-            this.buttonEditProposal.TabIndex = 18;
+            this.buttonEditProposal.TabIndex = 1;
             this.buttonEditProposal.Text = global::Edocsys.Properties.Settings.Default.EditProposalButton;
             this.buttonEditProposal.UseVisualStyleBackColor = true;
             this.buttonEditProposal.Click += new System.EventHandler(this.buttonEditProposal_Click);
@@ -449,7 +519,7 @@
             this.buttonGenerateProposalDoc.Location = new System.Drawing.Point(21, 19);
             this.buttonGenerateProposalDoc.Name = "buttonGenerateProposalDoc";
             this.buttonGenerateProposalDoc.Size = new System.Drawing.Size(246, 23);
-            this.buttonGenerateProposalDoc.TabIndex = 17;
+            this.buttonGenerateProposalDoc.TabIndex = 0;
             this.buttonGenerateProposalDoc.Text = global::Edocsys.Properties.Settings.Default.GenerateProposalTitle;
             this.buttonGenerateProposalDoc.UseVisualStyleBackColor = true;
             this.buttonGenerateProposalDoc.Click += new System.EventHandler(this.buttonGenerateProposalDoc_Click);
@@ -463,7 +533,7 @@
             this.proposalAgentsComboBox.Location = new System.Drawing.Point(167, 4);
             this.proposalAgentsComboBox.Name = "proposalAgentsComboBox";
             this.proposalAgentsComboBox.Size = new System.Drawing.Size(635, 21);
-            this.proposalAgentsComboBox.TabIndex = 15;
+            this.proposalAgentsComboBox.TabIndex = 0;
             this.proposalAgentsComboBox.ValueMember = "id";
             // 
             // agentsBindingSource
@@ -477,7 +547,7 @@
             this.addDataTextBox.Location = new System.Drawing.Point(167, 188);
             this.addDataTextBox.Name = "addDataTextBox";
             this.addDataTextBox.Size = new System.Drawing.Size(635, 20);
-            this.addDataTextBox.TabIndex = 12;
+            this.addDataTextBox.TabIndex = 10;
             // 
             // schemeTypeTextBox
             // 
@@ -485,7 +555,7 @@
             this.schemeTypeTextBox.Location = new System.Drawing.Point(167, 141);
             this.schemeTypeTextBox.Name = "schemeTypeTextBox";
             this.schemeTypeTextBox.Size = new System.Drawing.Size(635, 20);
-            this.schemeTypeTextBox.TabIndex = 10;
+            this.schemeTypeTextBox.TabIndex = 7;
             // 
             // productComboBox
             // 
@@ -496,7 +566,7 @@
             this.productComboBox.Location = new System.Drawing.Point(167, 26);
             this.productComboBox.Name = "productComboBox";
             this.productComboBox.Size = new System.Drawing.Size(635, 21);
-            this.productComboBox.TabIndex = 7;
+            this.productComboBox.TabIndex = 1;
             this.productComboBox.ValueMember = "id";
             // 
             // emissiontypesnameDataGridViewTextBoxColumn
@@ -758,76 +828,6 @@
             // documentsTableAdapter
             // 
             this.documentsTableAdapter.ClearBeforeFill = true;
-            // 
-            // agents_fullname
-            // 
-            this.agents_fullname.DataPropertyName = "agents_fullname";
-            this.agents_fullname.HeaderText = "Контрагент";
-            this.agents_fullname.Name = "agents_fullname";
-            this.agents_fullname.ReadOnly = true;
-            this.agents_fullname.Width = 150;
-            // 
-            // productNameDataGridViewTextBoxColumn
-            // 
-            this.productNameDataGridViewTextBoxColumn.DataPropertyName = "products_name";
-            this.productNameDataGridViewTextBoxColumn.HeaderText = "Продукция";
-            this.productNameDataGridViewTextBoxColumn.Name = "productNameDataGridViewTextBoxColumn";
-            this.productNameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.productNameDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // contracttypesnameDataGridViewTextBoxColumn
-            // 
-            this.contracttypesnameDataGridViewTextBoxColumn.DataPropertyName = "contract_types_name";
-            this.contracttypesnameDataGridViewTextBoxColumn.HeaderText = "Вид проводимых работ";
-            this.contracttypesnameDataGridViewTextBoxColumn.Name = "contracttypesnameDataGridViewTextBoxColumn";
-            this.contracttypesnameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.contracttypesnameDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // contactpersnameFIODataGridViewTextBoxColumn
-            // 
-            this.contactpersnameFIODataGridViewTextBoxColumn.DataPropertyName = "contact_pers_name_FIO";
-            this.contactpersnameFIODataGridViewTextBoxColumn.HeaderText = "Контактное лицо";
-            this.contactpersnameFIODataGridViewTextBoxColumn.Name = "contactpersnameFIODataGridViewTextBoxColumn";
-            this.contactpersnameFIODataGridViewTextBoxColumn.ReadOnly = true;
-            this.contactpersnameFIODataGridViewTextBoxColumn.Width = 150;
-            // 
-            // schemetypeFIODataGridViewTextBoxColumn
-            // 
-            this.schemetypeFIODataGridViewTextBoxColumn.DataPropertyName = "scheme_type";
-            this.schemetypeFIODataGridViewTextBoxColumn.HeaderText = "Схема сертификации";
-            this.schemetypeFIODataGridViewTextBoxColumn.Name = "schemetypeFIODataGridViewTextBoxColumn";
-            this.schemetypeFIODataGridViewTextBoxColumn.ReadOnly = true;
-            this.schemetypeFIODataGridViewTextBoxColumn.Width = 150;
-            // 
-            // has_proposal_document
-            // 
-            this.has_proposal_document.DataPropertyName = "has_proposal_document";
-            this.has_proposal_document.HeaderText = "Документ";
-            this.has_proposal_document.Name = "has_proposal_document";
-            this.has_proposal_document.ReadOnly = true;
-            this.has_proposal_document.Width = 70;
-            // 
-            // SendProposalColumn
-            // 
-            this.SendProposalColumn.HeaderText = "Отправить заявку";
-            this.SendProposalColumn.Name = "SendProposalColumn";
-            this.SendProposalColumn.ReadOnly = true;
-            // 
-            // agenttypesnameDataGridViewTextBoxColumn
-            // 
-            this.agenttypesnameDataGridViewTextBoxColumn.DataPropertyName = "agent_types_name";
-            this.agenttypesnameDataGridViewTextBoxColumn.HeaderText = "Форма собственности";
-            this.agenttypesnameDataGridViewTextBoxColumn.Name = "agenttypesnameDataGridViewTextBoxColumn";
-            this.agenttypesnameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.agenttypesnameDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // agentsnameDataGridViewTextBoxColumn
-            // 
-            this.agentsnameDataGridViewTextBoxColumn.DataPropertyName = "agents_name";
-            this.agentsnameDataGridViewTextBoxColumn.HeaderText = "Контрагент";
-            this.agentsnameDataGridViewTextBoxColumn.Name = "agentsnameDataGridViewTextBoxColumn";
-            this.agentsnameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.agentsnameDataGridViewTextBoxColumn.Visible = false;
             // 
             // ProposalForm
             // 
