@@ -50,9 +50,9 @@
             this.labelAppVersion.AutoSize = true;
             this.labelAppVersion.Location = new System.Drawing.Point(12, 83);
             this.labelAppVersion.Name = "labelAppVersion";
-            this.labelAppVersion.Size = new System.Drawing.Size(55, 13);
+            this.labelAppVersion.Size = new System.Drawing.Size(79, 13);
             this.labelAppVersion.TabIndex = 1;
-            this.labelAppVersion.Text = "VERSION";
+            this.labelAppVersion.Text = "VERSION APP";
             // 
             // labelPath
             // 
@@ -67,18 +67,18 @@
             this.labelDeployVersion.AutoSize = true;
             this.labelDeployVersion.Location = new System.Drawing.Point(12, 103);
             this.labelDeployVersion.Name = "labelDeployVersion";
-            this.labelDeployVersion.Size = new System.Drawing.Size(55, 13);
+            this.labelDeployVersion.Size = new System.Drawing.Size(101, 13);
             this.labelDeployVersion.TabIndex = 3;
-            this.labelDeployVersion.Text = "VERSION";
+            this.labelDeployVersion.Text = "VERSION DEPLOY";
             // 
             // labelDatabaseVersion
             // 
             this.labelDatabaseVersion.AutoSize = true;
             this.labelDatabaseVersion.Location = new System.Drawing.Point(12, 125);
             this.labelDatabaseVersion.Name = "labelDatabaseVersion";
-            this.labelDatabaseVersion.Size = new System.Drawing.Size(55, 13);
+            this.labelDatabaseVersion.Size = new System.Drawing.Size(73, 13);
             this.labelDatabaseVersion.TabIndex = 4;
-            this.labelDatabaseVersion.Text = "VERSION";
+            this.labelDatabaseVersion.Text = "VERSION DB";
             // 
             // AboutForm
             // 
