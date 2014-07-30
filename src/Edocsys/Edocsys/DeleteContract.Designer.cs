@@ -95,6 +95,7 @@
             this.tableAdapterManager.contract_types_for_workTableAdapter = null;
             this.tableAdapterManager.contract_typesTableAdapter = null;
             this.tableAdapterManager.ContractInfoTableAdapter = null;
+            this.tableAdapterManager.ContractPaymentsTableAdapter = null;
             this.tableAdapterManager.ContractPrepareForWorkTAdapter = null;
             this.tableAdapterManager.ContractSigningTableAdapter = null;
             this.tableAdapterManager.ContractsOnInspectionTableAdapter = null;
@@ -124,6 +125,7 @@
             this.Controls.Add(this.buttonBadJobByExpert);
             this.Controls.Add(this.buttonBadJobByAgent);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
             this.Name = "DeleteContractForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Расторгнуть договор";

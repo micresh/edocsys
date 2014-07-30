@@ -40,12 +40,11 @@ namespace Edocsys
                 }
                 this.Close();
             }
-
         }
 
         private void DeleteContractForm_Load(object sender, EventArgs e)
         {
-
+            this.contractsTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
         }
 
         private void buttonBadJobByExpert_Click(object sender, EventArgs e)
