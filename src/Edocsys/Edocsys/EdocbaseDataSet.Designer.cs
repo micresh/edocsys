@@ -62087,29 +62087,29 @@ WHERE        (selected_gosts.contracts_id = @contracts_id)";
                 ".experts_id, contracts.number, contracts.date_contract, contracts.date_start, co" +
                 "ntracts.date_end, contracts.date_sample_income, \r\n                         contr" +
                 "acts.date_protocol_income, contracts.prepayment, contracts.cost, contracts.total" +
-                "_cost, contracts.cash_income, products.id AS pkproducts_id, products.name AS pro" +
-                "ducts_name, \r\n                         agents.id AS pkagents_id, agents.name AS " +
-                "agents_name, agent_types.id AS pkagent_types_id, agent_types.name AS agent_types" +
-                "_name, \r\n                         CONCAT(agent_types.name, \' \', agents.name) AS " +
-                "agents_fullname, contract_types.id AS pkcontract_types_id, contract_types.name A" +
-                "S contract_types_name, \r\n                         contract_status.id AS pkcontra" +
+                "_cost, contracts.cash_income, products.id AS pkproducts_id, \r\n                  " +
+                "       products.name AS products_name, agents.id AS pkagents_id, agents.name AS " +
+                "agents_name, agent_types.id AS pkagent_types_id, \r\n                         agen" +
+                "t_types.name AS agent_types_name, CONCAT(agent_types.name, \' \', agents.name) AS " +
+                "agents_fullname, contract_types.id AS pkcontract_types_id, \r\n                   " +
+                "      contract_types.name AS contract_types_name, contract_status.id AS pkcontra" +
                 "ct_status_id, contract_status.name AS contract_status_name, CONCAT(users.lastnam" +
-                "e, \' \', substr(users.firstname, 1, 1), \'. \', \r\n                         substr(u" +
+                "e, \r\n                         \' \', substr(users.firstname, 1, 1), \'. \', substr(u" +
                 "sers.middlename, 1, 1), \'.\') AS expert_FIO,\r\n                             (SELEC" +
                 "T        IFNULL\r\n                                                             ((" +
                 "SELECT        (documents.contract_types_id = 1)\r\n                               " +
                 "                                  FROM            documents\r\n                   " +
                 "                                              WHERE        (documents.contract_t" +
-                "ypes_id = 1) AND (documents.contracts_id = contracts.id)), `false`)) AS has_act_" +
-                "document\r\nFROM            contracts LEFT OUTER JOIN\r\n                         ag" +
-                "ents ON contracts.agents_id = agents.id LEFT OUTER JOIN\r\n                       " +
-                "  products ON contracts.products_id = products.id LEFT OUTER JOIN\r\n             " +
-                "            agent_types ON agents.agent_types_id = agent_types.id LEFT OUTER JOI" +
-                "N\r\n                         contract_types ON contracts.contract_types_id = cont" +
-                "ract_types.id LEFT OUTER JOIN\r\n                         contract_status ON contr" +
-                "acts.contract_status_id = contract_status.id LEFT OUTER JOIN\r\n                  " +
-                "       users ON contracts.experts_id = users.id\r\nWHERE        (contracts.contrac" +
-                "t_status_id = 6)";
+                "ypes_id = 1) AND (documents.contracts_id = contracts.id)), 0)) AS has_act_docume" +
+                "nt\r\nFROM            contracts LEFT OUTER JOIN\r\n                         agents O" +
+                "N contracts.agents_id = agents.id LEFT OUTER JOIN\r\n                         prod" +
+                "ucts ON contracts.products_id = products.id LEFT OUTER JOIN\r\n                   " +
+                "      agent_types ON agents.agent_types_id = agent_types.id LEFT OUTER JOIN\r\n   " +
+                "                      contract_types ON contracts.contract_types_id = contract_t" +
+                "ypes.id LEFT OUTER JOIN\r\n                         contract_status ON contracts.c" +
+                "ontract_status_id = contract_status.id LEFT OUTER JOIN\r\n                        " +
+                " users ON contracts.experts_id = users.id\r\nWHERE        (contracts.contract_stat" +
+                "us_id = 6)";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[1].Connection = this.Connection;
