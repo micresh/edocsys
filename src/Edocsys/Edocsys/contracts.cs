@@ -42,6 +42,11 @@ namespace Edocsys
             contractGenerator = new DocGeneratorHelper(edocbaseDataSet.documents, edocbaseDataSet.doc_templates, edocbaseDataSet.ContractDocData);
             actGenerator = new DocGeneratorHelper(edocbaseDataSet.documents, edocbaseDataSet.doc_templates, edocbaseDataSet.ContractDocData);
 
+            //performance tuning
+            DataGridViewHelper.DoubleBuffered(contractsSigningDataGridView, true);
+            DataGridViewHelper.DoubleBuffered(contractComplitionManagerConfrimDataGridView, true);
+            DataGridViewHelper.DoubleBuffered(contractDoneDataTableDataGridView, true);
+
             //Add FooterDecorators
             footerDecoratorContracts = new DataGridViewFooterDecorator(contractsSigningDataGridView, new Dictionary<string, ColumnHandler>
                         {
