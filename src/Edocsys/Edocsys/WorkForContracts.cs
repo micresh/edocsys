@@ -38,13 +38,15 @@ namespace Edocsys
             fdContractPrepareForWorkDataGridView = new DataGridViewFooterDecorator(contractPrepareForWorkDataGridView, new Dictionary<string, ColumnHandler>
                         {
                             {"numberDataGridViewTextBoxColumn", new ColumnHandler (DataGridViewFooterDecorator.StaticText, "number", "ИТОГО", null)}, 
-                            {"totalcostDataGridViewTextBoxColumn1", new ColumnHandler (DataGridViewFooterDecorator.Sum, "total_cost", null, contractPrepareForWorkDataGridView)}, 
+                            {"prepayment", new ColumnHandler (DataGridViewFooterDecorator.Sum, "prepayment", null, contractPrepareForWorkDataGridView)},
+                            {"totalcostDataGridViewTextBoxColumn1", new ColumnHandler (DataGridViewFooterDecorator.Sum, "total_cost", null, contractPrepareForWorkDataGridView)},
                         }
                         );
             fdContractInWorkDataGridView = new DataGridViewFooterDecorator(contractInWorkDataGridView, new Dictionary<string, ColumnHandler>
                         {
-                            {"numberDataGridViewTextBoxColumn1", new ColumnHandler (DataGridViewFooterDecorator.StaticText, "number", "ИТОГО", null)}, 
-                            {"totalcostDataGridViewTextBoxColumn2", new ColumnHandler (DataGridViewFooterDecorator.Sum, "total_cost", null, contractInWorkDataGridView)}, 
+                            {"numberDataGridViewTextBoxColumn1", new ColumnHandler (DataGridViewFooterDecorator.StaticText, "number", "ИТОГО", null)},
+                            {"dataGridViewTextBoxColumn1", new ColumnHandler (DataGridViewFooterDecorator.Sum, "prepayment", null, contractInWorkDataGridView)},
+                            {"totalcostDataGridViewTextBoxColumn2", new ColumnHandler (DataGridViewFooterDecorator.Sum, "total_cost", null, contractInWorkDataGridView)},
                         }
                         );
         }
