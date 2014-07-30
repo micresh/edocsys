@@ -55,6 +55,7 @@ namespace Edocsys
             fdAssignedContractsDataGridView = new DataGridViewFooterDecorator(assignedContractsDataGridView, new Dictionary<string, ColumnHandler>
                         {
                             {"dataGridViewTextBoxColumn1", new ColumnHandler (DataGridViewFooterDecorator.StaticText, "products_name", "ИТОГО", null)}, 
+                            {"prepayment", new ColumnHandler (DataGridViewFooterDecorator.Sum, "prepayment", null, assignedContractsDataGridView)}, 
                             {"dataGridViewTextBoxColumn3", new ColumnHandler (DataGridViewFooterDecorator.Sum, "total_cost", null, assignedContractsDataGridView)}, 
                         }
                 );
