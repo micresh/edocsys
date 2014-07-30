@@ -46,19 +46,23 @@ namespace Edocsys
             footerDecoratorContracts = new DataGridViewFooterDecorator(contractsSigningDataGridView, new Dictionary<string, ColumnHandler>
                         {
                             {"totalcostDataGridViewTextBoxColumn", new ColumnHandler (DataGridViewFooterDecorator.Sum, "total_cost", null, contractsSigningDataGridView)}, 
+                            {"prepayment", new ColumnHandler (DataGridViewFooterDecorator.Sum, "prepayment", null, contractsSigningDataGridView)}, 
                             {"number", new ColumnHandler (DataGridViewFooterDecorator.StaticText, "number", "ИТОГО", null)}, 
                         }
                         );
             footerDecoratorContractComplitionManagerConfrim = new DataGridViewFooterDecorator(contractComplitionManagerConfrimDataGridView, new Dictionary<string, ColumnHandler>
                         {
+                            
                             {"totalcostDataGridViewTextBoxColumn3", new ColumnHandler (DataGridViewFooterDecorator.Sum, "total_cost", null, contractComplitionManagerConfrimDataGridView)}, 
+                            {"dataGridViewTextBoxColumn1", new ColumnHandler (DataGridViewFooterDecorator.Sum, "prepayment", null, contractComplitionManagerConfrimDataGridView)}, 
                             {"numberDataGridViewTextBoxColumn2", new ColumnHandler (DataGridViewFooterDecorator.StaticText, "number", "ИТОГО", null)}, 
                         }
                         );
 
             footerDecoratorContractDone = new DataGridViewFooterDecorator(contractDoneDataTableDataGridView, new Dictionary<string, ColumnHandler>
                         {
-                            {"totalcostDataGridViewTextBoxColumn1", new ColumnHandler (DataGridViewFooterDecorator.Sum, "total_cost", null, contractDoneDataTableDataGridView)}, 
+                            {"totalcostDataGridViewTextBoxColumn1", new ColumnHandler (DataGridViewFooterDecorator.Sum, "total_cost", null, contractDoneDataTableDataGridView)},
+                            {"dataGridViewTextBoxColumn2", new ColumnHandler (DataGridViewFooterDecorator.Sum, "prepayment", null, contractDoneDataTableDataGridView)},
                             {"numberDataGridViewTextBoxColumn", new ColumnHandler (DataGridViewFooterDecorator.StaticText, "number", "ИТОГО", null)}, 
                         }
                         );
