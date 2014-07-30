@@ -3075,7 +3075,7 @@ WHERE
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ContractDoneTableAdapter" GeneratorDataComponentClassName="ContractDoneTableAdapter" Name="ContractDone" UserDataComponentName="ContractDoneTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="EdocbaseConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="EdocbaseConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>SELECT
@@ -3094,6 +3094,7 @@ contracts.date_start,
 contracts.date_end,
 contracts.date_sample_income,
 contracts.date_protocol_income,
+contracts.prepayment,
 contracts.cost,
 contracts.total_cost,
 contracts.cash_income,
@@ -3156,6 +3157,7 @@ WHERE
               <Mapping SourceColumn="expert_FIO" DataSetColumn="expert_FIO" />
               <Mapping SourceColumn="cash_income" DataSetColumn="cash_income" />
               <Mapping SourceColumn="experts_id1" DataSetColumn="experts_id1" />
+              <Mapping SourceColumn="prepayment" DataSetColumn="prepayment" />
               <Mapping SourceColumn="has_act_document" DataSetColumn="has_act_document" />
             </Mappings>
             <Sources>
@@ -5522,8 +5524,8 @@ WHERE contracts.id = @contracts_id</CommandText>
               </xs:element>
               <xs:element name="cash_income" msprop:Generator_ColumnVarNameInTable="columncash_income" msprop:Generator_ColumnPropNameInRow="cash_income" msprop:Generator_ColumnPropNameInTable="cash_incomeColumn" msprop:Generator_UserColumnName="cash_income" type="xs:boolean" minOccurs="0" />
               <xs:element name="experts_id1" msprop:Generator_ColumnVarNameInTable="columnexperts_id1" msprop:Generator_ColumnPropNameInRow="experts_id1" msprop:Generator_ColumnPropNameInTable="experts_id1Column" msprop:Generator_UserColumnName="experts_id1" type="xs:int" />
-              <xs:element name="has_act_document2" msdata:Caption="has_act_document" msprop:Generator_ColumnVarNameInTable="columnhas_act_document2" msprop:Generator_ColumnPropNameInRow="has_act_document2" msprop:Generator_ColumnPropNameInTable="has_act_document2Column" msprop:Generator_UserColumnName="has_act_document2" type="xs:boolean" minOccurs="0" />
-              <xs:element name="has_act_document" msprop:Generator_ColumnVarNameInTable="columnhas_act_document" msprop:Generator_ColumnPropNameInRow="has_act_document" msprop:Generator_ColumnPropNameInTable="has_act_documentColumn" msprop:Generator_UserColumnName="has_act_document" type="xs:boolean" minOccurs="0" />
+              <xs:element name="prepayment" msprop:Generator_ColumnVarNameInTable="columnprepayment" msprop:Generator_ColumnPropNameInRow="prepayment" msprop:Generator_ColumnPropNameInTable="prepaymentColumn" msprop:Generator_UserColumnName="prepayment" type="xs:int" minOccurs="0" />
+              <xs:element name="has_act_document" msprop:Generator_ColumnVarNameInTable="columnhas_act_document" msprop:Generator_ColumnPropNameInRow="has_act_document" msprop:Generator_ColumnPropNameInTable="has_act_documentColumn" msprop:Generator_UserColumnName="has_act_document" type="xs:long" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
