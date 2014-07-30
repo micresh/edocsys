@@ -20118,6 +20118,8 @@ namespace Edocsys {
             
             private global::System.Data.DataColumn columndate_real_resert;
             
+            private global::System.Data.DataColumn columnprepayment;
+            
             private global::System.Data.DataColumn columnhas_inspection_document;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -20451,6 +20453,14 @@ namespace Edocsys {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn prepaymentColumn {
+                get {
+                    return this.columnprepayment;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public global::System.Data.DataColumn has_inspection_documentColumn {
                 get {
                     return this.columnhas_inspection_document;
@@ -20528,7 +20538,8 @@ namespace Edocsys {
                         System.DateTime date_real_reatt_2, 
                         System.DateTime date_planed_resert, 
                         System.DateTime date_real_resert, 
-                        bool has_inspection_document) {
+                        int prepayment, 
+                        long has_inspection_document) {
                 InspectionContractsRow rowInspectionContractsRow = ((InspectionContractsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -20568,6 +20579,7 @@ namespace Edocsys {
                         date_real_reatt_2,
                         date_planed_resert,
                         date_real_resert,
+                        prepayment,
                         has_inspection_document};
                 if ((parentproductsRowByfk_contracts_products13 != null)) {
                     columnValuesArray[1] = parentproductsRowByfk_contracts_products13[0];
@@ -20643,6 +20655,7 @@ namespace Edocsys {
                 this.columndate_real_reatt_2 = base.Columns["date_real_reatt_2"];
                 this.columndate_planed_resert = base.Columns["date_planed_resert"];
                 this.columndate_real_resert = base.Columns["date_real_resert"];
+                this.columnprepayment = base.Columns["prepayment"];
                 this.columnhas_inspection_document = base.Columns["has_inspection_document"];
             }
             
@@ -20723,7 +20736,9 @@ namespace Edocsys {
                 base.Columns.Add(this.columndate_planed_resert);
                 this.columndate_real_resert = new global::System.Data.DataColumn("date_real_resert", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndate_real_resert);
-                this.columnhas_inspection_document = new global::System.Data.DataColumn("has_inspection_document", typeof(bool), null, global::System.Data.MappingType.Element);
+                this.columnprepayment = new global::System.Data.DataColumn("prepayment", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnprepayment);
+                this.columnhas_inspection_document = new global::System.Data.DataColumn("has_inspection_document", typeof(long), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnhas_inspection_document);
                 this.columnid.AutoIncrement = true;
                 this.columnid.AutoIncrementSeed = -1;
@@ -20752,6 +20767,7 @@ namespace Edocsys {
                 this.columncontract_types_name.MaxLength = 55;
                 this.columncontract_status_name.MaxLength = 45;
                 this.columnexpert_FIO.MaxLength = 38;
+                this.columnhas_inspection_document.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -41267,15 +41283,25 @@ namespace Edocsys {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool has_inspection_document {
+            public int prepayment {
                 get {
                     try {
-                        return ((bool)(this[this.tableInspectionContracts.has_inspection_documentColumn]));
+                        return ((int)(this[this.tableInspectionContracts.prepaymentColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'has_inspection_document\' in table \'InspectionContracts\' is " +
-                                "DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'prepayment\' in table \'InspectionContracts\' is DBNull.", e);
                     }
+                }
+                set {
+                    this[this.tableInspectionContracts.prepaymentColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public long has_inspection_document {
+                get {
+                    return ((long)(this[this.tableInspectionContracts.has_inspection_documentColumn]));
                 }
                 set {
                     this[this.tableInspectionContracts.has_inspection_documentColumn] = value;
@@ -41721,14 +41747,14 @@ namespace Edocsys {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool Ishas_inspection_documentNull() {
-                return this.IsNull(this.tableInspectionContracts.has_inspection_documentColumn);
+            public bool IsprepaymentNull() {
+                return this.IsNull(this.tableInspectionContracts.prepaymentColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void Sethas_inspection_documentNull() {
-                this[this.tableInspectionContracts.has_inspection_documentColumn] = global::System.Convert.DBNull;
+            public void SetprepaymentNull() {
+                this[this.tableInspectionContracts.prepaymentColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -62443,6 +62469,7 @@ WHERE        (selected_gosts.contracts_id = @contracts_id)";
             tableMapping.ColumnMappings.Add("date_real_reatt_2", "date_real_reatt_2");
             tableMapping.ColumnMappings.Add("date_planed_resert", "date_planed_resert");
             tableMapping.ColumnMappings.Add("date_real_resert", "date_real_resert");
+            tableMapping.ColumnMappings.Add("prepayment", "prepayment");
             tableMapping.ColumnMappings.Add("has_inspection_document", "has_inspection_document");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.UpdateCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
@@ -62521,26 +62548,26 @@ WHERE        (id = @original_id)";
                 "ntract_types_id,\r\ncontracts.contract_status_id,\r\ncontracts.experts_id,\r\ncontract" +
                 "s.source_types_id,\r\ncontracts.date_proposal,\r\ncontracts.experts_id,\r\ncontracts.n" +
                 "umber,\r\ncontracts.date_contract,\r\ncontracts.date_start,\r\ncontracts.date_end,\r\nco" +
-                "ntracts.date_sample_income,\r\ncontracts.date_protocol_income,\r\ncontracts.cost,\r\nc" +
-                "ontracts.total_cost,\r\ncontracts.cash_income,\r\ncontracts.date_cash_income,\r\ncontr" +
-                "acts.date_planed_reatt_1,\r\ncontracts.date_real_reatt_1,\r\ncontracts.date_planed_r" +
-                "eatt_2,\r\ncontracts.date_real_reatt_2,\r\ncontracts.date_planed_resert,\r\ncontracts." +
-                "date_real_resert,\r\nproducts.id AS pkproducts_id,\r\nproducts.name AS products_name" +
-                ",\r\nagents.id AS pkagents_id,\r\nagents.name AS agents_name,\r\nagent_types.id AS pka" +
-                "gent_types_id,\r\nagent_types.name AS agent_types_name,\r\nCONCAT( agent_types.name," +
-                " \' \', agents.name ) AS agents_fullname,\r\ncontract_types.id AS pkcontract_types_i" +
-                "d,\r\ncontract_types.name AS contract_types_name,\r\ncontract_status.id AS pkcontrac" +
-                "t_status_id,\r\ncontract_status.name AS contract_status_name,\r\nCONCAT( users.lastn" +
-                "ame, \' \', substr(users.firstname, 1, 1), \'. \', substr(users.middlename, 1, 1), \'" +
-                ".\' ) AS expert_FIO,\r\n(SELECT IFNULL((SELECT (documents.contract_types_id = 2) FR" +
-                "OM documents WHERE (documents.contract_types_id = 2) AND (documents.contracts_id" +
-                "=contracts.id)), false)) AS has_inspection_document\r\nFROM\r\ncontracts\r\nLEFT OUTER" +
-                " JOIN agents ON contracts.agents_id = agents.id\r\nLEFT OUTER JOIN products ON con" +
-                "tracts.products_id = products.id\r\nLEFT OUTER JOIN agent_types ON agents.agent_ty" +
-                "pes_id = agent_types.id\r\nLEFT OUTER JOIN contract_types ON contracts.contract_ty" +
-                "pes_id = contract_types.id\r\nLEFT OUTER JOIN contract_status ON contracts.contrac" +
-                "t_status_id = contract_status.id\r\nLEFT OUTER JOIN users ON contracts.experts_id " +
-                "= users.id\r\nWHERE\r\n(contracts.contract_status_id = 7)";
+                "ntracts.date_sample_income,\r\ncontracts.date_protocol_income,\r\ncontracts.prepayme" +
+                "nt,\r\ncontracts.cost,\r\ncontracts.total_cost,\r\ncontracts.cash_income,\r\ncontracts.d" +
+                "ate_cash_income,\r\ncontracts.date_planed_reatt_1,\r\ncontracts.date_real_reatt_1,\r\n" +
+                "contracts.date_planed_reatt_2,\r\ncontracts.date_real_reatt_2,\r\ncontracts.date_pla" +
+                "ned_resert,\r\ncontracts.date_real_resert,\r\nproducts.id AS pkproducts_id,\r\nproduct" +
+                "s.name AS products_name,\r\nagents.id AS pkagents_id,\r\nagents.name AS agents_name," +
+                "\r\nagent_types.id AS pkagent_types_id,\r\nagent_types.name AS agent_types_name,\r\nCO" +
+                "NCAT( agent_types.name, \' \', agents.name ) AS agents_fullname,\r\ncontract_types.i" +
+                "d AS pkcontract_types_id,\r\ncontract_types.name AS contract_types_name,\r\ncontract" +
+                "_status.id AS pkcontract_status_id,\r\ncontract_status.name AS contract_status_nam" +
+                "e,\r\nCONCAT( users.lastname, \' \', substr(users.firstname, 1, 1), \'. \', substr(use" +
+                "rs.middlename, 1, 1), \'.\' ) AS expert_FIO,\r\n(SELECT IFNULL((SELECT (documents.co" +
+                "ntract_types_id = 2) FROM documents WHERE (documents.contract_types_id = 2) AND " +
+                "(documents.contracts_id=contracts.id)), false)) AS has_inspection_document\r\nFROM" +
+                "\r\ncontracts\r\nLEFT OUTER JOIN agents ON contracts.agents_id = agents.id\r\nLEFT OUT" +
+                "ER JOIN products ON contracts.products_id = products.id\r\nLEFT OUTER JOIN agent_t" +
+                "ypes ON agents.agent_types_id = agent_types.id\r\nLEFT OUTER JOIN contract_types O" +
+                "N contracts.contract_types_id = contract_types.id\r\nLEFT OUTER JOIN contract_stat" +
+                "us ON contracts.contract_status_id = contract_status.id\r\nLEFT OUTER JOIN users O" +
+                "N contracts.experts_id = users.id\r\nWHERE\r\n(contracts.contract_status_id = 7)";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[1].Connection = this.Connection;
