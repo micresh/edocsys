@@ -44,7 +44,8 @@ namespace Edocsys
             fdInspectionContractsDataGridView = new DataGridViewFooterDecorator(inspectionContractsDataGridView, new Dictionary<string, ColumnHandler>
                         {
                             {"number", new ColumnHandler (DataGridViewFooterDecorator.StaticText, "number", "ИТОГО", null)}, 
-                            {"totalcostDataGridViewTextBoxColumn", new ColumnHandler (DataGridViewFooterDecorator.Sum, "total_cost", null, inspectionContractsDataGridView)}, 
+                            {"prepayment", new ColumnHandler (DataGridViewFooterDecorator.Sum, "prepayment", null, inspectionContractsDataGridView)},
+                            {"totalcostDataGridViewTextBoxColumn", new ColumnHandler (DataGridViewFooterDecorator.Sum, "total_cost", null, inspectionContractsDataGridView)},
                         }
             );
 
