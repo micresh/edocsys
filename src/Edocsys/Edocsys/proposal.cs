@@ -323,7 +323,7 @@ namespace Edocsys
 
             DataRowView currentRow = (DataRowView)this.contractInfoDataTableBindingSource.Current;
 
-            AddNewProposal(currentRow);
+            InitNewProposal(currentRow);
         }
 
         public void AddNewProposalWithAgent(int agents_id)
@@ -332,7 +332,7 @@ namespace Edocsys
 
             DataRowView currentRow = (DataRowView)this.contractInfoDataTableBindingSource.Current;
 
-            AddNewProposal(currentRow);
+            InitNewProposal(currentRow);
 
             currentRow["agents_id"] = agents_id;
 
@@ -346,10 +346,10 @@ namespace Edocsys
         }
 
 
-        private void AddNewProposal(DataRowView currentRow)
+        private void InitNewProposal(DataRowView currentRow)
         {
             currentRow["contract_status_id"] = (int)Constants.ContractStatuses.NewProposal;
-            currentRow["experts_id"] = 1;     //assign all to admin?????
+            currentRow["experts_id"] = 1;     //BUGGY: ????? assign all to admin by default?
             currentRow["contract_types_id"] = (int)Constants.ContractTypes.Sertefication;
             currentRow["source_types_id"] = (int)Constants.SourceTypes.Personal;
             currentRow["date_proposal"] = DateTime.Now.Date;

@@ -461,7 +461,7 @@
             // 
             // date_proposalDateTimePicker
             // 
-            this.date_proposalDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.contractInfoDataTableBindingSource, "date_proposal", true));
+            this.date_proposalDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.contractInfoDataTableBindingSource, "date_proposal", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.date_proposalDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Enabled", this.contractInfoDataTableBindingSource, "id", true, System.Windows.Forms.DataSourceUpdateMode.Never));
             this.date_proposalDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.date_proposalDateTimePicker.Location = new System.Drawing.Point(167, 93);
