@@ -37,7 +37,7 @@ namespace Edocsys.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Система регистрации заявок")]
+        [global::System.Configuration.DefaultSettingValueAttribute("АНО \"Исследователь\": Система регистрации заявок")]
         public string MainFormText {
             get {
                 return ((string)(this["MainFormText"]));

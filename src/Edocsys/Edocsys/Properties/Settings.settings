@@ -6,7 +6,7 @@
       <Value Profile="(Default)">Справочники</Value>
     </Setting>
     <Setting Name="MainFormText" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Система регистрации заявок</Value>
+      <Value Profile="(Default)">АНО "Исследователь": Система регистрации заявок</Value>
     </Setting>
     <Setting Name="FileToolStripMenuItemText" Type="System.String" Scope="User">
       <Value Profile="(Default)">&amp;Файл</Value>
