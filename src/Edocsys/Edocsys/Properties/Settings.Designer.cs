@@ -1273,7 +1273,7 @@ namespace Edocsys.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Дата поступления образца")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Дата поступления образца/акта отбора")]
         public string ContractsDateSampleIncomeTitle {
             get {
                 return ((string)(this["ContractsDateSampleIncomeTitle"]));
@@ -1285,7 +1285,7 @@ namespace Edocsys.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Дата поступления протокола")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Дата поступления протокола/заявки")]
         public string ContractsDateProtocolIncomeTitle {
             get {
                 return ((string)(this["ContractsDateProtocolIncomeTitle"]));
@@ -1368,7 +1368,7 @@ namespace Edocsys.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Планирование работ")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Подготовка к работе")]
         public string WorksForContractTitle {
             get {
                 return ((string)(this["WorksForContractTitle"]));
