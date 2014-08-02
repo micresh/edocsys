@@ -286,16 +286,32 @@ namespace Edocsys
                 {
                     currentRow["prepayment"] = 0;
                 }
+                int prepayment = Convert.ToInt32(currentRow["prepayment"]);
+                int total_cost = Convert.ToInt32(currentRow["total_cost"]);
 
-                int newSum = Convert.ToInt32(currentRow["prepayment"]) + sum;
+                int newSum = prepayment + sum;
 
-                if (newSum > Convert.ToInt32(currentRow["total_cost"]))
+                
+
+                if (newSum > total_cost)
                 {
                     if (MessageBox.Show("Внимание!\nСумма средств больше стоимости договора!\nПодтвердить получение суммы за работу по договору #" + id, "Подтвердить получение суммы", MessageBoxButtons.YesNo) == DialogResult.No)
                     {
                         return;
                     }
                 }
+                
+                int contract_type_id = Convert.ToInt32(currentRow["contract_types_id"]);
+               
+                // special case for LabControl type
+                if (contract_type_id == (int)Constants.ContractTypes.LabControl)
+                {
+                    if (total_cost <= newSum)
+                    {
+                        currentRow["total_cost"] = newSum;
+                    }
+                }
+
 
                 currentRow["prepayment"] = newSum;
             }
