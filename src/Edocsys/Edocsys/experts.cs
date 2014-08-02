@@ -21,7 +21,7 @@ namespace Edocsys
         private void expertsBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
             SaveExperts();
-            RefreshExperts();
+            RefreshDatabase();
         }
 
         private void SaveExperts()
@@ -62,7 +62,7 @@ namespace Edocsys
             }
         }
 
-        private void RefreshExperts()
+        private void RefreshDatabase()
         {
             try
             {
@@ -115,8 +115,13 @@ namespace Edocsys
             {
                 expertsBindingSource.RemoveCurrent();
                 SaveExperts();
-                RefreshExperts();
+                RefreshDatabase();
             }
+        }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            RefreshDatabase();
         }
     }
 }
