@@ -163,6 +163,7 @@
       <DependentUpon>DeleteContract.cs</DependentUpon>
     </Compile>
     <Compile Include="Helpers\DBMigrationHelper.cs" />
+    <Compile Include="Helpers\DBMigrationHelperData.cs" />
     <Compile Include="HelpForm.cs">
       <SubType>Form</SubType>
     </Compile>
