@@ -40,12 +40,17 @@
             this.TSMExit = new System.Windows.Forms.ToolStripMenuItem();
             this.TSMWorkMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.TSMAgents = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripSeparator();
             this.TSMProposals = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripSeparator();
             this.TSMAssignExpert = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripSeparator();
             this.TSMContracts = new System.Windows.Forms.ToolStripMenuItem();
             this.TSMWorkForContracts = new System.Windows.Forms.ToolStripMenuItem();
-            this.TSMContractPayments = new System.Windows.Forms.ToolStripMenuItem();
             this.TSMInspectionControl = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem7 = new System.Windows.Forms.ToolStripSeparator();
+            this.TSMContractPayments = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripSeparator();
             this.TSMContractStats = new System.Windows.Forms.ToolStripMenuItem();
             this.TSMAdminMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.TSMUserAdmin = new System.Windows.Forms.ToolStripMenuItem();
@@ -84,11 +89,6 @@
             this.edocbaseDataSet = new Edocsys.EdocbaseDataSet();
             this.usersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tableAdapterManager = new Edocsys.EdocbaseDataSetTableAdapters.TableAdapterManager();
-            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripMenuItem7 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripSeparator();
             this.mainMenuStrip.SuspendLayout();
             this.mainToolStrip.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -189,6 +189,11 @@
             this.TSMAgents.Text = global::Edocsys.Properties.Settings.Default.ClientsFormText;
             this.TSMAgents.Click += new System.EventHandler(this.AgentsToolStripMenuItem_Click);
             // 
+            // toolStripMenuItem4
+            // 
+            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(218, 6);
+            // 
             // TSMProposals
             // 
             this.TSMProposals.Name = "TSMProposals";
@@ -196,12 +201,22 @@
             this.TSMProposals.Text = global::Edocsys.Properties.Settings.Default.ProposalToolStripMenuItemText;
             this.TSMProposals.Click += new System.EventHandler(this.proposalToolStripMenuItem_Click);
             // 
+            // toolStripMenuItem5
+            // 
+            this.toolStripMenuItem5.Name = "toolStripMenuItem5";
+            this.toolStripMenuItem5.Size = new System.Drawing.Size(218, 6);
+            // 
             // TSMAssignExpert
             // 
             this.TSMAssignExpert.Name = "TSMAssignExpert";
             this.TSMAssignExpert.Size = new System.Drawing.Size(221, 22);
             this.TSMAssignExpert.Text = global::Edocsys.Properties.Settings.Default.AssignexpertToolStripMenuItemText;
             this.TSMAssignExpert.Click += new System.EventHandler(this.ExpertAssignToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem6
+            // 
+            this.toolStripMenuItem6.Name = "toolStripMenuItem6";
+            this.toolStripMenuItem6.Size = new System.Drawing.Size(218, 6);
             // 
             // TSMContracts
             // 
@@ -217,6 +232,18 @@
             this.TSMWorkForContracts.Text = global::Edocsys.Properties.Settings.Default.WorksForContractTitle;
             this.TSMWorkForContracts.Click += new System.EventHandler(this.WorksToolStripMenuItem_Click);
             // 
+            // TSMInspectionControl
+            // 
+            this.TSMInspectionControl.Name = "TSMInspectionControl";
+            this.TSMInspectionControl.Size = new System.Drawing.Size(221, 22);
+            this.TSMInspectionControl.Text = global::Edocsys.Properties.Settings.Default.InspectionControlMenuTitle;
+            this.TSMInspectionControl.Click += new System.EventHandler(this.InspectionControlToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem7
+            // 
+            this.toolStripMenuItem7.Name = "toolStripMenuItem7";
+            this.toolStripMenuItem7.Size = new System.Drawing.Size(218, 6);
+            // 
             // TSMContractPayments
             // 
             this.TSMContractPayments.Name = "TSMContractPayments";
@@ -224,12 +251,10 @@
             this.TSMContractPayments.Text = global::Edocsys.Properties.Settings.Default.ContractPaymentsTitle;
             this.TSMContractPayments.Click += new System.EventHandler(this.ContractPaymentsToolStripMenuItem_Click);
             // 
-            // TSMInspectionControl
+            // toolStripMenuItem8
             // 
-            this.TSMInspectionControl.Name = "TSMInspectionControl";
-            this.TSMInspectionControl.Size = new System.Drawing.Size(221, 22);
-            this.TSMInspectionControl.Text = global::Edocsys.Properties.Settings.Default.InspectionControlMenuTitle;
-            this.TSMInspectionControl.Click += new System.EventHandler(this.InspectionControlToolStripMenuItem_Click);
+            this.toolStripMenuItem8.Name = "toolStripMenuItem8";
+            this.toolStripMenuItem8.Size = new System.Drawing.Size(218, 6);
             // 
             // TSMContractStats
             // 
@@ -356,7 +381,7 @@
             this.TSBAgents.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.TSBAgents.Name = "TSBAgents";
             this.TSBAgents.Size = new System.Drawing.Size(54, 54);
-            this.TSBAgents.Text = "Контрагенты";
+            this.TSBAgents.Text = global::Edocsys.Properties.Settings.Default.ClientsFormText;
             this.TSBAgents.Click += new System.EventHandler(this.AgentsToolStripMenuItem_Click);
             // 
             // toolStripSeparator5
@@ -371,7 +396,7 @@
             this.TSBProposals.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.TSBProposals.Name = "TSBProposals";
             this.TSBProposals.Size = new System.Drawing.Size(54, 54);
-            this.TSBProposals.Text = "Заявки";
+            this.TSBProposals.Text = global::Edocsys.Properties.Settings.Default.ProposalToolStripMenuItemText;
             this.TSBProposals.Click += new System.EventHandler(this.proposalToolStripMenuItem_Click);
             // 
             // toolStripSeparator6
@@ -386,7 +411,7 @@
             this.TSBAssignExpert.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.TSBAssignExpert.Name = "TSBAssignExpert";
             this.TSBAssignExpert.Size = new System.Drawing.Size(54, 54);
-            this.TSBAssignExpert.Text = "Назначение эксперта";
+            this.TSBAssignExpert.Text = global::Edocsys.Properties.Settings.Default.AssignexpertToolStripMenuItemText;
             this.TSBAssignExpert.Click += new System.EventHandler(this.AssignexpertToolStripMenuItem_Click);
             // 
             // toolStripSeparator3
@@ -401,7 +426,7 @@
             this.TSBContracts.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.TSBContracts.Name = "TSBContracts";
             this.TSBContracts.Size = new System.Drawing.Size(54, 54);
-            this.TSBContracts.Text = "Ведение договоров";
+            this.TSBContracts.Text = global::Edocsys.Properties.Settings.Default.ContractToolStripMenuItemText;
             this.TSBContracts.Click += new System.EventHandler(this.ContractToolStripMenuItem_Click);
             // 
             // TSBWorkForContracts
@@ -411,7 +436,7 @@
             this.TSBWorkForContracts.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.TSBWorkForContracts.Name = "TSBWorkForContracts";
             this.TSBWorkForContracts.Size = new System.Drawing.Size(54, 54);
-            this.TSBWorkForContracts.Text = "Планирование работ";
+            this.TSBWorkForContracts.Text = global::Edocsys.Properties.Settings.Default.WorksForContractTitle;
             this.TSBWorkForContracts.Click += new System.EventHandler(this.WorksToolStripMenuItem_Click);
             // 
             // TSBInspectionControl
@@ -421,7 +446,7 @@
             this.TSBInspectionControl.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.TSBInspectionControl.Name = "TSBInspectionControl";
             this.TSBInspectionControl.Size = new System.Drawing.Size(54, 54);
-            this.TSBInspectionControl.Text = "Инспекционный контроль";
+            this.TSBInspectionControl.Text = global::Edocsys.Properties.Settings.Default.InspectionControlMenuTitle;
             this.TSBInspectionControl.Click += new System.EventHandler(this.InspectionControlToolStripMenuItem_Click);
             // 
             // toolStripSeparator7
@@ -451,7 +476,7 @@
             this.TSBContractStats.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.TSBContractStats.Name = "TSBContractStats";
             this.TSBContractStats.Size = new System.Drawing.Size(54, 54);
-            this.TSBContractStats.Text = "Статистика договоров";
+            this.TSBContractStats.Text = global::Edocsys.Properties.Settings.Default.ContractStatsTitle;
             this.TSBContractStats.Click += new System.EventHandler(this.ContractStatsToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
@@ -546,6 +571,7 @@
             this.tableAdapterManager.contract_types_for_workTableAdapter = null;
             this.tableAdapterManager.contract_typesTableAdapter = null;
             this.tableAdapterManager.ContractInfoTableAdapter = null;
+            this.tableAdapterManager.ContractPaymentsTableAdapter = null;
             this.tableAdapterManager.ContractPrepareForWorkTAdapter = null;
             this.tableAdapterManager.ContractSigningTableAdapter = null;
             this.tableAdapterManager.ContractsOnInspectionTableAdapter = null;
@@ -565,31 +591,6 @@
             this.tableAdapterManager.UpdateOrder = Edocsys.EdocbaseDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             this.tableAdapterManager.user_typesTableAdapter = null;
             this.tableAdapterManager.usersTableAdapter = this.usersTableAdapter;
-            // 
-            // toolStripMenuItem4
-            // 
-            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(218, 6);
-            // 
-            // toolStripMenuItem5
-            // 
-            this.toolStripMenuItem5.Name = "toolStripMenuItem5";
-            this.toolStripMenuItem5.Size = new System.Drawing.Size(218, 6);
-            // 
-            // toolStripMenuItem6
-            // 
-            this.toolStripMenuItem6.Name = "toolStripMenuItem6";
-            this.toolStripMenuItem6.Size = new System.Drawing.Size(218, 6);
-            // 
-            // toolStripMenuItem7
-            // 
-            this.toolStripMenuItem7.Name = "toolStripMenuItem7";
-            this.toolStripMenuItem7.Size = new System.Drawing.Size(218, 6);
-            // 
-            // toolStripMenuItem8
-            // 
-            this.toolStripMenuItem8.Name = "toolStripMenuItem8";
-            this.toolStripMenuItem8.Size = new System.Drawing.Size(218, 6);
             // 
             // MainForm
             // 
