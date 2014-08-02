@@ -38,11 +38,22 @@
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabContractSigning = new System.Windows.Forms.TabPage();
             this.contractsSigningDataGridView = new System.Windows.Forms.DataGridView();
+            this.agentsfullnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.number = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contracttypesnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productsnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.prepayment = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.costDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.totalcostDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateproposalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.date_contract = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.expertFIODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.has_contract_document = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.SignContractColumn = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.agenttypesnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.agentsnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contractSigningBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.edocbaseDataSet = new Edocsys.EdocbaseDataSet();
             this.panel1 = new System.Windows.Forms.Panel();
             this.prepaymentTextBox = new System.Windows.Forms.TextBox();
             this.total_costTextBox = new System.Windows.Forms.TextBox();
@@ -75,6 +86,7 @@
             this.filterContractSigningText = new System.Windows.Forms.ToolStripTextBox();
             this.tabComplitionManagerConfrim = new System.Windows.Forms.TabPage();
             this.contractComplitionManagerConfrimDataGridView = new System.Windows.Forms.DataGridView();
+            this.contractComplitionMgrCfmBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.bindingNavigatorComplitionMgrCnf = new System.Windows.Forms.BindingNavigator(this.components);
             this.toolStripLabel6 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripButton13 = new System.Windows.Forms.ToolStripButton();
@@ -91,6 +103,7 @@
             this.filterComplitionTextBox = new System.Windows.Forms.ToolStripTextBox();
             this.tabComplitionAgentConfrim = new System.Windows.Forms.TabPage();
             this.contractDoneDataTableDataGridView = new System.Windows.Forms.DataGridView();
+            this.contractDoneBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.bindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
@@ -113,46 +126,31 @@
             this.buttonGenerateAct = new System.Windows.Forms.Button();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
-            this.cash_income = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ConfirmTaskFinishedColumn = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.productsnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.contracttypesnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.agentsfullnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.agentsnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.agenttypesnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.costDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.totalcostDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dateproposalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.expertFIODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.contractSigningBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.edocbaseDataSet = new Edocsys.EdocbaseDataSet();
-            this.numberDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.agentsfullnameDataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.agentsnameDataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.agenttypesnameDataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.productsnameDataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.contracttypesnameDataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.costDataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.totalcostDataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.datecontractDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.datestartDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dateendDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.expertFIODataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.contractComplitionMgrCfmBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.contractDoneBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tableAdapterManager = new Edocsys.EdocbaseDataSetTableAdapters.TableAdapterManager();
             this.contractSigningTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.ContractSigningTableAdapter();
             this.contractDocDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.contractDocDataTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.ContractDocDataTableAdapter();
             this.contractComplitionMgrCfmTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.ContractComplitionMgrCfmTableAdapter();
             this.contractDoneTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.ContractDoneTableAdapter();
-            this.numberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.productsnameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.agentsfullnameDataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.numberDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cash_income = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.contracttypesnameDataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productsnameDataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.costDataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.totalcostDataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ConfirmTaskFinishedColumn = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.datecontractDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.datestartDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateendDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.expertFIODataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.agenttypesnameDataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.agentsnameDataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.agentsfullnameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.agentsnameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.agenttypesnameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.numberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contracttypesnameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productsnameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cash_income_finish = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.totalcostDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -164,6 +162,8 @@
             this.dateendDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.costDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.expertFIODataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.agenttypesnameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.agentsnameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             date_contractLabel = new System.Windows.Forms.Label();
             numberLabel = new System.Windows.Forms.Label();
             costLabel = new System.Windows.Forms.Label();
@@ -172,24 +172,24 @@
             this.tabControl.SuspendLayout();
             this.tabContractSigning.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.contractsSigningDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.contractSigningBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.edocbaseDataSet)).BeginInit();
             this.panel1.SuspendLayout();
             this.groupBoxContract.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigatorContractSigning)).BeginInit();
             this.bindingNavigatorContractSigning.SuspendLayout();
             this.tabComplitionManagerConfrim.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.contractComplitionManagerConfrimDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.contractComplitionMgrCfmBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigatorComplitionMgrCnf)).BeginInit();
             this.bindingNavigatorComplitionMgrCnf.SuspendLayout();
             this.tabComplitionAgentConfrim.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.contractDoneDataTableDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.contractDoneBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator)).BeginInit();
             this.bindingNavigator.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.contractSigningBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.edocbaseDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.contractComplitionMgrCfmBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.contractDoneBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.contractDocDataBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -217,7 +217,7 @@
             // 
             costLabel.AutoSize = true;
             costLabel.Enabled = false;
-            costLabel.Location = new System.Drawing.Point(524, 41);
+            costLabel.Location = new System.Drawing.Point(590, 44);
             costLabel.Name = "costLabel";
             costLabel.Size = new System.Drawing.Size(41, 13);
             costLabel.TabIndex = 31;
@@ -277,12 +277,10 @@
             this.contractsSigningDataGridView.AutoGenerateColumns = false;
             this.contractsSigningDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.contractsSigningDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.number,
-            this.productsnameDataGridViewTextBoxColumn,
-            this.contracttypesnameDataGridViewTextBoxColumn,
             this.agentsfullnameDataGridViewTextBoxColumn,
-            this.agentsnameDataGridViewTextBoxColumn,
-            this.agenttypesnameDataGridViewTextBoxColumn,
+            this.number,
+            this.contracttypesnameDataGridViewTextBoxColumn,
+            this.productsnameDataGridViewTextBoxColumn,
             this.prepayment,
             this.costDataGridViewTextBoxColumn,
             this.totalcostDataGridViewTextBoxColumn,
@@ -290,7 +288,9 @@
             this.date_contract,
             this.expertFIODataGridViewTextBoxColumn,
             this.has_contract_document,
-            this.SignContractColumn});
+            this.SignContractColumn,
+            this.agenttypesnameDataGridViewTextBoxColumn,
+            this.agentsnameDataGridViewTextBoxColumn});
             this.contractsSigningDataGridView.DataSource = this.contractSigningBindingSource;
             this.contractsSigningDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.contractsSigningDataGridView.Location = new System.Drawing.Point(3, 28);
@@ -302,12 +302,34 @@
             this.contractsSigningDataGridView.TabIndex = 27;
             this.contractsSigningDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.contractsSigningDataTableDataGridView_CellContentClick);
             // 
+            // agentsfullnameDataGridViewTextBoxColumn
+            // 
+            this.agentsfullnameDataGridViewTextBoxColumn.DataPropertyName = "agents_fullname";
+            this.agentsfullnameDataGridViewTextBoxColumn.HeaderText = "Контрагент";
+            this.agentsfullnameDataGridViewTextBoxColumn.Name = "agentsfullnameDataGridViewTextBoxColumn";
+            this.agentsfullnameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.agentsfullnameDataGridViewTextBoxColumn.Width = 200;
+            // 
             // number
             // 
             this.number.DataPropertyName = "number";
             this.number.HeaderText = "Номер договора";
             this.number.Name = "number";
             this.number.ReadOnly = true;
+            // 
+            // contracttypesnameDataGridViewTextBoxColumn
+            // 
+            this.contracttypesnameDataGridViewTextBoxColumn.DataPropertyName = "contract_types_name";
+            this.contracttypesnameDataGridViewTextBoxColumn.HeaderText = "Вид договора";
+            this.contracttypesnameDataGridViewTextBoxColumn.Name = "contracttypesnameDataGridViewTextBoxColumn";
+            this.contracttypesnameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // productsnameDataGridViewTextBoxColumn
+            // 
+            this.productsnameDataGridViewTextBoxColumn.DataPropertyName = "products_name";
+            this.productsnameDataGridViewTextBoxColumn.HeaderText = "Продукция";
+            this.productsnameDataGridViewTextBoxColumn.Name = "productsnameDataGridViewTextBoxColumn";
+            this.productsnameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // prepayment
             // 
@@ -316,6 +338,28 @@
             this.prepayment.Name = "prepayment";
             this.prepayment.ReadOnly = true;
             // 
+            // costDataGridViewTextBoxColumn
+            // 
+            this.costDataGridViewTextBoxColumn.DataPropertyName = "cost";
+            this.costDataGridViewTextBoxColumn.HeaderText = "Сумма";
+            this.costDataGridViewTextBoxColumn.Name = "costDataGridViewTextBoxColumn";
+            this.costDataGridViewTextBoxColumn.ReadOnly = true;
+            this.costDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // totalcostDataGridViewTextBoxColumn
+            // 
+            this.totalcostDataGridViewTextBoxColumn.DataPropertyName = "total_cost";
+            this.totalcostDataGridViewTextBoxColumn.HeaderText = "Общая сумма";
+            this.totalcostDataGridViewTextBoxColumn.Name = "totalcostDataGridViewTextBoxColumn";
+            this.totalcostDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // dateproposalDataGridViewTextBoxColumn
+            // 
+            this.dateproposalDataGridViewTextBoxColumn.DataPropertyName = "date_proposal";
+            this.dateproposalDataGridViewTextBoxColumn.HeaderText = "Дата поступления заявки";
+            this.dateproposalDataGridViewTextBoxColumn.Name = "dateproposalDataGridViewTextBoxColumn";
+            this.dateproposalDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
             // date_contract
             // 
             this.date_contract.DataPropertyName = "date_contract";
@@ -323,19 +367,54 @@
             this.date_contract.Name = "date_contract";
             this.date_contract.ReadOnly = true;
             // 
+            // expertFIODataGridViewTextBoxColumn
+            // 
+            this.expertFIODataGridViewTextBoxColumn.DataPropertyName = "expert_FIO";
+            this.expertFIODataGridViewTextBoxColumn.HeaderText = "Эксперт";
+            this.expertFIODataGridViewTextBoxColumn.Name = "expertFIODataGridViewTextBoxColumn";
+            this.expertFIODataGridViewTextBoxColumn.ReadOnly = true;
+            this.expertFIODataGridViewTextBoxColumn.Visible = false;
+            // 
             // has_contract_document
             // 
             this.has_contract_document.DataPropertyName = "has_contract_document";
             this.has_contract_document.HeaderText = "Документ";
             this.has_contract_document.Name = "has_contract_document";
             this.has_contract_document.ReadOnly = true;
-            this.has_contract_document.Width = 70;
+            this.has_contract_document.Width = 64;
             // 
             // SignContractColumn
             // 
             this.SignContractColumn.HeaderText = "Контракт подписан";
             this.SignContractColumn.Name = "SignContractColumn";
             this.SignContractColumn.ReadOnly = true;
+            // 
+            // agenttypesnameDataGridViewTextBoxColumn
+            // 
+            this.agenttypesnameDataGridViewTextBoxColumn.DataPropertyName = "agent_types_name";
+            this.agenttypesnameDataGridViewTextBoxColumn.HeaderText = "Форма собственности";
+            this.agenttypesnameDataGridViewTextBoxColumn.Name = "agenttypesnameDataGridViewTextBoxColumn";
+            this.agenttypesnameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.agenttypesnameDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // agentsnameDataGridViewTextBoxColumn
+            // 
+            this.agentsnameDataGridViewTextBoxColumn.DataPropertyName = "agents_name";
+            this.agentsnameDataGridViewTextBoxColumn.HeaderText = "Контрагент";
+            this.agentsnameDataGridViewTextBoxColumn.Name = "agentsnameDataGridViewTextBoxColumn";
+            this.agentsnameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.agentsnameDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // contractSigningBindingSource
+            // 
+            this.contractSigningBindingSource.DataMember = "ContractSigning";
+            this.contractSigningBindingSource.DataSource = this.edocbaseDataSet;
+            // 
+            // edocbaseDataSet
+            // 
+            this.edocbaseDataSet.CaseSensitive = true;
+            this.edocbaseDataSet.DataSetName = "EdocbaseDataSet";
+            this.edocbaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // panel1
             // 
@@ -384,12 +463,12 @@
             // 
             // date_contractDateTimePicker
             // 
-            this.date_contractDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.contractSigningBindingSource, "date_contract", true));
+            this.date_contractDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.contractSigningBindingSource, "date_contract", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.date_contractDateTimePicker.Location = new System.Drawing.Point(184, 38);
             this.date_contractDateTimePicker.Name = "date_contractDateTimePicker";
             this.date_contractDateTimePicker.Size = new System.Drawing.Size(142, 20);
             this.date_contractDateTimePicker.TabIndex = 31;
-            this.date_contractDateTimePicker.Value = new System.DateTime(2013, 3, 17, 0, 0, 0, 0);
+            this.date_contractDateTimePicker.Value = new System.DateTime(2014, 8, 3, 0, 0, 0, 0);
             // 
             // numberTextBox
             // 
@@ -650,13 +729,11 @@
             this.contractComplitionManagerConfrimDataGridView.AutoGenerateColumns = false;
             this.contractComplitionManagerConfrimDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.contractComplitionManagerConfrimDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.numberDataGridViewTextBoxColumn2,
             this.agentsfullnameDataGridViewTextBoxColumn3,
-            this.agentsnameDataGridViewTextBoxColumn3,
-            this.agenttypesnameDataGridViewTextBoxColumn3,
+            this.numberDataGridViewTextBoxColumn2,
             this.cash_income,
-            this.productsnameDataGridViewTextBoxColumn3,
             this.contracttypesnameDataGridViewTextBoxColumn3,
+            this.productsnameDataGridViewTextBoxColumn3,
             this.costDataGridViewTextBoxColumn3,
             this.dataGridViewTextBoxColumn1,
             this.totalcostDataGridViewTextBoxColumn3,
@@ -664,7 +741,9 @@
             this.datecontractDataGridViewTextBoxColumn1,
             this.datestartDataGridViewTextBoxColumn2,
             this.dateendDataGridViewTextBoxColumn2,
-            this.expertFIODataGridViewTextBoxColumn3});
+            this.expertFIODataGridViewTextBoxColumn3,
+            this.agenttypesnameDataGridViewTextBoxColumn3,
+            this.agentsnameDataGridViewTextBoxColumn3});
             this.contractComplitionManagerConfrimDataGridView.DataSource = this.contractComplitionMgrCfmBindingSource;
             this.contractComplitionManagerConfrimDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.contractComplitionManagerConfrimDataGridView.Location = new System.Drawing.Point(3, 28);
@@ -675,6 +754,11 @@
             this.contractComplitionManagerConfrimDataGridView.Size = new System.Drawing.Size(1043, 489);
             this.contractComplitionManagerConfrimDataGridView.TabIndex = 30;
             this.contractComplitionManagerConfrimDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.contractComplitionManagerConfrimDataGridView_CellContentClick);
+            // 
+            // contractComplitionMgrCfmBindingSource
+            // 
+            this.contractComplitionMgrCfmBindingSource.DataMember = "ContractComplitionMgrCfm";
+            this.contractComplitionMgrCfmBindingSource.DataSource = this.edocbaseDataSet;
             // 
             // bindingNavigatorComplitionMgrCnf
             // 
@@ -823,12 +907,10 @@
             this.contractDoneDataTableDataGridView.AutoGenerateColumns = false;
             this.contractDoneDataTableDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.contractDoneDataTableDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.numberDataGridViewTextBoxColumn,
-            this.productsnameDataGridViewTextBoxColumn1,
             this.agentsfullnameDataGridViewTextBoxColumn1,
-            this.agentsnameDataGridViewTextBoxColumn1,
-            this.agenttypesnameDataGridViewTextBoxColumn1,
+            this.numberDataGridViewTextBoxColumn,
             this.contracttypesnameDataGridViewTextBoxColumn1,
+            this.productsnameDataGridViewTextBoxColumn1,
             this.cash_income_finish,
             this.dataGridViewTextBoxColumn2,
             this.totalcostDataGridViewTextBoxColumn1,
@@ -839,7 +921,9 @@
             this.datestartDataGridViewTextBoxColumn,
             this.dateendDataGridViewTextBoxColumn,
             this.costDataGridViewTextBoxColumn1,
-            this.expertFIODataGridViewTextBoxColumn1});
+            this.expertFIODataGridViewTextBoxColumn1,
+            this.agenttypesnameDataGridViewTextBoxColumn1,
+            this.agentsnameDataGridViewTextBoxColumn1});
             this.contractDoneDataTableDataGridView.DataSource = this.contractDoneBindingSource;
             this.contractDoneDataTableDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.contractDoneDataTableDataGridView.Location = new System.Drawing.Point(3, 28);
@@ -850,6 +934,11 @@
             this.contractDoneDataTableDataGridView.Size = new System.Drawing.Size(1043, 319);
             this.contractDoneDataTableDataGridView.TabIndex = 31;
             this.contractDoneDataTableDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.contractDoneDataTableDataGridView_CellContentClick);
+            // 
+            // contractDoneBindingSource
+            // 
+            this.contractDoneBindingSource.DataMember = "ContractDone";
+            this.contractDoneBindingSource.DataSource = this.edocbaseDataSet;
             // 
             // bindingNavigator
             // 
@@ -1054,211 +1143,6 @@
             // 
             this.saveFileDialog.Filter = "Файлы Word 2007-2010| *.docx|Все файлы|*.*";
             // 
-            // cash_income
-            // 
-            this.cash_income.DataPropertyName = "cash_income";
-            this.cash_income.HeaderText = "Оплата";
-            this.cash_income.Name = "cash_income";
-            this.cash_income.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "prepayment";
-            this.dataGridViewTextBoxColumn1.HeaderText = "Оплачено";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // ConfirmTaskFinishedColumn
-            // 
-            this.ConfirmTaskFinishedColumn.HeaderText = "Подтвердить выполнение";
-            this.ConfirmTaskFinishedColumn.Name = "ConfirmTaskFinishedColumn";
-            this.ConfirmTaskFinishedColumn.ReadOnly = true;
-            this.ConfirmTaskFinishedColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.ConfirmTaskFinishedColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // productsnameDataGridViewTextBoxColumn
-            // 
-            this.productsnameDataGridViewTextBoxColumn.DataPropertyName = "products_name";
-            this.productsnameDataGridViewTextBoxColumn.HeaderText = "Продукция";
-            this.productsnameDataGridViewTextBoxColumn.Name = "productsnameDataGridViewTextBoxColumn";
-            this.productsnameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.productsnameDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // contracttypesnameDataGridViewTextBoxColumn
-            // 
-            this.contracttypesnameDataGridViewTextBoxColumn.DataPropertyName = "contract_types_name";
-            this.contracttypesnameDataGridViewTextBoxColumn.HeaderText = "Тип работ";
-            this.contracttypesnameDataGridViewTextBoxColumn.Name = "contracttypesnameDataGridViewTextBoxColumn";
-            this.contracttypesnameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.contracttypesnameDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // agentsfullnameDataGridViewTextBoxColumn
-            // 
-            this.agentsfullnameDataGridViewTextBoxColumn.DataPropertyName = "agents_fullname";
-            this.agentsfullnameDataGridViewTextBoxColumn.HeaderText = "Контрагент";
-            this.agentsfullnameDataGridViewTextBoxColumn.Name = "agentsfullnameDataGridViewTextBoxColumn";
-            this.agentsfullnameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.agentsfullnameDataGridViewTextBoxColumn.Width = 200;
-            // 
-            // agentsnameDataGridViewTextBoxColumn
-            // 
-            this.agentsnameDataGridViewTextBoxColumn.DataPropertyName = "agents_name";
-            this.agentsnameDataGridViewTextBoxColumn.HeaderText = "Контрагент";
-            this.agentsnameDataGridViewTextBoxColumn.Name = "agentsnameDataGridViewTextBoxColumn";
-            this.agentsnameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.agentsnameDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // agenttypesnameDataGridViewTextBoxColumn
-            // 
-            this.agenttypesnameDataGridViewTextBoxColumn.DataPropertyName = "agent_types_name";
-            this.agenttypesnameDataGridViewTextBoxColumn.HeaderText = "Форма собственности";
-            this.agenttypesnameDataGridViewTextBoxColumn.Name = "agenttypesnameDataGridViewTextBoxColumn";
-            this.agenttypesnameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.agenttypesnameDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // costDataGridViewTextBoxColumn
-            // 
-            this.costDataGridViewTextBoxColumn.DataPropertyName = "cost";
-            this.costDataGridViewTextBoxColumn.HeaderText = "Сумма";
-            this.costDataGridViewTextBoxColumn.Name = "costDataGridViewTextBoxColumn";
-            this.costDataGridViewTextBoxColumn.ReadOnly = true;
-            this.costDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // totalcostDataGridViewTextBoxColumn
-            // 
-            this.totalcostDataGridViewTextBoxColumn.DataPropertyName = "total_cost";
-            this.totalcostDataGridViewTextBoxColumn.HeaderText = "Общая сумма";
-            this.totalcostDataGridViewTextBoxColumn.Name = "totalcostDataGridViewTextBoxColumn";
-            this.totalcostDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // dateproposalDataGridViewTextBoxColumn
-            // 
-            this.dateproposalDataGridViewTextBoxColumn.DataPropertyName = "date_proposal";
-            this.dateproposalDataGridViewTextBoxColumn.HeaderText = "Дата поступления заявки";
-            this.dateproposalDataGridViewTextBoxColumn.Name = "dateproposalDataGridViewTextBoxColumn";
-            this.dateproposalDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // expertFIODataGridViewTextBoxColumn
-            // 
-            this.expertFIODataGridViewTextBoxColumn.DataPropertyName = "expert_FIO";
-            this.expertFIODataGridViewTextBoxColumn.HeaderText = "Эксперт";
-            this.expertFIODataGridViewTextBoxColumn.Name = "expertFIODataGridViewTextBoxColumn";
-            this.expertFIODataGridViewTextBoxColumn.ReadOnly = true;
-            this.expertFIODataGridViewTextBoxColumn.Visible = false;
-            // 
-            // contractSigningBindingSource
-            // 
-            this.contractSigningBindingSource.DataMember = "ContractSigning";
-            this.contractSigningBindingSource.DataSource = this.edocbaseDataSet;
-            // 
-            // edocbaseDataSet
-            // 
-            this.edocbaseDataSet.CaseSensitive = true;
-            this.edocbaseDataSet.DataSetName = "EdocbaseDataSet";
-            this.edocbaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // numberDataGridViewTextBoxColumn2
-            // 
-            this.numberDataGridViewTextBoxColumn2.DataPropertyName = "number";
-            this.numberDataGridViewTextBoxColumn2.HeaderText = "Номер";
-            this.numberDataGridViewTextBoxColumn2.Name = "numberDataGridViewTextBoxColumn2";
-            this.numberDataGridViewTextBoxColumn2.ReadOnly = true;
-            // 
-            // agentsfullnameDataGridViewTextBoxColumn3
-            // 
-            this.agentsfullnameDataGridViewTextBoxColumn3.DataPropertyName = "agents_fullname";
-            this.agentsfullnameDataGridViewTextBoxColumn3.HeaderText = "Контрагент";
-            this.agentsfullnameDataGridViewTextBoxColumn3.Name = "agentsfullnameDataGridViewTextBoxColumn3";
-            this.agentsfullnameDataGridViewTextBoxColumn3.ReadOnly = true;
-            this.agentsfullnameDataGridViewTextBoxColumn3.Width = 150;
-            // 
-            // agentsnameDataGridViewTextBoxColumn3
-            // 
-            this.agentsnameDataGridViewTextBoxColumn3.DataPropertyName = "agents_name";
-            this.agentsnameDataGridViewTextBoxColumn3.HeaderText = "Контрагент";
-            this.agentsnameDataGridViewTextBoxColumn3.Name = "agentsnameDataGridViewTextBoxColumn3";
-            this.agentsnameDataGridViewTextBoxColumn3.ReadOnly = true;
-            this.agentsnameDataGridViewTextBoxColumn3.Visible = false;
-            // 
-            // agenttypesnameDataGridViewTextBoxColumn3
-            // 
-            this.agenttypesnameDataGridViewTextBoxColumn3.DataPropertyName = "agent_types_name";
-            this.agenttypesnameDataGridViewTextBoxColumn3.HeaderText = "Форма собственности";
-            this.agenttypesnameDataGridViewTextBoxColumn3.Name = "agenttypesnameDataGridViewTextBoxColumn3";
-            this.agenttypesnameDataGridViewTextBoxColumn3.ReadOnly = true;
-            this.agenttypesnameDataGridViewTextBoxColumn3.Visible = false;
-            this.agenttypesnameDataGridViewTextBoxColumn3.Width = 50;
-            // 
-            // productsnameDataGridViewTextBoxColumn3
-            // 
-            this.productsnameDataGridViewTextBoxColumn3.DataPropertyName = "products_name";
-            this.productsnameDataGridViewTextBoxColumn3.HeaderText = "Продукция";
-            this.productsnameDataGridViewTextBoxColumn3.Name = "productsnameDataGridViewTextBoxColumn3";
-            this.productsnameDataGridViewTextBoxColumn3.ReadOnly = true;
-            this.productsnameDataGridViewTextBoxColumn3.Visible = false;
-            // 
-            // contracttypesnameDataGridViewTextBoxColumn3
-            // 
-            this.contracttypesnameDataGridViewTextBoxColumn3.DataPropertyName = "contract_types_name";
-            this.contracttypesnameDataGridViewTextBoxColumn3.HeaderText = "Тип работ";
-            this.contracttypesnameDataGridViewTextBoxColumn3.Name = "contracttypesnameDataGridViewTextBoxColumn3";
-            this.contracttypesnameDataGridViewTextBoxColumn3.ReadOnly = true;
-            this.contracttypesnameDataGridViewTextBoxColumn3.Visible = false;
-            // 
-            // costDataGridViewTextBoxColumn3
-            // 
-            this.costDataGridViewTextBoxColumn3.DataPropertyName = "cost";
-            this.costDataGridViewTextBoxColumn3.HeaderText = "Сумма";
-            this.costDataGridViewTextBoxColumn3.Name = "costDataGridViewTextBoxColumn3";
-            this.costDataGridViewTextBoxColumn3.ReadOnly = true;
-            this.costDataGridViewTextBoxColumn3.Visible = false;
-            // 
-            // totalcostDataGridViewTextBoxColumn3
-            // 
-            this.totalcostDataGridViewTextBoxColumn3.DataPropertyName = "total_cost";
-            this.totalcostDataGridViewTextBoxColumn3.HeaderText = "Общая сумма";
-            this.totalcostDataGridViewTextBoxColumn3.Name = "totalcostDataGridViewTextBoxColumn3";
-            this.totalcostDataGridViewTextBoxColumn3.ReadOnly = true;
-            // 
-            // datecontractDataGridViewTextBoxColumn1
-            // 
-            this.datecontractDataGridViewTextBoxColumn1.DataPropertyName = "date_contract";
-            this.datecontractDataGridViewTextBoxColumn1.HeaderText = "Дата заключения договора";
-            this.datecontractDataGridViewTextBoxColumn1.Name = "datecontractDataGridViewTextBoxColumn1";
-            this.datecontractDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // datestartDataGridViewTextBoxColumn2
-            // 
-            this.datestartDataGridViewTextBoxColumn2.DataPropertyName = "date_start";
-            this.datestartDataGridViewTextBoxColumn2.HeaderText = "Дата начала работ";
-            this.datestartDataGridViewTextBoxColumn2.Name = "datestartDataGridViewTextBoxColumn2";
-            this.datestartDataGridViewTextBoxColumn2.ReadOnly = true;
-            // 
-            // dateendDataGridViewTextBoxColumn2
-            // 
-            this.dateendDataGridViewTextBoxColumn2.DataPropertyName = "date_end";
-            this.dateendDataGridViewTextBoxColumn2.HeaderText = "Дата окончания работ";
-            this.dateendDataGridViewTextBoxColumn2.Name = "dateendDataGridViewTextBoxColumn2";
-            this.dateendDataGridViewTextBoxColumn2.ReadOnly = true;
-            // 
-            // expertFIODataGridViewTextBoxColumn3
-            // 
-            this.expertFIODataGridViewTextBoxColumn3.DataPropertyName = "expert_FIO";
-            this.expertFIODataGridViewTextBoxColumn3.HeaderText = "Эксперт";
-            this.expertFIODataGridViewTextBoxColumn3.Name = "expertFIODataGridViewTextBoxColumn3";
-            this.expertFIODataGridViewTextBoxColumn3.ReadOnly = true;
-            this.expertFIODataGridViewTextBoxColumn3.Visible = false;
-            // 
-            // contractComplitionMgrCfmBindingSource
-            // 
-            this.contractComplitionMgrCfmBindingSource.DataMember = "ContractComplitionMgrCfm";
-            this.contractComplitionMgrCfmBindingSource.DataSource = this.edocbaseDataSet;
-            // 
-            // contractDoneBindingSource
-            // 
-            this.contractDoneBindingSource.DataMember = "ContractDone";
-            this.contractDoneBindingSource.DataSource = this.edocbaseDataSet;
-            // 
             // tableAdapterManager
             // 
             this.tableAdapterManager.agent_typesTableAdapter = null;
@@ -1269,6 +1153,7 @@
             this.tableAdapterManager.contract_types_for_workTableAdapter = null;
             this.tableAdapterManager.contract_typesTableAdapter = null;
             this.tableAdapterManager.ContractInfoTableAdapter = null;
+            this.tableAdapterManager.ContractPaymentsTableAdapter = null;
             this.tableAdapterManager.ContractPrepareForWorkTAdapter = null;
             this.tableAdapterManager.ContractSigningTableAdapter = this.contractSigningTableAdapter;
             this.tableAdapterManager.ContractsOnInspectionTableAdapter = null;
@@ -1310,20 +1195,117 @@
             // 
             this.contractDoneTableAdapter.ClearBeforeFill = true;
             // 
-            // numberDataGridViewTextBoxColumn
+            // agentsfullnameDataGridViewTextBoxColumn3
             // 
-            this.numberDataGridViewTextBoxColumn.DataPropertyName = "number";
-            this.numberDataGridViewTextBoxColumn.HeaderText = "Номер";
-            this.numberDataGridViewTextBoxColumn.Name = "numberDataGridViewTextBoxColumn";
-            this.numberDataGridViewTextBoxColumn.ReadOnly = true;
+            this.agentsfullnameDataGridViewTextBoxColumn3.DataPropertyName = "agents_fullname";
+            this.agentsfullnameDataGridViewTextBoxColumn3.HeaderText = "Контрагент";
+            this.agentsfullnameDataGridViewTextBoxColumn3.Name = "agentsfullnameDataGridViewTextBoxColumn3";
+            this.agentsfullnameDataGridViewTextBoxColumn3.ReadOnly = true;
+            this.agentsfullnameDataGridViewTextBoxColumn3.Width = 200;
             // 
-            // productsnameDataGridViewTextBoxColumn1
+            // numberDataGridViewTextBoxColumn2
             // 
-            this.productsnameDataGridViewTextBoxColumn1.DataPropertyName = "products_name";
-            this.productsnameDataGridViewTextBoxColumn1.HeaderText = "Продукция";
-            this.productsnameDataGridViewTextBoxColumn1.Name = "productsnameDataGridViewTextBoxColumn1";
-            this.productsnameDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.productsnameDataGridViewTextBoxColumn1.Visible = false;
+            this.numberDataGridViewTextBoxColumn2.DataPropertyName = "number";
+            this.numberDataGridViewTextBoxColumn2.HeaderText = "Номер";
+            this.numberDataGridViewTextBoxColumn2.Name = "numberDataGridViewTextBoxColumn2";
+            this.numberDataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // cash_income
+            // 
+            this.cash_income.DataPropertyName = "cash_income";
+            this.cash_income.HeaderText = "Оплата";
+            this.cash_income.Name = "cash_income";
+            this.cash_income.ReadOnly = true;
+            // 
+            // contracttypesnameDataGridViewTextBoxColumn3
+            // 
+            this.contracttypesnameDataGridViewTextBoxColumn3.DataPropertyName = "contract_types_name";
+            this.contracttypesnameDataGridViewTextBoxColumn3.HeaderText = "Вид договора";
+            this.contracttypesnameDataGridViewTextBoxColumn3.Name = "contracttypesnameDataGridViewTextBoxColumn3";
+            this.contracttypesnameDataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
+            // productsnameDataGridViewTextBoxColumn3
+            // 
+            this.productsnameDataGridViewTextBoxColumn3.DataPropertyName = "products_name";
+            this.productsnameDataGridViewTextBoxColumn3.HeaderText = "Продукция";
+            this.productsnameDataGridViewTextBoxColumn3.Name = "productsnameDataGridViewTextBoxColumn3";
+            this.productsnameDataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
+            // costDataGridViewTextBoxColumn3
+            // 
+            this.costDataGridViewTextBoxColumn3.DataPropertyName = "cost";
+            this.costDataGridViewTextBoxColumn3.HeaderText = "Сумма";
+            this.costDataGridViewTextBoxColumn3.Name = "costDataGridViewTextBoxColumn3";
+            this.costDataGridViewTextBoxColumn3.ReadOnly = true;
+            this.costDataGridViewTextBoxColumn3.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "prepayment";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Оплачено";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // totalcostDataGridViewTextBoxColumn3
+            // 
+            this.totalcostDataGridViewTextBoxColumn3.DataPropertyName = "total_cost";
+            this.totalcostDataGridViewTextBoxColumn3.HeaderText = "Общая сумма";
+            this.totalcostDataGridViewTextBoxColumn3.Name = "totalcostDataGridViewTextBoxColumn3";
+            this.totalcostDataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
+            // ConfirmTaskFinishedColumn
+            // 
+            this.ConfirmTaskFinishedColumn.HeaderText = "Подтвердить выполнение";
+            this.ConfirmTaskFinishedColumn.Name = "ConfirmTaskFinishedColumn";
+            this.ConfirmTaskFinishedColumn.ReadOnly = true;
+            this.ConfirmTaskFinishedColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.ConfirmTaskFinishedColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // datecontractDataGridViewTextBoxColumn1
+            // 
+            this.datecontractDataGridViewTextBoxColumn1.DataPropertyName = "date_contract";
+            this.datecontractDataGridViewTextBoxColumn1.HeaderText = "Дата заключения договора";
+            this.datecontractDataGridViewTextBoxColumn1.Name = "datecontractDataGridViewTextBoxColumn1";
+            this.datecontractDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // datestartDataGridViewTextBoxColumn2
+            // 
+            this.datestartDataGridViewTextBoxColumn2.DataPropertyName = "date_start";
+            this.datestartDataGridViewTextBoxColumn2.HeaderText = "Дата начала работ";
+            this.datestartDataGridViewTextBoxColumn2.Name = "datestartDataGridViewTextBoxColumn2";
+            this.datestartDataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // dateendDataGridViewTextBoxColumn2
+            // 
+            this.dateendDataGridViewTextBoxColumn2.DataPropertyName = "date_end";
+            this.dateendDataGridViewTextBoxColumn2.HeaderText = "Дата окончания работ";
+            this.dateendDataGridViewTextBoxColumn2.Name = "dateendDataGridViewTextBoxColumn2";
+            this.dateendDataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // expertFIODataGridViewTextBoxColumn3
+            // 
+            this.expertFIODataGridViewTextBoxColumn3.DataPropertyName = "expert_FIO";
+            this.expertFIODataGridViewTextBoxColumn3.HeaderText = "Эксперт";
+            this.expertFIODataGridViewTextBoxColumn3.Name = "expertFIODataGridViewTextBoxColumn3";
+            this.expertFIODataGridViewTextBoxColumn3.ReadOnly = true;
+            this.expertFIODataGridViewTextBoxColumn3.Visible = false;
+            // 
+            // agenttypesnameDataGridViewTextBoxColumn3
+            // 
+            this.agenttypesnameDataGridViewTextBoxColumn3.DataPropertyName = "agent_types_name";
+            this.agenttypesnameDataGridViewTextBoxColumn3.HeaderText = "Форма собственности";
+            this.agenttypesnameDataGridViewTextBoxColumn3.Name = "agenttypesnameDataGridViewTextBoxColumn3";
+            this.agenttypesnameDataGridViewTextBoxColumn3.ReadOnly = true;
+            this.agenttypesnameDataGridViewTextBoxColumn3.Visible = false;
+            this.agenttypesnameDataGridViewTextBoxColumn3.Width = 50;
+            // 
+            // agentsnameDataGridViewTextBoxColumn3
+            // 
+            this.agentsnameDataGridViewTextBoxColumn3.DataPropertyName = "agents_name";
+            this.agentsnameDataGridViewTextBoxColumn3.HeaderText = "Контрагент";
+            this.agentsnameDataGridViewTextBoxColumn3.Name = "agentsnameDataGridViewTextBoxColumn3";
+            this.agentsnameDataGridViewTextBoxColumn3.ReadOnly = true;
+            this.agentsnameDataGridViewTextBoxColumn3.Visible = false;
             // 
             // agentsfullnameDataGridViewTextBoxColumn1
             // 
@@ -1331,31 +1313,28 @@
             this.agentsfullnameDataGridViewTextBoxColumn1.HeaderText = "Контрагент";
             this.agentsfullnameDataGridViewTextBoxColumn1.Name = "agentsfullnameDataGridViewTextBoxColumn1";
             this.agentsfullnameDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.agentsfullnameDataGridViewTextBoxColumn1.Width = 150;
+            this.agentsfullnameDataGridViewTextBoxColumn1.Width = 200;
             // 
-            // agentsnameDataGridViewTextBoxColumn1
+            // numberDataGridViewTextBoxColumn
             // 
-            this.agentsnameDataGridViewTextBoxColumn1.DataPropertyName = "agents_name";
-            this.agentsnameDataGridViewTextBoxColumn1.HeaderText = "Контрагент";
-            this.agentsnameDataGridViewTextBoxColumn1.Name = "agentsnameDataGridViewTextBoxColumn1";
-            this.agentsnameDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.agentsnameDataGridViewTextBoxColumn1.Visible = false;
-            // 
-            // agenttypesnameDataGridViewTextBoxColumn1
-            // 
-            this.agenttypesnameDataGridViewTextBoxColumn1.DataPropertyName = "agent_types_name";
-            this.agenttypesnameDataGridViewTextBoxColumn1.HeaderText = "Форма собственности";
-            this.agenttypesnameDataGridViewTextBoxColumn1.Name = "agenttypesnameDataGridViewTextBoxColumn1";
-            this.agenttypesnameDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.agenttypesnameDataGridViewTextBoxColumn1.Visible = false;
+            this.numberDataGridViewTextBoxColumn.DataPropertyName = "number";
+            this.numberDataGridViewTextBoxColumn.HeaderText = "Номер";
+            this.numberDataGridViewTextBoxColumn.Name = "numberDataGridViewTextBoxColumn";
+            this.numberDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // contracttypesnameDataGridViewTextBoxColumn1
             // 
             this.contracttypesnameDataGridViewTextBoxColumn1.DataPropertyName = "contract_types_name";
-            this.contracttypesnameDataGridViewTextBoxColumn1.HeaderText = "Тип работ";
+            this.contracttypesnameDataGridViewTextBoxColumn1.HeaderText = "Вид договора";
             this.contracttypesnameDataGridViewTextBoxColumn1.Name = "contracttypesnameDataGridViewTextBoxColumn1";
             this.contracttypesnameDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.contracttypesnameDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // productsnameDataGridViewTextBoxColumn1
+            // 
+            this.productsnameDataGridViewTextBoxColumn1.DataPropertyName = "products_name";
+            this.productsnameDataGridViewTextBoxColumn1.HeaderText = "Продукция";
+            this.productsnameDataGridViewTextBoxColumn1.Name = "productsnameDataGridViewTextBoxColumn1";
+            this.productsnameDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // cash_income_finish
             // 
@@ -1435,6 +1414,22 @@
             this.expertFIODataGridViewTextBoxColumn1.ReadOnly = true;
             this.expertFIODataGridViewTextBoxColumn1.Visible = false;
             // 
+            // agenttypesnameDataGridViewTextBoxColumn1
+            // 
+            this.agenttypesnameDataGridViewTextBoxColumn1.DataPropertyName = "agent_types_name";
+            this.agenttypesnameDataGridViewTextBoxColumn1.HeaderText = "Форма собственности";
+            this.agenttypesnameDataGridViewTextBoxColumn1.Name = "agenttypesnameDataGridViewTextBoxColumn1";
+            this.agenttypesnameDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.agenttypesnameDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // agentsnameDataGridViewTextBoxColumn1
+            // 
+            this.agentsnameDataGridViewTextBoxColumn1.DataPropertyName = "agents_name";
+            this.agentsnameDataGridViewTextBoxColumn1.HeaderText = "Контрагент";
+            this.agentsnameDataGridViewTextBoxColumn1.Name = "agentsnameDataGridViewTextBoxColumn1";
+            this.agentsnameDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.agentsnameDataGridViewTextBoxColumn1.Visible = false;
+            // 
             // ContractsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1450,6 +1445,8 @@
             this.tabContractSigning.ResumeLayout(false);
             this.tabContractSigning.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.contractsSigningDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.contractSigningBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.edocbaseDataSet)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.groupBoxContract.ResumeLayout(false);
@@ -1459,21 +1456,19 @@
             this.tabComplitionManagerConfrim.ResumeLayout(false);
             this.tabComplitionManagerConfrim.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.contractComplitionManagerConfrimDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.contractComplitionMgrCfmBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigatorComplitionMgrCnf)).EndInit();
             this.bindingNavigatorComplitionMgrCnf.ResumeLayout(false);
             this.bindingNavigatorComplitionMgrCnf.PerformLayout();
             this.tabComplitionAgentConfrim.ResumeLayout(false);
             this.tabComplitionAgentConfrim.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.contractDoneDataTableDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.contractDoneBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator)).EndInit();
             this.bindingNavigator.ResumeLayout(false);
             this.bindingNavigator.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.contractSigningBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.edocbaseDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.contractComplitionMgrCfmBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.contractDoneBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.contractDocDataBindingSource)).EndInit();
             this.ResumeLayout(false);
 
@@ -1564,12 +1559,10 @@
         private System.Windows.Forms.ToolStripButton toolStripButton7;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
         private System.Windows.Forms.ToolStripButton toolStripButtonReturnToProposals;
-        private System.Windows.Forms.DataGridViewTextBoxColumn number;
-        private System.Windows.Forms.DataGridViewTextBoxColumn productsnameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn contracttypesnameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn agentsfullnameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn agentsnameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn agenttypesnameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn number;
+        private System.Windows.Forms.DataGridViewTextBoxColumn contracttypesnameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn productsnameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn prepayment;
         private System.Windows.Forms.DataGridViewTextBoxColumn costDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn totalcostDataGridViewTextBoxColumn;
@@ -1578,13 +1571,13 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn expertFIODataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn has_contract_document;
         private System.Windows.Forms.DataGridViewButtonColumn SignContractColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn numberDataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn agenttypesnameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn agentsnameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn agentsfullnameDataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn agentsnameDataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn agenttypesnameDataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn numberDataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewCheckBoxColumn cash_income;
-        private System.Windows.Forms.DataGridViewTextBoxColumn productsnameDataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn contracttypesnameDataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn productsnameDataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn costDataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn totalcostDataGridViewTextBoxColumn3;
@@ -1593,12 +1586,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn datestartDataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dateendDataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn expertFIODataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn numberDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn productsnameDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn agenttypesnameDataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn agentsnameDataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn agentsfullnameDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn agentsnameDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn agenttypesnameDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn numberDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn contracttypesnameDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn productsnameDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewCheckBoxColumn cash_income_finish;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn totalcostDataGridViewTextBoxColumn1;
@@ -1610,6 +1603,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dateendDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn costDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn expertFIODataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn agenttypesnameDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn agentsnameDataGridViewTextBoxColumn1;
 
         //private EdocbaseDataSetTableAdapters.Exec_contractsTableAdapter exec_contractsTableAdapter;
     }
