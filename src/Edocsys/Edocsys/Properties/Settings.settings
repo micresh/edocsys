@@ -189,13 +189,13 @@
       <Value Profile="(Default)">log.txt</Value>
     </Setting>
     <Setting Name="AssighExpertFormText" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Назначение экспертизы</Value>
+      <Value Profile="(Default)">Назначение эксперта</Value>
     </Setting>
     <Setting Name="AssignExpertTabText" Type="System.String" Scope="User">
       <Value Profile="(Default)">Назначить эксперта</Value>
     </Setting>
     <Setting Name="AssignedExpertTabText" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Назначенные эксперты</Value>
+      <Value Profile="(Default)">Назначенные эксперты/Статистика по заключению договоров</Value>
     </Setting>
     <Setting Name="AssignExpertExpertsText" Type="System.String" Scope="User">
       <Value Profile="(Default)">Эксперты</Value>

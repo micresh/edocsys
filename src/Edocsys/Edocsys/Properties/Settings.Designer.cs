@@ -769,7 +769,7 @@ namespace Edocsys.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Назначение экспертизы")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Назначение эксперта")]
         public string AssighExpertFormText {
             get {
                 return ((string)(this["AssighExpertFormText"]));
@@ -793,7 +793,7 @@ namespace Edocsys.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Назначенные эксперты")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Назначенные эксперты/Статистика по заключению договоров")]
         public string AssignedExpertTabText {
             get {
                 return ((string)(this["AssignedExpertTabText"]));
