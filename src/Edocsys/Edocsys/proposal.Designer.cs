@@ -385,6 +385,7 @@
             // 
             this.production_documentsLabel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.production_documentsLabel2.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.contractInfoDataTableBindingSource, "production_documents", true));
+            this.production_documentsLabel2.DataBindings.Add(new System.Windows.Forms.Binding("Enabled", this.contractInfoDataTableBindingSource, "id", true, System.Windows.Forms.DataSourceUpdateMode.Never));
             this.production_documentsLabel2.Location = new System.Drawing.Point(167, 164);
             this.production_documentsLabel2.Name = "production_documentsLabel2";
             this.production_documentsLabel2.Size = new System.Drawing.Size(265, 21);
@@ -396,6 +397,7 @@
             // 
             this.gostsListLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.gostsListLabel.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.contractInfoDataTableBindingSource, "gosts_list", true));
+            this.gostsListLabel.DataBindings.Add(new System.Windows.Forms.Binding("Enabled", this.contractInfoDataTableBindingSource, "id", true, System.Windows.Forms.DataSourceUpdateMode.Never));
             this.gostsListLabel.Location = new System.Drawing.Point(435, 164);
             this.gostsListLabel.Name = "gostsListLabel";
             this.gostsListLabel.Size = new System.Drawing.Size(367, 21);
@@ -407,6 +409,7 @@
             // 
             this.tnvedLabel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tnvedLabel1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productsBindingSource, "tnved", true));
+            this.tnvedLabel1.DataBindings.Add(new System.Windows.Forms.Binding("Enabled", this.contractInfoDataTableBindingSource, "id", true, System.Windows.Forms.DataSourceUpdateMode.Never));
             this.tnvedLabel1.Location = new System.Drawing.Point(526, 49);
             this.tnvedLabel1.Name = "tnvedLabel1";
             this.tnvedLabel1.Size = new System.Drawing.Size(276, 21);
@@ -422,6 +425,7 @@
             // 
             this.okpLabel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.okpLabel1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productsBindingSource, "okp", true));
+            this.okpLabel1.DataBindings.Add(new System.Windows.Forms.Binding("Enabled", this.contractInfoDataTableBindingSource, "id", true, System.Windows.Forms.DataSourceUpdateMode.Never));
             this.okpLabel1.Location = new System.Drawing.Point(198, 49);
             this.okpLabel1.Name = "okpLabel1";
             this.okpLabel1.Size = new System.Drawing.Size(276, 21);
@@ -431,6 +435,7 @@
             // add_data_contractTextBox
             // 
             this.add_data_contractTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.contractInfoDataTableBindingSource, "add_data_contract", true));
+            this.add_data_contractTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Enabled", this.contractInfoDataTableBindingSource, "id", true, System.Windows.Forms.DataSourceUpdateMode.Never));
             this.add_data_contractTextBox.Location = new System.Drawing.Point(167, 73);
             this.add_data_contractTextBox.Name = "add_data_contractTextBox";
             this.add_data_contractTextBox.Size = new System.Drawing.Size(635, 20);
@@ -439,6 +444,7 @@
             // contract_typeComboBox
             // 
             this.contract_typeComboBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.contractInfoDataTableBindingSource, "contract_types_id", true));
+            this.contract_typeComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Enabled", this.contractInfoDataTableBindingSource, "id", true, System.Windows.Forms.DataSourceUpdateMode.Never));
             this.contract_typeComboBox.DataSource = this.contract_typesBindingSource;
             this.contract_typeComboBox.DisplayMember = "name";
             this.contract_typeComboBox.FormattingEnabled = true;
@@ -455,7 +461,8 @@
             // 
             // date_proposalDateTimePicker
             // 
-            this.date_proposalDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.contractInfoDataTableBindingSource, "date_proposal", true));
+            this.date_proposalDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.contractInfoDataTableBindingSource, "date_proposal", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.date_proposalDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Enabled", this.contractInfoDataTableBindingSource, "id", true, System.Windows.Forms.DataSourceUpdateMode.Never));
             this.date_proposalDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.date_proposalDateTimePicker.Location = new System.Drawing.Point(167, 93);
             this.date_proposalDateTimePicker.Name = "date_proposalDateTimePicker";
@@ -470,6 +477,7 @@
             this.porposalGenerationGroupBox.Controls.Add(this.buttonEditProposal);
             this.porposalGenerationGroupBox.Controls.Add(this.buttonGenerateProposalDoc);
             this.porposalGenerationGroupBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Edocsys.Properties.Settings.Default, "ProposalOperationsGroupBox", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.porposalGenerationGroupBox.DataBindings.Add(new System.Windows.Forms.Binding("Enabled", this.contractInfoDataTableBindingSource, "id", true, System.Windows.Forms.DataSourceUpdateMode.Never));
             this.porposalGenerationGroupBox.Dock = System.Windows.Forms.DockStyle.Right;
             this.porposalGenerationGroupBox.Location = new System.Drawing.Point(972, 0);
             this.porposalGenerationGroupBox.Name = "porposalGenerationGroupBox";
@@ -516,6 +524,7 @@
             // buttonGenerateProposalDoc
             // 
             this.buttonGenerateProposalDoc.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Edocsys.Properties.Settings.Default, "GenerateProposalTitle", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.buttonGenerateProposalDoc.DataBindings.Add(new System.Windows.Forms.Binding("Enabled", this.contractInfoDataTableBindingSource, "id", true, System.Windows.Forms.DataSourceUpdateMode.Never));
             this.buttonGenerateProposalDoc.Location = new System.Drawing.Point(21, 19);
             this.buttonGenerateProposalDoc.Name = "buttonGenerateProposalDoc";
             this.buttonGenerateProposalDoc.Size = new System.Drawing.Size(246, 23);
@@ -527,6 +536,7 @@
             // proposalAgentsComboBox
             // 
             this.proposalAgentsComboBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.contractInfoDataTableBindingSource, "agents_id", true));
+            this.proposalAgentsComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Enabled", this.contractInfoDataTableBindingSource, "id", true, System.Windows.Forms.DataSourceUpdateMode.Never));
             this.proposalAgentsComboBox.DataSource = this.agentsBindingSource;
             this.proposalAgentsComboBox.DisplayMember = "fullname";
             this.proposalAgentsComboBox.FormattingEnabled = true;
@@ -544,6 +554,7 @@
             // addDataTextBox
             // 
             this.addDataTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.contractInfoDataTableBindingSource, "add_data_proposal", true));
+            this.addDataTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Enabled", this.contractInfoDataTableBindingSource, "id", true, System.Windows.Forms.DataSourceUpdateMode.Never));
             this.addDataTextBox.Location = new System.Drawing.Point(167, 188);
             this.addDataTextBox.Name = "addDataTextBox";
             this.addDataTextBox.Size = new System.Drawing.Size(635, 20);
@@ -552,6 +563,7 @@
             // schemeTypeTextBox
             // 
             this.schemeTypeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.contractInfoDataTableBindingSource, "scheme_type", true));
+            this.schemeTypeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Enabled", this.contractInfoDataTableBindingSource, "id", true, System.Windows.Forms.DataSourceUpdateMode.Never));
             this.schemeTypeTextBox.Location = new System.Drawing.Point(167, 141);
             this.schemeTypeTextBox.Name = "schemeTypeTextBox";
             this.schemeTypeTextBox.Size = new System.Drawing.Size(635, 20);
@@ -560,6 +572,7 @@
             // productComboBox
             // 
             this.productComboBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.contractInfoDataTableBindingSource, "products_id", true));
+            this.productComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Enabled", this.contractInfoDataTableBindingSource, "id", true, System.Windows.Forms.DataSourceUpdateMode.Never));
             this.productComboBox.DataSource = this.productsBindingSource;
             this.productComboBox.DisplayMember = "name";
             this.productComboBox.FormattingEnabled = true;
@@ -766,6 +779,7 @@
             this.tableAdapterManager.contract_types_for_workTableAdapter = null;
             this.tableAdapterManager.contract_typesTableAdapter = this.contract_typesTableAdapter;
             this.tableAdapterManager.ContractInfoTableAdapter = this.contractInfoTableAdapter;
+            this.tableAdapterManager.ContractPaymentsTableAdapter = null;
             this.tableAdapterManager.ContractPrepareForWorkTAdapter = null;
             this.tableAdapterManager.ContractSigningTableAdapter = null;
             this.tableAdapterManager.ContractsOnInspectionTableAdapter = null;

@@ -61455,8 +61455,8 @@ WHERE        (selected_gosts.contracts_id = @contracts_id)";
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.UpdateCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = "UPDATE       contracts\r\nSET                prepayment = @prepayment\r\nWHERE       " +
-                " (id = @original_id)";
+            this._adapter.UpdateCommand.CommandText = "UPDATE       contracts\r\nSET                prepayment = @prepayment, total_cost =" +
+                " @total_cost\r\nWHERE        (id = @original_id)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@prepayment";
@@ -61464,6 +61464,13 @@ WHERE        (selected_gosts.contracts_id = @contracts_id)";
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
             param.SourceColumn = "prepayment";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@total_cost";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "total_cost";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@original_id";
@@ -61507,7 +61514,7 @@ WHERE        (selected_gosts.contracts_id = @contracts_id)";
                 "ent_types ON agents.agent_types_id = agent_types.id\r\nLEFT OUTER JOIN contract_ty" +
                 "pes ON contracts.contract_types_id = contract_types.id\r\nLEFT OUTER JOIN contract" +
                 "_status ON contracts.contract_status_id = contract_status.id\r\nLEFT OUTER JOIN us" +
-                "ers ON contracts.experts_id = users.id\r\nWHERE\r\n(contracts.contract_status_id > 0" +
+                "ers ON contracts.experts_id = users.id\r\nWHERE\r\n(contracts.contract_status_id > 2" +
                 ")\r\nAND \r\n(contracts.contract_status_id < 9)\r\nAND\r\n(not contracts.cash_income)";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::MySql.Data.MySqlClient.MySqlCommand();

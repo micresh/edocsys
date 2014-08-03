@@ -663,7 +663,7 @@ LEFT OUTER JOIN contract_types ON contracts.contract_types_id = contract_types.i
 LEFT OUTER JOIN contract_status ON contracts.contract_status_id = contract_status.id
 LEFT OUTER JOIN users ON contracts.experts_id = users.id
 WHERE
-(contracts.contract_status_id > 0)
+(contracts.contract_status_id > 2)
 AND 
 (contracts.contract_status_id < 9)
 AND
@@ -674,7 +674,8 @@ AND
 UPDATE
 contracts
 SET
-prepayment = @prepayment
+prepayment = @prepayment,
+total_cost = @total_cost
 WHERE
 (id = @original_id)
 

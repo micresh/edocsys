@@ -38,17 +38,17 @@
             // labelName
             // 
             this.labelName.AutoSize = true;
-            this.labelName.Location = new System.Drawing.Point(12, 20);
+            this.labelName.Location = new System.Drawing.Point(12, 14);
             this.labelName.Name = "labelName";
-            this.labelName.Size = new System.Drawing.Size(309, 65);
+            this.labelName.Size = new System.Drawing.Size(309, 78);
             this.labelName.TabIndex = 0;
-            this.labelName.Text = "EdocSys.\r\n\r\nСистема регистрации, ведения и учета заявок и договоров\r\nсертификацио" +
-    "нных работ.\r\n\r\n";
+            this.labelName.Text = "ИС EdocSys.\r\n\r\n(c) АНО \"Исследователь\", 2012-2014\r\n\r\nСистема регистрации, ведения" +
+    " и учета заявок и договоров\r\nсертификационных работ.";
             // 
             // labelAppVersion
             // 
             this.labelAppVersion.AutoSize = true;
-            this.labelAppVersion.Location = new System.Drawing.Point(12, 83);
+            this.labelAppVersion.Location = new System.Drawing.Point(12, 105);
             this.labelAppVersion.Name = "labelAppVersion";
             this.labelAppVersion.Size = new System.Drawing.Size(79, 13);
             this.labelAppVersion.TabIndex = 1;
@@ -56,7 +56,7 @@
             // 
             // labelPath
             // 
-            this.labelPath.Location = new System.Drawing.Point(12, 144);
+            this.labelPath.Location = new System.Drawing.Point(12, 166);
             this.labelPath.Name = "labelPath";
             this.labelPath.Size = new System.Drawing.Size(309, 41);
             this.labelPath.TabIndex = 2;
@@ -65,7 +65,7 @@
             // labelDeployVersion
             // 
             this.labelDeployVersion.AutoSize = true;
-            this.labelDeployVersion.Location = new System.Drawing.Point(12, 103);
+            this.labelDeployVersion.Location = new System.Drawing.Point(12, 125);
             this.labelDeployVersion.Name = "labelDeployVersion";
             this.labelDeployVersion.Size = new System.Drawing.Size(101, 13);
             this.labelDeployVersion.TabIndex = 3;
@@ -74,7 +74,7 @@
             // labelDatabaseVersion
             // 
             this.labelDatabaseVersion.AutoSize = true;
-            this.labelDatabaseVersion.Location = new System.Drawing.Point(12, 125);
+            this.labelDatabaseVersion.Location = new System.Drawing.Point(12, 147);
             this.labelDatabaseVersion.Name = "labelDatabaseVersion";
             this.labelDatabaseVersion.Size = new System.Drawing.Size(73, 13);
             this.labelDatabaseVersion.TabIndex = 4;
@@ -84,7 +84,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(338, 193);
+            this.ClientSize = new System.Drawing.Size(338, 215);
             this.Controls.Add(this.labelDatabaseVersion);
             this.Controls.Add(this.labelDeployVersion);
             this.Controls.Add(this.labelPath);

@@ -6,7 +6,7 @@
       <Value Profile="(Default)">Справочники</Value>
     </Setting>
     <Setting Name="MainFormText" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Система регистрации заявок</Value>
+      <Value Profile="(Default)">АНО "Исследователь": Система регистрации заявок</Value>
     </Setting>
     <Setting Name="FileToolStripMenuItemText" Type="System.String" Scope="User">
       <Value Profile="(Default)">&amp;Файл</Value>
@@ -189,13 +189,13 @@
       <Value Profile="(Default)">log.txt</Value>
     </Setting>
     <Setting Name="AssighExpertFormText" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Назначение экспертизы</Value>
+      <Value Profile="(Default)">Назначение эксперта</Value>
     </Setting>
     <Setting Name="AssignExpertTabText" Type="System.String" Scope="User">
       <Value Profile="(Default)">Назначить эксперта</Value>
     </Setting>
     <Setting Name="AssignedExpertTabText" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Назначенные эксперты</Value>
+      <Value Profile="(Default)">Назначенные эксперты/Статистика по заключению договоров</Value>
     </Setting>
     <Setting Name="AssignExpertExpertsText" Type="System.String" Scope="User">
       <Value Profile="(Default)">Эксперты</Value>
@@ -315,10 +315,10 @@
       <Value Profile="(Default)">Дата начала работ</Value>
     </Setting>
     <Setting Name="ContractsDateSampleIncomeTitle" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Дата поступления образца</Value>
+      <Value Profile="(Default)">Дата поступления образца/акта отбора</Value>
     </Setting>
     <Setting Name="ContractsDateProtocolIncomeTitle" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Дата поступления протокола</Value>
+      <Value Profile="(Default)">Дата поступления протокола/заявки</Value>
     </Setting>
     <Setting Name="PreparationsForTaskTitle" Type="System.String" Scope="User">
       <Value Profile="(Default)">Планирование выполнения работ</Value>
@@ -344,7 +344,7 @@
       <Value Profile="(Default)">server=192.168.0.4;Port=3306;User Id=root;password=po12jein45bf;Persist Security Info=True;database=edocbase</Value>
     </Setting>
     <Setting Name="WorksForContractTitle" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Планирование работ</Value>
+      <Value Profile="(Default)">Подготовка к работе</Value>
     </Setting>
     <Setting Name="ContractPaymentsTitle" Type="System.String" Scope="User">
       <Value Profile="(Default)">Оплата договоров</Value>

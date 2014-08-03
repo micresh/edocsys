@@ -48,16 +48,18 @@
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.usersBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.usersDataGridView = new System.Windows.Forms.DataGridView();
-            this.usertypesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.user_typesTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.user_typesTableAdapter();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.user_types_id = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.usertypesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.SetPasswordButton = new System.Windows.Forms.DataGridViewButtonColumn();
             this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.user_typesTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.user_typesTableAdapter();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             ((System.ComponentModel.ISupportInitialize)(this.edocbaseDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.usersBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.usersBindingNavigator)).BeginInit();
@@ -91,6 +93,7 @@
             this.tableAdapterManager.contract_types_for_workTableAdapter = null;
             this.tableAdapterManager.contract_typesTableAdapter = null;
             this.tableAdapterManager.ContractInfoTableAdapter = null;
+            this.tableAdapterManager.ContractPaymentsTableAdapter = null;
             this.tableAdapterManager.ContractPrepareForWorkTAdapter = null;
             this.tableAdapterManager.ContractSigningTableAdapter = null;
             this.tableAdapterManager.ContractsOnInspectionTableAdapter = null;
@@ -127,6 +130,8 @@
             this.bindingNavigatorMoveNextItem,
             this.bindingNavigatorMoveLastItem,
             this.bindingNavigatorSeparator2,
+            this.toolStripButton1,
+            this.toolStripSeparator1,
             this.bindingNavigatorAddNewItem,
             this.bindingNavigatorDeleteItem,
             this.usersBindingNavigatorSaveItem});
@@ -258,15 +263,6 @@
             this.usersDataGridView.TabIndex = 1;
             this.usersDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.usersDataGridView_CellContentClick);
             // 
-            // usertypesBindingSource
-            // 
-            this.usertypesBindingSource.DataMember = "user_types";
-            this.usertypesBindingSource.DataSource = this.edocbaseDataSet;
-            // 
-            // user_typesTableAdapter
-            // 
-            this.user_typesTableAdapter.ClearBeforeFill = true;
-            // 
             // dataGridViewTextBoxColumn2
             // 
             this.dataGridViewTextBoxColumn2.DataPropertyName = "login";
@@ -311,6 +307,11 @@
             this.user_types_id.ValueMember = "id";
             this.user_types_id.Width = 200;
             // 
+            // usertypesBindingSource
+            // 
+            this.usertypesBindingSource.DataMember = "user_types";
+            this.usertypesBindingSource.DataSource = this.edocbaseDataSet;
+            // 
             // SetPasswordButton
             // 
             this.SetPasswordButton.DataPropertyName = "password";
@@ -325,6 +326,25 @@
             this.dataGridViewTextBoxColumn9.HeaderText = "Тип";
             this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
             this.dataGridViewTextBoxColumn9.Visible = false;
+            // 
+            // user_typesTableAdapter
+            // 
+            this.user_typesTableAdapter.ClearBeforeFill = true;
+            // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton1.Text = "Обновить";
+            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
             // 
             // UseradmForm
             // 
@@ -378,5 +398,7 @@
         private System.Windows.Forms.DataGridViewComboBoxColumn user_types_id;
         private System.Windows.Forms.DataGridViewButtonColumn SetPasswordButton;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
+        private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
     }
 }
