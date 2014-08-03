@@ -128,6 +128,7 @@ namespace Edocsys.Helpers
                 conn.Open();
 
                 c.CommandText = cmd;
+
                 result = c.ExecuteNonQuery();
 
                 TraceHelper.LogInfo(String.Format("EXECUTE SQL: {0}. {1} rows affected.", cmd, result));
@@ -154,7 +155,6 @@ namespace Edocsys.Helpers
 
             maxVersion = currentVersion;
 
-
             Array.Sort(Migrations, (x, y) => 
                 {
                     int z = x.Version.CompareTo(y.Version);
@@ -165,14 +165,31 @@ namespace Edocsys.Helpers
                     return z;
                 });
 
+            
+            int totalMigrations = Migrations.Length;
+
+            SQLUpdateForm form = new SQLUpdateForm();
+            form.InitProgressBar(totalMigrations);
+            form.Show();
+
+            int current = 0;
+
             foreach (Migration m in Migrations)
             {
                 if (m.Version > currentVersion)
                 {
                     ExecSQL(m.SQL);
+                    if (m.SQL.Length >= 512)
+                        m.SQL = "TOO LARGE SQL!";
                     maxVersion = SetDatabseVersion(m.Version, m.SQLNumber, m.SQL);
                 }
+
+                current++;
+                form.SetProgressBarValue(current);
+                form.Update();
             }
+
+            form.Close();
 
             return maxVersion;
         }
