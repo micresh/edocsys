@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
+using Edocsys.Helpers;
+
 namespace Edocsys
 {
     public partial class ClientsForm : Form
@@ -83,6 +85,8 @@ namespace Edocsys
             }
         }
 
+        private DataGridViewColumnsSerializer dgvcs_a, dgvcs_ac;
+
         private void clients_Load(object sender, EventArgs e)
         {
             this.agentsTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
@@ -93,6 +97,10 @@ namespace Edocsys
             this.agentsTableAdapter.Fill(this.edocbaseDataSet.agents);
             this.agent_typesTableAdapter.Fill(this.edocbaseDataSet.agent_types);
             this.agents_contactsTableAdapter.Fill(this.edocbaseDataSet.agents_contacts);
+
+            //Add column serializers
+            dgvcs_a = new DataGridViewColumnsSerializer(this, this.agentsDataGridView);
+            dgvcs_ac = new DataGridViewColumnsSerializer(this, this.agents_contactsDataGridView);
 
             // create filter with default filter name
             agentsFilter = new FilterHelper(agentsDataGridView, filterToolStripTextBox.TextBox);
