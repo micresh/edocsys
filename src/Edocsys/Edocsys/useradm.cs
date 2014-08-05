@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
+using Edocsys.Helpers;
+
 namespace Edocsys
 {
     public partial class UseradmForm : Form
@@ -16,7 +18,23 @@ namespace Edocsys
             InitializeComponent();
         }
 
+        private DataGridViewColumnsSerializer dgvcs_u;
+
+        private void UseradmForm_Load(object sender, EventArgs e)
+        {
+            this.user_typesTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
+            this.usersTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
+
+            this.user_typesTableAdapter.Fill(this.edocbaseDataSet.user_types);
+            this.usersTableAdapter.Fill(this.edocbaseDataSet.users);
+
+            //Add column serializers
+            dgvcs_u = new DataGridViewColumnsSerializer(this, this.usersDataGridView);
+        }
+
+
         public string password;
+
 
         private void usersBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
@@ -62,15 +80,6 @@ namespace Edocsys
                 TraceHelper.LogError(type, ex, this);
                 MessageBox.Show(msg, title);
             }
-        }
-
-        private void UseradmForm_Load(object sender, EventArgs e)
-        {
-            this.user_typesTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
-            this.usersTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
-
-            this.user_typesTableAdapter.Fill(this.edocbaseDataSet.user_types);
-            this.usersTableAdapter.Fill(this.edocbaseDataSet.users);
         }
 
         private void usersDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
