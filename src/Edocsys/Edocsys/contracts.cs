@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
+using Edocsys.Helpers;
+
 namespace Edocsys
 {
     public partial class ContractsForm : Form
@@ -22,7 +24,7 @@ namespace Edocsys
         private DataGridViewFooterDecorator footerDecoratorContracts;
         private DataGridViewFooterDecorator footerDecoratorContractComplitionManagerConfrim;
         private DataGridViewFooterDecorator footerDecoratorContractDone;
-        
+        private DataGridViewColumnsSerializer dgvcs_cs, dgvcs_mc, dgvcs_cd;
 
 
         private void ContractsForm_Load(object sender, EventArgs e)
@@ -42,36 +44,38 @@ namespace Edocsys
             contractGenerator = new DocGeneratorHelper(edocbaseDataSet.documents, edocbaseDataSet.doc_templates, edocbaseDataSet.ContractDocData);
             actGenerator = new DocGeneratorHelper(edocbaseDataSet.documents, edocbaseDataSet.doc_templates, edocbaseDataSet.ContractDocData);
 
+            //Add column serializers
+            dgvcs_cs = new DataGridViewColumnsSerializer(this, this.contractsSigningDataGridView);
+            dgvcs_mc = new DataGridViewColumnsSerializer(this, this.contractComplitionManagerConfrimDataGridView);
+            dgvcs_cd = new DataGridViewColumnsSerializer(this, this.contractDoneDataTableDataGridView);
+
             //performance tuning
             DataGridViewHelper.DoubleBuffered(contractsSigningDataGridView, true);
             DataGridViewHelper.DoubleBuffered(contractComplitionManagerConfrimDataGridView, true);
             DataGridViewHelper.DoubleBuffered(contractDoneDataTableDataGridView, true);
 
             //Add FooterDecorators
-            footerDecoratorContracts = new DataGridViewFooterDecorator(contractsSigningDataGridView, new Dictionary<string, ColumnHandler>
+            footerDecoratorContracts = new DataGridViewFooterDecorator(contractsSigningDataGridView, new List<ColumnHandler>()
                         {
-                            {"totalcostDataGridViewTextBoxColumn", new ColumnHandler (DataGridViewFooterDecorator.Sum, "total_cost", null, contractsSigningDataGridView)}, 
-                            {"prepayment", new ColumnHandler (DataGridViewFooterDecorator.Sum, "prepayment", null, contractsSigningDataGridView)}, 
-                            {"number", new ColumnHandler (DataGridViewFooterDecorator.StaticText, "number", "ИТОГО", null)}, 
+                            new ColumnHandler (DataGridViewFooterDecorator.Sum, "total_cost", null, contractsSigningDataGridView),
+                            new ColumnHandler (DataGridViewFooterDecorator.Sum, "prepayment", null, contractsSigningDataGridView),
+                            new ColumnHandler (DataGridViewFooterDecorator.StaticText, "number", "ИТОГО", null),
                         }
                         );
-            footerDecoratorContractComplitionManagerConfrim = new DataGridViewFooterDecorator(contractComplitionManagerConfrimDataGridView, new Dictionary<string, ColumnHandler>
+            footerDecoratorContractComplitionManagerConfrim = new DataGridViewFooterDecorator(contractComplitionManagerConfrimDataGridView, new List<ColumnHandler>()
                         {
-                            
-                            {"totalcostDataGridViewTextBoxColumn3", new ColumnHandler (DataGridViewFooterDecorator.Sum, "total_cost", null, contractComplitionManagerConfrimDataGridView)}, 
-                            {"dataGridViewTextBoxColumn1", new ColumnHandler (DataGridViewFooterDecorator.Sum, "prepayment", null, contractComplitionManagerConfrimDataGridView)}, 
-                            {"numberDataGridViewTextBoxColumn2", new ColumnHandler (DataGridViewFooterDecorator.StaticText, "number", "ИТОГО", null)}, 
+                            new ColumnHandler (DataGridViewFooterDecorator.Sum, "total_cost", null, contractComplitionManagerConfrimDataGridView),
+                            new ColumnHandler (DataGridViewFooterDecorator.Sum, "prepayment", null, contractComplitionManagerConfrimDataGridView),
+                            new ColumnHandler (DataGridViewFooterDecorator.StaticText, "number", "ИТОГО", null),
                         }
                         );
-
-            footerDecoratorContractDone = new DataGridViewFooterDecorator(contractDoneDataTableDataGridView, new Dictionary<string, ColumnHandler>
+            footerDecoratorContractDone = new DataGridViewFooterDecorator(contractDoneDataTableDataGridView, new List<ColumnHandler>()
                         {
-                            {"totalcostDataGridViewTextBoxColumn1", new ColumnHandler (DataGridViewFooterDecorator.Sum, "total_cost", null, contractDoneDataTableDataGridView)},
-                            {"dataGridViewTextBoxColumn2", new ColumnHandler (DataGridViewFooterDecorator.Sum, "prepayment", null, contractDoneDataTableDataGridView)},
-                            {"numberDataGridViewTextBoxColumn", new ColumnHandler (DataGridViewFooterDecorator.StaticText, "number", "ИТОГО", null)}, 
+                            new ColumnHandler (DataGridViewFooterDecorator.Sum, "total_cost", null, contractDoneDataTableDataGridView),
+                            new ColumnHandler (DataGridViewFooterDecorator.Sum, "prepayment", null, contractDoneDataTableDataGridView),
+                            new ColumnHandler (DataGridViewFooterDecorator.StaticText, "number", "ИТОГО", null),
                         }
                         );
-
         }
 
 
