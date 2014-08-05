@@ -34,8 +34,8 @@ namespace Edocsys
         {
         }
 
-        private DataGridView mainDGV;
-        private DataGridView footerDGV;
+        private DataGridView mainGrid;
+        private DataGridView footerGrid;
         private Panel containerPanel;
 
         private Dictionary<string, ColumnHandler> columnActions;
@@ -72,10 +72,10 @@ namespace Edocsys
             grid.Rows[0].Cells[name].Value = value;
         }
 
-        public DataGridViewFooterDecorator(DataGridView dgv, List<ColumnHandler> columnActions)
+        public DataGridViewFooterDecorator(DataGridView grid, List<ColumnHandler> columnActions)
         {
-            this.mainDGV = dgv;
-            this.footerDGV = new DataGridView();
+            this.mainGrid = grid;
+            this.footerGrid = new DataGridView();
             this.containerPanel = new Panel();
 
             this.columnActions = new Dictionary<string, ColumnHandler>();
@@ -83,7 +83,7 @@ namespace Edocsys
             foreach (ColumnHandler ch in columnActions)
             {
                 string key = "";
-                foreach (DataGridViewColumn x in this.mainDGV.Columns)
+                foreach (DataGridViewColumn x in this.mainGrid.Columns)
                 {
                     if (ch.Name == x.DataPropertyName)
                     {
@@ -95,15 +95,15 @@ namespace Edocsys
                 this.columnActions[key] = ch;
             }
 
-            Control p = mainDGV.Parent;
+            Control p = mainGrid.Parent;
 
             p.SuspendLayout();
-            p.Controls.Remove(dgv);
+            p.Controls.Remove(grid);
 
             int newI = 0;
             for (int i = 0; i < p.Controls.Count; ++i)
             {
-                if (p.Controls[i] == dgv)
+                if (p.Controls[i] == grid)
                 {
                     newI = i;
                     break;
@@ -112,41 +112,41 @@ namespace Edocsys
 
             p.Controls.Add(containerPanel);
             p.Controls.SetChildIndex(containerPanel, newI);
-            p.Controls.Remove(dgv);
+            p.Controls.Remove(grid);
 
 
-            dgv.ColumnWidthChanged += ColumnWidthChangedHandler;
-            ((BindingSource)dgv.DataSource).ListChanged += ListChangedHandler;
+            grid.ColumnWidthChanged += ColumnWidthChangedHandler;
+            ((BindingSource)grid.DataSource).ListChanged += ListChangedHandler;
 
-            dgv.ScrollBars = ScrollBars.Vertical;
+            grid.ScrollBars = ScrollBars.Vertical;
 
-            dgv.Dock = System.Windows.Forms.DockStyle.Fill;
+            grid.Dock = System.Windows.Forms.DockStyle.Fill;
 
-            footerDGV.Dock = System.Windows.Forms.DockStyle.Bottom;
-            footerDGV.Name = "footerDGV";
+            footerGrid.Dock = System.Windows.Forms.DockStyle.Bottom;
+            footerGrid.Name = "footerDGV" + mainGrid.Name;
 
-            footerDGV.ColumnWidthChanged += FooterColumnWidthChangedHandler;
-            footerDGV.Scroll += ScrollHander;
+            footerGrid.ColumnWidthChanged += FooterColumnWidthChangedHandler;
+            footerGrid.Scroll += ScrollHander;
 
-            footerDGV.Location = new System.Drawing.Point(100, 100);
-            footerDGV.Size = new System.Drawing.Size(200, 40);
-            footerDGV.ReadOnly = true;
+            footerGrid.Location = new System.Drawing.Point(100, 100);
+            footerGrid.Size = new System.Drawing.Size(200, 40);
+            footerGrid.ReadOnly = true;
 
-            footerDGV.ScrollBars = ScrollBars.Horizontal;
+            footerGrid.ScrollBars = ScrollBars.Horizontal;
 
 
-            footerDGV.ColumnHeadersVisible = false;
+            footerGrid.ColumnHeadersVisible = false;
             //footerDGV.RowHeadersVisible = false;
 
-            footerDGV.RowCount = 1;
-            footerDGV.ColumnCount = 1;
+            footerGrid.RowCount = 1;
+            footerGrid.ColumnCount = 1;
 
-            footerDGV.Columns.Clear();
-            footerDGV.Rows.Clear();
+            footerGrid.Columns.Clear();
+            footerGrid.Rows.Clear();
 
 
 
-            foreach (DataGridViewColumn c in dgv.Columns)
+            foreach (DataGridViewColumn c in grid.Columns)
             {
                 DataGridViewColumn cc = new DataGridViewTextBoxColumn();
                 cc.Name = c.Name;
@@ -154,59 +154,58 @@ namespace Edocsys
                 cc.Visible = c.Visible;
 
 
-                footerDGV.Columns.Add(cc);
-                if (footerDGV.RowCount == 1)
-                    footerDGV.Rows.Add();
+                footerGrid.Columns.Add(cc);
+                if (footerGrid.RowCount == 1)
+                    footerGrid.Rows.Add();
 
                 RefreshFooter(cc);
             }
 
-            footerDGV.AllowUserToAddRows = false;
-            footerDGV.AllowUserToDeleteRows = false;
+            footerGrid.AllowUserToAddRows = false;
+            footerGrid.AllowUserToDeleteRows = false;
 
 
             containerPanel.SuspendLayout();
-            containerPanel.Controls.Add(dgv);
-            containerPanel.Controls.Add(footerDGV);
+            containerPanel.Controls.Add(grid);
+            containerPanel.Controls.Add(footerGrid);
             containerPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            containerPanel.Location = new System.Drawing.Point(dgv.Location.X, dgv.Location.Y);
-            containerPanel.Name = "containerPanel";
-            containerPanel.Size = new System.Drawing.Size(dgv.Size.Width, dgv.Size.Height - 24);
+            containerPanel.Location = new System.Drawing.Point(grid.Location.X, grid.Location.Y);
+            containerPanel.Name = "containerPanel" + mainGrid.Name;
+            containerPanel.Size = new System.Drawing.Size(grid.Size.Width, grid.Size.Height - 24);
             containerPanel.ResumeLayout();
             containerPanel.PerformLayout();
 
             p.ResumeLayout();
             p.PerformLayout();
-
         }
 
-        private void RefreshFooter(DataGridViewColumn cc)
+        private void RefreshFooter(DataGridViewColumn column)
         {
-            if (columnActions.ContainsKey(cc.Name))
+            if (columnActions.ContainsKey(column.Name))
             {
                 //cc.DefaultCellStyle.BackColor = Color.Red;
-                ColumnHandler ch = (ColumnHandler)columnActions[cc.Name];
-                SetCellValue(footerDGV, cc.Name, ch.Action(ch.Name, ch.Value, ch.Source));
+                ColumnHandler handler = (ColumnHandler)columnActions[column.Name];
+                SetCellValue(footerGrid, column.Name, handler.Action(handler.Name, handler.Value, handler.Source));
             }
         }
 
         private void RefreshFooters()
         {
-            foreach (KeyValuePair<string, ColumnHandler> c in columnActions)
+            foreach (KeyValuePair<string, ColumnHandler> column in columnActions)
             {
-                ColumnHandler ch = (ColumnHandler)columnActions[c.Key];
-                SetCellValue(footerDGV, c.Key, ch.Action(ch.Name, ch.Value, ch.Source));
+                ColumnHandler handler = (ColumnHandler)columnActions[column.Key];
+                SetCellValue(footerGrid, column.Key, handler.Action(handler.Name, handler.Value, handler.Source));
             }
         }
 
         private void ColumnWidthChangedHandler(object sender, DataGridViewColumnEventArgs e)
         {
-            this.footerDGV.Columns[e.Column.Name].Width = e.Column.Width;
+            this.footerGrid.Columns[e.Column.Name].Width = e.Column.Width;
         }
 
         private void FooterColumnWidthChangedHandler(object sender, DataGridViewColumnEventArgs e)
         {
-            this.mainDGV.Columns[e.Column.Name].Width = e.Column.Width;
+            this.mainGrid.Columns[e.Column.Name].Width = e.Column.Width;
         }
 
         private void ListChangedHandler(object sender, ListChangedEventArgs e)
@@ -216,7 +215,7 @@ namespace Edocsys
 
         private void ScrollHander(object sender, ScrollEventArgs e)
         {
-            mainDGV.HorizontalScrollingOffset = e.NewValue;
+            mainGrid.HorizontalScrollingOffset = e.NewValue;
         }
     }
 }
