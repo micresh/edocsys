@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
+using Edocsys.Helpers;
+
 namespace Edocsys
 {
     public partial class ContractPaymentsForm : Form
@@ -19,10 +21,11 @@ namespace Edocsys
         private FilterHelper filterPayedContracts, filterContractsPayments;
         private DataGridViewFooterDecorator fdContractPaymentsDataGridView;
         private DataGridViewFooterDecorator fdPayedContractsdataGridView;
+        private DataGridViewColumnsSerializer dgvcs_cp, dgvcs_pc;
+
 
         private void ContractsForm_Load(object sender, EventArgs e)
         {
-
             this.contractPaymentsTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
             this.payedContractsTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
 
@@ -32,26 +35,29 @@ namespace Edocsys
             filterContractsPayments = new FilterHelper(contractPaymentsDataGridView, filterContractPaymentsTextBox.TextBox);
             filterPayedContracts = new FilterHelper(payedContractsdataGridView, filterPayedContractsTextBox.TextBox);
 
+            //Add column serializers
+            dgvcs_cp = new DataGridViewColumnsSerializer(this, this.contractPaymentsDataGridView);
+            dgvcs_pc = new DataGridViewColumnsSerializer(this, this.payedContractsdataGridView);
+
             //performance tuning
             DataGridViewHelper.DoubleBuffered(contractPaymentsDataGridView, true);
             DataGridViewHelper.DoubleBuffered(payedContractsdataGridView, true);
 
-            fdContractPaymentsDataGridView = new DataGridViewFooterDecorator(contractPaymentsDataGridView, new Dictionary<string, ColumnHandler>
+            fdContractPaymentsDataGridView = new DataGridViewFooterDecorator(contractPaymentsDataGridView, new List<ColumnHandler>()
                         {
-                            {"totalcostDataGridViewTextBoxColumn2", new ColumnHandler (DataGridViewFooterDecorator.Sum, "total_cost", null, contractPaymentsDataGridView)},
-                            {"prepayment", new ColumnHandler (DataGridViewFooterDecorator.Sum, "prepayment", null, contractPaymentsDataGridView)},
-                            {"numberDataGridViewTextBoxColumn1", new ColumnHandler (DataGridViewFooterDecorator.StaticText, "number", "ИТОГО", null)}, 
+                            new ColumnHandler (DataGridViewFooterDecorator.Sum, "total_cost", null, contractPaymentsDataGridView),
+                            new ColumnHandler (DataGridViewFooterDecorator.Sum, "prepayment", null, contractPaymentsDataGridView),
+                            new ColumnHandler (DataGridViewFooterDecorator.StaticText, "number", "ИТОГО", null),
                         }
                         );
-            fdPayedContractsdataGridView = new DataGridViewFooterDecorator(payedContractsdataGridView, new Dictionary<string, ColumnHandler>
+            fdPayedContractsdataGridView = new DataGridViewFooterDecorator(payedContractsdataGridView, new List<ColumnHandler>()
                         {
-                            {"totalcostDataGridViewTextBoxColumn", new ColumnHandler (DataGridViewFooterDecorator.Sum, "total_cost", null, payedContractsdataGridView)}, 
-                            {"dataGridViewTextBoxColumn1", new ColumnHandler (DataGridViewFooterDecorator.Sum, "prepayment", null, payedContractsdataGridView)}, 
-                            {"numberDataGridViewTextBoxColumn", new ColumnHandler (DataGridViewFooterDecorator.StaticText, "number", "ИТОГО", null)}, 
+                            new ColumnHandler (DataGridViewFooterDecorator.Sum, "total_cost", null, payedContractsdataGridView),
+                            new ColumnHandler (DataGridViewFooterDecorator.Sum, "prepayment", null, payedContractsdataGridView),
+                            new ColumnHandler (DataGridViewFooterDecorator.StaticText, "number", "ИТОГО", null),
                         }
                         );
         }
-
 
 
         private void UpdateDatabase()
