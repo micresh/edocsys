@@ -468,7 +468,7 @@
             this.date_proposalDateTimePicker.Name = "date_proposalDateTimePicker";
             this.date_proposalDateTimePicker.Size = new System.Drawing.Size(97, 20);
             this.date_proposalDateTimePicker.TabIndex = 5;
-            this.date_proposalDateTimePicker.Value = new System.DateTime(2013, 3, 16, 0, 0, 0, 0);
+            this.date_proposalDateTimePicker.Value = new System.DateTime(2014, 1, 1, 0, 0, 0, 0);
             // 
             // porposalGenerationGroupBox
             // 

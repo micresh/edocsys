@@ -8,7 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.IO;
 
-using System.Diagnostics;
+using Edocsys.Helpers;
 
 namespace Edocsys
 {
@@ -19,20 +19,53 @@ namespace Edocsys
             InitializeComponent();
         }
 
-        private void contractsBindingNavigatorSaveItem_Click(object sender, EventArgs e)
-        {
-            SaveProposal();
-            RefreshDatabase();
-        }
-
         private FilterHelper filter;
         private DocGeneratorHelper proposalGenerator;
+        private DataGridViewColumnsSerializer dgvcs_p;
+
+        private void ProposalForm_Load(object sender, EventArgs e)
+        {
+            this.documentsTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
+
+            this.documentsTableAdapter.Fill(this.edocbaseDataSet.documents);
+
+            this.agentsTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
+            this.productsTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
+            this.contract_typesTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
+            this.emission_typesTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
+
+            this.contractInfoTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
+
+            this.contract_typesTableAdapter.FillContractDocs(this.edocbaseDataSet.contract_types);
+
+            this.emission_typesTableAdapter.Fill(this.edocbaseDataSet.emission_types);
+
+            RefreshDatabase();
+
+            // Add filter
+            filter = new FilterHelper(proposalsDataGridView, filterToolStripTextBox.TextBox);
+
+            //Add column serializers
+            dgvcs_p = new DataGridViewColumnsSerializer(this, this.proposalsDataGridView);
+
+            proposalGenerator = new DocGeneratorHelper(edocbaseDataSet.documents, edocbaseDataSet.doc_templates, edocbaseDataSet.ContractDocData);
+
+            date_proposalDateTimePicker.Value = DateTime.Now.Date;
+        }
+
 
         public int currentContractID;
         public int currentProductID;
         public string GOSTsList;
         public string ProductionDocuments;
         public bool UseTUIsteadGosts;
+
+
+        private void contractsBindingNavigatorSaveItem_Click(object sender, EventArgs e)
+        {
+            SaveProposal();
+            RefreshDatabase();
+        }
 
         private void SaveProposal()
         {
@@ -46,7 +79,6 @@ namespace Edocsys
                 this.tableAdapterManager.UpdateAll(this.edocbaseDataSet);
 
                 this.edocbaseDataSet.AcceptChanges();
-
             }
             catch (Exception ex)
             {
@@ -72,7 +104,7 @@ namespace Edocsys
                 contractInfoDataTableBindingSource.Position = pos;
 
                 this.proposalsDataGridView.Refresh();
-            }   
+            }
             catch (Exception ex)
             {
                 string msg = ex.Message;
@@ -81,31 +113,6 @@ namespace Edocsys
                 TraceHelper.LogError(type, ex, this);
                 MessageBox.Show(msg, title);
             }
-        }
-
-        private void ProposalForm_Load(object sender, EventArgs e)
-        {
-            this.documentsTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
-
-            this.documentsTableAdapter.Fill(this.edocbaseDataSet.documents);
-
-            this.agentsTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
-            this.productsTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
-            this.contract_typesTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
-            this.emission_typesTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
-
-            this.contractInfoTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
-
-            this.contract_typesTableAdapter.FillContractDocs(this.edocbaseDataSet.contract_types);
-
-            this.emission_typesTableAdapter.Fill(this.edocbaseDataSet.emission_types);
-
-            RefreshDatabase();
-
-            // Add filter
-            filter = new FilterHelper(proposalsDataGridView, filterToolStripTextBox.TextBox);
-
-            proposalGenerator = new DocGeneratorHelper(edocbaseDataSet.documents, edocbaseDataSet.doc_templates, edocbaseDataSet.ContractDocData);
         }
 
         private void contractsDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -324,6 +331,16 @@ namespace Edocsys
             DataRowView currentRow = (DataRowView)this.contractInfoDataTableBindingSource.Current;
 
             InitNewProposal(currentRow);
+
+            //TODO: (Workaround) Fill all fileds with default values
+            //first avail agent
+            DataRowView agentRow = (DataRowView)this.agentsBindingSource.Current;
+            currentRow["agents_id"] = agentRow["id"];
+
+            //first avail product
+            DataRowView productRow = (DataRowView)this.productsBindingSource.Current;
+            currentRow["products_id"] = productRow["id"];
+
         }
 
         public void AddNewProposalWithAgent(int agents_id)
@@ -336,7 +353,7 @@ namespace Edocsys
 
             currentRow["agents_id"] = agents_id;
 
-            //first avauil product
+            //first avail product
             DataRowView productRow = (DataRowView)this.productsBindingSource.Current;
 
             currentRow["products_id"] = productRow["id"];
@@ -399,7 +416,8 @@ namespace Edocsys
 
             DataRowView currentRow = (DataRowView)this.contractInfoDataTableBindingSource.Current;
 
-            if ((int)(currentRow["id"]) < 0)
+            int id = Convert.ToInt32(currentRow["id"]);
+            if (id < 0)
             {
                 //not saved => save
                 SaveProposal();
