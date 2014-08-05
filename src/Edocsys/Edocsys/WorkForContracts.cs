@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
+using Edocsys.Helpers;
+
 namespace Edocsys
 {
     public partial class WorkForContractsForm : Form
@@ -18,6 +20,8 @@ namespace Edocsys
 
         private FilterHelper filterPrepareForWork, filterInWork;
         private DataGridViewFooterDecorator fdContractPrepareForWorkDataGridView, fdContractInWorkDataGridView;
+        private DataGridViewColumnsSerializer dgvcs_cp, dgvcs_cw;
+
 
         private void ContractsForm_Load(object sender, EventArgs e)
         {
@@ -30,25 +34,30 @@ namespace Edocsys
             filterPrepareForWork = new FilterHelper(contractPrepareForWorkDataGridView, filterPrepareForWorkTextBox.TextBox);
             filterInWork = new FilterHelper(contractInWorkDataGridView, filterInWorkTextBox.TextBox);
 
+            //Add column serializers
+            dgvcs_cp = new DataGridViewColumnsSerializer(this, this.contractPrepareForWorkDataGridView);
+            dgvcs_cw = new DataGridViewColumnsSerializer(this, this.contractInWorkDataGridView);
+
+
             //performance tuning
             DataGridViewHelper.DoubleBuffered(contractPrepareForWorkDataGridView, true);
             DataGridViewHelper.DoubleBuffered(contractInWorkDataGridView, true);
 
             //Add decorators
-            fdContractPrepareForWorkDataGridView = new DataGridViewFooterDecorator(contractPrepareForWorkDataGridView, new Dictionary<string, ColumnHandler>
+            fdContractPrepareForWorkDataGridView = new DataGridViewFooterDecorator(contractPrepareForWorkDataGridView, new List<ColumnHandler>()
                         {
-                            {"numberDataGridViewTextBoxColumn", new ColumnHandler (DataGridViewFooterDecorator.StaticText, "number", "ИТОГО", null)}, 
-                            {"prepayment", new ColumnHandler (DataGridViewFooterDecorator.Sum, "prepayment", null, contractPrepareForWorkDataGridView)},
-                            {"totalcostDataGridViewTextBoxColumn1", new ColumnHandler (DataGridViewFooterDecorator.Sum, "total_cost", null, contractPrepareForWorkDataGridView)},
+                            new ColumnHandler (DataGridViewFooterDecorator.StaticText, "number", "ИТОГО", null),
+                            new ColumnHandler (DataGridViewFooterDecorator.Sum, "prepayment", null, contractPrepareForWorkDataGridView),
+                            new ColumnHandler (DataGridViewFooterDecorator.Sum, "total_cost", null, contractPrepareForWorkDataGridView),
                         }
-                        );
-            fdContractInWorkDataGridView = new DataGridViewFooterDecorator(contractInWorkDataGridView, new Dictionary<string, ColumnHandler>
+                    );
+            fdContractInWorkDataGridView = new DataGridViewFooterDecorator(contractInWorkDataGridView, new List<ColumnHandler>()
                         {
-                            {"numberDataGridViewTextBoxColumn1", new ColumnHandler (DataGridViewFooterDecorator.StaticText, "number", "ИТОГО", null)},
-                            {"dataGridViewTextBoxColumn1", new ColumnHandler (DataGridViewFooterDecorator.Sum, "prepayment", null, contractInWorkDataGridView)},
-                            {"totalcostDataGridViewTextBoxColumn2", new ColumnHandler (DataGridViewFooterDecorator.Sum, "total_cost", null, contractInWorkDataGridView)},
+                            new ColumnHandler (DataGridViewFooterDecorator.StaticText, "number", "ИТОГО", null),
+                            new ColumnHandler (DataGridViewFooterDecorator.Sum, "prepayment", null, contractInWorkDataGridView),
+                           new ColumnHandler (DataGridViewFooterDecorator.Sum, "total_cost", null, contractInWorkDataGridView),
                         }
-                        );
+                    );
         }
 
 
