@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
+using Edocsys.Helpers;
+
 namespace Edocsys
 {
     public partial class AgentTypesForm : Form
@@ -78,8 +80,12 @@ namespace Edocsys
             }
         }
 
+        private DataGridViewColumnsSerializer dgvcs;
+
         private void AgentTypesForm_Load(object sender, EventArgs e)
         {
+            dgvcs = new DataGridViewColumnsSerializer(this, this.agentTypesDataGridView);
+
             this.agent_typesTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
 
             this.agent_typesTableAdapter.Fill(this.edocbaseDataSet.agent_types);
