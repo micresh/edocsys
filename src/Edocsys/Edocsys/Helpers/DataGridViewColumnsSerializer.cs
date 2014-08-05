@@ -10,7 +10,6 @@ using System.Xml.Serialization;
 
 namespace Edocsys.Helpers
 {
-
     public class DataGridViewColumnsSerializer
     {
         [Serializable()]
