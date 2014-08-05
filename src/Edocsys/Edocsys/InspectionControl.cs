@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
+using Edocsys.Helpers;
+
 namespace Edocsys
 {
     public partial class InspectionControlForm : Form
@@ -18,44 +20,45 @@ namespace Edocsys
 
         private DocGeneratorHelper contractGenerator;
         private FilterHelper filterInspection, filterOnInspection;
-
         private DataGridViewFooterDecorator fdInspectionContractsDataGridView, fdContractsOnInspectionDataGridView;
+        private DataGridViewColumnsSerializer dgvcs_ic, dgvcs_ci;
 
 
         private void ContractsForm_Load(object sender, EventArgs e)
         {
-
             this.contractsOnInspectionTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
             this.inspectionContractsTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
 
             RefreshDatabase();
 
-            //
+            //add filters
             filterInspection = new FilterHelper(inspectionContractsDataGridView, filterInspectionContractsTextBox.TextBox);
-            filterOnInspection = new FilterHelper(contractsOnInspectionDataGridView, filterInspectionContractsTextBox.TextBox);
+            filterOnInspection = new FilterHelper(contractsOnInspectionDataGridView, filterContractsOnInspectionTextBox.TextBox);
 
             //doc helper
             contractGenerator = new DocGeneratorHelper(edocbaseDataSet.documents, edocbaseDataSet.doc_templates, edocbaseDataSet.ContractDocData);
+
+            //Add column serializers
+            dgvcs_ic = new DataGridViewColumnsSerializer(this, this.inspectionContractsDataGridView);
+            dgvcs_ci = new DataGridViewColumnsSerializer(this, this.contractsOnInspectionDataGridView);
 
             //performance tuning
             DataGridViewHelper.DoubleBuffered(inspectionContractsDataGridView, true);
             DataGridViewHelper.DoubleBuffered(contractsOnInspectionDataGridView, true);
 
-            fdInspectionContractsDataGridView = new DataGridViewFooterDecorator(inspectionContractsDataGridView, new Dictionary<string, ColumnHandler>
+            fdInspectionContractsDataGridView = new DataGridViewFooterDecorator(inspectionContractsDataGridView, new List<ColumnHandler>()
                         {
-                            {"number", new ColumnHandler (DataGridViewFooterDecorator.StaticText, "number", "ИТОГО", null)}, 
-                            {"prepayment", new ColumnHandler (DataGridViewFooterDecorator.Sum, "prepayment", null, inspectionContractsDataGridView)},
-                            {"totalcostDataGridViewTextBoxColumn", new ColumnHandler (DataGridViewFooterDecorator.Sum, "total_cost", null, inspectionContractsDataGridView)},
+                            new ColumnHandler (DataGridViewFooterDecorator.StaticText, "number", "ИТОГО", null),
+                            new ColumnHandler (DataGridViewFooterDecorator.Sum, "prepayment", null, inspectionContractsDataGridView),
+                            new ColumnHandler (DataGridViewFooterDecorator.Sum, "total_cost", null, inspectionContractsDataGridView),
                         }
-            );
-
-            fdContractsOnInspectionDataGridView = new DataGridViewFooterDecorator(contractsOnInspectionDataGridView, new Dictionary<string, ColumnHandler>
+                    );
+            fdContractsOnInspectionDataGridView = new DataGridViewFooterDecorator(contractsOnInspectionDataGridView, new List<ColumnHandler>()
                         {
-                            {"dataGridViewTextBoxColumn1", new ColumnHandler (DataGridViewFooterDecorator.StaticText, "products_name", "ИТОГО", null)}, 
-                            {"dataGridViewTextBoxColumn9", new ColumnHandler (DataGridViewFooterDecorator.Sum, "total_cost", null, contractsOnInspectionDataGridView)}, 
+                            new ColumnHandler (DataGridViewFooterDecorator.StaticText, "products_name", "ИТОГО", null),
+                            new ColumnHandler (DataGridViewFooterDecorator.Sum, "total_cost", null, contractsOnInspectionDataGridView),
                         }
-            );
-
+                    );
         }
 
 
