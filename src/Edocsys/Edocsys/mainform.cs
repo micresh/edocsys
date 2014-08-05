@@ -285,5 +285,9 @@ namespace Edocsys
             wmgr.ShowAgentTypesForm();
         }
 
+        private void TMSSaveColumns_Click(object sender, EventArgs e)
+        {
+            DataGridViewColumnsSerializer.SerializeItems();
+        }
     }
 }

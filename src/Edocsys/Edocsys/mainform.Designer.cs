@@ -60,6 +60,7 @@
             this.TSMProduction = new System.Windows.Forms.ToolStripMenuItem();
             this.TSMAgentTypes = new System.Windows.Forms.ToolStripMenuItem();
             this.WindowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.TMSSaveColumns = new System.Windows.Forms.ToolStripMenuItem();
             this.TSMHelp = new System.Windows.Forms.ToolStripMenuItem();
             this.TSMAbout = new System.Windows.Forms.ToolStripMenuItem();
             this.TSMScheme = new System.Windows.Forms.ToolStripMenuItem();
@@ -89,6 +90,7 @@
             this.edocbaseDataSet = new Edocsys.EdocbaseDataSet();
             this.usersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tableAdapterManager = new Edocsys.EdocbaseDataSetTableAdapters.TableAdapterManager();
+            this.toolStripMenuItem9 = new System.Windows.Forms.ToolStripSeparator();
             this.mainMenuStrip.SuspendLayout();
             this.mainToolStrip.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -318,9 +320,19 @@
             // 
             // WindowToolStripMenuItem
             // 
+            this.WindowToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem9,
+            this.TMSSaveColumns});
             this.WindowToolStripMenuItem.Name = "WindowToolStripMenuItem";
             this.WindowToolStripMenuItem.Size = new System.Drawing.Size(47, 20);
             this.WindowToolStripMenuItem.Text = global::Edocsys.Properties.Settings.Default.WindowToolStripMenuItemText;
+            // 
+            // TMSSaveColumns
+            // 
+            this.TMSSaveColumns.Name = "TMSSaveColumns";
+            this.TMSSaveColumns.Size = new System.Drawing.Size(276, 22);
+            this.TMSSaveColumns.Text = "Сохранить размеры колонок таблиц";
+            this.TMSSaveColumns.Click += new System.EventHandler(this.TMSSaveColumns_Click);
             // 
             // TSMHelp
             // 
@@ -592,6 +604,11 @@
             this.tableAdapterManager.user_typesTableAdapter = null;
             this.tableAdapterManager.usersTableAdapter = this.usersTableAdapter;
             // 
+            // toolStripMenuItem9
+            // 
+            this.toolStripMenuItem9.Name = "toolStripMenuItem9";
+            this.toolStripMenuItem9.Size = new System.Drawing.Size(273, 6);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -683,6 +700,8 @@
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem6;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem7;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem8;
+        private System.Windows.Forms.ToolStripMenuItem TMSSaveColumns;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem9;
     }
 }
 
