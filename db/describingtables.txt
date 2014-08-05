@@ -1,0 +1,95 @@
+`Edocbase`.`Agents` (
+  `idAgents` INT NOT NULL AUTO_INCREMENT ,  - идентификационный номер контрагента
+  `Ag_type_id` tinyint(4) DEFAULT 0,        - ID формы собственности
+  `Ag_fullname` VARCHAR(45) NULL ,          - полное название организации
+  `Ag_INN` VARCHAR(45) NULL ,               - ИНН
+  `Ag_addr` VARCHAR(45) NULL ,              - адрес контрагента
+  `Ag_OGRN` VARCHAR(45) NULL ,              - ОГРН
+  `Ag_KPP` VARCHAR(45) NULL ,               - КПП
+  `Ag_OKPO` VARCHAR(45) NULL ,              - ОКПО
+  `Ag_Rcou` VARCHAR(45) NULL ,              - расчетный счет
+  `Ag_Kcou` VARCHAR(45) NULL ,              - корреспондирующий счет
+  `Ag_BIK` VARCHAR(45) NULL ,               - БИК 
+  `Ag_bank` VARCHAR(45) NULL ,              - Название банка
+  `Ag_doc` VARCHAR(45) NULL ,               -  документы агента
+  `Ag_pers_status` VARCHAR(45) NULL ,       - должность ответственного за подписание договора лица
+  `Ag_pers_lastname` VARCHAR(30) NULL ,     - Фамилия
+  `Ag_pers_firstname` VARCHAR(30) NULL ,    - Имя
+  `Ag_pers_middlename` VARCHAR(30) NULL ,   - Отчество
+
+
+-- контактные лица контрагентов
+`Edocbase`.`Agents_contacts` (
+  `idAgents_contacts` INT NOT NULL,     - ID контактного лица
+  `ac_agent_id` INT DEFAULT 0,          - ID контрагента
+  `ac_person` VARCHAR(75) DEFAULT NULL, - Ф.И.О.
+  `ac_status` VARCHAR(45) DEFAULT NULL, - Должность
+  `ac_phone` VARCHAR(15) DEFAULT NULL,  - телефон контактного лица контрагента
+  `ac_fax` VARCHAR(15) DEFAULT NULL,    - факс контрагента
+  `ac_email` VARCHAR(45) DEFAULT NULL,  - электронная почта контрагента
+
+
+-- формы собситвенности
+`Edocbase`.`Agents_types` (
+  `idAgents_types` TINYINT NOT NULL ,   - ID
+  `Agent_type` VARCHAR(8) NULL ,        - Название
+
+`Edocbase`.`Experts` (
+  `idExperts` INT NOT NULL AUTO_INCREMENT , - номер эксперта
+  `Expert_Lastname` VARCHAR(45) NULL , - Фамилия эксперта
+  `Expert_Firstname` VARCHAR(45) NULL , - Имя эксперта
+  `Expert_Middlename` VARCHAR(45) NULL , - Отчество эксперта
+
+`Edocbase`.`Products` (
+  `idProducts` INT NOT NULL AUTO_INCREMENT , - номер продукции
+  `Product_name` VARCHAR(45) NULL , - Название продукции
+  `Product_OKP` VARCHAR(45) NULL , - код ОКП
+  `Product_TNVED` VARCHAR(45) NULL , - код ТН ВЭД
+  PRIMARY KEY (`idProducts`) )
+
+ `Edocbase`.`ProdGost` (
+  `id` INT NOT NULL , - идентификационный номер
+  `idProducts` INT NULL , - идномер продукта
+  `GOST_numb` VARCHAR(45) NULL , - номер ГОСТА, по которому проводится серификация
+  `Prod_type` VARCHAR(45) NULL , - тип продукта
+
+ `Edocbase`.`Contracts` (
+  `idContract` INT NOT NULL AUTO_INCREMENT ,  -идентификационный номер заявки
+  `idProducts` INT NULL , - идентификационный номер продукта
+  `emission_type` VARCHAR(45) NULL , - тип выпуска продукта
+  `Client_docs` VARCHAR(45) NULL , - Учредительные документы
+  `Schem_type` INT NULL , - тип схемы сертификации
+  `Add_data` VARCHAR(45) NULL , - дополнительные сведения
+  `Contract_type` INT NULL , - тип договора
+  `Contract_value_1` MEDIUMINT NULL , - промежуточная сумма договора
+  `Contract_value_full` MEDIUMINT NULL ,  итоговая сумма догвора
+  `agent_id` INT NULL , - идентификационный номер контрагента
+  `Contract_number` INT NULL , - Номер контракта
+  `Contract_status` INT NULL , - Статус исполнения контракта
+  `Bid_type` TINYINT NULL , - вид поступления договора
+  `expert_id` INT NULL , -  номер эксперта, составлявшего документ
+  `Cash_income` TINYINT(1) NULL , - наличие оплаты
+
+ `Edocbase`.`Exec_contracts` (
+  `idContract` INT NOT NULL , - номер контракта
+  `Contract_start` DATE NULL , - дата начала действия договора
+  `Contract_1_reatt` DATE NULL , - дата 1-ой реаттестации
+  `Contract_2_reatt` DATE NULL , - дата 2-ой реаттестации
+  `Contract_resume` DATE NULL , - дата итоговой реаттестации
+  `exec_1_reatt` DATE NULL , - дата исполнения 1-ой реаттестации
+  `exec_2_reatt` DATE NULL , - дата исполнения 2-ой реаттестации
+  `exec_resume` DATE NULL , - дата исполнения итоговой реаттестации
+  `sample_income` DATE NULL , - дата поступления образцов
+  `protocol_income` DATE NULL , - дата поступления протокола
+
+`Edocbase`.`users` (
+  `login` VARCHAR(50) NULL , - Логин в систему
+  `password` VARCHAR(50) NULL , - пароль
+  `type` INT NULL , - тип пользователя
+  `log_database` VARCHAR(50) NULL ) - логин в базе данных
+
+`Edocbase`.`log_journal` (
+  `sessid` int NOT NULL AUTO_INCREMENT , - номер сессии
+  `time_in` DATETIME NULL , - время начала сессии
+  `time_out` DATETIME NULL , - время окончания сессии
+  `uname` VARCHAR(50) NULL , - имя пользователя
