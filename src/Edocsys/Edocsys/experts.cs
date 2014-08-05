@@ -19,7 +19,18 @@ namespace Edocsys
         }
 
         private FilterHelper filter;
-        private DataGridViewColumnsSerializer dgvcs;
+        private DataGridViewColumnsSerializer dgvcs_e;
+
+        private void ExpertsForm_Load(object sender, EventArgs e)
+        {
+            this.expertsTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
+
+            this.expertsTableAdapter.Fill(this.edocbaseDataSet.experts);
+
+            filter = new FilterHelper(this.expertsDataGridView, FilterTextBox.TextBox);
+            dgvcs_e = new DataGridViewColumnsSerializer(this, this.expertsDataGridView);
+
+        }
 
         private void expertsBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
@@ -82,16 +93,6 @@ namespace Edocsys
                 TraceHelper.LogError(type, ex, this);
                 MessageBox.Show(msg, title);
             }
-        }
-
-        private void ExpertsForm_Load(object sender, EventArgs e)
-        {
-            filter = new FilterHelper(this.expertsDataGridView, FilterTextBox.TextBox);
-            dgvcs = new DataGridViewColumnsSerializer(this, this.expertsDataGridView);
-
-            this.expertsTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
-
-            this.expertsTableAdapter.Fill(this.edocbaseDataSet.experts);
         }
 
         private void bindingNavigatorAddNewItem_Click(object sender, EventArgs e)
