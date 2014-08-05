@@ -66,8 +66,6 @@
             this.product_areasTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.product_areasTableAdapter();
             this.panel1 = new System.Windows.Forms.Panel();
             this.product_gostsDataGridView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bindingNavigatorGOSTS = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorCountItem1 = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorDeleteItem1 = new System.Windows.Forms.ToolStripButton();
@@ -82,6 +80,8 @@
             this.bindingNavigatorAddNewItem1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripLabelProduct = new System.Windows.Forms.ToolStripLabel();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             nameLabel1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.edocbaseDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.product_gostsBindingSource)).BeginInit();
@@ -124,6 +124,7 @@
             this.tableAdapterManager.contract_types_for_workTableAdapter = null;
             this.tableAdapterManager.contract_typesTableAdapter = null;
             this.tableAdapterManager.ContractInfoTableAdapter = null;
+            this.tableAdapterManager.ContractPaymentsTableAdapter = null;
             this.tableAdapterManager.ContractPrepareForWorkTAdapter = null;
             this.tableAdapterManager.ContractSigningTableAdapter = null;
             this.tableAdapterManager.ContractsOnInspectionTableAdapter = null;
@@ -426,19 +427,6 @@
             this.product_gostsDataGridView.Size = new System.Drawing.Size(632, 194);
             this.product_gostsDataGridView.TabIndex = 4;
             // 
-            // dataGridViewTextBoxColumn8
-            // 
-            this.dataGridViewTextBoxColumn8.DataPropertyName = "number";
-            this.dataGridViewTextBoxColumn8.HeaderText = "Номер";
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            // 
-            // dataGridViewTextBoxColumn9
-            // 
-            this.dataGridViewTextBoxColumn9.DataPropertyName = "type";
-            this.dataGridViewTextBoxColumn9.HeaderText = "Тип";
-            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-            this.dataGridViewTextBoxColumn9.Width = 300;
-            // 
             // bindingNavigatorGOSTS
             // 
             this.bindingNavigatorGOSTS.AddNewItem = null;
@@ -572,6 +560,19 @@
             this.toolStripButton1.Text = "Save Data";
             this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
+            // dataGridViewTextBoxColumn8
+            // 
+            this.dataGridViewTextBoxColumn8.DataPropertyName = "number";
+            this.dataGridViewTextBoxColumn8.HeaderText = "Номер";
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            this.dataGridViewTextBoxColumn9.DataPropertyName = "type";
+            this.dataGridViewTextBoxColumn9.HeaderText = "Тип";
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            this.dataGridViewTextBoxColumn9.Width = 400;
+            // 
             // ProductionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -653,12 +654,12 @@
         private System.Windows.Forms.ToolStripButton bindingNavigatorAddNewItem1;
         private System.Windows.Forms.ToolStripLabel toolStripLabelProduct;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripLabel toolStripLabel1;
         private System.Windows.Forms.ToolStripTextBox filterProductsTextBox;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripButton toolStripButton2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
     }
 }

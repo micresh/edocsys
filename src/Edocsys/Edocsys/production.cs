@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
+using Edocsys.Helpers;
+
 namespace Edocsys
 {
     public partial class ProductionForm : Form
@@ -17,6 +19,8 @@ namespace Edocsys
         }
 
         private FilterHelper filterProduct;
+        private DataGridViewColumnsSerializer dgvcs_p, dgvcs_pg;
+
 
         private void ProductionForm_Load(object sender, EventArgs e)
         {
@@ -24,11 +28,14 @@ namespace Edocsys
             this.product_gostsTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
             this.productsTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
 
-
             RefreshDatabase();
 
-
             filterProduct = new FilterHelper(productsDataGridView, filterProductsTextBox.TextBox);
+
+            //Add column serializers
+            dgvcs_p = new DataGridViewColumnsSerializer(this, this.productsDataGridView);
+            dgvcs_pg = new DataGridViewColumnsSerializer(this, this.product_gostsDataGridView);
+
         }
 
         private void RefreshDatabase()
