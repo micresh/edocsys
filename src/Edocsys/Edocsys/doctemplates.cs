@@ -9,6 +9,8 @@ using System.Windows.Forms;
 using System.IO;
 using System.Diagnostics;
 
+using Edocsys.Helpers;
+
 namespace Edocsys
 {
     public partial class DocTemplatesForm : Form
@@ -18,6 +20,8 @@ namespace Edocsys
             InitializeComponent();
         }
 
+        private DataGridViewColumnsSerializer dgvcs_dt;
+
         private void DocTemplatesForm_Load(object sender, EventArgs e)
         {
             this.templatesDataTableTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
@@ -25,6 +29,9 @@ namespace Edocsys
 
             this.doc_templatesTableAdapter.Fill(this.edocbaseDataSet.doc_templates);
             this.templatesDataTableTableAdapter.Fill(this.edocbaseDataSet.templatesDataTable);
+
+            //Add column serializers
+            dgvcs_dt = new DataGridViewColumnsSerializer(this, this.templatesDataTableDataGridView);
         }
 
         private void UpdateChanges()
