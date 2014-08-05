@@ -44,6 +44,8 @@
             this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.expertsBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.FilterTextBox = new System.Windows.Forms.ToolStripTextBox();
             this.expertsDataGridView = new System.Windows.Forms.DataGridView();
@@ -52,8 +54,6 @@
             this.middlenameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.expertsTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.expertsTableAdapter();
             this.tableAdapterManager = new Edocsys.EdocbaseDataSetTableAdapters.TableAdapterManager();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             ((System.ComponentModel.ISupportInitialize)(this.expertsBindingNavigator)).BeginInit();
             this.expertsBindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.expertsBindingSource)).BeginInit();
@@ -90,7 +90,7 @@
             this.expertsBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.expertsBindingNavigator.Name = "expertsBindingNavigator";
             this.expertsBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.expertsBindingNavigator.Size = new System.Drawing.Size(664, 25);
+            this.expertsBindingNavigator.Size = new System.Drawing.Size(736, 25);
             this.expertsBindingNavigator.TabIndex = 0;
             this.expertsBindingNavigator.Text = "bindingNavigator1";
             // 
@@ -192,6 +192,21 @@
             this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
             this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
             // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton1.Text = "Обновить";
+            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            // 
             // expertsBindingNavigatorSaveItem
             // 
             this.expertsBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -222,7 +237,7 @@
             this.expertsDataGridView.Location = new System.Drawing.Point(0, 25);
             this.expertsDataGridView.MultiSelect = false;
             this.expertsDataGridView.Name = "expertsDataGridView";
-            this.expertsDataGridView.Size = new System.Drawing.Size(664, 380);
+            this.expertsDataGridView.Size = new System.Drawing.Size(736, 380);
             this.expertsDataGridView.TabIndex = 1;
             // 
             // lastnameDataGridViewTextBoxColumn
@@ -281,26 +296,11 @@
             this.tableAdapterManager.user_typesTableAdapter = null;
             this.tableAdapterManager.usersTableAdapter = null;
             // 
-            // toolStripButton1
-            // 
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton1.Text = "Обновить";
-            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
-            // 
             // ExpertsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(664, 405);
+            this.ClientSize = new System.Drawing.Size(736, 405);
             this.Controls.Add(this.expertsDataGridView);
             this.Controls.Add(this.expertsBindingNavigator);
             this.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Edocsys.Properties.Settings.Default, "ExpertsFormText", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));

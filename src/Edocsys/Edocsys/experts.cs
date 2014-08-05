@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
+using Edocsys.Helpers;
+
 namespace Edocsys
 {
     public partial class ExpertsForm : Form
@@ -17,6 +19,7 @@ namespace Edocsys
         }
 
         private FilterHelper filter;
+        private DataGridViewColumnsSerializer dgvcs;
 
         private void expertsBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
@@ -84,11 +87,11 @@ namespace Edocsys
         private void ExpertsForm_Load(object sender, EventArgs e)
         {
             filter = new FilterHelper(this.expertsDataGridView, FilterTextBox.TextBox);
+            dgvcs = new DataGridViewColumnsSerializer(this, this.expertsDataGridView);
+
             this.expertsTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
 
-            
             this.expertsTableAdapter.Fill(this.edocbaseDataSet.experts);
-
         }
 
         private void bindingNavigatorAddNewItem_Click(object sender, EventArgs e)
