@@ -47,6 +47,9 @@ namespace Edocsys
 
         public static string Sum(string name, string value, DataGridView source)
         {
+            if (source.DataSource == null)
+                return "";
+
             BindingSource bs = ((BindingSource)source.DataSource);
             int p = bs.Position;
             
@@ -59,15 +62,122 @@ namespace Edocsys
                     sum += Convert.ToDouble(((DataRowView)bs.Current).Row[name]);
                 bs.MoveNext();
             }
-            
 
             bs.Position = p;
             return sum.ToString();
         }
 
-        private static void SetCellValue(DataGridView dgv, string name, string value)
+        private static void SetCellValue(DataGridView grid, string name, string value)
         {
-            dgv.Rows[0].Cells[name].Value = value;
+            grid.Rows[0].Cells[name].Value = value;
+        }
+
+        public DataGridViewFooterDecorator(DataGridView dgv, List<ColumnHandler> columnActions)
+        {
+            this.mainDGV = dgv;
+            this.footerDGV = new DataGridView();
+            this.containerPanel = new Panel();
+
+            this.columnActions = new Dictionary<string, ColumnHandler>();
+
+            foreach (ColumnHandler ch in columnActions)
+            {
+                string key = "";
+                foreach (DataGridViewColumn x in this.mainDGV.Columns)
+                {
+                    if (ch.Name == x.DataPropertyName)
+                    {
+                        key = x.Name;
+                        break;
+                    }
+                }
+
+                this.columnActions[key] = ch;
+            }
+
+            Control p = mainDGV.Parent;
+
+            p.SuspendLayout();
+            p.Controls.Remove(dgv);
+
+            int newI = 0;
+            for (int i = 0; i < p.Controls.Count; ++i)
+            {
+                if (p.Controls[i] == dgv)
+                {
+                    newI = i;
+                    break;
+                }
+            }
+
+            p.Controls.Add(containerPanel);
+            p.Controls.SetChildIndex(containerPanel, newI);
+            p.Controls.Remove(dgv);
+
+
+            dgv.ColumnWidthChanged += ColumnWidthChangedHandler;
+            ((BindingSource)dgv.DataSource).ListChanged += ListChangedHandler;
+
+            dgv.ScrollBars = ScrollBars.Vertical;
+
+            dgv.Dock = System.Windows.Forms.DockStyle.Fill;
+
+            footerDGV.Dock = System.Windows.Forms.DockStyle.Bottom;
+            footerDGV.Name = "footerDGV";
+
+            footerDGV.ColumnWidthChanged += FooterColumnWidthChangedHandler;
+            footerDGV.Scroll += ScrollHander;
+
+            footerDGV.Location = new System.Drawing.Point(100, 100);
+            footerDGV.Size = new System.Drawing.Size(200, 40);
+            footerDGV.ReadOnly = true;
+
+            footerDGV.ScrollBars = ScrollBars.Horizontal;
+
+
+            footerDGV.ColumnHeadersVisible = false;
+            //footerDGV.RowHeadersVisible = false;
+
+            footerDGV.RowCount = 1;
+            footerDGV.ColumnCount = 1;
+
+            footerDGV.Columns.Clear();
+            footerDGV.Rows.Clear();
+
+
+
+            foreach (DataGridViewColumn c in dgv.Columns)
+            {
+                DataGridViewColumn cc = new DataGridViewTextBoxColumn();
+                cc.Name = c.Name;
+                cc.Width = c.Width;
+                cc.Visible = c.Visible;
+
+
+                footerDGV.Columns.Add(cc);
+                if (footerDGV.RowCount == 1)
+                    footerDGV.Rows.Add();
+
+                RefreshFooter(cc);
+            }
+
+            footerDGV.AllowUserToAddRows = false;
+            footerDGV.AllowUserToDeleteRows = false;
+
+
+            containerPanel.SuspendLayout();
+            containerPanel.Controls.Add(dgv);
+            containerPanel.Controls.Add(footerDGV);
+            containerPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            containerPanel.Location = new System.Drawing.Point(dgv.Location.X, dgv.Location.Y);
+            containerPanel.Name = "containerPanel";
+            containerPanel.Size = new System.Drawing.Size(dgv.Size.Width, dgv.Size.Height - 24);
+            containerPanel.ResumeLayout();
+            containerPanel.PerformLayout();
+
+            p.ResumeLayout();
+            p.PerformLayout();
+
         }
 
         public DataGridViewFooterDecorator(DataGridView dgv, Dictionary<string, ColumnHandler> columnActions)
