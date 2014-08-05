@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
+using Edocsys.Helpers;
+
 namespace Edocsys
 {
     public partial class AssignExpertForm : Form
@@ -16,47 +18,42 @@ namespace Edocsys
             InitializeComponent();
         }
 
-        private void contractsBindingNavigatorSaveItem_Click(object sender, EventArgs e)
-        {
-            this.Validate();
-            this.expertAssignmentBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.edocbaseDataSet);
-        }
-
         private FilterHelper assignedFilter, proposalsFilter;
-        private DataGridViewFooterDecorator fdExpertAssignmentDataGridView, fdAssignedContractsDataGridView;
+        private DataGridViewFooterDecorator fdAssignedContractsDataGridView;
+
+        private DataGridViewColumnsSerializer dgvcs_ea;
+        private DataGridViewColumnsSerializer dgvcs_ac;
 
         private void AssignExpertForm_Load(object sender, EventArgs e)
         {
+            this.contract_statusTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
             this.expertsTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
+
             this.expertAssignmentTAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
             this.assignedContractsTAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
-
-            this.contract_statusTableAdapter.Connection.ConnectionString = ConnectionManager.ConnectionString;
 
             this.contract_statusTableAdapter.Fill(this.edocbaseDataSet.contract_status);
 
             RefreshDatabase();
 
+            //Add column serializers
+            dgvcs_ea = new DataGridViewColumnsSerializer(this, this.expertAssignmentDataGridView);
+            dgvcs_ac = new DataGridViewColumnsSerializer(this, this.assignedContractsDataGridView);
+
             //add filters
-            assignedFilter = new FilterHelper(assignedContractsDataGridView, filterAssignedToolStripTextBox.TextBox);
             proposalsFilter = new FilterHelper(expertAssignmentDataGridView, filterProposalsToolStripTextBox.TextBox);
+            assignedFilter = new FilterHelper(assignedContractsDataGridView, filterAssignedToolStripTextBox.TextBox);
+            
 
             //performance tuning
             DataGridViewHelper.DoubleBuffered(assignedContractsDataGridView, true);
-
+            
             //Add decorators
-            fdExpertAssignmentDataGridView = new DataGridViewFooterDecorator(expertAssignmentDataGridView, new Dictionary<string, ColumnHandler>
+            fdAssignedContractsDataGridView = new DataGridViewFooterDecorator(assignedContractsDataGridView, new List<ColumnHandler>()
                         {
-                            {"products_name", new ColumnHandler (DataGridViewFooterDecorator.StaticText, "products_name", "ИТОГО", null)}, 
-                            {"total_cost", new ColumnHandler (DataGridViewFooterDecorator.Sum, "total_cost", null, expertAssignmentDataGridView)}, 
-                        }
-                );
-            fdAssignedContractsDataGridView = new DataGridViewFooterDecorator(assignedContractsDataGridView, new Dictionary<string, ColumnHandler>
-                        {
-                            {"dataGridViewTextBoxColumn1", new ColumnHandler (DataGridViewFooterDecorator.StaticText, "products_name", "ИТОГО", null)}, 
-                            {"prepayment", new ColumnHandler (DataGridViewFooterDecorator.Sum, "prepayment", null, assignedContractsDataGridView)}, 
-                            {"dataGridViewTextBoxColumn3", new ColumnHandler (DataGridViewFooterDecorator.Sum, "total_cost", null, assignedContractsDataGridView)}, 
+                            new ColumnHandler (DataGridViewFooterDecorator.StaticText, "products_name", "ИТОГО", null),
+                            new ColumnHandler (DataGridViewFooterDecorator.Sum, "prepayment", null, assignedContractsDataGridView),
+                            new ColumnHandler (DataGridViewFooterDecorator.Sum, "total_cost", null, assignedContractsDataGridView),
                         }
                 );
         }
@@ -143,13 +140,11 @@ namespace Edocsys
                     SaveDatabase();
 
                     RefreshDatabase();
-
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message, "Save Error");
                 }
-
             }
         }
 
@@ -211,6 +206,20 @@ namespace Edocsys
         private void tabControlAssignExpert_SelectedIndexChanged(object sender, EventArgs e)
         {
             RefreshDatabase();
+        }
+
+        private void AssignExpertForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            // TODO: (Workaround) Fix bug with Exception while destroying grids:
+            // FooterGrid try to access to MainGrid but some of it's columns are
+            // already empty and causes Exception generation
+            //
+            // See more:
+            // http://www.sql.ru/forum/511919/magiya
+            // http://stackoverflow.com/questions/4494147/windows-form-application-exception
+            // http://stackoverflow.com/questions/1435526/datagridview-object-databinding-issue-index-1-does-not-have-a-value
+
+            assignedContractsDataGridView.DataSource = null;
         }
     }
 }
