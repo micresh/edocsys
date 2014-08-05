@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
+using Edocsys.Helpers;
+
 namespace Edocsys
 {
     public partial class ContractStatsForm : Form
@@ -16,13 +18,13 @@ namespace Edocsys
             InitializeComponent();
         }
 
+        private int status_id = -1;
+
         private DocGeneratorHelper contractGenerator;
         private FilterHelper filterFinishedContracts, filterBadContracts, filterCurrentContracts;
 
         private DataGridViewFooterDecorator fdCurrentContractsDataGridView, fdFinishedContractsDataGridView, fdBadContractsDataTableDataGridView;
-
-        private int status_id = -1;
-
+        private DataGridViewColumnsSerializer dgvcs_cc, dgvcs_bc, dgvcs_fc;
 
         private void ContractsForm_Load(object sender, EventArgs e)
         {
@@ -42,31 +44,36 @@ namespace Edocsys
             //doc helper
             contractGenerator = new DocGeneratorHelper(edocbaseDataSet.documents, edocbaseDataSet.doc_templates, edocbaseDataSet.ContractDocData);
 
+            //Add column serializers
+            dgvcs_cc = new DataGridViewColumnsSerializer(this, this.currentContractsDataGridView);
+            dgvcs_bc = new DataGridViewColumnsSerializer(this, this.badContractsDataTableDataGridView);
+            dgvcs_fc = new DataGridViewColumnsSerializer(this, this.finishedContractsDataGridView);
+
             //performance tuning
             DataGridViewHelper.DoubleBuffered(currentContractsDataGridView, true);
             DataGridViewHelper.DoubleBuffered(badContractsDataTableDataGridView, true);
             DataGridViewHelper.DoubleBuffered(finishedContractsDataGridView, true);
 
             //Add FooterDecorators
-            fdCurrentContractsDataGridView = new DataGridViewFooterDecorator(currentContractsDataGridView, new Dictionary<string, ColumnHandler>
+            fdCurrentContractsDataGridView = new DataGridViewFooterDecorator(currentContractsDataGridView, new List<ColumnHandler>()
                         {
-                            {"dataGridViewTextBoxColumn1", new ColumnHandler (DataGridViewFooterDecorator.StaticText, "products_name", "ИТОГО", null)}, 
-                            {"prepayment", new ColumnHandler (DataGridViewFooterDecorator.Sum, "prepayment", null, currentContractsDataGridView)}, 
-                            {"dataGridViewTextBoxColumn3", new ColumnHandler (DataGridViewFooterDecorator.Sum, "total_cost", null, currentContractsDataGridView)}, 
+                            new ColumnHandler (DataGridViewFooterDecorator.StaticText, "products_name", "ИТОГО", null),
+                            new ColumnHandler (DataGridViewFooterDecorator.Sum, "prepayment", null, currentContractsDataGridView),
+                            new ColumnHandler (DataGridViewFooterDecorator.Sum, "total_cost", null, currentContractsDataGridView),
                         }
                         );
-            fdFinishedContractsDataGridView = new DataGridViewFooterDecorator(finishedContractsDataGridView, new Dictionary<string, ColumnHandler>
+            fdFinishedContractsDataGridView = new DataGridViewFooterDecorator(finishedContractsDataGridView, new List<ColumnHandler>()
                         {
-                            {"dataGridViewTextBoxColumn8", new ColumnHandler (DataGridViewFooterDecorator.StaticText, "date_proposal", "ИТОГО", null)}, 
-                            {"dataGridViewTextBoxColumn4", new ColumnHandler (DataGridViewFooterDecorator.Sum, "prepayment", null, finishedContractsDataGridView)}, 
-                            {"dataGridViewTextBoxColumn17", new ColumnHandler (DataGridViewFooterDecorator.Sum, "total_cost", null, finishedContractsDataGridView)}, 
+                            new ColumnHandler (DataGridViewFooterDecorator.StaticText, "date_proposal", "ИТОГО", null),
+                            new ColumnHandler (DataGridViewFooterDecorator.Sum, "prepayment", null, finishedContractsDataGridView),
+                            new ColumnHandler (DataGridViewFooterDecorator.Sum, "total_cost", null, finishedContractsDataGridView),
                         }
                         );
-            fdBadContractsDataTableDataGridView = new DataGridViewFooterDecorator(badContractsDataTableDataGridView, new Dictionary<string, ColumnHandler>
+            fdBadContractsDataTableDataGridView = new DataGridViewFooterDecorator(badContractsDataTableDataGridView, new List<ColumnHandler>()
                         {
-                            {"contractstatusnameDataGridViewTextBoxColumn", new ColumnHandler (DataGridViewFooterDecorator.StaticText, "contract_status_name", "ИТОГО", null)}, 
-                            {"dataGridViewTextBoxColumn5", new ColumnHandler (DataGridViewFooterDecorator.Sum, "prepayment", null, badContractsDataTableDataGridView)}, 
-                            {"totalcostDataGridViewTextBoxColumn", new ColumnHandler (DataGridViewFooterDecorator.Sum, "total_cost", null, badContractsDataTableDataGridView)}, 
+                            new ColumnHandler (DataGridViewFooterDecorator.StaticText, "contract_status_name", "ИТОГО", null),
+                            new ColumnHandler (DataGridViewFooterDecorator.Sum, "prepayment", null, badContractsDataTableDataGridView),
+                            new ColumnHandler (DataGridViewFooterDecorator.Sum, "total_cost", null, badContractsDataTableDataGridView),
                         }
                         );
         }
