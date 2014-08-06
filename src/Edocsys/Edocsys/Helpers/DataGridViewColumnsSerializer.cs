@@ -7,6 +7,7 @@ using System.Configuration;
 using System.Windows.Forms;
 using System.Reflection;
 using System.Xml.Serialization;
+using System.IO;
 
 namespace Edocsys.Helpers
 {
@@ -74,7 +75,16 @@ namespace Edocsys.Helpers
             ReloadItems();
 
             if (!DataGridViewColumnsSerializer.Grids.ContainsKey(this.Key))
-                return;
+            {
+                // Set Columns defaults
+                GridColumnsList cl = GetColumnsDefaults(this.Key);
+
+                //Quit if there is no config
+                if (cl == null)
+                    return;
+
+                DataGridViewColumnsSerializer.Grids[this.Key] = cl;
+            }
 
             GridColumnsList columnOrder = DataGridViewColumnsSerializer.Grids[this.Key];
 
@@ -91,11 +101,26 @@ namespace Edocsys.Helpers
             }
         }
 
+        private GridColumnsList GetColumnsDefaults(string key)
+        {
+            GridColumnsList list = null;
+            foreach (GridColumnsList item in DataGridViewColumnsSerializer.ColumnsListDefaults)
+            {
+                if (item.ItemName == key)
+                {
+                    list = item;
+                    break;
+                }
+            }
+            return list;
+        }
+
         public void SaveColumnsData()
         {
             List<GridColumnItem> columnOrder = new List<GridColumnItem>();
 
             DataGridViewColumnCollection columns = grid.Columns;
+
             for (int i = 0; i < columns.Count; i++)
             {
                 columnOrder.Add(new GridColumnItem
@@ -108,6 +133,7 @@ namespace Edocsys.Helpers
                     DataPropertyName = columns[i].DataPropertyName
                 });
             }
+
             GridColumnsList cl = new GridColumnsList();
             cl.Items = columnOrder;
             cl.ItemName = this.Key;
@@ -115,15 +141,21 @@ namespace Edocsys.Helpers
             DataGridViewColumnsSerializer.Grids[this.Key] = cl;
         }
 
-        
+
 
         // Static part
         private static Dictionary<string, GridColumnsList> Grids { get; set; }
+
+        private static List<GridColumnsList> ColumnsListDefaults { get; set; }
+        private static string ConfigVersion = "0.00.001";
 
         public static void InitDataGridViewColumnsSerializer()
         {
             if (DataGridViewColumnsSerializer.Grids == null)
                 DataGridViewColumnsSerializer.Grids = new Dictionary<string, GridColumnsList>();
+
+            if (DataGridViewColumnsSerializer.ColumnsListDefaults == null)
+                DataGridViewColumnsSerializer.LoadGridColumnsDefaults();
 
             ReloadItems();
         }
@@ -132,9 +164,9 @@ namespace Edocsys.Helpers
         {
             DataGridViewSettings.Default.Reload();
 
-            foreach (GridColumnsList c in DataGridViewSettings.Default.ColumnsList)
+            foreach (GridColumnsList item in DataGridViewSettings.Default.ColumnsList)
             {
-                DataGridViewColumnsSerializer.Grids[c.ItemName] = c;
+                DataGridViewColumnsSerializer.Grids[item.ItemName] = item;
             }
         }
 
@@ -142,17 +174,55 @@ namespace Edocsys.Helpers
         {
             DataGridViewSettings.Default.ColumnsList.Clear();
 
-            foreach (KeyValuePair<string, GridColumnsList> c in  DataGridViewColumnsSerializer.Grids)
+            foreach (KeyValuePair<string, GridColumnsList> item in  DataGridViewColumnsSerializer.Grids)
             {
                 GridColumnsList cl = new GridColumnsList();
-                cl.ItemName = c.Key;
-                cl.Items = c.Value.Items;
+                cl.ItemName = item.Key;
+                cl.Items = item.Value.Items;
 
                 DataGridViewSettings.Default.ColumnsList.Add(cl);
             }
 
             DataGridViewSettings.Default.Save();
+
+            // Uncomment to create/update new default Columns.config
+            //SaveGridColumnsDefaults();
         }
+
+        public static void SaveGridColumnsDefaults()
+        {
+            FileStream fileStream = new FileStream(@"Columns.config", FileMode.Create);
+
+            XmlSerializer serializer = new XmlSerializer(typeof(List<GridColumnsList>));
+            serializer.Serialize(fileStream, DataGridViewSettings.Default.ColumnsList);
+
+            fileStream.Close();
+        }
+
+        public static void LoadGridColumnsDefaults()
+        {
+            FileStream fileStream = new FileStream(@"Columns.config", FileMode.Open);
+
+            if (fileStream.Length == 0)
+                return;
+
+            XmlSerializer serializer = new XmlSerializer(typeof(List<GridColumnsList>));
+            DataGridViewColumnsSerializer.ColumnsListDefaults = (List<GridColumnsList>)serializer.Deserialize(fileStream);
+
+            fileStream.Close();
+        }
+
+        public static void UpdateConfigVersion()
+        {
+            if (DataGridViewColumnsSerializer.ConfigVersion != DataGridViewSettings.Default.ConfigVersion)
+            {
+                // Clear current settings
+                DataGridViewSettings.Default.ColumnsList.Clear();
+                DataGridViewSettings.Default.ConfigVersion = DataGridViewColumnsSerializer.ConfigVersion;
+                DataGridViewColumnsSerializer.Grids.Clear();
+            }
+        }
+
 
 
         //Serializer class
@@ -160,12 +230,12 @@ namespace Edocsys.Helpers
         {
             private static DataGridViewSettings _defaultInstace =
                 (DataGridViewSettings)ApplicationSettingsBase.Synchronized(new DataGridViewSettings());
-            //---------------------------------------------------------------------
+
             public static DataGridViewSettings Default
             {
                 get { return _defaultInstace; }
             }
-            //---------------------------------------------------------------------
+
             [UserScopedSetting]
             [SettingsSerializeAs(SettingsSerializeAs.Xml)]
             [DefaultSettingValue("")]
@@ -175,8 +245,8 @@ namespace Edocsys.Helpers
                 {
                     return this["ColumnsList"] as List<GridColumnsList>;
                 }
-                set 
-                { 
+                set
+                {
                     this["ColumnsList"] = (List<GridColumnsList>)value;
                 }
             }
