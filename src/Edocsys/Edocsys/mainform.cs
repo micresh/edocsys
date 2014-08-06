@@ -288,6 +288,7 @@ namespace Edocsys
         private void TMSSaveColumns_Click(object sender, EventArgs e)
         {
             DataGridViewColumnsSerializer.InitDataGridViewColumnsSerializer();
+            //DataGridViewColumnsSerializer.UpdateConfigVersion();
             DataGridViewColumnsSerializer.SerializeItems();
         }
     }
