@@ -341,9 +341,9 @@
       <DependentUpon>useradm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />
-    <None Include="Columns.config">
+    <Content Include="Columns.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    </Content>
     <None Include="EdocbaseDataSet.xsc">
       <DependentUpon>EdocbaseDataSet.xsd</DependentUpon>
     </None>
