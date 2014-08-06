@@ -7,6 +7,7 @@ using System.Configuration;
 using System.Windows.Forms;
 using System.Reflection;
 using System.Xml.Serialization;
+using System.IO;
 
 namespace Edocsys.Helpers
 {
@@ -115,7 +116,7 @@ namespace Edocsys.Helpers
             DataGridViewColumnsSerializer.Grids[this.Key] = cl;
         }
 
-        
+
 
         // Static part
         private static Dictionary<string, GridColumnsList> Grids { get; set; }
@@ -152,7 +153,32 @@ namespace Edocsys.Helpers
             }
 
             DataGridViewSettings.Default.Save();
+
+            SaveGridColumnsDefaults();
+
         }
+
+        public static void SaveGridColumnsDefaults()
+        {
+            FileStream fs = new FileStream(@"Columns.config", FileMode.OpenOrCreate);
+
+            XmlSerializer x = new XmlSerializer(typeof(List<GridColumnsList>));
+            x.Serialize(fs, DataGridViewSettings.Default.ColumnsList);
+            
+
+            fs.Close();
+        }
+
+        public static void LoadGridColumnsDefaults()
+        {
+            FileStream fs = new FileStream(@"Columns.config", FileMode.OpenOrCreate);
+
+            XmlSerializer x = new XmlSerializer(typeof(List<GridColumnsList>));
+            DataGridViewSettings.Default.ColumnsList = (List<GridColumnsList>)x.Deserialize(fs);
+
+            fs.Close();
+        }
+
 
 
         //Serializer class
@@ -160,12 +186,13 @@ namespace Edocsys.Helpers
         {
             private static DataGridViewSettings _defaultInstace =
                 (DataGridViewSettings)ApplicationSettingsBase.Synchronized(new DataGridViewSettings());
-            //---------------------------------------------------------------------
+
             public static DataGridViewSettings Default
             {
                 get { return _defaultInstace; }
             }
-            //---------------------------------------------------------------------
+
+
             [UserScopedSetting]
             [SettingsSerializeAs(SettingsSerializeAs.Xml)]
             [DefaultSettingValue("")]
@@ -175,8 +202,8 @@ namespace Edocsys.Helpers
                 {
                     return this["ColumnsList"] as List<GridColumnsList>;
                 }
-                set 
-                { 
+                set
+                {
                     this["ColumnsList"] = (List<GridColumnsList>)value;
                 }
             }
