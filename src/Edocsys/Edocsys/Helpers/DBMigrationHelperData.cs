@@ -70,6 +70,12 @@ namespace Edocsys.Helpers
            // new Migration(03, 12, @"UNLOCK TABLES;"),
 #endregion
 
+#region DBMigration__04__2015_05_10
+            //DBMigration #04 [2014-05-10]
+
+            new Migration(04, 01, @"ALTER TABLE `edocbase`.`agents` ADD COLUMN `profile` VARCHAR(250) NULL DEFAULT NULL AFTER `pers_middlename`, ADD COLUMN `status` VARCHAR(45) NULL DEFAULT NULL AFTER `profile`, ADD COLUMN `turnaround` DOUBLE NULL DEFAULT 0 AFTER `status`, ADD COLUMN `personal` INT NULL DEFAULT 0 AFTER `turnaround`, ADD COLUMN `payment_status` VARCHAR(250) NULL DEFAULT NULL AFTER `personal`, ADD COLUMN `other_info` TEXT NULL DEFAULT NULL AFTER `payment_status`, ADD COLUMN `forecast` VARCHAR(512) NULL DEFAULT NULL AFTER `other_info`, ADD COLUMN `marketing_actions` VARCHAR(512) NULL DEFAULT NULL AFTER `forecast`, ADD COLUMN `satisfaction` VARCHAR(512) NULL DEFAULT NULL AFTER `marketing_actions`, ADD COLUMN `complaints` VARCHAR(512) NULL DEFAULT NULL AFTER `satisfaction`;"),
+#endregion
+
 #region DBMigration__XX__2014_XX_XX
             //DBMigration #XX [2014-XX-XX]
 

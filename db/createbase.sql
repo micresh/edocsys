@@ -63,6 +63,18 @@ CREATE TABLE IF NOT EXISTS `edocbase`.`agents` (
   `pers_lastname`       VARCHAR(30) NULL ,
   `pers_firstname`      VARCHAR(30) NULL ,
   `pers_middlename`     VARCHAR(30) NULL ,
+-- Маркетинговые данные контрагентов
+  `profile`             VARCHAR(250) NULL DEFAULT NULL,
+  `status`              VARCHAR(250) NULL DEFAULT NULL,
+  `turnaround`          DOUBLE NULL DEFAULT 0,
+  `personal`            INT NULL DEFAULT 0,
+  `payment_status`      VARCHAR(250) NULL DEFAULT NULL,
+  `other_info`          TEXT NULL DEFAULT NULL,
+  `forecast`            VARCHAR(512) NULL DEFAULT NULL,
+  `marketing_actions`   VARCHAR(512) NULL DEFAULT NULL,
+  `satisfaction`        VARCHAR(512) NULL DEFAULT NULL,
+  `complaints`          VARCHAR(512) NULL DEFAULT NULL,
+
   PRIMARY KEY (`id`),
   INDEX `fk_agents_agent_types` (`agent_types_id` ASC) ,
   CONSTRAINT `fk_agents_agent_types`
