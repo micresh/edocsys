@@ -123,6 +123,8 @@ namespace Edocsys
                     string agent = String.Format("Контрагент: {0}", Convert.ToString(currentRow["name"]));
 
                     toolStripLabelAgent.Text = agent;
+                    labelAgentAddData.Text = agent;
+                    labelAgentsMarketing.Text = agent;
                 }
             }
         }

@@ -48,6 +48,16 @@
             System.Windows.Forms.Label ag_pers_firstnameLabel;
             System.Windows.Forms.Label ag_pers_lastnameLabel;
             System.Windows.Forms.Label ag_pers_middlenameLabel;
+            System.Windows.Forms.Label label1;
+            System.Windows.Forms.Label label2;
+            System.Windows.Forms.Label label3;
+            System.Windows.Forms.Label label4;
+            System.Windows.Forms.Label label5;
+            System.Windows.Forms.Label label6;
+            System.Windows.Forms.Label label7;
+            System.Windows.Forms.Label label8;
+            System.Windows.Forms.Label label9;
+            System.Windows.Forms.Label label10;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ClientsForm));
             this.agents_contactsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.agentsBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -79,6 +89,8 @@
             this.fullname = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.person_shortname = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fullnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabControlAgents = new System.Windows.Forms.TabControl();
+            this.tabPageContacts = new System.Windows.Forms.TabPage();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.agents_contactsDataGridView = new System.Windows.Forms.DataGridView();
             this.person = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -100,6 +112,18 @@
             this.bindingNavigatorDeleteItem1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripLabelAgent = new System.Windows.Forms.ToolStripLabel();
             this.toolStripButtonSaveContact = new System.Windows.Forms.ToolStripButton();
+            this.tabPageAddData = new System.Windows.Forms.TabPage();
+            this.textBoxOtherInfo = new System.Windows.Forms.TextBox();
+            this.textBoxPaymentStatus = new System.Windows.Forms.TextBox();
+            this.textBoxPersonal = new System.Windows.Forms.TextBox();
+            this.textBoxTurnaround = new System.Windows.Forms.TextBox();
+            this.textBoxStatus = new System.Windows.Forms.TextBox();
+            this.textBoxProfile = new System.Windows.Forms.TextBox();
+            this.tabPageMarketing = new System.Windows.Forms.TabPage();
+            this.textBoxComplaints = new System.Windows.Forms.TextBox();
+            this.textBoxSatisfaction = new System.Windows.Forms.TextBox();
+            this.textBoxMarketActions = new System.Windows.Forms.TextBox();
+            this.textBoxForecast = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.pers_statusTextBox = new System.Windows.Forms.TextBox();
             this.docTextBox = new System.Windows.Forms.TextBox();
@@ -125,6 +149,8 @@
             this.emailTextBox = new System.Windows.Forms.TextBox();
             this.agent_typesTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.agent_typesTableAdapter();
             this.agents_contactsTableAdapter = new Edocsys.EdocbaseDataSetTableAdapters.agents_contactsTableAdapter();
+            this.labelAgentAddData = new System.Windows.Forms.Label();
+            this.labelAgentsMarketing = new System.Windows.Forms.Label();
             ag_type_idLabel = new System.Windows.Forms.Label();
             ag_INNLabel = new System.Windows.Forms.Label();
             ag_fullnameLabel = new System.Windows.Forms.Label();
@@ -144,6 +170,16 @@
             ag_pers_firstnameLabel = new System.Windows.Forms.Label();
             ag_pers_lastnameLabel = new System.Windows.Forms.Label();
             ag_pers_middlenameLabel = new System.Windows.Forms.Label();
+            label1 = new System.Windows.Forms.Label();
+            label2 = new System.Windows.Forms.Label();
+            label3 = new System.Windows.Forms.Label();
+            label4 = new System.Windows.Forms.Label();
+            label5 = new System.Windows.Forms.Label();
+            label6 = new System.Windows.Forms.Label();
+            label7 = new System.Windows.Forms.Label();
+            label8 = new System.Windows.Forms.Label();
+            label9 = new System.Windows.Forms.Label();
+            label10 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.agents_contactsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.agentsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.edocbaseDataSet)).BeginInit();
@@ -158,10 +194,14 @@
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.agentsDataGridView)).BeginInit();
+            this.tabControlAgents.SuspendLayout();
+            this.tabPageContacts.SuspendLayout();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.agents_contactsDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigatorContacts)).BeginInit();
             this.bindingNavigatorContacts.SuspendLayout();
+            this.tabPageAddData.SuspendLayout();
+            this.tabPageMarketing.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -356,6 +396,95 @@
             ag_pers_middlenameLabel.Size = new System.Drawing.Size(54, 13);
             ag_pers_middlenameLabel.TabIndex = 48;
             ag_pers_middlenameLabel.Text = global::Edocsys.Properties.Settings.Default.AgentsPersonMiddleNameText;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new System.Drawing.Point(6, 31);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(181, 13);
+            label1.TabIndex = 26;
+            label1.Text = "Характер деятельности (профиль)";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new System.Drawing.Point(6, 79);
+            label2.Name = "label2";
+            label2.Size = new System.Drawing.Size(85, 13);
+            label2.TabIndex = 28;
+            label2.Text = "Статус клиента";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new System.Drawing.Point(6, 105);
+            label3.Name = "label3";
+            label3.Size = new System.Drawing.Size(192, 13);
+            label3.TabIndex = 30;
+            label3.Text = "Оборот в руб или мощности в натур.";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new System.Drawing.Point(392, 105);
+            label4.Name = "label4";
+            label4.Size = new System.Drawing.Size(131, 13);
+            label4.TabIndex = 32;
+            label4.Text = "Численность персонала";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new System.Drawing.Point(6, 132);
+            label5.Name = "label5";
+            label5.Size = new System.Drawing.Size(181, 13);
+            label5.TabIndex = 34;
+            label5.Text = "Оценка клиента как плательщика";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new System.Drawing.Point(6, 156);
+            label6.Name = "label6";
+            label6.Size = new System.Drawing.Size(85, 13);
+            label6.TabIndex = 36;
+            label6.Text = "Другие данные";
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new System.Drawing.Point(6, 31);
+            label7.Name = "label7";
+            label7.Size = new System.Drawing.Size(172, 13);
+            label7.TabIndex = 28;
+            label7.Text = "Прогноз работы на перспективу";
+            // 
+            // label8
+            // 
+            label8.Location = new System.Drawing.Point(6, 76);
+            label8.Name = "label8";
+            label8.Size = new System.Drawing.Size(192, 33);
+            label8.TabIndex = 30;
+            label8.Text = "Мероприятия по работе с клиентом (лояльность)";
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Location = new System.Drawing.Point(6, 132);
+            label9.Name = "label9";
+            label9.Size = new System.Drawing.Size(197, 13);
+            label9.TabIndex = 32;
+            label9.Text = "Уровень удовлетворенности клиента";
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Location = new System.Drawing.Point(6, 171);
+            label10.Name = "label10";
+            label10.Size = new System.Drawing.Size(168, 13);
+            label10.TabIndex = 34;
+            label10.Text = "Жалобы, предложения клиента";
             // 
             // agents_contactsBindingSource
             // 
@@ -559,6 +688,7 @@
             this.tableAdapterManager.contract_types_for_workTableAdapter = null;
             this.tableAdapterManager.contract_typesTableAdapter = null;
             this.tableAdapterManager.ContractInfoTableAdapter = null;
+            this.tableAdapterManager.ContractPaymentsTableAdapter = null;
             this.tableAdapterManager.ContractPrepareForWorkTAdapter = null;
             this.tableAdapterManager.ContractSigningTableAdapter = null;
             this.tableAdapterManager.ContractsOnInspectionTableAdapter = null;
@@ -617,9 +747,9 @@
             // 
             // splitContainer2.Panel2
             // 
-            this.splitContainer2.Panel2.Controls.Add(this.groupBox4);
+            this.splitContainer2.Panel2.Controls.Add(this.tabControlAgents);
             this.splitContainer2.Size = new System.Drawing.Size(692, 503);
-            this.splitContainer2.SplitterDistance = 300;
+            this.splitContainer2.SplitterDistance = 250;
             this.splitContainer2.TabIndex = 8;
             // 
             // agentsDataGridView
@@ -639,7 +769,7 @@
             this.agentsDataGridView.Name = "agentsDataGridView";
             this.agentsDataGridView.ReadOnly = true;
             this.agentsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.agentsDataGridView.Size = new System.Drawing.Size(692, 300);
+            this.agentsDataGridView.Size = new System.Drawing.Size(692, 250);
             this.agentsDataGridView.TabIndex = 8;
             // 
             // fullname
@@ -670,16 +800,39 @@
             this.fullnameDataGridViewTextBoxColumn.ReadOnly = true;
             this.fullnameDataGridViewTextBoxColumn.Width = 200;
             // 
+            // tabControlAgents
+            // 
+            this.tabControlAgents.Controls.Add(this.tabPageContacts);
+            this.tabControlAgents.Controls.Add(this.tabPageAddData);
+            this.tabControlAgents.Controls.Add(this.tabPageMarketing);
+            this.tabControlAgents.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControlAgents.Location = new System.Drawing.Point(0, 0);
+            this.tabControlAgents.Name = "tabControlAgents";
+            this.tabControlAgents.SelectedIndex = 0;
+            this.tabControlAgents.Size = new System.Drawing.Size(692, 249);
+            this.tabControlAgents.TabIndex = 5;
+            // 
+            // tabPageContacts
+            // 
+            this.tabPageContacts.Controls.Add(this.groupBox4);
+            this.tabPageContacts.Location = new System.Drawing.Point(4, 22);
+            this.tabPageContacts.Name = "tabPageContacts";
+            this.tabPageContacts.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageContacts.Size = new System.Drawing.Size(684, 223);
+            this.tabPageContacts.TabIndex = 2;
+            this.tabPageContacts.Text = "Дополнительные контакты";
+            this.tabPageContacts.UseVisualStyleBackColor = true;
+            // 
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.agents_contactsDataGridView);
             this.groupBox4.Controls.Add(this.bindingNavigatorContacts);
             this.groupBox4.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Edocsys.Properties.Settings.Default, "AgentsContactsText", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox4.Location = new System.Drawing.Point(0, 0);
+            this.groupBox4.Location = new System.Drawing.Point(3, 3);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(692, 199);
-            this.groupBox4.TabIndex = 52;
+            this.groupBox4.Size = new System.Drawing.Size(678, 217);
+            this.groupBox4.TabIndex = 53;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = global::Edocsys.Properties.Settings.Default.AgentsContactsText;
             // 
@@ -700,7 +853,7 @@
             this.agents_contactsDataGridView.Location = new System.Drawing.Point(3, 41);
             this.agents_contactsDataGridView.MultiSelect = false;
             this.agents_contactsDataGridView.Name = "agents_contactsDataGridView";
-            this.agents_contactsDataGridView.Size = new System.Drawing.Size(686, 155);
+            this.agents_contactsDataGridView.Size = new System.Drawing.Size(672, 173);
             this.agents_contactsDataGridView.TabIndex = 3;
             // 
             // person
@@ -761,7 +914,7 @@
             this.bindingNavigatorContacts.MovePreviousItem = this.bindingNavigatorMovePreviousItem1;
             this.bindingNavigatorContacts.Name = "bindingNavigatorContacts";
             this.bindingNavigatorContacts.PositionItem = this.bindingNavigatorPositionItem1;
-            this.bindingNavigatorContacts.Size = new System.Drawing.Size(686, 25);
+            this.bindingNavigatorContacts.Size = new System.Drawing.Size(672, 25);
             this.bindingNavigatorContacts.TabIndex = 2;
             this.bindingNavigatorContacts.Text = "bindingNavigatorContacts";
             // 
@@ -773,6 +926,7 @@
             this.bindingNavigatorAddNewItem1.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorAddNewItem1.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorAddNewItem1.Text = "Add new";
+            this.bindingNavigatorAddNewItem1.Click += new System.EventHandler(this.bindingNavigatorAddNewItem1_Click);
             // 
             // bindingNavigatorCountItem1
             // 
@@ -849,6 +1003,7 @@
             this.bindingNavigatorDeleteItem1.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorDeleteItem1.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorDeleteItem1.Text = "Delete";
+            this.bindingNavigatorDeleteItem1.Click += new System.EventHandler(this.bindingNavigatorDeleteItem1_Click);
             // 
             // toolStripLabelAgent
             // 
@@ -864,6 +1019,135 @@
             this.toolStripButtonSaveContact.Name = "toolStripButtonSaveContact";
             this.toolStripButtonSaveContact.Size = new System.Drawing.Size(23, 22);
             this.toolStripButtonSaveContact.Text = "Save Data";
+            this.toolStripButtonSaveContact.Click += new System.EventHandler(this.toolStripButtonSaveContact_Click);
+            // 
+            // tabPageAddData
+            // 
+            this.tabPageAddData.Controls.Add(this.labelAgentAddData);
+            this.tabPageAddData.Controls.Add(label6);
+            this.tabPageAddData.Controls.Add(this.textBoxOtherInfo);
+            this.tabPageAddData.Controls.Add(label5);
+            this.tabPageAddData.Controls.Add(this.textBoxPaymentStatus);
+            this.tabPageAddData.Controls.Add(label4);
+            this.tabPageAddData.Controls.Add(this.textBoxPersonal);
+            this.tabPageAddData.Controls.Add(label3);
+            this.tabPageAddData.Controls.Add(this.textBoxTurnaround);
+            this.tabPageAddData.Controls.Add(label2);
+            this.tabPageAddData.Controls.Add(this.textBoxStatus);
+            this.tabPageAddData.Controls.Add(label1);
+            this.tabPageAddData.Controls.Add(this.textBoxProfile);
+            this.tabPageAddData.Location = new System.Drawing.Point(4, 22);
+            this.tabPageAddData.Name = "tabPageAddData";
+            this.tabPageAddData.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageAddData.Size = new System.Drawing.Size(684, 223);
+            this.tabPageAddData.TabIndex = 0;
+            this.tabPageAddData.Text = "Дополнительные данные";
+            this.tabPageAddData.UseVisualStyleBackColor = true;
+            // 
+            // textBoxOtherInfo
+            // 
+            this.textBoxOtherInfo.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.agentsBindingSource, "other_info", true));
+            this.textBoxOtherInfo.Location = new System.Drawing.Point(97, 153);
+            this.textBoxOtherInfo.Multiline = true;
+            this.textBoxOtherInfo.Name = "textBoxOtherInfo";
+            this.textBoxOtherInfo.Size = new System.Drawing.Size(581, 64);
+            this.textBoxOtherInfo.TabIndex = 35;
+            // 
+            // textBoxPaymentStatus
+            // 
+            this.textBoxPaymentStatus.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.agentsBindingSource, "payment_status", true));
+            this.textBoxPaymentStatus.Location = new System.Drawing.Point(204, 129);
+            this.textBoxPaymentStatus.Name = "textBoxPaymentStatus";
+            this.textBoxPaymentStatus.Size = new System.Drawing.Size(474, 20);
+            this.textBoxPaymentStatus.TabIndex = 33;
+            // 
+            // textBoxPersonal
+            // 
+            this.textBoxPersonal.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.agentsBindingSource, "personal", true));
+            this.textBoxPersonal.Location = new System.Drawing.Point(529, 102);
+            this.textBoxPersonal.Name = "textBoxPersonal";
+            this.textBoxPersonal.Size = new System.Drawing.Size(149, 20);
+            this.textBoxPersonal.TabIndex = 31;
+            // 
+            // textBoxTurnaround
+            // 
+            this.textBoxTurnaround.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.agentsBindingSource, "turnaround", true));
+            this.textBoxTurnaround.Location = new System.Drawing.Point(204, 102);
+            this.textBoxTurnaround.Name = "textBoxTurnaround";
+            this.textBoxTurnaround.Size = new System.Drawing.Size(182, 20);
+            this.textBoxTurnaround.TabIndex = 29;
+            // 
+            // textBoxStatus
+            // 
+            this.textBoxStatus.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.agentsBindingSource, "status", true));
+            this.textBoxStatus.Location = new System.Drawing.Point(204, 76);
+            this.textBoxStatus.Name = "textBoxStatus";
+            this.textBoxStatus.Size = new System.Drawing.Size(474, 20);
+            this.textBoxStatus.TabIndex = 27;
+            // 
+            // textBoxProfile
+            // 
+            this.textBoxProfile.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.agentsBindingSource, "profile", true));
+            this.textBoxProfile.Location = new System.Drawing.Point(204, 28);
+            this.textBoxProfile.Multiline = true;
+            this.textBoxProfile.Name = "textBoxProfile";
+            this.textBoxProfile.Size = new System.Drawing.Size(474, 41);
+            this.textBoxProfile.TabIndex = 25;
+            // 
+            // tabPageMarketing
+            // 
+            this.tabPageMarketing.Controls.Add(this.labelAgentsMarketing);
+            this.tabPageMarketing.Controls.Add(label10);
+            this.tabPageMarketing.Controls.Add(this.textBoxComplaints);
+            this.tabPageMarketing.Controls.Add(label9);
+            this.tabPageMarketing.Controls.Add(this.textBoxSatisfaction);
+            this.tabPageMarketing.Controls.Add(label8);
+            this.tabPageMarketing.Controls.Add(this.textBoxMarketActions);
+            this.tabPageMarketing.Controls.Add(label7);
+            this.tabPageMarketing.Controls.Add(this.textBoxForecast);
+            this.tabPageMarketing.Location = new System.Drawing.Point(4, 22);
+            this.tabPageMarketing.Name = "tabPageMarketing";
+            this.tabPageMarketing.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageMarketing.Size = new System.Drawing.Size(684, 223);
+            this.tabPageMarketing.TabIndex = 1;
+            this.tabPageMarketing.Text = "Маркетинг клиента";
+            this.tabPageMarketing.UseVisualStyleBackColor = true;
+            // 
+            // textBoxComplaints
+            // 
+            this.textBoxComplaints.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.agentsBindingSource, "complaints", true));
+            this.textBoxComplaints.Location = new System.Drawing.Point(204, 168);
+            this.textBoxComplaints.Multiline = true;
+            this.textBoxComplaints.Name = "textBoxComplaints";
+            this.textBoxComplaints.Size = new System.Drawing.Size(474, 49);
+            this.textBoxComplaints.TabIndex = 33;
+            // 
+            // textBoxSatisfaction
+            // 
+            this.textBoxSatisfaction.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.agentsBindingSource, "satisfaction", true));
+            this.textBoxSatisfaction.Location = new System.Drawing.Point(204, 129);
+            this.textBoxSatisfaction.Multiline = true;
+            this.textBoxSatisfaction.Name = "textBoxSatisfaction";
+            this.textBoxSatisfaction.Size = new System.Drawing.Size(474, 35);
+            this.textBoxSatisfaction.TabIndex = 31;
+            // 
+            // textBoxMarketActions
+            // 
+            this.textBoxMarketActions.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.agentsBindingSource, "marketing_actions", true));
+            this.textBoxMarketActions.Location = new System.Drawing.Point(204, 73);
+            this.textBoxMarketActions.Multiline = true;
+            this.textBoxMarketActions.Name = "textBoxMarketActions";
+            this.textBoxMarketActions.Size = new System.Drawing.Size(474, 52);
+            this.textBoxMarketActions.TabIndex = 29;
+            // 
+            // textBoxForecast
+            // 
+            this.textBoxForecast.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.agentsBindingSource, "forecast", true));
+            this.textBoxForecast.Location = new System.Drawing.Point(204, 28);
+            this.textBoxForecast.Multiline = true;
+            this.textBoxForecast.Name = "textBoxForecast";
+            this.textBoxForecast.Size = new System.Drawing.Size(474, 41);
+            this.textBoxForecast.TabIndex = 27;
             // 
             // groupBox3
             // 
@@ -1107,6 +1391,24 @@
             // 
             this.agents_contactsTableAdapter.ClearBeforeFill = true;
             // 
+            // labelAgentAddData
+            // 
+            this.labelAgentAddData.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.labelAgentAddData.Location = new System.Drawing.Point(8, 8);
+            this.labelAgentAddData.Name = "labelAgentAddData";
+            this.labelAgentAddData.Size = new System.Drawing.Size(670, 15);
+            this.labelAgentAddData.TabIndex = 37;
+            this.labelAgentAddData.Text = "Контрагент: НЕТ";
+            // 
+            // labelAgentsMarketing
+            // 
+            this.labelAgentsMarketing.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.labelAgentsMarketing.Location = new System.Drawing.Point(8, 8);
+            this.labelAgentsMarketing.Name = "labelAgentsMarketing";
+            this.labelAgentsMarketing.Size = new System.Drawing.Size(670, 15);
+            this.labelAgentsMarketing.TabIndex = 38;
+            this.labelAgentsMarketing.Text = "Контрагент: НЕТ";
+            // 
             // ClientsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1134,12 +1436,18 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.agentsDataGridView)).EndInit();
+            this.tabControlAgents.ResumeLayout(false);
+            this.tabPageContacts.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.agents_contactsDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigatorContacts)).EndInit();
             this.bindingNavigatorContacts.ResumeLayout(false);
             this.bindingNavigatorContacts.PerformLayout();
+            this.tabPageAddData.ResumeLayout(false);
+            this.tabPageAddData.PerformLayout();
+            this.tabPageMarketing.ResumeLayout(false);
+            this.tabPageMarketing.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -1209,6 +1517,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn fullname;
         private System.Windows.Forms.DataGridViewTextBoxColumn person_shortname;
         private System.Windows.Forms.DataGridViewTextBoxColumn fullnameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.TabControl tabControlAgents;
+        private System.Windows.Forms.TabPage tabPageAddData;
+        private System.Windows.Forms.TabPage tabPageMarketing;
+        private System.Windows.Forms.TabPage tabPageContacts;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.DataGridView agents_contactsDataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn person;
@@ -1230,6 +1542,18 @@
         private System.Windows.Forms.ToolStripButton bindingNavigatorDeleteItem1;
         private System.Windows.Forms.ToolStripLabel toolStripLabelAgent;
         private System.Windows.Forms.ToolStripButton toolStripButtonSaveContact;
+        private System.Windows.Forms.TextBox textBoxProfile;
+        private System.Windows.Forms.TextBox textBoxStatus;
+        private System.Windows.Forms.TextBox textBoxOtherInfo;
+        private System.Windows.Forms.TextBox textBoxPaymentStatus;
+        private System.Windows.Forms.TextBox textBoxPersonal;
+        private System.Windows.Forms.TextBox textBoxTurnaround;
+        private System.Windows.Forms.TextBox textBoxForecast;
+        private System.Windows.Forms.TextBox textBoxComplaints;
+        private System.Windows.Forms.TextBox textBoxSatisfaction;
+        private System.Windows.Forms.TextBox textBoxMarketActions;
+        private System.Windows.Forms.Label labelAgentAddData;
+        private System.Windows.Forms.Label labelAgentsMarketing;
 
         //private EdocbaseDataSetTableAdapters.Agents_typesTableAdapter agents_typesTableAdapter;
         //private EdocbaseDataSetTableAdapters.AgentsTableAdapter agentsTableAdapter;

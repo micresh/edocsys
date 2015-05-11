@@ -1224,9 +1224,20 @@ signing_authority_doc,
 pers_status,
 pers_lastname,
 pers_firstname, 
-pers_middlename
+pers_middlename,
+agents.profile,
+agents.status,
+agents.turnaround,
+agents.personal,
+agents.payment_status,
+agents.other_info,
+agents.forecast,
+agents.marketing_actions,
+agents.satisfaction,
+agents.complaints
 FROM
 agents;
+
 
 
 SELECT
@@ -1250,6 +1261,16 @@ agents.pers_status,
 agents.pers_lastname,
 agents.pers_firstname,
 agents.pers_middlename,
+agents.profile,
+agents.status,
+agents.turnaround,
+agents.personal,
+agents.payment_status,
+agents.other_info,
+agents.forecast,
+agents.marketing_actions,
+agents.satisfaction,
+agents.complaints,
 agent_types.name AS agent_types_name,
 agent_types.id  AS agent_types_id,
 CONCAT( agent_types.name, ' ', agents.name ) AS fullname, 
