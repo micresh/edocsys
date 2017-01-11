@@ -1,0 +1,310 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"gost",
+				"gosts_list"
+			],
+			[
+				"users",
+				"users"
+			],
+			[
+				"contract_s",
+				"Contract_status"
+			],
+			[
+				"contract_status",
+				"contract_status_id"
+			],
+			[
+				"con",
+				"contract_types_id"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 288.0,
+		"selected_items":
+		[
+			[
+				"pand",
+				"Pandoc"
+			],
+			[
+				"pan",
+				"Pandoc"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"pa",
+				"Pandoc"
+			],
+			[
+				"pandoc",
+				"Pandoc"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"packa",
+				"Package Control: Install Package"
+			],
+			[
+				"pack",
+				"Package Control: Install Package"
+			],
+			[
+				"to pdf",
+				"LaTeXTools: View PDF"
+			],
+			[
+				"print",
+				"Preferences: 2pdf Key Bindings – Default"
+			],
+			[
+				"html",
+				"Export to HTML: Show Export Menu"
+			],
+			[
+				"pr",
+				"Print to HTML: print as HTML to new buffer"
+			],
+			[
+				"pri",
+				"Print to HTML: print as HTML via browser"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 400.0
+	},
+	"console":
+	{
+		"height": 153.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/D/projects/edocsys/db/sql.sql",
+		"/D/projects/edocsys/db/datainsert.sql",
+		"/D/urls/Structure and Interpretation of Computer Programs/sicp.texi",
+		"/C/Users/root/AppData/Roaming/Sublime Text 2/Packages/SublimePandoc/Pandoc.sublime-settings",
+		"/C/Users/root/AppData/Roaming/Sublime Text 2/Packages/Pandoc/Pandoc.sublime-settings",
+		"/C/Users/root/AppData/Roaming/Sublime Text 2/Packages/User/Pandoc.sublime-settings",
+		"/C/Users/root/AppData/Roaming/Sublime Text 2/Packages/Default/Preferences.sublime-settings",
+		"/C/Users/root/AppData/Roaming/Sublime Text 2/Packages/Default/Default (Windows).sublime-keymap",
+		"/C/Users/root/AppData/Roaming/Sublime Text 2/Packages/2pdf/Default (Windows).sublime-keymap",
+		"/C/Users/root/AppData/Roaming/Sublime Text 2/Packages/User/Default (Windows).sublime-keymap",
+		"/D/projects/edocsys/src/Edocsys/Edocsys/AboutForm.cs",
+		"/C/Users/root/AppData/Roaming/Sublime Text 2/Packages/2pdf/2pdf.sublime-settings",
+		"/D/projects/edocsys/db/sql2.sql",
+		"/D/projects/edocsys/db/createbase.sql",
+		"/D/projects/edocsys/docs/buglist.txt",
+		"/C/Users/root/Documents/SimBin/RACE 07/UserData/Mike/Mike.PLR",
+		"/C/Users/root/Documents/SimBin/RACE 07/UserData/Mike/mike.PLR",
+		"/C/Users/root/Documents/SimBin/RACE 07/UserData/Mike/Mike.gal",
+		"/C/Users/root/Documents/SimBin/RACE 07/UserData/Mike/Career.blt",
+		"/C/Users/root/Documents/SimBin/RACE 07/UserData/Mike/tempGarage.svm",
+		"/C/Users/root/Documents/SimBin/RACE 07/UserData/Mike/mike.gal",
+		"/C/Users/root/Documents/SimBin/RACE 07/UserData/Mike/carfilter.caf",
+		"/D/projects/edocsys/db/describingtables.txt",
+		"/D/projects/edocsys/db/createusers.sql",
+		"/D/projects/edocsys/db/createbase.cmd",
+		"/D/projects/edocsys/db/createbase.sh",
+		"/D/projects/edocsys/db/basedatainsert.sql",
+		"/D/projects/edocsys/db/referencedatainsert.cmd",
+		"/D/projects/edocsys/db/areasinsert.sql",
+		"/D/projects/edocsys/edocsys.sublime-project",
+		"/C/Users/root/AppData/Roaming/Sublime Text 2/Packages/User/Preferences.sublime-settings"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"\n",
+			"ignored",
+			"ctrl+p",
+			"spell",
+			"contract_t",
+			"propo",
+			"Workdone",
+			"work",
+			"WorkDone",
+			"z)",
+			"finished",
+			"fax",
+			"agents",
+			"finished",
+			"inished",
+			"finished",
+			"Mik",
+			"Mi",
+			"mi",
+			"mike",
+			"inWork",
+			"bad",
+			")\n",
+			"SELECT\ncontracts.id,\ncontracts.products_id,\ncontracts.agents_id,\ncontracts.contract_types_id,\ncontracts.contract_status_id,\ncontracts.experts_id,\ncontracts.source_types_id,\ncontracts.date_proposal,\ncontracts.number,\ncontracts.date_contract,\ncontracts.date_start,\ncontracts.date_end,\nDATEDIFF(contracts.date_end, CURDATE()) AS days_to_deadline,\ncontracts.date_sample_income,\ncontracts.date_protocol_income,\ncontracts.prepayment,\ncontracts.cost,\ncontracts.total_cost,\ncontracts.cash_income,\ncontracts.date_cash_income,\ncontracts.date_planed_reatt_1,\n(IF(ISNULL(contracts.date_real_reatt_1), DATEDIFF(contracts.date_planed_reatt_1, CURDATE()), 0)) as days_to_deadline_reatt_1,\ncontracts.date_real_reatt_1,\ncontracts.date_planed_reatt_2,\n(IF(ISNULL(contracts.date_real_reatt_2), DATEDIFF(contracts.date_planed_reatt_2, CURDATE()), 0)) as days_to_deadline_reatt_2,\ncontracts.date_real_reatt_2,\ncontracts.date_planed_resert,\n(IF(ISNULL(contracts.date_real_resert), DATEDIFF(contracts.date_planed_resert, CURDATE()), 0)) as days_to_deadline_resert,\ncontracts.date_real_resert,\nproducts.id AS pkproducts_id,\nproducts.name AS products_name,\nagents.id AS pkagents_id,\nagents.name AS agents_name,\nagent_types.id AS pkagent_types_id,\nagent_types.name AS agent_types_name,\nCONCAT( agent_types.name, ' ', agents.name ) AS agents_fullname,\ncontract_types.id AS pkcontract_types_id,\ncontract_types.name AS contract_types_name,\ncontract_status.id AS pkcontract_status_id,\ncontract_status.name AS contract_status_name,\nCONCAT( users.lastname, ' ', substr(users.firstname, 1, 1), '. ', substr(users.middlename, 1, 1), '.' ) AS expert_FIO\nFROM\ncontracts\nLEFT OUTER JOIN agents ON contracts.agents_id = agents.id\nLEFT OUTER JOIN products ON contracts.products_id = products.id\nLEFT OUTER JOIN agent_types ON agents.agent_types_id = agent_types.id\nLEFT OUTER JOIN contract_types ON contracts.contract_types_id = contract_types.id\nLEFT OUTER JOIN contract_status ON contracts.contract_status_id = contract_status.id\nLEFT OUTER JOIN users ON contracts.experts_id = users.id\nWHERE\n    (contracts.contract_status_id >= 2)\n    AND\n    (\n        (contracts.source_types_id = @dont_filter_experts)\n        OR\n        (contracts.experts_id = @expert_id)\n    )\n    AND\n    (\n        (contracts.source_types_id = @dont_filter_status)\n        OR\n        (contract_status.id = @status_id)\n    )",
+			"assig",
+			"assigned",
+			"cur",
+			"inspe",
+			"onins",
+			"inspect",
+			"gost_lis",
+			"  ",
+			"inspect",
+			"contractd",
+			"contractdo",
+			"contract_doc",
+			"contract",
+			"done",
+			"contractdone",
+			"sign",
+			"signin",
+			"has_proposal_document",
+			"has_prop",
+			"has_proposal",
+			"has_poposal",
+			"SELECT\ncontracts.id,\ncontracts.products_id,\ncontracts.agents_id,\ncontracts.contract_types_id,\ncontracts.contract_status_id,\ncontracts.experts_id,\ncontracts.source_types_id,\ncontracts.date_proposal,\ncontracts.experts_id,\ncontracts.number,\ncontracts.date_contract,\ncontracts.cost,\ncontracts.total_cost,\nproducts.id AS pkproducts_id,\nproducts.name AS products_name,\nagents.id AS pkagents_id,\nagents.name AS agents_name,\nagent_types.id AS pkagent_types_id,\nagent_types.name AS agent_types_name,\nCONCAT( agent_types.name, ' ', agents.name ) AS agents_fullname,\ncontract_types.id AS pkcontract_types_id,\ncontract_types.name AS contract_types_name,\ncontract_status.id AS pkcontract_status_id,\ncontract_status.name AS contract_status_name,\nCONCAT( users.lastname, ' ', substr(users.firstname, 1, 1), '. ', substr(users.middlename, 1, 1), '.' ) AS expert_FIO,\n(SELECT (documents.contract_types_id > 9) FROM documents WHERE documents.contracts_id=contracts.id) AS has_contract_document,\ndocuments.contract_types_id AS documents_contract_types_id\nFROM\ncontracts\nLEFT OUTER JOIN agents ON contracts.agents_id = agents.id\nLEFT OUTER JOIN products ON contracts.products_id = products.id\nLEFT OUTER JOIN agent_types ON agents.agent_types_id = agent_types.id\nLEFT OUTER JOIN contract_types ON contracts.contract_types_id = contract_types.id\nLEFT OUTER JOIN contract_status ON contracts.contract_status_id = contract_status.id\nLEFT OUTER JOIN users ON contracts.experts_id = users.id\nLEFT OUTER JOIN documents ON contracts.id = documents.contracts_id\nWHERE\n(contracts.contract_status_id = 2)",
+			")\n",
+			"documents",
+			",\n",
+			"paym",
+			"cas",
+			"payme",
+			"document",
+			"ConfirmFisnished",
+			"root",
+			"INSERT INTO `edocbase`.`ProdGost` Values",
+			"INSERT INTO `edocbase`.`products` Values",
+			"Products",
+			"Edocbase",
+			"agents_types",
+			"experts"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			" ",
+			"INSERT INTO `edocbase`.`product_gosts` (`id`, `products_id`, `number`, `type`) VALUES",
+			"INSERT INTO `edocbase`.`products`(`id`, `name`, `okp`, `tnved`, `product_araes_id`) VALUES",
+			"products",
+			"edocbase",
+			"agent_types"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": false
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"replace":
+	{
+		"height": 64.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 215.0,
+	"status_bar_visible": true
+}
